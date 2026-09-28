@@ -2,14 +2,14 @@
 id: task-562-621-wild-item-selection-ui-retry
 type: TASK
 title: Wild Item Selection UI Implementation Retry
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-24'
-updated_at: '2026-09-27'
+updated_at: '2026-09-28'
 depends_on:
   - research-562-620-investigate-wild-item-ui-failure
   - task-562-578-wild-item-selection-state
-jules_session_id: '4909839207382337006'
+jules_session_id: null
 pr_number: null
 parent: story-555-562-wild-item-selection-ui
 tags:
@@ -18,7 +18,9 @@ tags:
   - react
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
