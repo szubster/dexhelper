@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.21.0] - 2026-03-23
+### Added
+- Enhance the Pokémon Assistant with debug diagnostics, logging detailed rejection reasons for unobtainable Pokémon (e.g., version exclusivity, missing HoF, or claimed gifts).
+- Introduce a developer debug toggle in the Assistant Panel to display raw rejection payloads and logic scores.
+- Centralize static NPC in-game trade data for Generation 1 and Generation 2.
+
 ## [0.20.0] - 2026-03-23
 ### Added
 - Implement central game configuration registry (`generationConfig.ts`) unifying game-specific features such as themes, sprites, Pokeball types, and mechanics (e.g. Hidden Power, unified Special stat, breeding).
@@ -127,3 +133,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.18.0]: https://github.com/szubster/dexhelper/compare/49c393b23c3c6d5420ebfc73698b3f54d253a614...6ea8ef12be096d313b15f4868e61dbdefd4a26c4
 [0.19.0]: https://github.com/szubster/dexhelper/compare/6ea8ef12be096d313b15f4868e61dbdefd4a26c4...a4e9aec1039af7baa330e437bbff39fe36a1c745
 [0.20.0]: https://github.com/szubster/dexhelper/compare/a4e9aec1039af7baa330e437bbff39fe36a1c745...c3633f50a3917c02df8179265ecee582c2bcb3e5
+[0.21.0]: https://github.com/szubster/dexhelper/compare/26c46de9206aeb462f3ecd8638e4472b44b58791...b72dce75b94081093c23f96b36a64f284845d643
