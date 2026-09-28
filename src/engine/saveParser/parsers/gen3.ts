@@ -1654,11 +1654,11 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
 
     const gen3BerryPatches = parseGen3BerryTrees(view, section1Offset).map((t, index) => ({
       ...t,
-      stopGrowth: !!t.stopGrowth,
-      watered1: !!t.watered1,
-      watered2: !!t.watered2,
-      watered3: !!t.watered3,
-      watered4: !!t.watered4,
+      growthStopped: !!t.growthStopped,
+      isWateredStage1: !!t.isWateredStage1,
+      isWateredStage2: !!t.isWateredStage2,
+      isWateredStage3: !!t.isWateredStage3,
+      isWateredStage4: !!t.isWateredStage4,
       locationName: BERRY_TREE_LOCATIONS[index] || 'Unknown Location',
     }));
     const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');

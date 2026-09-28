@@ -1,22 +1,11 @@
+import type { Gen3BerryTree } from './types';
+
 export const BERRY_TREES_OFFSET = 0x169c;
 export const BERRY_TREES_COUNT = 128;
 export const BERRY_TREE_STRUCT_SIZE = 8;
 
-export interface BerryTree {
-  berryId: number;
-  stage: number;
-  stopGrowth: number;
-  minutesUntilNextStage: number;
-  berryYield: number;
-  regrowthCount: number;
-  watered1: number;
-  watered2: number;
-  watered3: number;
-  watered4: number;
-}
-
-export function parseGen3BerryTrees(saveBlock1: DataView, sectionOffset: number): BerryTree[] {
-  const trees: BerryTree[] = [];
+export function parseGen3BerryTrees(saveBlock1: DataView, sectionOffset: number): Gen3BerryTree[] {
+  const trees: Gen3BerryTree[] = [];
 
   try {
     for (let i = 0; i < BERRY_TREES_COUNT; i++) {
@@ -37,16 +26,16 @@ export function parseGen3BerryTrees(saveBlock1: DataView, sectionOffset: number)
       const watered4 = (misc & 0x80) >> 7;
 
       trees.push({
-        berryId,
-        stage,
-        stopGrowth,
+        itemId: berryId,
+        growthStage: stage,
+        growthStopped: stopGrowth,
         minutesUntilNextStage,
         berryYield,
         regrowthCount,
-        watered1,
-        watered2,
-        watered3,
-        watered4,
+        isWateredStage1: watered1,
+        isWateredStage2: watered2,
+        isWateredStage3: watered3,
+        isWateredStage4: watered4,
       });
     }
   } catch (error) {

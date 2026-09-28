@@ -21,6 +21,6 @@ locks: []
 Define TypeScript interfaces for the Gen 3 berry tree data structure. Ensure property names use full, readable names without abbreviations, as mandated by the PokeData Property Naming Schema.
 
 ## Acceptance Criteria
-- [ ] Define TypeScript interfaces for Gen 3 berry tree data structure.
-- [ ] Ensure property names use full names without abbreviations.
-- [ ] Export types for use in pipeline and runtime API.
+- [x] Define TypeScript interfaces for Gen 3 berry tree data structure.
+- [x] Ensure property names use full names without abbreviations.
+- [x] Export types for use in pipeline and runtime API.

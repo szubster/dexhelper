@@ -19,30 +19,30 @@ describe('parseGen3BerryTrees', () => {
 
     expect(trees.length).toBe(BERRY_TREES_COUNT);
     expect(trees[0]).toEqual({
-      berryId: 15,
-      stage: 3,
-      stopGrowth: 1,
+      itemId: 15,
+      growthStage: 3,
+      growthStopped: 1,
       minutesUntilNextStage: 120,
       berryYield: 2,
       regrowthCount: 5,
-      watered1: 1,
-      watered2: 0,
-      watered3: 1,
-      watered4: 0,
+      isWateredStage1: 1,
+      isWateredStage2: 0,
+      isWateredStage3: 1,
+      isWateredStage4: 0,
     });
 
     // Check an empty tree
     expect(trees[1]).toEqual({
-      berryId: 0,
-      stage: 0,
-      stopGrowth: 0,
+      itemId: 0,
+      growthStage: 0,
+      growthStopped: 0,
       minutesUntilNextStage: 0,
       berryYield: 0,
       regrowthCount: 0,
-      watered1: 0,
-      watered2: 0,
-      watered3: 0,
-      watered4: 0,
+      isWateredStage1: 0,
+      isWateredStage2: 0,
+      isWateredStage3: 0,
+      isWateredStage4: 0,
     });
   });
 
