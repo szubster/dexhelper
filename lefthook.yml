@@ -13,7 +13,7 @@ pre-commit:
       stage_fixed: true
       fail_on_changes: ci
     oxlint:
-      run: pnpm exec oxlint --type-aware --no-error-on-unmatched-pattern {staged_files}
+      run: pnpm exec oxlint -c .oxlintrc.json --type-aware --no-error-on-unmatched-pattern {staged_files}
     knip:
       run: pnpm knip --no-exit-code
     type-check:
