@@ -31,5 +31,5 @@ Implement the logic to consume raw mapGroup and mapId values and output translat
 - Ensure proper fallback logic returning 'Unknown Location' if the coordinate pair is not found or is invalid.
 
 ## Acceptance Criteria
-- [ ] Translation function successfully maps valid mapGroup and mapId to route names.
-- [ ] Fallback string 'Unknown Location' is returned for invalid or unmapped coordinates.
+- [x] Translation function successfully maps valid mapGroup and mapId to route names.
+- [x] Fallback string 'Unknown Location' is returned for invalid or unmapped coordinates.
