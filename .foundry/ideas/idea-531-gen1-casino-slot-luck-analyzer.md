@@ -40,4 +40,4 @@ Introduce a "Celadon Slot Machine Predictor" in DexHelper's Gen 1 dashboard. By 
 This feature directly reinforces DexHelper's core value proposition: surfacing obfuscated retro game mechanics to eliminate mindless grinding for players. Coin farming in Celadon is one of the most infamous grinds in Gen 1, and predicting lucky slot machines offers immediate, high-value utility for retro collectors, casual players, and speed/challenge runners alike.
 
 ## Acceptance Criteria
-- [ ] prd-531-566-gen1-casino-slot-luck-analyzer
+- [ ] Product Manager: Convert this idea into a PRD to detail requirements for Celadon Game Corner slot machine state parsing.
