@@ -27,6 +27,6 @@ locks: []
 With the state connection established, the numerical grid UI needs to visually indicate the ownership state of each Pokemon.
 
 ## Acceptance Criteria
-- [ ] Consume the mapped state from the connection layer within the grid UI component.
-- [ ] Visually overlay an indicator (e.g., an icon, color change, or badge) within the grid cells for Pokémon currently present in the PC box or Party.
-- [ ] Ensure styling complies with ADR 008 constraints.
+- [x] Consume the mapped state from the connection layer within the grid UI component.
+- [x] Visually overlay an indicator (e.g., an icon, color change, or badge) within the grid cells for Pokémon currently present in the PC box or Party.
+- [x] Ensure styling complies with ADR 008 constraints.
