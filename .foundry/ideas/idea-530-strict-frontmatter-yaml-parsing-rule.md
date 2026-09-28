@@ -35,3 +35,6 @@ Establish system-wide rules and tooling to enforce strict YAML frontmatter isola
 ## Expected Impact
 - Prevents erroneous state evaluation in DAG utilities and test runners caused by false-positive regex matches in markdown body text.
 - Standardizes frontmatter parsing across all scripts in the Foundry ecosystem.
+
+## Acceptance Criteria
+- [ ] Product Manager: Convert this idea into a PRD to detail the strict frontmatter isolation rules for markdown parsing utilities.

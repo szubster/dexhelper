@@ -37,3 +37,6 @@ Create a custom ESLint / Biome / Oxlint rule or AST-based check that scans `test
 - Eliminates QA rejections and resurrection cycles caused by Playwright path syntax violations.
 - Shifts policy enforcement left to pre-commit linting rather than post-PR review.
 - Ensures seamless test execution regardless of Vite base URL deployment configurations.
+
+## Acceptance Criteria
+- [ ] Product Manager: Convert this idea into a PRD to detail the linter implementation requirements for Playwright relative path enforcement.
