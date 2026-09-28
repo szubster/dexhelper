@@ -26,5 +26,5 @@ As part of the RAG context hydration epic, we need to build an in-memory search 
 This task focuses on installing flexsearch and implementing the core indexing logic to scan `.foundry/docs/` and `.foundry/archive/docs/adrs/`.
 
 ## Acceptance Criteria
-- [ ] Implement function to construct an in-memory flexsearch text index from loaded markdown documents.
-- [ ] Ensure the implementation supports fast retrieval.
+- [x] Implement function to construct an in-memory flexsearch text index from loaded markdown documents.
+- [x] Ensure the implementation supports fast retrieval.

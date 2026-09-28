@@ -28,6 +28,7 @@ import * as fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
+import { buildDocumentationIndex } from "./flexsearch-utils.ts";
 import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal, updateActiveSessionsTable } from './dag-utils.ts';
 import { NodeFrontmatterSchema, type NodeFrontmatter } from './schema.ts';
 
@@ -478,6 +479,14 @@ function main(): void {
     warn(`'.foundry/' directory not found at repo root: ${repoRoot}`);
     console.log(JSON.stringify([]));
     return;
+  }
+
+  info("Phase 0: Building Documentation Index...");
+  try {
+    buildDocumentationIndex(repoRoot);
+    info("Documentation index built successfully.");
+  } catch (error) {
+    warn(`Failed to build documentation index: ${String(error)}`);
   }
 
   // ── Phase 1: DISCOVER ──────────────────────────────────────────────────────

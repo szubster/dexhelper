@@ -207,6 +207,9 @@ importers:
       '@google/genai':
         specifier: ^2.22.0
         version: 2.22.0(supports-color@10.2.2)
+      flexsearch:
+        specifier: ^0.8.212
+        version: 0.8.212
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -3247,6 +3250,9 @@ packages:
 
   flatted@3.4.4:
     resolution: {integrity: sha512-5+ybhBZANEJxaH3X5evAFatUxLfEHSr7n6kYJ+1Qd0mUqr4eu9gIf6GDbWHf8RJijHrjjO8G+la14SlL2SeS1Q==}
+
+  flexsearch@0.8.212:
+    resolution: {integrity: sha512-wSyJr1GUWoOOIISRu+X2IXiOcVfg9qqBRyCPRUdLMIGJqPzMo+jMRlvE83t14v1j0dRMEaBbER/adQjp6Du2pw==}
 
   follow-redirects@1.16.0:
     resolution: {integrity: sha512-y5rN/uOsadFT/JfYwhxRS5R7Qce+g3zG97+JrtFZlC9klX/W5hD7iiLzScI4nZqUS7DNUdhPgw4xI8W2LuXlUw==}
@@ -7884,6 +7890,8 @@ snapshots:
       to-regex-range: 5.0.1
 
   flatted@3.4.4: {}
+
+  flexsearch@0.8.212: {}
 
   follow-redirects@1.16.0(debug@4.4.3(supports-color@10.2.2)):
     optionalDependencies:
