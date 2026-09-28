@@ -25,5 +25,5 @@ locks: []
 Verify that save state limits are enforced correctly.
 
 ## Acceptance Criteria
-- [ ] Verify unit tests pass for limit checks.
-- [ ] Verify maximum saves cannot be exceeded without triggering correct handling.
+- [x] Verify unit tests pass for limit checks.
+- [x] Verify maximum saves cannot be exceeded without triggering correct handling.
