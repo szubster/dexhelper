@@ -2,12 +2,12 @@
 id: task-587-627-migrate-basic-tests-to-fixtures
 type: TASK
 title: Migrate Basic Tests to Fixtures
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-25'
-updated_at: '2026-09-25'
+updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15433415338098302767'
 pr_number: null
 parent: story-578-587-e2e-fixtures-integration-verification
 tags:
