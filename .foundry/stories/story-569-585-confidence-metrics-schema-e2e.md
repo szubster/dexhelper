@@ -34,4 +34,6 @@ This is an exclusive STORY dedicated to Integration and E2E Verification for the
 - Implement tests to validate the `confidence_score` is an integer constraint (0-100).
 
 ## Acceptance Criteria
-- [ ] Decompose into tasks.
+- [x] Decompose into tasks.
+- [ ] task-585-601-schema-e2e-linters
+- [ ] task-585-602-schema-e2e-tests
