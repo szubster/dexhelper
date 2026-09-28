@@ -1,11 +1,11 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { useWindowVirtualizer } from '@tanstack/react-virtual';
 import { SearchX } from 'lucide-react';
 import React, { useMemo } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import type { PokemonListItem } from '../utils/pokemonQueries';
+import { usePokedexGridVirtualizer } from './hooks/usePokedexGridVirtualizer';
 import { PokedexCard } from './PokedexCard';
 import { TacticalButton } from './TacticalButton';
 import { TacticalPanel } from './TacticalPanel';
@@ -106,37 +106,8 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
     return set;
   }, [saveData]);
 
-  const parentRef = React.useRef<HTMLDivElement>(null);
-
-  const [columns, setColumns] = React.useState(1);
-
-  React.useEffect(() => {
-    const updateColumns = () => {
-      const width = window.innerWidth;
-      if (width >= 1280) setColumns(4);
-      else if (width >= 1024) setColumns(3);
-      else if (width >= 640) setColumns(2);
-      else setColumns(1);
-    };
-    updateColumns();
-    window.addEventListener('resize', updateColumns);
-    return () => window.removeEventListener('resize', updateColumns);
-  }, []);
-
-  const rowCount = Math.ceil(finalPokemon.length / columns);
-
-  const [scrollMargin, setScrollMargin] = React.useState(0);
-  React.useEffect(() => {
-    if (parentRef.current) {
-      setScrollMargin(parentRef.current.offsetTop);
-    }
-  }, []);
-
-  const virtualizer = useWindowVirtualizer({
-    count: rowCount,
-    estimateSize: () => 350 + 16, // estimate height + gap
-    overscan: 1000,
-    scrollMargin,
+  const { containerRef, columns, virtualizer } = usePokedexGridVirtualizer({
+    count: finalPokemon.length,
   });
 
   if (finalPokemon.length === 0) {
@@ -186,7 +157,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
         </div>
       </div>
 
-      <div ref={parentRef} className="relative w-full" style={{ height: `${virtualizer.getTotalSize()}px` }}>
+      <div ref={containerRef} className="relative w-full" style={{ height: `${virtualizer.getTotalSize()}px` }}>
         <div
           style={{
             position: 'absolute',
