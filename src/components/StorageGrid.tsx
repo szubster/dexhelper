@@ -1,6 +1,8 @@
 import { useNavigate } from '@tanstack/react-router';
+import { useWindowVirtualizer } from '@tanstack/react-virtual';
 import { Skull } from 'lucide-react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { useParsedSaveData } from '../contexts/EmulatorContext';
 import type { PokemonInstance } from '../engine/saveParser/index';
 import { getGenerationConfig } from '../utils/generationConfig';
@@ -155,6 +157,7 @@ const StorageCard = React.memo(
 
 // ⚡ Bolt: Wrapped StorageGrid in React.memo and memoized storageLocations array creation to prevent
 // unnecessary re-renders and eliminate array allocations on every render pass.
+
 export const StorageGrid = React.memo(function StorageGrid({
   pokemonList,
 }: {
@@ -181,7 +184,6 @@ export const StorageGrid = React.memo(function StorageGrid({
     const map = new Map<string, { p: PokemonInstance; pokemon: { id: number; name: string } }[]>();
     if (!saveData) return map;
 
-    // Group all pokemon by their storage location in a single pass O(N)
     let lastLocation: string | undefined;
     let currentArray: { p: PokemonInstance; pokemon: { id: number; name: string } }[] | undefined;
 
@@ -219,96 +221,188 @@ export const StorageGrid = React.memo(function StorageGrid({
     return locations;
   }, [saveData]);
 
+  const [columns, setColumns] = useState(2);
+  const [containerNode, setContainerNode] = useState<HTMLDivElement | null>(null);
+
+  const containerRef = React.useCallback((node: HTMLDivElement | null) => {
+    setContainerNode(node);
+  }, []);
+
+  useEffect(() => {
+    if (!containerNode) return;
+
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const width = entry.contentRect.width;
+        if (width >= 1280) setColumns(6);
+        else if (width >= 1024) setColumns(5);
+        else if (width >= 768) setColumns(4);
+        else if (width >= 640) setColumns(3);
+        else setColumns(2);
+      }
+    });
+
+    observer.observe(containerNode);
+    return () => observer.disconnect();
+  }, [containerNode]);
+
+  const flatList = React.useMemo(() => {
+    if (!saveData) return [];
+    type FlatListItem =
+      | { type: 'header'; location: string; count: number }
+      | { type: 'empty'; location: string }
+      | {
+          type: 'row';
+          location: string;
+          items: { p: PokemonInstance; pokemon: { id: number; name: string } }[];
+          startIndex: number;
+        };
+
+    const list: FlatListItem[] = [];
+    storageLocations.forEach((location) => {
+      const pokemonInLocation = pokemonByLocation.get(location) || [];
+      list.push({ type: 'header', location, count: pokemonInLocation.length });
+
+      if (pokemonInLocation.length === 0) {
+        list.push({ type: 'empty', location });
+      } else {
+        for (let i = 0; i < pokemonInLocation.length; i += columns) {
+          list.push({
+            type: 'row',
+            location,
+            items: pokemonInLocation.slice(i, i + columns),
+            startIndex: i,
+          });
+        }
+      }
+    });
+    return list;
+  }, [saveData, storageLocations, pokemonByLocation, columns]);
+
+  const virtualizer = useWindowVirtualizer({
+    count: flatList.length,
+    scrollMargin: containerNode?.offsetTop ?? 0,
+    estimateSize: (index) => {
+      const item = flatList[index];
+      if (item.type === 'header') return 80;
+      if (item.type === 'empty') return 80;
+      // Cards have roughly aspect-square + bottom container height,
+      // but they are flexible grid items. We can estimate ~180px for a row depending on screen.
+      // A safe estimate that allows overscan to work properly:
+      return 220;
+    },
+    overscan: 3,
+  });
+
   if (!saveData) return null;
 
   const genConfig = getGenerationConfig(saveData.generation);
 
   return (
-    <div className="fade-in animate-in space-y-16 duration-500">
-      {storageLocations.map((location) => {
-        const pokemonInLocation = pokemonByLocation.get(location) || [];
+    <div ref={containerRef} className="fade-in animate-in pb-20 duration-500">
+      <div
+        style={{
+          height: `${virtualizer.getTotalSize()}px`,
+          width: '100%',
+          position: 'relative',
+        }}
+      >
+        {virtualizer.getVirtualItems().map((virtualItem) => {
+          const rowData = flatList[virtualItem.index];
 
-        return (
-          <div key={location} className="slide-in-from-bottom-4 animate-in space-y-8 duration-500">
-            {/* Server Rack Blade Header */}
-            <div className="relative overflow-hidden rounded-none border border-zinc-800 border-dashed bg-zinc-950 p-1">
-              <div className="relative flex items-stretch gap-4 bg-zinc-900/50 p-3">
-                {/* Rack Handle */}
-                <RackHandle />
-
-                {/* Main Content Area */}
-                <div className="flex flex-1 flex-col justify-between gap-2 py-1 sm:flex-row sm:items-center">
-                  {/* Title & Sys Dir */}
-                  <div className="flex items-center gap-3">
-                    <span className="border border-[var(--theme-primary)]/30 border-dashed bg-[var(--theme-primary)]/10 px-1.5 font-mono text-[9px] text-[var(--theme-primary)] uppercase tracking-[0.2em]">
-                      SYS.DIR
-                    </span>
-                    <h2 className="font-black font-mono text-white text-xl uppercase tracking-tight">{location}</h2>
-                  </div>
-
-                  {/* Telemetry & LEDs */}
-                  <div className="flex items-center gap-4">
-                    {/* Capacity Segmented Bar */}
-                    <CapacitySegmentedBar
-                      current={pokemonInLocation.length}
-                      max={location === 'Party' ? 6 : location === 'Daycare' ? 2 : genConfig.boxCapacity}
-                    />
-
-                    <div className="h-6 w-px border-zinc-700 border-r border-dashed" />
-
-                    {/* Status LEDs */}
-                    <div className="flex gap-2">
-                      {/* Carrier Anomaly LED */}
-                      <div
-                        className={`h-2 w-2 rounded-none border ${pokemonInLocation.some((p) => !p.p.isShiny && p.p.isShinyCarrier) ? 'animate-[pulse_1.5s_ease-in-out_infinite] border-cyan-400 border-dashed bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
-                        title="Carrier Detector"
-                      />
-                      {/* Shiny Anomaly LED */}
-                      <div
-                        className={`h-2 w-2 rounded-none border ${pokemonInLocation.some((p) => p.p.isShiny) ? 'animate-pulse border-amber-400 bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
-                        title="Anomaly Detector"
-                      />
-                      {/* Error / Dead LED */}
-                      <div
-                        className={`h-2 w-2 rounded-none border ${pokemonInLocation.some((p) => location === 'Party' && p.p.currentHp === 0) ? 'animate-[pulse_0.5s_ease-in-out_infinite] border-red-500 bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
-                        title="System Error / Quarantine"
-                      />
+          return (
+            <div
+              key={virtualItem.key}
+              ref={virtualizer.measureElement}
+              data-index={virtualItem.index}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: `${virtualItem.size}px`,
+                transform: `translateY(${virtualItem.start}px)`,
+                paddingBottom: rowData.type === 'header' ? '0px' : '20px',
+              }}
+            >
+              {rowData.type === 'header' && (
+                <div className="relative mt-16 mb-8 overflow-hidden rounded-none border border-zinc-800 border-dashed bg-zinc-950 p-1 first:mt-0">
+                  <div className="relative flex items-stretch gap-4 bg-zinc-900/50 p-3">
+                    <RackHandle />
+                    <div className="flex flex-1 flex-col justify-between gap-2 py-1 sm:flex-row sm:items-center">
+                      <div className="flex items-center gap-3">
+                        <span className="border border-[var(--theme-primary)]/30 border-dashed bg-[var(--theme-primary)]/10 px-1.5 font-mono text-[9px] text-[var(--theme-primary)] uppercase tracking-[0.2em]">
+                          SYS.DIR
+                        </span>
+                        <h2 className="font-black font-mono text-white text-xl uppercase tracking-tight">
+                          {rowData.location}
+                        </h2>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <CapacitySegmentedBar
+                          current={rowData.count}
+                          max={
+                            rowData.location === 'Party'
+                              ? 6
+                              : rowData.location === 'Daycare'
+                                ? 2
+                                : genConfig.boxCapacity
+                          }
+                        />
+                        <div className="h-6 w-px border-zinc-700 border-r border-dashed" />
+                        <div className="flex gap-2">
+                          <div
+                            className={`h-2 w-2 rounded-none border ${(pokemonByLocation.get(rowData.location) || []).some((p) => !p.p.isShiny && p.p.isShinyCarrier) ? 'animate-[pulse_1.5s_ease-in-out_infinite] border-cyan-400 border-dashed bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
+                            title="Carrier Detector"
+                          />
+                          <div
+                            className={`h-2 w-2 rounded-none border ${(pokemonByLocation.get(rowData.location) || []).some((p) => p.p.isShiny) ? 'animate-pulse border-amber-400 bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
+                            title="Anomaly Detector"
+                          />
+                          <div
+                            className={`h-2 w-2 rounded-none border ${(pokemonByLocation.get(rowData.location) || []).some((p) => rowData.location === 'Party' && p.p.currentHp === 0) ? 'animate-[pulse_0.5s_ease-in-out_infinite] border-red-500 bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
+                            title="System Error / Quarantine"
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              )}
 
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-              {pokemonInLocation.length === 0 ? (
-                <TacticalPanel className="col-span-full flex min-h-[60px] flex-col items-center justify-center p-2 text-center transition-all duration-300 hover:border-zinc-700/50">
-                  <span className="font-black font-mono text-[10px] text-zinc-600 uppercase tracking-[0.3em]">
-                    [ EMPTY ]
-                  </span>
-                </TacticalPanel>
-              ) : (
-                pokemonInLocation.map(({ p, pokemon }, idx) => {
-                  return (
+              {rowData.type === 'empty' && (
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+                  <TacticalPanel className="col-span-full flex min-h-[60px] flex-col items-center justify-center p-2 text-center transition-all duration-300 hover:border-zinc-700/50">
+                    <span className="font-black font-mono text-[10px] text-zinc-600 uppercase tracking-[0.3em]">
+                      [ EMPTY ]
+                    </span>
+                  </TacticalPanel>
+                </div>
+              )}
+
+              {rowData.type === 'row' && (
+                <div className="grid h-full grid-cols-2 gap-3 pb-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+                  {rowData.items.map(({ p, pokemon }, idx) => (
                     <StorageCard
                       // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
-                      key={`${location}-${p.speciesId}-${idx}`}
+                      key={`${rowData.location}-${p.speciesId}-${rowData.startIndex + idx}`}
                       p={p}
                       pokemon={pokemon}
-                      location={location}
+                      location={rowData.location}
                       generation={saveData?.generation ?? 1}
                       onNavigate={handleNavigate}
-                      isDead={location === 'Party' && p.currentHp === 0}
+                      isDead={rowData.location === 'Party' && p.currentHp === 0}
                       timeCapsuleValidation={
                         saveData?.generation === 2 ? getTimeCapsuleValidation(p.speciesId, p.moves) : undefined
                       }
                     />
-                  );
-                })
+                  ))}
+                </div>
               )}
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 });
