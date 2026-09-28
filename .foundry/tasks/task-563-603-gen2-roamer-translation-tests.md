@@ -32,5 +32,5 @@ Write comprehensive unit tests for the Gen 2 Roamer Translation logic.
 - Assert that the fallback string 'Unknown Location' is returned when invalid or unmapped coordinates are provided.
 
 ## Acceptance Criteria
-- [ ] Unit tests cover valid known roamer route maps.
-- [ ] Unit tests cover invalid/unknown mapGroup and mapId coordinates and verify fallback logic.
+- [x] Unit tests cover valid known roamer route maps.
+- [x] Unit tests cover invalid/unknown mapGroup and mapId coordinates and verify fallback logic.
