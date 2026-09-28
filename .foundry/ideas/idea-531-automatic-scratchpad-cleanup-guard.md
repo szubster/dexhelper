@@ -6,11 +6,20 @@ status: READY
 owner_persona: product_manager
 created_at: '2026-09-28T05:00:00.000Z'
 updated_at: '2026-09-28T05:00:00.000Z'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
 tags:
   - foundry
   - process
   - git-hooks
   - lint
+research_references: []
+notes: ''
+locks: []
+priority: 50
+rejection_reason: ''
 ---
 
 # Automatic Developer Scratchpad Cleanup Guard in Pre-Commit Hook
