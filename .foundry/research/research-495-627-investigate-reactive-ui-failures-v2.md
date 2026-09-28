@@ -26,5 +26,14 @@ locks: []
 The implementation tasks for the Pokedex grid, Dashboards, and Pokemon Details failed permanently due to reaching the maximum rejection count (Autonomous No-Ask Policy Violations). The previous research task (`research-495-617`) also failed. We need to investigate the root causes of these failures to inform the retry implementation tasks.
 
 ## Acceptance Criteria
-- [ ] Researcher: Investigate the root cause of the failures for the Reactive UI implementations by reviewing the coder and QA journals.
-- [ ] Researcher: Document findings and recommend a solution in this markdown file.
+- [x] Researcher: Investigate the root cause of the failures for the Reactive UI implementations by reviewing the coder and QA journals.
+- [x] Researcher: Document findings and recommend a solution in this markdown file.
+
+## Findings
+An investigation of the session activity and similar timeouts revealed that the failure was **not** caused by technical limitations, environmental blockers, or missing specifications.
+
+The session timeout was instead caused by a direct violation of the **Autonomous Communication & No-Ask Policy**, specifically the agent asking the user a conversational prompt. This causes the autonomous Foundry orchestrator session to hang indefinitely in the `AWAITING_USER_FEEDBACK` state, eventually triggering the system timeout.
+
+### Actionable Takeaways
+- No codebase architectural adjustments or missing offsets are needed.
+- Agents MUST adhere strictly to the Autonomous Communication & No-Ask Policy, avoiding any conversational prompts or asking for user input/preferences at the end of their turn.
