@@ -26,7 +26,7 @@ Implement the core logic to extract individual Pokémon data from a Gen 2 save f
 Gen 2 `.pkm` files contain 73 bytes of data per Pokémon (includes items, etc.). Like Gen 1, data must be accurately extracted from specific offsets using constants.
 
 ## Acceptance Criteria
-- [ ] Coder: Implement `extractGen2Pkm` logic, returning the 73-byte structure for a given box/party index.
-- [ ] Coder: Define all offsets, lengths, and magic numbers as module-level constants.
-- [ ] Coder: Ensure `RangeError` is handled according to schema guidelines.
-- [ ] Coder: Write unit tests covering extraction logic.
+- [x] Coder: Implement `extractGen2Pkm` logic, returning the 73-byte structure for a given box/party index.
+- [x] Coder: Define all offsets, lengths, and magic numbers as module-level constants.
+- [x] Coder: Ensure `RangeError` is handled according to schema guidelines.
+- [x] Coder: Write unit tests covering extraction logic.

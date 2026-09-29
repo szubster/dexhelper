@@ -237,3 +237,4 @@ export const UNOWN_FORM_SPD_SHIFT = 2;
 export const UNOWN_FORM_MOD = 28;
 export const UNOWN_FORM_VALID_MAX = 26;
 export const UNOWN_FORM_ASCII_A = 65;
+export const GEN2_PKM_DATA_LENGTH = 73;

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { isGen2Save } from '../utils/detection';
-import { parseGen2 } from './gen2';
+import { extractGen2Pkm, parseGen2 } from './gen2';
 
 describe('gen2 parsers', () => {
   describe('isGen2Save', () => {
@@ -842,5 +842,25 @@ describe('Unown Dex parsing', () => {
     const data = parseGen2(view, true);
     expect(data.unownDex).toBeDefined();
     expect(data.unownDex?.[0]).toBe(3);
+  });
+});
+describe('extractGen2Pkm', () => {
+  it('should extract 73 bytes of data successfully', () => {
+    const buffer = new ArrayBuffer(100);
+    const view = new DataView(buffer);
+    const offset = 10;
+    for (let i = 0; i < 73; i++) {
+      view.setUint8(offset + i, i + 1);
+    }
+    const extracted = extractGen2Pkm(view, offset);
+    expect(extracted.length).toBe(73);
+    expect(extracted[0]).toBe(1);
+    expect(extracted[72]).toBe(73);
+  });
+
+  it('should throw "The save file is corrupted or incomplete." when offset is out of bounds', () => {
+    const buffer = new ArrayBuffer(50);
+    const view = new DataView(buffer);
+    expect(() => extractGen2Pkm(view, 10)).toThrow('The save file is corrupted or incomplete.');
   });
 });
