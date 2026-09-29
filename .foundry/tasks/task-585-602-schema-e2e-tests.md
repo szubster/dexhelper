@@ -2,14 +2,14 @@
 id: task-585-602-schema-e2e-tests
 type: TASK
 title: Update tests for Confidence Metrics Schema
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-25'
 updated_at: '2026-09-29'
 depends_on:
   - story-569-584-confidence-metrics-schema
   - task-585-601-schema-e2e-linters
-jules_session_id: null
+jules_session_id: '3503028477786192184'
 pr_number: null
 parent: story-569-585-confidence-metrics-schema-e2e
 tags:
