@@ -102,6 +102,10 @@
       "maxSize": "30kb"
     },
     {
+      "path": "assets/store-<hash>.js",
+      "maxSize": "15kb"
+    },
+    {
       "path": "assets/*-<hash>.js",
       "maxSize": "10kb"
     },
