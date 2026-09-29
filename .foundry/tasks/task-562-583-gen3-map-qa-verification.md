@@ -2,13 +2,13 @@
 id: task-562-583-gen3-map-qa-verification
 type: TASK
 title: QA Verification for Gen 3 Map Core Layout
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-15T17:51:16Z'
-updated_at: '2026-09-22'
+updated_at: '2026-09-29'
 depends_on:
   - task-562-582-gen3-map-dashboard-layout
-jules_session_id: null
+jules_session_id: '16389349824544001394'
 pr_number: null
 parent: story-552-562-gen3-map-core-layout
 tags:
