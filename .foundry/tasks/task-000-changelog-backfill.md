@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-09-29'
@@ -26,48 +26,33 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `ae23b902255b90b81ca2ddd582c9462959b07b60`
-- **Previous Commit SHA:** `80809f4058a645e1648f9cd6ba4dee094ae0655e`
-- **Commit Date:** `2026-03-23`
+- **Commit SHA:** `e4f4525114c2027082c54d73cf3cc343acede365`
+- **Previous Commit SHA:** `ef3eb7941b27166a352fe1882206e26eb7dc8600`
+- **Commit Date:** `2026-03-30`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `patch` (from `0.21.1` -> `0.21.2`)
+- **Suggested SemVer Bump:** `patch` (from `0.21.2` -> `0.21.3`)
 
 ## Commit Message
 ```text
-build(deps): Bump @tanstack/router-vite-plugin from 1.166.12 to 1.166.18
-
-Bumps [@tanstack/router-vite-plugin](https://github.com/TanStack/router/tree/HEAD/packages/router-vite-plugin) from 1.166.12 to 1.166.18.
-- [Release notes](https://github.com/TanStack/router/releases)
-- [Changelog](https://github.com/TanStack/router/blob/main/packages/router-vite-plugin/CHANGELOG.md)
-- [Commits](https://github.com/TanStack/router/commits/@tanstack/router-vite-plugin@1.166.18/packages/router-vite-plugin)
-
----
-updated-dependencies:
-- dependency-name: "@tanstack/router-vite-plugin"
-  dependency-version: 1.166.18
-  dependency-type: direct:production
-  update-type: version-update:semver-patch
-...
-
-Signed-off-by: dependabot[bot] <support@github.com>
+test: add unit tests for assistant suggestion logic and include yellow save fixture
 ```
 
 ## Modified Files
-- `package-lock.json`
-- `package.json`
+- `src/hooks/useAssistant.test.ts`
+- `tests/fixtures/yellow-2026-03-30.sav`
 
 ## Diff Summary
 ```text
-ae23b9022 build(deps): Bump @tanstack/router-vite-plugin from 1.166.12 to 1.166.18
- package-lock.json | 80 ++++++++++++++++++++++++++++++-------------------------
- package.json      |  2 +-
- 2 files changed, 44 insertions(+), 38 deletions(-)
+e4f452511 test: add unit tests for assistant suggestion logic and include yellow save fixture
+ src/hooks/useAssistant.test.ts       |   8 ++++----
+ tests/fixtures/yellow-2026-03-30.sav | Bin 0 -> 32768 bytes
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show ae23b902255b90b81ca2ddd582c9462959b07b60` (or `git diff 80809f4058a645e1648f9cd6ba4dee094ae0655e..ae23b902255b90b81ca2ddd582c9462959b07b60`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show e4f4525114c2027082c54d73cf3cc343acede365` (or `git diff ef3eb7941b27166a352fe1882206e26eb7dc8600..e4f4525114c2027082c54d73cf3cc343acede365`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.2] - 2026-03-23` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.1...0.21.2`](https://github.com/${repo}/compare/80809f4...ae23b90)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.3] - 2026-03-30` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.2...0.21.3`](https://github.com/${repo}/compare/ef3eb79...e4f4525)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
