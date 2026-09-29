@@ -1,6 +1,7 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { SearchX } from 'lucide-react';
 import React, { useMemo } from 'react';
+import { useParsedSaveData } from '../contexts/EmulatorContext';
 import { pokeDB } from '../db/PokeDB';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
@@ -11,7 +12,7 @@ import { TacticalButton } from './TacticalButton';
 import { TacticalPanel } from './TacticalPanel';
 
 export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] }) {
-  const saveData = useStore((s) => s.saveData);
+  const saveData = useParsedSaveData();
   const isLivingDex = useStore((s) => s.isLivingDex);
   const searchTerm = useStore((s) => s.searchTerm);
   const filters = useStore((s) => s.filters);
@@ -182,7 +183,6 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
                       <PokedexCard
                         pokemon={pokemon}
                         idx={idx}
-                        saveData={saveData}
                         isLivingDex={isLivingDex}
                         partySet={partySet}
                         pcSet={pcSet}

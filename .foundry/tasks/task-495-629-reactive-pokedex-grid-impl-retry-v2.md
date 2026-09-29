@@ -27,6 +27,6 @@ locks: []
 As part of making the application a real-time live companion, we need to update the `PokedexGrid` and `PokedexCard` UI components to consume the live memory context established in `story-425-494-reactive-ui-context` instead of the static `useStore`. This is a retry of previous tasks that failed permanently.
 
 ## Acceptance Criteria
-- [ ] Read the findings in `research-495-627-investigate-reactive-ui-failures-v2` before beginning work.
-- [ ] Refactor `src/components/PokedexGrid.tsx` and `src/components/PokedexCard.tsx` to use `useParsedSaveData` from `EmulatorContext` instead of `useStore`.
-- [ ] Ensure the components reactively re-render to reflect real-time game state changes.
+- [x] Read the findings in `research-495-627-investigate-reactive-ui-failures-v2` before beginning work.
+- [x] Refactor `src/components/PokedexGrid.tsx` and `src/components/PokedexCard.tsx` to use `useParsedSaveData` from `EmulatorContext` instead of `useStore`.
+- [x] Ensure the components reactively re-render to reflect real-time game state changes.

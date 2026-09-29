@@ -9,6 +9,7 @@ import {
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import { page, userEvent } from 'vitest/browser';
 import { cleanup, render } from 'vitest-browser-react';
+import { EmulatorProvider } from '../../contexts/EmulatorContext';
 import { pokeDB } from '../../db/PokeDB';
 import { useStore } from '../../store';
 import { PokedexGrid } from '../PokedexGrid';
@@ -17,13 +18,21 @@ const queryClient = new QueryClient();
 
 const createMockRouter = (component: React.ReactNode) => {
   const rootRoute = createRootRoute({
-    component: () => <QueryClientProvider client={queryClient}>{component}</QueryClientProvider>,
+    component: () => (
+      <EmulatorProvider>
+        <QueryClientProvider client={queryClient}>{component}</QueryClientProvider>
+      </EmulatorProvider>
+    ),
   });
   const routeTree = rootRoute.addChildren([
     createRoute({
       getParentRoute: () => rootRoute,
       path: '/',
-      component: () => <QueryClientProvider client={queryClient}>{component}</QueryClientProvider>,
+      component: () => (
+        <EmulatorProvider>
+          <QueryClientProvider client={queryClient}>{component}</QueryClientProvider>
+        </EmulatorProvider>
+      ),
     }),
   ]);
   const history = createMemoryHistory();
