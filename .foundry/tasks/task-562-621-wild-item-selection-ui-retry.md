@@ -2,14 +2,14 @@
 id: task-562-621-wild-item-selection-ui-retry
 type: TASK
 title: Wild Item Selection UI Implementation Retry
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-24'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - research-562-620-investigate-wild-item-ui-failure
   - task-562-578-wild-item-selection-state
-jules_session_id: null
+jules_session_id: '5471113489938776965'
 pr_number: null
 parent: story-555-562-wild-item-selection-ui
 tags:
