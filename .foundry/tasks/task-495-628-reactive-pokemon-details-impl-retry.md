@@ -27,6 +27,6 @@ locks: []
 We need to update the detailed view components like `PokemonDetails` and `PokemonCaughtDetails` to consume the live memory context. This is a retry of a previous task that failed permanently.
 
 ## Acceptance Criteria
-- [ ] Read the findings in `research-495-627-investigate-reactive-ui-failures-v2` before beginning work.
-- [ ] Refactor `src/components/PokemonDetails.tsx` and `src/components/pokemon/details/PokemonCaughtDetails.tsx` to use the live memory context where applicable, replacing static `useStore` reads.
-- [ ] Ensure the components reactively re-render to reflect real-time game state changes.
+- [x] Read the findings in `research-495-627-investigate-reactive-ui-failures-v2` before beginning work.
+- [x] Refactor `src/components/PokemonDetails.tsx` and `src/components/pokemon/details/PokemonCaughtDetails.tsx` to use the live memory context where applicable, replacing static `useStore` reads.
+- [x] Ensure the components reactively re-render to reflect real-time game state changes.

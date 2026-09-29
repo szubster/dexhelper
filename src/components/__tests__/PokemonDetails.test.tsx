@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import { EmulatorProvider } from '../../contexts/EmulatorContext';
 import { dexDataLoader } from '../../db/DexDataLoader';
 import type { SaveData } from '../../engine/saveParser/index';
 import { PokemonDetails } from '../PokemonDetails';
@@ -51,16 +52,18 @@ describe('PokemonDetails', () => {
 
     await render(
       <QueryClientProvider client={queryClient}>
-        <PokemonDetails
-          pokemonId={1}
-          pokemonName="Bulbasaur"
-          gameVersion="red"
-          saveData={mockSaveData}
-          isLivingDex={true}
-          pokeball="poke"
-          onClose={() => {}}
-          onNavigate={() => {}}
-        />
+        <EmulatorProvider>
+          <PokemonDetails
+            pokemonId={1}
+            pokemonName="Bulbasaur"
+            gameVersion="red"
+            saveData={mockSaveData}
+            isLivingDex={true}
+            pokeball="poke"
+            onClose={() => {}}
+            onNavigate={() => {}}
+          />
+        </EmulatorProvider>
       </QueryClientProvider>,
     );
 
@@ -90,16 +93,18 @@ describe('PokemonDetails', () => {
 
     await render(
       <QueryClientProvider client={queryClient}>
-        <PokemonDetails
-          pokemonId={4}
-          pokemonName="Charmander"
-          gameVersion="unknown"
-          saveData={null}
-          isLivingDex={false}
-          pokeball="poke"
-          onClose={() => {}}
-          onNavigate={() => {}}
-        />
+        <EmulatorProvider>
+          <PokemonDetails
+            pokemonId={4}
+            pokemonName="Charmander"
+            gameVersion="unknown"
+            saveData={null}
+            isLivingDex={false}
+            pokeball="poke"
+            onClose={() => {}}
+            onNavigate={() => {}}
+          />
+        </EmulatorProvider>
       </QueryClientProvider>,
     );
 
@@ -142,16 +147,18 @@ describe('PokemonDetails', () => {
 
     const { container } = await render(
       <QueryClientProvider client={queryClient}>
-        <PokemonDetails
-          pokemonId={7}
-          pokemonName="Squirtle"
-          gameVersion="crystal"
-          saveData={mockSaveData}
-          isLivingDex={true}
-          pokeball="poke"
-          onClose={() => {}}
-          onNavigate={() => {}}
-        />
+        <EmulatorProvider>
+          <PokemonDetails
+            pokemonId={7}
+            pokemonName="Squirtle"
+            gameVersion="crystal"
+            saveData={mockSaveData}
+            isLivingDex={true}
+            pokeball="poke"
+            onClose={() => {}}
+            onNavigate={() => {}}
+          />
+        </EmulatorProvider>
       </QueryClientProvider>,
     );
 
