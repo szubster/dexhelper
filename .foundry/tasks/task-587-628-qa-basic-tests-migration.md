@@ -33,5 +33,5 @@ Verify the migration of basic E2E tests to the new Playwright fixtures.
 - Execute the migrated tests to confirm they pass without regressions.
 
 ## Acceptance Criteria
-- [ ] Code review confirms correct fixture usage.
-- [ ] Tests pass via `pnpm test:e2e`.
+- [x] Code review confirms correct fixture usage.
+- [x] Tests pass via `pnpm test:e2e`.
