@@ -42,7 +42,7 @@ export const HallOfFameDashboard: React.FC<Props> = ({ saveData }) => {
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
     } catch (error) {
-      console.error('Failed to export certificate:', error);
+      console.error('Failed to export certificate:', error instanceof Error ? error.message : 'Unknown error');
       // We could add a toast notification here if one exists
     } finally {
       setIsExporting(false);
