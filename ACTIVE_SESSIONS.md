@@ -28,3 +28,4 @@
 | [task-560-596-spinda-coordinate-mapping-logic](.foundry/tasks/task-560-596-spinda-coordinate-mapping-logic.md) | TASK | Spinda Coordinate Mapping Logic | coder | [9953757862001640269](https://jules.google.com/session/9953757862001640269) |
 | [task-562-621-wild-item-selection-ui-retry](.foundry/tasks/task-562-621-wild-item-selection-ui-retry.md) | TASK | Wild Item Selection UI Implementation Retry | coder | [5471113489938776965](https://jules.google.com/session/5471113489938776965) |
 | [task-578-589-visualizer-state-refactor](.foundry/tasks/task-578-589-visualizer-state-refactor.md) | TASK | React Flow Visualizer State Refactor | coder | [8620482454986287347](https://jules.google.com/session/8620482454986287347) |
+| [task-581-609-secret-base-extraction-logic](.foundry/tasks/task-581-609-secret-base-extraction-logic.md) | TASK | Secret Base Extraction Logic | coder | [10211357468423644130](https://jules.google.com/session/10211357468423644130) |
