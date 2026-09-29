@@ -33,5 +33,5 @@ locks: []
 This task follows the implementation of the E2E tests for the Workspace Infrastructure by the Coder. As a QA, your role is to review their implementation, ensure the tests are robust, and verify that the monorepo integrations are thoroughly covered without relying solely on unit tests.
 
 ## Acceptance Criteria
-- [ ] Verify the workspace integration E2E tests are implemented and correct.
-- [ ] Confirm the test suite successfully runs and passes (`pnpm lint`, `pnpm test`, `pnpm test:e2e`).
+- [x] Verify the workspace integration E2E tests are implemented and correct.
+- [x] Confirm the test suite successfully runs and passes (`pnpm lint`, `pnpm test`, `pnpm test:e2e`).
