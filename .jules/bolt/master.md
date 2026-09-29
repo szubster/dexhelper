@@ -95,3 +95,12 @@ Based on feedback, the 2D canvas of nodes is also hard to parse for users trying
 - Replaced `Math.random()` in non-crypto fallback with a bitwise pseudo-random calculation to comply with oxlint `react(purity)` rules.
 - Optimized `StorageGrid.tsx` by wrapping `StorageGrid` in `React.memo` and memoizing `storageLocations` array construction via `React.useMemo`.
 - Optimized `LivingDexGrid.tsx` by wrapping `LivingDexGrid` in `React.memo` to prevent cascading subtree re-renders of the 386 living dex cell cards.
+
+
+---
+
+# Performance Optimization Journal
+
+- Optimized `PokedexGrid.tsx` virtualizer row mapping loop by pre-allocating/memoizing `columnIndices` array (`useMemo(() => Array.from({ length: columns }, (_, i) => i), [columns])`). This eliminates redundant intermediate array allocations on every virtual row render pass in TanStack Virtual.
+- Optimized `PokemonCatchProbability.tsx` by hoisting the static 10-item HP segment array (`HP_SEGMENTS`) outside the component body. This avoids unnecessary array allocations on every component render.
+- Documented both optimizations with inline `// ⚡ Bolt:` comments explaining the memory allocation reductions.
