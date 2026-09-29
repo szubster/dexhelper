@@ -32,8 +32,8 @@ We need to implement the core search functionality for the Multi-Box Search Engi
 - Implement filtering logic against `pokemon.nameLower`, `pokemon.nicknameLower` (if it exists or mapped), and `pokemon.otNameLower` (if it exists or mapped).
 
 ## Acceptance Criteria
-- [ ] Implement text search filtering for PC Box Pokémon.
-- [ ] Filter PC Box Pokémon by Nickname, Species Name, and OT Name.
-- [ ] Render the search results efficiently in `BoxAnalyzerView` or a newly created child component.
-- [ ] Ensure that string comparisons are case-insensitive.
-- [ ] Add unit tests verifying the search logic and component rendering.
+- [x] Implement text search filtering for PC Box Pokémon.
+- [x] Filter PC Box Pokémon by Nickname, Species Name, and OT Name.
+- [x] Render the search results efficiently in `BoxAnalyzerView` or a newly created child component.
+- [x] Ensure that string comparisons are case-insensitive.
+- [x] Add unit tests verifying the search logic and component rendering.

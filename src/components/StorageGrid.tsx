@@ -19,7 +19,7 @@ import { TacticalPanel } from './TacticalPanel';
 import { TargetingRings } from './TargetingRings';
 import { TargetLockOverlay } from './TargetLockOverlay';
 
-const StorageCard = React.memo(
+export const StorageCard = React.memo(
   ({
     p,
     pokemon,
