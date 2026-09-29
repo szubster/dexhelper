@@ -27,7 +27,6 @@ import { parseGen2DailyEvents, parseGen2NarrativeFlags, parseGen2RuinsOfAlphPuzz
 import type { GameVersion, Gen2SaveData, PokemonInstance } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
 import { parseGen2PokegearData } from './gen2/phone/parser';
-
 import {
   ACTIVE_DECO_COUNT,
   ACTIVE_DECO_OFFSET_RELATIVE_CRYSTAL,
@@ -98,6 +97,7 @@ import {
   GEN2_NPC_TRADE_COUNT,
   GEN2_PARTY_POKEMON_BLOCK_SIZE,
   GEN2_PARTY_SPECIES_LIST_LENGTH,
+  GEN2_PKM_DATA_LENGTH,
   GEN2_TM_BASE_ITEM_ID,
   GEN2_TM_EVENT_FLAGS,
   GEN2_TM_HM_COUNT,
@@ -1069,4 +1069,18 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
     gen2DailyEvents: parseGen2DailyEvents(eventFlags),
     gen2PokegearPhone: parseGen2PokegearData(view, isCrystal),
   };
+}
+export function extractGen2Pkm(view: DataView, offset: number): Uint8Array {
+  const pkmData = new Uint8Array(GEN2_PKM_DATA_LENGTH);
+  try {
+    for (let i = 0; i < GEN2_PKM_DATA_LENGTH; i++) {
+      pkmData[i] = view.getUint8(offset + i);
+    }
+  } catch (e) {
+    if (e instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw e;
+  }
+  return pkmData;
 }
