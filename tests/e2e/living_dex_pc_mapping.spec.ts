@@ -14,12 +14,15 @@ test.describe('Living Dex PC Mapping Integration E2E', () => {
     await page.getByRole('button', { name: 'Close settings' }).click();
     await waitForSync(page);
 
-    // 3. Instead of searching, click the Pikachu cell in the Living Dex Grid directly
-    await page.waitForTimeout(1000);
+    // 3. Search and click the Pikachu cell in the Living Dex Grid
+    const searchInput = page.getByTestId('search-input');
+    await searchInput.click({ force: true });
+    await searchInput.fill('Pikachu');
+
     const pikachuCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="25"]');
-    await expect(pikachuCard).toBeVisible({ timeout: 15000 });
     await pikachuCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
     await page.waitForTimeout(500);
+    await expect(pikachuCard).toBeVisible({ timeout: 15000 });
     await pikachuCard.dispatchEvent('click');
 
     // 5. Verify Modal Headers
