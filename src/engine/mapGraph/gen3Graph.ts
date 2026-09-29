@@ -1,6 +1,19 @@
 import type { UnifiedLocation } from '../../db/schema';
 import { resolveOutdoorMapId as commonResolveOutdoorMapId, getDistanceToMapBase } from './common';
 
+/**
+ * Resolves an indoor Gen 3 map ID to its root outdoor parent map ID.
+ *
+ * Handles multi-level indoor locations by traversing the parent location hierarchy
+ * until an outdoor map is reached.
+ *
+ * @param allLocations - The unified list of all map locations.
+ * @param mapId - The internal Gen 3 Map ID to resolve.
+ * @returns The parent outdoor Map ID, or the original Map ID if it is already outdoor.
+ *
+ * @example
+ * const outdoorId = resolveOutdoorMapId(locations, 25);
+ */
 export const resolveOutdoorMapId = commonResolveOutdoorMapId;
 
 /**
@@ -17,6 +30,12 @@ export const resolveOutdoorMapId = commonResolveOutdoorMapId;
  * @param startMapId - The internal Gen 3 Map ID where the player is currently standing.
  * @param targetAid - The location Area ID (aid) where the target Pokémon can be found.
  * @returns An object containing the distance and name of the target map, or null if unreachable.
+ *
+ * @example
+ * const dist = getDistanceToMap(allLocations, 0x00, 10);
+ * if (dist) {
+ *   console.log(`Target is ${dist.distance} hops away at ${dist.name}.`);
+ * }
  */
 export function getDistanceToMap(
   allLocations: UnifiedLocation[],
