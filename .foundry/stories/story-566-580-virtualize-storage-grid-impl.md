@@ -5,7 +5,7 @@ title: Implement Virtualization for StorageGrid
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-18T09:12:07Z'
-updated_at: '2026-09-21'
+updated_at: '2026-09-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Implement Virtualization for StorageGrid

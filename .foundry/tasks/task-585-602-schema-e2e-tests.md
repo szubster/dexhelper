@@ -2,10 +2,10 @@
 id: task-585-602-schema-e2e-tests
 type: TASK
 title: Update tests for Confidence Metrics Schema
-status: PENDING
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-25'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - story-569-584-confidence-metrics-schema
   - task-585-601-schema-e2e-linters
@@ -19,7 +19,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 priority: 60

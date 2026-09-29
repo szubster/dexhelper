@@ -520,6 +520,10 @@ export const pokeDB = {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.POKEMON);
   },
+  getAllItems: async (): Promise<ItemMetadata[]> => {
+    await pokeDB.ready();
+    return (await getDB()).getAll(DB_CONFIG.STORES.ITEMS);
+  },
   /**
    * Fetches multiple Move records in a single database transaction using `bulkGet`.
    * Designed to be called exclusively by `DexDataLoader` to prevent N+1 IDB query bottlenecks.

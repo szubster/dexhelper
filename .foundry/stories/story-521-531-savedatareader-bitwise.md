@@ -2,13 +2,13 @@
 id: story-521-531-savedatareader-bitwise
 type: STORY
 title: SaveDataReader Bitwise Helpers Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-09-29'
 depends_on:
   - story-521-530-savedatareader-core
-jules_session_id: '3662451437829143340'
+jules_session_id: null
 pr_number: null
 parent: epic-158-521-core-dataview-wrapper
 tags:
@@ -31,4 +31,8 @@ This story extends the `SaveDataReader` core implementation to include high-leve
 ## Acceptance Criteria
 - [ ] Add `readBits` and `readFlag` helper methods to `SaveDataReader`.
 - [ ] Ensure bitwise helpers correctly handle bounds checking and shifts.
-- [ ] Break down this Story into Tasks for the Tech Lead to assign.
+- [x] Break down this Story into Tasks for the Tech Lead to assign.
+- [ ] task-531-632-savedatareader-bitwise-stubs
+- [ ] task-531-633-savedatareader-bitwise-impl
+- [ ] task-531-634-savedatareader-bitwise-tests
+- [ ] task-531-635-savedatareader-bitwise-qa

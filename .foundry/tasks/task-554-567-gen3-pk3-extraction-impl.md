@@ -32,6 +32,6 @@ Implement the core logic to extract Gen 3 Pokémon data from save files and conv
 - Write corresponding unit tests using Vitest to verify the extraction and decryption logic.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 3 PK3 extraction logic with proper substructure mapping.
-- [ ] Ensure all constants are defined at the module level.
-- [ ] Write Vitest unit tests verifying extraction correctness.
+- [x] Implement Gen 3 PK3 extraction logic with proper substructure mapping.
+- [x] Ensure all constants are defined at the module level.
+- [x] Write Vitest unit tests verifying extraction correctness.

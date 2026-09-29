@@ -253,7 +253,7 @@ describe('Foundry Heartbeat', () => {
     expect(writeCall[1]).toContain('status: COMPLETED');
   });
 
-  it('should transition an active IDEA node with owner_persona product_manager to VERIFYING and update owner_persona to auditor', async () => {
+  it('should transition an active IDEA node with owner_persona product_manager to READY and update owner_persona to curator', async () => {
     const mockIdea = {
       filePath: '/mock/repo/.foundry/ideas/idea-1.md',
       repoPath: '.foundry/ideas/idea-1.md',
@@ -278,8 +278,8 @@ describe('Foundry Heartbeat', () => {
     expect(fs.writeFileSync).toHaveBeenCalled();
     const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
     expect(writeCall[0]).toBe(mockIdea.filePath);
-    expect(writeCall[1]).toContain('status: VERIFYING');
-    expect(writeCall[1]).toContain('owner_persona: auditor');
+    expect(writeCall[1]).toContain('status: READY');
+    expect(writeCall[1]).toContain('owner_persona: curator');
   });
 
   it('should transition an active IDEA node with owner_persona auditor to COMPLETED directly', async () => {

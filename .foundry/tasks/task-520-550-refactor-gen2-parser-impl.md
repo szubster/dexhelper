@@ -19,6 +19,6 @@ locks: []
 Update gen2.ts to use the new constants module.
 
 ## Acceptance Criteria
-- [ ] Update `src/engine/saveParser/parsers/gen2.ts` to import constants from `gen2Constants.ts`.
-- [ ] Replace any remaining inline magic numbers within the parser logic with named constants.
-- [ ] Ensure the existing Gen 2 test suite passes without regressions.
+- [x] Update `src/engine/saveParser/parsers/gen2.ts` to import constants from `gen2Constants.ts`.
+- [x] Replace any remaining inline magic numbers within the parser logic with named constants.
+- [x] Ensure the existing Gen 2 test suite passes without regressions.

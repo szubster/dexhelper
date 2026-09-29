@@ -2,13 +2,13 @@
 id: story-400-429-gen-specific-extensions
 type: STORY
 title: Generate Gen-Specific Extensions
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-17'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - story-400-428-extract-core-data
-jules_session_id: '3562828451645581771'
+jules_session_id: null
 pr_number: null
 parent: epic-337-400-data-splitting
 tags:
@@ -33,7 +33,13 @@ This story covers the generation of generation-specific extension bundles (`poke
 - [x] Task to update data generation scripts to output `pokedata-gen1.msgpack`, `pokedata-gen2.msgpack`, etc.
 - [x] Task to implement lazy fetching of generation-specific data upon save file detection
 - [x] task-429-473-generate-gen-specific-bundles
-- [ ] task-429-474-implement-lazy-fetching
-- [ ] task-429-475-gen-specific-bundles-qa
+- [x] task-429-474-implement-lazy-fetching
+- [x] task-429-475-gen-specific-bundles-qa
 - [ ] research-429-531-investigate-gen-specific-bundle-timeout
-- [ ] task-429-553-generate-gen-specific-bundles
+- [x] task-429-553-generate-gen-specific-bundles
+
+- [ ] research-429-632-investigate-task-553-failure
+- [ ] task-429-633-split-data-generation
+- [ ] task-429-634-update-vite-plugin
+- [ ] task-429-635-implement-lazy-fetching-v2
+- [ ] task-429-636-gen-specific-bundles-qa-v2

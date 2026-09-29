@@ -2,12 +2,12 @@
 id: task-563-586-develop-migration-script
 type: TASK
 title: Develop Migration Script for Task Reminders
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-16T23:51:03Z'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: '14677250833179894184'
+jules_session_id: null
 pr_number: null
 parent: story-335-563-develop-migration-script
 tags:
@@ -44,5 +44,3 @@ This task involves creating a script to migrate existing task nodes by removing 
 - [x] The script preserves the YAML frontmatter and all other markdown content unharmed.
 - [x] The script has been executed to migrate current tasks (if applicable during testing), and code has been tested to work.
 
-### QA Rejection
-The implementation fails to strictly parse the YAML frontmatter to determine the task state. The status extraction uses `content.match(/^status:\s*(ACTIVE|PENDING|READY)\s*$/m);`, which matches the status anywhere in the entire file. This causes issues where completed nodes might be incorrectly processed if they have status information embedded in the body. You MUST strictly parse only the YAML frontmatter block for this information.

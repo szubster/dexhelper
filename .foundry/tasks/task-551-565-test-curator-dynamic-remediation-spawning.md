@@ -2,13 +2,13 @@
 id: task-551-565-test-curator-dynamic-remediation-spawning
 type: TASK
 title: Test Curator Dynamic Remediation Spawning
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-07'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - task-551-562-update-curator-prompt-logic
-jules_session_id: '7256067655103028161'
+jules_session_id: null
 parent: story-532-551-curator-historical-mapping-logic
 tags:
   - architecture
@@ -29,4 +29,4 @@ Write tests to verify dynamic remediation node spawning by the curator.
 - Verify that the logic correctly spawns remediation nodes linked to legacy ideas.
 
 ## Acceptance Criteria
-- [ ] Write dynamic remediation spawning tests
+- [x] Write dynamic remediation spawning tests

@@ -32,7 +32,13 @@ interface PokemonCaughtDetailsProps {
   yourPokemon: (PokemonInstance & { location: string })[];
 }
 
-export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps) {
+// ⚡ Bolt: Pre-allocated indices array to avoid intermediate array allocations on every render pass
+const TELEMETRY_BLOCK_INDICES = Array.from({ length: 12 }, (_, i) => i);
+
+// ⚡ Bolt: Wrapped in React.memo to prevent unnecessary re-renders when parent components re-render without yourPokemon changing
+export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
+  yourPokemon,
+}: PokemonCaughtDetailsProps) {
   const generation = useStore((s) => s.saveData?.generation);
 
   if (yourPokemon.length === 0) return null;
@@ -110,7 +116,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
 
                   {/* Decorative telemetry bar */}
                   <div className="flex h-1.5 w-full gap-0.5 opacity-50">
-                    {Array.from({ length: 12 }).map((_, idx) => {
+                    {TELEMETRY_BLOCK_INDICES.map((idx) => {
                       // Deterministic selection based on index to prevent flickering during re-renders
                       const isActive = (idx * 7) % 3 === 0;
                       // Use a synthetic unique key built from slot identity and explicitly named subcomponent rather than bare index loop
@@ -230,7 +236,7 @@ export function PokemonCaughtDetails({ yourPokemon }: PokemonCaughtDetailsProps)
       </div>
     </div>
   );
-}
+});
 
 function TimeCapsuleBadge({ speciesId, moves }: { speciesId: number; moves: number[] }) {
   const validation = getTimeCapsuleValidation(speciesId, moves);

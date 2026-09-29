@@ -2,12 +2,12 @@
 id: task-525-627-workspace-e2e-scaffolding-coder
 type: TASK
 title: Workspace Infrastructure E2E Scaffolding Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: '11997766969529907673'
+jules_session_id: null
 pr_number: null
 parent: story-524-525-workspace-infrastructure-e2e
 tags:
@@ -32,4 +32,4 @@ locks: []
 This task focuses strictly on setting up the boilerplate for the E2E tests for the new workspace setup to adhere to the modular decomposition rule.
 
 ## Acceptance Criteria
-- [ ] Create E2E test file scaffolding for workspace validation.
+- [x] Create E2E test file scaffolding for workspace validation.

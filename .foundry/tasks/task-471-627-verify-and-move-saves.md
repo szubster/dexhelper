@@ -14,8 +14,10 @@ tags:
   - testing
   - fixtures
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 1
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

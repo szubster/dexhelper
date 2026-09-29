@@ -2,12 +2,12 @@
 id: research-473-611-investigate-condition-stats-parser-failure
 type: RESEARCH
 title: Investigate Gen 3 Condition Stats Parser Failure
-status: ACTIVE
+status: READY
 owner_persona: researcher
 created_at: '2026-09-22'
 updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: '8483010562944283444'
+jules_session_id: null
 pr_number: null
 parent: story-134-473-gen3-condition-stats-extraction-impl
 tags:
@@ -15,7 +15,7 @@ tags:
   - save-engine
   - data-extraction
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

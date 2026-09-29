@@ -2,10 +2,10 @@
 id: task-478-530-resolve-phase-locking-qa
 type: TASK
 title: QA Verification for RESOLVE phase locking logic
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-29'
 depends_on:
   - task-478-529-evaluate-locks-for-pending-nodes
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-478-528-aggregate-active-locks
 notes: ''
 locks: []
 ---

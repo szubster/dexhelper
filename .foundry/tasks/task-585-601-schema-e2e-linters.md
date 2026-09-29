@@ -2,13 +2,13 @@
 id: task-585-601-schema-e2e-linters
 type: TASK
 title: Update Linters for Confidence Metrics Schema
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-25'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - story-569-584-confidence-metrics-schema
-jules_session_id: '6564414309294333656'
+jules_session_id: null
 pr_number: null
 parent: story-569-585-confidence-metrics-schema-e2e
 tags:
@@ -34,4 +34,4 @@ Tools and linters validating `.foundry/docs/schema.md` schema need to be updated
 - Update tools and linters to recognize the new optional `confidence_score` property.
 
 ## Acceptance Criteria
-- [ ] Tools and linters are updated to recognize the new optional `confidence_score` property.
+- [x] Tools and linters are updated to recognize the new optional `confidence_score` property.

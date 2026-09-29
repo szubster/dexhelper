@@ -2,10 +2,10 @@
 id: task-525-628-workspace-e2e-tests-coder
 type: TASK
 title: Workspace Infrastructure E2E Test Logic Implementation
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - task-525-627-workspace-e2e-scaffolding-coder
 jules_session_id: null
@@ -32,5 +32,5 @@ locks: []
 This task focuses strictly on implementing the core test logic, assuming the E2E boilerplate has already been created in the preceding task.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright logic for workspace validation.
-- [ ] Pass the newly created workspace E2E test (`pnpm test:e2e`).
+- [x] Implement Playwright logic for workspace validation.
+- [x] Pass the newly created workspace E2E test (`pnpm test:e2e`).

@@ -2,10 +2,10 @@
 id: task-563-580-gen3-wild-item-data-parsing-qa
 type: TASK
 title: QA verification for Gen 3 Wild Encounter and Held Item Parsing Logic
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-14'
-updated_at: '2026-09-14'
+updated_at: '2026-09-29'
 depends_on:
   - task-563-578-gen3-wild-item-data-parsing-logic
   - task-563-579-gen3-wild-item-data-parsing-tests
@@ -17,7 +17,9 @@ tags:
   - dexhelper
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-563-578-gen3-wild-item-data-parsing-logic
 notes: ''
 locks: []
 ---

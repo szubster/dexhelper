@@ -27,7 +27,6 @@ import { parseGen2DailyEvents, parseGen2NarrativeFlags, parseGen2RuinsOfAlphPuzz
 import type { GameVersion, Gen2SaveData, PokemonInstance } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
 import { parseGen2PokegearData } from './gen2/phone/parser';
-
 import {
   ACTIVE_DECO_COUNT,
   ACTIVE_DECO_OFFSET_RELATIVE_CRYSTAL,
@@ -98,6 +97,7 @@ import {
   GEN2_NPC_TRADE_COUNT,
   GEN2_PARTY_POKEMON_BLOCK_SIZE,
   GEN2_PARTY_SPECIES_LIST_LENGTH,
+  GEN2_PKM_DATA_LENGTH,
   GEN2_TM_BASE_ITEM_ID,
   GEN2_TM_EVENT_FLAGS,
   GEN2_TM_HM_COUNT,
@@ -430,7 +430,7 @@ function parsePokedex(view: DataView, offsets: { owned: number; seen: number }) 
   const owned = new Set<number>();
   const seen = new Set<number>();
 
-  for (let dexId = 1; dexId <= 251; dexId++) {
+  for (let dexId = 1; dexId <= MAX_VALID_SPECIES_ID; dexId++) {
     const byteIdx = Math.floor((dexId - 1) / 8);
     const bitIdx = (dexId - 1) % 8;
 
@@ -683,7 +683,7 @@ function parseGen2HallOfFameRecords(
         const speciesId = view.getUint8(offset);
 
         // 0x00 or 0xFF usually means empty slot or terminator
-        if (speciesId === 0x00 || speciesId === 0xff) {
+        if (speciesId === 0x00 || speciesId === GEN2_EMPTY_SLOT) {
           continue;
         }
 
@@ -811,14 +811,14 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
   const party: number[] = [];
   const partyDetails: PokemonInstance[] = [];
   for (const { partyDetails: details, speciesId } of iterateGen2Party(view, offsets, isCrystal)) {
-    if (speciesId > 0 && speciesId <= 251) party.push(speciesId);
+    if (speciesId > 0 && speciesId <= MAX_VALID_SPECIES_ID) party.push(speciesId);
     partyDetails.push(details);
   }
 
   const pc: number[] = [];
   const pcDetails: PokemonInstance[] = [];
   for (const { pcDetails: details, speciesId } of iterateGen2PCBoxes(view, offsets, isCrystal)) {
-    if (speciesId > 0 && (speciesId <= 251 || speciesId === GEN2_EGG_SPECIES_ID)) pc.push(speciesId);
+    if (speciesId > 0 && (speciesId <= MAX_VALID_SPECIES_ID || speciesId === GEN2_EGG_SPECIES_ID)) pc.push(speciesId);
     pcDetails.push(details);
   }
 
@@ -1069,4 +1069,18 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
     gen2DailyEvents: parseGen2DailyEvents(eventFlags),
     gen2PokegearPhone: parseGen2PokegearData(view, isCrystal),
   };
+}
+export function extractGen2Pkm(view: DataView, offset: number): Uint8Array {
+  const pkmData = new Uint8Array(GEN2_PKM_DATA_LENGTH);
+  try {
+    for (let i = 0; i < GEN2_PKM_DATA_LENGTH; i++) {
+      pkmData[i] = view.getUint8(offset + i);
+    }
+  } catch (e) {
+    if (e instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw e;
+  }
+  return pkmData;
 }

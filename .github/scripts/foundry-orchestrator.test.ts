@@ -183,6 +183,40 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(fileContent).toContain('status: COMPLETED');
   });
 
+  test('Late-Binding Parent promotes IDEA to READY for curator if children are completed', () => {
+    createValidTestNode(tmpDir, '.foundry/ideas/idea-late-binding.md', {
+      id: "idea-late-binding",
+      type: "IDEA",
+      title: "Idea Late Binding",
+      status: "PENDING",
+      owner_persona: "product_manager",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null
+    }, "## Acceptance Criteria\n- [x] Task\n");
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-late.md', {
+      id: "story-late",
+      type: "STORY",
+      title: "Story Late",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: "idea-late-binding",
+      tags: [],
+      jules_session_id: null
+    });
+
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    main();
+    const fileContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-late-binding.md'), 'utf-8');
+    expect(fileContent).toContain('status: READY');
+    expect(fileContent).toContain('owner_persona: curator');
+  });
+
   test('Happy Path: promotes PENDING to READY when all dependencies are COMPLETED', () => {
     createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
       id: "idea-001",
@@ -1302,12 +1336,12 @@ vi.doMock('node:url', async (importOriginal) => {
   });
 
   test('Parent-ID Resolution: Late-Binding completes parent identified by ID when child is COMPLETED', () => {
-    createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
-      id: "idea-001",
-      type: "IDEA",
-      title: "Idea 1",
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
       status: "PENDING",
-      owner_persona: "product_manager",
+      owner_persona: "story_owner",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [],
@@ -1318,24 +1352,25 @@ vi.doMock('node:url', async (importOriginal) => {
 - [ ] Unchecked task
 `);
 
-    createValidTestNode(tmpDir, '.foundry/prds/prd-001.md', {
-      id: "prd-001",
-      type: "PRD",
-      title: "PRD 1",
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
       status: "COMPLETED",
-      owner_persona: "epic_planner",
+      owner_persona: "tech_lead",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
-      parent: "idea-001",
+      parent: "epic-001",
       depends_on: [],
+      tags: ["e2e"],
       jules_session_id: null,
     });
 
     main();
 
-    const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
-    expect(ideaContent).toContain('status: COMPLETED');
-    expect(ideaContent).toContain('- [x] Unchecked task');
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: COMPLETED');
+    expect(epicContent).toContain('- [x] Unchecked task');
   });
 
 
@@ -2287,12 +2322,12 @@ Target artifact: task-completed
   });
 
   test('Late-Binding: Parent with unchecked tasks and completed children is promoted exactly once', () => {
-    createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
-      id: "idea-001",
-      type: "IDEA",
-      title: "Idea 1",
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
       status: "PENDING",
-      owner_persona: "product_manager",
+      owner_persona: "story_owner",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [],
@@ -2301,19 +2336,20 @@ Target artifact: task-completed
 ## Acceptance Criteria
 
 - [ ] Unchecked task
-- Spawned: [.foundry/prds/prd-001.md](.foundry/prds/prd-001.md)
+- Spawned: [.foundry/stories/story-001.md](.foundry/stories/story-001.md)
 `);
 
-    createValidTestNode(tmpDir, '.foundry/prds/prd-001.md', {
-      id: "prd-001",
-      type: "PRD",
-      title: "PRD 1",
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
       status: "COMPLETED",
-      owner_persona: "epic_planner",
+      owner_persona: "tech_lead",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [],
-      parent: ".foundry/ideas/idea-001.md",
+      parent: ".foundry/epics/epic-001.md",
+      tags: ["e2e"],
       jules_session_id: null,
     });
 
@@ -2328,11 +2364,11 @@ Target artifact: task-completed
     }
 
     // Verify "Cannot promote status" warning is NOT present
-    const doublePromotionWarning = warnings.find(w => w.includes('Cannot promote status') && w.includes('idea-001.md'));
+    const doublePromotionWarning = warnings.find(w => w.includes('Cannot promote status') && w.includes('epic-001.md'));
     expect(doublePromotionWarning).toBeUndefined();
 
-    const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
-    expect(ideaContent).toContain('status: COMPLETED');
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: COMPLETED');
   });
 
   test('Mapping Validation: allows architect to own TASK nodes', () => {
@@ -2573,67 +2609,69 @@ Target artifact: task-completed
   });
 
   test('Late-Binding with Markdown ID references: Parent auto-remediates to COMPLETED when children referenced by ID are completed', () => {
-    createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
-      id: "idea-001",
-      type: "IDEA",
-      title: "Idea 1",
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
       status: "PENDING",
-      owner_persona: "product_manager",
+      owner_persona: "story_owner",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [],
       jules_session_id: null,
-    }, `# Title\n## Acceptance Criteria\n\n- [ ] Unchecked task\n- [x] prd-001\n`);
+    }, `# Title\n## Acceptance Criteria\n\n- [ ] Unchecked task\n- [x] story-001\n`);
 
-    createValidTestNode(tmpDir, '.foundry/prds/prd-001.md', {
-      id: "prd-001",
-      type: "PRD",
-      title: "PRD 1",
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
       status: "COMPLETED",
-      owner_persona: "epic_planner",
+      owner_persona: "tech_lead",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [],
+      tags: ["e2e"],
       jules_session_id: null,
     });
 
     main();
 
-    const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
-    expect(ideaContent).toContain('status: COMPLETED');
-    expect(ideaContent).toContain('- [x] Unchecked task');
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: COMPLETED');
+    expect(epicContent).toContain('- [x] Unchecked task');
   });
 
   test('Late-Binding with Markdown Link: Parent auto-remediates to COMPLETED when markdown-linked children are completed', () => {
-    createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
-      id: "idea-001",
-      type: "IDEA",
-      title: "Idea 1",
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
       status: "PENDING",
-      owner_persona: "product_manager",
+      owner_persona: "story_owner",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [],
       jules_session_id: null,
-    }, `# Title\n## Acceptance Criteria\n\n- [ ] Unchecked task\n- Spawned via link: [.foundry/prds/prd-001.md](.foundry/prds/prd-001.md)\n`);
+    }, `# Title\n## Acceptance Criteria\n\n- [ ] Unchecked task\n- Spawned via link: [.foundry/stories/story-001.md](.foundry/stories/story-001.md)\n`);
 
-    createValidTestNode(tmpDir, '.foundry/prds/prd-001.md', {
-      id: "prd-001",
-      type: "PRD",
-      title: "PRD 1",
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "Story 1",
       status: "COMPLETED",
-      owner_persona: "epic_planner",
+      owner_persona: "tech_lead",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [],
+      tags: ["e2e"],
       jules_session_id: null,
     });
 
     main();
 
-    const ideaContent = fs.readFileSync(path.join(tmpDir, '.foundry/ideas/idea-001.md'), 'utf-8');
-    expect(ideaContent).toContain('status: COMPLETED');
-    expect(ideaContent).toContain('- [x] Unchecked task');
+    const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicContent).toContain('status: COMPLETED');
+    expect(epicContent).toContain('- [x] Unchecked task');
   });
 
   test('Impossible Loop: Wakes up parent even if FAILED child has incomplete sub-children', () => {

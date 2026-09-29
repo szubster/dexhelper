@@ -2,12 +2,12 @@
 id: task-521-602-gen2-bug-catching-contest-core-data-impl
 type: TASK
 title: Gen 2 Bug-Catching Contest Core Data Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: '6745241715289008382'
+jules_session_id: null
 pr_number: null
 parent: story-512-521-gen2-bug-catching-contest-core-data
 tags:
@@ -30,6 +30,7 @@ Implement parsing of the Gen 2 save state to extract the basic data of the curre
 This task implements the core logic for extracting Bug-Catching Contest data from the save file. This includes defining the offsets, reading the relevant data blocks, and parsing the fields.
 
 ## Acceptance Criteria
+- [ ] research-602-628-gen2-bug-catching-contest-offsets
 - [ ] Define the constants/offsets for the Bug-Catching Contest data block (Species ID, Level, Current HP, Max HP).
 - [ ] Implement the extraction logic in a utility function.
 - [ ] Add unit tests verifying the extraction logic with mock save data.
