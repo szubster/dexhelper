@@ -36,3 +36,4 @@
 | [task-581-608-secret-base-constants](.foundry/tasks/task-581-608-secret-base-constants.md) | TASK | Secret Base Extraction Constants | coder | [431568894641418927](https://jules.google.com/session/431568894641418927) |
 | [task-585-601-schema-e2e-linters](.foundry/tasks/task-585-601-schema-e2e-linters.md) | TASK | Update Linters for Confidence Metrics Schema | coder | [6564414309294333656](https://jules.google.com/session/6564414309294333656) |
 | [task-587-627-migrate-basic-tests-to-fixtures](.foundry/tasks/task-587-627-migrate-basic-tests-to-fixtures.md) | TASK | Migrate Basic Tests to Fixtures | coder | [15433415338098302767](https://jules.google.com/session/15433415338098302767) |
+| [task-608-617-multi-box-text-search-engine-impl](.foundry/tasks/task-608-617-multi-box-text-search-engine-impl.md) | TASK | Multi-Box Text Search Engine Implementation | coder | [6554621732094719360](https://jules.google.com/session/6554621732094719360) |
