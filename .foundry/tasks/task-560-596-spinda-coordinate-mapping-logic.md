@@ -26,5 +26,5 @@ priority: 50
 This task involves implementing the coordinate mapping logic to translate the four distinct bytes (extracted from the PID) into specific X and Y offsets. These coordinates determine the rendering placement for the top-left, top-right, bottom-left, and bottom-right spots of Spinda based on Gen 3 mechanics.
 
 ## Acceptance Criteria
-- [ ] Map parsed bytes to X and Y offsets.
-- [ ] Write unit tests for coordinate algorithms.
+- [x] Map parsed bytes to X and Y offsets.
+- [x] Write unit tests for coordinate algorithms.
