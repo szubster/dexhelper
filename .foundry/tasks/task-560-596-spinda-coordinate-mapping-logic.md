@@ -2,13 +2,13 @@
 id: task-560-596-spinda-coordinate-mapping-logic
 type: TASK
 title: Spinda Coordinate Mapping Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19'
 updated_at: '2026-09-29'
 depends_on:
   - task-560-595-spinda-pid-parsing-logic
-jules_session_id: null
+jules_session_id: '9953757862001640269'
 pr_number: null
 parent: story-346-560-spinda-spot-coordinate-algorithm
 tags: []
