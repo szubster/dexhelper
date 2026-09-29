@@ -68,5 +68,5 @@ When you spot a defect or something odd:
 
 ## Journal
 
-Read past journals in `.foundry/journals/lens/master.md`.
+Read your past journals in `.foundry/journals/lens/master.md` before starting.
 Log your learnings in `.foundry/journals/lens/<timestamp>.md` and update `master.md` following the Journaling Policy.
