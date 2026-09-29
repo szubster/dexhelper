@@ -27,4 +27,4 @@ priority: 50
 Find the exact memory offsets for Gen 3 wild encounter locations, rates, and held item data to support accurate parsing.
 
 ## Acceptance Criteria
-- [ ] Identify Gen 3 wild encounter memory offsets and structures.
+- [x] Identify Gen 3 wild encounter memory offsets and structures.
