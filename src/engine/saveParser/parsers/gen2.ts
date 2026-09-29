@@ -430,7 +430,7 @@ function parsePokedex(view: DataView, offsets: { owned: number; seen: number }) 
   const owned = new Set<number>();
   const seen = new Set<number>();
 
-  for (let dexId = 1; dexId <= 251; dexId++) {
+  for (let dexId = 1; dexId <= MAX_VALID_SPECIES_ID; dexId++) {
     const byteIdx = Math.floor((dexId - 1) / 8);
     const bitIdx = (dexId - 1) % 8;
 
@@ -683,7 +683,7 @@ function parseGen2HallOfFameRecords(
         const speciesId = view.getUint8(offset);
 
         // 0x00 or 0xFF usually means empty slot or terminator
-        if (speciesId === 0x00 || speciesId === 0xff) {
+        if (speciesId === 0x00 || speciesId === GEN2_EMPTY_SLOT) {
           continue;
         }
 
@@ -811,14 +811,14 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
   const party: number[] = [];
   const partyDetails: PokemonInstance[] = [];
   for (const { partyDetails: details, speciesId } of iterateGen2Party(view, offsets, isCrystal)) {
-    if (speciesId > 0 && speciesId <= 251) party.push(speciesId);
+    if (speciesId > 0 && speciesId <= MAX_VALID_SPECIES_ID) party.push(speciesId);
     partyDetails.push(details);
   }
 
   const pc: number[] = [];
   const pcDetails: PokemonInstance[] = [];
   for (const { pcDetails: details, speciesId } of iterateGen2PCBoxes(view, offsets, isCrystal)) {
-    if (speciesId > 0 && (speciesId <= 251 || speciesId === GEN2_EGG_SPECIES_ID)) pc.push(speciesId);
+    if (speciesId > 0 && (speciesId <= MAX_VALID_SPECIES_ID || speciesId === GEN2_EGG_SPECIES_ID)) pc.push(speciesId);
     pcDetails.push(details);
   }
 
