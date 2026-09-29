@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { parseSecretBaseParty, parseSecretBaseRecord, SECRET_BASE_SIZE } from './parser';
+import { SECRET_BASE_SIZE } from './constants';
+import { parseSecretBaseParty, parseSecretBaseRecord } from './parser';
 
 describe('Secret Base Parser', () => {
   describe('parseSecretBaseParty', () => {

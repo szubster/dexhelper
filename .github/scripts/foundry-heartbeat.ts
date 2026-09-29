@@ -247,7 +247,20 @@ export async function transitionNodeToCompleted(node: any, repoRoot: string, prN
     }
   }
 
-  if (["IDEA", "PRD", "EPIC"].includes(nodeType) && ownerPersona !== 'auditor') {
+  if (nodeType === 'IDEA' && ownerPersona !== 'curator' && ownerPersona !== 'auditor') {
+    parsed.data.status = "READY";
+    parsed.data.owner_persona = "curator";
+    parsed.data.jules_session_id = null;
+    parsed.data.updated_at = dateStr;
+    parsed.data.rejection_reason = '';
+
+    const newContent = matter.stringify(parsed.content, parsed.data);
+
+    if (!DRY_RUN) {
+      fs.writeFileSync(node.filePath, newContent, 'utf-8');
+    }
+    info(`${dryTag}Transitioned ACTIVE → READY: ${node.repoPath} (PR #${prNumber}) with curator`);
+  } else if (["IDEA", "PRD", "EPIC"].includes(nodeType) && ownerPersona !== 'auditor') {
     parsed.data.status = "VERIFYING";
     parsed.data.owner_persona = "auditor";
     parsed.data.jules_session_id = null;

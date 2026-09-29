@@ -103,6 +103,12 @@ import { BERRY_TREE_LOCATIONS } from '../../gen3/berryPatches/berryLocations';
 import { type Gen3FameCheckerData, parseGen3FameChecker } from '../../gen3/fameChecker/parser';
 import { extractFeebasSeed } from '../../gen3/feebas';
 import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
+import {
+  SECRET_BASE_OFFSET_EMERALD,
+  SECRET_BASE_OFFSET_RS,
+  SECRET_BASE_SIZE,
+  SECRET_BASES_COUNT,
+} from '../../gen3/secretBase/constants';
 import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
 import { extractGen3StaticEncounterFlags } from '../../gen3/staticEncounters';
 import {
@@ -181,10 +187,6 @@ const MIRAGE_ISLAND_OFFSET_RS = 0x0408;
 const GEN3_TRAINER_ID_OFFSET = 0x000a;
 const SECRET_ID_SHIFT = 16;
 const NUM_SECTIONS = 14;
-const SECRET_BASES_COUNT = 20;
-const SECRET_BASE_SIZE = 160;
-const SECRET_BASE_OFFSET_RS = 0x1a08;
-const SECRET_BASE_OFFSET_EMERALD = 0x1a9c;
 
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
@@ -323,6 +325,17 @@ export const SPINDA_SPOT_ORIGINS = {
   BOTTOM_LEFT: { x: 14, y: 24 },
   BOTTOM_RIGHT: { x: 26, y: 25 },
 };
+
+/**
+ * Parses a 32-bit Spinda Personality ID (PID) into 4 distinct bytes.
+ * Each byte determines the offset coordinate for one of Spinda's spots.
+ *
+ * @param pid - The 32-bit Personality Value.
+ * @returns A tuple of 4 bytes (0-255).
+ */
+export function parseSpindaPID(pid: number): [number, number, number, number] {
+  return [pid & 0xff, (pid >>> 8) & 0xff, (pid >>> 16) & 0xff, (pid >>> 24) & 0xff];
+}
 
 export const UPPER_16_BIT_SHIFT = 16;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;

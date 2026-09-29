@@ -5,7 +5,7 @@ title: Gen 3 Move Tutor Compatibility Logic
 status: READY
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -29,4 +29,4 @@ Write tests to verify dynamic remediation node spawning by the curator.
 - Verify that the logic correctly spawns remediation nodes linked to legacy ideas.
 
 ## Acceptance Criteria
-- [ ] Write dynamic remediation spawning tests
+- [x] Write dynamic remediation spawning tests

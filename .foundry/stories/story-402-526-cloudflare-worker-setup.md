@@ -2,10 +2,10 @@
 id: story-402-526-cloudflare-worker-setup
 type: STORY
 title: Initialize Cloudflare Worker and Google Drive API Auth
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-09-11'
+updated_at: '2026-09-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,10 +32,10 @@ Based on `adr-336-033-server-side-drive-sync`, we are implementing server-side d
 Initialize the Cloudflare Worker project and implement Google Drive OAuth/Service Account authentication to allow the worker to interact with Google Drive.
 
 ## Acceptance Criteria
-- [ ] Initialize Cloudflare Worker.
-- [ ] Implement Google Drive API authentication.
+- [x] Initialize Cloudflare Worker.
+- [x] Implement Google Drive API authentication.
 - [x] Break down into Tasks.
-- [ ] task-526-564-drive-auth-env-setup
-- [ ] task-526-565-drive-auth-worker-logic
-- [ ] task-526-566-drive-auth-tests
-- [ ] task-526-567-drive-auth-qa
+- [x] task-526-564-drive-auth-env-setup
+- [x] task-526-565-drive-auth-worker-logic
+- [x] task-526-566-drive-auth-tests
+- [x] task-526-567-drive-auth-qa

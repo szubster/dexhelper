@@ -98,6 +98,12 @@ const Gen2Checklist = React.lazy(() =>
   })),
 );
 
+const HallOfFameDashboard = React.lazy(() =>
+  import('../components/dashboard/hof/HallOfFameDashboard').then((m) => ({
+    default: m.HallOfFameDashboard,
+  })),
+);
+
 export const Route = createFileRoute('/dashboard')({
   component: DashboardPage,
 });
@@ -114,6 +120,9 @@ function DashboardPage() {
       <Suspense fallback={<div className="tactical-skeleton h-32" />}>
         {saveData.generation === 3 ? (
           <>
+            {saveData.hallOfFameRecords && saveData.hallOfFameRecords.length > 0 && (
+              <HallOfFameDashboard saveData={saveData} />
+            )}
             <Gen3RoamerDossier saveData={saveData} />
             <RngCalculatorDashboard />
             <BattleFrontierDashboard saveData={saveData} />
@@ -127,6 +136,9 @@ function DashboardPage() {
           </>
         ) : saveData.generation === 2 ? (
           <>
+            {saveData.hallOfFameRecords && saveData.hallOfFameRecords.length > 0 && (
+              <HallOfFameDashboard saveData={saveData} />
+            )}
             <Gen2Checklist />
             <Gen2SavingsDashboard />
             <Gen2DecorationsDashboard saveData={saveData} />
@@ -140,7 +152,12 @@ function DashboardPage() {
             <ShinyCarrierBreedingDashboard />
           </>
         ) : (
-          <Gen1Checklist />
+          <>
+            {saveData.hallOfFameRecords && saveData.hallOfFameRecords.length > 0 && (
+              <HallOfFameDashboard saveData={saveData} />
+            )}
+            <Gen1Checklist />
+          </>
         )}
       </Suspense>
     </div>

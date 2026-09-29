@@ -2,12 +2,12 @@
 id: task-608-617-multi-box-text-search-engine-impl
 type: TASK
 title: Multi-Box Text Search Engine Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6554621732094719360'
 pr_number: null
 parent: story-574-608-multi-box-text-search-engine
 tags:
@@ -32,8 +32,8 @@ We need to implement the core search functionality for the Multi-Box Search Engi
 - Implement filtering logic against `pokemon.nameLower`, `pokemon.nicknameLower` (if it exists or mapped), and `pokemon.otNameLower` (if it exists or mapped).
 
 ## Acceptance Criteria
-- [ ] Implement text search filtering for PC Box Pokémon.
-- [ ] Filter PC Box Pokémon by Nickname, Species Name, and OT Name.
-- [ ] Render the search results efficiently in `BoxAnalyzerView` or a newly created child component.
-- [ ] Ensure that string comparisons are case-insensitive.
-- [ ] Add unit tests verifying the search logic and component rendering.
+- [x] Implement text search filtering for PC Box Pokémon.
+- [x] Filter PC Box Pokémon by Nickname, Species Name, and OT Name.
+- [x] Render the search results efficiently in `BoxAnalyzerView` or a newly created child component.
+- [x] Ensure that string comparisons are case-insensitive.
+- [x] Add unit tests verifying the search logic and component rendering.

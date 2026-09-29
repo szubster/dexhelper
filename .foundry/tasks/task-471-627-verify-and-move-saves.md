@@ -2,12 +2,12 @@
 id: task-471-627-verify-and-move-saves
 type: TASK
 title: Verify and Move Saves
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: '11546191805659473604'
+jules_session_id: null
 pr_number: null
 parent: story-428-471-verify-and-integrate-saves
 tags:
@@ -15,7 +15,7 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
 notes: ''
 locks: []
 ---
