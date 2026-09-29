@@ -1,4 +1,5 @@
 import { ShieldAlert, Zap } from 'lucide-react';
+import React, { useMemo } from 'react';
 import type { PokemonInstance } from '../../engine/saveParser/parsers/common';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
 import { ScanlineOverlay } from '../ScanlineOverlay';
@@ -10,8 +11,13 @@ export interface AliveTeamViewProps {
   generation: number;
 }
 
-export function AliveTeamView({ team, generation }: AliveTeamViewProps) {
-  const aliveTeam = team.filter((p) => p.currentHp !== 0);
+// ⚡ Bolt: Pre-allocated indices array to avoid intermediate array allocations on every render pass
+const HP_SEGMENT_INDICES = Array.from({ length: 10 }, (_, i) => i);
+
+// ⚡ Bolt: Wrapped in React.memo to prevent unnecessary re-renders when parent states change without team or generation changing
+export const AliveTeamView = React.memo(function AliveTeamView({ team, generation }: AliveTeamViewProps) {
+  // ⚡ Bolt: Memoize filtered alive team to avoid array allocation on every re-render
+  const aliveTeam = useMemo(() => team.filter((p) => p.currentHp !== 0), [team]);
 
   return (
     <TacticalPanel variant="emerald" className="mb-6 p-4 sm:p-6">
@@ -56,9 +62,8 @@ export function AliveTeamView({ team, generation }: AliveTeamViewProps) {
 
                   {/* Segmented HP Bar */}
                   <div className="flex h-1.5 w-full gap-[1px] bg-black/40">
-                    {Array.from({ length: 10 }).map((_, i) => (
+                    {HP_SEGMENT_INDICES.map((i) => (
                       <div
-                        // biome-ignore lint/suspicious/noArrayIndexKey: Segment index
                         key={i}
                         className={`h-full flex-1 ${
                           i < Math.ceil(hpPercent / 10)
@@ -97,4 +102,4 @@ export function AliveTeamView({ team, generation }: AliveTeamViewProps) {
       </div>
     </TacticalPanel>
   );
-}
+});
