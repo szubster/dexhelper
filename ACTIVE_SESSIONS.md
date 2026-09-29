@@ -13,3 +13,4 @@
 | [task-562-621-wild-item-selection-ui-retry](.foundry/tasks/task-562-621-wild-item-selection-ui-retry.md) | TASK | Wild Item Selection UI Implementation Retry | coder | [5471113489938776965](https://jules.google.com/session/5471113489938776965) |
 | [task-570-618-cva-tactical-aesthetic-e2e-coder-retry](.foundry/tasks/task-570-618-cva-tactical-aesthetic-e2e-coder-retry.md) | TASK | Write E2E tests for CVA tactical aesthetic variants (Retry) | coder | [7988103308879815861](https://jules.google.com/session/7988103308879815861) |
 | [task-585-602-schema-e2e-tests](.foundry/tasks/task-585-602-schema-e2e-tests.md) | TASK | Update tests for Confidence Metrics Schema | coder | [14180855020047648235](https://jules.google.com/session/14180855020047648235) |
+| [task-587-628-qa-basic-tests-migration](.foundry/tasks/task-587-628-qa-basic-tests-migration.md) | TASK | QA Basic Tests Migration | qa | [3388233862601467251](https://jules.google.com/session/3388233862601467251) |
