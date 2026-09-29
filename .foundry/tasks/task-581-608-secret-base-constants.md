@@ -32,5 +32,5 @@ As part of the Gen 3 Secret Base Array Extraction, we need to define explicit mo
 - Include unit tests verifying constant values against expected specifications.
 
 ## Acceptance Criteria
-- [ ] Implement module-level constants.
-- [ ] Add unit tests for constant integrity.
+- [x] Implement module-level constants.
+- [x] Add unit tests for constant integrity.

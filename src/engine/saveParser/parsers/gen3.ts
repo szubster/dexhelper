@@ -103,6 +103,12 @@ import { BERRY_TREE_LOCATIONS } from '../../gen3/berryPatches/berryLocations';
 import { type Gen3FameCheckerData, parseGen3FameChecker } from '../../gen3/fameChecker/parser';
 import { extractFeebasSeed } from '../../gen3/feebas';
 import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
+import {
+  SECRET_BASE_OFFSET_EMERALD,
+  SECRET_BASE_OFFSET_RS,
+  SECRET_BASE_SIZE,
+  SECRET_BASES_COUNT,
+} from '../../gen3/secretBase/constants';
 import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
 import { extractGen3StaticEncounterFlags } from '../../gen3/staticEncounters';
 import {
@@ -181,10 +187,6 @@ const MIRAGE_ISLAND_OFFSET_RS = 0x0408;
 const GEN3_TRAINER_ID_OFFSET = 0x000a;
 const SECRET_ID_SHIFT = 16;
 const NUM_SECTIONS = 14;
-const SECRET_BASES_COUNT = 20;
-const SECRET_BASE_SIZE = 160;
-const SECRET_BASE_OFFSET_RS = 0x1a08;
-const SECRET_BASE_OFFSET_EMERALD = 0x1a9c;
 
 const SAVE_BLOCK_A = 0x0000;
 const SAVE_BLOCK_B = 0xe000;
