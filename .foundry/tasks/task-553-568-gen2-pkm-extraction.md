@@ -2,12 +2,12 @@
 id: task-553-568-gen2-pkm-extraction
 type: TASK
 title: Gen 2 PKM Extraction Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-07'
 updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: '7399193006184928488'
+jules_session_id: null
 parent: story-530-553-gen1-gen2-pkm-extraction
 tags:
   - data

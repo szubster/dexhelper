@@ -2,10 +2,10 @@
 id: epic-049-088-vite-plugin-jsonl-integration
 type: EPIC
 title: Vite Plugin Integration for JSONL Data
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-09-29'
 depends_on:
   - epic-049-086-dynamic-move-pp-parsing
   - epic-049-087-dynamic-item-list-parsing
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # EPIC: Vite Plugin Integration for JSONL Data

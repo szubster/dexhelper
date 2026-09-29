@@ -2,10 +2,10 @@
 id: task-581-610-secret-base-qa
 type: TASK
 title: Secret Base Extraction QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-19'
-updated_at: '2026-09-19'
+updated_at: '2026-09-29'
 depends_on:
   - task-581-609-secret-base-extraction-logic
 jules_session_id: null

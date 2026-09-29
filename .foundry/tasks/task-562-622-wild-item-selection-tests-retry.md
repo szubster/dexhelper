@@ -2,10 +2,10 @@
 id: task-562-622-wild-item-selection-tests-retry
 type: TASK
 title: Wild Item Selection Tests Retry
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-24'
-updated_at: '2026-09-24'
+updated_at: '2026-09-29'
 depends_on:
   - task-562-621-wild-item-selection-ui-retry
 jules_session_id: null

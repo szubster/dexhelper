@@ -2,13 +2,13 @@
 id: task-581-609-secret-base-extraction-logic
 type: TASK
 title: Secret Base Extraction Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-19'
 updated_at: '2026-09-29'
 depends_on:
   - task-581-608-secret-base-constants
-jules_session_id: '10211357468423644130'
+jules_session_id: null
 pr_number: null
 parent: story-569-581-gen3-secret-base-array-extraction
 tags:

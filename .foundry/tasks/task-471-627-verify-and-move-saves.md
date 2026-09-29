@@ -2,7 +2,7 @@
 id: task-471-627-verify-and-move-saves
 type: TASK
 title: Verify and Move Saves
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-22'
 updated_at: '2026-09-29'
@@ -14,10 +14,8 @@ tags:
   - testing
   - fixtures
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

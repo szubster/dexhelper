@@ -2,10 +2,10 @@
 id: story-524-525-workspace-infrastructure-e2e
 type: STORY
 title: Workspace Infrastructure E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - story-524-524-architectural-linting
 jules_session_id: '14756438219841272412'
@@ -29,6 +29,6 @@ locks: []
 
 ## Acceptance Criteria
 - [x] Break this story down into tasks for verifying the new workspace setup.
-- [ ] task-525-627-workspace-e2e-scaffolding-coder
-- [ ] task-525-628-workspace-e2e-tests-coder
-- [ ] task-525-629-workspace-e2e-qa
+- [x] task-525-627-workspace-e2e-scaffolding-coder
+- [x] task-525-628-workspace-e2e-tests-coder
+- [x] task-525-629-workspace-e2e-qa
