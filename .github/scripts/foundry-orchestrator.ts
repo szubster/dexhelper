@@ -207,7 +207,7 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
  *
  * In --dry-run mode, logs the intended change but does NOT write to disk.
  */
-function promoteNodeStatus(node: ParsedNode, currentStatus: NodeFrontmatter['status'], targetStatus: NodeFrontmatter['status']): void {
+function promoteNodeStatus(node: ParsedNode, currentStatus: NodeFrontmatter['status'], targetStatus: NodeFrontmatter['status'], newOwner?: string): void {
   const dateStr = todayISO();
   const dryTag = isDryRun() ? '[DRY-RUN] ' : '';
 
@@ -218,7 +218,10 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: NodeFrontmatter['sta
 
   const clearRejectionReasonStatuses: NodeFrontmatter['status'][] = ['ACTIVE', 'READY', 'PENDING', 'VERIFYING', 'COMPLETED'];
 
-  const newData = { ...node.frontmatter, status: targetStatus, updated_at: dateStr };
+  const newData: any = { ...node.frontmatter, status: targetStatus, updated_at: dateStr };
+  if (newOwner) {
+    newData.owner_persona = newOwner;
+  }
 
   if (clearRejectionReasonStatuses.includes(targetStatus)) {
     newData.rejection_reason = '';
@@ -1206,7 +1209,11 @@ function main(): void {
           }
         } else {
           info(`Preflight success: Valid target artifacts exist and are completed. Bypassing dispatch for ${node.repoPath}`);
-          promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+          if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona !== 'curator' && node.frontmatter.owner_persona !== 'auditor') {
+            promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
+          } else {
+            promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+          }
         }
       } else if (children.length > 0) {
         // If the node already has children, it is in a Late-Binding wait state.
@@ -1216,7 +1223,11 @@ function main(): void {
         const hasCheckboxes = /^\s*-\s*\[\s*[xX\s]\s*\]/m.test(acceptanceCriteriaText);
         if (hasCheckboxes && !hasUncheckedTasks) {
           info(`Leaf node ${node.repoPath} has all acceptance criteria checked. Promoting directly to COMPLETED to prevent reawakening.`);
-          promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+          if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona !== 'curator' && node.frontmatter.owner_persona !== 'auditor') {
+            promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
+          } else {
+            promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+          }
         } else {
           eligible.push(node);
         }
@@ -1318,7 +1329,11 @@ function main(): void {
               }
 
               info(`Late-Binding Parent Complete: ${node.repoPath} has children and all are COMPLETED. Promoting directly to COMPLETED.`);
-              promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+              if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona !== 'curator' && node.frontmatter.owner_persona !== 'auditor') {
+                promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
+              } else {
+                promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+              }
               // Remove from eligible if it was added
               const idx = eligible.indexOf(node);
               if (idx !== -1) {
@@ -1421,7 +1436,11 @@ function main(): void {
         }
 
         info(`Idempotent check bypassed dispatch for ${node.repoPath} (artifacts already exist).`);
-        promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+        if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona !== 'curator' && node.frontmatter.owner_persona !== 'auditor') {
+          promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
+        } else {
+          promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+        }
 
         const dateStr = todayISO();
         const logDir = require('node:path').join(repoRoot, '.foundry/journals/agile_coach');
@@ -1464,7 +1483,8 @@ function main(): void {
       node.frontmatter.owner_persona === 'tpm' ||
       node.frontmatter.owner_persona === 'agile_coach' ||
       node.frontmatter.owner_persona === 'mechanic' ||
-      node.frontmatter.owner_persona === 'auditor'
+      node.frontmatter.owner_persona === 'auditor' ||
+      node.frontmatter.owner_persona === 'curator'
     ) {
       validatedEligible.push(node);
       continue;
