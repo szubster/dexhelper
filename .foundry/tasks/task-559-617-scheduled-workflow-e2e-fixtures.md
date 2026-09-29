@@ -23,5 +23,5 @@ tags:
 Following the implementation of issue-based dispatching for scheduled agent workflows, we need fixtures to simulate scheduled workflows and test the Orchestrator's prompt compilation and payload generation.
 
 ## Acceptance Criteria
-- [ ] Implement mock payloads and issue definitions for schedule-*.yml.
-- [ ] Ensure foundry-orchestrator.ts --compile-scheduled execution can be mocked and tested.
+- [x] Implement mock payloads and issue definitions for schedule-*.yml.
+- [x] Ensure foundry-orchestrator.ts --compile-scheduled execution can be mocked and tested.
