@@ -2,10 +2,10 @@
 id: epic-049-086-dynamic-move-pp-parsing
 type: EPIC
 title: Dynamic Generation of Moves PP PokeData
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-13'
-updated_at: '2026-08-23'
+updated_at: '2026-09-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # EPIC: Dynamic Generation of Moves PP PokeData
 
@@ -42,4 +43,4 @@ Currently, data such as move PPs are either manually maintained or fetched ad-ho
 
 - [x] story-086-275-move-runtime-integration
 - [x] Break down into Stories
-- [ ] story-086-469-dynamic-move-pp-parsing-e2e
+- [x] story-086-469-dynamic-move-pp-parsing-e2e
