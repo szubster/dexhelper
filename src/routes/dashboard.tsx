@@ -49,6 +49,11 @@ const Gen3EventItemsDashboard = React.lazy(() =>
     default: m.Gen3EventItemsDashboard,
   })),
 );
+const WildItemSelector = React.lazy(() =>
+  import('../components/dashboard/inventory/WildItemSelector').then((m) => ({
+    default: m.WildItemSelector,
+  })),
+);
 
 const Gen3TrainerCardDashboard = React.lazy(() =>
   import('../components/dashboard/trainer-card/Gen3TrainerCardDashboard').then((m) => ({
@@ -116,6 +121,7 @@ function DashboardPage() {
           <>
             <Gen3RoamerDossier saveData={saveData} />
             <RngCalculatorDashboard />
+            <WildItemSelector />
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
             <Gen3SecretBaseDashboard saveData={saveData} />
