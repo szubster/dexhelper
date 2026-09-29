@@ -17,13 +17,12 @@ test.describe('Safari Zone Layout', () => {
     const panel = page.locator('.tactical-panel').last();
     await expect(panel).toBeVisible();
 
-    const sidePanelArea = page.getByText('Side Panel Area');
-    await expect(sidePanelArea).toBeVisible();
-    await expect(sidePanelArea).toHaveClass(/border-dashed/);
-    await expect(sidePanelArea).toHaveClass(/font-mono/);
+    const sectorTelemetry = page.getByText('SECTOR TELEMETRY');
+    await expect(sectorTelemetry).toBeVisible();
+    await expect(sectorTelemetry).toHaveClass(/font-mono/);
 
-    const mainArea = page.getByText('Safari Zone Main Area');
-    await expect(mainArea).toBeVisible();
-    await expect(mainArea).toHaveClass(/font-mono/);
+    const mainTitle = page.getByText('SAFARI ZONE OPERATIONS CORE');
+    await expect(mainTitle).toBeVisible();
+    await expect(mainTitle).toHaveClass(/font-mono/);
   });
 });
