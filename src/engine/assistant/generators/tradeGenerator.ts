@@ -202,13 +202,19 @@ export function generateGiftAndTradeSuggestions(
     let priority = 65;
 
     if (hasOffered) {
-      description = `You have #${trade.offeredId}! Trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`;
+      const inst = instancesBySpecies.get(trade.offeredId)?.[0];
+      const locLabel = inst?.storageLocation ? ` (in ${inst.storageLocation})` : '';
+      description = `You have #${trade.offeredId}${locLabel}! Trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`;
       priority = 85;
     } else if (preEvoId) {
-      description = `You have #${preEvoId}! Evolve it to #${trade.offeredId} and trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`;
+      const inst = instancesBySpecies.get(preEvoId)?.[0];
+      const locLabel = inst?.storageLocation ? ` (in ${inst.storageLocation})` : '';
+      description = `You have #${preEvoId}${locLabel}! Evolve it to #${trade.offeredId} and trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`;
       priority = 75;
     } else if (postEvoId) {
-      description = `Breed your #${postEvoId} to get #${trade.offeredId} and trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`;
+      const inst = instancesBySpecies.get(postEvoId)?.[0];
+      const locLabel = inst?.storageLocation ? ` (in ${inst.storageLocation})` : '';
+      description = `Breed your #${postEvoId}${locLabel} to get #${trade.offeredId} and trade it at ${trade.location} for ${trade.nickname ? `${trade.nickname} the ` : ''}#${trade.receivedId}.`;
       priority = 70;
     }
 
