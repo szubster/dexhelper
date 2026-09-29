@@ -10,9 +10,11 @@ test.describe('Pokemon Details Modal', () => {
     const saveData = fs.readFileSync(savePath);
     await initializeWithSave(page, new Uint8Array(saveData));
 
-    // 2. Click on a Pokemon (e.g., Pikachu - ID 25)
-    // Mobile layouts often have a sticky header and bottom nav that block clicks.
-    await page.waitForTimeout(3000);
+    // 2. Search and click on a Pokemon (e.g., Pikachu - ID 25)
+    const searchInput = page.getByTestId('search-input');
+    await searchInput.click({ force: true });
+    await searchInput.fill('Pikachu');
+
     const pikachuCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="25"]');
     // Ensure we scroll the element to the center of the screen to avoid top/bottom sticky navs
     await pikachuCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));

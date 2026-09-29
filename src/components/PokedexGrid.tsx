@@ -108,6 +108,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
 
   const { containerRef, columns, virtualizer } = usePokedexGridVirtualizer({
     count: finalPokemon.length,
+    overscan: 2,
   });
 
   // ⚡ Bolt: Pre-allocate column indices to avoid intermediate array allocations inside high-frequency virtualized row render pass

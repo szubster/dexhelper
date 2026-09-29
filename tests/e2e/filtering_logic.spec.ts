@@ -22,8 +22,8 @@ test.describe('Filtering Logic', () => {
     // 1. Toggle "Owned" filter
     await page.getByTestId('filter-secured').click();
 
-    // 2. Pikachu (ID 25) is in our Yellow save fixture (Party/Box), should be visible
-    await expect(page.locator('[data-pokemon-id="25"]')).toBeVisible();
+    // 2. Ivysaur (ID 2) is in our Yellow save fixture (Party/Box), should be visible
+    await expect(page.locator('[data-pokemon-id="2"]')).toBeVisible();
 
     // 3. Bulbasaur (ID 1) is NOT in Yellow save by default, should be hidden
     await expect(page.locator('[data-pokemon-id="1"]')).not.toBeVisible();

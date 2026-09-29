@@ -20,3 +20,12 @@ All E2E tests must transition the application from an "Uninitialized" state to a
 
 ## 4. Playwright Configuration
 - **Open Reports**: In `playwright.config.ts`, explicitly set `open: 'never'` for the HTML reporter to ensure E2E suite completion and clean exits even on failure.
+
+## 5. Virtualized Lists & Grid Testing
+- **DOM Virtualization**: `PokedexGrid` uses `@tanstack/react-virtual` (`useWindowVirtualizer`) with a small overscan (e.g., 2). Off-screen items are deliberately not rendered in the DOM.
+- **Do NOT Inflate Overscan**: Never increase `overscan` to large numbers (such as 1000) in production code to make tests pass, as that bypasses virtualization.
+- **Target Acquisition**: When testing a specific card deep in the list (e.g., Spinda #327 or Pikachu #25 in full/filtered lists):
+  - Use `page.getByTestId('search-input').fill(...)` to narrow the list and mount the target card in the viewport.
+  - Use status filters (`page.getByTestId('filter-secured')`, `page.getByTestId('filter-dex-only')`, `page.getByTestId('filter-missing')`) to bring matching items to the top.
+  - When asserting that the grid has hydrated with cards, assert on `page.getByTestId('pokedex-card').first()`.
+

@@ -174,4 +174,22 @@ describe('PokedexGrid', () => {
     await expect.element(page.getByText('Pokemon3', { exact: true })).toBeInTheDocument();
     await expect.element(page.getByText('Pokemon4', { exact: true })).not.toBeInTheDocument();
   });
+
+  test('virtualizes items and does not render far-off elements in the DOM', async () => {
+    const largeList = Array.from({ length: 151 }, (_, i) => ({
+      id: i + 1,
+      name: `Pokemon${i + 1}`,
+      idString: String(i + 1).padStart(3, '0'),
+      nameLower: `pokemon${i + 1}`,
+    }));
+
+    const router = createMockRouter(<PokedexGrid pokemonList={largeList} />);
+    await render(<RouterProvider router={router} />);
+
+    // Pokemon1 should be in the document (at the top)
+    await expect.element(page.getByText('Pokemon1', { exact: true })).toBeInTheDocument();
+
+    // Pokemon150 (way down the list) should NOT be in the document because of virtualization
+    await expect.element(page.getByText('Pokemon150', { exact: true })).not.toBeInTheDocument();
+  });
 });

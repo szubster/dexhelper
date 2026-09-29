@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 export function usePokedexGridVirtualizer({
   count,
   estimateSize = () => 366,
-  overscan = 1000,
+  overscan = 2,
 }: {
   count: number;
   estimateSize?: (index: number) => number;
@@ -12,6 +12,7 @@ export function usePokedexGridVirtualizer({
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [columns, setColumns] = useState(1);
+  const [scrollMargin, setScrollMargin] = useState(0);
 
   useEffect(() => {
     const updateColumns = () => {
@@ -32,11 +33,18 @@ export function usePokedexGridVirtualizer({
     return () => window.removeEventListener('resize', updateColumns);
   }, []);
 
+  useEffect(() => {
+    if (containerRef.current) {
+      setScrollMargin(containerRef.current.offsetTop);
+    }
+  }, []);
+
   // oxlint-disable-next-line react/incompatible-library
   const virtualizer = useWindowVirtualizer({
     count: Math.ceil(count / columns),
     estimateSize,
     overscan,
+    scrollMargin,
   });
 
   return { containerRef, columns, virtualizer };
