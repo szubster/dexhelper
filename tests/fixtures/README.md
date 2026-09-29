@@ -72,3 +72,8 @@ This directory contains all save fixtures used for parsing and integration testi
 
 - **wild-item/without-target-item.sav** (Version: emerald)
   - Original: `./tests/fixtures/emerald.sav` (Does not contain Lucky Egg)
+
+### `emeraldVithuangRtc`
+- **Description:** A modified Pokémon Emerald save file containing 48 trailing zeroes to simulate RTC trailing bytes from emulators.
+- **Original Source:** `./tests/fixtures/saves/gen3/emerald_vithuang_rtc.sav`
+- **Game Version:** Emerald

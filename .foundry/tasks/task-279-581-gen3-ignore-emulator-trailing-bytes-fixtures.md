@@ -32,4 +32,4 @@ Provide necessary scaffolding and test fixtures for Gen 3 save files with traili
 1. Set up test fixtures and scaffolding.
 
 ## Acceptance Criteria
-- [ ] Test fixtures created.
+- [x] Test fixtures created.

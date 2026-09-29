@@ -16,3 +16,4 @@ This directory contains real-world Gen 3 `.sav` files used for parsing and integ
 - `emerald_spinda_pc_fixture.sav`: A modified Pokémon Emerald save file containing a Spinda in the first PC box.
 
 - `emerald_egg_fixture.sav`: A modified Pokémon Emerald save file containing an Egg in the active party.
+- `emerald_vithuang_rtc.sav`: A modified Pokémon Emerald save file containing 48 trailing zeroes to simulate RTC trailing bytes from emulators.

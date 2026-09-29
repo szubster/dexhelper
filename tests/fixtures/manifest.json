@@ -105,5 +105,10 @@
       "version": "emerald",
       "original_source": "./tests/fixtures/saves/gen3/emerald_egg_fixture.sav"
     }
-  ]
+  ],
+  "emeraldVithuangRtc": {
+    "original_source": "./tests/fixtures/saves/gen3/emerald_vithuang_rtc.sav",
+    "description": "A modified Pokémon Emerald save file containing 48 trailing zeroes to simulate RTC trailing bytes from emulators.",
+    "game_version": "emerald"
+  }
 }
