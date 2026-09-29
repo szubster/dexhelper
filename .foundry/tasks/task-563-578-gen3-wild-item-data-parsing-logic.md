@@ -2,7 +2,7 @@
 id: task-563-578-gen3-wild-item-data-parsing-logic
 type: TASK
 title: Implement Gen 3 Wild Encounter and Held Item Parsing Logic
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-14'
 updated_at: '2026-09-29'
@@ -14,8 +14,8 @@ tags:
   - gen3
   - dexhelper
 research_references: []
-rejection_count: 2
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

@@ -2,7 +2,7 @@
 id: research-473-611-investigate-condition-stats-parser-failure
 type: RESEARCH
 title: Investigate Gen 3 Condition Stats Parser Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-09-22'
 updated_at: '2026-09-29'
@@ -15,10 +15,8 @@ tags:
   - save-engine
   - data-extraction
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

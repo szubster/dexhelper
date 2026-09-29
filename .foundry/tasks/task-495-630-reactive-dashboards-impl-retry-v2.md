@@ -2,13 +2,13 @@
 id: task-495-630-reactive-dashboards-impl-retry-v2
 type: TASK
 title: Update Dashboard Components for Reactivity (Retry V2)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-28'
 updated_at: '2026-09-29'
 depends_on:
   - research-495-627-investigate-reactive-ui-failures-v2
-jules_session_id: '14148439677219300315'
+jules_session_id: null
 pr_number: null
 parent: story-425-495-reactive-ui-components
 tags:
@@ -16,7 +16,7 @@ tags:
   - emulator
   - components
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

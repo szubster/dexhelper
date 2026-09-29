@@ -2,7 +2,7 @@
 id: task-580-602-virtualize-storage-grid-ui
 type: TASK
 title: Virtualize StorageGrid Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-18T09:12:07Z'
 updated_at: '2026-09-29'
@@ -15,8 +15,8 @@ tags:
   - performance
   - react
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

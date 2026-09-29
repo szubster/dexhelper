@@ -2,10 +2,10 @@
 id: story-578-587-e2e-fixtures-integration-verification
 type: STORY
 title: E2E Fixtures Integration and Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-20'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - story-578-586-create-playwright-fixtures-definition
 jules_session_id: '9177521611628617241'
@@ -34,5 +34,5 @@ Provide E2E and integration verification for the new Playwright fixtures setup.
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-587-627-migrate-basic-tests-to-fixtures
-- [ ] task-587-628-qa-basic-tests-migration
+- [x] task-587-627-migrate-basic-tests-to-fixtures
+- [x] task-587-628-qa-basic-tests-migration

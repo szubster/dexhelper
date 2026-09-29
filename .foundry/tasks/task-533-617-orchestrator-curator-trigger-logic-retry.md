@@ -2,7 +2,7 @@
 id: task-533-617-orchestrator-curator-trigger-logic-retry
 type: TASK
 title: Orchestrator Curator Trigger Logic Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-22'
 updated_at: '2026-09-29'
@@ -12,8 +12,8 @@ parent: research-533-601-investigate-curator-trigger-logic-failure
 tags:
   - orchestrator
   - curator
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

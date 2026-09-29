@@ -2,13 +2,13 @@
 id: task-587-628-qa-basic-tests-migration
 type: TASK
 title: QA Basic Tests Migration
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-25'
 updated_at: '2026-09-29'
 depends_on:
   - task-587-627-migrate-basic-tests-to-fixtures
-jules_session_id: '3388233862601467251'
+jules_session_id: null
 pr_number: null
 parent: story-578-587-e2e-fixtures-integration-verification
 tags:

@@ -2,7 +2,7 @@
 id: story-566-580-virtualize-storage-grid-impl
 type: STORY
 title: Implement Virtualization for StorageGrid
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-18T09:12:07Z'
 updated_at: '2026-09-29'
