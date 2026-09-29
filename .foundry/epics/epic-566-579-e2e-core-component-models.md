@@ -37,4 +37,7 @@ Define lightweight class-based Component Object Models (COMs) for recurring UI e
 ## Acceptance Criteria
 - [ ] Core UI component models are implemented using semantic locators.
 - [ ] Interaction and assertion logic is encapsulated within the models.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-579-637-settings-modal-model
+- [ ] story-579-638-pokedex-grid-model
+- [ ] story-579-639-e2e-core-components-integration
