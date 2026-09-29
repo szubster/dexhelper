@@ -7,6 +7,7 @@ import { TelemetryDecoration } from './TelemetryDecoration';
 export function BottomNav() {
   const setIsSettingsOpen = useStore((s) => s.setIsSettingsOpen);
   const isSettingsOpen = useStore((s) => s.isSettingsOpen);
+  const saveData = useStore((s) => s.saveData);
   const location = useLocation();
 
   const isDex = location.pathname === '/' || location.pathname.startsWith('/pokemon');
@@ -48,12 +49,12 @@ export function BottomNav() {
       />
 
       {/* Hardware Panel Enclosure */}
-      <div className="relative mx-1 mt-1 mb-1 flex h-[76px] items-stretch gap-1 rounded-none border-2 border-zinc-900 bg-zinc-900/50 p-1 shadow-[inset_0_4px_20px_rgba(0,0,0,0.8)]">
-        <div className="h-full flex-1">
+      <div className="custom-scrollbar relative mx-1 mt-1 mb-1 flex h-[76px] items-stretch gap-1 overflow-x-auto rounded-none border-2 border-zinc-900 bg-zinc-900/50 p-1 shadow-[inset_0_4px_20px_rgba(0,0,0,0.8)]">
+        <div className="h-full min-w-[52px] flex-1">
           <NavButton to="/" ariaLabel="Pokedex" label="DEX" activeLabel="DEX" icon={LayoutGrid} isActive={isDex} />
         </div>
 
-        <div className="h-full flex-1">
+        <div className="h-full min-w-[52px] flex-1">
           <NavButton
             to="/box-analyzer"
             ariaLabel="Analyzer"
@@ -64,7 +65,7 @@ export function BottomNav() {
           />
         </div>
 
-        <div className="h-full flex-1">
+        <div className="h-full min-w-[52px] flex-1">
           <NavButton
             to="/storage"
             ariaLabel="Storage"
@@ -75,7 +76,7 @@ export function BottomNav() {
           />
         </div>
 
-        <div className="h-full flex-1">
+        <div className="h-full min-w-[52px] flex-1">
           <NavButton
             to="/assistant"
             ariaLabel="Assistant"
@@ -86,44 +87,50 @@ export function BottomNav() {
           />
         </div>
 
-        <div className="h-full flex-1">
+        <div className="h-full min-w-[52px] flex-1">
           <NavButton to="/dag" ariaLabel="DAG" label="DAG" activeLabel="DAG" icon={GitGraph} isActive={isDag} />
         </div>
 
-        <div className="h-full flex-1">
-          <NavButton
-            to="/dashboard"
-            ariaLabel="Dashboard"
-            label="DASH"
-            activeLabel="DASH"
-            icon={Swords}
-            isActive={isFrontier}
-          />
-        </div>
+        {(saveData?.generation === 2 || saveData?.generation === 3) && (
+          <div className="h-full min-w-[52px] flex-1">
+            <NavButton
+              to="/dashboard"
+              ariaLabel="Dashboard"
+              label="DASH"
+              activeLabel="DASH"
+              icon={Swords}
+              isActive={isFrontier}
+            />
+          </div>
+        )}
 
-        <div className="h-full flex-1">
-          <NavButton
-            to="/safari-zone"
-            ariaLabel="Safari Zone"
-            label="SFRI"
-            activeLabel="SFRI"
-            icon={Swords}
-            isActive={location.pathname === '/safari-zone'}
-          />
-        </div>
+        {saveData?.generation === 3 && (
+          <>
+            <div className="h-full min-w-[52px] flex-1">
+              <NavButton
+                to="/safari-zone"
+                ariaLabel="Safari Zone"
+                label="SFRI"
+                activeLabel="SFRI"
+                icon={Swords}
+                isActive={location.pathname === '/safari-zone'}
+              />
+            </div>
 
-        <div className="h-full flex-1">
-          <NavButton
-            to="/gen3-dashboard"
-            ariaLabel="Gen 3 Dashboard"
-            label="G3DB"
-            activeLabel="G3DB"
-            icon={LayoutGrid}
-            isActive={isGen3Dashboard}
-          />
-        </div>
+            <div className="h-full min-w-[52px] flex-1">
+              <NavButton
+                to="/gen3-dashboard"
+                ariaLabel="Gen 3 Dashboard"
+                label="G3DB"
+                activeLabel="G3DB"
+                icon={LayoutGrid}
+                isActive={isGen3Dashboard}
+              />
+            </div>
+          </>
+        )}
 
-        <div className="h-full flex-1">
+        <div className="h-full min-w-[52px] flex-1">
           <NavButton
             onClick={() => setIsSettingsOpen(true)}
             ariaLabel="Open settings menu"
