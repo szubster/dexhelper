@@ -26,6 +26,10 @@ function isSyncProgressDetail(detail: unknown): detail is SyncProgressDetail {
   );
 }
 
+// ⚡ Bolt: Pre-allocated static index arrays to eliminate redundant array allocations on every render pass during sync progress updates
+const GAUGE_INDICES = Array.from({ length: 10 }, (_, i) => i);
+const MATRIX_BLOCK_INDICES = Array.from({ length: 100 }, (_, i) => i);
+
 export function SyncProgress() {
   const [progress, setProgress] = useState<{ current: number; total: number; stage: string } | null>(null);
   const [isComplete, setIsComplete] = useState(false);
@@ -142,7 +146,7 @@ export function SyncProgress() {
             </div>
             {/* Digital Capacity Gauge */}
             <div className="flex h-3 w-full gap-0.5 md:w-48">
-              {Array.from({ length: 10 }).map((_, i) => {
+              {GAUGE_INDICES.map((i) => {
                 const threshold = (i + 1) * 10;
                 let colorClass = 'bg-zinc-800';
                 if (percentage >= threshold) {
@@ -253,11 +257,10 @@ export function SyncProgress() {
             <LcdGrid className="opacity-[0.02]" />
 
             <div className="grid flex-1 grid-cols-4 grid-rows-[repeat(25,minmax(0,1fr))] gap-1 md:grid-cols-[repeat(10,minmax(0,1fr))] md:grid-rows-[repeat(10,minmax(0,1fr))]">
-              {Array.from({ length: matrixBlocks }).map((_, i) => {
+              {MATRIX_BLOCK_INDICES.map((i) => {
                 const isFilled = i < blocksToFill;
                 return (
                   <div
-                    // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable
                     key={`memory-bank-${i}`}
                     className={cn(
                       'relative border-[1px] transition-all duration-300',
