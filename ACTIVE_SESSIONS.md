@@ -6,6 +6,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [research-479-608-investigate-gen3-pokeblock-e2e-failure](.foundry/research/research-479-608-investigate-gen3-pokeblock-e2e-failure.md) | RESEARCH | Investigate Gen 3 Pokéblock E2E Failure | researcher | [4119081336897244302](https://jules.google.com/session/4119081336897244302) |
+| [task-471-627-verify-and-move-saves](.foundry/tasks/task-471-627-verify-and-move-saves.md) | TASK | Verify and Move Saves | coder | [17229124003275745411](https://jules.google.com/session/17229124003275745411) |
 | [task-495-628-reactive-pokemon-details-impl-retry](.foundry/tasks/task-495-628-reactive-pokemon-details-impl-retry.md) | TASK | Update Pokemon Details Components for Reactivity (Retry) | coder | [6034290058329439562](https://jules.google.com/session/6034290058329439562) |
 | [task-495-630-reactive-dashboards-impl-retry-v2](.foundry/tasks/task-495-630-reactive-dashboards-impl-retry-v2.md) | TASK | Update Dashboard Components for Reactivity (Retry V2) | coder | [14148439677219300315](https://jules.google.com/session/14148439677219300315) |
 | [task-520-550-refactor-gen2-parser-impl](.foundry/tasks/task-520-550-refactor-gen2-parser-impl.md) | TASK | Refactor Gen 2 Parser to use Constants | coder | [10546326888500033500](https://jules.google.com/session/10546326888500033500) |
