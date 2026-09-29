@@ -44,5 +44,3 @@ This task involves creating a script to migrate existing task nodes by removing 
 - [x] The script preserves the YAML frontmatter and all other markdown content unharmed.
 - [x] The script has been executed to migrate current tasks (if applicable during testing), and code has been tested to work.
 
-### QA Rejection
-The implementation fails to strictly parse the YAML frontmatter to determine the task state. The status extraction uses `content.match(/^status:\s*(ACTIVE|PENDING|READY)\s*$/m);`, which matches the status anywhere in the entire file. This causes issues where completed nodes might be incorrectly processed if they have status information embedded in the body. You MUST strictly parse only the YAML frontmatter block for this information.
