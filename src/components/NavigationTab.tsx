@@ -25,7 +25,12 @@ export function NavigationTab({ icon, label, ...props }: NavigationTabProps) {
       className="group focus-visible:tactical-focus relative flex flex-col items-center gap-1 border-t border-r border-l border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all"
     >
       <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
-      <div className="mb-1">{icon}</div>[ {label} ]
+      <div className="mb-1">{icon}</div>
+      <span>
+        <span aria-hidden="true">[ </span>
+        {label}
+        <span aria-hidden="true"> ]</span>
+      </span>
     </Link>
   );
 }
