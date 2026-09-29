@@ -55,3 +55,28 @@ During this session, I resolved several minor DAG orchestrator deadlocks where n
 
 
 <!-- Merged from 2026-08-25-10-00-00.md -->
+
+
+---
+
+# TPM Session Journal
+Date: 2026-09-28 06:50:00
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving must strictly operate at the whole DAG tree level. A completed node cannot be archived if any descendant or parent in its hierarchy is in an active or incomplete state (e.g., PENDING, READY, ACTIVE, VERIFYING).
+- **In-Memory Tree Traversal**: When evaluating terminal state trees, non-archived node files across all subdirectories (`ideas`, `prds`, `epics`, `stories`, `tasks`, `research`) must be traversed from root down to leaf nodes to guarantee 100% terminal state (COMPLETED or CANCELLED) before performing file relocations.
+- **Node Linkage Preservation**: Moving node files to `.foundry/archive/` preserves historical reference while keeping active directory context windows slim. Internal `depends_on` and `parent` YAML frontmatter fields strictly remain node IDs without paths to avoid DAG orchestrator circular dependency resolution failures.
+
+### Summary of Archived DAG Tree
+- Successfully archived the completed terminal tree rooted at `idea-118-centralize-prompt-reminders-complete` (9 nodes total):
+  - `idea-118-centralize-prompt-reminders-complete`
+  - `prd-118-517-centralize-prompt-reminders-cleanup`
+  - `epic-517-521-centralize-prompt-reminders-cleanup`
+  - `story-521-520-prompt-cleanup-tasks`
+  - `task-520-549-coder-prompt-cleanup-coder`
+  - `task-520-550-qa-prompt-cleanup-qa`
+  - `story-521-521-integration-e2e`
+  - `task-521-578-integration-e2e-coder`
+  - `task-521-579-integration-e2e-qa`
