@@ -97,6 +97,16 @@ describe('gen2Exclusives', () => {
         expect(reason).toContain('not available in Crystal');
       });
 
+      it('should verify all Gen 2 version exclusive listings and unobtainable locks', () => {
+        const ownedSet = new Set<number>();
+        // Verify Silver exclusives (missing in Gold)
+        expect(getGen2UnobtainableReason(225, 'gold', 0, ownedSet)).toContain('not available in Gold');
+        // Verify Gold exclusives (missing in Silver)
+        expect(getGen2UnobtainableReason(226, 'silver', 0, ownedSet)).toContain('not available in Silver');
+        // Verify Crystal exclusives (missing in Crystal)
+        expect(getGen2UnobtainableReason(179, 'crystal', 0, ownedSet)).toContain('not available in Crystal');
+      });
+
       it('should lock Mankey (56) in Crystal', () => {
         const ownedSet = new Set<number>();
         const reason = getGen2UnobtainableReason(56, 'crystal', 0, ownedSet);
