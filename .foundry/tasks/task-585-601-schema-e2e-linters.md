@@ -2,13 +2,13 @@
 id: task-585-601-schema-e2e-linters
 type: TASK
 title: Update Linters for Confidence Metrics Schema
-status: FAILED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-25'
 updated_at: '2026-09-28'
 depends_on:
   - story-569-584-confidence-metrics-schema
-jules_session_id: null
+jules_session_id: '6564414309294333656'
 pr_number: null
 parent: story-569-585-confidence-metrics-schema-e2e
 tags:
@@ -17,10 +17,8 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 60

@@ -2,12 +2,12 @@
 id: research-520-623-zombie-node-detection-impl-failure
 type: RESEARCH
 title: Investigate Zombie Node Detection Logic Implementation Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-24'
-updated_at: '2026-09-27'
+updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: '199779871093251824'
+jules_session_id: null
 pr_number: null
 parent: story-331-520-zombie-node-gc-integration-logic
 tags:

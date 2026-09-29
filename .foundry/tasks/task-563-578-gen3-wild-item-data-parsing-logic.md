@@ -5,7 +5,7 @@ title: Implement Gen 3 Wild Encounter and Held Item Parsing Logic
 status: PENDING
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-22'
+updated_at: '2026-09-28'
 depends_on: []
 jules_session_id: null
 pr_number: null

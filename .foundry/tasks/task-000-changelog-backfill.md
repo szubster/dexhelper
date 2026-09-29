@@ -2,12 +2,12 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: ACTIVE
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7443391571429445004'
 locks: []
 pr_number: null
 parent: null
@@ -26,35 +26,48 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `b72dce75b94081093c23f96b36a64f284845d643`
-- **Previous Commit SHA:** `26c46de9206aeb462f3ecd8638e4472b44b58791`
+- **Commit SHA:** `ae23b902255b90b81ca2ddd582c9462959b07b60`
+- **Previous Commit SHA:** `80809f4058a645e1648f9cd6ba4dee094ae0655e`
 - **Commit Date:** `2026-03-23`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.20.0` -> `0.21.0`)
+- **Suggested SemVer Bump:** `patch` (from `0.21.1` -> `0.21.2`)
 
 ## Commit Message
 ```text
-feat: implement Pokémon assistant feature including suggestion generation hook, static data, and UI panel.
+build(deps): Bump @tanstack/router-vite-plugin from 1.166.12 to 1.166.18
+
+Bumps [@tanstack/router-vite-plugin](https://github.com/TanStack/router/tree/HEAD/packages/router-vite-plugin) from 1.166.12 to 1.166.18.
+- [Release notes](https://github.com/TanStack/router/releases)
+- [Changelog](https://github.com/TanStack/router/blob/main/packages/router-vite-plugin/CHANGELOG.md)
+- [Commits](https://github.com/TanStack/router/commits/@tanstack/router-vite-plugin@1.166.18/packages/router-vite-plugin)
+
+---
+updated-dependencies:
+- dependency-name: "@tanstack/router-vite-plugin"
+  dependency-version: 1.166.18
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
 ```
 
 ## Modified Files
-- `src/components/AssistantPanel.tsx`
-- `src/hooks/useAssistant.ts`
-- `src/utils/assistantData.ts`
+- `package-lock.json`
+- `package.json`
 
 ## Diff Summary
 ```text
-b72dce75b feat: implement Pokémon assistant feature including suggestion generation hook, static data, and UI panel.
- src/components/AssistantPanel.tsx | 71 ++++++++++++++++++++++++++++++++++-----
- src/hooks/useAssistant.ts         | 42 ++++++++++++++++++-----
- src/utils/assistantData.ts        | 43 ++++++++++++++++++++++++
- 3 files changed, 139 insertions(+), 17 deletions(-)
+ae23b9022 build(deps): Bump @tanstack/router-vite-plugin from 1.166.12 to 1.166.18
+ package-lock.json | 80 ++++++++++++++++++++++++++++++-------------------------
+ package.json      |  2 +-
+ 2 files changed, 44 insertions(+), 38 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show b72dce75b94081093c23f96b36a64f284845d643` (or `git diff 26c46de9206aeb462f3ecd8638e4472b44b58791..b72dce75b94081093c23f96b36a64f284845d643`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show ae23b902255b90b81ca2ddd582c9462959b07b60` (or `git diff 80809f4058a645e1648f9cd6ba4dee094ae0655e..ae23b902255b90b81ca2ddd582c9462959b07b60`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.0] - 2026-03-23` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.20.0...0.21.0`](https://github.com/${repo}/compare/26c46de...b72dce7)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.2] - 2026-03-23` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.1...0.21.2`](https://github.com/${repo}/compare/80809f4...ae23b90)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.

@@ -2,10 +2,10 @@
 id: research-473-598-gen3-match-call-e2e-failure
 type: RESEARCH
 title: Research Gen 3 Match Call E2E Failure Root Cause
-status: READY
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-20'
-updated_at: '2026-09-22'
+updated_at: '2026-09-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,9 @@ tags:
   - gen3
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

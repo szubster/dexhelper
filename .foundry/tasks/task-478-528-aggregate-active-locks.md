@@ -2,10 +2,10 @@
 id: task-478-528-aggregate-active-locks
 type: TASK
 title: Aggregate active locks in RESOLVE phase
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-20'
+updated_at: '2026-09-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,9 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

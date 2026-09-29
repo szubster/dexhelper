@@ -2,12 +2,12 @@
 id: task-563-602-gen2-roamer-translation-implementation
 type: TASK
 title: Gen 2 Roamer Translation Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-20'
 updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: '13272508258495497696'
+jules_session_id: null
 pr_number: null
 parent: story-140-563-gen2-roamer-translation-logic
 tags:

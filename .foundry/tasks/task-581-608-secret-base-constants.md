@@ -2,12 +2,12 @@
 id: task-581-608-secret-base-constants
 type: TASK
 title: Secret Base Extraction Constants
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-19'
+updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '431568894641418927'
 pr_number: null
 parent: story-569-581-gen3-secret-base-array-extraction
 tags:

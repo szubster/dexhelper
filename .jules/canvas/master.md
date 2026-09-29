@@ -52,3 +52,12 @@
 **Outcome:** Merged (Optimistic execution)
 **Why:** The previous `TacticalBadge` was a simple text badge with a basic border. Transforming it into an encapsulated micro telemetry unit strengthens the tactical hardware/snooping aesthetic across all data-dense displays.
 **Pattern:** Micro UI components and status chips benefit from hardware corner accents and dynamic LED status dots to signal live telemetry state.
+
+
+---
+
+## 2026-09-23 - [Accepted] - 🖼️ Canvas: Bold TacticalChecklistItem Redesign
+**What:** Redesigned `TacticalChecklistItem` into an encapsulated micro tactical telemetry module. Added dynamic status LED dot indicators, custom codeTag/telemetry badges (`[OK]` / `[PENDING]`), distinct left accent borders, subtle LCD grid texture overlays, and corner crosshair accents while maintaining full backward compatibility.
+**Outcome:** Merged (Optimistic execution)
+**Why:** Checklist items across progression, hidden items, and trainer cards lacked tactile hardware structure. The redesign enhances visual hierarchy and provides immediate visual feedback on completion state aligned with the tactical hardware aesthetic (ADR 008).
+**Pattern:** Micro list items and checklist modules benefit from distinct left accent borders, status LED indicators, and telemetry status badges (`[OK]`/`[PENDING]`) to improve visual hierarchy and hardware aesthetics.

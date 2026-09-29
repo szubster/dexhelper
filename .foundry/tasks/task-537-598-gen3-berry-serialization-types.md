@@ -2,12 +2,12 @@
 id: task-537-598-gen3-berry-serialization-types
 type: TASK
 title: Define Types and Schema for Gen 3 Berry Serialization
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-20'
-updated_at: '2026-09-27'
+updated_at: '2026-09-28'
 depends_on: []
-jules_session_id: '16671534924590126961'
+jules_session_id: null
 pr_number: null
 parent: story-513-537-gen3-berry-serialization-and-api
 rejection_count: 0

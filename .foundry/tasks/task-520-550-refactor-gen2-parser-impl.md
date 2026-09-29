@@ -2,13 +2,13 @@
 id: task-520-550-refactor-gen2-parser-impl
 type: TASK
 title: Refactor Gen 2 Parser to use Constants
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-09-29'
 depends_on:
   - task-520-549-define-gen2-constants-impl
-jules_session_id: null
+jules_session_id: '10546326888500033500'
 parent: story-522-520-gen2-constants-extraction
 rejection_reason: ''
 locks: []

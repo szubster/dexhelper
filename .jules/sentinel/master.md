@@ -109,3 +109,19 @@ Learned that running coverage reports can clutter the working directory, and ens
   - Single-level, multi-level, circular, and unmapped indoor map resolution in `resolveOutdoorMapId`.
   - Same map ID, precomputed distance, fallback map ID, missing target AID, and unreachable target cases in `getDistanceToMapBase`.
 - All 14 new tests passed cleanly without modifying any application source code.
+
+
+---
+
+# Sentinel Session: SaveDB Test Coverage Improvement
+
+**Target File:** `src/db/SaveDB.ts`
+
+**Observations & Actions:**
+- Extended `src/db/__tests__/SaveDB.test.ts` to add unit test coverage for `getHandle` and `putHandle` (which use IndexedDB `handles` object store for `FileSystemFileHandle` objects).
+- Added test coverage for `SaveDB` schema creation and upgrade logic (handling version 0 to 1 and version 1 to 2 transitions).
+- Covered error logging fallback paths when IndexedDB methods throw errors.
+- Discovered that calling `deleteDB()` in `beforeEach` when a singleton module has already established an open connection causes IndexedDB operations to lock up and time out in `fake-indexeddb`. Removing redundant `deleteDB` calls resolved test timeouts.
+
+**Result:**
+- Improved statement and branch test coverage for `SaveDB.ts` without modifying application source code.

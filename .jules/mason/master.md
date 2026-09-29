@@ -370,3 +370,13 @@ Removed redundant dead code (like the `ledOuter` and `ledInner` styles from `Tac
 - **Why**: Reduced duplicated header styling across `ShoalItemTracker` and `TideDisplay` while providing standard dashed-border section header styling.
 - **Key Learnings**:
   - In `vitest-browser-react`, `render()` returns a Promise that must be awaited (`const { container } = await render(...)`) to avoid type errors when attempting to call queries directly on the returned object.
+
+
+---
+
+## PokerusBadge Refactoring
+
+- **What**: Refactored `PokerusBadge.tsx` to utilize the existing `TacticalBadge` component instead of returning raw `div` tags with duplicated `tactical-badge` styling and manual tailwind class compositions.
+- **Why**: Reduced code duplication and aligned `PokerusBadge` with the project design system standards (`TacticalBadge` variants `zinc` and `pink`).
+- **Key Learnings**:
+  - Reusing primitive design system components like `TacticalBadge` across domain badges standardizes border styles, animations (`pulse`), and hardware corner accent ticks consistently across the app.

@@ -2,10 +2,10 @@
 id: task-563-603-gen2-roamer-translation-tests
 type: TASK
 title: Gen 2 Roamer Translation Tests
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-20'
-updated_at: '2026-09-21'
+updated_at: '2026-09-29'
 depends_on:
   - task-563-602-gen2-roamer-translation-implementation
 jules_session_id: null
@@ -32,5 +32,5 @@ Write comprehensive unit tests for the Gen 2 Roamer Translation logic.
 - Assert that the fallback string 'Unknown Location' is returned when invalid or unmapped coordinates are provided.
 
 ## Acceptance Criteria
-- [ ] Unit tests cover valid known roamer route maps.
-- [ ] Unit tests cover invalid/unknown mapGroup and mapId coordinates and verify fallback logic.
+- [x] Unit tests cover valid known roamer route maps.
+- [x] Unit tests cover invalid/unknown mapGroup and mapId coordinates and verify fallback logic.

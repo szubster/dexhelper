@@ -2,10 +2,10 @@
 id: research-440-564-gen3-trainer-card-ui-rendering
 type: RESEARCH
 title: Investigate UI Rendering for Gen 3 Trainer Card Upgrades
-status: PENDING
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-08'
-updated_at: '2026-09-20'
+updated_at: '2026-09-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -24,4 +24,4 @@ The Gen 3 Trainer Card upgrade data (Hall of Fame, Hoenn Pok√©dex, National Pok√
 ## Acceptance Criteria
 - [x] Identify where Trainer Card upgrade data should be rendered in the UI or how it should be safely exposed for E2E testing without violating architectural constraints.
 - [x] Create necessary downstream nodes (IDEA/TASK) to implement the UI or testing integration.
-- [ ] task-564-565-gen3-trainer-card-e2e-tests
+- [x] task-564-565-gen3-trainer-card-e2e-tests
