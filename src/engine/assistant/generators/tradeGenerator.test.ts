@@ -229,4 +229,33 @@ describe('tradeGenerator', () => {
     expect(meowthSugg?.priority).toBe(70);
     expect(meowthSugg?.description).toContain('Breed your #301 to get #300');
   });
+
+  it('should include storage location in description when available on instance', () => {
+    const saveData = {
+      generation: 1,
+      badges: 8,
+      eventFlags: new Uint8Array(300),
+      npcTradeFlags: { 1: false }, // Mr. Mime trade available (Abra for Mr. Mime)
+    } as unknown as SaveData;
+    const suggestions: import('../strategies/types').Suggestion[] = [];
+
+    generateGiftAndTradeSuggestions(
+      [122],
+      saveData,
+      'red',
+      new Set([63]),
+      {
+        pokemonMetadata: {
+          122: { efrm: [] },
+        },
+      } as unknown as import('../suggestionEngineTypes').AssistantApiData,
+      new Map([[63, [{ storageLocation: 'Box 2' } as PokemonInstance]]]),
+      suggestions,
+      new Set([122]),
+    );
+
+    const mimeSugg = suggestions.find((s) => s.pokemonId === 122);
+    expect(mimeSugg).toBeDefined();
+    expect(mimeSugg?.description).toContain('You have #63 (in Box 2)!');
+  });
 });
