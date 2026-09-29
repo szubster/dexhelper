@@ -36,6 +36,71 @@ describe('validatePromptFragment', () => {
     };
     expect(() => validatePromptFragment(fragment)).toThrow('Invalid prompt fragment: id: Invalid input: expected string, received number, rules: Invalid input: expected array, received string');
   });
+
+  it('validates a node with valid confidence_score', () => {
+    const node = {
+      id: "task-003",
+      type: "TASK",
+      title: "Task with Confidence",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-08-14",
+      updated_at: "2026-08-14",
+      depends_on: [],
+      jules_session_id: null,
+      confidence_score: 85
+    };
+    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
+  });
+
+  it('fails if confidence_score is out of bounds (negative)', () => {
+    const node = {
+      id: "task-004",
+      type: "TASK",
+      title: "Task with Negative Confidence",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-08-14",
+      updated_at: "2026-08-14",
+      depends_on: [],
+      jules_session_id: null,
+      confidence_score: -1
+    };
+    expect(() => NodeFrontmatterSchema.parse(node)).toThrow(Error);
+  });
+
+  it('fails if confidence_score is out of bounds (over 100)', () => {
+    const node = {
+      id: "task-005",
+      type: "TASK",
+      title: "Task with High Confidence",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-08-14",
+      updated_at: "2026-08-14",
+      depends_on: [],
+      jules_session_id: null,
+      confidence_score: 101
+    };
+    expect(() => NodeFrontmatterSchema.parse(node)).toThrow(Error);
+  });
+
+  it('fails if confidence_score is not an integer', () => {
+    const node = {
+      id: "task-006",
+      type: "TASK",
+      title: "Task with Float Confidence",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-08-14",
+      updated_at: "2026-08-14",
+      depends_on: [],
+      jules_session_id: null,
+      confidence_score: 85.5
+    };
+    expect(() => NodeFrontmatterSchema.parse(node)).toThrow(Error);
+  });
+
 });
 
 describe('PromptFragmentSchema', () => {
