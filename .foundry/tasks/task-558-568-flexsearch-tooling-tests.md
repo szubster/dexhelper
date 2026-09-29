@@ -27,5 +27,5 @@ As part of the RAG context hydration epic, we need to build an in-memory search 
 This task focuses on writing unit tests for the core indexing logic and flexsearch configuration.
 
 ## Acceptance Criteria
-- [ ] Add unit tests for the indexing logic scanning `.foundry/docs/` and `.foundry/archive/docs/adrs/`.
-- [ ] Add unit tests confirming the in-memory flexsearch index correctly loads markdown files and retrieves documents based on queries.
+- [x] Add unit tests for the indexing logic scanning `.foundry/docs/` and `.foundry/archive/docs/adrs/`.
+- [x] Add unit tests confirming the in-memory flexsearch index correctly loads markdown files and retrieves documents based on queries.
