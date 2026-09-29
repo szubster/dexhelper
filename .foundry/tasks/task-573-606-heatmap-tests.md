@@ -32,5 +32,5 @@ We need to ensure the heatmap aggregation logic works correctly and handles all 
 Write unit tests for the calculateHeatmap method in RouteRadarController using Vitest.
 
 ## Acceptance Criteria
-- [ ] Write unit tests to validate the aggregation logic using mock suggestionEngine outputs.
-- [ ] Ensure tests cover edge cases and accurate density calculations.
+- [x] Write unit tests to validate the aggregation logic using mock suggestionEngine outputs.
+- [x] Ensure tests cover edge cases and accurate density calculations.
