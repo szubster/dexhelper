@@ -2,13 +2,13 @@
 id: story-521-531-savedatareader-bitwise
 type: STORY
 title: SaveDataReader Bitwise Helpers Implementation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-09-29'
 depends_on:
   - story-521-530-savedatareader-core
-jules_session_id: null
+jules_session_id: '3662451437829143340'
 pr_number: null
 parent: epic-158-521-core-dataview-wrapper
 tags:
