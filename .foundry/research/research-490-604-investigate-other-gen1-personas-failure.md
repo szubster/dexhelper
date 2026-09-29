@@ -2,12 +2,12 @@
 id: research-490-604-investigate-other-gen1-personas-failure
 type: RESEARCH
 title: Investigate Failure to Identify Other Gen 1 Personas
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16617180729805933103'
 pr_number: null
 parent: story-406-490-update-jules-persona-definitions
 tags:
