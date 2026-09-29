@@ -27,5 +27,5 @@ As part of the RAG context hydration epic, we need to build an in-memory search 
 This task verifies the flexsearch configuration, indexing logic, and tests.
 
 ## Acceptance Criteria
-- [ ] Review and verify the indexing logic scanning `.foundry/docs/` and `.foundry/archive/docs/adrs/`.
-- [ ] Ensure unit tests are comprehensive and pass.
+- [x] Review and verify the indexing logic scanning `.foundry/docs/` and `.foundry/archive/docs/adrs/`.
+- [x] Ensure unit tests are comprehensive and pass.
