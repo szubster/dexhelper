@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@google/genai": "^2.22.0",
+    "flexsearch": "^0.8.212",
     "gray-matter": "^4.0.3",
     "zod": "^4.6.2"
   },
