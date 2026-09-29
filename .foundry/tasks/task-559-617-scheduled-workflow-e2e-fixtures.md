@@ -2,12 +2,12 @@
 id: task-559-617-scheduled-workflow-e2e-fixtures
 type: TASK
 title: Scheduled Workflow E2E - Fixtures
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-23'
-updated_at: '2026-09-23'
+updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13716178730780538588'
 pr_number: null
 parent: story-531-559-modify-scheduled-workflows-e2e
 tags:
@@ -16,6 +16,7 @@ tags:
   - github-issues
   - e2e
   - integration
+rejection_reason: ''
 ---
 # Scheduled Workflow E2E - Fixtures
 
