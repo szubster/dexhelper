@@ -2,10 +2,10 @@
 id: story-513-537-gen3-berry-serialization-and-api
 type: STORY
 title: Gen 3 Berry Serialization and Runtime API Integration
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-20'
+updated_at: '2026-09-29'
 depends_on:
   - story-513-536-gen3-berry-dataview-parsing
 jules_session_id: null

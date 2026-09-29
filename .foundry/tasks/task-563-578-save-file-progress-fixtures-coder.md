@@ -2,10 +2,10 @@
 id: task-563-578-save-file-progress-fixtures-coder
 type: TASK
 title: Scaffold Save File Progress E2E Fixtures
-status: PENDING
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-15T06:50:36Z'
-updated_at: '2026-09-22'
+updated_at: '2026-09-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 locks: []
 ---

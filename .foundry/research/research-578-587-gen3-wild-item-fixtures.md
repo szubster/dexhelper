@@ -2,12 +2,12 @@
 id: research-578-587-gen3-wild-item-fixtures
 type: RESEARCH
 title: Locate Authentic Gen 3 Saves for Wild Item Testing
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-20'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: '11685047081390818613'
+jules_session_id: null
 pr_number: null
 parent: task-563-578-save-file-progress-fixtures-coder
 priority: 50

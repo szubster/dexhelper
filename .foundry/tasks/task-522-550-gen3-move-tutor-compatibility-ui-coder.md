@@ -2,10 +2,10 @@
 id: task-522-550-gen3-move-tutor-compatibility-ui-coder
 type: TASK
 title: Implement Gen 3 Move Tutor UI
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-09-07'
+updated_at: '2026-09-29'
 depends_on:
   - task-522-549-gen3-move-tutor-compatibility-logic-coder
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - move-tutor
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-522-549-gen3-move-tutor-compatibility-logic-coder
 notes: ''
 locks: []
 ---

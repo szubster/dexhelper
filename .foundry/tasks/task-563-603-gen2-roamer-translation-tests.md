@@ -2,13 +2,13 @@
 id: task-563-603-gen2-roamer-translation-tests
 type: TASK
 title: Gen 2 Roamer Translation Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-20'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - task-563-602-gen2-roamer-translation-implementation
-jules_session_id: '11041917359821809488'
+jules_session_id: null
 pr_number: null
 parent: story-140-563-gen2-roamer-translation-logic
 tags:
