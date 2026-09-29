@@ -224,7 +224,7 @@ export const StorageGrid = React.memo(function StorageGrid({
   const genConfig = getGenerationConfig(saveData.generation);
 
   return (
-    <div className="fade-in animate-in space-y-16 duration-500">
+    <div className="fade-in animate-in space-y-16 pb-20 duration-500 md:pb-0">
       {storageLocations.map((location) => {
         const pokemonInLocation = pokemonByLocation.get(location) || [];
 

@@ -6,13 +6,21 @@ import { ScanlineOverlay } from './ScanlineOverlay';
 
 interface EmptyStateProps {
   label: string;
+  description?: string;
   icon?: React.ReactNode;
   className?: string;
   labelClassName?: string;
   variant?: 'default' | 'warning';
 }
 
-export function EmptyState({ label, icon, className, labelClassName, variant = 'warning' }: EmptyStateProps) {
+export function EmptyState({
+  label,
+  description,
+  icon,
+  className,
+  labelClassName,
+  variant = 'warning',
+}: EmptyStateProps) {
   const isWarning = variant === 'warning';
 
   return (
@@ -114,6 +122,12 @@ export function EmptyState({ label, icon, className, labelClassName, variant = '
           >
             {label}
           </span>
+
+          {description && (
+            <p className="max-w-md font-mono text-xs text-zinc-500 uppercase leading-relaxed tracking-wider">
+              {description}
+            </p>
+          )}
 
           {/* Bottom decorative blocks */}
           <div className="mt-2 flex gap-1.5">

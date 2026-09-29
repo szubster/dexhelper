@@ -106,7 +106,13 @@ function DashboardPage() {
   const saveData = useStore((s) => s.saveData);
 
   if (saveData?.generation !== 3 && saveData?.generation !== 2 && saveData?.generation !== 1) {
-    return <EmptyState icon={<ShieldAlert size={24} />} label="BATTLE FRONTIER UNAVAILABLE" />;
+    return (
+      <EmptyState
+        icon={<ShieldAlert size={24} />}
+        label="DASHBOARD TELEMETRY OFFLINE"
+        description="NO ACTIVE SAVE DATA DETECTED. PLEASE LOAD A SAVE FILE USING [ UPLOAD.SYS ] TO ACCESS GENERATION DASHBOARDS."
+      />
+    );
   }
 
   return (
