@@ -2,10 +2,10 @@
 id: task-495-628-reactive-pokemon-details-impl-retry
 type: TASK
 title: Update Pokemon Details Components for Reactivity (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-28'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - research-495-627-investigate-reactive-ui-failures-v2
 jules_session_id: null

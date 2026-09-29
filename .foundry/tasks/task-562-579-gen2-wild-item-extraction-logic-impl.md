@@ -2,13 +2,13 @@
 id: task-562-579-gen2-wild-item-extraction-logic-impl
 type: TASK
 title: Implement Gen 2 Wild Encounter and Held Item Extraction Logic
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '${DATE}'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - task-562-578-gen2-wild-item-models-impl
-jules_session_id: '15018057499061952936'
+jules_session_id: null
 pr_number: null
 parent: story-552-562-gen2-wild-item-parsing
 tags:

@@ -2,10 +2,10 @@
 id: task-429-635-implement-lazy-fetching-v2
 type: TASK
 title: Implement Lazy Fetching of Gen-Specific Bundles (v2)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-28'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - task-429-634-update-vite-plugin
 jules_session_id: null

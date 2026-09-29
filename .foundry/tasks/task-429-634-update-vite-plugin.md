@@ -2,10 +2,10 @@
 id: task-429-634-update-vite-plugin
 type: TASK
 title: Update Vite Plugin for Gen-Specific Bundles
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-28'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - task-429-633-split-data-generation
 jules_session_id: null

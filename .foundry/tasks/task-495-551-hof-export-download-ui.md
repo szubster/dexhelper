@@ -2,13 +2,13 @@
 id: task-495-551-hof-export-download-ui
 type: TASK
 title: Hall of Fame Export Download UI and Hookup
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-05'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - task-495-550-hof-export-image-renderer
-jules_session_id: '6223295238618933788'
+jules_session_id: null
 pr_number: null
 parent: story-071-495-hof-certificate-export-logic
 tags:

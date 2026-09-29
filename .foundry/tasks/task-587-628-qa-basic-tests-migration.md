@@ -2,10 +2,10 @@
 id: task-587-628-qa-basic-tests-migration
 type: TASK
 title: QA Basic Tests Migration
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-25'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - task-587-627-migrate-basic-tests-to-fixtures
 jules_session_id: null

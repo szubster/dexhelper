@@ -2,12 +2,12 @@
 id: task-608-617-multi-box-text-search-engine-impl
 type: TASK
 title: Multi-Box Text Search Engine Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-22'
 updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: '6554621732094719360'
+jules_session_id: null
 pr_number: null
 parent: story-574-608-multi-box-text-search-engine
 tags:
@@ -16,7 +16,9 @@ tags:
   - search
   - pc-box
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

@@ -2,10 +2,10 @@
 id: task-525-628-workspace-e2e-tests-coder
 type: TASK
 title: Workspace Infrastructure E2E Test Logic Implementation
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - task-525-627-workspace-e2e-scaffolding-coder
 jules_session_id: null

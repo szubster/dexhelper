@@ -2,10 +2,10 @@
 id: story-335-564-execute-migration
 type: STORY
 title: Execute Task Reminders Migration
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-11'
-updated_at: '2026-09-14'
+updated_at: '2026-09-29'
 depends_on:
   - story-335-563-develop-migration-script
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-531-633-savedatareader-bitwise-impl
 type: TASK
 title: SaveDataReader Bitwise Helpers Implementation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2024-05-24'
-updated_at: '2024-05-24'
+updated_at: '2026-09-29'
 depends_on:
   - task-531-632-savedatareader-bitwise-stubs
 jules_session_id: null

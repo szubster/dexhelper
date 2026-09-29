@@ -2,10 +2,10 @@
 id: task-551-566-qa-test-curator-historical-mapping
 type: TASK
 title: QA Test Curator Historical Mapping
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-09-29'
 depends_on:
   - task-551-564-test-curator-historical-mapping-ingestion
   - task-551-565-test-curator-dynamic-remediation-spawning

@@ -2,10 +2,10 @@
 id: task-478-529-evaluate-locks-for-pending-nodes
 type: TASK
 title: Evaluate locks for PENDING nodes in RESOLVE phase
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-09-29'
 depends_on:
   - task-478-528-aggregate-active-locks
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-478-528-aggregate-active-locks
 notes: ''
 locks: []
 ---

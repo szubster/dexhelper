@@ -2,12 +2,12 @@
 id: research-474-605-investigate-wallpaper-e2e-failure
 type: RESEARCH
 title: Investigate Wallpaper E2E Interaction Implementation Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-21'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on: []
-jules_session_id: '5137678586901642967'
+jules_session_id: null
 parent: story-116-474-gen3-wallpaper-app-state-tracking-e2e
 tags:
   - e2e

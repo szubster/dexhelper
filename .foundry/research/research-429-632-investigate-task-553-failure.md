@@ -2,10 +2,10 @@
 id: research-429-632-investigate-task-553-failure
 type: RESEARCH
 title: Investigate task-429-553-generate-gen-specific-bundles Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-28'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - architecture
   - bundles
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
 notes: ''
 locks: []
 ---

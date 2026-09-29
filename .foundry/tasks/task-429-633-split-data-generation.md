@@ -2,10 +2,10 @@
 id: task-429-633-split-data-generation
 type: TASK
 title: Split Data Generation Scripts
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-28'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - research-429-632-investigate-task-553-failure
 jules_session_id: null

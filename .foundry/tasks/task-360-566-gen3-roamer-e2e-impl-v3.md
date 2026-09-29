@@ -2,13 +2,13 @@
 id: task-360-566-gen3-roamer-e2e-impl-v3
 type: TASK
 title: Impl Gen 3 Roamer E2E Tests (v3)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-09'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - research-360-568-investigate-gen3-roamer-e2e-failure-v2
-jules_session_id: '7526025600453678626'
+jules_session_id: null
 pr_number: null
 parent: story-397-360-gen3-roamer-integration-e2e
 tags:

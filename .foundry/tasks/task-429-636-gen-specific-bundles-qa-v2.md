@@ -2,10 +2,10 @@
 id: task-429-636-gen-specific-bundles-qa-v2
 type: TASK
 title: QA Gen-Specific Bundles and Lazy Loading (v2)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-28'
-updated_at: '2026-09-28'
+updated_at: '2026-09-29'
 depends_on:
   - task-429-635-implement-lazy-fetching-v2
 jules_session_id: null

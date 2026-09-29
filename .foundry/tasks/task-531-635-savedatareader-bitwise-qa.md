@@ -2,10 +2,10 @@
 id: task-531-635-savedatareader-bitwise-qa
 type: TASK
 title: SaveDataReader Bitwise Helpers QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2024-05-24'
-updated_at: '2024-05-24'
+updated_at: '2026-09-29'
 depends_on:
   - task-531-634-savedatareader-bitwise-tests
 jules_session_id: null
