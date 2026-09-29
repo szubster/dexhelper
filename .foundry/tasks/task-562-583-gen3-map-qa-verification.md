@@ -33,5 +33,5 @@ Verify that the Gen 3 Map React Context Layer and Dashboard Layout implementatio
 - Verify aesthetic adherence in Dashboard Layout.
 
 ## Acceptance Criteria
-- [ ] Context tests pass and state behavior is verified.
-- [ ] Dashboard layout visually adheres to ADR 008.
+- [x] Context tests pass and state behavior is verified.
+- [x] Dashboard layout visually adheres to ADR 008.
