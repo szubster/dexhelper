@@ -1,0 +1,5 @@
+{
+  "title": "Scheduled Agent: tpm",
+  "body": "### CORE SYSTEM POLICIES\nTest Policy\n\nIf you determine there is no actionable work to be done during this run, simply state that in your PR and complete your session.",
+  "labels": ["jules"]
+}
