@@ -36,5 +36,5 @@ As part of the Gen 3 Secret Base Array Extraction, we need to implement the actu
 - Write unit tests covering the extraction logic.
 
 ## Acceptance Criteria
-- [ ] Implement extraction logic using DataView and relative offsets.
-- [ ] Write unit tests for the extraction logic.
+- [x] Implement extraction logic using DataView and relative offsets.
+- [x] Write unit tests for the extraction logic.
