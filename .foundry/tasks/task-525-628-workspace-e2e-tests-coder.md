@@ -32,5 +32,5 @@ locks: []
 This task focuses strictly on implementing the core test logic, assuming the E2E boilerplate has already been created in the preceding task.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright logic for workspace validation.
-- [ ] Pass the newly created workspace E2E test (`pnpm test:e2e`).
+- [x] Implement Playwright logic for workspace validation.
+- [x] Pass the newly created workspace E2E test (`pnpm test:e2e`).
