@@ -106,37 +106,9 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
     return set;
   }, [saveData]);
 
-  const parentRef = React.useRef<HTMLDivElement>(null);
-
-  const [columns, setColumns] = React.useState(1);
-
-  React.useEffect(() => {
-    const updateColumns = () => {
-      const width = window.innerWidth;
-      if (width >= 1280) setColumns(4);
-      else if (width >= 1024) setColumns(3);
-      else if (width >= 640) setColumns(2);
-      else setColumns(1);
-    };
-    updateColumns();
-    window.addEventListener('resize', updateColumns);
-    return () => window.removeEventListener('resize', updateColumns);
-  }, []);
-
-  const rowCount = Math.ceil(finalPokemon.length / columns);
-
-  const [scrollMargin, setScrollMargin] = React.useState(0);
-  React.useEffect(() => {
-    if (parentRef.current) {
-      setScrollMargin(parentRef.current.offsetTop);
-    }
-  }, []);
-
-  const virtualizer = useWindowVirtualizer({
-    count: rowCount,
-    estimateSize: () => 350 + 16, // estimate height + gap
+  const { containerRef, columns, virtualizer } = usePokedexGridVirtualizer({
+    count: finalPokemon.length,
     overscan: 2,
-    scrollMargin,
   });
 
   // ⚡ Bolt: Pre-allocate column indices to avoid intermediate array allocations inside high-frequency virtualized row render pass
