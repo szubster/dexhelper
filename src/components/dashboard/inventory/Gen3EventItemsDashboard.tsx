@@ -7,6 +7,7 @@ import {
 } from '../../../engine/saveParser/gen3/inventory/constants';
 import type { SaveData } from '../../../engine/saveParser/parsers/common';
 import { TacticalPanel } from '../../TacticalPanel';
+import { TacticalStatusPanelItem } from '../../TacticalStatusPanelItem';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
 export interface Gen3EventItemsDashboardProps {
@@ -42,19 +43,7 @@ export const Gen3EventItemsDashboard: React.FC<Gen3EventItemsDashboardProps> = (
         {entries.map(({ id, isClaimed }) => {
           const displayLabel = ITEM_NAMES[id] || `ITEM ${id}`;
 
-          return (
-            <div
-              key={id}
-              className={`tactical-panel flex items-center justify-between border-2 p-2 text-xs ${
-                isClaimed
-                  ? 'border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)]'
-                  : 'border-zinc-700 bg-black/40 text-zinc-500'
-              }`}
-            >
-              <span className="truncate">{displayLabel}</span>
-              <span className="flex-shrink-0 font-black">{isClaimed ? '[X]' : '[ ]'}</span>
-            </div>
-          );
+          return <TacticalStatusPanelItem key={id} label={displayLabel} active={isClaimed} />;
         })}
       </div>
     </TacticalPanel>
