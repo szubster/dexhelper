@@ -1,7 +1,7 @@
 import { Crosshair } from 'lucide-react';
 import type React from 'react';
+import { useParsedSaveData } from '../../../contexts/EmulatorContext';
 import { GEN2_NARRATIVE_ORDER, getUpcomingGen2Boss } from '../../../engine/saveParser/utils/gen2EventFlags';
-import { useStore } from '../../../store';
 import { cn } from '../../../utils/cn';
 import { TacticalChecklistItem } from '../../TacticalChecklistItem';
 import { TacticalPanel } from '../../TacticalPanel';
@@ -41,7 +41,7 @@ const NARRATIVE_LABELS: Record<string, string> = {
 };
 
 export const Gen2Checklist: React.FC = () => {
-  const saveData = useStore((s) => s.saveData);
+  const saveData = useParsedSaveData();
 
   if (saveData?.generation !== 2) {
     return null;

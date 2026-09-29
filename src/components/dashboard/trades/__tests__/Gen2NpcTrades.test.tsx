@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import { EmulatorProvider } from '../../../../contexts/EmulatorContext';
 import * as store from '../../../../store';
 import { Gen2NpcTrades } from '../Gen2NpcTrades';
 
@@ -30,7 +31,11 @@ describe('Gen2NpcTrades', () => {
       return selector(state);
     });
 
-    await render(<Gen2NpcTrades />);
+    await render(
+      <EmulatorProvider>
+        <Gen2NpcTrades />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('IN-GAME TRADES')).toBeInTheDocument();
     await expect.element(page.getByText('ROCKY')).toBeInTheDocument();
@@ -53,7 +58,11 @@ describe('Gen2NpcTrades', () => {
       return selector(state);
     });
 
-    await render(<Gen2NpcTrades />);
+    await render(
+      <EmulatorProvider>
+        <Gen2NpcTrades />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('IN-GAME TRADES')).not.toBeInTheDocument();
   });

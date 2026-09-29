@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import { EmulatorProvider } from '../../../contexts/EmulatorContext';
 import type { SaveData } from '../../../engine/saveParser/index';
 import { Route } from '../../../routes/dashboard';
 import { useStore } from '../../../store';
@@ -21,7 +22,11 @@ describe('DashboardPage', () => {
       saveData: { generation: 1 } as SaveData,
     });
 
-    await render(<QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>);
+    await render(
+      <EmulatorProvider>
+        <QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('STATIC ENCOUNTERS')).toBeVisible();
   });
@@ -31,7 +36,11 @@ describe('DashboardPage', () => {
       saveData: { generation: 3, gameVersion: 'emerald', partyDetails: [], pcDetails: [] } as unknown as SaveData,
     });
 
-    await render(<QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>);
+    await render(
+      <EmulatorProvider>
+        <QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText(/BATTLE FRONTIER/i).first()).toBeVisible();
   });
@@ -48,7 +57,11 @@ describe('DashboardPage', () => {
       } as unknown as SaveData,
     });
 
-    await render(<QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>);
+    await render(
+      <EmulatorProvider>
+        <QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText(/SHINY CARRIER/i).first()).toBeVisible();
   });
