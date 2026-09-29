@@ -37,7 +37,8 @@ const nodeTypes = {
 };
 
 export function DagDashboard() {
-  const { nodes, edges, isLoading, maxRejectionThreshold, showHeatmap, setShowHeatmap } = useDagContext();
+  const { nodes, edges, isLoading, maxRejectionThreshold, showHeatmap, setShowHeatmap, onNodesChange, onEdgesChange } =
+    useDagContext();
 
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
@@ -189,6 +190,10 @@ export function DagDashboard() {
         nodes={displayNodes}
         edges={displayEdges}
         nodeTypes={nodeTypes}
+        // biome-ignore lint/suspicious/noExplicitAny: Temporary workaround for ReactFlow type issues
+        onNodesChange={onNodesChange as any}
+        // biome-ignore lint/suspicious/noExplicitAny: Temporary workaround for ReactFlow type issues
+        onEdgesChange={onEdgesChange as any}
         onNodeClick={onNodeClick}
         onNodeMouseEnter={onNodeMouseEnter}
         onNodeMouseLeave={onNodeMouseLeave}

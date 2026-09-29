@@ -26,5 +26,5 @@ locks: []
 Refactor the state management of the React Flow visualizer to rely entirely on `DagContext`. Ensure that nodes and edges are no longer managed or modified outside of the context.
 
 ## Acceptance Criteria
-- [ ] Remove any local state management for nodes and edges in the DAG visualizer components.
-- [ ] Ensure `useDagContext` provides all necessary node and edge state.
+- [x] Remove any local state management for nodes and edges in the DAG visualizer components.
+- [x] Ensure `useDagContext` provides all necessary node and edge state.
