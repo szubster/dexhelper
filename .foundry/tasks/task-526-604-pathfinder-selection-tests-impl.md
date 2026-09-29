@@ -26,6 +26,6 @@ locks: []
 Write unit and rendering tests for the Pathfinder Selection UI and State layer.
 
 ## Acceptance Criteria
-- [ ] Write unit tests verifying the Egg Move filtering logic based on the selected Pokémon.
-- [ ] Write component rendering tests using vitest-browser-react.
-- [ ] Write tests verifying state updates when a target Pokémon or Egg Move is selected.
+- [x] Write unit tests verifying the Egg Move filtering logic based on the selected Pokémon.
+- [x] Write component rendering tests using vitest-browser-react.
+- [x] Write tests verifying state updates when a target Pokémon or Egg Move is selected.
