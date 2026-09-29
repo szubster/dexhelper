@@ -44,6 +44,12 @@ describe('calculateGen2Gender', () => {
     expect(calculateGen2Gender(12, 6)).toBe('male');
     expect(calculateGen2Gender(15, 6)).toBe('male');
   });
+
+  it('should calculate gender using approximation threshold for non-standard gender rates (default fallback)', () => {
+    // Non-standard genderRate = 3: femaleThreshold = 3 * 2 - 1 = 5
+    expect(calculateGen2Gender(5, 3)).toBe('female');
+    expect(calculateGen2Gender(6, 3)).toBe('male');
+  });
 });
 
 describe('calculateGen3Gender', () => {
@@ -88,5 +94,11 @@ describe('calculateGen3Gender', () => {
     expect(calculateGen3Gender(191, 6)).toBe('female');
     expect(calculateGen3Gender(192, 6)).toBe('male');
     expect(calculateGen3Gender(255, 6)).toBe('male');
+  });
+
+  it('should calculate gender using approximation threshold for non-standard gender rates (default fallback)', () => {
+    // Non-standard genderRate = 3: femaleThreshold = Math.floor((3 / 8) * 256) - 1 = 95
+    expect(calculateGen3Gender(95, 3)).toBe('female');
+    expect(calculateGen3Gender(96, 3)).toBe('male');
   });
 });
