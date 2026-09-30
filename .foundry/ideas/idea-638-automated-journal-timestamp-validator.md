@@ -1,9 +1,24 @@
 ---
 id: idea-638-automated-journal-timestamp-validator
-title: Automated Journal Timestamp Naming Validator
 type: IDEA
+title: Automated Journal Timestamp Naming Validator
 status: READY
 owner_persona: product_manager
+created_at: '2026-09-30'
+updated_at: '2026-09-30'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: null
+tags:
+  - linter
+  - journals
+  - quality
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Automated Journal Timestamp Naming Validator
