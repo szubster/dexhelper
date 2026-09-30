@@ -27,6 +27,6 @@ locks: []
 Update `DagDashboard` and related visualizer components to consume `nodes` and `edges` directly from `DagContext` without prop drilling.
 
 ## Acceptance Criteria
-- [ ] Refactor `DagDashboard` to use `useDagContext` for nodes and edges.
-- [ ] Remove node and edge prop drilling from child visualizer components.
-- [ ] Ensure that UI adheres to tactical hardware aesthetic guidelines.
+- [x] Refactor `DagDashboard` to use `useDagContext` for nodes and edges.
+- [x] Remove node and edge prop drilling from child visualizer components.
+- [x] Ensure that UI adheres to tactical hardware aesthetic guidelines.
