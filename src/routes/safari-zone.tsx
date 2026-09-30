@@ -75,10 +75,15 @@ function SafariZonePage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                  {encounters.map((enc) => {
+                  {encounters.map((enc, idx) => {
                     const pokemonName = pokemonMap.get(enc.pokemon) || `Pokémon #${enc.pokemon}`;
                     return (
-                      <TacticalCard key={`${area.name}-${enc.pokemon}`} variant="storage-cyan" className="p-3">
+                      <TacticalCard
+                        // biome-ignore lint/suspicious/noArrayIndexKey: Encounter slots in an area table require index disambiguation
+                        key={`${area.name}-${enc.pokemon}-${enc.method}-${idx}`}
+                        variant="storage-cyan"
+                        className="p-3"
+                      >
                         <div className="flex flex-col items-center text-center">
                           <PokemonSprite
                             pokemonId={enc.pokemon}

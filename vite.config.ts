@@ -118,6 +118,12 @@ export default defineConfig(() => {
             if (id.includes('node_modules/cn/')) {
               return 'cn';
             }
+            if (id.includes('node_modules/lucide-react/')) {
+              return 'lucide';
+            }
+            if (id.includes('src/engine/data/')) {
+              return 'engine-data';
+            }
             return undefined;
           }
         },
