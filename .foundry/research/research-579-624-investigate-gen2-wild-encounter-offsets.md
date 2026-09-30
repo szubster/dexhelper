@@ -27,4 +27,4 @@ notes: ''
 Find the exact memory offsets and extraction logic for Gen 2 wild encounter locations, rates, and held item data drop rates to support accurate data extraction logic.
 
 ## Acceptance Criteria
-- [ ] Identify Gen 2 wild encounter and held item memory offsets and structure.
+- [x] Identify Gen 2 wild encounter and held item memory offsets and structure.
