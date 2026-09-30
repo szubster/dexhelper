@@ -2,6 +2,7 @@ import type React from 'react';
 import type { SaveData } from '../../../engine/saveParser/parsers/common';
 import { TacticalCard } from '../../TacticalCard';
 import { TacticalChecklistItem } from '../../TacticalChecklistItem';
+import { TacticalHeaderDivider } from '../../TacticalHeaderDivider';
 
 interface Props {
   saveData: SaveData;
@@ -16,9 +17,9 @@ export const Gen3TrainerCardDashboard: React.FC<Props> = ({ saveData }) => {
 
   return (
     <TacticalCard>
-      <div className="mb-4 border-zinc-700 border-b border-dashed pb-2">
+      <TacticalHeaderDivider className="mb-4 border-zinc-700">
         <h2 className="font-bold font-mono text-sm text-zinc-400 tracking-widest">TRAINER CARD UPGRADES</h2>
-      </div>
+      </TacticalHeaderDivider>
       <div className="flex flex-col gap-2">
         <TacticalChecklistItem label="Hall of Fame Debut" acquired={hasHallOfFame} strikethroughWhenAcquired={false} />
         <TacticalChecklistItem

@@ -5,6 +5,7 @@ import type { SaveData } from '../../../engine/saveParser/parsers/common';
 import { renderCertificate } from '../../../utils/hof/render';
 import { TacticalButton } from '../../TacticalButton';
 import { TacticalChecklistItem } from '../../TacticalChecklistItem';
+import { TacticalHeaderDivider } from '../../TacticalHeaderDivider';
 import { TacticalPanel } from '../../TacticalPanel';
 
 interface Props {
@@ -51,10 +52,10 @@ export const HallOfFameDashboard: React.FC<Props> = ({ saveData }) => {
 
   return (
     <TacticalPanel className="p-5">
-      <div className="mb-4 flex items-center justify-between border-zinc-700 border-b border-dashed pb-2">
+      <TacticalHeaderDivider className="mb-4 border-zinc-700">
         <h2 className="font-bold font-mono text-sm text-zinc-400 tracking-widest">HALL OF FAME RECORDS</h2>
         <span className="font-mono text-xs text-zinc-500">TOTAL ENTRIES: {saveData.hallOfFameRecords.length}</span>
-      </div>
+      </TacticalHeaderDivider>
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <TacticalChecklistItem

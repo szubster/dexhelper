@@ -3,6 +3,7 @@ import { FRONTIER_BRAIN_THRESHOLDS } from '../../../engine/gen3/battleFrontier/c
 import type { Gen3BattleFrontierWinStreaks, SaveData } from '../../../engine/saveParser/parsers/common';
 import { objectKeys } from '../../../utils/object';
 import { DataPoint } from '../../DataPoint';
+import { TacticalHeaderDivider } from '../../TacticalHeaderDivider';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
@@ -128,9 +129,9 @@ export const BattleFrontierDashboard = React.memo(({ saveData }: BattleFrontierD
             variant={facility.variant}
             className="flex h-[250px] flex-col gap-0 border-l-2 p-0"
           >
-            <div className="flex items-center justify-between border-zinc-800 border-b border-dashed bg-black/40 p-3 pb-2">
+            <TacticalHeaderDivider className="bg-black/40 p-3 pb-2">
               <span className="tactical-text z-10 font-black text-white">[ {facility.name} ]</span>
-            </div>
+            </TacticalHeaderDivider>
 
             <div className="flex h-full w-full items-center justify-center bg-[#3f3f46]/20">
               <ProgressNode data={facility.data} />
