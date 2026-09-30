@@ -1,4 +1,3 @@
-export const GEN3_POKEMON_SIZE = 100;
 export const DATA_BLOCK_OFFSET = 32;
 export const DATA_BLOCK_SIZE = 48;
 export const SUBSTRUCTURE_SIZE = 12;
@@ -8,9 +7,6 @@ export const WORDS_PER_SUBSTRUCTURE = 3;
 
 export const MAGIC_NUMBER_PV_OFFSET = 0;
 export const MAGIC_NUMBER_OT_ID_OFFSET = 4;
-
-export const M_SUBSTRUCTURE_POKERUS_OFFSET = 0;
-export const M_SUBSTRUCTURE_RIBBONS_OFFSET = 8;
 
 export interface PK3 {
   pv: number;
