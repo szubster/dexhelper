@@ -30,10 +30,13 @@ Implement parsing logic for Contest stats (Coolness, Beauty, Cuteness, Smartness
 - See `.foundry/docs/knowledge_base/engine/save_parsing/gen3_condition_stats_offsets.md` for offsets and decryption logic.
 
 ## Acceptance Criteria
+- [ ] research-473-638-investigate-condition-stats-parser-failure-v2
+- [ ] task-473-639-gen3-condition-stats-parser-v3
+- [ ] task-473-640-gen3-condition-stats-qa-v3
 - [x] Break down story into tasks for implementing Condition data extraction logic.
 - [ ] task-473-493-gen3-condition-stats-constants
 - [x] task-473-494-gen3-condition-stats-parser
 - [x] task-473-495-gen3-condition-stats-qa
-- [ ] research-473-611-investigate-condition-stats-parser-failure
-- [ ] task-473-612-gen3-condition-stats-parser-retry
-- [ ] task-473-613-gen3-condition-stats-qa-retry
+- [x] research-473-611-investigate-condition-stats-parser-failure
+- [x] task-473-612-gen3-condition-stats-parser-retry
+- [x] task-473-613-gen3-condition-stats-qa-retry
