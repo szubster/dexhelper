@@ -33,6 +33,10 @@ After downloading public save files, they must be validated to ensure they are v
 
 ## Acceptance Criteria
 - [x] Break down this story into tasks.
-- [ ] task-471-627-verify-and-move-saves
-- [ ] task-471-628-update-fixture-manifests
-- [ ] task-471-629-verify-and-integrate-saves-qa
+- [x] task-471-627-verify-and-move-saves
+- [x] task-471-628-update-fixture-manifests
+- [x] task-471-629-verify-and-integrate-saves-qa
+- [ ] research-471-637-investigate-save-file-sourcing
+- [ ] task-471-638-verify-and-move-saves-retry
+- [ ] task-471-639-update-fixture-manifests-retry
+- [ ] task-471-640-verify-and-integrate-saves-qa-retry
