@@ -27,6 +27,6 @@ locks: []
 Investigate the root cause of the permanent failure of task-473-493-gen3-match-call-e2e-impl.
 
 ## Acceptance Criteria
-- [ ] Read QA/Coder journals and failure logs for task-473-493.
-- [ ] Identify why Playwright E2E tests could not correctly validate Match Call data.
-- [ ] Document the root cause and provide clear implementation guidelines in a journal entry.
+- [x] Read QA/Coder journals and failure logs for task-473-493.
+- [x] Identify why Playwright E2E tests could not correctly validate Match Call data.
+- [x] Document the root cause and provide clear implementation guidelines in a journal entry.
