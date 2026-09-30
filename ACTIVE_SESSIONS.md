@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [epic-049-088-vite-plugin-jsonl-integration](.foundry/epics/epic-049-088-vite-plugin-jsonl-integration.md) | EPIC | Vite Plugin Integration for JSONL Data | story_owner | [14268965975810491632](https://jules.google.com/session/14268965975810491632) |
 | [epic-566-579-e2e-core-component-models](.foundry/epics/epic-566-579-e2e-core-component-models.md) | EPIC | E2E Core Component Object Models | story_owner | [167766775965242715](https://jules.google.com/session/167766775965242715) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
