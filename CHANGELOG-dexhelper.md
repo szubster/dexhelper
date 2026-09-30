@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.21.3] - 2026-03-30
+### Changed
+- Bump `lucide-react` dependency from 0.577.0 to 1.0.1.
+
 ## [0.21.2] - 2026-03-23
 ### Changed
 - Bump `@tanstack/router-vite-plugin` dependency from 1.166.12 to 1.166.18.
@@ -144,3 +148,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.21.0]: https://github.com/szubster/dexhelper/compare/26c46de9206aeb462f3ecd8638e4472b44b58791...b72dce75b94081093c23f96b36a64f284845d643
 [0.21.1]: https://github.com/szubster/dexhelper/compare/067c75ac8a1f5636b8a76767bafd1eacde61240c...80809f4058a645e1648f9cd6ba4dee094ae0655e
 [0.21.2]: https://github.com/szubster/dexhelper/compare/80809f4058a645e1648f9cd6ba4dee094ae0655e...ae23b902255b90b81ca2ddd582c9462959b07b60
+[0.21.3]: https://github.com/szubster/dexhelper/compare/19736ac5285ef7f5e2478fff92a866a7dd7c46de...38365f35e66a5d9341ac5b61663659685fcd11d7
