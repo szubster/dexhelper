@@ -408,8 +408,63 @@ describe('evolutionGenerator', () => {
       );
 
       expect(suggestions2[0]?.id).toBe('evo-trade-held-212');
-      expect(suggestions2[0]?.priority).toBe(90);
+      expect(suggestions2[0]?.priority).toBe(95);
       expect(suggestions2[0]?.description).toContain('already holding');
+    });
+
+    it('generates priority 95 for Gen 3 held item trade evolutions when held item is in inventory', async () => {
+      const apiData: AssistantApiData = {
+        pokemonMetadata: {
+          230: {
+            id: 230, // Kingdra
+            efrm: [117], // Seadra
+            det: [{ tr: EVO_TRIGGER.TRADE, held: 235 }], // Dragon Scale
+          },
+          368: {
+            id: 368, // Gorebyss
+            efrm: [366], // Clamperl
+            det: [{ tr: EVO_TRIGGER.TRADE, held: 227 }], // DeepSeaScale
+          },
+        },
+      } as unknown as AssistantApiData;
+
+      const instancesBySpecies = new Map<number, PokemonInstance[]>([
+        [117, [{ speciesId: 117, level: 32 } as PokemonInstance]],
+        [366, [{ speciesId: 366, level: 20 } as PokemonInstance]],
+      ]);
+
+      const saveDataWithItems: SaveData = {
+        ...mockSaveData,
+        inventory: [{ id: 235, quantity: 1 }], // Has Dragon Scale
+      } as unknown as SaveData;
+
+      const suggestionsWithItem: Suggestion[] = [];
+      await generateEvolutionSuggestions(
+        [230],
+        saveDataWithItems,
+        apiData,
+        instancesBySpecies,
+        suggestionsWithItem,
+        'emerald',
+        new Set([230]),
+      );
+
+      expect(suggestionsWithItem[0]?.id).toBe('evo-trade-held-230');
+      expect(suggestionsWithItem[0]?.priority).toBe(95);
+
+      const suggestionsMissingItem: Suggestion[] = [];
+      await generateEvolutionSuggestions(
+        [368],
+        mockSaveData, // No DeepSeaScale
+        apiData,
+        instancesBySpecies,
+        suggestionsMissingItem,
+        'emerald',
+        new Set([368]),
+      );
+
+      expect(suggestionsMissingItem[0]?.id).toBe('evo-trade-held-368');
+      expect(suggestionsMissingItem[0]?.priority).toBe(45);
     });
 
     it('generates Shedinja special evolution suggestions', async () => {
