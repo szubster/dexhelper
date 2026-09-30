@@ -27,6 +27,6 @@ locks: []
 Implement a hidden developer UI component that interacts with the feature flags state layer to toggle experimental features.
 
 ## Acceptance Criteria
-- [ ] Implement hidden UI component for developers
-- [ ] Wire UI to feature flags state layer
-- [ ] Add UI component tests
+- [x] Implement hidden UI component for developers
+- [x] Wire UI to feature flags state layer
+- [x] Add UI component tests
