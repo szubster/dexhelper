@@ -29,4 +29,4 @@ Verify the Idea Dependency Matrix schema and updater script.
 - Verify the updater script accurately reflects the current state of Foundry nodes.
 
 ## Acceptance Criteria
-- [ ] Schema and updater script are verified to work correctly.
+- [x] Schema and updater script are verified to work correctly.
