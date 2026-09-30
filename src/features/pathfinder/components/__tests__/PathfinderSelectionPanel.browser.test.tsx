@@ -2,14 +2,15 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import type { PokemonMetadata } from '../../../../db/schema';
 import { usePathfinderStore } from '../../store';
 import { PathfinderSelectionPanel } from '../PathfinderSelectionPanel';
 
 vi.mock('../../../../db/PokeDB', () => ({
   pokeDB: {
-    getAllPokemon: vi.fn<() => Promise<unknown[]>>().mockResolvedValue([]),
-    getPokemon: vi.fn<(id: number) => Promise<unknown>>().mockResolvedValue({} as unknown),
-    getMovesBulk: vi.fn<(ids: number[]) => Promise<unknown[]>>().mockResolvedValue([]),
+    getAllPokemon: vi.fn<() => Promise<PokemonMetadata[]>>().mockResolvedValue([]),
+    getPokemon: vi.fn<() => Promise<unknown>>().mockResolvedValue(null),
+    getMovesBulk: vi.fn<() => Promise<unknown[]>>().mockResolvedValue([]),
   },
 }));
 
