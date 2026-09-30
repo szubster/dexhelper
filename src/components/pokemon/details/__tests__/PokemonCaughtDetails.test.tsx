@@ -1,12 +1,12 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import { useParsedSaveData } from '../../../../contexts/EmulatorContext';
 import type { PokemonInstance } from '../../../../engine/saveParser/index';
-import { useStore } from '../../../../store';
 import { PokemonCaughtDetails } from '../PokemonCaughtDetails';
 
-vi.mock('../../../../store', () => ({
-  useStore: vi.fn<() => void>(),
+vi.mock('../../../../contexts/EmulatorContext', () => ({
+  useParsedSaveData: vi.fn<() => void>(),
 }));
 
 describe('PokemonCaughtDetails', () => {
@@ -31,14 +31,7 @@ describe('PokemonCaughtDetails', () => {
   };
 
   it('renders correctly for shiny carrier', async () => {
-    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-      (selector: unknown) =>
-        (selector as (state: unknown) => unknown)({
-          saveData: {
-            generation: 1,
-          },
-        }),
-    );
+    (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({ generation: 1 });
 
     const carrierPokemon = { ...mockPokemon, isShinyCarrier: true };
     await render(<PokemonCaughtDetails yourPokemon={[carrierPokemon]} />);
@@ -47,14 +40,7 @@ describe('PokemonCaughtDetails', () => {
   });
 
   it('renders correctly', async () => {
-    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-      (selector: unknown) =>
-        (selector as (state: unknown) => unknown)({
-          saveData: {
-            generation: 1,
-          },
-        }),
-    );
+    (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({ generation: 1 });
 
     await render(<PokemonCaughtDetails yourPokemon={[mockPokemon]} />);
 
@@ -63,14 +49,7 @@ describe('PokemonCaughtDetails', () => {
   });
 
   it('renders Gen 2 specific info and Time Capsule validation', async () => {
-    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-      (selector: unknown) =>
-        (selector as (state: unknown) => unknown)({
-          saveData: {
-            generation: 2,
-          },
-        }),
-    );
+    (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({ generation: 2 });
 
     await render(<PokemonCaughtDetails yourPokemon={[mockPokemon]} />);
 
@@ -78,14 +57,7 @@ describe('PokemonCaughtDetails', () => {
   });
 
   it('renders Gen 2 specific info and Time Capsule validation with error', async () => {
-    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-      (selector: unknown) =>
-        (selector as (state: unknown) => unknown)({
-          saveData: {
-            generation: 2,
-          },
-        }),
-    );
+    (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({ generation: 2 });
 
     await render(<PokemonCaughtDetails yourPokemon={[{ ...mockPokemon, speciesId: 152 }]} />);
 
@@ -93,14 +65,7 @@ describe('PokemonCaughtDetails', () => {
   });
 
   it('renders ContestRibbonsPanel for Gen 3 pokemon with ribbons', async () => {
-    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-      (selector: unknown) =>
-        (selector as (state: unknown) => unknown)({
-          saveData: {
-            generation: 3,
-          },
-        }),
-    );
+    (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({ generation: 3 });
 
     const gen3PokemonWithRibbons = {
       ...mockPokemon,
@@ -134,14 +99,7 @@ describe('PokemonCaughtDetails', () => {
   });
 
   it('renders ContestConditionStats and ContestSheenDisplay for pokemon with condition', async () => {
-    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-      (selector: unknown) =>
-        (selector as (state: unknown) => unknown)({
-          saveData: {
-            generation: 3,
-          },
-        }),
-    );
+    (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({ generation: 3 });
 
     const pokemonWithCondition = {
       ...mockPokemon,
@@ -163,14 +121,7 @@ describe('PokemonCaughtDetails', () => {
   });
 
   it('renders ContestRecommendationPanel for pokemon with condition and personalityValue', async () => {
-    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-      (selector: unknown) =>
-        (selector as (state: unknown) => unknown)({
-          saveData: {
-            generation: 3,
-          },
-        }),
-    );
+    (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({ generation: 3 });
 
     const pokemonWithConditionAndPV = {
       ...mockPokemon,
@@ -191,14 +142,7 @@ describe('PokemonCaughtDetails', () => {
   });
 
   it('renders Pokerus strain when present', async () => {
-    (useStore as unknown as { mockImplementation: (fn: (selector: unknown) => unknown) => void }).mockImplementation(
-      (selector: unknown) =>
-        (selector as (state: unknown) => unknown)({
-          saveData: {
-            generation: 3,
-          },
-        }),
-    );
+    (useParsedSaveData as ReturnType<typeof vi.fn>).mockReturnValue({ generation: 3 });
 
     const pokemonWithPokerus = {
       ...mockPokemon,

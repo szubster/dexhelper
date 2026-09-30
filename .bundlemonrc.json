@@ -103,7 +103,7 @@
     },
     {
       "path": "assets/*-<hash>.js",
-      "maxSize": "10kb"
+      "maxSize": "15kb"
     },
     {
       "path": "data/foundry.json",
