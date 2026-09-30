@@ -29,4 +29,4 @@ locks: []
 Define the types and method signatures for high-level bitwise helpers (\`readBits\`, \`readFlag\`) in \`SaveDataReader\`.
 
 ## Acceptance Criteria
-- [ ] Add stubs for \`readBits\` and \`readFlag\` in the \`SaveDataReader\` class/interface.
+- [x] Add stubs for \`readBits\` and \`readFlag\` in the \`SaveDataReader\` class/interface.
