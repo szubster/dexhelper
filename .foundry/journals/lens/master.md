@@ -53,6 +53,10 @@ In React 19, lazy-loaded route components (such as `DagWrapper` on `/dag`) throw
 
 # Exploratory Layout Audit Findings
 
+## Mobile Navigation Alignment & Generation Context Filter
+* **Generation-Specific Tab Visibility**: Mobile navigation (`BottomNav`) must dynamically align with the active save generation context (mirroring `AppHeader.tsx`). Tabs for Gen 2 (`DASH`) and Gen 3 (`SFRI`, `G3DB`) are hidden when no save or a Gen 1 save is active, preventing layout clutter and dead navigation routes.
+* **Horizontal Navigation Enclosure**: Mobile control arrays maintain horizontal scrolling (`overflow-x-auto custom-scrollbar`) and minimum touch targets (`min-w-[52px]`) to ensure ergonomic operation across device viewports.
+
 ## Mobile Viewport Bottom Nav Margin Requirements
 * **Fixed Bottom Bar Occlusion Risk**: On mobile viewports (Pixel 9: 393x852), fixed bottom navigation arrays (`BottomNav`) span y-coords 752-852px (~100px fixed height). Scrollable route containers must consistently maintain bottom padding (`pb-24` / `pb-28`) to prevent interactive card footers from being hidden beneath the fixed control array.
 * **Horizontal Overflow**: Verified that `scrollWidth <= clientWidth + 2` holds across all application routes during exploratory interaction tests and save state toggles.
