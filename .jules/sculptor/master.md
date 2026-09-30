@@ -80,7 +80,6 @@ Improve AI readability by refactoring `extractPlayerTools` to use clear item/mov
 ## Critical Learnings
 * **Inline magic numbers obfuscate bitwise and data logic:** Using inline hex values (like `0xff`, `0xffff`) deeply embedded in parsing logic makes it extremely difficult for AI to grasp the binary architecture and bounds of save files.
 * **Top-level constants provide semantic mapping:** Extracting these to named constants (`GEN1_EMPTY_SLOT`, `COMMON_EMPTY_SLOT`, etc.) immediately clarifies their purpose and limits.
-* **Refactoring Strategy:** Using Node `.js` scripts is significantly safer and more precise than standard bash `sed` or `grep` tools for manipulating large TypeScript parsing files.
 
 ---
 
@@ -106,7 +105,6 @@ Improve AI readability by refactoring magic numbers for Pokémon data offsets in
 * **Inline magic numbers obfuscate array structures:** When parsing save files, iterating over items or species using `offset + 1 + j` and `offset + 1 + i * 2` deeply obfuscates the layout of binary structs (like inventories) from AI.
 * **Top-level constants provide semantic mapping:** Extracting these specific pointer jumps into constants (`BOX_SPECIES_LIST_OFFSET`, `ITEM_RECORD_SIZE`, `ITEM_QUANTITY_OFFSET`) vastly clarifies how the array structures are bounded.
 * **Refactoring Strategy:** Using custom `node` scripts for automated search and replace operations works well for targeted refactors but leaves scratchpads behind. It is imperative to remember to `rm` any text files (e.g., `test_script.js`, `plan.md`) generated during the exploration before asking for code review.
-
 
 <!-- Merged from 024-tm-flags.md -->
 
@@ -138,14 +136,12 @@ Improve AI readability by extracting Gen 3 NPC trade flags from the main `parser
 
 ## Actions Taken
 - Extracted 13 `FLAG_` constants relating to NPC trades from `src/engine/saveParser/parsers/gen3.ts` into a new `src/engine/saveParser/gen3/npcTrades/constants.ts` file.
-- Updated `src/engine/saveParser/parsers/gen3.ts` to import these constants.
 
 ---
 
 ## Critical Learnings
 - **Inline exports clutter core logic:** Similar to TM/HM flags, when domain-specific constants (like trade flags) are scattered inline within the main parsing logic, it becomes harder for AI to distinguish between the actual binary extraction logic and the static dictionaries. Extracting them to dedicated dictionary files improves semantic structure and modularity.
 - **Refactoring Strategy:** Writing custom scripts to migrate constants and their references proved safer than manual string replacement across large files.
-
 
 <!-- Merged from 1788834504862.md -->
 
@@ -165,7 +161,6 @@ Improve AI readability by extracting Gen 2 array size and block length magic num
 ## Critical Learnings
 - **Inline sizes mask structural boundaries:** Using raw numbers for offset jumps inside of loops (like i * 48) heavily obfuscates the physical boundaries of parsed save-game structs from AI agents.
 - **Header arrays versus Data blocks:** Clearly distinguishing between a "Species List" (a simple array of bytes) and a "Data Block" (a structured array of objects) with separate constants (like GEN2_PARTY_SPECIES_LIST_LENGTH vs GEN2_PARTY_POKEMON_BLOCK_SIZE) allows an AI agent to predict where the next section of memory begins without needing to decipher loop index math.
-
 
 <!-- Merged from 2026-09-10-02-14-27.md -->
 
@@ -192,3 +187,9 @@ Improve AI readability by extracting Gen 3 roamer offsets into a centralized con
 ## Critical Learnings
 - **Inline exports and duplicate test declarations clutter core logic:** Similar to previous TM/HM flags and NPC trades refactors, scattering domain-specific constants (like roamer boundaries) across parsing logic and duplicating them in tests makes it harder for AI agents to determine the single source of truth. Extracting them to dedicated dictionary files improves semantic structure and modularity.
 - **Refactoring Strategy:** Always use `read_file` or `head`/`grep` to inspect the exact structure (like imports) of the target files before attempting to inject or replace code via bash scripts to ensure groundedness and avoid hallucinating file structures.
+
+---
+
+## Critical Learnings
+* **Inline magic numbers obfuscate data structures and bitmasks:** Using inline hex values (like `0x3a54`, `0x3`, `0xfff`) deeply embedded in parsing logic makes it difficult for AI to grasp the binary architecture and bounds of save files.
+* **Top-level constants provide semantic mapping:** Extracting these to named constants (`GEN3_FAME_CHECKER_OFFSET`, `FAME_CHECKER_PICK_STATE_MASK`, `FAME_CHECKER_FLAVOR_FLAGS_MASK`, etc.) in `constants.ts` drastically improves semantic readability and AI comprehension of Generation 3 save file data parsing.

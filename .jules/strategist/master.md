@@ -226,7 +226,6 @@
 **Why:** The instructions in `strategist.md` told the agent to read and persist to directories/files like `.jules/strategist.md`, `.jules/*.md` and `.foundry/journals/*.md`. However, since the Archivist persona aggregates session logs into singular markdown files per persona (e.g., `.jules/bolt/master.md`, `.foundry/journals/coder/master.md`), the Strategist was unable to read the files effectively and failed during journal review phases. Updating paths to point to `master.md` within persona directories fixes this. Furthermore, fixed the instruction to create timestamped journal files instead of writing directly to master.md to comply with core journaling policies.
 **Pattern:** Ensure file path instructions in prompts reflect the actual repository structure, especially taking into account Archivist aggregations.
 
-
 <!-- Merged from 2026-09-06-04-11-42.md -->
 
 ---
@@ -236,7 +235,6 @@
 **Outcome:** Rejected → journaled
 **Why:** The maintainer rejected the retirement of the `agile_coach` persona, noting that its previous retirement created a void that needed to be filled, and that it was a bad decision to retire it. This indicates that despite apparent overlap with `strategist`, `agile_coach` provides necessary value that cannot be fully absorbed.
 **Pattern:** Before retiring a meta-agent due to perceived redundancy, ensure its historical contributions and unique system role (such as analyzing journals and creating proactive process improvements based on friction) are truly redundant and not just superficially similar to another agent's responsibilities.
-
 
 <!-- Merged from 2026-09-08-04-13-20.md -->
 
@@ -267,7 +265,6 @@
 **Outcome:** Merged
 **Why:** The instructions in `canvas.md` told the agent to read and persist to directories/files like `.jules/canvas.md`. However, since the Archivist persona aggregates session logs into singular markdown files per persona (e.g., `.jules/canvas/master.md`), the Canvas agent was unable to read the files effectively and failed during journal review phases. Updating paths to point to `master.md` within persona directories fixes this. Furthermore, fixed the instruction to create timestamped journal files instead of writing directly to `.jules/canvas.md` to comply with core journaling policies.
 **Pattern:** Ensure file path instructions in prompts reflect the actual repository structure, especially taking into account Archivist aggregations.
-
 
 <!-- Merged from 2026-09-12-04-48-22.md -->
 
@@ -351,3 +348,11 @@ Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing 
 **Outcome:** Merged
 **Why:** The `.github/agents/lens.md` schedule contained two back-to-back numbered lists under its `## Responsibilities` section (items 1-4 followed by items 1-5), resulting from an improper merge or copy-paste duplication. Consolidating these lists into a single, cohesive 4-step responsibilities section eliminates redundancy and reduces prompt context size.
 **Pattern:** Clean up duplicated or overlapping prompt sections caused by merge artifacts to ensure scheduled persona prompts remain concise and clear.
+
+---
+
+## 2026-09-29 - [Accepted] - Prompt improvement - Standardize journal reading instruction in Lens schedule
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The instructions for reading journals across agent prompts were previously standardized to require the explicit phrasing `Read your past journals in <path>/master.md before starting.` in their `## Journal` section. However, `.github/agents/lens.md` was missing the exact wording, instead containing `Read past journals in .foundry/journals/lens/master.md.`. Updating `lens.md` to strictly adhere to mandatory journal instruction phrasing ensures system-wide prompt consistency and compliance with core journaling rules.
+**Pattern:** Audit all persona prompts periodically to ensure standard mandatory phrasing (such as journal reading directives) remains uniform across the entire agent roster.

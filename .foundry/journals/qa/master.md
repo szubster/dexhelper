@@ -28,7 +28,6 @@ I updated `task-405-485-gen3-mixed-record-parser-impl-v2.md` to FAILED, updated 
 ---
 
 # QA Journal
-Session: 10381463315677890878
 Task: task-346-353-gen3-pv-iv-extraction-qa
 Target Task: task-346-352-gen3-pv-iv-extraction-impl
 
@@ -58,7 +57,6 @@ I have set `task-346-352-gen3-pv-iv-extraction-impl.md` to FAILED and updated it
 
 # QA Session Journal
 
-Session ID: 10482673351733569182
 Task ID: task-333-383-sorting-strategies-core-qa
 
 Validated the implementation of the Standard PC Box Sorting Strategies (`DexNumberSorter`, `LevelSorter`, `TypeSorter`, `AlphaSorter`).
@@ -90,8 +88,6 @@ Verified the implementation of the diff engine hash fix. The coder correctly add
 
 ---
 
-# Session 11644115072242309867
-
 Verified the implementation of session-unique journal files. All agents prompt files correctly instruct agents to use session-unique journal paths, and the orchestrator is updated to support the directory-based structure. Task is approved.
 
 ---
@@ -108,7 +104,6 @@ All acceptance criteria are met, allowing the QA node to transition.
 
 ---
 
-## Session 12783330098851291332
 - Verified Graveyard Box Logic is already implemented in src/engine/nuzlocke/tracker.ts and src/store.ts.
 - Verified tests exist in src/engine/nuzlocke/tracker.test.ts.
 
@@ -157,7 +152,6 @@ Implementation approved.
 ---
 
 # QA Validation Journal: Gen 2 Pokegear Registered Numbers Parsing
-Session ID: 14711255524066460026
 
 ---
 
@@ -255,8 +249,6 @@ I checked off the acceptance criteria for `task-338-341-journal-automerge-qa.md`
 
 ---
 
-# Session 2442253360963392777
-
 The target implementation task (`task-283-312-parse-registered-numbers-impl.md`) was rejected and permanently CANCELLED due to a violation of the Section 13 Bitwise Mapping rule from `.foundry/docs/schema.md`.
 
 The rule mandates: "When parsing bitwise blocks (e.g., event flags) using the DataView API, you must explicitly map the specific bit offsets corresponding to target events. Just extracting the raw array is insufficient."
@@ -294,8 +286,6 @@ Date: 2026-07-30
 - Caught an incorrect parameter name (saveBlock1Offset vs saveBlock2Offset) in the docstring for parseGen3TMEventFlags, which I fixed.
 
 ---
-
-# QA Journal Entry - Session 4493110731399186264
 
 **Task:** Graveyard Box UI QA (task-334-347-graveyard-box-ui-qa)
 
@@ -357,8 +347,6 @@ Target task `task-333-363-pokemon-types-data-impl` reached its max rejection cou
 
 ---
 
-# Session 6607903321732293864
-
 Successfully validated `task-336-388-implement-orchestrator-cycle-detection` implementation. Checked off all acceptance criteria for QA `task-336-389-orchestrator-cycle-detection-qa`. Cycle detection was successfully implemented in `foundry-orchestrator.ts` and tests cover the functionality in `foundry-orchestrator.test.ts`.
 
 ---
@@ -419,8 +407,6 @@ The implementation matches the constraints defined in `.foundry/docs/schema.md` 
 
 ---
 
-# Session 9725628562564447045
-
 Task: task-332-368-gen3-pokeblock-extraction-qa
 
 Verified the Gen 3 Pokeblock extraction implementation in `src/engine/saveParser/gen3/pokeblock/parser.ts`.
@@ -467,7 +453,6 @@ Also ran vitest unit tests in `.github/scripts` and all 175 tests passed, includ
 ---
 
 # QA Journal
-Session ID: 2897712216952814014
 
 ---
 
@@ -494,8 +479,6 @@ Task ID: task-336-343-zod-schema-definition-qa
 No architectural violations detected (ADR 001 compliance is confirmed). Implementation approved.
 
 ---
-
-## Session 9297002747926214163.md
 
 Approved implementation of the regional dex sorting strategy. All tests and linting passed. Changes strictly adhered to the node update rules.
 
@@ -553,7 +536,6 @@ Found duplicate components for ProgressionTimeline. One at `src/components/dashb
 
 # QA Session Journal
 
-Session ID: 4628964964798248082
 Date: 2026-08-03
 
 ---
@@ -588,8 +570,6 @@ QA review for Zod schema integration within `.github/scripts`.
 - The Foundry DAG orchestrator validates frontmatter fields `created_at` and `updated_at` using Zod schema which accepts both strings and JS Date objects (coercing Date objects into ISO strings) to gracefully handle unquoted dates parsed by gray-matter. `z.string()` alone does not satisfy this architectural requirement.
 
 ---
-
-## Session 11535290665484556346.md
 
 Successfully completed the QA task for Nuzlocke Route Violations. Ensure strict adherence to the negative constraints regarding YAML frontmatter updates when acting as QA.
 
@@ -674,7 +654,6 @@ Verified the bash static analysis linter correctly blocks `tail -f` from executi
 
 ## Session from 1776390025790580442
 Verified task-362-407-gen3-trade-extraction-impl. Extracted `npcTradeFlags` successfully, implemented without magic numbers and using dataView, throwing exact RangeError, and using relative offsets for Gen 3. The implementation adheres to Section 13.
-
 
 - Ensured `### SCHEMA` link at the bottom of markdown was preserved to avoid rejection during plan review by explicitly reading the bottom 500 characters using `tail -c 500`.
 - Verified file write modifications and test stability to satisfy completeness rules before submittal.
@@ -864,8 +843,6 @@ QA validation of the Gen 3 Volcanic Ash UI integration.
 
 ---
 
-# QA Journal Entry - Session 17980300691470575576
-
 Be aware that the automated code review may generate false negatives claiming the patch is incomplete when only markdown checkboxes are updated. Ignore the false negative and proceed to `submit` to clear the task.
 
 ---
@@ -904,8 +881,6 @@ Verified task-275-435-move-db-schema-inflation.
 
 ---
 
-# QA Journal Entry - Session 16272564245202199728
-
 ---
 
 ## Context
@@ -928,8 +903,6 @@ This is a direct violation of the acceptance criteria to adequately cover identi
 - Triggered the Resurrection Loop by appending a rejection note to my own QA task without checking off any acceptance criteria.
 
 ---
-
-# Session 13723927411961996050
 
 ---
 
@@ -962,8 +935,6 @@ Since the implementation task was completed and the target files were already fi
 
 ## Learnings
 - **Empty PR Rule for Orphaned/Cancelled Nodes:** When a target task is replaced or cancelled, the QA persona must still satisfy ADR 007 by explicitly checking off its own acceptance criteria checkbox and submitting an Empty PR to allow the node to gracefully exit the DAG. Leaving it unchecked prevents the orchestrator from completing it.
-
-
 
 When adding steps to a Github Actions workflow file (`ci.yml`), ensure you properly `cd` into the workspace where the tests run and supply dependencies, for example running `cd .github/scripts && pnpm install --frozen-lockfile && npx vitest run`.
 
@@ -1112,14 +1083,11 @@ We need to enforce these strict parsing guidelines for Gen 3 data extraction to 
 
 ---
 
-# Session 17804424079054421485 (QA)
-
 ---
 
 ## Learnings
 * **DAG Integration QA:** Successfully verified the implementation of `fuzzingUtils` into the orchestrator `dag-evaluation-fuzz.test.ts`. Fast-check `.chain()` and `.map()` were properly utilized to bridge the data structures.
 * **Orchestrator Fuzzing:** The integration functions seamlessly, allowing `buildReverseDependencyGraph` and `getOrphanedNodes` to be fuzz-tested using randomized but structurally valid DAGs.
-
 
 Verified the `gen1.ts`, `gen2.ts`, and `gen3.ts` parsers using Vitest type checks and standard execution.
 `parseGen1`, `parseGen2`, and `parseGen3` successfully return `Gen1SaveData`, `Gen2SaveData`, and `Gen3SaveData` instead of a generic `SaveData` union without throwing any regressions.

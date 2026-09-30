@@ -33,16 +33,8 @@ Journal entry: Failed the first code review due to missing 'meaningful documenta
 
 # Scribe Memory
 
-- When adding JSDoc comments to complex parsing domains (like `src/engine/saveParser/parsers/gen3.ts`), it is crucial to explain the architectural 'why' behind the logic, such as the A/B bank flash memory architecture in Generation 3, which alternates between 56KB banks to prevent data corruption.
 - When documenting bitwise operations (like event flag extraction for NPC trades or Move Tutors), clearly outline the math used to locate the byte offset (`flag >> 3`) and the bit index (`flag & 7`) so future developers understand the binary structure being parsed.
 - Avoid over-explaining standard bitwise operations if they are obvious, but do document the *structure* of the data they are extracting from.
-
-
-- When adding JSDoc comments to complex parsing domains (like `src/engine/saveParser/parsers/gen3.ts`), it is crucial to explain the architectural 'why' behind the logic, such as the A/B bank flash memory architecture in Generation 3, which alternates between 56KB banks to prevent data corruption.
-- While adding inline comments is helpful, providing a more comprehensive update by also including JSDoc annotations on exported APIs makes the documentation effort much more complete and valuable.
-
-- Observation: When analyzing memory operations in Gen 2, it is critical to note that version detection (Gold/Silver vs Crystal) dictates all base offsets. Instead of static offset maps, the codebase heavily utilizes ternary operations predicated on the `isCrystal` boolean. Inventory parsing also features dynamic length-prefixed lists rather than fixed structs.
-- Rule: Ensure architectural documentation does not hallucinate hex offsets or complex structures (e.g., roaming legendaries) if they are not definitively proven in the `run_in_bash_session` output. Strict adherence to grounded facts is required.
 
 ---
 
@@ -157,7 +149,6 @@ The user requested to pick ONE module and improve its documentation (JSDoc, inli
 - **Scribe Constraints**: Attempting to document multiple files violates the strict "ONE module" requirement.
 - **Testing Constraints**: Playwright binaries must be installed (`pnpm exec playwright install chromium`) before running `pnpm test` if it hasn't been done in the environment yet.
 
-
 <!-- Merged from 2026-08-26-02-26-03.md -->
 
 ---
@@ -196,7 +187,6 @@ The user requested to pick ONE module and improve its documentation (JSDoc, inli
 ## Session: Documenting Gen 3 Pokemon Data Decryption
 - Observation: When using `replace_with_git_merge_diff`, it is absolutely critical that the search block exactly matches the text currently in the file. During this session, attempting to match `OTID` in a JSDoc string when the file actually contained `OT ID` caused the patch to fail.
 - Rule: Always copy the target search block verbatim (e.g. by using `sed` or `grep` to extract it first) before generating the git merge diff to avoid applying patch failures.
-
 
 <!-- Merged from 2026-09-10-04-11-40.md -->
 

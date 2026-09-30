@@ -24,3 +24,22 @@
 
 ## Critical Learnings
 - **Journal Aggregation Automation**: Running `aggregate-journals.ts` consolidates scattered session files into centralized persona `master.md` logs while keeping git working directories clean from journal sprawl.
+
+
+---
+
+# 2026-09-30 - Archivist Session Journal
+
+---
+
+## Actions Taken
+- Executed `node --experimental-strip-types .github/scripts/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
+- Curated and synthesized all `master.md` files across `.foundry/journals/` and `.jules/` to purge transient status logs (raw session IDs, task completion lists, empty PR submission logs) and deduplicate repeated entries.
+- Confirmed no legacy `.Jules/` (uppercase) directory or stale unlinked files exist.
+- Verified workspace health using `pnpm lint` and `pnpm test`.
+
+---
+
+## Critical Learnings
+- **Journal Aggregation & Curation**: Aggregating scattered session files with `aggregate-journals.ts` and programmatically purging transient logs (such as raw session IDs, task completion lists, and empty PR logs) keeps agent master journals concise, high-signal, and token-efficient.
+- **Context Window Hygiene**: Regular curation of `master.md` logs prevents token bloat in context windows for future agent runs while keeping high-value architectural lessons intact.

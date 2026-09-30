@@ -68,8 +68,6 @@ Exact string matching for prompts is brittle and can lead to false negatives if 
 ## Next Steps
 To improve the resilience of our automated tests that verify agent behavior and prompts, we should consider implementing semantic validation for prompts, rather than strict string matching. I am spawning an IDEA node (`idea-145-semantic-prompt-validation`) to explore building or adopting a system that can semantically validate these prompts, potentially utilizing lightweight AST parsing or LLM-based verification for structural rule compliance.
 
-Logged empty PR submission for epic-106-137-gen2-static-encounters as all descendant tasks are COMPLETED and the node is ready to transition to VERIFYING.
-
 ---
 
 ## Verification
@@ -78,7 +76,6 @@ Epic `epic-117-334-define-zod-schema` is correctly verified. All of its children
 ---
 
 ## Lessons
-Empty PR submissions for parent nodes (e.g., Epics) where children are completed just need standard checklist compliance, but running orchestrator unit tests (`cd .github/scripts && npx vitest run`) locally serves as a great confidence check.
 
 ---
 

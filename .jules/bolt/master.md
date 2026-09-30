@@ -26,7 +26,6 @@ Implemented React.lazy and Suspense code splitting for heavy UI components (Poke
 - Optimized `CapacitySegmentedBar` to use a manual `for` loop instead of `Array.from({ length }).map()`. This avoids the allocation of an intermediate array and lambda closure overhead on every render (O(N) -> O(1) memory overhead), which is critical since the bar is rendered up to 16 times in the `StorageGrid` for different locations.
 - Lifted ratio calculation out of the loop and used `React.memo` to prevent re-renders when parent states change without the primitive `current` or `max` props changing.
 
-
 Explored splitting bundles and static Pokedex data by game generation. The idea is to reduce initial load payload for users by emitting generation-specific Code extensions and `msgpack` data bundles, utilizing `React.lazy` and dynamic imports for game-specific parsing logics and rendering strategies. Drafted the proposal as an IDEA node (`idea-136-split-bundles-and-data.md`) to be reviewed for scheduling.
 
 ---
@@ -96,7 +95,6 @@ Based on feedback, the 2D canvas of nodes is also hard to parse for users trying
 - Optimized `StorageGrid.tsx` by wrapping `StorageGrid` in `React.memo` and memoizing `storageLocations` array construction via `React.useMemo`.
 - Optimized `LivingDexGrid.tsx` by wrapping `LivingDexGrid` in `React.memo` to prevent cascading subtree re-renders of the 386 living dex cell cards.
 
-
 ---
 
 # Performance Optimization Journal
@@ -104,3 +102,12 @@ Based on feedback, the 2D canvas of nodes is also hard to parse for users trying
 - Optimized `PokedexGrid.tsx` virtualizer row mapping loop by pre-allocating/memoizing `columnIndices` array (`useMemo(() => Array.from({ length: columns }, (_, i) => i), [columns])`). This eliminates redundant intermediate array allocations on every virtual row render pass in TanStack Virtual.
 - Optimized `PokemonCatchProbability.tsx` by hoisting the static 10-item HP segment array (`HP_SEGMENTS`) outside the component body. This avoids unnecessary array allocations on every component render.
 - Documented both optimizations with inline `// ⚡ Bolt:` comments explaining the memory allocation reductions.
+
+---
+
+# Performance Optimization Journal
+
+- Optimized `PokemonCaughtDetails.tsx` by wrapping the component in `React.memo` and replacing `Array.from({ length: 12 })` inside the telemetry bar render loop with a module-level pre-allocated index array `TELEMETRY_BLOCK_INDICES`. This eliminates intermediate array allocations and prevents unnecessary re-renders when parent states update without `yourPokemon` changing.
+- Optimized `AliveTeamView.tsx` by wrapping the component in `React.memo`, memoizing `aliveTeam` array filtering via `useMemo`, and replacing `Array.from({ length: 10 })` inside the HP bar render loop with a module-level pre-allocated index array `HP_SEGMENT_INDICES`.
+- Optimized `SyncProgress.tsx` by replacing `Array.from({ length: 10 })` and `Array.from({ length: matrixBlocks })` render loops with module-level pre-allocated index arrays `GAUGE_INDICES` and `MATRIX_BLOCK_INDICES` to prevent garbage collection pressure during high-frequency sync progress updates.
+- Learned that when replacing `Array.from().map((_, i) => ...)` with static index arrays `.map((i) => ...)`, Biome flags unused `// biome-ignore lint/suspicious/noArrayIndexKey` suppression comments as errors (`suppressions/unused`), which must be removed.

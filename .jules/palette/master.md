@@ -45,8 +45,6 @@
 ---
 
 ## Learnings
-- **Component Reuse:** When maintaining the tactical aesthetic, always check if `<TacticalButton>` or `<TacticalPanel>` can replace custom implementations, specifically for components matching the sidebar style.
-- **Frontend Verification:** When running Playwright test scripts against the dev server, the application is mounted at `/dexhelper/` (e.g., `http://localhost:3000/dexhelper/`).
 
 Learned to verify code completely when files are truncated by using tools like tail or grep -A before making a git merge diff replacement.
 
@@ -87,9 +85,7 @@ Learned that the e2e test takes a long time and times out, skipping per memory.
 ---
 
 ## Learnings
-- Tailwind Interactive States: To prevent hover and active styles from triggering on disabled elements, use the `enabled:` modifier (e.g., `enabled:hover:scale-[1.02]`, `enabled:active:scale-95`) rather than standard `hover:` or `active:` prefixes.
 - CSS Peer Selection: To correctly style a child element based on a sibling element's state (e.g. fading out an icon when a `<select>` is disabled), use the `peer` class on the driving element, and `peer-disabled:` modifiers on the child.
-
 
 <!-- Merged from 1788840518.md -->
 
@@ -119,7 +115,6 @@ Learned that the e2e test takes a long time and times out, skipping per memory.
 - Generic `<div>` or `<span>` containers carrying visual-only icons (like `ShinyBadge`) should use `title` to provide native hover tooltips and screen-reader accessible names.
 - Avoid placing `aria-label` directly on generic `<div>` elements without a role (triggers Biome `useAriaPropsSupportedByRole`) and avoid `role="img"` or `role="status"` on generic elements (triggers Oxlint `prefer-tag-over-role`).
 - Always add `aria-hidden="true"` to inner SVG icons (e.g. `Sparkles`) to prevent screen readers from reading raw SVG structures.
-
 
 ---
 

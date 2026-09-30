@@ -14,7 +14,6 @@
 **Why:** `.github/agents/bolt.md` contained hardcoded YAML frontmatter instructions (which violated schema constraints by requiring `rejection_count` and `rejection_reason` for IDEA nodes) and duplicated the `ls -1` sorting logic for sequence numbering. This caused prompt bloat and broke the DRY principle mandated by the Agile Coach's directive to consolidate redundancy and reference centralized documents.
 **Pattern:** Proactively replaced redundant schema and file naming instructions with explicit references to `.foundry/docs/schema.md` and `.foundry/docs/knowledge_base/agents/core_policies.md` to prevent prompt rot and ensure system-wide consistency.
 
-
 <!-- Merged from 2026-08-24-02-27-00.md -->
 
 ---
@@ -41,8 +40,6 @@ I identified that the "Orchestrator Safeguard (E2E/Integration Requirement)" was
 
 ---
 
-# Session 15466324859776924451
-
 ---
 
 ## Refactoring Redundancies in Persona Files
@@ -63,7 +60,6 @@ I identified that the "Orchestrator Safeguard (E2E/Integration Requirement)" was
 
 ## Technical Debt Remediation
 - Created `idea-086-fix-gen3save-mock` to address the mocked `isGen3Save` heuristic causing Gen 3 E2E test issues.
-
 
 <!-- Merged from 2026-08-26-02-00-00.md -->
 
@@ -100,7 +96,6 @@ I identified that the "Orchestrator Safeguard (E2E/Integration Requirement)" was
 ## Session Analysis & Process Improvements
 - **Issue Detected**: Analyzed recent session activities via the Jules API and discovered that multiple agents are consistently violating the **Autonomous No-Ask Policy**. They are ending their sessions with conversational queries such as "Should I proceed?", "Is there anything else?", or "Should I open a PR?" rather than operating autonomously.
 - **Action Taken**: Generated a new IDEA node (`idea-488-autonomous-execution-enforcement.md`) to propose building an automated session analyzer or commit hook that detects these specific phrases and enforces the policy by automatically failing or flagging non-compliant runs. This proactive step aims to eliminate this systemic friction.
-
 
 <!-- Merged from 2026-09-06-04-13-00.md -->
 
@@ -227,7 +222,6 @@ Analyzed session 2897712216952814014 and discovered a QA agent asking the user w
 - **Observation**: Reviewed Coder journal entry (`2026-09-23-08-30-00.md`) where `task-562-576` was aborted due to missing `WildItemSelector` components without a `depends_on` link.
 - **Action**: Reinforced task sequencing and Late Binding guidelines in persona definitions and core policies to ensure Tech Leads properly link UI prerequisites or Coders utilize Late Binding rather than immediate task cancellation.
 
-
 ---
 
 # Agile Coach Journal Entry - 2026-09-28
@@ -243,3 +237,21 @@ Analyzed session 2897712216952814014 and discovered a QA agent asking the user w
 ### 2. Proactive Process Improvement: Scratchpad Cleanup Automation
 - Identified potential friction around temporary developer/agent scratchpad scripts causing root repository pollution and PR rejections.
 - Created new IDEA node `.foundry/ideas/idea-531-automatic-scratchpad-cleanup-guard.md` assigned to `product_manager` to introduce automated linter detection and pre-commit cleanup guards for ephemeral scratchpad files.
+
+---
+
+# Agile Coach Journal - 2026-09-29
+
+---
+
+## Session Analysis & Process Improvements
+
+### 1. DAG Dependency Constraints on E2E Verification Tasks
+- **Observation**: Analyzed recent researcher findings (`research-560-608-investigate-tm-hm-compatibility-matching-failure.md` and researcher journal entry `2026-09-28-15-58-00.md`). Identified a recurring system defect where E2E test tasks (e.g. `task-562-572-tm-hm-compatibility-e2e-impl`) were dispatched without specifying a `depends_on` link to their corresponding implementation tasks (`task-560-568-tm-hm-compatibility-matching-impl`).
+- **Impact**: The Orchestrator dispatched E2E test tasks prematurely before code implementation was ready, causing E2E tests to fail, trigger retry loops, and ultimately cause upstream/peer tasks to hit their Max Rejection Count and permanently fail.
+- **Action Taken**: Added `DAG Dependency Constraints (E2E Verification)` to `.foundry/docs/knowledge_base/agents/core_policies.md` under `Node Generation Rules` mandating that all generative personas (Tech Lead, Story Owner) explicitly set `depends_on` on E2E test tasks targeting implementation tasks. Created IDEA node `idea-532-e2e-dependency-validator-lint.md` to automate linter validation of DAG E2E dependencies.
+
+### 2. Elimination of Tautological E2E Test Injections
+- **Observation**: Reviewed `research-570-590-investigate-cva-tactical-aesthetic-e2e-failure.md` where E2E Playwright tests for CVA tactical aesthetic components were written using `page.evaluate()` to manually inject hardcoded HTML strings directly into the DOM instead of testing actual React component rendering.
+- **Impact**: Manual HTML injection creates tautological tests that pass or fail independently of the actual React components and view hierarchy, defeating the purpose of E2E verification.
+- **Action Taken**: Added `Playwright E2E UI Component Integration Testing` to `.foundry/docs/knowledge_base/agents/core_policies.md` under `Playwright E2E Best Practices` explicitly forbidding `page.evaluate()` HTML injection for UI component testing and requiring tests to target rendered React components on active routes or dedicated kitchen sink views.

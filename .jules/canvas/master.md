@@ -10,7 +10,6 @@
 **Why:** The previous design lacked visual weight and boundaries, making dense telemetry panels feel unstructured. The redesign adheres strictly to the "tactical hardware/snooping" aesthetic (ADR 008) while dramatically improving interaction feedback and data encapsulation.
 **Pattern:** Future data display components should favor enclosed, crosshair-anchored panels over floating text to maintain the heavy hardware aesthetic.
 
-
 <!-- Merged from empty-state.md -->
 
 ---
@@ -53,7 +52,6 @@
 **Why:** The previous `TacticalBadge` was a simple text badge with a basic border. Transforming it into an encapsulated micro telemetry unit strengthens the tactical hardware/snooping aesthetic across all data-dense displays.
 **Pattern:** Micro UI components and status chips benefit from hardware corner accents and dynamic LED status dots to signal live telemetry state.
 
-
 ---
 
 ## 2026-09-23 - [Accepted] - 🖼️ Canvas: Bold TacticalChecklistItem Redesign
@@ -61,3 +59,11 @@
 **Outcome:** Merged (Optimistic execution)
 **Why:** Checklist items across progression, hidden items, and trainer cards lacked tactile hardware structure. The redesign enhances visual hierarchy and provides immediate visual feedback on completion state aligned with the tactical hardware aesthetic (ADR 008).
 **Pattern:** Micro list items and checklist modules benefit from distinct left accent borders, status LED indicators, and telemetry status badges (`[OK]`/`[PENDING]`) to improve visual hierarchy and hardware aesthetics.
+
+---
+
+## 2026-09-29 - [Accepted] - 🖼️ Canvas: Bold SectionHeader Tactical Hardware Redesign
+**What:** Redesigned the `SectionHeader` component from a plain inline flex text header into a structured tactical header panel. Added support for optional `subtitle`, `badge`, and `action` props, 4-corner hardware accent ticks, left border accent strip, dynamic variant themes (`primary`, `red`, `purple`, `blue`, `pink`, `amber`, `emerald`), monospaced telemetry tracking, and active status scanning dots.
+**Outcome:** Merged (Optimistic execution)
+**Why:** Header elements across application modules were unencapsulated and lacked hardware texture. The redesign elevates section headers to distinct telemetry block anchors that adhere strictly to the tactical hardware/snooping aesthetic (ADR 008).
+**Pattern:** Core layout headers should feature corner hardware accents, left accent bars, and optional telemetry badge/action slots to establish clear visual hierarchy across telemetry panels.
