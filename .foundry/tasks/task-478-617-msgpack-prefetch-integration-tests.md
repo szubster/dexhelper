@@ -2,12 +2,12 @@
 id: task-478-617-msgpack-prefetch-integration-tests
 type: TASK
 title: Write Msgpack Prefetch Integration Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-09-22'
+updated_at: '2026-09-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10471518441528025876'
 pr_number: null
 parent: story-420-478-background-fetching-e2e-verification
 tags:
