@@ -27,5 +27,5 @@ locks: []
 Refactor `src/components/PokedexGrid.tsx` to use the `usePokedexGridVirtualizer` hook. Replace the native `grid` with a virtualized container and absolute positioning for items, adhering to `@tanstack/react-virtual` grid patterns.
 
 ## Acceptance Criteria
-- [ ] Integrate virtualization into `PokedexGrid`.
-- [ ] Ensure existing filters and interactions work smoothly.
+- [x] Integrate virtualization into `PokedexGrid`.
+- [x] Ensure existing filters and interactions work smoothly.
