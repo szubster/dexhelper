@@ -2,12 +2,12 @@
 id: research-531-620-investigate-mgba-memory-sync-failure
 type: RESEARCH
 title: Investigate mGBA Core Memory Sync Logic Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-24'
-updated_at: '2026-09-24'
+updated_at: '2026-09-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4497238106407247945'
 pr_number: null
 parent: story-427-531-mgba-memory-sync
 tags:
