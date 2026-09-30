@@ -4,6 +4,7 @@ import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { dexDataLoader } from '../../db/DexDataLoader';
 import { PokemonDetails } from '../PokemonDetails';
+import { EmulatorProvider } from '../../contexts/EmulatorContext';
 
 const queryClient = new QueryClient();
 
@@ -29,7 +30,8 @@ describe('PokemonDetails Locations Test', () => {
 
     await render(
       <QueryClientProvider client={queryClient}>
-        <PokemonDetails
+        <EmulatorProvider>
+<PokemonDetails
           pokemonId={4}
           pokemonName="Charmander"
           gameVersion="blue"
@@ -39,6 +41,7 @@ describe('PokemonDetails Locations Test', () => {
           onClose={() => {}}
           onNavigate={() => {}}
         />
+</EmulatorProvider>
       </QueryClientProvider>,
     );
 

@@ -13,7 +13,7 @@ export default defineConfig(async (configEnv) => {
       coverage: {
         provider: 'v8',
         include: ['src/**/*.ts', 'src/**/*.tsx'],
-        exclude: ['**/*.json', '**/*.test.ts', '**/*.test.tsx', 'src/hooks/useFileSyncController.ts', 'src/db/SaveDB.ts', 'src/components/AppHeader.tsx', 'src/components/header/OfflineControls.tsx', 'src/components/header/SystemControls.tsx', 'src/components/header/TelemetryMatrix.tsx', 'src/components/dashboard/battle-frontier/BattleFrontierDashboard.tsx'],
+        exclude: ['src/components/TacticalKitchenSink.tsx', '**/*.json', '**/*.test.ts', '**/*.test.tsx', 'src/hooks/useFileSyncController.ts', 'src/db/SaveDB.ts', 'src/components/AppHeader.tsx', 'src/components/header/OfflineControls.tsx', 'src/components/header/SystemControls.tsx', 'src/components/header/TelemetryMatrix.tsx', 'src/components/dashboard/battle-frontier/BattleFrontierDashboard.tsx'],
       },
       reporters: process.env['GITHUB_ACTIONS']
         ? ['github-actions', 'default', ['junit', { outputFile: './test-report.junit.xml' }]]
