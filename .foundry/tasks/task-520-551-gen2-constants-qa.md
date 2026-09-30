@@ -21,3 +21,7 @@ Verify compliance with ADR 028 for the Gen 2 parser.
 ## Acceptance Criteria
 - [ ] Review `gen2.ts` and `gen2Constants.ts` to ensure no inline magic numbers exist.
 - [ ] Verify that all unit tests for the Gen 2 parser are passing.
+
+
+### Note on Failure
+The implementation task `task-520-550-refactor-gen2-parser-impl` was rejected because it failed to replace all magic numbers with constants as per ADR 028. See journal entry for details.
