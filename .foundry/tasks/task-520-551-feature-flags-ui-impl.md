@@ -2,13 +2,13 @@
 id: task-520-551-feature-flags-ui-impl
 type: TASK
 title: Feature Flags Hidden UI Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-05'
 updated_at: '2026-09-30'
 depends_on:
   - task-520-550-feature-flags-logic-impl
-jules_session_id: '14830540783235115196'
+jules_session_id: null
 pr_number: null
 parent: story-518-520-enforce-feature-flags
 tags:

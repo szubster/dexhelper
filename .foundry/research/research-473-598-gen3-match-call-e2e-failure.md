@@ -2,7 +2,7 @@
 id: research-473-598-gen3-match-call-e2e-failure
 type: RESEARCH
 title: Research Gen 3 Match Call E2E Failure Root Cause
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-09-20'
 updated_at: '2026-09-30'
@@ -15,10 +15,8 @@ tags:
   - e2e
   - gen3
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

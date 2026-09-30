@@ -2,7 +2,7 @@
 id: task-558-570-flexsearch-tooling-e2e
 type: TASK
 title: Integration Verification for Flexsearch Indexing
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2025-02-14'
 updated_at: '2026-09-30'
@@ -17,10 +17,8 @@ tags:
   - flexsearch
   - e2e
   - integration
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 locks: []
 ---
 

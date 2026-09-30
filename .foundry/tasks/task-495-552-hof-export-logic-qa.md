@@ -2,13 +2,13 @@
 id: task-495-552-hof-export-logic-qa
 type: TASK
 title: QA - Hall of Fame Certificate Export Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-05'
 updated_at: '2026-09-30'
 depends_on:
   - task-495-551-hof-export-download-ui
-jules_session_id: '14125470641234230810'
+jules_session_id: null
 pr_number: null
 parent: story-071-495-hof-certificate-export-logic
 tags:

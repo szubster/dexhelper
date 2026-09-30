@@ -2,10 +2,10 @@
 id: task-473-599-gen3-match-call-e2e-impl
 type: TASK
 title: Implement Gen 3 Match Call E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-20'
-updated_at: '2026-09-21'
+updated_at: '2026-09-30'
 depends_on:
   - research-473-598-gen3-match-call-e2e-failure
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-473-598-gen3-match-call-e2e-failure
 notes: ''
 locks: []
 ---

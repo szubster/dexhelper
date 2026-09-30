@@ -2,13 +2,13 @@
 id: task-536-541-dagtree-ui-logic-qa
 type: TASK
 title: QA DagTree UI Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-05'
 updated_at: '2026-09-30'
 depends_on:
   - task-536-540-dagtree-layout-component-impl
-jules_session_id: '12586736711562177623'
+jules_session_id: null
 pr_number: null
 parent: story-530-536-dagtree-ui-logic
 tags:

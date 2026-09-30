@@ -2,7 +2,7 @@
 id: task-560-609-tm-hm-compatibility-matching-impl-retry
 type: TASK
 title: Implement TM/HM Compatibility Matching Core Logic (Retry)
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-21'
 updated_at: '2026-09-30'
@@ -15,10 +15,8 @@ tags:
   - feature
   - logic
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

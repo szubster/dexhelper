@@ -2,10 +2,10 @@
 id: task-429-633-split-data-generation
 type: TASK
 title: Split Data Generation Scripts
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-28'
-updated_at: '2026-09-29'
+updated_at: '2026-09-30'
 depends_on:
   - research-429-632-investigate-task-553-failure
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - performance
   - bundles
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-429-632-investigate-task-553-failure
 notes: ''
 locks: []
 ---
