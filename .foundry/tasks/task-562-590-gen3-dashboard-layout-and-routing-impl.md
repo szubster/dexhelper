@@ -2,12 +2,12 @@
 id: task-562-590-gen3-dashboard-layout-and-routing-impl
 type: TASK
 title: Implement Gen 3 Dashboard Layout and Routing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-17T18:22:22.000Z'
-updated_at: '2026-09-25'
+updated_at: '2026-09-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3475879574557627636'
 pr_number: null
 parent: story-554-562-gen3-dashboard-layout-and-routing
 tags:
