@@ -27,6 +27,6 @@ locks: []
 Verify the implementation of the PC box and Party state overlay onto the Living Dex numerical grid.
 
 ## Acceptance Criteria
-- [ ] Verify that the grid accurately reflects the application's PC box and Party state.
-- [ ] Verify the visual indicators correctly identify owned Pokémon.
-- [ ] Verify that the styling adheres to the tactical hardware aesthetic guidelines defined in ADR 008.
+- [x] Verify that the grid accurately reflects the application's PC box and Party state.
+- [x] Verify the visual indicators correctly identify owned Pokémon.
+- [x] Verify that the styling adheres to the tactical hardware aesthetic guidelines defined in ADR 008.
