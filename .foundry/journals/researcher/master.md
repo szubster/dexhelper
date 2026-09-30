@@ -1,5 +1,3 @@
-# Session 12219787187610158486
-
 * **Task**: Investigate Gen 2 Pokegear Phone Memory Offsets
 * **Target Node**: `research-283-336-gen2-phone-memory-offsets`
 
@@ -65,7 +63,6 @@ I have updated `.foundry/docs/knowledge_base/engine/save_parsing/gen2_phone_mech
 ---
 
 # Research Journal: Gen 3 PC Box Offsets Root Cause
-Session: 6535908287339075091
 
 ---
 
@@ -143,12 +140,9 @@ Session 2026-08-04: Investigated Gen 3 trainer flag offsets and saved to .foundr
 
 ---
 
-# Session 3239184284682901692
-
 - Completed research-099-396-investigate-indexeddb-schema-failure.
 - Root Cause: Coder misused Empty PR Policy by failing to verify DB schema matched Section 14 of docs/schema.md.
 - Solution: Enforce strict schema validation in Acceptance Criteria for retry tasks.
-
 
 I investigated the permanent failure of `epic-120-338-implement-conflictless-journals`. The epic reached the max rejection count because it failed to comply with the Orchestrator Safeguard. Specifically, every EPIC must have at least one child STORY node dedicated to Integration and E2E Verification (tagged with `e2e` or `integration`) before it can transition to COMPLETED. Since `epic-120-338-implement-conflictless-journals` only had regular implementation stories without an E2E story, the orchestrator repeatedly rejected its completion attempt.
 
@@ -260,14 +254,10 @@ Because the C source code doesn't explicitly state the exact byte size of these 
 
 ---
 
-# Session 15275065586819407345
-
 - Learned that LLMs may wrap output in markdown code blocks, even when `responseMimeType` is set to `application/json` (e.g., ````json`). It is necessary to strip these tags explicitly using regex or similar before running `JSON.parse`. Trimming whitespace before performing this check handles edge cases.
 - It is important to clean up all temporary scripts, outputs, and patch backup files from the workspace prior to code review or submission to adhere to the strict `Scratchpad Cleanup Enforcement` policy.
 
 ---
-
-# Session 5492350295619108211
 
 **Task:** research-363-440-investigate-trade-extraction-e2e-failure
 
@@ -279,7 +269,6 @@ The tests failed because `isGen3Save` in `src/engine/saveParser/utils/detection.
 
 ---
 
-# Session 18001398838651776536
 - Discovered that using `ctx.waitUntil()` is a critical architectural constraint when integrating Google Drive Webhooks with Cloudflare Workers due to strict CPU limits.
 - Established that webhooks are vastly superior to polling for the "live tracker" use case because Cloudflare's 1-minute Cron limit and Drive API quotas make polling impractical.
 
@@ -306,8 +295,6 @@ These structures are fixed in ROM and mapped by the trainer IDs, so parsing upco
 
 ---
 
-# Researcher Journal Entry - Session 3176136743482522530
-
 ---
 
 ## Researching Gen 2 Roamer Save Fixtures
@@ -319,8 +306,6 @@ During the research for `research-466-467-gen2-roamer-fixtures`, I found that lo
 The most reliable approach is to use a save editing tool like PKHeX to flip the necessary event flags (e.g., releasing the legendary beasts), and then run the modified save in a highly accurate emulator like BGB or mGBA. By simply interacting with the game normally (e.g., walking through grass or traversing routes), the game engine naturally populates the roamer data structures (map coordinates, levels, and statuses) in the SRAM via its internal RNG. Saving natively from the emulator captures this true state, providing a robust fixture for E2E testing without the risks of manual hex manipulation.
 
 ---
-
-# Session 6361047784736225452
 
 ---
 
@@ -337,8 +322,6 @@ I also documented that `isGen3Save` is intentionally mocked to return `false`, w
 
 ---
 
-# Session 7517120830488274219 (Researcher)
-
 **Task:** research-356-494-pokegear-predictor-e2e-failure
 
 Investigated the root cause of the previous E2E test failures (\`task-356-396-pokegear-predictor-e2e-impl\`) targeting Pokegear Predictor.
@@ -354,14 +337,12 @@ The \`Gen2SaveData\` schema in \`src/engine/saveParser/parsers/common.ts\` is mi
 # Researcher Journal Entry
 The root cause of the previous session timeout (>7 days) during the implementation of Gen 2 Shiny Breeding E2E tests was running the full Playwright E2E test suite instead of targeting a specific file. The full suite takes over 400 seconds, which exceeds the bash session timeout. When verifying E2E test changes, agents must explicitly target the affected test files (e.g., `xvfb-run -a pnpm test:e2e tests/e2e/file.spec.ts`) instead of running the entire suite, as documented in the Coder persona journal.
 
-
 <!-- Merged from 2026-09-07-23-45-02.md -->
 
 ---
 
 # Bike Badge Integration Failure Analysis
 The target integration artifacts (`MapUI.tsx`, `MapUI.test.tsx`, and `RouteRadarController.ts`) currently exist in the codebase and contain the required implementation. The unit tests verify the components successfully.
-
 
 <!-- Merged from 2026-09-08-17-33-00.md -->
 
@@ -403,8 +384,6 @@ This failure was not caused by environmental or architectural constraints in the
 No codebase architectural adjustments are needed. However, this reinforces the critical requirement that agents MUST NOT ask questions or seek permission in chat. All decisions must be executed autonomously and PRs must be submitted immediately upon completion or encountering a demotion/wait state.
 
 ---
-
-# Session 2026-09-15
 
 ---
 
@@ -450,3 +429,28 @@ The session timeout was instead caused by a direct violation of the **Autonomous
 # Benchmark Runner Dependencies
 
 When implementing benchmark scripts that require installing external toolchains (like ts-node, esbuild, swc, oxc), do NOT install them into the main repository's package.json. Modifying the root configuration causes pollution and fails code review. Instead, these dependencies MUST be installed in an ephemeral /tmp directory during runtime, and their installation time should be measured as part of the benchmark's dependency overhead metrics.
+
+---
+
+---
+
+## Learnings
+* **Orchestrator Safeguards**: Missing dependency configurations in E2E testing nodes can cause upstream parent or peer tasks to continuously fail and hit their Max Rejection Count. `task-562-572-tm-hm-compatibility-e2e-impl` was dispatched without a `depends_on` array containing `task-560-568-tm-hm-compatibility-matching-impl`, so it attempted to execute and fail, triggering a loop that ultimately permanently failed `task-560-568`. Always ensure DAG constraints are properly set before relying on E2E integration verification.
+
+---
+
+# Gen 3 Pokéblock E2E Investigation
+
+## Learnings
+The previous attempt to write E2E tests for Gen 3 Pokéblocks (`task-479-576-gen3-pokeblock-e2e-impl`) failed permanently. Upon investigation, this was due to the UI component for displaying Pokéblocks not being present in the `main` branch.
+
+A commit existed where the UI and E2E tests were developed simultaneously, but it was from a different task/branch that failed (likely due to other reasons or an abort) and was not merged. Therefore, when running `test:e2e` against the UI, the Playwright assertions for `expect(page.getByText('POKÉBLOCKS')).toBeVisible()` failed with a timeout because the component was never rendered.
+
+In addition, we discovered that:
+- `tests/fixtures/emerald.sav` and `tests/fixtures/ruby-vithuang.sav` contain 0 Pokéblocks.
+- `tests/fixtures/emerald-vithuang.sav` contains 1 Pokéblock.
+- `tests/fixtures/ruby-vithuang-2.sav` contains 5 Pokéblocks.
+
+We must use the appropriate save files for E2E tests and ensure the UI dashboard task is completed before the E2E tests can succeed.
+
+I have updated the knowledge base in `.foundry/docs/knowledge_base/gen3_pokeblocks_e2e_investigation.md` and checked off the acceptance criteria for this research node.

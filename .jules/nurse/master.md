@@ -13,7 +13,6 @@ When resolving TypeScript type errors assigning `Uint8Array` to a `fetch` `body`
 **Why:** The Gen 3 lottery matching logic used a narrow, structural interface `{ otId: number }` which forced the test file to use unsafe `as any` and `as unknown` casts to mock the array. This bypassed the TypeScript compiler's checks for the other required fields in a true Pokemon instance. Replacing this with `PokemonInstance` unified the types and allowed removing the unsafe casts.
 **Pattern:** When functions expect a subset of a domain object, but callers must use the full domain object, strongly prefer typing the parameter as the full domain object (or `Partial<DomainObject>`) rather than a bespoke structural interface if it leads to unsafe casts at the call site.
 
-
 Removed unnecessary 'as SuggestionCategory' cast in src/components/AssistantPanel.tsx by replacing objectEntries with objectKeys.
 
 ---
@@ -58,3 +57,14 @@ It tightens type safety for data loaded from IndexedDB, a common source of impli
 # Nurse Joy Journal
 
 - **TypeScript strict null checks and `indexOf`**: When replacing `as string` casts (which implicitly handle `undefined` since `indexOf(undefined)` returns `-1`) with null coalescing (`??`), be very careful about `?? ''`. `String.prototype.indexOf('')` returns `0`, not `-1`. This can bypass validation logic that explicitly checks for `-1`. It's much safer to use a runtime type check like `typeof char !== 'string'` and `throw` explicitly, rather than trying to fall back to an empty string.
+
+---
+
+# Nurse Joy Journal
+
+## [2026-09-28] - Accepted - Nurse: Type-safety improvement for usePokerusSpreadPlanner
+
+**Type:** Unnecessary Cast Elimination / Type Narrowing
+**Outcome:** Replaced unnecessary `as PokemonInstance | null` casts in `usePokerusSpreadPlanner` with clean nullish coalescing (`?? null`).
+**Why:** Reading indexed array values under strict TypeScript configurations yields `T | null | undefined`. Using `as` assertions was an unsafe bypass of the compiler. Adding `?? null` cleanly narrows the expression to `PokemonInstance | null` without resorting to type casting.
+**Learn:** Array element access in strict TypeScript modes evaluates with optional `undefined`. Using `array[index] ?? null` is the canonical, safe type narrowing pattern for `(T | null)[]` state arrays.

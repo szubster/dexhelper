@@ -1,5 +1,3 @@
-# Session 10059958912073536410
-
 Successfully implemented the Gen 3 Static Encounters UI.
 
 **Architectural Constraints Followed**:
@@ -8,8 +6,6 @@ Successfully implemented the Gen 3 Static Encounters UI.
 - Modified Foundry orchestrator markdown safely without touching the frontmatter fields.
 
 ---
-
-# Session 1113702446035089068
 
 The task was to implement Nuzlocke route violation detection.
 After inspecting the codebase, I found that `detectNuzlockeViolations` and `aggregateEncountersByLocation` are already fully implemented and tested in `src/engine/nuzlocke/tracker.ts` and `src/engine/nuzlocke/tracker.test.ts`.
@@ -75,7 +71,6 @@ Also, under ADR 028, we must strictly define all offsets, lengths (such as `EVEN
 ---
 
 ## Session: 14217363794546868270
-Session: 14217363794546868270
 Node: task-341-348-define-indexeddb-schema-retry-impl
 
 ---
@@ -97,8 +92,6 @@ When writing parsing logic to satisfy Save File Parsing & Extraction Guidelines,
 Target artifact for `task-318-341-gen3-move-tutor-frlg-parsing-impl` is already complete. `parseGen3FRLGMoveTutors` function and tests are already present in `src/engine/saveParser/parsers/gen3.ts` and `src/engine/saveParser/parsers/gen3.test.ts`.
 
 ---
-
-# Session 16019314865216773266
 
 - For Vitest browser tests, import `page` and `userEvent` from `vitest/browser` (do not use the deprecated `@vitest/browser/context`).
 - The project uses `biome` for linting and code formatting. Run `pnpm check:fix` to automatically resolve fixable biome issues across the codebase.
@@ -165,7 +158,6 @@ The logic for the Graveyard Box already exists in `src/engine/nuzlocke/tracker.t
 
 ---
 
-# Session 18439034431639401693
 Implemented `.github/scripts/schema.ts` defining `Zod` schemas for `NodeFrontmatter` following `.foundry/docs/schema.md` requirements. Fixed `zod` dependency issues in CI scripts by adding it to package.json and `knip.json`. Verified all tests locally. Checked off acceptance criteria in task node without modifying YAML frontmatter.
 
 ---
@@ -237,8 +229,6 @@ Verified and corrected backwards traversal in egg move breeding generator to sup
 
 ---
 
-## Session 4148472136526610249
-
 - **Task**: task-333-334-gen3-secret-base-locations-impl
 - **Action**: Added `mapId` extraction and calculation logic in `parseSecretBaseRecord` for Gen 3 secret bases based on knowledge base formula `Math.floor(secretBaseId / 10)`. Ensure to run Playwright install prior to tests due to headless browser setup quirk.
 
@@ -249,14 +239,10 @@ Updated logic in useFileSyncController.ts and AppLayout.tsx to push local save d
 
 ---
 
-# Session 6146293549486245581
-
 * Learned that when resolving relocation cycles in save parsing diffs, identifying nodes with an in-degree > 0 but an out-degree of 0 provides acyclic paths that must be processed backwards to prevent data overwrites.
 * Discovered that resolving 3+ size cycles efficiently requires a temporary holding space (`-1, -1` box/slot), as swapping sequentially overwrites the next member of the cycle before it can be moved.
 
 ---
-
-# Session 7029373149455725137
 
 Implemented ConcurrentGameContext.tsx and verified it using the provided React testing library tools.
 Ensured all tests passed by running playwright install-deps before vitest tests in CI/CD pipeline.
@@ -310,7 +296,6 @@ The node `task-334-352-parse-secret-base-trainer-party-impl` also already had al
 - Integrated `PokerusBadge` into `StorageCard` in `src/components/StorageGrid.tsx`.
 - Displayed the badge when a Pokémon is in the Party and its Pokerus strain > 0.
 - Updated `src/components/__tests__/StorageGrid.test.tsx` to ensure `[PKRS STRN: 3]` renders.
-- Completed the task to integrate the Pokerus strain badge for Party Pokémon.
 
 ---
 
@@ -371,8 +356,6 @@ This solves the UI requirement where the user needs an interactive visual map of
 
 ---
 
-# Session 14491832442511681790
-
 Task: Map Feebas IDs to Coordinates in SaveData (task-342-369-feebas-coordinates-impl)
 
 ---
@@ -402,8 +385,6 @@ Implemented Pokéblock parsing for Gen 3 save files.
 * Created tests for `emerald`, `ruby`/`sapphire`, and checked `firered`/`leafgreen` behavior (no pokeblocks).
 
 ---
-
-## Session 2026-07-30-17-50-42.md
 
 I have added the Pokemon types to the data generation script. I learned how to modify `schema.ts` and update the `generate-pokedata.ts` script to extract additional arrays from the PokeAPI dataset into IndexedDB.
 
@@ -440,8 +421,6 @@ I utilized the **Late Binding for Missing Context** system policy to suspend the
 
 ---
 
-# Session 15859836416427117556
-
 Attempted to implement `task-354-391-gen3-wonder-card-extraction-impl`. However, exact memory offsets and structure for Gen 3 Wonder Cards were not available in `.foundry/docs/schema.md` or anywhere in the codebase.
 
 Following the Late Binding for Missing Context policy from `.foundry/docs/knowledge_base/agents/core_policies.md`:
@@ -473,8 +452,6 @@ When a task asks to implement extraction from memory (e.g. Gen 3 Party and PC bo
 
 ---
 
-# Session 5211414718016982513
-
 - When dealing with Gen 1 types, remember that the Steel and Dark types did not exist. If utilizing a shared data source (like the modern National Dex), they must be manually filtered out for generation-specific features using their IDs (Steel is 9, Dark is 17).
 - Playwright E2E browsers are not cached consistently across sandbox spins. If encountering `browserType.launch: Executable doesn't exist`, run `pnpm exec playwright install` to resolve it.
 - When creating generational abstractions for sorting algorithms, handle fallback arrays carefully; ensure all `speciesId` checks gracefully default to National mapping when regional subsets (like Johto) are unavailable or undefined.
@@ -491,8 +468,6 @@ When a task asks to implement extraction from memory (e.g. Gen 3 Party and PC bo
 
 ---
 
-## Session 17592435228941965730.md
-
 Session 17592435228941965730: Learned that all array lengths and mathematical modulos used in save parsing logic MUST be explicitly defined as module-level constants to avoid magic number violations during QA.
 
 ---
@@ -500,8 +475,6 @@ Session 17592435228941965730: Learned that all array lengths and mathematical mo
 ## Session from 12236130546163448785.md
 
 ---
-
-# Session 12236130546163448785
 
 * **TypeScript strictness**: Remember to use `import type { ... }` or `import { type ... }` when importing interfaces/types because `verbatimModuleSyntax` is enabled in `tsconfig.json`. Failing to do so causes `TS1484` errors during linting/type-checking.
 * **Gen 2 Save File Parsing**: Identified high-value phone contacts (swarms and items) and successfully mapped them to `GEN2_PHONE_CALLER_REGISTRY`. Ensure tests cover these specific offsets. Adhered to Section 13 guidelines by avoiding magic numbers and using constants.
@@ -512,8 +485,6 @@ Session 17592435228941965730: Learned that all array lengths and mathematical mo
 ## Session from 18086198181454023699.md
 
 ---
-
-# Session 18086198181454023699
 
 - Discovered that the obsolete "Orphaned QA Task Cancellation Rule" in `.foundry/docs/knowledge_base/agents/core_policies.md` had already been removed prior to this task executing.
 - Marked the acceptance criteria in `.foundry/tasks/task-333-386-remove-orphaned-qa-rule-impl.md` as checked (`- [x]`) and completed the empty PR policy, noting the absence of the target rule.
@@ -543,7 +514,6 @@ I verified all tests in `.github/scripts` using `pnpm install && npx vitest run`
 
 ## Session from 9029543228350100736.md
 The `run_in_bash_session` tool blocks execution if the command string contains the word `exit`. To create or modify scripts containing `exit`, avoid inline bash creation (like `cat <<EOF`) and instead use `replace_with_git_merge_diff` or `write_file`.
-
 
 * When writing E2E tests, navigating to routes requires understanding the app navigation structure. Using `page.goto('./dashboard')` directly is safer and faster than using `page.getByTestId('nav-dashboard').click()` when UI relies on multiple layout views (e.g. mobile vs desktop) which might cause the click target to fail.
 
@@ -699,8 +669,6 @@ Refactoring `SaveData` into discriminated unions.
 
 ---
 
-# Coder Journal Entry - 8789985912051160747
-
 ---
 
 ## Observations & Lessons Learned
@@ -782,8 +750,6 @@ When explicitly running `pnpm add` or `pnpm install` in the project root to inst
 
 ---
 
-# Session 10513976597641079832 - Implement RNG TID SID E2E
-
 **Objective**: Write end-to-end tests for the RNG TID and SID Display UI to ensure it displays correctly and copy-to-clipboard functionality works.
 
 **Execution**:
@@ -843,8 +809,6 @@ Execution plan steps must be strictly flat. Embedding prerequisite actions (e.g.
 
 ---
 
-# Session 14711519120076916460
-
 ---
 
 ## Context
@@ -864,8 +828,6 @@ Implemented the save state write API `writeSaveState` for `SaveHistoryDB` to ful
 
 ---
 
-# Session 629883323490444079 Journal
-
 ---
 
 ## Learnings & Observations
@@ -882,8 +844,6 @@ Implemented the save state write API `writeSaveState` for `SaveHistoryDB` to ful
 - Created robust integration tests in `__tests__/gen2_hof.test.ts`.
 
 ---
-
-# Session 4759718733010943672
 
 ---
 
@@ -929,8 +889,6 @@ When importing types from a module in this project, you must explicitly use the 
 
 ---
 
-# Session 210369803831747826
-
 ---
 
 ## Playwright Locator Pattern (OR condition)
@@ -953,7 +911,6 @@ await expect(
 
 When writing or maintaining E2E tests for navigation elements, always consider that layout and labeling may change based on screen size. The `isMobile` fixture in Playwright should be used to conditionally adjust locators (e.g., targeting `DASH` instead of `SYS.DASH`).
 
-
 <!-- Merged from 2026-08-23-00-00-00.md -->
 
 ---
@@ -966,7 +923,6 @@ Encountered missing context when trying to update `calculateHeatmap` with map bi
 
 ---
 
-# Session 14546170527063435753
 Failed to source real-world Gen 1 and Gen 2 saves using automated scripts. Public GitHub searches often return 404s or empty links when scraping raw bytes. Creating artificial saves with random bytes fails code review because parsers expect valid structures, checksums, and actual game states. When assigned a task requiring external data extraction (like binary saves) that cannot be found via script, the agent should spawn a RESEARCH task for human/tool-assisted extraction or rely on specialized libraries.
 
 ---
@@ -978,8 +934,6 @@ Without an egg in the fixture, the Playwright E2E tests cannot verify that the p
 I have utilized the late-binding pattern to dynamically spawn `research-473-495-gen3-egg-hatch-fixture` and linked it in the task's body.
 
 ---
-
-# Session 12814961437781022023
 
 ---
 
@@ -1024,16 +978,12 @@ el.value = '2';
 el.dispatchEvent(new Event('change', { bubbles: true }));
 ```
 
-
 <!-- Merged from 2026-09-05-23-42-25.md -->
 
 ---
 
 # 2024-11-20
 - DAG ID Strictness Rule Enforcement in UI: The UI `src/utils/dag/builder.ts` was previously coded to expect repo-relative file paths in `depends_on` arrays for linking nodes. With the new DAG ID Strictness rule mandating exact bare Node IDs, `builder.ts` must map both the `filePath` and the bare `id` (`pathToIdMap.set(id, id)`) to correctly resolve UI edges without breaking backwards compatibility. Playwright E2E tests mocking DAG data must correctly supply bare Node IDs in their fixture `depends_on` arrays to accurately verify this behavior.
-
-
-
 
 <!-- Merged from 2026-09-07-18-00-00.md -->
 
@@ -1057,10 +1007,29 @@ Implemented the Gen 3 signature check block parsing logic provided in `research-
 The `isGen3Save` function now accurately checks valid sectors in Block A (`0x0000`) and Block B (`0xe000`), expecting at least 1 valid sector signature (`0x08012025` at offset `0x0ff8`).
 `gen3VolcanicAsh` UI display was already present in `AssistantDebugView.tsx`, so it simply needed the blocking validation to be correctly implemented for the Volcanic Ash count to display when parsing a Gen 3 save.
 
-
-
 ---
 
 # Journal Entry
 
 Task task-562-576-item-selection-route-e2e-impl was aborted and set to CANCELLED because the target UI components (WildItemSelector) have not been implemented yet. The task lacked a depends_on relationship with task-562-579-wild-item-selection-ui, causing an architectural sequencing error that makes implementation impossible at this time.
+
+---
+
+# Curator Trigger Logic Implementation
+
+## Context
+Implemented the logic in the Foundry Orchestrator to trigger the `curator` persona when an `IDEA` node is fully implemented but before final verification by the `auditor`.
+
+## Key Changes
+1. **Heartbeat:** Updated `.github/scripts/foundry-heartbeat.ts` to transition `IDEA` nodes not owned by `curator` or `auditor` to `READY` with `owner_persona: "curator"` instead of directly to `VERIFYING` with `auditor`.
+2. **Orchestrator:** Updated `.github/scripts/foundry-orchestrator.ts`:
+   - Modified `promoteNodeStatus` to optionally accept and apply a `newOwner`.
+   - Intercepted `IDEA` node promotions to `COMPLETED` in Phase 4.1 (Late-Binding Parent completion) and Phase 4.5 (Idempotent checks), routing them instead to `READY` and `curator`.
+   - Added `curator` to the Valid mapping bypass list in Phase 4.8.
+3. **Tests:**
+   - Updated existing `IDEA` tests in `.github/scripts/foundry-heartbeat.test.ts` to expect `READY` and `curator`.
+   - Updated existing `IDEA` tests in `.github/scripts/foundry-orchestrator.test.ts` that expected direct transition to `COMPLETED` by changing the node types to `EPIC` and `STORY` to preserve the testing logic for standard macro nodes.
+   - Added a specific new test for the Late-Binding `IDEA` node transitioning to `READY` with `curator` in `.github/scripts/foundry-orchestrator.test.ts`.
+
+## Learnings
+- **Test Preservation:** When modifying core orchestrator behavior that intercepts state transitions for specific node types (like `IDEA`), ensure existing tests covering the base promotion logic are preserved by switching their fixtures to non-intercepted node types (like `EPIC`).

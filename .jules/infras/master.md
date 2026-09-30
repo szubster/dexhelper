@@ -3,8 +3,6 @@
 
 ---
 
-
-
 ---
 
 ## Critical Learnings
@@ -42,12 +40,6 @@
 ---
 
 ## Critical Learnings
-- **Tooling configuration context**: Discovered that Playwright end-to-end tests are already being run by a separate, dedicated GitHub Action workflow. Therefore, they should NOT be added as an extra job to the main CI workflow (`.github/workflows/ci.yml`), as this would lead to duplicate test executions.
-- **Action Required**: The proposed PR must be reverted to keep the CI pipeline clean and avoid redundant e2e test executions.
-
-- Found a critical bug in the Foundry DAG Orchestrator where completed or cancelled tasks that were moved to `.foundry/archive/` were not correctly resolved by references pointing to their original paths.
-- Fixed `resolveNodePath` in `.github/scripts/foundry-orchestrator.ts` to automatically attempt to resolve paths to their archived counterparts if the original file does not exist.
-- Updated Phase 3 matches, Phase 4 target artifacts, and Phase 4.5 idempotent links to resolve using the updated helper.
 
 ---
 
@@ -99,8 +91,6 @@
 ---
 
 ## Critical Learnings
-- **Tooling configuration context:** Replaced `madge` with `dpdm` for circular dependency analysis because `dpdm` is faster and more focused on resolving circular dependencies properly without relying on external non-TS tooling. Updated `package.json` script `lint:circular` to use `dpdm --circular --no-warning --no-tree src/main.tsx`.
-
 
 <!-- Merged from 2026-09-08-03-12-15.md -->
 
@@ -120,3 +110,9 @@
 ## Critical Learnings
 - **Knip JSON Schema Defects**: Duplicate JSON keys in `knip.json` cause standard JSON parsers to overwrite preceding configuration keys. When consolidating `knip.json`, merge all ignore paths into a single array and ensure no stale entries exist to maintain clean lint output without configuration hints.
 - **Biome Version Alignment**: When updating `@biomejs/biome` in `package.json`, ensure that `$schema` in `biome.jsonc` and the `setup-biome` action version in `.github/workflows/biome.yml` are synchronized to prevent CI schema validation mismatches.
+
+---
+
+## Critical Learnings
+- **Knip Ignore Maintenance**: Stale entries in `knip.json` `ignore` array for files that either exist and are properly imported/used or were restructured trigger configuration hints from Knip (e.g. `Remove from ignore`). Removing these stale ignore entries keeps the linting output clean and avoids noise in local and CI static analysis pipelines.
+- **BundleMon Size Limits for Dynamic JSON Artifacts**: Generated data files such as `data/foundry.json` grow as the Foundry DAG / nodes ecosystem expands. Adjusting `maxSize` in `.bundlemonrc.json` (e.g. from 600kb to 650kb) is necessary to accommodate expected growth of repository metadata artifacts and prevent false-positive CI BundleMon check failures.

@@ -75,7 +75,6 @@ Added unit tests for the Gen 3 Battle Frontier save parser (`src/engine/savePars
 - **Vitest Mocking Typing:** When mocking functions with Vitest, always provide explicit type parameters to `vi.fn()` (e.g., `vi.fn<() => void>()`) to satisfy the strict Biome type-checker and avoid `any` usage.
 - **IndexedDB Sync:** In Playwright E2E tests, always call `await waitForSync(page)` after navigation to ensure IndexedDB synchronization completes.
 
-
 Learned that running coverage reports can clutter the working directory, and ensuring I remove them before staging is key.
 
 ---
@@ -109,7 +108,6 @@ Learned that running coverage reports can clutter the working directory, and ens
   - Single-level, multi-level, circular, and unmapped indoor map resolution in `resolveOutdoorMapId`.
   - Same map ID, precomputed distance, fallback map ID, missing target AID, and unreachable target cases in `getDistanceToMapBase`.
 - All 14 new tests passed cleanly without modifying any application source code.
-
 
 ---
 
