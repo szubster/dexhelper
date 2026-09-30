@@ -853,6 +853,7 @@ console.log('\nPrecomputing Egg Move Paths...');
 
 // Collect learners
 const nativeLearners = new Map<number, Set<number>>();
+const tmLearners = new Map<number, Set<number>>();
 const eggLearners = new Map<number, Set<number>>();
 
 for (let i = 1; i <= POKEMON_COUNT; i++) {
@@ -866,6 +867,7 @@ for (let i = 1; i <= POKEMON_COUNT; i++) {
 
     let isNative = false;
     let isEgg = false;
+    let isTm = false;
 
     for (const vg of m.version_group_details) {
       const vgId = parseInt(vg.version_group.url.split('/').filter(Boolean).pop() || '0', 10);
@@ -874,6 +876,8 @@ for (let i = 1; i <= POKEMON_COUNT; i++) {
       if (vgGen <= 3) {
         if (vg.move_learn_method.name === 'egg') {
           isEgg = true;
+        } else if (vg.move_learn_method.name === 'machine') {
+          isTm = true;
         } else {
           isNative = true;
         }
@@ -888,6 +892,10 @@ for (let i = 1; i <= POKEMON_COUNT; i++) {
       if (!eggLearners.has(moveId)) eggLearners.set(moveId, new Set());
       eggLearners.get(moveId)!.add(i);
     }
+    if (isTm) {
+      if (!tmLearners.has(moveId)) tmLearners.set(moveId, new Set());
+      tmLearners.get(moveId)!.add(i);
+    }
   }
 }
 
@@ -895,6 +903,16 @@ for (let i = 1; i <= POKEMON_COUNT; i++) {
 const speciesMap = new Map<number, PokemonMetadata>();
 for (const p of pokemon) {
   speciesMap.set(p.id, p);
+
+  const pTms = [];
+  for (const [moveId, learners] of tmLearners.entries()) {
+    if (learners.has(p.id)) {
+      pTms.push(moveId);
+    }
+  }
+  if (pTms.length > 0) {
+    p.tm = pTms;
+  }
 }
 
 const getEffectiveEggGroups = (pid: number, visited = new Set<number>()): number[] => {
