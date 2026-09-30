@@ -2,12 +2,12 @@
 id: research-579-624-investigate-gen2-wild-encounter-offsets
 type: RESEARCH
 title: Investigate Gen 2 Wild Encounter Offsets
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-28'
-updated_at: '2026-09-29'
+updated_at: '2026-09-30'
 depends_on: []
-jules_session_id: '3891677216620439451'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: task-562-579-gen2-wild-item-extraction-logic-impl

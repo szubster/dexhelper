@@ -2,12 +2,12 @@
 id: story-350-440-synergy-evaluator-assistant-prompting
 type: STORY
 title: Synergy Evaluator Assistant Prompting
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-20'
 updated_at: '2026-09-30'
 depends_on: []
-jules_session_id: '10069777824712078416'
+jules_session_id: null
 pr_number: null
 parent: epic-336-350-cross-save-synergy-analysis
 tags:
@@ -33,6 +33,6 @@ As part of the Cross-Save Synergy Analysis Engine, we need to generate combined 
 - [x] task-440-477-synergy-data-generator-impl
 - [x] task-440-478-synergy-assistant-integration-impl
 - [x] task-440-479-synergy-evaluator-qa
-- [ ] research-440-581-investigate-synergy-integration-failure
-- [ ] task-440-582-synergy-assistant-integration-impl-v2
-- [ ] task-440-583-synergy-evaluator-qa-v2
+- [x] research-440-581-investigate-synergy-integration-failure
+- [x] task-440-582-synergy-assistant-integration-impl-v2
+- [x] task-440-583-synergy-evaluator-qa-v2

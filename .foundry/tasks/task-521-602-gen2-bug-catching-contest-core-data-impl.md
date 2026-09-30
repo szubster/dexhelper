@@ -2,10 +2,10 @@
 id: task-521-602-gen2-bug-catching-contest-core-data-impl
 type: TASK
 title: Gen 2 Bug-Catching Contest Core Data Implementation
-status: PENDING
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-29'
+updated_at: '2026-09-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - save-extraction
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 locks: []
 ---

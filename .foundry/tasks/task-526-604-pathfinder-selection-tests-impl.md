@@ -2,13 +2,13 @@
 id: task-526-604-pathfinder-selection-tests-impl
 type: TASK
 title: Pathfinder Selection Tests Rewrite
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-21'
-updated_at: '2026-09-29'
+updated_at: '2026-09-30'
 depends_on:
   - task-526-603-pathfinder-selection-components-impl
-jules_session_id: '12209459796462792660'
+jules_session_id: null
 pr_number: null
 parent: story-115-526-pathfinder-selection-ui
 tags:

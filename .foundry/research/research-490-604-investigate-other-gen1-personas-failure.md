@@ -2,7 +2,7 @@
 id: research-490-604-investigate-other-gen1-personas-failure
 type: RESEARCH
 title: Investigate Failure to Identify Other Gen 1 Personas
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-09-21'
 updated_at: '2026-09-30'
@@ -13,10 +13,8 @@ parent: story-406-490-update-jules-persona-definitions
 tags:
   - personas
   - gamification
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

@@ -2,10 +2,10 @@
 id: task-471-628-update-fixture-manifests
 type: TASK
 title: Update Fixture Manifests
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-09-28'
+updated_at: '2026-09-30'
 depends_on:
   - task-471-627-verify-and-move-saves
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-471-627-verify-and-move-saves
 notes: ''
 locks: []
 ---

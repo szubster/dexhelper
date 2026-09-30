@@ -2,12 +2,12 @@
 id: research-533-601-investigate-curator-trigger-logic-failure
 type: RESEARCH
 title: Investigate Orchestrator Curator Trigger Logic Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-20'
 updated_at: '2026-09-30'
 depends_on: []
-jules_session_id: '2908595481313775131'
+jules_session_id: null
 parent: story-531-533-orchestrator-trigger-logic-updates
 tags:
   - orchestrator
@@ -42,4 +42,4 @@ The previous task failed due to an infinite recursion or skip condition in orche
 6. In `.github/scripts/foundry-orchestrator.test.ts`, add a new test for `Late-Binding Parent promotes IDEA to READY for curator if children are completed`.
 
 ## Acceptance Criteria
-- [ ] task-533-617-orchestrator-curator-trigger-logic-retry
+- [x] task-533-617-orchestrator-curator-trigger-logic-retry

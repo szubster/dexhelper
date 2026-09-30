@@ -2,10 +2,10 @@
 id: task-526-605-pathfinder-selection-qa
 type: TASK
 title: QA Pathfinder Selection UI Rewrite
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-09-30'
 depends_on:
   - task-526-604-pathfinder-selection-tests-impl
 jules_session_id: null
