@@ -26,6 +26,60 @@ vi.stubGlobal(
 );
 
 describe('PokeDB', () => {
+  describe('syncExtension', () => {
+    it('fetches and merges extension data correctly', async () => {
+      const db = await getDB();
+      // Setup base data
+      const eTx = db.transaction([DB_CONFIG.STORES.ENCOUNTERS, DB_CONFIG.STORES.LOCATIONS], 'readwrite');
+      await eTx
+        .objectStore(DB_CONFIG.STORES.ENCOUNTERS)
+        .put({ pid: 1, enc: [{ aid: 10, v: 1, d: [{ c: 10, m: 1, min: 2, max: 2 }] }] });
+      await eTx.objectStore(DB_CONFIG.STORES.LOCATIONS).put({ id: 100, n: 'Route 1', pids: [1] });
+      await eTx.done;
+
+      vi.mocked(fetch).mockResolvedValueOnce({
+        ok: true,
+        arrayBuffer: async () =>
+          pack({
+            enc: [{ pid: 1, enc: [{ aid: 20, v: 2, d: [{ c: 20, m: 2, min: 3, max: 5 }] }] }],
+            loc: [
+              { id: 100, n: 'Route 1 Modified', pids: [2] },
+              { id: 101, n: 'Route 2', pids: [3] },
+            ],
+          }),
+      } as unknown as Response);
+
+      // No need to set hash to initial, ready() is called inside getEncounters, which might trigger full sync if hash is initial. Let's make sure it doesn't.
+      await db.put(DB_CONFIG.STORES.METADATA, { key: 'hash', value: 'test-hash' });
+      await pokeDB.syncExtension(2);
+
+      const metadata = await db.get(DB_CONFIG.STORES.METADATA, 'ext_gen2');
+      expect(metadata?.value).toBe('loaded');
+
+      const encounters = await pokeDB.getEncounters(1);
+      expect(encounters?.enc).toHaveLength(2);
+      expect(encounters?.enc[1]?.aid).toBe(20);
+
+      const locs = await pokeDB.getAreas(100);
+      expect(locs[0]?.pids).toEqual(expect.arrayContaining([1, 2]));
+
+      const loc2 = await pokeDB.getAreas(101);
+      expect(loc2[0]?.n).toBe('Route 2');
+    });
+
+    it('ensureExtension checks metadata and syncs if needed', async () => {
+      const spy = vi.spyOn(pokeDB, 'syncExtension').mockResolvedValue();
+      await pokeDB.ensureExtension(3);
+      expect(spy).toHaveBeenCalledWith(3);
+
+      const db = await getDB();
+      await db.put(DB_CONFIG.STORES.METADATA, { key: 'ext_gen4', value: 'loaded' });
+
+      await pokeDB.ensureExtension(4);
+      expect(spy).toHaveBeenCalledTimes(1); // Not called for 4
+    });
+  });
+
   beforeEach(async () => {
     vi.clearAllMocks();
     vi.mocked(fetch).mockResolvedValue({
