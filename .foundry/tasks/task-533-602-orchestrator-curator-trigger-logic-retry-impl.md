@@ -2,13 +2,13 @@
 id: task-533-602-orchestrator-curator-trigger-logic-retry-impl
 type: TASK
 title: Orchestrator Curator Trigger Logic Retry Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-20'
 updated_at: '2026-09-30'
 depends_on:
   - research-533-601-investigate-curator-trigger-logic-failure
-jules_session_id: null
+jules_session_id: '4864994591677645962'
 parent: story-531-533-orchestrator-trigger-logic-updates
 tags:
   - orchestrator
