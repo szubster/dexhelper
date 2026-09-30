@@ -6,7 +6,7 @@ import {
   createRouter,
   RouterProvider,
 } from '@tanstack/react-router';
-import React from 'react';
+import type { ReactNode } from 'react';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
@@ -16,7 +16,7 @@ import { Route } from '../assistant';
 
 const queryClient = new QueryClient();
 
-const createMockRouter = (children: React.ReactNode) => {
+const createMockRouter = (children: ReactNode) => {
   const rootRoute = createRootRoute({
     component: () => <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>,
   });
