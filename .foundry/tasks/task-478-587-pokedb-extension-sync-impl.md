@@ -2,20 +2,22 @@
 id: task-478-587-pokedb-extension-sync-impl
 type: TASK
 title: Implement logic to fetch and sync generation-specific extensions in PokeDB
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-17T07:47:47.000Z'
 updated_at: '2026-09-30'
 depends_on:
   - task-478-586-pokedb-core-sync-impl
-jules_session_id: '8418493123556051006'
+jules_session_id: null
 pr_number: null
 parent: story-419-478-pokedb-sync-refactor
 tags:
   - database
   - performance
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

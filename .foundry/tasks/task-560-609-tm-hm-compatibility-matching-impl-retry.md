@@ -2,7 +2,7 @@
 id: task-560-609-tm-hm-compatibility-matching-impl-retry
 type: TASK
 title: Implement TM/HM Compatibility Matching Core Logic (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-21'
 updated_at: '2026-09-30'

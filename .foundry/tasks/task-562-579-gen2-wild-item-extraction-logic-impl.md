@@ -2,7 +2,7 @@
 id: task-562-579-gen2-wild-item-extraction-logic-impl
 type: TASK
 title: Implement Gen 2 Wild Encounter and Held Item Extraction Logic
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '${DATE}'
 updated_at: '2026-09-30'
@@ -16,8 +16,8 @@ tags:
   - dexhelper
   - typescript
 research_references: []
-rejection_count: 2
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 priority: 50

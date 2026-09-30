@@ -2,10 +2,10 @@
 id: task-477-613-test-apricorn-constants-v2
 type: TASK
 title: Test Kurt Apricorn Constants and Extraction (v2)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-09-23'
+updated_at: '2026-09-30'
 depends_on:
   - task-477-612-define-apricorn-constants-v2
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - gen2
   - testing
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-477-611-investigate-apricorn-failure-v2
 notes: ''
 locks: []
 ---

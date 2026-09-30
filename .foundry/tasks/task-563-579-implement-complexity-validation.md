@@ -2,16 +2,18 @@
 id: task-563-579-implement-complexity-validation
 type: TASK
 title: Implement complexity validation for STORY to TASK breakdown
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-14'
-updated_at: '2026-09-16'
+updated_at: '2026-09-30'
 depends_on:
   - task-563-578-complexity-validation-tests
 jules_session_id: null
 parent: story-552-563-story-to-task-complexity-validation
 tags: []
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-563-578-complexity-validation-tests
 locks: []
 ---
 

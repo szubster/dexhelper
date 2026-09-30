@@ -2,13 +2,13 @@
 id: task-560-597-spinda-coordinate-algorithm-qa
 type: TASK
 title: Spinda Coordinate Algorithm QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-19'
 updated_at: '2026-09-30'
 depends_on:
   - task-560-596-spinda-coordinate-mapping-logic
-jules_session_id: '15325598653466203804'
+jules_session_id: null
 pr_number: null
 parent: story-346-560-spinda-spot-coordinate-algorithm
 tags: []
