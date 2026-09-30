@@ -5,6 +5,20 @@ const GEN3_POKEMON_OT_ID_OFFSET = 4;
 const GEN3_POKEMON_DATA_OFFSET = 32;
 const SUBSTRUCTURE_SIZE = 12;
 
+const EMPTY_PV = 0;
+const EMPTY_OT_ID = 0;
+const EMPTY_SPECIES_ID = 0;
+const INITIAL_LEVEL = 0;
+const EMPTY_IV = 0;
+const NUM_SUBSTRUCTURE_CHARS = 4;
+const NUM_32BIT_INTS = 3;
+const NUM_MONS = 2;
+const EMERALD_STEP_COUNTER_OFFSET = 4;
+const FRLG_STEP_COUNTER_OFFSET = 2;
+const RS_MISC_DATA_OFFSET = 112;
+const RS_OFFSPRING_PERSONALITY_OFFSET = 8;
+const RS_STEP_COUNTER_OFFSET = 10;
+
 const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
 const SUBSTRUCTURE_ORDER = [
   'GAEM',
@@ -34,42 +48,49 @@ const SUBSTRUCTURE_ORDER = [
 ];
 
 function extractGen3PokemonData(view: DataView, offset: number) {
-  const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
-  const otId = view.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
+  try {
+    const pv = view.getUint32(offset + GEN3_POKEMON_PV_OFFSET, true);
+    const otId = view.getUint32(offset + GEN3_POKEMON_OT_ID_OFFSET, true);
 
-  if (pv === 0 && otId === 0) return null;
+    if (pv === EMPTY_PV && otId === EMPTY_OT_ID) return null;
 
-  const decryptionKey = pv ^ otId;
-  const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
-  const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
-  if (!permutation) {
-    throw new Error('The save file is corrupted or incomplete.');
-  }
-
-  const buffer = new ArrayBuffer(48);
-  const decryptedData = new DataView(buffer);
-
-  for (let i = 0; i < 4; i++) {
-    const char = permutation[i];
-    if (typeof char !== 'string') {
+    const decryptionKey = pv ^ otId;
+    const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
+    const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
+    if (!permutation) {
       throw new Error('The save file is corrupted or incomplete.');
     }
-    const canonicalIndex = 'GAEM'.indexOf(char);
-    if (canonicalIndex === -1) {
+
+    const buffer = new ArrayBuffer(NUM_SUBSTRUCTURE_CHARS * SUBSTRUCTURE_SIZE);
+    const decryptedData = new DataView(buffer);
+
+    for (let i = 0; i < NUM_SUBSTRUCTURE_CHARS; i++) {
+      const char = permutation[i];
+      if (typeof char !== 'string') {
+        throw new Error('The save file is corrupted or incomplete.');
+      }
+      const canonicalIndex = 'GAEM'.indexOf(char);
+      if (canonicalIndex === -1) {
+        throw new Error('The save file is corrupted or incomplete.');
+      }
+      const encryptedOffset = offset + GEN3_POKEMON_DATA_OFFSET + i * SUBSTRUCTURE_SIZE;
+      const decryptedOffset = canonicalIndex * SUBSTRUCTURE_SIZE;
+
+      // Read 3 32-bit integers, decrypt, and write
+      for (let j = 0; j < NUM_32BIT_INTS; j++) {
+        const encryptedValue = view.getUint32(encryptedOffset + j * 4, true);
+        const decryptedValue = (encryptedValue ^ decryptionKey) >>> 0;
+        decryptedData.setUint32(decryptedOffset + j * 4, decryptedValue, true);
+      }
+    }
+
+    return { pv, otId, decryptionKey, decryptedData };
+  } catch (error) {
+    if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');
     }
-    const encryptedOffset = offset + GEN3_POKEMON_DATA_OFFSET + i * SUBSTRUCTURE_SIZE;
-    const decryptedOffset = canonicalIndex * SUBSTRUCTURE_SIZE;
-
-    // Read 3 32-bit integers, decrypt, and write
-    for (let j = 0; j < 3; j++) {
-      const encryptedValue = view.getUint32(encryptedOffset + j * 4, true);
-      const decryptedValue = (encryptedValue ^ decryptionKey) >>> 0;
-      decryptedData.setUint32(decryptedOffset + j * 4, decryptedValue, true);
-    }
+    throw error;
   }
-
-  return { pv, otId, decryptionKey, decryptedData };
 }
 
 export const DAYCARE_OFFSET_RS = 0x2f9c;
@@ -107,13 +128,13 @@ export function parseGen3Daycare(
     if (mon1Data?.decryptedData) {
       // Basic validation if it is an actual Pokemon
       const speciesId = mon1Data.decryptedData.getUint16(0, true);
-      if (speciesId !== 0) {
+      if (speciesId !== EMPTY_SPECIES_ID) {
         mons.push({
           speciesId,
-          level: 0,
+          level: INITIAL_LEVEL,
           isShiny: false,
           moves: [],
-          ivs: { hp: 0, atk: 0, def: 0, spd: 0, spatk: 0, spdef: 0 },
+          ivs: { hp: EMPTY_IV, atk: EMPTY_IV, def: EMPTY_IV, spd: EMPTY_IV, spatk: EMPTY_IV, spdef: EMPTY_IV },
           storageLocation: 'daycare',
           hash: '',
         });
@@ -124,13 +145,13 @@ export function parseGen3Daycare(
     const mon2Data = extractGen3PokemonData(view, daycareOffset + monSize);
     if (mon2Data?.decryptedData) {
       const speciesId = mon2Data.decryptedData.getUint16(0, true);
-      if (speciesId !== 0) {
+      if (speciesId !== EMPTY_SPECIES_ID) {
         mons.push({
           speciesId,
-          level: 0,
+          level: INITIAL_LEVEL,
           isShiny: false,
           moves: [],
-          ivs: { hp: 0, atk: 0, def: 0, spd: 0, spatk: 0, spdef: 0 },
+          ivs: { hp: EMPTY_IV, atk: EMPTY_IV, def: EMPTY_IV, spd: EMPTY_IV, spatk: EMPTY_IV, spdef: EMPTY_IV },
           storageLocation: 'daycare',
           hash: '',
         });
@@ -141,17 +162,17 @@ export function parseGen3Daycare(
     let stepCounter: number | undefined;
 
     if (gameVersion === 'emerald') {
-      offspringPersonality = view.getUint32(daycareOffset + monSize * 2, true);
-      stepCounter = view.getUint8(daycareOffset + monSize * 2 + 4);
+      offspringPersonality = view.getUint32(daycareOffset + monSize * NUM_MONS, true);
+      stepCounter = view.getUint8(daycareOffset + monSize * NUM_MONS + EMERALD_STEP_COUNTER_OFFSET);
     } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
-      offspringPersonality = view.getUint16(daycareOffset + monSize * 2, true);
-      stepCounter = view.getUint8(daycareOffset + monSize * 2 + 2);
+      offspringPersonality = view.getUint16(daycareOffset + monSize * NUM_MONS, true);
+      stepCounter = view.getUint8(daycareOffset + monSize * NUM_MONS + FRLG_STEP_COUNTER_OFFSET);
     } else {
       // In RS, the step counters and pending egg personality are in the misc struct.
       // It starts after 2 mons (160 bytes) and mail data (112 bytes)
-      const miscOffset = daycareOffset + DAYCARE_MON_SIZE_RS * 2 + 112;
-      offspringPersonality = view.getUint16(miscOffset + 8, true);
-      stepCounter = view.getUint8(miscOffset + 10);
+      const miscOffset = daycareOffset + DAYCARE_MON_SIZE_RS * NUM_MONS + RS_MISC_DATA_OFFSET;
+      offspringPersonality = view.getUint16(miscOffset + RS_OFFSPRING_PERSONALITY_OFFSET, true);
+      stepCounter = view.getUint8(miscOffset + RS_STEP_COUNTER_OFFSET);
     }
 
     return { mons, offspringPersonality, stepCounter };
