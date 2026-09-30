@@ -34,3 +34,5 @@ Implement the core logic layer for checking if Pokémon currently in the player'
 
 ## Acceptance Criteria
 - [ ] Implement getCompatiblePokemonForTMHM (or similar) in the compatibility engine module.
+
+- [ ] research-609-637-tm-hm-learnsets-data-source
