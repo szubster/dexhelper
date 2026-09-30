@@ -25,7 +25,7 @@ rejection_count: 1
 Implement the Gen 3 dashboard base container component and configure the application routing to navigate to it. The dashboard will eventually house the Gen 3 trackers (Pokédex Gaps, Missed Milestones).
 
 ## Acceptance Criteria
-- [ ] Create the dashboard container layout component in `src/routes/gen3-dashboard.tsx` with a title for "Gen 3 Transition Dashboard".
-- [ ] Implement the routing for the dashboard using TanStack Router.
-- [ ] Add navigation linkage so users can reach the Gen 3 dashboard from the main dashboard/sidebar.
-- [ ] Apply the tactical hardware aesthetic constraints (ADR 008).
+- [x] Create the dashboard container layout component in `src/routes/gen3-dashboard.tsx` with a title for "Gen 3 Transition Dashboard".
+- [x] Implement the routing for the dashboard using TanStack Router.
+- [x] Add navigation linkage so users can reach the Gen 3 dashboard from the main dashboard/sidebar.
+- [x] Apply the tactical hardware aesthetic constraints (ADR 008).
