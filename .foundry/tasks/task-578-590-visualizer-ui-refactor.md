@@ -2,13 +2,13 @@
 id: task-578-590-visualizer-ui-refactor
 type: TASK
 title: React Flow Visualizer UI Refactor
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-17T14:13:10Z'
 updated_at: '2026-09-30'
 depends_on:
   - task-578-589-visualizer-state-refactor
-jules_session_id: null
+jules_session_id: '13740979798907290858'
 pr_number: null
 parent: story-079-578-react-flow-visualizer-refactor
 tags:
