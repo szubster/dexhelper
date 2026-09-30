@@ -31,6 +31,6 @@ locks: []
 Implement Playwright E2E tests for the Gen 2 Shiny Breeding engine specifically targeting DV overlap constraint and shiny odds computation UI elements.
 
 ## Acceptance Criteria
-- [ ] Write Playwright E2E tests covering DV overlap constraint UI workflows.
-- [ ] Write Playwright E2E tests covering shiny odds computation rendering.
-- [ ] Ensure tests verify actual statistical data rendered in the UI.
+- [x] Write Playwright E2E tests covering DV overlap constraint UI workflows.
+- [x] Write Playwright E2E tests covering shiny odds computation rendering.
+- [x] Ensure tests verify actual statistical data rendered in the UI.
