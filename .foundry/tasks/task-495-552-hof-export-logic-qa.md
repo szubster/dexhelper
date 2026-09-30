@@ -30,8 +30,8 @@ locks: []
 Perform quality assurance and verification on the completed Hall of Fame Certificate export logic to ensure it functions robustly and meets all constraints.
 
 ## Acceptance Criteria
-- [ ] Verify that the custom font loading utility preloads fonts effectively and reliably across testing environments.
-- [ ] Verify that the `html-to-image` rendering logic produces a high-quality (Canvas/SVG) image containing the custom fonts.
-- [ ] Verify that the UI correctly triggers the download and handles loading/error states.
-- [ ] Ensure all unit tests are comprehensive and passing.
-- [ ] Verify architectural compliance with ADR 022 and ADR 008.
+- [x] Verify that the custom font loading utility preloads fonts effectively and reliably across testing environments.
+- [x] Verify that the `html-to-image` rendering logic produces a high-quality (Canvas/SVG) image containing the custom fonts.
+- [x] Verify that the UI correctly triggers the download and handles loading/error states.
+- [x] Ensure all unit tests are comprehensive and passing.
+- [x] Verify architectural compliance with ADR 022 and ADR 008.
