@@ -617,3 +617,38 @@ describe('Persist Hydration Error Handling', () => {
     expect(freshStore.getState().isLivingDex).toBe(false);
   });
 });
+
+describe('Wild Item Selection State', () => {
+  beforeEach(() => {
+    useStore.setState({ selectedWildItemIds: [] });
+  });
+
+  it('should initialize with an empty array', () => {
+    expect(useStore.getState().selectedWildItemIds).toEqual([]);
+  });
+
+  it('should add an item id', () => {
+    useStore.getState().addSelectedWildItemId(1);
+    expect(useStore.getState().selectedWildItemIds).toEqual([1]);
+  });
+
+  it('should not add duplicate item ids', () => {
+    useStore.getState().addSelectedWildItemId(1);
+    useStore.getState().addSelectedWildItemId(1);
+    expect(useStore.getState().selectedWildItemIds).toEqual([1]);
+  });
+
+  it('should remove an item id', () => {
+    useStore.getState().addSelectedWildItemId(1);
+    useStore.getState().addSelectedWildItemId(2);
+    useStore.getState().removeSelectedWildItemId(1);
+    expect(useStore.getState().selectedWildItemIds).toEqual([2]);
+  });
+
+  it('should clear all item ids', () => {
+    useStore.getState().addSelectedWildItemId(1);
+    useStore.getState().addSelectedWildItemId(2);
+    useStore.getState().clearSelectedWildItemIds();
+    expect(useStore.getState().selectedWildItemIds).toEqual([]);
+  });
+});
