@@ -27,6 +27,6 @@ locks: []
 Setup the mock save files and test fixtures required for Gen 3 Mystery Gift E2E verification.
 
 ## Acceptance Criteria
-- [ ] Create mock saves with known Wonder Card and Event Flag data.
-- [ ] Implement fixture loading for the E2E tests.
-- [ ] research-517-518-locate-authentic-mystery-gift-saves
+- [x] Create mock saves with known Wonder Card and Event Flag data.
+- [x] Implement fixture loading for the E2E tests.
+- [x] research-517-518-locate-authentic-mystery-gift-saves

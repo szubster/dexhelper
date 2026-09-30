@@ -72,3 +72,9 @@ This directory contains all save fixtures used for parsing and integration testi
 
 - **wild-item/without-target-item.sav** (Version: emerald)
   - Original: `./tests/fixtures/emerald.sav` (Does not contain Lucky Egg)
+
+- **emerald-mystery-gift.sav** (Version: emerald)
+  - Original: `./tests/fixtures/saves/gen3/emerald_mystery_gift.sav`
+
+- **firered-mystery-gift.sav** (Version: firered)
+  - Original: `./tests/fixtures/saves/gen3/firered_mystery_gift.sav`
