@@ -98,4 +98,43 @@ describe('HallOfFameDashboard', () => {
       }
     }
   });
+
+  it('handles export error gracefully and logs error message', async () => {
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.mocked(renderCertificate).mockRejectedValue(new Error('Render failed'));
+
+    let div = document.getElementById('hof-certificate-hidden-container');
+    if (!div) {
+      div = document.createElement('div');
+      div.id = 'hof-certificate-hidden-container';
+      document.body.appendChild(div);
+    }
+
+    try {
+      const saveData = {
+        gameVersion: 'emerald',
+        hallOfFameRecords: [
+          {
+            playerName: 'ASH',
+            pokemon: [{ speciesId: 25, level: 50, nickname: 'PIKACHU' }],
+          },
+        ],
+      } as unknown as SaveData;
+
+      await render(<HallOfFameDashboard saveData={saveData} />);
+
+      await page.getByText('EXPORT CERTIFICATE').click();
+
+      await expect.element(page.getByText('EXPORT CERTIFICATE')).toBeInTheDocument();
+
+      expect(consoleSpy).toHaveBeenCalledWith('Failed to export certificate:', 'Render failed');
+    } finally {
+      consoleSpy.mockRestore();
+      vi.restoreAllMocks();
+      const element = document.getElementById('hof-certificate-hidden-container');
+      if (element) {
+        document.body.removeChild(element);
+      }
+    }
+  });
 });
