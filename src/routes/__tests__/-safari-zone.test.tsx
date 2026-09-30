@@ -1,4 +1,12 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import {
+  createMemoryHistory,
+  createRootRoute,
+  createRoute,
+  createRouter,
+  RouterProvider,
+} from '@tanstack/react-router';
+import React from 'react';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
@@ -7,6 +15,21 @@ import { useStore } from '../../store';
 import { Route } from '../safari-zone';
 
 const queryClient = new QueryClient();
+
+const createMockRouter = (children: React.ReactNode) => {
+  const rootRoute = createRootRoute({
+    component: () => <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>,
+  });
+  const routeTree = rootRoute.addChildren([
+    createRoute({
+      getParentRoute: () => rootRoute,
+      path: '/',
+      component: () => children,
+    }),
+  ]);
+  const history = createMemoryHistory({ initialEntries: ['/'] });
+  return createRouter({ routeTree, history });
+};
 
 describe('SafariZonePage Route', () => {
   beforeEach(() => {
@@ -17,7 +40,8 @@ describe('SafariZonePage Route', () => {
   const Component = Route.options.component;
 
   it('renders unlinked empty state when saveData is null', async () => {
-    await render(<QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>);
+    const router = createMockRouter(Component ? <Component /> : null);
+    await render(<RouterProvider router={router} />);
     await expect.element(page.getByText('SAFARI ZONE TELEMETRY UNLINKED')).toBeVisible();
   });
 
@@ -25,7 +49,8 @@ describe('SafariZonePage Route', () => {
     useStore.setState({
       saveData: { generation: 2 } as SaveData,
     });
-    await render(<QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>);
+    const router = createMockRouter(Component ? <Component /> : null);
+    await render(<RouterProvider router={router} />);
     await expect.element(page.getByText('SAFARI ZONE UNAVAILABLE IN GEN 2')).toBeVisible();
   });
 
@@ -39,7 +64,8 @@ describe('SafariZonePage Route', () => {
         pc: [],
       } as unknown as SaveData,
     });
-    await render(<QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>);
+    const router = createMockRouter(Component ? <Component /> : null);
+    await render(<RouterProvider router={router} />);
     await expect.element(page.getByText('SAFARI ZONE MISSING ENCOUNTERS')).toBeVisible();
   });
 
@@ -53,7 +79,8 @@ describe('SafariZonePage Route', () => {
         pc: [],
       } as unknown as SaveData,
     });
-    await render(<QueryClientProvider client={queryClient}>{Component ? <Component /> : null}</QueryClientProvider>);
+    const router = createMockRouter(Component ? <Component /> : null);
+    await render(<RouterProvider router={router} />);
     await expect.element(page.getByText('SAFARI ZONE MISSING ENCOUNTERS')).toBeVisible();
   });
 });
