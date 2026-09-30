@@ -2,12 +2,12 @@
 id: research-429-632-investigate-task-553-failure
 type: RESEARCH
 title: Investigate task-429-553-generate-gen-specific-bundles Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-28'
 updated_at: '2026-09-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5387145409514743999'
 pr_number: null
 parent: story-400-429-gen-specific-extensions
 tags:
