@@ -91,11 +91,23 @@ export class SaveDataReader implements ISaveDataReader {
     return this.executeRead(() => this.view.getFloat64(offset, false));
   }
 
-  readBits(_offset: number, _bitOffset: number, _bitLength: number): number {
-    throw new Error('Not implemented');
+  readBits(offset: number, bitOffset: number, bitLength: number): number {
+    return this.executeRead(() => {
+      const BITS_PER_BYTE = 8;
+      let result = 0;
+      for (let i = 0; i < bitLength; i++) {
+        const bitPos = bitOffset + i;
+        const byteOffset = offset + Math.floor(bitPos / BITS_PER_BYTE);
+        const bitIndex = bitPos % BITS_PER_BYTE;
+        const byte = this.view.getUint8(byteOffset);
+        const bit = (byte >> bitIndex) & 1;
+        result |= bit << i;
+      }
+      return result;
+    });
   }
 
-  readFlag(_offset: number, _bitOffset: number): boolean {
-    throw new Error('Not implemented');
+  readFlag(offset: number, bitOffset: number): boolean {
+    return this.readBits(offset, bitOffset, 1) === 1;
   }
 }

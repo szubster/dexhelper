@@ -91,4 +91,29 @@ describe('SaveDataReader', () => {
     expect(() => reader.getFloat64Le(1)).toThrow(errorMessage);
     expect(() => reader.getFloat64Be(1)).toThrow(errorMessage);
   });
+
+  it('should read bits correctly', () => {
+    const buffer = new ArrayBuffer(4);
+    const view = new DataView(buffer);
+    const reader = new SaveDataReader(view);
+
+    view.setUint8(0, 170);
+    view.setUint8(1, 85);
+
+    expect(reader.readBits(0, 0, 4)).toBe(10);
+    expect(reader.readBits(0, 4, 4)).toBe(10);
+    expect(reader.readBits(0, 7, 2)).toBe(3);
+    expect(reader.readBits(0, 0, 8)).toBe(170);
+  });
+
+  it('should read flags correctly', () => {
+    const buffer = new ArrayBuffer(4);
+    const view = new DataView(buffer);
+    const reader = new SaveDataReader(view);
+
+    view.setUint8(0, 170);
+
+    expect(reader.readFlag(0, 0)).toBe(false);
+    expect(reader.readFlag(0, 1)).toBe(true);
+  });
 });
