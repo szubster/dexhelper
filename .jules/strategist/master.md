@@ -356,3 +356,11 @@ Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing 
 **Outcome:** Merged
 **Why:** The instructions for reading journals across agent prompts were previously standardized to require the explicit phrasing `Read your past journals in <path>/master.md before starting.` in their `## Journal` section. However, `.github/agents/lens.md` was missing the exact wording, instead containing `Read past journals in .foundry/journals/lens/master.md.`. Updating `lens.md` to strictly adhere to mandatory journal instruction phrasing ensures system-wide prompt consistency and compliance with core journaling rules.
 **Pattern:** Audit all persona prompts periodically to ensure standard mandatory phrasing (such as journal reading directives) remains uniform across the entire agent roster.
+
+---
+
+## 2026-09-30 - [Accepted] - Prompt improvement - Standardize journal reading directive in architect_visionary
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `.github/agents/architect_visionary.md` prompt contained redundant and non-standard journal reading directives in its `Boundaries` section ("Read your past journals in `.foundry/journals/architect_visionary/master.md` to recall past generated ideas and their outcomes."). Standardizing the journal reading phrasing across all agent prompts ensures compliance with core journaling rules and eliminates duplicate instructions.
+**Pattern:** Ensure all agent prompts contain uniform journal reading directives pointing strictly to `<path>/master.md` in the `## Journal` section, avoiding duplicated journal instructions in other prompt sections.
