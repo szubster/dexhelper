@@ -26,6 +26,6 @@ locks: []
 Verify the implementation of the version exclusive mapping logic for Gen 3 games.
 
 ## Acceptance Criteria
-- [ ] Verify that the `mapMissingToAvailability` correctly identifies version exclusives for R/S/E and FR/LG.
-- [ ] Verify that the implementation strictly adheres to the PokeData Property Naming Schema.
-- [ ] Confirm comprehensive unit test coverage exists and passes.
+- [x] Verify that the `mapMissingToAvailability` correctly identifies version exclusives for R/S/E and FR/LG.
+- [x] Verify that the implementation strictly adheres to the PokeData Property Naming Schema.
+- [x] Confirm comprehensive unit test coverage exists and passes.
