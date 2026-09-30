@@ -27,6 +27,6 @@ locks: []
 Verify the implementation of Battle Tower win streaks and records extraction for Ruby/Sapphire save files.
 
 ## Acceptance Criteria
-- [ ] Verify the parsing logic handles out-of-bounds reads gracefully.
-- [ ] Review the unit tests to ensure they adequately cover the new offsets and logic.
-- [ ] Ensure the integration alongside Emerald Battle Frontier parsing is clean and does not introduce regressions.
+- [x] Verify the parsing logic handles out-of-bounds reads gracefully.
+- [x] Review the unit tests to ensure they adequately cover the new offsets and logic.
+- [x] Ensure the integration alongside Emerald Battle Frontier parsing is clean and does not introduce regressions.
