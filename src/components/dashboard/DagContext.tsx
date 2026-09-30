@@ -1,4 +1,12 @@
-import { type Edge, type Node, Position } from '@xyflow/react';
+import {
+  type Edge,
+  type Node,
+  type OnEdgesChange,
+  type OnNodesChange,
+  Position,
+  useEdgesState,
+  useNodesState,
+} from '@xyflow/react';
 import dagre from 'dagre';
 import { createContext, type ReactNode, useContext, useEffect, useMemo, useState, useTransition } from 'react';
 import { MAX_REJECTION_THRESHOLD } from '../../utils/constants';
@@ -40,6 +48,8 @@ export interface DagContextState {
   setShowHeatmap: (show: React.SetStateAction<boolean>) => void;
   setNodes: (nodes: React.SetStateAction<DagNode[]>) => void;
   setEdges: (edges: React.SetStateAction<DagEdge[]>) => void;
+  onNodesChange: OnNodesChange<DagNode>;
+  onEdgesChange: OnEdgesChange<DagEdge>;
   setIsLoading: (isLoading: React.SetStateAction<boolean>) => void;
 }
 
@@ -104,8 +114,8 @@ function getLayoutedElements(nodes: DagNode[], edges: DagEdge[], direction = 'TB
 }
 
 export function DagProvider({ children }: { children: ReactNode }) {
-  const [nodes, setNodes] = useState<DagNode[]>([]);
-  const [edges, setEdges] = useState<DagEdge[]>([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState<DagNode>([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState<DagEdge>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isPending, startTransition] = useTransition();
   const [activeView, setActiveView] = useState<ViewMode>('graph');
@@ -124,9 +134,11 @@ export function DagProvider({ children }: { children: ReactNode }) {
       setShowHeatmap: (show: React.SetStateAction<boolean>) => startTransition(() => setShowHeatmap(show)),
       setNodes: (newNodes: React.SetStateAction<DagNode[]>) => startTransition(() => setNodes(newNodes)),
       setEdges: (newEdges: React.SetStateAction<DagEdge[]>) => startTransition(() => setEdges(newEdges)),
+      onNodesChange,
+      onEdgesChange,
       setIsLoading,
     }),
-    [nodes, edges, isLoading, isPending, activeView, showHeatmap],
+    [nodes, edges, isLoading, isPending, activeView, showHeatmap, onNodesChange, onEdgesChange, setNodes, setEdges],
   );
 
   useEffect(() => {
@@ -177,7 +189,7 @@ export function DagProvider({ children }: { children: ReactNode }) {
     }
 
     void loadData();
-  }, []);
+  }, [setNodes, setEdges]);
 
   return <DagContext value={value}>{children}</DagContext>;
 }
