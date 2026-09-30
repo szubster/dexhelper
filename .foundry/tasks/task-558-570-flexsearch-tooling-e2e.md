@@ -29,4 +29,4 @@ As part of the RAG context hydration epic, we need to build an in-memory search 
 This task ensures that the indexing logic integrates correctly with the orchestrator startup.
 
 ## Acceptance Criteria
-- [ ] Add integration/E2E test verifying the flexsearch index is correctly initialized when the orchestrator starts.
+- [x] Add integration/E2E test verifying the flexsearch index is correctly initialized when the orchestrator starts.
