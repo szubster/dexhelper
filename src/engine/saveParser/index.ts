@@ -1,4 +1,4 @@
-import type { GameVersion, PokemonInstance, SaveData } from './parsers/common';
+import type { GameVersion, SaveData } from './parsers/common';
 import { isGen1Save, isGen2Save, isGen3Save } from './utils/detection';
 
 /**
@@ -27,7 +27,16 @@ const GEN2_CHECKSUM_DATA_END = 0x2d0c;
  */
 const GEN2_CHECKSUM_OFFSET = 0x2d0d;
 
-export type { GameVersion, PokemonInstance, SaveData };
+export type {
+  BaseSaveData,
+  BugCatchingContestData,
+  GameVersion,
+  Gen1SaveData,
+  Gen2SaveData,
+  Gen3SaveData,
+  PokemonInstance,
+  SaveData,
+} from './parsers/common';
 
 /**
  * Main entry point for decoding a raw Pokémon save file buffer.
