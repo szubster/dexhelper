@@ -201,4 +201,40 @@ describe('Zod Schema E2E Test Suite', () => {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
+
+  it('asserts that confidence_score fields are parsed and validated correctly', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'fuzzing-orchestrator-e2e-'));
+    vi.spyOn(process, 'cwd').mockReturnValue(tmpDir);
+    fs.mkdirSync(path.join(tmpDir, '.foundry/tasks'), { recursive: true });
+
+    const noScorePath = path.join(tmpDir, '.foundry/tasks/task-no-score.md');
+    fs.writeFileSync(noScorePath, "---\nid: task-no-score\ntype: TASK\ntitle: No Score\nstatus: READY\nowner_persona: coder\ncreated_at: '2026-08-01'\nupdated_at: '2026-08-01'\ndepends_on: []\njules_session_id: '123'\n---\n# Content");
+
+    const validScorePath = path.join(tmpDir, '.foundry/tasks/task-valid-score.md');
+    fs.writeFileSync(validScorePath, "---\nid: task-valid-score\ntype: TASK\ntitle: Valid Score\nstatus: READY\nowner_persona: coder\ncreated_at: '2026-08-01'\nupdated_at: '2026-08-01'\ndepends_on: []\njules_session_id: '123'\nconfidence_score: 85\n---\n# Content");
+
+    const invalidScorePath = path.join(tmpDir, '.foundry/tasks/task-invalid-score.md');
+    fs.writeFileSync(invalidScorePath, "---\nid: task-invalid-score\ntype: TASK\ntitle: Invalid Score\nstatus: READY\nowner_persona: coder\ncreated_at: '2026-08-01'\nupdated_at: '2026-08-01'\ndepends_on: []\njules_session_id: '123'\nconfidence_score: 105\n---\n# Content");
+
+    const stderrSpy = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+
+    const noScoreNode = parseNodeFile(noScorePath, tmpDir);
+    expect(noScoreNode).not.toBeNull();
+    expect(noScoreNode?.frontmatter.confidence_score).toBeUndefined();
+
+    const validScoreNode = parseNodeFile(validScorePath, tmpDir);
+    expect(validScoreNode).not.toBeNull();
+    expect(validScoreNode?.frontmatter.confidence_score).toBe(85);
+
+    const invalidScoreNode = parseNodeFile(invalidScorePath, tmpDir);
+    expect(invalidScoreNode).toBeNull();
+
+    expect(stderrSpy).toHaveBeenCalled();
+    const calls = stderrSpy.mock.calls.map(call => call[0] as string).join('');
+    expect(calls).toContain('task-invalid-score.md');
+    expect(calls).toContain('`confidence_score`: Too big: expected number to be <=100');
+
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
 });

@@ -34,4 +34,4 @@ Tests to validate the `confidence_score` is an integer constraint (0-100) need t
 - Implement tests to validate the `confidence_score` is an integer constraint (0-100).
 
 ## Acceptance Criteria
-- [ ] Tests validate the `confidence_score` is an integer constraint (0-100).
+- [x] Tests validate the `confidence_score` is an integer constraint (0-100).
