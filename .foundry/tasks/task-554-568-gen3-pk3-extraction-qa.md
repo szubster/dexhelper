@@ -30,6 +30,6 @@ Verify the implementation of the Gen 3 PK3 extraction logic to ensure it correct
 - Verify that unit tests provide adequate coverage for the decryption and permutation mapping logic.
 
 ## Acceptance Criteria
-- [ ] Verify the Gen 3 PK3 extraction logic correctly implements decryption and permutation mapping.
-- [ ] Verify architectural compliance (module-level constants, no magic numbers).
-- [ ] Ensure unit tests are comprehensive and pass successfully.
+- [x] Verify the Gen 3 PK3 extraction logic correctly implements decryption and permutation mapping.
+- [x] Verify architectural compliance (module-level constants, no magic numbers).
+- [x] Ensure unit tests are comprehensive and pass successfully.
