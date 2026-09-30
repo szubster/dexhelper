@@ -34,5 +34,5 @@ We need to QA verify the Gen 3 Secret Base Array Extraction implementation.
 - Verify that unit tests pass and cover edge cases (e.g., catching RangeError).
 
 ## Acceptance Criteria
-- [ ] Perform QA verification of the extraction logic.
-- [ ] Approve or reject the implementation.
+- [x] Perform QA verification of the extraction logic.
+- [x] Approve or reject the implementation.
