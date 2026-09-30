@@ -2,13 +2,13 @@
 id: task-560-609-tm-hm-compatibility-matching-impl-retry
 type: TASK
 title: Implement TM/HM Compatibility Matching Core Logic (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-21'
 updated_at: '2026-09-30'
 depends_on:
   - research-560-608-investigate-tm-hm-compatibility-matching-failure
-jules_session_id: null
+jules_session_id: '15917033981448682359'
 pr_number: null
 parent: story-402-560-tm-hm-compatibility-matching
 tags:
