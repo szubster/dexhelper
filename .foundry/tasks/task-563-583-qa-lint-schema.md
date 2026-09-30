@@ -27,5 +27,5 @@ locks: []
 - Validate that the implementation meets all requirements of the parent story.
 
 ## Acceptance Criteria
-- [ ] Directory traversal correctly includes ideas, prds, epics, stories, and tasks.
-- [ ] Directory traversal correctly ignores docs and journals.
+- [x] Directory traversal correctly includes ideas, prds, epics, stories, and tasks.
+- [x] Directory traversal correctly ignores docs and journals.
