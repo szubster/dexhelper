@@ -22,6 +22,7 @@ locks: []
 Integrate the parsed Gen 3 berry patch data into the PokeData storage generation pipeline. Serialize the output data using msgpackr with the useRecords: true configuration. Include comprehensive unit tests.
 
 ## Acceptance Criteria
+- [ ] research-599-633-investigate-dynamic-berry-data
 - [ ] Integrate parsed Gen 3 berry data into pipeline scripts.
 - [ ] Implement msgpackr serialization with useRecords: true.
 - [ ] Ensure serialized payload exports properly.
