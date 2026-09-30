@@ -37,11 +37,11 @@ export function Gen3RoamerDossier({ saveData }: Gen3RoamerDossierProps) {
   return (
     <TacticalPanel className="p-4" variant={roamer.isActive ? 'emerald' : 'default'}>
       <div className="mb-4 flex justify-between border-zinc-600 border-b border-dashed pb-2">
-        <h2 className="font-bold font-mono text-xl text-zinc-300 uppercase tracking-widest">Roamer Dossier</h2>
+        <h2 className="tactical-text font-bold text-xl text-zinc-300">Roamer Dossier</h2>
         {roamer.isActive ? (
-          <span className="animate-pulse font-bold font-mono text-red-500 tracking-widest">[ ACTIVE ]</span>
+          <span className="tactical-text animate-pulse font-bold text-red-500">[ ACTIVE ]</span>
         ) : (
-          <span className="font-bold font-mono text-zinc-500 tracking-widest">[ INACTIVE ]</span>
+          <span className="tactical-text font-bold text-zinc-500">[ INACTIVE ]</span>
         )}
       </div>
 
@@ -92,7 +92,7 @@ export function Gen3RoamerDossier({ saveData }: Gen3RoamerDossierProps) {
         <div className="mt-6 flex items-start gap-3 border border-amber-500 border-dashed bg-amber-500/10 p-3">
           <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" />
           <div>
-            <h3 className="mb-1 font-bold font-mono text-amber-500 text-sm uppercase tracking-wider">
+            <h3 className="tactical-text mb-1 font-bold text-amber-500 text-sm">
               Warning: Severe IV Truncation Detected
             </h3>
             <p className="font-mono text-amber-400/80 text-xs">

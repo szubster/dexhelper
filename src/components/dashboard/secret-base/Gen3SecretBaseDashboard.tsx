@@ -18,7 +18,7 @@ export const Gen3SecretBaseDashboard: React.FC<Gen3SecretBaseDashboardProps> = (
       <TelemetryDecoration label="SYS.SECRET_BASE_TRACKING" className="-top-[17px] left-[-1px]" />
 
       <div className="z-10 flex items-center justify-between">
-        <span className="tactical-text font-black text-lg text-white">SECRET BASE REMATCHES</span>
+        <span className="tactical-text text-lg text-white">SECRET BASE REMATCHES</span>
       </div>
 
       <div className="z-10 grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

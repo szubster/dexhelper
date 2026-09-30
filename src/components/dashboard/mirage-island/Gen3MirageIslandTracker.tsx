@@ -31,7 +31,7 @@ export const Gen3MirageIslandTracker = React.memo(({ saveData }: Gen3MirageIslan
       aria-label="Mirage Island Tracker"
     >
       <TelemetryDecoration label="SYS.MIRAGE_ISLAND" className="-top-[17px] left-[-1px]" />
-      <span className="tactical-text z-10 mb-4 font-black text-lg text-white">MIRAGE ISLAND TRACKER</span>
+      <span className="tactical-text z-10 mb-4 text-lg text-white">MIRAGE ISLAND TRACKER</span>
       <div className="z-10 grid grid-cols-2 gap-4 sm:grid-cols-4" aria-live="polite">
         <DataPoint label="STATUS" value={match.found ? 'MATCH FOUND' : 'NO MATCH FOUND'} />
         {match.found && match.speciesId !== undefined && <DataPoint label="SPECIES" value={String(displaySpecies)} />}
