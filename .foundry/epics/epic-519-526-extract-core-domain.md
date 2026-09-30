@@ -30,5 +30,9 @@ This epic focuses on isolating domain logic, game constants, and save file parse
 - Ensure strict zero DOM, React, or browser-specific dependencies in this package.
 
 ## Acceptance Criteria
-- [ ] Break this epic down into stories for core extraction and parser relocation.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [x] Break this epic down into stories for core extraction and parser relocation.
+- [ ] story-526-638-extract-constants
+- [ ] story-526-639-extract-parsers
+- [ ] story-526-640-extract-domain-logic
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [ ] story-526-641-core-domain-integration-e2e
