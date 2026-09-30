@@ -2,12 +2,12 @@
 id: research-609-637-tm-hm-learnsets-data-source
 type: RESEARCH
 title: Determine Data Source for TM/HM Learnsets
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-29'
-updated_at: '2026-09-29'
+updated_at: '2026-09-30'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9969856306927750313'
 pr_number: null
 parent: task-560-609-tm-hm-compatibility-matching-impl-retry
 tags:
