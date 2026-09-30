@@ -31,10 +31,10 @@ The Coder has implemented the heatmap data processing logic. QA must verify the 
 Review the implemented types, aggregation logic, and unit tests.
 
 ## Acceptance Criteria
-- [ ] Verify that the heatmap data structures are defined correctly.
-- [ ] Verify the calculateHeatmap aggregation accurately maps areaIds to missing species counts.
-- [ ] Verify that unit tests pass and cover edge cases.
-- [ ] Run test suite (pnpm test) and confirm passing.
+- [x] Verify that the heatmap data structures are defined correctly.
+- [x] Verify the calculateHeatmap aggregation accurately maps areaIds to missing species counts.
+- [x] Verify that unit tests pass and cover edge cases.
+- [x] Run test suite (pnpm test) and confirm passing.
 
 **Important Persona Instructions:**
 - **QA**: If you abort or permanently fail this task, you MUST update the YAML frontmatter to status: FAILED or status: CANCELLED with a rejection_reason. If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting. Do not modify the frontmatter otherwise.
