@@ -4,7 +4,7 @@ import { clearStorage, initializeWithSave, waitForSync } from './test-utils';
 test.describe('Gen 3 Mystery Gift Fixtures', () => {
   test('should parse Mystery Gift data for Emerald', async ({ page }) => {
     await clearStorage(page);
-    await initializeWithSave(page, 'tests/fixtures/emerald-mystery-gift.sav');
+    await initializeWithSave(page, 'tests/fixtures/saves/gen3/emerald_mystery_gift.sav');
 
     // Navigate to the dashboard to verify event items render successfully.
     await page.goto('./dashboard');
@@ -18,7 +18,7 @@ test.describe('Gen 3 Mystery Gift Fixtures', () => {
 
   test('should parse Mystery Gift data for FireRed', async ({ page }) => {
     await clearStorage(page);
-    await initializeWithSave(page, 'tests/fixtures/firered-mystery-gift.sav');
+    await initializeWithSave(page, 'tests/fixtures/saves/gen3/firered_mystery_gift.sav');
 
     // Navigate to the dashboard to verify event items render successfully.
     await page.goto('./dashboard');

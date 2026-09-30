@@ -27,5 +27,5 @@ locks: []
 The goal is to track down authentic Pokemon Emerald and FireRed `.sav` files that contain Mystery Gift Wonder Cards (such as Aurora Ticket, MysticTicket, Eon Ticket, or Old Sea Map) for use as E2E test fixtures, or to use a trusted 3rd party tool like `PKHeX` to safely generate them.
 
 ## Acceptance Criteria
-- [ ] Provide authentic `.sav` files or use PKHeX to generate valid test saves containing Mystery Gift flags.
-- [ ] Place the `.sav` files in `tests/fixtures/saves/gen3/` and add them to `tests/fixtures/manifest.json`.
+- [x] Provide authentic `.sav` files or use PKHeX to generate valid test saves containing Mystery Gift flags.
+- [x] Place the `.sav` files in `tests/fixtures/saves/gen3/` and add them to `tests/fixtures/manifest.json`.

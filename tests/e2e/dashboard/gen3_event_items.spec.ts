@@ -16,7 +16,7 @@ test.describe('Gen 3 Event Items Dashboard', () => {
 
   test('should show Gen 3 Event Items Dashboard for Gen 3 saves', async ({ page }) => {
     await clearStorage(page);
-    await initializeWithSave(page, 'tests/fixtures/emerald-mystery-gift.sav');
+    await initializeWithSave(page, 'tests/fixtures/saves/gen3/emerald_mystery_gift.sav');
     await page.goto('./dashboard');
     await waitForSync(page);
     await expect(page.getByText('EVENT ITEMS')).toBeVisible();
