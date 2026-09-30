@@ -1,4 +1,5 @@
 import type { GameVersion, PokeballType } from '../store';
+import { GEN1_MAX_SPECIES_ID, GEN2_MAX_SPECIES_ID, GEN3_MAX_SPECIES_ID } from './species';
 
 // ─── Core Types ──────────────────────────────────────────────────────
 
@@ -46,7 +47,7 @@ const gen1Config: GenerationConfig = {
   id: 1,
   label: 'Gen I',
   shortLabel: 'I',
-  maxDex: 151,
+  maxDex: GEN1_MAX_SPECIES_ID,
   versions: [
     { id: 'red', label: 'Red', themeClass: 'theme-red', dotColor: 'bg-red-500 shadow-red-500/20' },
     {
@@ -83,7 +84,7 @@ const gen2Config: GenerationConfig = {
   id: 2,
   label: 'Gen II',
   shortLabel: 'II',
-  maxDex: 251,
+  maxDex: GEN2_MAX_SPECIES_ID,
   versions: [
     { id: 'gold', label: 'Gold', themeClass: 'theme-gold', dotColor: 'bg-yellow-500' },
     { id: 'silver', label: 'Silver', themeClass: 'theme-silver', dotColor: 'bg-zinc-400' },
@@ -110,7 +111,7 @@ const gen3Config: GenerationConfig = {
   id: 3,
   label: 'Gen III',
   shortLabel: 'III',
-  maxDex: 386,
+  maxDex: GEN3_MAX_SPECIES_ID,
   versions: [
     { id: 'ruby', label: 'Ruby', themeClass: 'theme-ruby', dotColor: 'bg-red-600' },
     { id: 'sapphire', label: 'Sapphire', themeClass: 'theme-sapphire', dotColor: 'bg-blue-600' },

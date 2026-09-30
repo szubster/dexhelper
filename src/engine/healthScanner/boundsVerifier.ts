@@ -1,3 +1,4 @@
+import { GEN1_MAX_SPECIES_ID, GEN2_MAX_SPECIES_ID } from '../../utils/species';
 import type { PokemonInstance, SaveData } from '../saveParser/parsers/common';
 import type { Anomaly, HealthScanResult, Location } from './models';
 
@@ -34,21 +35,21 @@ export function verifyBounds(saveData: SaveData): HealthScanResult {
     // 1. Verify Pokemon species IDs against Generation Pokedex boundaries
     // Gen 1 contains 151 species (Bulbasaur to Mew). Gen 2 contains 251 species (Bulbasaur to Celebi).
     if (saveData.generation === 1) {
-      if (pokemon.speciesId < 0 || pokemon.speciesId > 151) {
+      if (pokemon.speciesId < 0 || pokemon.speciesId > GEN1_MAX_SPECIES_ID) {
         anomalies.push({
           code: 'OutOfBoundsId',
           severity: 'Critical',
           location,
-          description: `Pokemon ID ${pokemon.speciesId} is out of Gen 1 bounds (0-151).`,
+          description: `Pokemon ID ${pokemon.speciesId} is out of Gen 1 bounds (0-${GEN1_MAX_SPECIES_ID}).`,
         });
       }
     } else if (saveData.generation === 2) {
-      if (pokemon.speciesId < 0 || pokemon.speciesId > 251) {
+      if (pokemon.speciesId < 0 || pokemon.speciesId > GEN2_MAX_SPECIES_ID) {
         anomalies.push({
           code: 'OutOfBoundsId',
           severity: 'Critical',
           location,
-          description: `Pokemon ID ${pokemon.speciesId} is out of Gen 2 bounds (0-251).`,
+          description: `Pokemon ID ${pokemon.speciesId} is out of Gen 2 bounds (0-${GEN2_MAX_SPECIES_ID}).`,
         });
       }
     }
