@@ -1,6 +1,19 @@
 import type { UnifiedLocation } from '../../db/schema';
 import { resolveOutdoorMapId as commonResolveOutdoorMapId, getDistanceToMapBase } from './common';
 
+/**
+ * Resolves an indoor Gen 1 map ID to its root outdoor parent map ID.
+ *
+ * Handles multi-level indoor locations by traversing the parent location hierarchy
+ * until an outdoor map is reached.
+ *
+ * @param allLocations - The unified list of all map locations.
+ * @param mapId - The internal Gen 1 Map ID to resolve.
+ * @returns The parent outdoor Map ID, or the original Map ID if it is already outdoor.
+ *
+ * @example
+ * const outdoorId = resolveOutdoorMapId(locations, 38);
+ */
 export const resolveOutdoorMapId = commonResolveOutdoorMapId;
 
 /**
