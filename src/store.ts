@@ -248,12 +248,61 @@ export const useStore = create<AppStore>()(
       activeSaveId: null,
       saveData: null,
       error: null,
-      setSaveData: (data) =>
+      setSaveData: (data) => {
+        const { huntBaselineQuantities, selectedWildItemIds, addNewlyAcquiredWildItemId } = get();
+
+        // Hunting Progress Detection Logic
+        if (data && selectedWildItemIds.length > 0) {
+          // Calculate current total quantities of all selected target items
+          // scanning Bag, Party, PC Box held items, and PC item storage.
+          const currentItemCounts: Record<number, number> = {};
+
+          // Bag Inventory
+          data.inventory.forEach((invItem) => {
+            if (selectedWildItemIds.includes(invItem.id)) {
+              currentItemCounts[invItem.id] = (currentItemCounts[invItem.id] || 0) + invItem.quantity;
+            }
+          });
+
+          // Party Pokemon Held Items
+          data.partyDetails.forEach((pokemon) => {
+            if (pokemon.item && selectedWildItemIds.includes(pokemon.item)) {
+              currentItemCounts[pokemon.item] = (currentItemCounts[pokemon.item] || 0) + 1;
+            }
+          });
+
+          // PC Box Pokemon Held Items
+          data.pcDetails.forEach((pokemon) => {
+            if (pokemon.item && selectedWildItemIds.includes(pokemon.item)) {
+              currentItemCounts[pokemon.item] = (currentItemCounts[pokemon.item] || 0) + 1;
+            }
+          });
+
+          // PC Items (Gen 2/3)
+          if (data.pcItems) {
+            data.pcItems.forEach((pcItem) => {
+              if (selectedWildItemIds.includes(pcItem.id)) {
+                currentItemCounts[pcItem.id] = (currentItemCounts[pcItem.id] || 0) + pcItem.quantity;
+              }
+            });
+          }
+
+          // Compare with baseline
+          Object.entries(currentItemCounts).forEach(([itemIdStr, count]) => {
+            const itemId = parseInt(itemIdStr, 10);
+            const baseline = huntBaselineQuantities[itemId] || 0;
+            if (count > baseline) {
+              addNewlyAcquiredWildItemId(itemId);
+            }
+          });
+        }
+
         set({
           saveData: data,
           activeSaveId: data ? 'default' : null,
           saves: data ? { default: data } : {},
-        }),
+        });
+      },
       setError: (v) => set({ error: v }),
 
       // Settings

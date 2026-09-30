@@ -184,6 +184,30 @@ describe('Zustand Store', () => {
     });
   });
 
+  describe('Hunting Progress Detection', () => {
+    it('should calculate newly acquired items and update state on setSaveData', () => {
+      // Setup state
+      useStore.getState().addSelectedWildItemId(1);
+      useStore.getState().addSelectedWildItemId(2);
+      useStore.getState().setHuntBaselineQuantities({ 1: 5, 2: 10 });
+
+      const mockSaveData = {
+        inventory: [{ id: 1, quantity: 4 }], // Under baseline (4 < 5)
+        partyDetails: [{ item: 2 }, { item: 2 }], // 2 in party
+        pcDetails: [{ item: 2 }], // 1 in pc
+        pcItems: [{ id: 2, quantity: 8 }], // 8 in pc
+        // biome-ignore lint/suspicious/noExplicitAny: test mock
+      } as any;
+
+      // Total for item 1 = 4 (under 5 baseline)
+      // Total for item 2 = 2 + 1 + 8 = 11 (over 10 baseline)
+
+      useStore.getState().setSaveData(mockSaveData);
+
+      expect(useStore.getState().newlyAcquiredWildItemIds).toEqual([2]);
+    });
+  });
+
   describe('Save data', () => {
     it('should set and clear save data', () => {
       const mockSave = {
