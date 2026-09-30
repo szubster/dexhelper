@@ -34,6 +34,11 @@ We have successfully extracted moves and items data into `moves.jsonl` and `item
 3. Verify that the client can correctly parse and utilize the new data structures.
 
 ## Acceptance Criteria
+- [ ] story-088-637-vite-jsonl-plugin-update
+
+- [ ] story-088-638-client-db-jsonl-loader
+
+- [ ] story-088-639-jsonl-integration-e2e
 - [ ] Update Vite configuration/plugin to package `.jsonl` files for moves and items.
 - [ ] Update application runtime (e.g. `src/db/`) to load and map the newly generated dynamic lists.
 - [ ] Ensure backward compatibility or smooth transition for UI that relies on this data.
