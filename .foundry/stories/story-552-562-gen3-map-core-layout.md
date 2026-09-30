@@ -2,10 +2,10 @@
 id: story-552-562-gen3-map-core-layout
 type: STORY
 title: Gen 3 Map Core React Architecture & Base Layout
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-18'
+updated_at: '2026-09-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,6 +34,6 @@ Establish the React Component structure for the Gen 3 Map UI, implementing the f
 
 ## Acceptance Criteria
 - [x] Break down into TASK nodes.
-- [ ] task-562-581-gen3-map-context-layer
-- [ ] task-562-582-gen3-map-dashboard-layout
-- [ ] task-562-583-gen3-map-qa-verification
+- [x] task-562-581-gen3-map-context-layer
+- [x] task-562-582-gen3-map-dashboard-layout
+- [x] task-562-583-gen3-map-qa-verification

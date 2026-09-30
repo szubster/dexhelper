@@ -2,13 +2,13 @@
 id: task-570-618-cva-tactical-aesthetic-e2e-coder-retry
 type: TASK
 title: Write E2E tests for CVA tactical aesthetic variants (Retry)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-22T00:00:00Z'
-updated_at: '2026-09-29'
+updated_at: '2026-09-30'
 depends_on:
   - research-570-617-investigate-cva-tactical-aesthetic-e2e-failure
-jules_session_id: '6961579522314344222'
+jules_session_id: null
 pr_number: null
 parent: story-566-570-cva-theme-variables-e2e-verification
 tags:
@@ -16,10 +16,12 @@ tags:
   - testing
   - styling
 research_references: []
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 locks: []
 priority: 60
-rejection_count: 1
 ---
 
 # Task: Write E2E tests for CVA tactical aesthetic variants (Retry)
