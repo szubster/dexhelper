@@ -28,6 +28,6 @@ During the implementation of `task-521-602-gen2-bug-catching-contest-core-data-i
 Find and document the exact memory offsets for the currently caught Bug-Catching Contest Pokémon in Gen 2 SRAM.
 
 ## Tasks
-- [ ] Investigate Bulbapedia or Pokecrystal disassembly to find the `BugContestMon` or equivalent structure in SRAM.
-- [ ] Determine the exact offsets for Species ID, Level, Current HP, and Max HP.
-- [ ] Note any differences between Gold/Silver and Crystal versions for these offsets.
+- [x] Investigate Bulbapedia or Pokecrystal disassembly to find the `BugContestMon` or equivalent structure in SRAM.
+- [x] Determine the exact offsets for Species ID, Level, Current HP, and Max HP.
+- [x] Note any differences between Gold/Silver and Crystal versions for these offsets.
