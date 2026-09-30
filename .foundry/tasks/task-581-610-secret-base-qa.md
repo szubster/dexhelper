@@ -2,13 +2,13 @@
 id: task-581-610-secret-base-qa
 type: TASK
 title: Secret Base Extraction QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-19'
 updated_at: '2026-09-30'
 depends_on:
   - task-581-609-secret-base-extraction-logic
-jules_session_id: '16582162125689249197'
+jules_session_id: null
 pr_number: null
 parent: story-569-581-gen3-secret-base-array-extraction
 tags:

@@ -2,13 +2,13 @@
 id: task-573-607-heatmap-qa
 type: TASK
 title: QA Heatmap Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-21T06:50:00Z'
 updated_at: '2026-09-30'
 depends_on:
   - task-573-606-heatmap-tests
-jules_session_id: '9252575095577731531'
+jules_session_id: null
 pr_number: null
 parent: story-049-573-heatmap-data-processing-layer
 tags:

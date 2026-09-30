@@ -2,10 +2,10 @@
 id: story-512-521-gen2-bug-catching-contest-core-data
 type: STORY
 title: Gen 2 Bug-Catching Contest Core Data Extraction
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-21'
+updated_at: '2026-09-30'
 depends_on: []
 jules_session_id: null
 pr_number: null

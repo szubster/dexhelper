@@ -2,12 +2,12 @@
 id: task-521-602-gen2-bug-catching-contest-core-data-impl
 type: TASK
 title: Gen 2 Bug-Catching Contest Core Data Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-19'
 updated_at: '2026-09-30'
 depends_on: []
-jules_session_id: '2959223633720929472'
+jules_session_id: null
 pr_number: null
 parent: story-512-521-gen2-bug-catching-contest-core-data
 tags:
@@ -16,7 +16,9 @@ tags:
   - save-extraction
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
