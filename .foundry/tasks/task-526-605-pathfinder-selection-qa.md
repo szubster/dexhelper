@@ -26,6 +26,6 @@ locks: []
 Verify the implementation of the Pathfinder Target Selection UI, including state management, aesthetics, and test coverage.
 
 ## Acceptance Criteria
-- [ ] Verify the state management correctly handles selecting target Pokémon and filtering Egg Moves.
-- [ ] Verify the UI components are correctly integrated and adhere strictly to ADR 008/024 aesthetics.
-- [ ] Verify comprehensive test coverage exists and passes.
+- [x] Verify the state management correctly handles selecting target Pokémon and filtering Egg Moves.
+- [x] Verify the UI components are correctly integrated and adhere strictly to ADR 008/024 aesthetics.
+- [x] Verify comprehensive test coverage exists and passes.
