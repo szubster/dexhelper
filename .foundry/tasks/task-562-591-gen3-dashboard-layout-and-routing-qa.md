@@ -2,13 +2,13 @@
 id: task-562-591-gen3-dashboard-layout-and-routing-qa
 type: TASK
 title: QA Gen 3 Dashboard Layout and Routing
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-17T18:22:48.000Z'
-updated_at: '2026-09-30'
+updated_at: '2026-10-01'
 depends_on:
   - task-562-590-gen3-dashboard-layout-and-routing-impl
-jules_session_id: null
+jules_session_id: '16861366213334185486'
 pr_number: null
 parent: story-554-562-gen3-dashboard-layout-and-routing
 tags:
