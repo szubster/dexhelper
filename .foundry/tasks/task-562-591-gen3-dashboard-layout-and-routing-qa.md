@@ -25,6 +25,6 @@ locks: []
 Verify the Gen 3 dashboard base container component and routing implementation.
 
 ## Acceptance Criteria
-- [ ] Verify the Gen 3 transition dashboard container loads correctly on the defined route.
-- [ ] Verify the navigation correctly routes to the new dashboard.
-- [ ] Ensure tactical hardware aesthetics (ADR 008) are followed.
+- [x] Verify the Gen 3 transition dashboard container loads correctly on the defined route.
+- [x] Verify the navigation correctly routes to the new dashboard.
+- [x] Ensure tactical hardware aesthetics (ADR 008) are followed.
