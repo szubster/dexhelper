@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import { EmulatorProvider } from '../../../../contexts/EmulatorContext';
 import * as store from '../../../../store';
 import { Gen2Checklist } from '../Gen2Checklist';
 
@@ -43,7 +44,11 @@ describe('Gen2Checklist', () => {
       return selector(state);
     });
 
-    await render(<Gen2Checklist />);
+    await render(
+      <EmulatorProvider>
+        <Gen2Checklist />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('STATIC ENCOUNTERS')).toBeInTheDocument();
     await expect.element(page.getByText('SUDOWOODO')).toBeInTheDocument();
@@ -71,7 +76,11 @@ describe('Gen2Checklist', () => {
       return selector(state);
     });
 
-    await render(<Gen2Checklist />);
+    await render(
+      <EmulatorProvider>
+        <Gen2Checklist />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('STATIC ENCOUNTERS')).not.toBeInTheDocument();
   });
@@ -86,7 +95,11 @@ describe('Gen2Checklist', () => {
       return selector(state);
     });
 
-    await render(<Gen2Checklist />);
+    await render(
+      <EmulatorProvider>
+        <Gen2Checklist />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('STATIC ENCOUNTERS')).not.toBeInTheDocument();
   });

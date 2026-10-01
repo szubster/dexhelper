@@ -3,6 +3,7 @@ import type React from 'react';
 import { expect, test, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import { EmulatorProvider } from '../../../../contexts/EmulatorContext';
 import { pokeDB } from '../../../../db/PokeDB';
 import type { PokemonInstance, SaveData } from '../../../../engine/saveParser';
 import { useStore } from '../../../../store';
@@ -23,7 +24,9 @@ const queryClient = new QueryClient({
 });
 
 const wrapper = ({ children }: { children: React.ReactNode }) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  <EmulatorProvider>
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  </EmulatorProvider>
 );
 
 test('returns null if generation is not 2', async () => {

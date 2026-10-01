@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import { EmulatorProvider } from '../../../../contexts/EmulatorContext';
 import type { SaveData } from '../../../../engine/saveParser/parsers/common';
 import { useStore } from '../../../../store';
 import { GlobalRibbonChecklistDashboard } from '../GlobalRibbonChecklistDashboard';
@@ -16,7 +17,11 @@ describe('GlobalRibbonChecklistDashboard', () => {
       return selector(state as unknown as Parameters<Parameters<typeof useStore>[0]>[0]);
     });
 
-    await render(<GlobalRibbonChecklistDashboard />);
+    await render(
+      <EmulatorProvider>
+        <GlobalRibbonChecklistDashboard />
+      </EmulatorProvider>,
+    );
     await expect.element(page.getByText('GLOBAL RIBBON CHECKLIST')).not.toBeInTheDocument();
   });
 
@@ -33,7 +38,11 @@ describe('GlobalRibbonChecklistDashboard', () => {
       return selector(state as unknown as Parameters<Parameters<typeof useStore>[0]>[0]);
     });
 
-    await render(<GlobalRibbonChecklistDashboard />);
+    await render(
+      <EmulatorProvider>
+        <GlobalRibbonChecklistDashboard />
+      </EmulatorProvider>,
+    );
     await expect.element(page.getByText('NO POKEMON WITH RIBBONS FOUND')).toBeInTheDocument();
   });
 
@@ -67,7 +76,11 @@ describe('GlobalRibbonChecklistDashboard', () => {
       return selector(state as unknown as Parameters<Parameters<typeof useStore>[0]>[0]);
     });
 
-    await render(<GlobalRibbonChecklistDashboard />);
+    await render(
+      <EmulatorProvider>
+        <GlobalRibbonChecklistDashboard />
+      </EmulatorProvider>,
+    );
     await expect.element(page.getByText('GLOBAL RIBBON CHECKLIST')).toBeInTheDocument();
     await expect.element(page.getByText('MASTER RANK TRACKING')).toBeInTheDocument();
     await expect.element(page.getByText('PIKACHU (Lv 10)')).toBeInTheDocument();

@@ -1,12 +1,12 @@
 import type React from 'react';
+import { useParsedSaveData } from '../../../contexts/EmulatorContext';
 import { STATIC_GIFT_DATA } from '../../../engine/data/gen1/assistantData';
-import { useStore } from '../../../store';
 import { TacticalChecklistItem } from '../../TacticalChecklistItem';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
 export const Gen1Checklist: React.FC = () => {
-  const saveData = useStore((s) => s.saveData);
+  const saveData = useParsedSaveData();
 
   if (saveData?.generation !== 1) {
     return null;
