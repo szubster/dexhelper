@@ -2,9 +2,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import { EmulatorProvider } from '../../contexts/EmulatorContext';
 import { dexDataLoader } from '../../db/DexDataLoader';
 import { PokemonDetails } from '../PokemonDetails';
-import { EmulatorProvider } from '../../contexts/EmulatorContext';
 
 const queryClient = new QueryClient();
 
