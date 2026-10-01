@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
+import { EmulatorProvider } from '../../../../contexts/EmulatorContext';
 import * as store from '../../../../store';
 import { Gen3NpcTrades } from '../Gen3NpcTrades';
 
@@ -33,7 +34,11 @@ describe('Gen3NpcTrades', () => {
       return selector(state);
     });
 
-    await render(<Gen3NpcTrades />);
+    await render(
+      <EmulatorProvider>
+        <Gen3NpcTrades />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('IN-GAME TRADES')).toBeInTheDocument();
     await expect.element(page.getByText('MIMIEN')).toBeInTheDocument();
@@ -58,7 +63,11 @@ describe('Gen3NpcTrades', () => {
       return selector(state);
     });
 
-    await render(<Gen3NpcTrades />);
+    await render(
+      <EmulatorProvider>
+        <Gen3NpcTrades />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('IN-GAME TRADES')).toBeInTheDocument();
     await expect.element(page.getByText('RUSTBORO')).toBeInTheDocument();
@@ -79,7 +88,11 @@ describe('Gen3NpcTrades', () => {
       return selector(state);
     });
 
-    await render(<Gen3NpcTrades />);
+    await render(
+      <EmulatorProvider>
+        <Gen3NpcTrades />
+      </EmulatorProvider>,
+    );
 
     await expect.element(page.getByText('IN-GAME TRADES')).not.toBeInTheDocument();
   });

@@ -2,10 +2,10 @@
 id: story-404-477-kurt-apricorn-offset-and-constants
 type: STORY
 title: Kurt Apricorn Offset and Constants
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-09-29'
+updated_at: '2026-09-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,6 +34,6 @@ As part of epic-338-404-kurt-apricorn-data-engine, we need to determine and defi
 - [x] research-477-564-investigate-apricorn-offsets-failure
 - [x] task-477-565-define-apricorn-constants
 - [x] task-477-566-test-apricorn-constants
-- [ ] research-477-611-investigate-apricorn-failure-v2
-- [ ] task-477-612-define-apricorn-constants-v2
-- [ ] task-477-613-test-apricorn-constants-v2
+- [x] research-477-611-investigate-apricorn-failure-v2
+- [x] task-477-612-define-apricorn-constants-v2
+- [x] task-477-613-test-apricorn-constants-v2

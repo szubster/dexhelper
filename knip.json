@@ -34,7 +34,6 @@
     "src/engine/gen3/contests/index.ts",
     "src/engine/gen3/contests/constants.ts",
     "src/engine/radar/index.ts",
-    "src/contexts/pokeblock/index.ts",
     "src/engine/saveParser/parsers/common.ts",
     "src/engine/saveParser/parsers/gen2Constants.ts"
   ],

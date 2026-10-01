@@ -2,12 +2,12 @@
 id: task-531-632-savedatareader-bitwise-stubs
 type: TASK
 title: SaveDataReader Bitwise Helpers Stubs
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2024-05-24'
-updated_at: '2026-09-29'
+updated_at: '2026-09-30'
 depends_on: []
-jules_session_id: '3410261137460181545'
+jules_session_id: null
 pr_number: null
 parent: story-521-531-savedatareader-bitwise
 tags:
@@ -29,4 +29,4 @@ locks: []
 Define the types and method signatures for high-level bitwise helpers (\`readBits\`, \`readFlag\`) in \`SaveDataReader\`.
 
 ## Acceptance Criteria
-- [ ] Add stubs for \`readBits\` and \`readFlag\` in the \`SaveDataReader\` class/interface.
+- [x] Add stubs for \`readBits\` and \`readFlag\` in the \`SaveDataReader\` class/interface.

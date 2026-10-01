@@ -1,13 +1,14 @@
 ---
 id: epic-519-526-extract-core-domain
 type: EPIC
-title: "Phase 3 - Extract Core Domain Logic & Parsers"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-09-03"
-updated_at: "2026-09-03"
-depends_on: ["epic-519-524-workspace-infrastructure"]
-jules_session_id: null
+title: Phase 3 - Extract Core Domain Logic & Parsers
+status: ACTIVE
+owner_persona: story_owner
+created_at: '2026-09-03'
+updated_at: '2026-09-30'
+depends_on:
+  - epic-519-524-workspace-infrastructure
+jules_session_id: '14708808057994535558'
 pr_number: null
 parent: prd-157-519-pnpm-workspaces-architecture
 tags:
@@ -15,8 +16,9 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Phase 3 - Extract Core Domain Logic & Parsers

@@ -1,10 +1,10 @@
 import type React from 'react';
-import { useStore } from '../../../store';
+import { useParsedSaveData } from '../../../contexts/EmulatorContext';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
 export const Gen2SavingsDashboard: React.FC = () => {
-  const saveData = useStore((s) => s.saveData);
+  const saveData = useParsedSaveData();
 
   if (saveData?.generation !== 2 || !saveData.gen2MomsSavings) {
     return null;

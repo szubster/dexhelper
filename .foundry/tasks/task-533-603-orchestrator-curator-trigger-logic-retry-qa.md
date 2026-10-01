@@ -2,13 +2,13 @@
 id: task-533-603-orchestrator-curator-trigger-logic-retry-qa
 type: TASK
 title: Orchestrator Curator Trigger Logic Retry QA
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-20'
-updated_at: '2026-09-21'
+updated_at: '2026-10-01'
 depends_on:
   - task-533-602-orchestrator-curator-trigger-logic-retry-impl
-jules_session_id: null
+jules_session_id: '9206743975565327442'
 parent: story-531-533-orchestrator-trigger-logic-updates
 tags:
   - orchestrator

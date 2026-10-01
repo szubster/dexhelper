@@ -2,10 +2,10 @@
 id: story-530-536-dagtree-ui-logic
 type: STORY
 title: Implement DagTree UI logic
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-12'
+updated_at: '2026-09-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,10 +31,10 @@ Implement a lightweight, DOM-based directory tree visualization for the Foundry 
 
 ## Acceptance Criteria
 - [x] Break down into Tasks to implement `DagTree` UI logic.
-- [ ] Implement `DagTree` UI component.
-- [ ] Apply ADR 008 styling to the component.
-- [ ] Implement expand/collapse functionality.
-- [ ] task-536-538-dagtree-context-state-impl
-- [ ] task-536-539-dagtree-item-component-impl
-- [ ] task-536-540-dagtree-layout-component-impl
-- [ ] task-536-541-dagtree-ui-logic-qa
+- [x] Implement `DagTree` UI component.
+- [x] Apply ADR 008 styling to the component.
+- [x] Implement expand/collapse functionality.
+- [x] task-536-538-dagtree-context-state-impl
+- [x] task-536-539-dagtree-item-component-impl
+- [x] task-536-540-dagtree-layout-component-impl
+- [x] task-536-541-dagtree-ui-logic-qa

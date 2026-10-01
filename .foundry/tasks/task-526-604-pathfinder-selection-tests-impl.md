@@ -2,13 +2,13 @@
 id: task-526-604-pathfinder-selection-tests-impl
 type: TASK
 title: Pathfinder Selection Tests Rewrite
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-21'
-updated_at: '2026-09-29'
+updated_at: '2026-09-30'
 depends_on:
   - task-526-603-pathfinder-selection-components-impl
-jules_session_id: '12209459796462792660'
+jules_session_id: null
 pr_number: null
 parent: story-115-526-pathfinder-selection-ui
 tags:
@@ -26,6 +26,6 @@ locks: []
 Write unit and rendering tests for the Pathfinder Selection UI and State layer.
 
 ## Acceptance Criteria
-- [ ] Write unit tests verifying the Egg Move filtering logic based on the selected Pokémon.
-- [ ] Write component rendering tests using vitest-browser-react.
-- [ ] Write tests verifying state updates when a target Pokémon or Egg Move is selected.
+- [x] Write unit tests verifying the Egg Move filtering logic based on the selected Pokémon.
+- [x] Write component rendering tests using vitest-browser-react.
+- [x] Write tests verifying state updates when a target Pokémon or Egg Move is selected.

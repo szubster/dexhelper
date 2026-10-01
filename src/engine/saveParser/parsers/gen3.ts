@@ -78,6 +78,7 @@ import {
   FLAG_RECEIVED_TM_TORMENT,
   FLAG_RECEIVED_TM_WATER_PULSE,
 } from '../gen3/tmFlags/constants';
+import type { SpindaSpotCoordinate } from './common';
 
 /**
  * @module gen3Parser
@@ -339,6 +340,39 @@ export function parseSpindaPID(pid: number): [number, number, number, number] {
 
 export const UPPER_16_BIT_SHIFT = 16;
 export const NUM_SUBSTRUCTURE_PERMUTATIONS = 24;
+
+/**
+ * Maps the 4 bytes of a Spinda PID to exact X and Y coordinate offsets.
+ *
+ * @param pid - The 32-bit Personality Value.
+ * @returns An object containing the mapped coordinates for all four spots.
+ */
+export function mapSpindaSpots(pid: number): {
+  topLeft: SpindaSpotCoordinate;
+  topRight: SpindaSpotCoordinate;
+  bottomLeft: SpindaSpotCoordinate;
+  bottomRight: SpindaSpotCoordinate;
+} {
+  const bytes = parseSpindaPID(pid);
+  return {
+    topLeft: {
+      x: SPINDA_SPOT_ORIGINS.TOP_LEFT.x + (bytes[0] & 0x0f),
+      y: SPINDA_SPOT_ORIGINS.TOP_LEFT.y + ((bytes[0] >>> 4) & 0x0f),
+    },
+    topRight: {
+      x: SPINDA_SPOT_ORIGINS.TOP_RIGHT.x + (bytes[1] & 0x0f),
+      y: SPINDA_SPOT_ORIGINS.TOP_RIGHT.y + ((bytes[1] >>> 4) & 0x0f),
+    },
+    bottomLeft: {
+      x: SPINDA_SPOT_ORIGINS.BOTTOM_LEFT.x + (bytes[2] & 0x0f),
+      y: SPINDA_SPOT_ORIGINS.BOTTOM_LEFT.y + ((bytes[2] >>> 4) & 0x0f),
+    },
+    bottomRight: {
+      x: SPINDA_SPOT_ORIGINS.BOTTOM_RIGHT.x + (bytes[3] & 0x0f),
+      y: SPINDA_SPOT_ORIGINS.BOTTOM_RIGHT.y + ((bytes[3] >>> 4) & 0x0f),
+    },
+  };
+}
 
 /**
  * Extracts and decrypts the 48-byte GAEM structure of a Gen 3 Pokémon.

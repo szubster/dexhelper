@@ -1,6 +1,7 @@
 import { useNavigate } from '@tanstack/react-router';
 import { CircleDot, Monitor, Sparkles } from 'lucide-react';
 import React from 'react';
+import { useParsedSaveData } from '../contexts/EmulatorContext';
 import type { SaveData } from '../engine/saveParser';
 import { cn } from '../utils/cn';
 import type { PokemonListItem } from '../utils/pokemonQueries';
@@ -16,7 +17,7 @@ import { TargetLockOverlay } from './TargetLockOverlay';
 interface PokedexCardProps {
   pokemon: PokemonListItem;
   idx: number;
-  saveData: SaveData | null;
+
   isLivingDex: boolean;
   partySet: Set<number>;
   pcSet: Set<number>;
@@ -71,12 +72,12 @@ function getPokemonStatusFlags(
 export const PokedexCard = React.memo(function PokedexCard({
   pokemon,
   idx,
-  saveData,
   isLivingDex,
   partySet,
   pcSet,
   shinySpeciesIds,
 }: PokedexCardProps) {
+  const saveData = useParsedSaveData();
   const navigate = useNavigate();
 
   const { inParty, inPC, hasInStorage, isOwnedInDex, isSeenInDex, isUnseen, isSeenNotOwned, isShiny, variant } =

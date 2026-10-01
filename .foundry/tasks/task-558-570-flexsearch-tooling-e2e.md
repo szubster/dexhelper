@@ -8,7 +8,7 @@ created_at: '2025-02-14'
 updated_at: '2026-09-30'
 depends_on:
   - task-558-569-flexsearch-tooling-qa
-jules_session_id: '7688411622949481133'
+jules_session_id: '18128221246858675502'
 parent: story-534-558-rag-tooling-and-indexing
 tags:
   - foundry
@@ -17,7 +17,7 @@ tags:
   - flexsearch
   - e2e
   - integration
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 locks: []
 ---

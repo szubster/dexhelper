@@ -2,10 +2,10 @@
 id: task-562-580-gen2-wild-item-extraction-tests
 type: TASK
 title: Write Unit Tests for Gen 2 Wild Encounter Extraction
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '${DATE}'
-updated_at: '2026-09-17'
+updated_at: '2026-09-30'
 depends_on:
   - task-562-579-gen2-wild-item-extraction-logic-impl
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - tests
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-562-579-gen2-wild-item-extraction-logic-impl
 notes: ''
 locks: []
 priority: 50

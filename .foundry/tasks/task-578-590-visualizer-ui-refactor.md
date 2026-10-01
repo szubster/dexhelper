@@ -2,10 +2,10 @@
 id: task-578-590-visualizer-ui-refactor
 type: TASK
 title: React Flow Visualizer UI Refactor
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-17T14:13:10Z'
-updated_at: '2026-09-19'
+updated_at: '2026-09-30'
 depends_on:
   - task-578-589-visualizer-state-refactor
 jules_session_id: null
@@ -27,6 +27,6 @@ locks: []
 Update `DagDashboard` and related visualizer components to consume `nodes` and `edges` directly from `DagContext` without prop drilling.
 
 ## Acceptance Criteria
-- [ ] Refactor `DagDashboard` to use `useDagContext` for nodes and edges.
-- [ ] Remove node and edge prop drilling from child visualizer components.
-- [ ] Ensure that UI adheres to tactical hardware aesthetic guidelines.
+- [x] Refactor `DagDashboard` to use `useDagContext` for nodes and edges.
+- [x] Remove node and edge prop drilling from child visualizer components.
+- [x] Ensure that UI adheres to tactical hardware aesthetic guidelines.

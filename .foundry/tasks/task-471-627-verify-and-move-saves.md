@@ -2,7 +2,7 @@
 id: task-471-627-verify-and-move-saves
 type: TASK
 title: Verify and Move Saves
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-22'
 updated_at: '2026-09-30'
@@ -14,8 +14,8 @@ tags:
   - testing
   - fixtures
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

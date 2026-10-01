@@ -2,10 +2,10 @@
 id: task-429-636-gen-specific-bundles-qa-v2
 type: TASK
 title: QA Gen-Specific Bundles and Lazy Loading (v2)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-28'
-updated_at: '2026-09-29'
+updated_at: '2026-09-30'
 depends_on:
   - task-429-635-implement-lazy-fetching-v2
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - performance
   - bundles
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-429-632-investigate-task-553-failure
 notes: ''
 locks: []
 ---

@@ -2,14 +2,14 @@
 id: task-551-566-qa-test-curator-historical-mapping
 type: TASK
 title: QA Test Curator Historical Mapping
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-07'
-updated_at: '2026-09-29'
+updated_at: '2026-10-01'
 depends_on:
   - task-551-564-test-curator-historical-mapping-ingestion
   - task-551-565-test-curator-dynamic-remediation-spawning
-jules_session_id: null
+jules_session_id: '14721053938602272933'
 parent: story-532-551-curator-historical-mapping-logic
 tags:
   - architecture
@@ -31,5 +31,5 @@ Verify the unit tests for curator historical mapping and remediation.
 - Ensure tests run successfully and provide adequate coverage.
 
 ## Acceptance Criteria
-- [ ] Verify ingestion tests
-- [ ] Verify remediation spawning tests
+- [x] Verify ingestion tests
+- [x] Verify remediation spawning tests

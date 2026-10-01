@@ -2,10 +2,10 @@
 id: task-429-635-implement-lazy-fetching-v2
 type: TASK
 title: Implement Lazy Fetching of Gen-Specific Bundles (v2)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-28'
-updated_at: '2026-09-29'
+updated_at: '2026-09-30'
 depends_on:
   - task-429-634-update-vite-plugin
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - architecture
   - bundles
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-429-632-investigate-task-553-failure
 notes: ''
 locks: []
 ---

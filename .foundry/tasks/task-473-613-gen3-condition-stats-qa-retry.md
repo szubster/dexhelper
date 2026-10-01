@@ -2,10 +2,10 @@
 id: task-473-613-gen3-condition-stats-qa-retry
 type: TASK
 title: QA Gen 3 Contest Condition Stats Extraction (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-22'
-updated_at: '2026-09-22'
+updated_at: '2026-09-30'
 depends_on:
   - task-473-612-gen3-condition-stats-parser-retry
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - data-extraction
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-473-611-investigate-condition-stats-parser-failure
 notes: ''
 locks: []
 ---

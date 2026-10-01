@@ -1,6 +1,7 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { PokemonDetails } from '../components/PokemonDetails';
+import { useParsedSaveData } from '../contexts/EmulatorContext';
 import { useStore } from '../store';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 
@@ -17,7 +18,7 @@ function PokemonPage() {
   const { pokemonId } = Route.useParams();
   const { from } = Route.useSearch();
   const navigate = useNavigate();
-  const saveData = useStore((s) => s.saveData);
+  const saveData = useParsedSaveData();
   const isLivingDex = useStore((s) => s.isLivingDex);
   const globalPokeball = useStore((s) => s.globalPokeball);
   const manualVersion = useStore((s) => s.manualVersion);

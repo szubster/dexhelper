@@ -2,10 +2,10 @@
 id: story-400-429-gen-specific-extensions
 type: STORY
 title: Generate Gen-Specific Extensions
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-17'
-updated_at: '2026-09-29'
+updated_at: '2026-10-01'
 depends_on:
   - story-400-428-extract-core-data
 jules_session_id: null
@@ -35,11 +35,11 @@ This story covers the generation of generation-specific extension bundles (`poke
 - [x] task-429-473-generate-gen-specific-bundles
 - [x] task-429-474-implement-lazy-fetching
 - [x] task-429-475-gen-specific-bundles-qa
-- [ ] research-429-531-investigate-gen-specific-bundle-timeout
+- [x] research-429-531-investigate-gen-specific-bundle-timeout
 - [x] task-429-553-generate-gen-specific-bundles
 
-- [ ] research-429-632-investigate-task-553-failure
-- [ ] task-429-633-split-data-generation
-- [ ] task-429-634-update-vite-plugin
-- [ ] task-429-635-implement-lazy-fetching-v2
-- [ ] task-429-636-gen-specific-bundles-qa-v2
+- [x] research-429-632-investigate-task-553-failure
+- [x] task-429-633-split-data-generation
+- [x] task-429-634-update-vite-plugin
+- [x] task-429-635-implement-lazy-fetching-v2
+- [x] task-429-636-gen-specific-bundles-qa-v2

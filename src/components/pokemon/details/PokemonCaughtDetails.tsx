@@ -1,10 +1,10 @@
 import { Activity, Dna, MapPin, Sparkles } from 'lucide-react';
 import React from 'react';
+import { useParsedSaveData } from '../../../contexts/EmulatorContext';
 import { gen2Items, gen2Locations } from '../../../engine/data/gen2/legacyNameMap';
 import { getContestRecommendations } from '../../../engine/gen3/contests/recommendation';
 import { getNature } from '../../../engine/gen3/nature';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
-import { useStore } from '../../../store';
 import { getTimeCapsuleValidation } from '../../../utils/timeCapsule';
 import { CornerCrosshairs } from '../../CornerCrosshairs';
 import { HoverScanner } from '../../HoverScanner';
@@ -39,7 +39,8 @@ const TELEMETRY_BLOCK_INDICES = Array.from({ length: 12 }, (_, i) => i);
 export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
   yourPokemon,
 }: PokemonCaughtDetailsProps) {
-  const generation = useStore((s) => s.saveData?.generation);
+  const saveData = useParsedSaveData();
+  const generation = saveData?.generation;
 
   if (yourPokemon.length === 0) return null;
 

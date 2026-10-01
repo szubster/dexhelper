@@ -13,6 +13,8 @@ export interface ISaveDataReader {
   getFloat32Be(offset: number): number;
   getFloat64Le(offset: number): number;
   getFloat64Be(offset: number): number;
+  readBits(offset: number, bitOffset: number, bitLength: number): number;
+  readFlag(offset: number, bitOffset: number): boolean;
 }
 
 export class SaveDataReader implements ISaveDataReader {
@@ -87,5 +89,13 @@ export class SaveDataReader implements ISaveDataReader {
 
   getFloat64Be(offset: number): number {
     return this.executeRead(() => this.view.getFloat64(offset, false));
+  }
+
+  readBits(_offset: number, _bitOffset: number, _bitLength: number): number {
+    throw new Error('Not implemented');
+  }
+
+  readFlag(_offset: number, _bitOffset: number): boolean {
+    throw new Error('Not implemented');
   }
 }

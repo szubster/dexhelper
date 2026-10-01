@@ -2,13 +2,13 @@
 id: task-478-572-impl-mystery-gift-e2e-tests
 type: TASK
 title: Implement Mystery Gift E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-09-22'
+updated_at: '2026-10-01'
 depends_on:
   - task-478-571-setup-mystery-gift-e2e-fixtures
-jules_session_id: null
+jules_session_id: '1925126252566717598'
 pr_number: null
 parent: story-345-478-gen3-mystery-gift-e2e-verification
 tags:
@@ -28,6 +28,6 @@ locks: []
 Write E2E tests verifying Wonder Card and Event Flag extraction from Gen 3 saves.
 
 ## Acceptance Criteria
-- [ ] Write E2E tests for Wonder Card extraction.
-- [ ] Write E2E tests for Event Flag extraction.
-- [ ] Verify tests pass in Playwright.
+- [x] Write E2E tests for Wonder Card extraction.
+- [x] Write E2E tests for Event Flag extraction.
+- [x] Verify tests pass in Playwright.

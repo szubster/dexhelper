@@ -2,10 +2,10 @@
 id: story-569-581-gen3-secret-base-array-extraction
 type: STORY
 title: Gen 3 Secret Base Array Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-16'
-updated_at: '2026-09-22'
+updated_at: '2026-09-30'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,6 +36,6 @@ As part of the Gen 3 Secret Base Epic, we need to safely extract the `SecretBase
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-581-608-secret-base-constants
-- [ ] task-581-609-secret-base-extraction-logic
-- [ ] task-581-610-secret-base-qa
+- [x] task-581-608-secret-base-constants
+- [x] task-581-609-secret-base-extraction-logic
+- [x] task-581-610-secret-base-qa
