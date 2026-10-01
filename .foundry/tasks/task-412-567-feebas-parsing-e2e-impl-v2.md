@@ -30,3 +30,5 @@ Write Playwright E2E tests to verify that uploading a Gen 3 save file correctly 
 - [ ] Create Playwright E2E tests to verify the Feebas data parsing end-to-end.
 - [ ] Apply recommendations from `research-412-563-investigate-feebas-e2e-timeout` to prevent timeouts.
 - [ ] Verify that UI visually renders the 6 expected tile markers.
+- [ ] task-567-637-feebas-ui-component-impl
+- [ ] task-567-638-feebas-ui-component-qa
