@@ -1,5 +1,4 @@
 import * as vite from 'vite';
-import glob from 'fast-glob';
-import matter from 'gray-matter';
+import matter from '@11ty/gray-matter';
 
-export { vite, glob, matter };
+export { vite, matter };
