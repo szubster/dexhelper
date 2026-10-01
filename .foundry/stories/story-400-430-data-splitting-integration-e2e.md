@@ -32,5 +32,9 @@ As part of the Bundle and Data Splitting Strategy (ADR 029), we need to split th
 This story covers the integration and end-to-end verification of the data splitting changes, ensuring that the application works correctly with the split data bundles.
 
 ## Acceptance Criteria
-- [ ] Task to write E2E tests verifying core data loads correctly
-- [ ] Task to write E2E tests verifying gen-specific extensions load upon save upload
+- [ ] task-430-641-core-data-load-e2e
+- [ ] task-430-642-gen-specific-load-e2e
+- [ ] task-430-643-data-splitting-e2e-qa
+
+- [x] Task to write E2E tests verifying core data loads correctly
+- [x] Task to write E2E tests verifying gen-specific extensions load upon save upload
