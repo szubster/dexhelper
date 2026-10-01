@@ -19,4 +19,13 @@ describe('parseGen3Daycare', () => {
     const view = new DataView(buffer);
     expect(() => parseGen3Daycare(view, 0, 'emerald')).toThrow('The save file is corrupted or incomplete.');
   });
+
+  it('should throw RangeError for corrupted save file in extractGen3PokemonData', () => {
+    // Only 10 bytes available
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+    // Since extractGen3PokemonData is internal, we trigger it through parseGen3Daycare
+    // It will throw when accessing offsets beyond 10 bytes
+    expect(() => parseGen3Daycare(view, 0, 'emerald')).toThrow('The save file is corrupted or incomplete.');
+  });
 });

@@ -40,5 +40,5 @@ We need to extract Gen 3 daycare information. This task is for implementing the 
 - Consult `.foundry/docs/knowledge_base/dexhelper/gen3_daycare_offsets.md` for correct offsets.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 3 Daycare data parsing logic, accounting for findings from the research investigation.
-- [ ] Write unit tests for Daycare data extraction.
+- [x] Implement Gen 3 Daycare data parsing logic, accounting for findings from the research investigation.
+- [x] Write unit tests for Daycare data extraction.
