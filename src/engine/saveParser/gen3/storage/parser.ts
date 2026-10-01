@@ -28,7 +28,9 @@ export function parseGen3PCBoxesWithStats(pcBufferView: DataView): Record<number
       // The offset within the PC buffer for this specific pokemon:
       // We parse the exact offset using Box and Slot math
       // location is "Box N" where N is 1-indexed.
-      const boxIndex = parseInt(pokemon.storageLocation.split(' ')[1] as string, 10) - 1;
+      const [, boxNumStr] = pokemon.storageLocation.split(' ');
+      if (!boxNumStr) continue;
+      const boxIndex = parseInt(boxNumStr, 10) - 1;
       const pokemonIndex = boxIndex * PC_BOX_CAPACITY + pokemon.slot;
       const offset = PC_BOX_POKEMON_LIST_OFFSET + pokemonIndex * GEN3_PC_POKEMON_STRUCT_SIZE;
 
