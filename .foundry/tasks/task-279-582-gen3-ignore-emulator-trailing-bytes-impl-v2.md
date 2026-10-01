@@ -30,4 +30,4 @@ Implement the core logic for graceful ignorance of emulator trailing bytes for G
 1. Implement core parsing logic and module level constants.
 
 ## Acceptance Criteria
-- [ ] Implementation complete.
+- [x] Implementation complete.
