@@ -2,12 +2,12 @@
 id: research-471-637-investigate-save-file-sourcing
 type: RESEARCH
 title: Investigate valid save file sourcing
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-30'
-updated_at: '2026-09-30'
+updated_at: '2026-10-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6553726826235544009'
 pr_number: null
 parent: story-428-471-verify-and-integrate-saves
 tags:
