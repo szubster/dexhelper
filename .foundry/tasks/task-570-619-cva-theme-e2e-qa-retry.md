@@ -30,5 +30,5 @@ E2E tests have been written (or rewritten) to verify the CVA integration, tactic
 Verify the correctness, reliability, and comprehensiveness of the newly added E2E tests for the CVA tactical aesthetic variants.
 
 ## Acceptance Criteria
-- [ ] Run the E2E test suites and verify they pass consistently without flakiness.
-- [ ] Review the E2E test code for coverage, ensuring ADR 008 aesthetic requirements and theme swapping are properly verified in the context of the new CVA variants.
+- [x] Run the E2E test suites and verify they pass consistently without flakiness.
+- [x] Review the E2E test code for coverage, ensuring ADR 008 aesthetic requirements and theme swapping are properly verified in the context of the new CVA variants.
