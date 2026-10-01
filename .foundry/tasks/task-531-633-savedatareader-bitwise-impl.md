@@ -30,5 +30,5 @@ locks: []
 Implement the core logic for the \`readBits\` and \`readFlag\` methods in \`SaveDataReader\`, ensuring they correctly handle bounds checking and shifts.
 
 ## Acceptance Criteria
-- [ ] Implement \`readBits\` and \`readFlag\` methods.
-- [ ] Ensure bitwise helpers correctly handle bounds checking and shifts.
+- [x] Implement \`readBits\` and \`readFlag\` methods.
+- [x] Ensure bitwise helpers correctly handle bounds checking and shifts.
