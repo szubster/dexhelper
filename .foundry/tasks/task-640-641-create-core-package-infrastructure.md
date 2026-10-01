@@ -27,7 +27,7 @@ locks: []
 As part of extracting core domain logic into `packages/core`, we need to initialize the package structure.
 
 ## Acceptance Criteria
-- [ ] Create `packages/core` directory.
-- [ ] Initialize `package.json` for `@dexhelper/core`.
-- [ ] Create `tsconfig.json` extending from a base configuration if applicable, or set up for strict TypeScript compilation.
-- [ ] Ensure the package is ready for code migration.
+- [x] Create `packages/core` directory.
+- [x] Initialize `package.json` for `@dexhelper/core`.
+- [x] Create `tsconfig.json` extending from a base configuration if applicable, or set up for strict TypeScript compilation.
+- [x] Ensure the package is ready for code migration.
