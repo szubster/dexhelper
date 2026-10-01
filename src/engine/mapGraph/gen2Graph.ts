@@ -1,6 +1,19 @@
 import type { UnifiedLocation } from '../../db/schema';
 import { resolveOutdoorMapId as commonResolveOutdoorMapId, getDistanceToMapBase, getLocation } from './common';
 
+/**
+ * Resolves an indoor Gen 2 map ID to its root outdoor parent map ID.
+ *
+ * Handles multi-level indoor locations by traversing the parent location hierarchy
+ * until an outdoor map is reached.
+ *
+ * @param allLocations - The unified list of all map locations.
+ * @param mapId - The internal Gen 2 Map ID (composite group and ID) to resolve.
+ * @returns The parent outdoor Map ID, or the original Map ID if it is already outdoor.
+ *
+ * @example
+ * const outdoorId = resolveOutdoorMapId(locations, 0x0306);
+ */
 export const resolveOutdoorMapId = commonResolveOutdoorMapId;
 
 /**
@@ -10,6 +23,9 @@ export const resolveOutdoorMapId = commonResolveOutdoorMapId;
  * @param mapGroup - The Gen 2 map group.
  * @param mapId - The Gen 2 map ID.
  * @returns The name of the map, or 'Unknown Location' if not found.
+ *
+ * @example
+ * const name = getGen2MapName(allLocations, 3, 6);
  */
 export function getGen2MapName(allLocations: UnifiedLocation[], mapGroup: number, mapId: number): string {
   const gameId = (mapGroup << 8) | mapId;

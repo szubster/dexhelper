@@ -13,6 +13,9 @@ let lastLocationsRef: UnifiedLocation[] | null = null;
  * @param allLocations - The unified list of all map locations.
  * @param id - The ID of the location to retrieve.
  * @returns The UnifiedLocation object, or undefined if not found.
+ *
+ * @example
+ * const location = getLocation(allLocations, 10);
  */
 export function getLocation(allLocations: UnifiedLocation[], id: number): UnifiedLocation | undefined {
   if (lastLocationsRef !== allLocations) {
@@ -39,6 +42,9 @@ export function getLocation(allLocations: UnifiedLocation[], id: number): Unifie
  * Indoor maps (houses, caves, buildings) are structurally represented as children of these hubs via
  * the `prnt` property. To calculate the distance to a target from inside a building, we must first
  * "step outside" by resolving the current location to its parent map.
+ *
+ * @example
+ * const outdoorId = resolveOutdoorMapId(allLocations, 38);
  */
 export function resolveOutdoorMapId(allLocations: UnifiedLocation[], mapId: number): number {
   let currentMapId = mapId;
@@ -71,6 +77,9 @@ export function resolveOutdoorMapId(allLocations: UnifiedLocation[], mapId: numb
  * a precomputed lookup table generated at build-time using the Floyd-Warshall algorithm.
  * This ensures O(1) distance lookups during runtime, which is critical since the suggestion
  * engine evaluates hundreds of potential encounters simultaneously.
+ *
+ * @example
+ * const dist = getDistanceToMapBase(allLocations, 0, 10, 10);
  */
 export function getDistanceToMapBase(
   allLocations: UnifiedLocation[],
