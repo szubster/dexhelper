@@ -26,3 +26,8 @@ Isolate Vite plugins into `@dexhelper/vite-plugins`.
 
 ## Acceptance Criteria
 - [ ] Isolate Vite plugins into `@dexhelper/vite-plugins`
+- [ ] task-638-639-init-vite-plugins-package
+- [ ] task-638-640-migrate-pokedata-plugin
+- [ ] task-638-641-migrate-foundry-plugin
+- [ ] task-638-642-update-dexhelper-vite-config
+- [ ] task-638-643-qa-vite-plugins-extraction
