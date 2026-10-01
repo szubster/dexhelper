@@ -33,4 +33,5 @@ Implement a Playwright Component Object Model (COM) for the Settings Modal.
 - Use semantic locators (`getByRole`, `getByTestId`).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-637-640-implement-settings-modal-model
