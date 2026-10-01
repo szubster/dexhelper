@@ -26,4 +26,8 @@ locks: []
 Initialize the `@dexhelper/ui` package in `packages/ui`, configure `package.json`, and set up its build/bundling toolchain to support shared React components.
 
 ## Acceptance Criteria
-- [ ] Break this story down into tasks for initialization and configuration.
+- [x] Break this story down into tasks for initialization and configuration.
+- [ ] task-638-645-init-ui-package
+- [ ] task-638-646-qa-init-ui-package
+- [ ] task-638-647-config-ui-toolchain
+- [ ] task-638-648-qa-config-ui-toolchain
