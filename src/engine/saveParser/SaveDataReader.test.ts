@@ -116,4 +116,24 @@ describe('SaveDataReader', () => {
     expect(reader.readFlag(0, 0)).toBe(false);
     expect(reader.readFlag(0, 1)).toBe(true);
   });
+
+  it('should throw an Error for out-of-bounds reading in readBits', () => {
+    const buffer = new ArrayBuffer(4);
+    const view = new DataView(buffer);
+    const reader = new SaveDataReader(view);
+    const errorMessage = 'The save file is corrupted or incomplete.';
+
+    expect(() => reader.readBits(4, 0, 1)).toThrow(errorMessage);
+    expect(() => reader.readBits(3, 7, 2)).toThrow(errorMessage);
+  });
+
+  it('should throw an Error for out-of-bounds reading in readFlag', () => {
+    const buffer = new ArrayBuffer(4);
+    const view = new DataView(buffer);
+    const reader = new SaveDataReader(view);
+    const errorMessage = 'The save file is corrupted or incomplete.';
+
+    expect(() => reader.readFlag(4, 0)).toThrow(errorMessage);
+    expect(() => reader.readFlag(3, 8)).toThrow(errorMessage);
+  });
 });
