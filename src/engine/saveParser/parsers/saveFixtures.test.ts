@@ -191,3 +191,25 @@ describe('Gen 3 Contest Integration Tests', () => {
     },
   );
 });
+
+describe('Gen 3 Ruby/Sapphire Battle Tower Integration Tests', () => {
+  customTest('should correctly parse RS Battle Tower win streaks for ruby-vithuang.sav', ({ loadSaveData }) => {
+    const data = loadSaveData('ruby-vithuang.sav', 3, 'ruby');
+
+    const castData = data as {
+      gen3RSBattleTowerWinStreaks?: {
+        level50: { current: number; record: number };
+        level100: { current: number; record: number };
+      };
+    };
+    expect(castData.gen3RSBattleTowerWinStreaks).toBeDefined();
+    expect(castData.gen3RSBattleTowerWinStreaks?.level50).toEqual({
+      current: 0,
+      record: 0,
+    });
+    expect(castData.gen3RSBattleTowerWinStreaks?.level100).toEqual({
+      current: 0,
+      record: 0,
+    });
+  });
+});
