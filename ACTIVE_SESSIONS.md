@@ -34,3 +34,4 @@
 | [task-562-582-gen2-moms-savings-ui](.foundry/tasks/task-562-582-gen2-moms-savings-ui.md) | TASK | Update Gen 2 Mom's Savings Dashboard UI | coder | [5502614952357447565](https://jules.google.com/session/5502614952357447565) |
 | [task-578-591-visualizer-unit-tests](.foundry/tasks/task-578-591-visualizer-unit-tests.md) | TASK | React Flow Visualizer Unit Tests | coder | [8704148517000277121](https://jules.google.com/session/8704148517000277121) |
 | [task-638-639-init-vite-plugins-package](.foundry/tasks/task-638-639-init-vite-plugins-package.md) | TASK | Initialize @dexhelper/vite-plugins package | coder | [12870370968171265162](https://jules.google.com/session/12870370968171265162) |
+| [task-639-641-extract-base-save-parsers](.foundry/tasks/task-639-641-extract-base-save-parsers.md) | TASK | Extract base save parsers and utilities to core package | coder | [3851484199405290087](https://jules.google.com/session/3851484199405290087) |
