@@ -1,3 +1,5 @@
+export const GEN1_MAX_MOVE_ID = 165;
+
 /**
  * Evaluates whether a list of move IDs contains any move introduced in Generation 2.
  *
@@ -22,5 +24,5 @@ export function hasGen2ExclusiveMove(moves: number[]): boolean {
     return false;
   }
 
-  return moves.some((moveId) => moveId > 165);
+  return moves.some((moveId) => moveId > GEN1_MAX_MOVE_ID);
 }
