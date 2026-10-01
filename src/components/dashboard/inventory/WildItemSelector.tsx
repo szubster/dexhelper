@@ -25,7 +25,9 @@ export const WildItemSelector: React.FC = () => {
       .then((fetchedItems) => {
         if (mounted) setItems(fetchedItems);
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error('Failed to fetch items:', err instanceof Error ? err.message : 'Unknown error');
+      });
     return () => {
       mounted = false;
     };
