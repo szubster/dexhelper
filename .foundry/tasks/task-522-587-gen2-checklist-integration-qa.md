@@ -28,7 +28,7 @@ locks: []
 Verify the Gen 2 checklist correctly integrates parsed narrative event flags and differentiates event states.
 
 ## Acceptance Criteria
-- [ ] Verify `Gen2Checklist.tsx` consumes `gen2NarrativeFlags`.
-- [ ] Verify `Gen2Checklist.tsx` uses `getUpcomingGen2Boss` to highlight the current objective.
-- [ ] Verify the UI visually differentiates completed, available, and unavailable events.
-- [ ] Run `xvfb-run -a pnpm test:e2e` to ensure no visual or functional regressions.
+- [x] Verify `Gen2Checklist.tsx` consumes `gen2NarrativeFlags`.
+- [x] Verify `Gen2Checklist.tsx` uses `getUpcomingGen2Boss` to highlight the current objective.
+- [x] Verify the UI visually differentiates completed, available, and unavailable events.
+- [x] Run `xvfb-run -a pnpm test:e2e` to ensure no visual or functional regressions.
