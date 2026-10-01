@@ -28,6 +28,6 @@ locks: []
 Write E2E tests verifying Wonder Card and Event Flag extraction from Gen 3 saves.
 
 ## Acceptance Criteria
-- [ ] Write E2E tests for Wonder Card extraction.
-- [ ] Write E2E tests for Event Flag extraction.
-- [ ] Verify tests pass in Playwright.
+- [x] Write E2E tests for Wonder Card extraction.
+- [x] Write E2E tests for Event Flag extraction.
+- [x] Verify tests pass in Playwright.
