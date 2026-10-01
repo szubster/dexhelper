@@ -2,12 +2,12 @@
 id: story-579-637-settings-modal-model
 type: STORY
 title: Implement SettingsModalModel COM
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-29'
-updated_at: '2026-09-29'
+updated_at: '2026-10-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10347985344732093276'
 pr_number: null
 parent: epic-566-579-e2e-core-component-models
 tags:
