@@ -2,7 +2,7 @@
 id: task-638-642-update-dexhelper-vite-config
 type: TASK
 title: Update DexHelper Vite Config
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-01'

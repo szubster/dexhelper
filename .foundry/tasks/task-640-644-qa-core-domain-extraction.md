@@ -2,7 +2,7 @@
 id: task-640-644-qa-core-domain-extraction
 type: TASK
 title: QA Verification for Core Domain Extraction
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-01'
 updated_at: '2026-10-01'
@@ -15,9 +15,9 @@ tags:
   - architecture
   - monorepo
   - pnpm
+research_references: []
 rejection_count: 0
 rejection_reason: ''
-research_references: []
 notes: ''
 locks: []
 ---

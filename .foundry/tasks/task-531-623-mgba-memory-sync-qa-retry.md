@@ -2,10 +2,10 @@
 id: task-531-623-mgba-memory-sync-qa-retry
 type: TASK
 title: QA Verification for mGBA Memory Sync Retry
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-24'
-updated_at: '2026-09-24'
+updated_at: '2026-10-01'
 depends_on:
   - task-531-622-mgba-memory-sync-react-retry
 jules_session_id: null
@@ -19,7 +19,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-531-620-investigate-mgba-memory-sync-failure
 notes: ''
 locks: []
 ---

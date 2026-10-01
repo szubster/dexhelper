@@ -2,13 +2,13 @@
 id: task-565-605-hunting-progress-detection-logic
 type: TASK
 title: Hunting Progress Detection Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-08-15'
-updated_at: '2026-09-30'
+updated_at: '2026-10-01'
 depends_on:
   - task-565-604-hunting-progress-state-definitions
-jules_session_id: '17616420800891830464'
+jules_session_id: null
 pr_number: null
 parent: story-554-565-progress-tracker-state
 tags:

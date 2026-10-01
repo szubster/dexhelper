@@ -2,10 +2,10 @@
 id: task-478-588-pokedb-sync-qa
 type: TASK
 title: Verify multi-bundle PokeDB sync behavior with E2E and integration tests
-status: PENDING
+status: READY
 owner_persona: qa
-created_at: 2026-09-17T07:48:23Z
-updated_at: 2026-09-17T07:48:23Z
+created_at: '2026-09-17T07:48:23.000Z'
+updated_at: '2026-10-01'
 depends_on:
   - task-478-586-pokedb-core-sync-impl
   - task-478-587-pokedb-extension-sync-impl

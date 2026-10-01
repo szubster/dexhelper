@@ -2,25 +2,25 @@
 id: task-639-641-extract-base-save-parsers
 type: TASK
 title: Extract base save parsers and utilities to core package
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-01'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-526-639-extract-parsers
-priority: 50
-confidence_score: null
 tags:
   - architecture
   - monorepo
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
+confidence_score: null
 ---
 
 # Extract base save parsers and utilities to core package

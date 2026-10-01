@@ -2,7 +2,7 @@
 id: task-640-643-update-app-imports
 type: TASK
 title: Update application imports to use @dexhelper/core
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-01'
@@ -15,9 +15,9 @@ tags:
   - architecture
   - monorepo
   - pnpm
+research_references: []
 rejection_count: 0
 rejection_reason: ''
-research_references: []
 notes: ''
 locks: []
 ---

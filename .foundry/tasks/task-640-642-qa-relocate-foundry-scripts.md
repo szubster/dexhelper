@@ -2,11 +2,12 @@
 id: task-640-642-qa-relocate-foundry-scripts
 type: TASK
 title: QA Relocate Foundry Scripts
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-01'
 updated_at: '2026-10-01'
-depends_on: ["task-640-641-relocate-foundry-scripts"]
+depends_on:
+  - task-640-641-relocate-foundry-scripts
 jules_session_id: null
 pr_number: null
 parent: story-525-640-relocate-foundry-scripts

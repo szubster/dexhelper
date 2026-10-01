@@ -2,10 +2,10 @@
 id: epic-044-398-gen3-roamer-iv-glitch-v5
 type: EPIC
 title: Gen 3 Roamer IV Glitch Detection v5
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-08-04'
+updated_at: '2026-10-01'
 depends_on:
   - epic-044-397-gen3-roamer-core-extraction-v5
   - research-044-396-gen3-roamer-tracker-failure
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 1
 rejection_reason: ''
 notes: Replacement for epic-044-150
+locks: []
 ---
 
 # Gen 3 Roamer IV Glitch Detection v5

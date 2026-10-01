@@ -2,7 +2,7 @@
 id: task-638-641-migrate-foundry-plugin
 type: TASK
 title: Migrate Foundry Plugin
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-01'
