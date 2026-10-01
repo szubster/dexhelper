@@ -30,5 +30,5 @@ Generation-specific encounter and location data (`pokedata-gen1.msgpack`, `poked
 - Hydrate encounter and location object stores with the extension data without corrupting existing records.
 
 ## Acceptance Criteria
-- [ ] Implement on-demand extension bundle fetching and hydration in `src/db/PokeDB.ts`.
-- [ ] Add unit tests verifying generation extension loading and database store hydration.
+- [x] Implement on-demand extension bundle fetching and hydration in `src/db/PokeDB.ts`.
+- [x] Add unit tests verifying generation extension loading and database store hydration.

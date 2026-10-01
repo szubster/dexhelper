@@ -579,5 +579,98 @@ export const pokeDB = {
   },
 
   // Internal/Test helper to reset the sync state
+
+  /**
+   * Fetches and hydrates generation-specific extension data without corrupting existing records.
+   */
+  syncExtension: async (gen: number) => {
+    try {
+      const db = await getDB();
+      const extKey = `ext_gen${gen}`;
+      const existingHash = await db.get(DB_CONFIG.STORES.METADATA, extKey);
+
+      if (existingHash?.value === 'loaded') {
+        return;
+      }
+
+      const baseUrl = typeof window !== 'undefined' ? import.meta.env.BASE_URL : 'http://localhost:3000/dexhelper/';
+      const response = await fetch(`${baseUrl}data/pokedata-gen${gen}.msgpack`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch pokedata-gen${gen}.msgpack: ${response.status} ${response.statusText}`);
+      }
+      const buffer = await response.arrayBuffer();
+
+      const unpackr = new Unpackr({ useRecords: true, variableMapSize: true, bundleStrings: true });
+      const data: Partial<PokeDataExport> = unpackr.unpack(new Uint8Array(buffer));
+
+      const tx = db.transaction(
+        [DB_CONFIG.STORES.ENCOUNTERS, DB_CONFIG.STORES.LOCATIONS, DB_CONFIG.STORES.METADATA],
+        'readwrite',
+      );
+
+      const eStore = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
+      const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
+      const mStore = tx.objectStore(DB_CONFIG.STORES.METADATA);
+
+      if (data.enc) {
+        for (const e of data.enc) {
+          const inflatedEnc = e.enc.map((enc) => ({
+            ...enc,
+            d: (enc.d || []).map((d) => ({
+              ...DEFAULT_ENCOUNTER_DETAIL,
+              ...d,
+              max: d.max ?? d.min,
+            })),
+          }));
+
+          const existing = await eStore.get(e.pid);
+          if (existing) {
+            existing.enc.push(...inflatedEnc);
+            void eStore.put(existing);
+          } else {
+            void eStore.put({ pid: e.pid, enc: inflatedEnc });
+          }
+        }
+      }
+
+      if (data.loc) {
+        for (const l of data.loc) {
+          const existing = await lStore.get(l.id);
+          if (existing) {
+            void lStore.put({
+              ...existing,
+              ...l,
+              pids: Array.from(new Set([...(existing.pids || []), ...(l.pids || [])])),
+            });
+          } else {
+            void lStore.put({
+              ...DEFAULT_LOCATION,
+              ...l,
+              prnt: l.prnt,
+            });
+          }
+        }
+      }
+
+      await mStore.put({ key: extKey, value: 'loaded' });
+      await tx.done;
+    } catch (err) {
+      console.error(`System: sync extension ${gen} failed`, err);
+      throw err;
+    }
+  },
+
+  /**
+   * Ensures the extension is loaded, waiting for sync if not.
+   */
+  ensureExtension: async (gen: number) => {
+    const db = await getDB();
+    const extKey = `ext_gen${gen}`;
+    const entry = await db.get(DB_CONFIG.STORES.METADATA, extKey);
+    if (entry?.value !== 'loaded') {
+      return pokeDB.syncExtension(gen);
+    }
+  },
+
   _resetSync: () => {},
 };
