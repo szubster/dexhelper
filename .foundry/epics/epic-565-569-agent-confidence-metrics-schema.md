@@ -2,10 +2,10 @@
 id: epic-565-569-agent-confidence-metrics-schema
 type: EPIC
 title: Implement Node Schema Updates for Confidence Metrics
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-09-17T01:15:33Z'
-updated_at: '2026-09-25'
+updated_at: '2026-10-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -35,5 +35,5 @@ Based on PRD-521, we need to allow agents to self-report their confidence levels
 - [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
 - [x] Generate a STORY dedicated to the implementation of the schema update.
 
-- [ ] story-569-584-confidence-metrics-schema
-- [ ] story-569-585-confidence-metrics-schema-e2e
+- [x] story-569-584-confidence-metrics-schema
+- [x] story-569-585-confidence-metrics-schema-e2e

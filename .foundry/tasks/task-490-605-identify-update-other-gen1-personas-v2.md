@@ -2,10 +2,10 @@
 id: task-490-605-identify-update-other-gen1-personas-v2
 type: TASK
 title: Identify and Update Other Gen 1 Persona Skins (v2)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-10-01'
 depends_on:
   - research-490-604-investigate-other-gen1-personas-failure
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - personas
   - gamification
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-490-604-investigate-other-gen1-personas-failure
 notes: ''
 locks: []
 ---

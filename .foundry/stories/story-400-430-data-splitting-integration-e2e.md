@@ -2,10 +2,10 @@
 id: story-400-430-data-splitting-integration-e2e
 type: STORY
 title: Data Splitting Integration and E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-17'
-updated_at: '2026-08-17'
+updated_at: '2026-10-01'
 depends_on:
   - story-400-429-gen-specific-extensions
 jules_session_id: null
@@ -20,6 +20,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Story: Data Splitting Integration and E2E Verification

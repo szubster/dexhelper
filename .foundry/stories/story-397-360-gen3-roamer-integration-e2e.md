@@ -2,10 +2,10 @@
 id: story-397-360-gen3-roamer-integration-e2e
 type: STORY
 title: Gen 3 Roamer Integration and E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-09-19'
+updated_at: '2026-10-01'
 depends_on:
   - story-397-359-gen3-roamer-unit-tests
 jules_session_id: '14117753440197048908'
@@ -29,8 +29,8 @@ locks: []
 Generate Integration and E2E Verification to ensure proper system-wide rendering of the roaming legendary.
 
 ## Acceptance Criteria
-- [ ] Verify proper system-wide rendering of Gen 3 Roamer data (IVs, PV, Species, etc.) in the frontend.
-- [ ] E2E tests for the roamer rendering across different game versions (R/S, E, FR/LG).
+- [x] Verify proper system-wide rendering of Gen 3 Roamer data (IVs, PV, Species, etc.) in the frontend.
+- [x] E2E tests for the roamer rendering across different game versions (R/S, E, FR/LG).
 - [x] Tech Lead: Break this Story down into actionable Tasks.
 
 - [x] task-360-418-gen3-roamer-ui-impl
@@ -39,6 +39,6 @@ Generate Integration and E2E Verification to ensure proper system-wide rendering
 - [x] research-360-471-investigate-gen3-roamer-e2e-failure
 - [x] task-360-489-gen3-roamer-e2e-impl-v2
 - [x] task-360-490-gen3-roamer-ui-and-e2e-qa-v2
-- [ ] research-360-568-investigate-gen3-roamer-e2e-failure-v2
-- [ ] task-360-566-gen3-roamer-e2e-impl-v3
-- [ ] task-360-567-gen3-roamer-ui-and-e2e-qa-v3
+- [x] research-360-568-investigate-gen3-roamer-e2e-failure-v2
+- [x] task-360-566-gen3-roamer-e2e-impl-v3
+- [x] task-360-567-gen3-roamer-ui-and-e2e-qa-v3

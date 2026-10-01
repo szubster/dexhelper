@@ -2,10 +2,10 @@
 id: task-478-573-qa-mystery-gift-e2e
 type: TASK
 title: QA Mystery Gift E2E Verification
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-13'
-updated_at: '2026-09-14'
+updated_at: '2026-10-01'
 depends_on:
   - task-478-572-impl-mystery-gift-e2e-tests
 jules_session_id: null

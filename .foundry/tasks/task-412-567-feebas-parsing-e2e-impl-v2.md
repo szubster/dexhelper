@@ -2,13 +2,13 @@
 id: task-412-567-feebas-parsing-e2e-impl-v2
 type: TASK
 title: Feebas Parsing E2E Integration Impl V2
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: $(date -I)
 updated_at: '2026-10-01'
 depends_on:
   - research-412-563-investigate-feebas-e2e-timeout
-jules_session_id: '5458670825525610767'
+jules_session_id: null
 pr_number: null
 parent: story-058-412-feebas-parsing-e2e
 tags:
@@ -16,7 +16,9 @@ tags:
   - backend
   - e2e
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

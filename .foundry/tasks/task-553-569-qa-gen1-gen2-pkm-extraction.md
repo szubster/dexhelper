@@ -2,14 +2,14 @@
 id: task-553-569-qa-gen1-gen2-pkm-extraction
 type: TASK
 title: QA Verification for Gen 1 & Gen 2 PKM Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-07'
 updated_at: '2026-10-01'
 depends_on:
   - task-553-567-gen1-pkm-extraction
   - task-553-568-gen2-pkm-extraction
-jules_session_id: '7975081586275166192'
+jules_session_id: null
 parent: story-530-553-gen1-gen2-pkm-extraction
 tags:
   - qa

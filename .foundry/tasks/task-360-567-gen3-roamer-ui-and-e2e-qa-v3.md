@@ -2,13 +2,13 @@
 id: task-360-567-gen3-roamer-ui-and-e2e-qa-v3
 type: TASK
 title: QA Gen 3 Roamer E2E Tests (v3)
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-09'
 updated_at: '2026-10-01'
 depends_on:
   - task-360-566-gen3-roamer-e2e-impl-v3
-jules_session_id: '631934257704947422'
+jules_session_id: null
 pr_number: null
 parent: story-397-360-gen3-roamer-integration-e2e
 tags:
