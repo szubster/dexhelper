@@ -236,6 +236,8 @@ importers:
         specifier: ^8.1.1
         version: 8.1.1
 
+  packages/core: {}
+
 packages:
 
   '@11ty/gray-matter@3.0.0':
