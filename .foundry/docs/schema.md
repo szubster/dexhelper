@@ -372,3 +372,13 @@ To ensure accurate historical tracking and continuous release notes across both 
 2. **Ad-Hoc Changes Without IDEA Nodes**:
    - Any contributor or persona submitting ad-hoc changes (without an associated IDEA node completion) MUST evaluate whether the change introduces significant new functionality, bug fixes, or system behaviors.
    - If significant, an appropriate entry under `## [Unreleased]` must be included in `CHANGELOG-dexhelper.md` or `CHANGELOG-foundry.md` within the PR.
+
+---
+
+## 16. Static vs Dynamic Data Pipeline Boundary (ADR 028)
+
+We enforce a strict boundary between static and dynamic data:
+*   **Static Data:** Base stats, location definitions (like `BERRY_TREE_LOCATIONS`), and item names are processed by `scripts/generate-pokedata.ts` at build-time.
+*   **Dynamic Save Data:** Growth stages, inventory counts, and game time are parsed entirely at runtime when a user imports a `.sav` file (e.g., in `src/engine/saveParser/...`).
+
+Parsed dynamic save data (such as `Gen3BerryTree` states) must **never** use the static data pipeline for serialization. It must be stored in the application runtime state manager (e.g., Zustand) or a dedicated runtime IndexedDB wrapper for save files, separated entirely from `pokedata-core`.
