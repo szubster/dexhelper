@@ -2,13 +2,13 @@
 id: task-580-603-virtualize-storage-grid-qa
 type: TASK
 title: QA Virtualize StorageGrid
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-18T09:12:07Z'
-updated_at: '2026-09-30'
+updated_at: '2026-10-01'
 depends_on:
   - task-580-602-virtualize-storage-grid-ui
-jules_session_id: null
+jules_session_id: '17314765722780421019'
 pr_number: null
 parent: story-566-580-virtualize-storage-grid-impl
 tags:
