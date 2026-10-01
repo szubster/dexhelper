@@ -33,6 +33,6 @@ As part of the E2E verification for the Wild Item tracking progress, we need to 
 - Make sure fixtures conform to standard Gen 3 format used by Dexhelper.
 
 ## Acceptance Criteria
-- [ ] Create `tests/fixtures/wild-item/with-target-item.sav` (or mock setup) containing a target item.
-- [ ] Create `tests/fixtures/wild-item/without-target-item.sav` (or mock setup) missing the item.
-- [ ] research-578-587-gen3-wild-item-fixtures
+- [x] Create `tests/fixtures/wild-item/with-target-item.sav` (or mock setup) containing a target item.
+- [x] Create `tests/fixtures/wild-item/without-target-item.sav` (or mock setup) missing the item.
+- [x] research-578-587-gen3-wild-item-fixtures
