@@ -26,3 +26,5 @@ Relocate `.github/scripts/` into `@dexhelper/foundry`.
 
 ## Acceptance Criteria
 - [ ] Relocate `.github/scripts/` into `@dexhelper/foundry`
+- [ ] task-640-641-relocate-foundry-scripts
+- [ ] task-640-642-qa-relocate-foundry-scripts
