@@ -3,6 +3,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { LivingDexGrid } from '../components/LivingDexGrid';
 import { PokedexGrid } from '../components/PokedexGrid';
 import { SearchAndFilters } from '../components/SearchAndFilters';
+import { TacticalKitchenSink } from '../components/TacticalKitchenSink';
 import { useStore } from '../store';
 import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 
@@ -13,6 +14,8 @@ export const Route = createFileRoute('/')({
 function Index() {
   const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
   const isLivingDex = useStore((s) => s.isLivingDex);
+  const isKitchenSink = new URLSearchParams(window.location.search).has('kitchen_sink');
+  if (isKitchenSink) return <TacticalKitchenSink />;
 
   return (
     <>
