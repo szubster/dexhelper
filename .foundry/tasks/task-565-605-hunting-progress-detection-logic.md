@@ -32,5 +32,5 @@ We must detect newly acquired target items.
 - Write unit tests covering the detection logic.
 
 ## Acceptance Criteria
-- [ ] Implement detection logic and store updates.
-- [ ] Write tests for the detection logic.
+- [x] Implement detection logic and store updates.
+- [x] Write tests for the detection logic.
