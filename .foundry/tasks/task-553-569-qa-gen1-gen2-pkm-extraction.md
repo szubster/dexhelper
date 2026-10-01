@@ -26,7 +26,7 @@ locks: []
 Verify the implementation of Gen 1 and Gen 2 PKM extraction logic. Ensure adherence to schema constraints and successful unit test execution.
 
 ## Acceptance Criteria
-- [ ] QA: Verify `extractGen1Pkm` logic and constants in code review.
-- [ ] QA: Verify `extractGen2Pkm` logic and constants in code review.
-- [ ] QA: Verify `RangeError` is handled correctly.
-- [ ] QA: Verify unit tests pass and cover extraction logic accurately.
+- [x] QA: Verify `extractGen1Pkm` logic and constants in code review.
+- [x] QA: Verify `extractGen2Pkm` logic and constants in code review.
+- [x] QA: Verify `RangeError` is handled correctly.
+- [x] QA: Verify unit tests pass and cover extraction logic accurately.
