@@ -2,12 +2,12 @@
 id: task-640-641-create-core-package-infrastructure
 type: TASK
 title: Create packages/core directory structure and configuration files
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17268753577120010603'
 pr_number: null
 parent: story-526-640-extract-domain-logic
 tags:
