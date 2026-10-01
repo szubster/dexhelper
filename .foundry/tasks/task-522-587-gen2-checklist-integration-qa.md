@@ -2,13 +2,13 @@
 id: task-522-587-gen2-checklist-integration-qa
 type: TASK
 title: QA Gen 2 Checklist Parsing Engine Integration
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-16'
-updated_at: '2026-09-22'
+updated_at: '2026-10-01'
 depends_on:
   - task-522-586-gen2-checklist-integration-impl
-jules_session_id: null
+jules_session_id: '17672816292384225674'
 pr_number: null
 parent: story-062-522-gen2-checklist-integration
 tags:
