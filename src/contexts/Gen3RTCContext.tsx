@@ -13,10 +13,10 @@ export interface Gen3RTCContextType {
 const Gen3RTCContext = createContext<Gen3RTCContextType | undefined>(undefined);
 
 export const Gen3RTCProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [state, setState] = useState<Gen3RTCState>({
+  const [state, setState] = useState<Gen3RTCState>(() => ({
     isOverridden: false,
     time: new Date(),
-  });
+  }));
 
   useEffect(() => {
     if (state.isOverridden) return;
