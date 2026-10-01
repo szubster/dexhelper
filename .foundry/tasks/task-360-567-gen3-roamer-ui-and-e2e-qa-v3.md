@@ -28,5 +28,5 @@ locks: []
 Verify the correctness of the v3 Playwright E2E tests for the Gen 3 Roamer Dossier UI.
 
 ## Acceptance Criteria
-- [ ] Verify the Playwright E2E tests pass and adequately cover different Gen 3 game versions (Ruby/Sapphire, Emerald, FireRed/LeafGreen) using mocked data.
-- [ ] Ensure test stability and compliance with architecture guidelines.
+- [x] Verify the Playwright E2E tests pass and adequately cover different Gen 3 game versions (Ruby/Sapphire, Emerald, FireRed/LeafGreen) using mocked data.
+- [x] Ensure test stability and compliance with architecture guidelines.
