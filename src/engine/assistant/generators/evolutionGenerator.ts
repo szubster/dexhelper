@@ -283,7 +283,7 @@ export async function generateEvolutionSuggestions(
                 : `Item Needed for Trade: #${targetId}`,
             description,
             pokemonId: targetId,
-            priority: hasHeldItem ? 90 : 45,
+            priority: hasHeldItem ? 95 : 45,
           });
         } else {
           suggestions.push({
