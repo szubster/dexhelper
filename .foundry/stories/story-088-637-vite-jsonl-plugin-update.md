@@ -27,5 +27,7 @@ notes: ''
 The application now generates `moves.jsonl` and `items.jsonl` containing extracted game data. We need to update our Vite build pipeline to correctly process and package these `.jsonl` files so they can be consumed by the client side.
 
 ## Acceptance Criteria
+- [ ] task-637-641-vite-jsonl-plugin-impl
+- [ ] task-637-642-vite-jsonl-plugin-qa
 - [ ] Implement or update the Vite plugin to properly resolve and bundle `.jsonl` files.
 - [ ] Ensure that the packaged JSONL files are served correctly in development and production environments.
