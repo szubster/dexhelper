@@ -27,6 +27,6 @@ locks: []
 Update tests in `src/components/dashboard/checklist/__tests__/Gen2Checklist.test.tsx` to verify the new narrative checklist section.
 
 ## Acceptance Criteria
-- [ ] Verify `Gen2Checklist.tsx` correctly displays completed events (acquired/checked).
-- [ ] Verify `Gen2Checklist.tsx` correctly displays the single immediately available upcoming event.
-- [ ] Verify `Gen2Checklist.tsx` correctly handles unavailable future events.
+- [x] Verify `Gen2Checklist.tsx` correctly displays completed events (acquired/checked).
+- [x] Verify `Gen2Checklist.tsx` correctly displays the single immediately available upcoming event.
+- [x] Verify `Gen2Checklist.tsx` correctly handles unavailable future events.
