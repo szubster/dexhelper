@@ -33,6 +33,6 @@ A coder has implemented windowing/virtualization for the `StorageGrid` using `@t
 4. Ensure no existing tests are broken and performance is maintained.
 
 ## Acceptance Criteria
-- [ ] Verify `useVirtualizer` or `useWindowVirtualizer` is used in `StorageGrid.tsx`.
-- [ ] Verify responsive grid layout and correct virtual item positioning.
-- [ ] Run test suite (`pnpm test` and `pnpm test:e2e`) and ensure they pass.
+- [x] Verify `useVirtualizer` or `useWindowVirtualizer` is used in `StorageGrid.tsx`.
+- [x] Verify responsive grid layout and correct virtual item positioning.
+- [x] Run test suite (`pnpm test` and `pnpm test:e2e`) and ensure they pass.
