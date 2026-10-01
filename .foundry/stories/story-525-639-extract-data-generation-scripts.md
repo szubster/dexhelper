@@ -26,3 +26,4 @@ Extract data generation scripts into `@dexhelper/pokedata-extractor`.
 
 ## Acceptance Criteria
 - [ ] Extract data generation scripts into `@dexhelper/pokedata-extractor`
+- [ ] task-639-641-extract-data-generation-scripts
