@@ -32,5 +32,5 @@ Integrate the telemetry tracking utility into the Orchestrator cycle detection p
 2. In `.github/scripts/foundry-orchestrator.ts` Phase 3.10 (HIERARCHICAL DEADLOCK DETECTION), invoke the tracking utility when a hierarchical deadlock is detected.
 
 ## Acceptance Criteria
-- [ ] Ensure `.github/scripts/foundry-orchestrator.ts` uses the new telemetry function in Phase 3.9.
-- [ ] Ensure `.github/scripts/foundry-orchestrator.ts` uses the new telemetry function in Phase 3.10.
+- [x] Ensure `.github/scripts/foundry-orchestrator.ts` uses the new telemetry function in Phase 3.9.
+- [x] Ensure `.github/scripts/foundry-orchestrator.ts` uses the new telemetry function in Phase 3.10.

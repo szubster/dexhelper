@@ -29,7 +29,7 @@ import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
 import { buildDocumentationIndex } from "./flexsearch-utils.ts";
-import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal, updateActiveSessionsTable } from './dag-utils.ts';
+import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal, updateActiveSessionsTable, trackCycleDetectionFailure } from './dag-utils.ts';
 import { NodeFrontmatterSchema, type NodeFrontmatter } from './schema.ts';
 
 // gray-matter is CJS; import via require() for clean ESM interop.
@@ -937,6 +937,7 @@ function main(): void {
         cyclePath.push(dep);
 
         warn(`Detected circular dependency: ${cyclePath.join(' -> ')}`);
+        trackCycleDetectionFailure(cyclePath);
 
         for (const cycleNode of cyclePath) {
           nodesInCycle.add(cycleNode);
@@ -1021,6 +1022,7 @@ function main(): void {
 
       if (isCyclic) {
         warn(`Hierarchical deadlock detected: Parent '${node.frontmatter.id}' (${node.repoPath}) has unchecked/incomplete child '${child.frontmatter.id}' (${child.repoPath}), but a dependency cycle exists between them!`);
+        trackCycleDetectionFailure([node.repoPath, child.repoPath]);
         if (node.frontmatter.status === 'PENDING') {
           promoteNodeToFailedWithReason(node, 'Hierarchical deadlock detected');
         }
