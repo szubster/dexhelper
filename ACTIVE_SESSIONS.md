@@ -50,3 +50,4 @@
 | [task-565-605-hunting-progress-detection-logic](.foundry/tasks/task-565-605-hunting-progress-detection-logic.md) | TASK | Hunting Progress Detection Logic | coder | [17616420800891830464](https://jules.google.com/session/17616420800891830464) |
 | [task-570-619-cva-theme-e2e-qa-retry](.foundry/tasks/task-570-619-cva-theme-e2e-qa-retry.md) | TASK | QA - CVA and Theme E2E Tests (Retry) | qa | [4033920264535287952](https://jules.google.com/session/4033920264535287952) |
 | [task-578-591-visualizer-unit-tests](.foundry/tasks/task-578-591-visualizer-unit-tests.md) | TASK | React Flow Visualizer Unit Tests | coder | [8704148517000277121](https://jules.google.com/session/8704148517000277121) |
+| [task-580-600-virtualize-pokedex-grid-implementation-qa](.foundry/tasks/task-580-600-virtualize-pokedex-grid-implementation-qa.md) | TASK | QA Virtualized PokedexGrid Implementation | qa | [7269992769017228436](https://jules.google.com/session/7269992769017228436) |
