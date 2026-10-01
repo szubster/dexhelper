@@ -34,5 +34,5 @@ As part of the Wild Item Hunting UI epic, we need unit tests and/or browser test
 - Ensure all tests pass.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the wild item selection state.
-- [ ] Write component tests for `WildItemSelector`.
+- [x] Write unit tests for the wild item selection state.
+- [x] Write component tests for `WildItemSelector`.
