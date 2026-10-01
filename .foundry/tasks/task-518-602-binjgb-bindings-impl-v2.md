@@ -2,13 +2,13 @@
 id: task-518-602-binjgb-bindings-impl-v2
 type: TASK
 title: Implement Javascript bindings for binjgb save extraction v2
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-10-01'
 depends_on:
   - research-528-569-investigate-binjgb-save-exports
-jules_session_id: null
+jules_session_id: '941462802603562062'
 pr_number: null
 parent: story-426-518-binjgb-memory-sync
 tags:
@@ -20,7 +20,9 @@ research_references:
   - .foundry/docs/knowledge_base/architecture/binjgb_exports.md
 rejection_count: 0
 rejection_reason: ''
-notes: 'Created as replacement for permanently failed task-518-528-binjgb-bindings-impl'
+notes: >-
+  Created as replacement for permanently failed
+  task-518-528-binjgb-bindings-impl
 locks: []
 ---
 
