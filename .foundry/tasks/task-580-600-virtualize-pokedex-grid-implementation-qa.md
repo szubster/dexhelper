@@ -27,4 +27,4 @@ locks: []
 Verify the virtualization of `PokedexGrid`. Ensure tests in `src/components/__tests__/PokedexGrid.test.tsx` pass, checking that virtualization hasn't broken core functionality (like filtering and empty states).
 
 ## Acceptance Criteria
-- [ ] Verify functionality and tests.
+- [x] Verify functionality and tests.
