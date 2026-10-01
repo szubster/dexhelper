@@ -18,7 +18,7 @@ export const Gen3TrickHouseDashboard = React.memo(({ saveData }: Gen3TrickHouseD
   return (
     <TacticalPanel className="mt-4 flex flex-col border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
       <TelemetryDecoration label="SYS.TRICK_HOUSE" className="-top-[17px] left-[-1px]" />
-      <span className="tactical-text z-10 mb-4 font-black text-lg text-white">TRICK HOUSE</span>
+      <span className="tactical-text z-10 mb-4 text-lg text-white">TRICK HOUSE</span>
       <div className="z-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
         <DataPoint label="LEVEL" value={trickHouse.level} />
         <DataPoint label="ENTRANCE STATE" value={trickHouse.entranceState} />

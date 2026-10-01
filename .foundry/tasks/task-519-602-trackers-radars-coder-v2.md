@@ -21,4 +21,4 @@ locks: []
 ## Objectives
 
 ## Acceptance Criteria
-- [ ] Specialized tracker and radar components are updated to use semantic @utility classes.
+- [x] Specialized tracker and radar components are updated to use semantic @utility classes.
