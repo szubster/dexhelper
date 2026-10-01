@@ -25,4 +25,8 @@ locks: []
 Implement Least Recently Used (LRU) eviction logic to remove older states when storage limits are reached.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [ ] task-521-638-db-delete-save
+- [ ] task-521-639-db-get-oldest-saves
+- [ ] task-521-640-lru-eviction-logic
+- [ ] task-521-641-lru-eviction-qa
+- [x] Break down into Tasks
