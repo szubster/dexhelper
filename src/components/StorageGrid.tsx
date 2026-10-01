@@ -279,6 +279,7 @@ export const StorageGrid = React.memo(function StorageGrid({
     return list;
   }, [saveData, storageLocations, pokemonByLocation, columns]);
 
+  // oxlint-disable-next-line react/incompatible-library
   const virtualizer = useWindowVirtualizer({
     count: flatList.length,
     scrollMargin: containerNode?.offsetTop ?? 0,
