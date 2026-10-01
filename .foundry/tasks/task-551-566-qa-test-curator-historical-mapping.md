@@ -31,5 +31,5 @@ Verify the unit tests for curator historical mapping and remediation.
 - Ensure tests run successfully and provide adequate coverage.
 
 ## Acceptance Criteria
-- [ ] Verify ingestion tests
-- [ ] Verify remediation spawning tests
+- [x] Verify ingestion tests
+- [x] Verify remediation spawning tests
