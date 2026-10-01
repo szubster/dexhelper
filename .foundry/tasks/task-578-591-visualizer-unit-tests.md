@@ -26,6 +26,6 @@ locks: []
 Write unit tests for the newly refactored `DagDashboard` and context consumption. Ensure that `vitest-browser-react` and `QueryClientProvider` are correctly utilized if needed.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for `DagDashboard` rendering using `vitest-browser-react`.
-- [ ] Verify that `useDagContext` is properly mocked or provided in the test setup.
-- [ ] Achieve adequate test coverage for the visualizer rendering.
+- [x] Write unit tests for `DagDashboard` rendering using `vitest-browser-react`.
+- [x] Verify that `useDagContext` is properly mocked or provided in the test setup.
+- [x] Achieve adequate test coverage for the visualizer rendering.
