@@ -34,4 +34,6 @@ Based on PRD-521, the orchestrator needs to react to nodes reporting low confide
 - Spawn a `QA` or `Auditor` task to review the node instead of allowing it to blindly complete.
 
 ## Acceptance Criteria
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [ ] story-570-644-orchestrator-confidence-intervention-impl
+- [ ] story-570-645-orchestrator-confidence-intervention-e2e
