@@ -13,17 +13,13 @@ test.describe('Safari Zone Layout', () => {
     // Assert the route is accessible
     await expect(page).toHaveURL(/.*\/safari-zone/);
 
-    // Assert tactical UI adherence
-    const panel = page.locator('.tactical-panel').last();
+    // Assert header and mode badge
+    await expect(page.getByText('SAFARI ZONE MISSING ENCOUNTERS')).toBeVisible({ timeout: 15000 });
+    await expect(page.getByText(/MODE:/i)).toBeVisible();
+
+    // Assert tactical encounter panels render
+    const panel = page.locator('.tactical-panel').first();
     await expect(panel).toBeVisible();
-
-    const sidePanelArea = page.getByText('Side Panel Area');
-    await expect(sidePanelArea).toBeVisible();
-    await expect(sidePanelArea).toHaveClass(/border-dashed/);
-    await expect(sidePanelArea).toHaveClass(/font-mono/);
-
-    const mainArea = page.getByText('Safari Zone Main Area');
-    await expect(mainArea).toBeVisible();
-    await expect(mainArea).toHaveClass(/font-mono/);
+    await expect(page.getByText(/MISSING/i).first()).toBeVisible();
   });
 });

@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { ShieldAlert } from 'lucide-react';
 import { AssistantPanel } from '../components/AssistantPanel';
+import { EmptyState } from '../components/EmptyState';
 import { useStore } from '../store';
 
 export const Route = createFileRoute('/assistant')({
@@ -12,7 +14,7 @@ function AssistantPage() {
   const manualVersion = useStore((s) => s.manualVersion);
 
   if (!saveData) {
-    return null;
+    return <EmptyState icon={<ShieldAlert size={24} />} label="ASSISTANT TELEMETRY UNLINKED" />;
   }
 
   return (
