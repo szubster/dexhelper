@@ -26,9 +26,10 @@ function isSyncProgressDetail(detail: unknown): detail is SyncProgressDetail {
   );
 }
 
-// ⚡ Bolt: Pre-allocated static index arrays to eliminate redundant array allocations on every render pass during sync progress updates
+// ⚡ Bolt: Pre-allocated static index arrays and binary text pattern to eliminate redundant array allocations and string manipulations on every render pass during sync progress updates
 const GAUGE_INDICES = Array.from({ length: 10 }, (_, i) => i);
 const MATRIX_BLOCK_INDICES = Array.from({ length: 100 }, (_, i) => i);
+const HEX_BINARY_PATTERN = '10'.repeat(400);
 
 export function SyncProgress() {
   const [progress, setProgress] = useState<{ current: number; total: number; stage: string } | null>(null);
@@ -176,12 +177,7 @@ export function SyncProgress() {
               {/* Fake Hex Dump background */}
               <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-end opacity-20">
                 <div className="select-none break-all font-mono text-[9px] text-zinc-700 leading-tight">
-                  {/* Hex dump pattern is static to avoid React impurity on render */}
-                  {'0123456789ABCDEF'
-                    .repeat(50)
-                    .split('')
-                    .map((_, i) => (i % 2 === 0 ? '1' : '0'))
-                    .join('')}
+                  {HEX_BINARY_PATTERN}
                 </div>
               </div>
 
