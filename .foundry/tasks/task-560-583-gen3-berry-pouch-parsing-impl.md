@@ -30,6 +30,6 @@ To build the Pokéblock Recipe Optimizer, we first need to extract the current s
 Implement backend save parsing logic to accurately read the Gen 3 berry pouch inventory.
 
 ## Acceptance Criteria
-- [ ] Implement backend save parsing logic to accurately read the Gen 3 berry pouch inventory.
-- [ ] Adhere to the PokeData Property Naming Schema (full, readable property names).
-- [ ] Pass and utilize the resolved section offset (e.g., `section1Offset`) to support A/B bank flash memory architecture.
+- [x] Implement backend save parsing logic to accurately read the Gen 3 berry pouch inventory.
+- [x] Adhere to the PokeData Property Naming Schema (full, readable property names).
+- [x] Pass and utilize the resolved section offset (e.g., `section1Offset`) to support A/B bank flash memory architecture.
