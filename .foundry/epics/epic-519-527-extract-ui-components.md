@@ -30,5 +30,11 @@ This epic focuses on moving generic UI components, design tokens, and hooks into
 - Set up necessary bundling and styling configuration for the UI package.
 
 ## Acceptance Criteria
-- [ ] Break this epic down into stories for migrating the UI component library.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [ ] story-527-638-setup-ui-package
+- [ ] story-527-639-migrate-tactical-primitives
+- [ ] story-527-640-migrate-complex-components
+- [ ] story-527-641-migrate-decorations
+- [ ] story-527-642-refactor-app-imports
+- [ ] story-527-643-ui-e2e-verification
+- [x] Break this epic down into stories for migrating the UI component library.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification
