@@ -2,12 +2,12 @@
 id: adr-599-638-dynamic-data-hydration
 type: ADR
 title: 'ADR 028: Runtime Hydration for Parsed Save Data vs Static Pipeline'
-status: READY
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-09-30'
-updated_at: '2026-09-30'
+updated_at: '2026-10-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12770362291583337954'
 pr_number: null
 parent: research-599-633-investigate-dynamic-berry-data
 tags:

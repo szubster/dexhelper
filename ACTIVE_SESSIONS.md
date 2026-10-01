@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [adr-599-638-dynamic-data-hydration](.foundry/docs/adrs/adr-599-638-dynamic-data-hydration.md) | ADR | ADR 028: Runtime Hydration for Parsed Save Data vs Static Pipeline | architect | [12770362291583337954](https://jules.google.com/session/12770362291583337954) |
 | [epic-565-570-agent-confidence-metrics-orchestrator](.foundry/epics/epic-565-570-agent-confidence-metrics-orchestrator.md) | EPIC | Implement Orchestrator Interventions for Confidence Metrics | story_owner | [2559143495221310348](https://jules.google.com/session/2559143495221310348) |
 | [epic-565-571-agent-confidence-metrics-dashboard-ui](.foundry/epics/epic-565-571-agent-confidence-metrics-dashboard-ui.md) | EPIC | Implement Dashboard UI for Confidence Metrics | story_owner | [14199080363037592986](https://jules.google.com/session/14199080363037592986) |
 | [epic-565-572-agent-confidence-metrics-agent-capability](.foundry/epics/epic-565-572-agent-confidence-metrics-agent-capability.md) | EPIC | Implement Agent Capability for Confidence Metrics | story_owner | [14102121182706043219](https://jules.google.com/session/14102121182706043219) |
