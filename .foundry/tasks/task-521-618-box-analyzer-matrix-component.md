@@ -30,8 +30,8 @@ Implement the tabular matrix component to display grouped Pokémon species and t
 This builds the core visual component that will display the structured Box Analyzer data to the user.
 
 ## Acceptance Criteria
-- [ ] Implement the tabular data grid component for the Box Analyzer.
-- [ ] Render columns for Level, Gender, DVs/IVs, Calculated IV Total/Average, Nature, Hidden Power, and Shininess.
-- [ ] Bind data correctly utilizing the types defined in the prerequisite task.
-- [ ] Adhere to ADR 024 aesthetic rules (sharp edges, dashed borders, monospaced fonts, tactical-utilities).
-- [ ] Write unit tests ensuring component renders correctly.
+- [x] Implement the tabular data grid component for the Box Analyzer.
+- [x] Render columns for Level, Gender, DVs/IVs, Calculated IV Total/Average, Nature, Hidden Power, and Shininess.
+- [x] Bind data correctly utilizing the types defined in the prerequisite task.
+- [x] Adhere to ADR 024 aesthetic rules (sharp edges, dashed borders, monospaced fonts, tactical-utilities).
+- [x] Write unit tests ensuring component renders correctly.
