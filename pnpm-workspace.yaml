@@ -1,27 +1,5 @@
-packages:
-  - "."
-  - "apps/*"
-  - "packages/*"
-  - "tools/*"
-  - ".github/scripts"
-
-minimumReleaseAgeExclude:
-  - "@oxlint-tsgolint/*"
-  - "oxlint-tsgolint"
-  - "serialize-javascript"
-
 allowBuilds:
-  esbuild: true
-  lefthook: true
-  sharp: true
-  msgpackr-extract: true
-  workerd: true
-  '@google/genai': true
-  protobufjs: true
-
-auditConfig:
-  ignoreGhsas:
-    - GHSA-rmmr-r34h-pfm5
-
-overrides:
-  fast-uri: ^3.1.6
+  esbuild: set this to true or false
+  lefthook: set this to true or false
+  msgpackr-extract: set this to true or false
+  workerd: set this to true or false
