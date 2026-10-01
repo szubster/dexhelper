@@ -235,6 +235,7 @@ export interface PokemonMetadata {
   efrm: number[]; // Parent, Grandparent, etc.
   det: CompactEvolutionDetail[]; // Evolutionary requirements to reach THIS pokemon from parent
   em?: Record<number, number[]> | undefined; // Precomputed shortest breeding chains for egg moves: MoveID -> chain of Pokemon IDs
+  tm?: number[] | undefined; // TM/HM move IDs that this Pokemon can learn
 }
 
 export interface MoveMetadata {
