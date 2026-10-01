@@ -30,10 +30,10 @@ Implement parsing of the Gen 2 save state to extract the basic data of the curre
 This task implements the core logic for extracting Bug-Catching Contest data from the save file. This includes defining the offsets, reading the relevant data blocks, and parsing the fields.
 
 ## Acceptance Criteria
-- [ ] research-602-628-gen2-bug-catching-contest-offsets
-- [ ] Define the constants/offsets for the Bug-Catching Contest data block (Species ID, Level, Current HP, Max HP).
-- [ ] Implement the extraction logic in a utility function.
-- [ ] Add unit tests verifying the extraction logic with mock save data.
+- [x] research-602-628-gen2-bug-catching-contest-offsets
+- [x] Define the constants/offsets for the Bug-Catching Contest data block (Species ID, Level, Current HP, Max HP).
+- [x] Implement the extraction logic in a utility function.
+- [x] Add unit tests verifying the extraction logic with mock save data.
 
 ## Execution Blueprint
 1. Locate the correct offset for the Bug-Catching Contest data (usually in SRAM Bank 1).
