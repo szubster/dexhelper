@@ -35,5 +35,5 @@ The Coder has implemented the core engine logic to scan the player's saved state
 - Validate that comprehensive unit tests were written and pass successfully.
 
 ## Acceptance Criteria
-- [ ] qa: Verify the engine implementation for Thief/Covet move analysis.
-- [ ] qa: Confirm unit tests provide adequate coverage and pass.
+- [x] qa: Verify the engine implementation for Thief/Covet move analysis.
+- [x] qa: Confirm unit tests provide adequate coverage and pass.
