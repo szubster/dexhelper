@@ -2,10 +2,10 @@
 id: story-404-478-kurt-apricorn-parsing-logic
 type: STORY
 title: Kurt Apricorn Parsing Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-10-01'
 depends_on:
   - story-404-477-kurt-apricorn-offset-and-constants
 jules_session_id: '8382786666497741185'
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Kurt Apricorn Parsing Logic
 

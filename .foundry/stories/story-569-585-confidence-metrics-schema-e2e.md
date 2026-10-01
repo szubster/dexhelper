@@ -2,10 +2,10 @@
 id: story-569-585-confidence-metrics-schema-e2e
 type: STORY
 title: Integration and E2E Verification for Confidence Metrics Schema
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-20'
-updated_at: '2026-09-29'
+updated_at: '2026-10-01'
 depends_on:
   - story-569-584-confidence-metrics-schema
 jules_session_id: '10895463350495991567'
@@ -35,5 +35,5 @@ This is an exclusive STORY dedicated to Integration and E2E Verification for the
 
 ## Acceptance Criteria
 - [x] Decompose into tasks.
-- [ ] task-585-601-schema-e2e-linters
-- [ ] task-585-602-schema-e2e-tests
+- [x] task-585-601-schema-e2e-linters
+- [x] task-585-602-schema-e2e-tests

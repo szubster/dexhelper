@@ -2,10 +2,10 @@
 id: research-517-518-locate-authentic-mystery-gift-saves
 type: RESEARCH
 title: Locate Authentic Mystery Gift Saves
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-09-16'
-updated_at: '2026-09-30'
+updated_at: '2026-10-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - mystery-gift
   - fixtures
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---

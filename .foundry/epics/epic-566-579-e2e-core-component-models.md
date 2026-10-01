@@ -2,13 +2,13 @@
 id: epic-566-579-e2e-core-component-models
 type: EPIC
 title: E2E Core Component Object Models
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-20'
-updated_at: '2026-09-29'
+updated_at: '2026-10-01'
 depends_on:
   - epic-566-578-e2e-fixtures-setup
-jules_session_id: '167766775965242715'
+jules_session_id: null
 pr_number: null
 parent: prd-525-582-e2e-page-component-object-models
 tags:

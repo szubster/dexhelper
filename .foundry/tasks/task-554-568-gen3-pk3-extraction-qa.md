@@ -2,13 +2,13 @@
 id: task-554-568-gen3-pk3-extraction-qa
 type: TASK
 title: QA Gen 3 PK3 Extraction Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-07'
-updated_at: '2026-09-30'
+updated_at: '2026-10-01'
 depends_on:
   - task-554-567-gen3-pk3-extraction-impl
-jules_session_id: '12757378732098786308'
+jules_session_id: null
 parent: story-530-554-gen3-pk3-extraction
 tags:
   - data

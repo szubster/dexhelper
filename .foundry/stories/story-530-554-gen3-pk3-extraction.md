@@ -2,10 +2,10 @@
 id: story-530-554-gen3-pk3-extraction
 type: STORY
 title: Gen 3 PK3 Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-09-20'
+updated_at: '2026-10-01'
 depends_on: []
 jules_session_id: null
 parent: epic-516-530-pkm-data-extraction-generation
@@ -23,5 +23,5 @@ This story implements the data extraction logic for Gen 3 save files, specifical
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-554-567-gen3-pk3-extraction-impl
-- [ ] task-554-568-gen3-pk3-extraction-qa
+- [x] task-554-567-gen3-pk3-extraction-impl
+- [x] task-554-568-gen3-pk3-extraction-qa
