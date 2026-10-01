@@ -43,4 +43,31 @@ export class BinjgbWrapper implements BinjgbInstance {
     }
     this.module._emulator_reset();
   }
+
+  public extractSaveState(): Uint8Array | null {
+    if (!this.module) {
+      throw new Error('Module not initialized');
+    }
+
+    const fileDataPtr = this.module._ext_ram_file_data_new();
+    if (fileDataPtr === 0) {
+      return null;
+    }
+
+    try {
+      const dataPtr = this.module._get_file_data_ptr(fileDataPtr);
+      const dataSize = this.module._get_file_data_size(fileDataPtr);
+
+      if (dataPtr === 0 || dataSize === 0) {
+        return null;
+      }
+
+      // Create a copy of the data since the WASM memory can change or be freed
+      const saveStateBuffer = new Uint8Array(dataSize);
+      saveStateBuffer.set(this.module.HEAPU8.subarray(dataPtr, dataPtr + dataSize));
+      return saveStateBuffer;
+    } finally {
+      this.module._file_data_delete(fileDataPtr);
+    }
+  }
 }

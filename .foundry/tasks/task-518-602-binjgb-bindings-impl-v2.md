@@ -29,6 +29,6 @@ locks: []
 Implement the javascript bindings to extract the `saveStateBuffer` directly from the `binjgb` emulator's WebAssembly memory space, utilizing the newly discovered WASM exports from the research phase.
 
 ## Acceptance Criteria
-- [ ] Expose an API function to retrieve the raw `saveStateBuffer` array from the `binjgb` WASM instance using the `_ext_ram_file_data_new`, `_get_file_data_ptr`, `_get_file_data_size`, and `_file_data_delete` exports.
-- [ ] Ensure the memory extraction handles active gameplay seamlessly.
-- [ ] Write unit tests for the extraction logic.
+- [x] Expose an API function to retrieve the raw `saveStateBuffer` array from the `binjgb` WASM instance using the `_ext_ram_file_data_new`, `_get_file_data_ptr`, `_get_file_data_size`, and `_file_data_delete` exports.
+- [x] Ensure the memory extraction handles active gameplay seamlessly.
+- [x] Write unit tests for the extraction logic.

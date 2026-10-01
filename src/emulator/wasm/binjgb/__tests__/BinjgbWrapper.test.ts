@@ -16,6 +16,10 @@ describe('BinjgbWrapper', () => {
       _emulator_run: vi.fn<() => void>(),
       _emulator_pause: vi.fn<() => void>(),
       _emulator_reset: vi.fn<() => void>(),
+      _ext_ram_file_data_new: vi.fn<() => number>() as import('vitest').Mock<() => number>,
+      _get_file_data_ptr: vi.fn<(ptr: number) => number>() as import('vitest').Mock<(ptr: number) => number>,
+      _get_file_data_size: vi.fn<(ptr: number) => number>() as import('vitest').Mock<(ptr: number) => number>,
+      _file_data_delete: vi.fn<(ptr: number) => void>() as import('vitest').Mock<(ptr: number) => void>,
     };
   });
 
@@ -75,6 +79,44 @@ describe('BinjgbWrapper', () => {
       wrapper.reset();
       // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(mockModule._emulator_reset).toHaveBeenCalled();
+    });
+
+    describe('extractSaveState', () => {
+      it('returns null if file data ptr is 0', () => {
+        (mockModule._ext_ram_file_data_new as import('vitest').Mock).mockReturnValue(0);
+        const result = wrapper.extractSaveState();
+        expect(result).toBeNull();
+        // eslint-disable-next-line @typescript-eslint/unbound-method
+        expect(mockModule._ext_ram_file_data_new).toHaveBeenCalled();
+        // eslint-disable-next-line @typescript-eslint/unbound-method
+        expect(mockModule._file_data_delete).not.toHaveBeenCalled();
+      });
+
+      it('returns null if data ptr or size is 0', () => {
+        (mockModule._ext_ram_file_data_new as import('vitest').Mock).mockReturnValue(123);
+        (mockModule._get_file_data_ptr as import('vitest').Mock).mockReturnValue(0);
+        (mockModule._get_file_data_size as import('vitest').Mock).mockReturnValue(0);
+
+        const result = wrapper.extractSaveState();
+        expect(result).toBeNull();
+        // eslint-disable-next-line @typescript-eslint/unbound-method
+        expect(mockModule._file_data_delete).toHaveBeenCalledWith(123);
+      });
+
+      it('extracts save state correctly', () => {
+        (mockModule._ext_ram_file_data_new as import('vitest').Mock).mockReturnValue(123);
+        (mockModule._get_file_data_ptr as import('vitest').Mock).mockReturnValue(100);
+        (mockModule._get_file_data_size as import('vitest').Mock).mockReturnValue(3);
+
+        const memory = new Uint8Array(1024);
+        memory.set([1, 2, 3], 100);
+        mockModule.HEAPU8 = memory;
+
+        const result = wrapper.extractSaveState();
+        expect(result).toEqual(new Uint8Array([1, 2, 3]));
+        // eslint-disable-next-line @typescript-eslint/unbound-method
+        expect(mockModule._file_data_delete).toHaveBeenCalledWith(123);
+      });
     });
   });
 });
