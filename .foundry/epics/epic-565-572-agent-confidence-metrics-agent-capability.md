@@ -2,13 +2,13 @@
 id: epic-565-572-agent-confidence-metrics-agent-capability
 type: EPIC
 title: Implement Agent Capability for Confidence Metrics
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-17T01:15:33Z'
 updated_at: '2026-10-01'
 depends_on:
   - epic-565-569-agent-confidence-metrics-schema
-jules_session_id: null
+jules_session_id: '14102121182706043219'
 pr_number: null
 parent: prd-521-565-agent-confidence-metrics-dashboard
 tags:
