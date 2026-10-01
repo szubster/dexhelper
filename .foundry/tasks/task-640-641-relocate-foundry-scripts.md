@@ -2,12 +2,12 @@
 id: task-640-641-relocate-foundry-scripts
 type: TASK
 title: Relocate Foundry Scripts
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '112901104709000242'
 pr_number: null
 parent: story-525-640-relocate-foundry-scripts
 tags:
