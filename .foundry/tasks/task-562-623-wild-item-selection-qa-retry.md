@@ -33,5 +33,5 @@ As part of the Wild Item Hunting UI epic, we need to verify the implementation o
 - Ensure all tests pass (`pnpm lint` and `pnpm test`).
 
 ## Acceptance Criteria
-- [ ] Verify functionality of the Wild Item Selection UI.
-- [ ] Verify adherence to aesthetic guidelines.
+- [x] Verify functionality of the Wild Item Selection UI.
+- [x] Verify adherence to aesthetic guidelines.

@@ -2,13 +2,13 @@
 id: task-279-582-gen3-ignore-emulator-trailing-bytes-impl-v2
 type: TASK
 title: Implement Gen 3 Graceful Ignorance of Emulator Trailing Bytes
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-16T11:12:10Z'
 updated_at: '2026-10-01'
 depends_on:
   - task-279-581-gen3-ignore-emulator-trailing-bytes-fixtures
-jules_session_id: null
+jules_session_id: '14067018340842268396'
 pr_number: null
 parent: story-081-279-gen3-ignore-emulator-trailing-bytes
 tags:
@@ -30,4 +30,4 @@ Implement the core logic for graceful ignorance of emulator trailing bytes for G
 1. Implement core parsing logic and module level constants.
 
 ## Acceptance Criteria
-- [ ] Implementation complete.
+- [x] Implementation complete.

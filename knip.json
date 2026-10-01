@@ -35,7 +35,8 @@
     "src/engine/gen3/contests/constants.ts",
     "src/engine/radar/index.ts",
     "src/engine/saveParser/parsers/common.ts",
-    "src/engine/saveParser/parsers/gen2Constants.ts"
+    "src/engine/saveParser/parsers/gen2Constants.ts",
+    "src/engine/saveParser/gen3/pokemon/parser.ts"
   ],
   "rules": {
     "files": "warn",
