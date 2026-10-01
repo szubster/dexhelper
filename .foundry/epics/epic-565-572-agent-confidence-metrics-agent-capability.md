@@ -2,16 +2,15 @@
 id: epic-565-572-agent-confidence-metrics-agent-capability
 type: EPIC
 title: Implement Agent Capability for Confidence Metrics
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-17T01:15:33Z'
-updated_at: '2026-09-17T01:15:33Z'
+updated_at: '2026-10-01'
 depends_on:
   - epic-565-569-agent-confidence-metrics-schema
 jules_session_id: null
 pr_number: null
 parent: prd-521-565-agent-confidence-metrics-dashboard
-priority: 60
 tags:
   - prompt
   - foundry
@@ -20,6 +19,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+priority: 60
 ---
 
 # Implement Agent Capability for Confidence Metrics

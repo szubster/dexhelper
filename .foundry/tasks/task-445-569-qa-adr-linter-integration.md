@@ -2,10 +2,10 @@
 id: task-445-569-qa-adr-linter-integration
 type: TASK
 title: QA Verification of ADR Linter Integration
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-10'
-updated_at: '2026-09-10'
+updated_at: '2026-10-01'
 depends_on:
   - task-445-568-impl-linter-script-integration
 jules_session_id: null
@@ -20,7 +20,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-445-568-impl-linter-script-integration
 notes: ''
 locks: []
 ---

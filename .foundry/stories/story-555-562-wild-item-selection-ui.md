@@ -2,10 +2,10 @@
 id: story-555-562-wild-item-selection-ui
 type: STORY
 title: Wild Item Selection UI
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-28'
+updated_at: '2026-10-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,7 +36,7 @@ As part of the Wild Item Hunting UI epic, we need a user interface for users to 
 - [x] task-562-579-wild-item-selection-ui
 - [x] task-562-580-wild-item-selection-tests
 - [x] task-562-581-wild-item-selection-qa
-- [ ] research-562-620-investigate-wild-item-ui-failure
-- [ ] task-562-621-wild-item-selection-ui-retry
-- [ ] task-562-622-wild-item-selection-tests-retry
-- [ ] task-562-623-wild-item-selection-qa-retry
+- [x] research-562-620-investigate-wild-item-ui-failure
+- [x] task-562-621-wild-item-selection-ui-retry
+- [x] task-562-622-wild-item-selection-tests-retry
+- [x] task-562-623-wild-item-selection-qa-retry

@@ -2,12 +2,12 @@
 id: research-531-620-investigate-mgba-memory-sync-failure
 type: RESEARCH
 title: Investigate mGBA Core Memory Sync Logic Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-24'
 updated_at: '2026-10-01'
 depends_on: []
-jules_session_id: '14740148166916028015'
+jules_session_id: null
 pr_number: null
 parent: story-427-531-mgba-memory-sync
 tags:
@@ -18,7 +18,9 @@ tags:
   - memory
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

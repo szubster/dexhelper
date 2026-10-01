@@ -2,12 +2,12 @@
 id: research-599-633-investigate-dynamic-berry-data
 type: RESEARCH
 title: Investigate Discrepancy Between Dynamic Gen 3 Berry Data and Static Pipeline
-status: ACTIVE
+status: PENDING
 owner_persona: researcher
 created_at: '2026-09-29'
-updated_at: '2026-09-30'
+updated_at: '2026-10-01'
 depends_on: []
-jules_session_id: '11977090110561169550'
+jules_session_id: null
 pr_number: null
 parent: task-537-599-gen3-berry-pipeline-integration
 rejection_count: 0

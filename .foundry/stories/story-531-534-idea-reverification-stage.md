@@ -2,10 +2,10 @@
 id: story-531-534-idea-reverification-stage
 type: STORY
 title: IDEA Re-Verification Stage Implementation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-09-04'
+updated_at: '2026-10-01'
 depends_on:
   - story-531-533-orchestrator-trigger-logic-updates
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: story-553-563-thief-covet-engine-logic
 type: STORY
 title: Engine Logic for Thief/Covet Move Analysis
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-19'
+updated_at: '2026-10-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,6 +33,6 @@ As part of the Thief/Covet Team Optimizer epic, we need the core engine logic to
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks.
-- [ ] task-563-586-thief-covet-engine-logic-core
-- [ ] task-563-587-thief-covet-engine-logic-tests
-- [ ] task-563-588-qa-thief-covet-engine-logic
+- [x] task-563-586-thief-covet-engine-logic-core
+- [x] task-563-587-thief-covet-engine-logic-tests
+- [x] task-563-588-qa-thief-covet-engine-logic

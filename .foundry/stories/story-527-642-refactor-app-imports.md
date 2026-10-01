@@ -2,10 +2,10 @@
 id: story-527-642-refactor-app-imports
 type: STORY
 title: Refactor Dexhelper Application Imports
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-09-30'
+updated_at: '2026-10-01'
 depends_on:
   - story-527-640-migrate-complex-components
   - story-527-641-migrate-decorations
