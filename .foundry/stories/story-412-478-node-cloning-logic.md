@@ -33,7 +33,12 @@ Implement logic to clone nodes for different variants and adjust prompts accordi
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] task-478-506-orchestrator-cloning-types
-- [ ] task-478-507-orchestrator-cloning-logic
-- [ ] task-478-508-orchestrator-prompt-adaptation
-- [ ] task-478-509-orchestrator-cloning-tests
-- [ ] task-478-510-orchestrator-cloning-qa
+- [x] task-478-507-orchestrator-cloning-logic
+- [x] task-478-508-orchestrator-prompt-adaptation
+- [x] task-478-509-orchestrator-cloning-tests
+- [x] task-478-510-orchestrator-cloning-qa
+- [ ] research-478-638-investigate-cloning-logic-failure
+- [ ] task-478-639-orchestrator-cloning-logic-retry
+- [ ] task-478-640-orchestrator-prompt-adaptation-retry
+- [ ] task-478-641-orchestrator-cloning-tests-retry
+- [ ] task-478-642-orchestrator-cloning-qa-retry
