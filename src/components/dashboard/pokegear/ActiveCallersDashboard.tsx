@@ -1,6 +1,7 @@
 import { GEN2_PHONE_CALLER_REGISTRY } from '../../../engine/saveParser/parsers/gen2/phone/constants';
 import type { Contact, TimerState } from '../../../engine/saveParser/parsers/gen2/phone/predictor';
 import { CornerCrosshairs } from '../../CornerCrosshairs';
+import { TacticalHeaderDivider } from '../../TacticalHeaderDivider';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 import { TacticalCallerCard } from './TacticalCallerCard';
@@ -22,7 +23,7 @@ export function ActiveCallersDashboard({ contacts, timerState }: ActiveCallersDa
       >
         <TelemetryDecoration label="SYS.SIGNAL_INTERCEPT" className="-top-[17px] left-[-1px]" />
 
-        <div className="flex items-center justify-between border-zinc-800 border-b border-dashed pb-2">
+        <TacticalHeaderDivider>
           <span className="tactical-text z-10 font-black text-lg text-white">ACTIVE CALLERS MATRIX</span>
           <div className="z-10 flex items-center gap-2">
             <span className="tactical-text text-[10px] text-zinc-500">[ FREQUENCY_STATUS ]</span>
@@ -32,7 +33,7 @@ export function ActiveCallersDashboard({ contacts, timerState }: ActiveCallersDa
               {isCoolingDown ? 'COOLING_DOWN' : 'ACTIVE'}
             </span>
           </div>
-        </div>
+        </TacticalHeaderDivider>
 
         {contacts.length === 0 ? (
           <div className="tactical-panel z-10 flex flex-col items-center justify-center border-2 border-zinc-800 bg-black/40 p-12">
