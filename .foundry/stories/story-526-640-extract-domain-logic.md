@@ -23,4 +23,8 @@ locks: []
 # Extract pure JS/TS domain logic to core package
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-640-641-create-core-package-infrastructure
+- [ ] task-640-642-extract-core-domain-logic
+- [ ] task-640-643-update-app-imports
+- [ ] task-640-644-qa-core-domain-extraction
