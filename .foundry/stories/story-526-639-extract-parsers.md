@@ -23,4 +23,8 @@ locks: []
 # Extract save file parsers to core package
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-639-641-extract-base-save-parsers
+- [ ] task-639-642-extract-generation-parsers
+- [ ] task-639-643-integrate-core-parsers
+- [ ] task-639-644-qa-parser-extraction
