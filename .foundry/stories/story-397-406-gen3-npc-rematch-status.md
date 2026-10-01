@@ -33,9 +33,13 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer Epic, we need to track 
 - Ensure strict adherence to Section 13 of `.foundry/docs/schema.md` (Save File Parsing & Extraction Guidelines).
 
 ## Acceptance Criteria
+- [ ] research-406-638-investigate-gen3-rematch-e2e-failure
+- [ ] task-406-639-gen3-rematch-e2e-impl-retry
+- [ ] task-406-640-gen3-rematch-qa-retry
+- [ ] task-406-641-gen3-rematch-integration-e2e-impl-retry
 - [x] Tech Lead: Break down into actionable TASK nodes (Coder/QA as needed).
 - [ ] task-406-526-gen3-rematch-parser-impl
 - [ ] task-406-527-gen3-rematch-ui-impl
-- [ ] task-406-528-gen3-rematch-e2e-impl
-- [ ] task-406-529-gen3-rematch-qa
-- [ ] task-406-530-gen3-rematch-integration-e2e-impl
+- [x] task-406-528-gen3-rematch-e2e-impl
+- [x] task-406-529-gen3-rematch-qa
+- [x] task-406-530-gen3-rematch-integration-e2e-impl
