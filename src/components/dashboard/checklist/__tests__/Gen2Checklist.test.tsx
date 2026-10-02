@@ -37,6 +37,12 @@ describe('Gen2Checklist', () => {
             fridayLapras: false,
             bugCatchingContest: true,
           },
+          gen2NarrativeFlags: {
+            EVENT_RIVAL_CHERRYGROVE_CITY: true,
+            EVENT_BEAT_FALKNER: true,
+            EVENT_RIVAL_AZALEA_TOWN: false,
+            EVENT_BEAT_BUGSY: false,
+          },
         },
       };
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -49,6 +55,32 @@ describe('Gen2Checklist', () => {
         <Gen2Checklist />
       </EmulatorProvider>,
     );
+
+    await expect.element(page.getByText('NARRATIVE EVENTS')).toBeInTheDocument();
+
+    // Completed events
+    await expect.element(page.getByText('RIVAL (CHERRYGROVE)')).toBeInTheDocument();
+    await expect.element(page.getByText('RIVAL (CHERRYGROVE)')).toHaveClass('line-through');
+    await expect.element(page.getByText('FALKNER')).toBeInTheDocument();
+    await expect.element(page.getByText('FALKNER')).toHaveClass('line-through');
+
+    // Upcoming event (interactive)
+    await expect.element(page.getByText('RIVAL (AZALEA)')).toBeInTheDocument();
+    await expect.element(page.getByText('RIVAL (AZALEA)')).not.toHaveClass('line-through');
+
+    // In Vitest browser, the class 'hover:bg-zinc-900/50' is applied to the root element.
+    const rivalAzaleaEl = page.getByText('RIVAL (AZALEA)');
+    await expect
+      .element(rivalAzaleaEl.element().parentElement?.parentElement?.parentElement as HTMLElement)
+      .toHaveClass(/hover:bg-zinc-900\/50/);
+
+    // Future event (unavailable/opacity-50)
+    await expect.element(page.getByText('BUGSY')).toBeInTheDocument();
+    await expect.element(page.getByText('BUGSY')).not.toHaveClass('line-through');
+    const bugsyEl = page.getByText('BUGSY');
+    await expect
+      .element(bugsyEl.element().parentElement?.parentElement?.parentElement as HTMLElement)
+      .toHaveClass(/opacity-50/);
 
     await expect.element(page.getByText('STATIC ENCOUNTERS')).toBeInTheDocument();
     await expect.element(page.getByText('SUDOWOODO')).toBeInTheDocument();
