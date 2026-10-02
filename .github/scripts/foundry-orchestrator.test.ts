@@ -3410,6 +3410,7 @@ Target artifact: task-completed
     });
 
     const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const stderrSpy = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
 
     process.argv.push('--include-prompt');
     main();
@@ -3422,7 +3423,12 @@ Target artifact: task-completed
     expect(parsedOutput).toHaveLength(1);
     expect(parsedOutput[0].compiled_prompt).toContain('As the coder of The Foundry, your task is described in the provided node file.');
 
+    expect(stderrSpy).toHaveBeenCalled();
+    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('Base persona prompt not found for: coder, using default generic prompt.'));
+    expect(warningMsg).toBeDefined();
+
     consoleSpy.mockRestore();
+    stderrSpy.mockRestore();
   });
 
   test('Prompt Compilation: deduplicates tags and layers ignoring case', () => {
@@ -3516,6 +3522,28 @@ Target artifact: task-completed
     expect(compiledOutput).toContain('CORE_POLICIES_SCHEDULED_CONTENT');
 
     stdoutSpy.mockRestore();
+  });
+
+  test('Prompt Compilation: uses hardcoded generic scheduled prompt and warns if missing', () => {
+    fs.mkdirSync(path.join(tmpDir, '.github/agents'), { recursive: true });
+
+    const stdoutSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+    const stderrSpy = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+
+    process.argv.push('--compile-scheduled', 'tpm');
+    main();
+    process.argv.splice(process.argv.indexOf('--compile-scheduled'), 2);
+
+    expect(stdoutSpy).toHaveBeenCalled();
+    const compiledOutput = stdoutSpy.mock.calls[0][0] as string;
+    expect(compiledOutput).toContain('As the tpm of The Foundry, your task is to execute your scheduled responsibilities.');
+
+    expect(stderrSpy).toHaveBeenCalled();
+    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('Scheduled agent persona prompt not found for: tpm, using default generic prompt.'));
+    expect(warningMsg).toBeDefined();
+
+    stdoutSpy.mockRestore();
+    stderrSpy.mockRestore();
   });
 
   test('Regression: Downstream ADR referencing research node ID in body while depending on it does not deadlock research node', () => {
