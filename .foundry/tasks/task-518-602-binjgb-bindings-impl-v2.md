@@ -2,13 +2,13 @@
 id: task-518-602-binjgb-bindings-impl-v2
 type: TASK
 title: Implement Javascript bindings for binjgb save extraction v2
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-20'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on:
   - research-528-569-investigate-binjgb-save-exports
-jules_session_id: '941462802603562062'
+jules_session_id: null
 pr_number: null
 parent: story-426-518-binjgb-memory-sync
 tags:

@@ -2,12 +2,12 @@
 id: story-088-637-vite-jsonl-plugin-update
 type: STORY
 title: Update Vite Plugin for JSONL Data
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: '14994663735748679857'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: epic-049-088-vite-plugin-jsonl-integration

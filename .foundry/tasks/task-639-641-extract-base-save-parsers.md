@@ -2,7 +2,7 @@
 id: task-639-641-extract-base-save-parsers
 type: TASK
 title: Extract base save parsers and utilities to core package
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-02'
@@ -15,8 +15,8 @@ tags:
   - monorepo
   - pnpm
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

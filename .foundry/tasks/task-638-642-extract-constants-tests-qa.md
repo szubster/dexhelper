@@ -2,10 +2,10 @@
 id: task-638-642-extract-constants-tests-qa
 type: TASK
 title: Verify Constants Extraction to Core Package
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on:
   - task-638-641-extract-constants-to-core
 jules_session_id: null

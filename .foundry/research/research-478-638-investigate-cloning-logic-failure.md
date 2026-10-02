@@ -2,12 +2,12 @@
 id: research-478-638-investigate-cloning-logic-failure
 type: RESEARCH
 title: Investigate DAG Node Cloning Logic Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-16'
 updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: '7101778091229588232'
+jules_session_id: null
 pr_number: null
 parent: story-412-478-node-cloning-logic
 tags:
@@ -15,7 +15,9 @@ tags:
   - research
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

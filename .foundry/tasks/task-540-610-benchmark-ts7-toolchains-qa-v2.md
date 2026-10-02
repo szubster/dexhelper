@@ -2,10 +2,10 @@
 id: task-540-610-benchmark-ts7-toolchains-qa-v2
 type: TASK
 title: QA Benchmark TS 7.x Toolchains V2
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-10-02'
 depends_on:
   - task-540-609-benchmark-runner-script-coder-v2
 jules_session_id: null

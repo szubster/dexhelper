@@ -2,10 +2,10 @@
 id: story-534-559-rag-dynamic-querying-retrieval
 type: STORY
 title: Implement Dynamic Querying and Chunk Retrieval Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-09-07'
+updated_at: '2026-10-02'
 depends_on:
   - story-534-558-rag-tooling-and-indexing
 jules_session_id: null
