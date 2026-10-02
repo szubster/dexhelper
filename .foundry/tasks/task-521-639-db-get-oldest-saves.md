@@ -29,5 +29,5 @@ Implement a `getOldestSaves(playthroughId: string, limit: number): Promise<strin
 To enforce the maximum limit (50), we must identify the oldest save(s) (by timestamp, in ascending order) so they can be deleted when a new save exceeds the limit.
 
 ## Acceptance Criteria
-- [ ] Implement `getOldestSaves` function returning an array of IDs.
-- [ ] Add unit tests in `historyDb.test.ts` to verify oldest saves retrieval.
+- [x] Implement `getOldestSaves` function returning an array of IDs.
+- [x] Add unit tests in `historyDb.test.ts` to verify oldest saves retrieval.
