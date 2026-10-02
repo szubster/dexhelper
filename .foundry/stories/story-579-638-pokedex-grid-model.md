@@ -2,12 +2,12 @@
 id: story-579-638-pokedex-grid-model
 type: STORY
 title: Implement PokedexGridModel COM
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-29'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: '7452981035310043391'
+jules_session_id: null
 pr_number: null
 parent: epic-566-579-e2e-core-component-models
 tags:

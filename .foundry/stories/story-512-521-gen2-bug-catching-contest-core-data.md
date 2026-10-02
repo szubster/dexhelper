@@ -2,10 +2,10 @@
 id: story-512-521-gen2-bug-catching-contest-core-data
 type: STORY
 title: Gen 2 Bug-Catching Contest Core Data Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-30'
+updated_at: '2026-10-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,5 +28,5 @@ This story focuses on parsing the Gen 2 save state to extract the basic data of 
 
 ## Acceptance Criteria
 - [x] Break down into Tasks.
-- [ ] task-521-602-gen2-bug-catching-contest-core-data-impl
-- [ ] task-521-603-gen2-bug-catching-contest-core-data-qa
+- [x] task-521-602-gen2-bug-catching-contest-core-data-impl
+- [x] task-521-603-gen2-bug-catching-contest-core-data-qa

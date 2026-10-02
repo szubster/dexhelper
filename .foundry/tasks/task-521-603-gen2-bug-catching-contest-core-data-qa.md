@@ -2,13 +2,13 @@
 id: task-521-603-gen2-bug-catching-contest-core-data-qa
 type: TASK
 title: Gen 2 Bug-Catching Contest Core Data QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-19'
 updated_at: '2026-10-02'
 depends_on:
   - task-521-602-gen2-bug-catching-contest-core-data-impl
-jules_session_id: '9141773962574226451'
+jules_session_id: null
 pr_number: null
 parent: story-512-521-gen2-bug-catching-contest-core-data
 tags:

@@ -2,7 +2,7 @@
 id: task-563-594-gen3-pokeblock-optimizer-ui-components
 type: TASK
 title: Gen 3 Pokéblock Optimizer UI Components
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-19'
 updated_at: '2026-10-02'
@@ -16,8 +16,8 @@ tags:
   - ui
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
