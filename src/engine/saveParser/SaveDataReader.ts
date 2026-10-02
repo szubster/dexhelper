@@ -92,6 +92,9 @@ export class SaveDataReader implements ISaveDataReader {
   }
 
   readBits(offset: number, bitOffset: number, bitLength: number): number {
+    if (bitOffset < 0 || bitLength < 0 || bitLength > 32) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
     return this.executeRead(() => {
       const BITS_PER_BYTE = 8;
       let result = 0;
@@ -103,7 +106,7 @@ export class SaveDataReader implements ISaveDataReader {
         const bit = (byte >> bitIndex) & 1;
         result |= bit << i;
       }
-      return result;
+      return result >>> 0;
     });
   }
 

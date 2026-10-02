@@ -30,6 +30,6 @@ locks: []
 Perform Quality Assurance verification on the \`SaveDataReader\` bitwise helpers implementation.
 
 ## Acceptance Criteria
-- [ ] Verify \`readBits\` and \`readFlag\` helper methods in \`SaveDataReader\` are implemented correctly.
-- [ ] Verify bounds checking and shifts are handled correctly.
-- [ ] Ensure unit tests pass and provide adequate coverage.
+- [x] Verify `readBits` and `readFlag` helper methods in `SaveDataReader` are implemented correctly.
+- [x] Verify bounds checking and shifts are handled correctly.
+- [x] Ensure unit tests pass and provide adequate coverage.
