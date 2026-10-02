@@ -1,0 +1,16 @@
+{
+  "name": "@dexhelper/vite-plugins",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "dependencies": {
+    "vite": "^8.3.0",
+    "@11ty/gray-matter": "^3.0.0"
+  },
+  "devDependencies": {
+    "@dexhelper/config": "workspace:*",
+    "@types/node": "^22.0.0",
+    "typescript": "~5.5.4"
+  }
+}

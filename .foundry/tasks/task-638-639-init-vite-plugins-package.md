@@ -25,4 +25,4 @@ locks: []
 Create the `@dexhelper/vite-plugins` package in `packages/vite-plugins`, complete with `package.json`, `tsconfig.json`, and required dependencies (`vite`, `gray-matter`, `fast-glob`, etc.).
 
 ## Acceptance Criteria
-- [ ] Implement Initialize @dexhelper/vite-plugins package
+- [x] Implement Initialize @dexhelper/vite-plugins package
