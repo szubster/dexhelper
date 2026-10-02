@@ -3,40 +3,109 @@ import type React from 'react';
 import { useRef } from 'react';
 import { cn } from '../utils/cn';
 
+import { CornerCrosshairs } from './CornerCrosshairs';
 import { HardwareScrews } from './HardwareScrews';
+import { ScanlineOverlay } from './ScanlineOverlay';
 
 export const tacticalSegmentedItemVariants = cva(
-  'tactical-badge flex-1 border border-zinc-950 px-2 py-2.5 transition-all duration-75',
+  'tactical-badge relative flex-1 border border-dashed border-zinc-950 px-2.5 py-2 transition-all duration-150 overflow-hidden group',
   {
     variants: {
       active: {
-        true: 'bg-zinc-950 shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)] text-[var(--theme-primary)] translate-y-[2px] border-t-zinc-950 border-b-zinc-800',
+        true: 'bg-zinc-950 shadow-[inset_0_4px_12px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.05)] translate-y-[1px]',
         false:
-          'bg-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300 border-t-zinc-700 border-b-zinc-950',
+          'bg-zinc-900/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200 border-zinc-800',
+      },
+      variant: {
+        default: '',
+        emerald: '',
+        amber: '',
+        blue: '',
+        red: '',
+        purple: '',
       },
     },
+    compoundVariants: [
+      {
+        active: true,
+        variant: 'default',
+        className: 'border-t-zinc-950 border-b-zinc-800 text-[var(--theme-primary)] border-[var(--theme-primary)]/40',
+      },
+      {
+        active: true,
+        variant: 'emerald',
+        className:
+          'border-t-zinc-950 border-b-emerald-950 text-emerald-400 border-emerald-500/50 shadow-[0_0_10px_rgba(16,185,129,0.25)]',
+      },
+      {
+        active: true,
+        variant: 'amber',
+        className:
+          'border-t-zinc-950 border-b-amber-950 text-amber-400 border-amber-500/50 shadow-[0_0_10px_rgba(245,158,11,0.25)]',
+      },
+      {
+        active: true,
+        variant: 'blue',
+        className:
+          'border-t-zinc-950 border-b-blue-950 text-blue-400 border-blue-500/50 shadow-[0_0_10px_rgba(59,130,246,0.25)]',
+      },
+      {
+        active: true,
+        variant: 'red',
+        className:
+          'border-t-zinc-950 border-b-red-950 text-red-400 border-red-500/50 shadow-[0_0_10px_rgba(239,68,68,0.25)]',
+      },
+      {
+        active: true,
+        variant: 'purple',
+        className:
+          'border-t-zinc-950 border-b-purple-950 text-purple-400 border-purple-500/50 shadow-[0_0_10px_rgba(168,85,247,0.25)]',
+      },
+    ],
     defaultVariants: {
       active: false,
+      variant: 'default',
     },
   },
 );
 
-interface SegmentedControlItem<T extends string | number | readonly string[]>
+const ledVariantStyles = {
+  default: 'bg-[var(--theme-primary)] shadow-[0_0_6px_var(--theme-primary)]',
+  emerald: 'bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.8)]',
+  amber: 'bg-amber-400 shadow-[0_0_6px_rgba(251,191,36,0.8)]',
+  blue: 'bg-blue-400 shadow-[0_0_6px_rgba(96,165,250,0.8)]',
+  red: 'bg-red-400 shadow-[0_0_6px_rgba(248,113,113,0.8)]',
+  purple: 'bg-purple-400 shadow-[0_0_6px_rgba(192,132,252,0.8)]',
+};
+
+const crosshairVariantStyles = {
+  default: 'border-[var(--theme-primary)]/50',
+  emerald: 'border-emerald-500/50',
+  amber: 'border-amber-500/50',
+  blue: 'border-blue-500/50',
+  red: 'border-red-500/50',
+  purple: 'border-purple-500/50',
+};
+
+export interface SegmentedControlItem<T extends string | number | readonly string[]>
   extends Omit<VariantProps<typeof tacticalSegmentedItemVariants>, 'active'> {
   id: T;
   label: React.ReactNode;
+  sublabel?: React.ReactNode;
   ariaLabel?: string;
   activeClassName?: string;
   inactiveClassName?: string;
   className?: string;
   disabled?: boolean;
   testId?: string;
+  codeTag?: string;
 }
 
-interface TacticalSegmentedControlProps<T extends string | number | readonly string[]> {
+export interface TacticalSegmentedControlProps<T extends string | number | readonly string[]> {
   items: SegmentedControlItem<T>[];
   selectedValue: T;
   onValueChange: (value: T) => void;
+  variant?: 'default' | 'emerald' | 'amber' | 'blue' | 'red' | 'purple';
   ariaLabel?: string;
   legendLabel?: string;
   containerClassName?: string;
@@ -51,12 +120,13 @@ export function TacticalSegmentedControl<T extends string | number | readonly st
   items,
   selectedValue,
   onValueChange,
+  variant = 'default',
   ariaLabel,
   legendLabel,
   containerClassName,
   buttonBaseClassName,
-  defaultActiveClassName = 'bg-zinc-950 shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)] text-[var(--theme-primary)] translate-y-[2px] border-t-zinc-950 border-b-zinc-800',
-  defaultInactiveClassName = 'bg-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300 border-t-zinc-700 border-b-zinc-950',
+  defaultActiveClassName,
+  defaultInactiveClassName,
 }: TacticalSegmentedControlProps<T>) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -96,13 +166,17 @@ export function TacticalSegmentedControl<T extends string | number | readonly st
       {legendLabel && (
         <>
           <legend className="sr-only">{ariaLabel || legendLabel}</legend>
-          <span className="tactical-text text-[9px] text-zinc-500">{legendLabel}</span>
+          <div className="flex items-center justify-between px-0.5">
+            <span className="tactical-text font-bold text-[9px] text-zinc-500 tracking-widest">{legendLabel}</span>
+            <span className="font-mono text-[8px] text-zinc-600">[CH.SEL]</span>
+          </div>
         </>
       )}
       {!legendLabel && ariaLabel && <legend className="sr-only">{ariaLabel}</legend>}
 
-      <div className="relative border border-zinc-700 bg-zinc-900 p-2 shadow-[inset_0_0_15px_rgba(0,0,0,0.8),0_2px_4px_rgba(0,0,0,0.5)]">
+      <div className="relative border border-zinc-800 border-dashed bg-zinc-950/90 p-2 shadow-[inset_0_0_20px_rgba(0,0,0,0.9),0_2px_8px_rgba(0,0,0,0.6)]">
         <HardwareScrews />
+        <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-700/60" />
 
         <div
           ref={containerRef}
@@ -114,17 +188,10 @@ export function TacticalSegmentedControl<T extends string | number | readonly st
         >
           {items.map((item) => {
             const isActive = selectedValue === item.id;
+            const itemVariant = item.variant || variant;
 
-            const defaultActive =
-              'bg-zinc-950 shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)] text-[var(--theme-primary)] translate-y-[2px] border-t-zinc-950 border-b-zinc-800';
-            const defaultInactive =
-              'bg-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300 border-t-zinc-700 border-b-zinc-950';
-
-            const activeClass =
-              item.activeClassName ?? (defaultActiveClassName !== defaultActive ? defaultActiveClassName : undefined);
-            const inactiveClass =
-              item.inactiveClassName ??
-              (defaultInactiveClassName !== defaultInactive ? defaultInactiveClassName : undefined);
+            const activeClass = item.activeClassName ?? defaultActiveClassName;
+            const inactiveClass = item.inactiveClassName ?? defaultInactiveClassName;
 
             const customOverrideClass = isActive ? activeClass : inactiveClass;
 
@@ -143,17 +210,41 @@ export function TacticalSegmentedControl<T extends string | number | readonly st
                 disabled={item.disabled}
                 data-testid={item.testId}
                 className={cn(
-                  tacticalSegmentedItemVariants({ active: isActive }),
+                  tacticalSegmentedItemVariants({ active: isActive, variant: itemVariant }),
                   customOverrideClass,
                   buttonBaseClassName,
                   item.className,
                 )}
               >
-                <div className="flex items-center justify-center gap-1.5">
-                  {isActive && (
-                    <div className="h-1.5 w-1.5 rounded-full bg-[var(--theme-primary)] shadow-[0_0_5px_var(--theme-primary)]" />
+                {isActive && (
+                  <>
+                    <ScanlineOverlay opacityClass="opacity-15" />
+                    <CornerCrosshairs
+                      className={cn('h-1 w-1', crosshairVariantStyles[itemVariant] || crosshairVariantStyles.default)}
+                    />
+                  </>
+                )}
+
+                <div className="relative z-10 flex w-full flex-col items-center justify-center gap-0.5">
+                  <div className="flex items-center justify-center gap-1.5">
+                    {isActive ? (
+                      <div
+                        className={cn(
+                          'h-1.5 w-1.5 shrink-0 animate-pulse rounded-full',
+                          ledVariantStyles[itemVariant] || ledVariantStyles.default,
+                        )}
+                      />
+                    ) : (
+                      <div className="h-1 w-1 shrink-0 rounded-full bg-zinc-700" />
+                    )}
+                    <span className="whitespace-nowrap font-mono">{item.label}</span>
+                    {item.codeTag && (
+                      <span className="font-mono text-[8px] text-zinc-500 uppercase">[{item.codeTag}]</span>
+                    )}
+                  </div>
+                  {item.sublabel && (
+                    <span className="font-mono text-[8px] text-zinc-500 tracking-normal">{item.sublabel}</span>
                   )}
-                  {item.label}
                 </div>
               </button>
             );
