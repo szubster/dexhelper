@@ -31,9 +31,9 @@ Verify the parsing of the Gen 2 save state to extract the basic data of the curr
 This task verifies that the implementation correctly extracts the data and that the tests are thorough.
 
 ## Acceptance Criteria
-- [ ] Verify the constants/offsets match the schema documentation.
-- [ ] Verify the unit tests accurately cover both success and edge cases (e.g., empty buffer).
-- [ ] Verify the implementation follows the schema guidelines (e.g., catching RangeError).
+- [x] Verify the constants/offsets match the schema documentation.
+- [x] Verify the unit tests accurately cover both success and edge cases (e.g., empty buffer).
+- [x] Verify the implementation follows the schema guidelines (e.g., catching RangeError).
 
 ## Execution Blueprint
 1. Review the changes to ensure compliance with Section 13 of `.foundry/docs/schema.md`.
