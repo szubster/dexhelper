@@ -2,13 +2,13 @@
 id: task-638-646-qa-init-ui-package
 type: TASK
 title: 'QA: Verify @dexhelper/ui Package Structure'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-01'
 updated_at: '2026-10-02'
 depends_on:
   - task-638-645-init-ui-package
-jules_session_id: null
+jules_session_id: '9110339236255625310'
 pr_number: null
 parent: story-527-638-setup-ui-package
 tags:
