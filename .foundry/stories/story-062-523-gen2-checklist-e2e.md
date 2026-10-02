@@ -2,10 +2,10 @@
 id: story-062-523-gen2-checklist-e2e
 type: STORY
 title: Gen 2 Checklist E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-04'
+updated_at: '2026-10-02'
 depends_on:
   - story-062-522-gen2-checklist-integration
 jules_session_id: null

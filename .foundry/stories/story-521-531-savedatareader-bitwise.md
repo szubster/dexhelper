@@ -2,10 +2,10 @@
 id: story-521-531-savedatareader-bitwise
 type: STORY
 title: SaveDataReader Bitwise Helpers Implementation
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-29'
+updated_at: '2026-10-02'
 depends_on:
   - story-521-530-savedatareader-core
 jules_session_id: null
@@ -29,10 +29,10 @@ locks: []
 This story extends the `SaveDataReader` core implementation to include high-level bitwise helpers. These methods (e.g., `readBits`, `readFlag`) will simplify binary flag extractions from the raw save data without requiring error-prone manual shifting and masking scattered throughout the parser logic.
 
 ## Acceptance Criteria
-- [ ] Add `readBits` and `readFlag` helper methods to `SaveDataReader`.
-- [ ] Ensure bitwise helpers correctly handle bounds checking and shifts.
+- [x] Add `readBits` and `readFlag` helper methods to `SaveDataReader`.
+- [x] Ensure bitwise helpers correctly handle bounds checking and shifts.
 - [x] Break down this Story into Tasks for the Tech Lead to assign.
-- [ ] task-531-632-savedatareader-bitwise-stubs
-- [ ] task-531-633-savedatareader-bitwise-impl
-- [ ] task-531-634-savedatareader-bitwise-tests
-- [ ] task-531-635-savedatareader-bitwise-qa
+- [x] task-531-632-savedatareader-bitwise-stubs
+- [x] task-531-633-savedatareader-bitwise-impl
+- [x] task-531-634-savedatareader-bitwise-tests
+- [x] task-531-635-savedatareader-bitwise-qa

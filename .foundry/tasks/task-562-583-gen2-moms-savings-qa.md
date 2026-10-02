@@ -2,10 +2,10 @@
 id: task-562-583-gen2-moms-savings-qa
 type: TASK
 title: QA Verification for Gen 2 Mom's Savings UI
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-15T11:52:50Z'
-updated_at: '2026-09-15T11:52:50Z'
+updated_at: '2026-10-02'
 depends_on:
   - task-562-582-gen2-moms-savings-ui
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - gen2
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-562-582-gen2-moms-savings-ui
 notes: ''
 locks: []
 ---

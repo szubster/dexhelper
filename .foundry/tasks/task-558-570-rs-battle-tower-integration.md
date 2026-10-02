@@ -2,7 +2,7 @@
 id: task-558-570-rs-battle-tower-integration
 type: TASK
 title: Integrate RS Battle Tower Parsing with Engine
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-12'
 updated_at: '2026-10-02'
@@ -15,10 +15,8 @@ tags:
   - feature
   - gen3
   - endgame
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

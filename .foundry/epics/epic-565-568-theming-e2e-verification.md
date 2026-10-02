@@ -2,7 +2,7 @@
 id: epic-565-568-theming-e2e-verification
 type: EPIC
 title: Theming E2E and Visual Regression Verification
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-14'
 updated_at: '2026-10-02'
@@ -20,9 +20,9 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
+rejection_reason: ''
 locks: []
 priority: 60
-rejection_reason: ''
 ---
 
 # Epic: Theming E2E and Visual Regression Verification

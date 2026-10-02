@@ -2,7 +2,7 @@
 id: task-638-646-qa-init-ui-package
 type: TASK
 title: 'QA: Verify @dexhelper/ui Package Structure'
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-01'
 updated_at: '2026-10-02'

@@ -2,7 +2,7 @@
 id: story-579-637-settings-modal-model
 type: STORY
 title: Implement SettingsModalModel COM
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-29'
 updated_at: '2026-10-02'
@@ -34,4 +34,4 @@ Implement a Playwright Component Object Model (COM) for the Settings Modal.
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-637-640-implement-settings-modal-model
+- [x] task-637-640-implement-settings-modal-model

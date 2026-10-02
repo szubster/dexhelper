@@ -2,12 +2,12 @@
 id: task-637-640-implement-settings-modal-model
 type: TASK
 title: Implement SettingsModalModel COM in E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: '1821977965334942038'
+jules_session_id: null
 pr_number: null
 parent: story-579-637-settings-modal-model
 tags:

@@ -2,13 +2,13 @@
 id: task-521-619-box-analyzer-matrix-qa
 type: TASK
 title: Box Analyzer Matrix UI QA
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-06-28'
 updated_at: '2026-10-02'
 depends_on:
   - task-521-618-box-analyzer-matrix-component
-jules_session_id: '17327731466529073027'
+jules_session_id: null
 pr_number: null
 parent: story-109-521-box-analyzer-matrix-component
 tags:
@@ -16,7 +16,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 locks: []
 ---

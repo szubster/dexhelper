@@ -2,7 +2,7 @@
 id: task-562-582-gen2-moms-savings-ui
 type: TASK
 title: Update Gen 2 Mom's Savings Dashboard UI
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-15T11:52:50Z'
 updated_at: '2026-10-02'
@@ -16,8 +16,8 @@ tags:
   - ui
   - react
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
