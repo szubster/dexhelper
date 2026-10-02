@@ -28,5 +28,5 @@ locks: []
 Write comprehensive unit tests for the Pokerus Spread Planner state logic and UI component.
 
 ## Acceptance Criteria
-- [ ] Write Vitest tests for the `usePokerusSpreadPlanner` hook validating reordering and adjacent calculation logic.
-- [ ] Write Vitest tests for the `PokerusSpreadPlanner` component validating rendering, badge usage, and midnight warning logic.
+- [x] Write Vitest tests for the `usePokerusSpreadPlanner` hook validating reordering and adjacent calculation logic.
+- [x] Write Vitest tests for the `PokerusSpreadPlanner` component validating rendering, badge usage, and midnight warning logic.
