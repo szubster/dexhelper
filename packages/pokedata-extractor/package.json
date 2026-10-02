@@ -1,0 +1,11 @@
+{
+  "name": "@dexhelper/pokedata-extractor",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "data:gen": "node --experimental-strip-types generate-pokedata.ts",
+    "data:gen-maps": "node --experimental-strip-types generateMapLocations.ts"
+  },
+  "dependencies": {}
+}

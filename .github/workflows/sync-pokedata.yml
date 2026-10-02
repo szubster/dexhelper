@@ -33,5 +33,5 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.MY_ISSUES_PAT }}
         run: |
-          chmod +x scripts/sync-pokedata.sh
-          ./scripts/sync-pokedata.sh
+          chmod +x packages/pokedata-extractor/sync-pokedata.sh
+          ./packages/pokedata-extractor/sync-pokedata.sh

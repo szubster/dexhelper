@@ -238,6 +238,8 @@ importers:
 
   packages/core: {}
 
+  packages/pokedata-extractor: {}
+
 packages:
 
   '@11ty/gray-matter@3.0.0':

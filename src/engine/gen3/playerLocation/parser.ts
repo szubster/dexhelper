@@ -1,4 +1,4 @@
-import { GEN3_INDOOR_TO_PARENT_MAP } from '../../../../scripts/data/gen3/mapping';
+import { GEN3_INDOOR_TO_PARENT_MAP } from '../../../../packages/pokedata-extractor/data/gen3/mapping.ts';
 import { getNearestUpcomingTrainer, type UpcomingTrainer } from './trainerMapping';
 
 // SaveBlock1 Offsets for WarpData
