@@ -36,4 +36,7 @@ Verify the CVA integration and component refactoring via Playwright visual regre
 - Verify that styling complies with ADR 008 tactical aesthetics (sharp edges, dashed borders, monospaced telemetry fonts).
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into Stories.
+- [x] Story Owner: Break down this Epic into Stories.
+- [ ] story-568-644-cva-visual-regression-tests
+- [ ] story-568-645-tactical-aesthetics-verification
+- [ ] story-568-646-theming-integration-e2e-verification
