@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.21.4] - 2026-03-30
+### Changed
+- Bump `@tanstack/react-query` dependency from 5.95.0 to 5.95.2.
+
 ## [0.21.3] - 2026-03-30
 ### Changed
 - Bump `lucide-react` dependency from 0.577.0 to 1.0.1.
@@ -149,3 +153,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.21.1]: https://github.com/szubster/dexhelper/compare/067c75ac8a1f5636b8a76767bafd1eacde61240c...80809f4058a645e1648f9cd6ba4dee094ae0655e
 [0.21.2]: https://github.com/szubster/dexhelper/compare/80809f4058a645e1648f9cd6ba4dee094ae0655e...ae23b902255b90b81ca2ddd582c9462959b07b60
 [0.21.3]: https://github.com/szubster/dexhelper/compare/19736ac5285ef7f5e2478fff92a866a7dd7c46de...38365f35e66a5d9341ac5b61663659685fcd11d7
+
+[0.21.4]: https://github.com/szubster/dexhelper/compare/cd452d1a20a4ec28e50784ab967edad0cd1e4fdc...053baf14d34d72aaed552dca136139a989dffac5
