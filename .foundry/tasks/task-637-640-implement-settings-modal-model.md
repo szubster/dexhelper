@@ -42,4 +42,4 @@ Implement a Playwright Component Object Model (COM) for the Settings Modal in `t
 - Adhere to the testing style guide.
 
 ## Acceptance Criteria
-- [ ] Implement the `SettingsModalModel` class as described.
+- [x] Implement the `SettingsModalModel` class as described.
