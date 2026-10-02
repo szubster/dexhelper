@@ -28,3 +28,4 @@
 | [task-638-639-init-vite-plugins-package](.foundry/tasks/task-638-639-init-vite-plugins-package.md) | TASK | Initialize @dexhelper/vite-plugins package | coder | [12870370968171265162](https://jules.google.com/session/12870370968171265162) |
 | [task-638-640-pokedex-grid-model-impl](.foundry/tasks/task-638-640-pokedex-grid-model-impl.md) | TASK | Implement PokedexGridModel COM | coder | [14518207709674177469](https://jules.google.com/session/14518207709674177469) |
 | [task-638-645-init-ui-package](.foundry/tasks/task-638-645-init-ui-package.md) | TASK | Initialize @dexhelper/ui Package Structure | coder | [8464961097363766367](https://jules.google.com/session/8464961097363766367) |
+| [task-640-641-relocate-foundry-scripts](.foundry/tasks/task-640-641-relocate-foundry-scripts.md) | TASK | Relocate Foundry Scripts | coder | [5881842082046709922](https://jules.google.com/session/5881842082046709922) |
