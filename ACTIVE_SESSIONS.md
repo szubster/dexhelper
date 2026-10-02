@@ -17,4 +17,5 @@
 | [task-638-641-migrate-foundry-plugin](.foundry/tasks/task-638-641-migrate-foundry-plugin.md) | TASK | Migrate Foundry Plugin | coder | [4368713163776008074](https://jules.google.com/session/4368713163776008074) |
 | [task-638-646-qa-init-ui-package](.foundry/tasks/task-638-646-qa-init-ui-package.md) | TASK | QA: Verify @dexhelper/ui Package Structure | qa | [9110339236255625310](https://jules.google.com/session/9110339236255625310) |
 | [task-638-647-config-ui-toolchain](.foundry/tasks/task-638-647-config-ui-toolchain.md) | TASK | Configure @dexhelper/ui Build and Toolchain | coder | [2323318997619871751](https://jules.google.com/session/2323318997619871751) |
+| [task-639-641-extract-data-generation-scripts](.foundry/tasks/task-639-641-extract-data-generation-scripts.md) | TASK | Extract Data Generation Scripts to Workspace Package | coder | [14775809326213842687](https://jules.google.com/session/14775809326213842687) |
 | [task-640-641-relocate-foundry-scripts](.foundry/tasks/task-640-641-relocate-foundry-scripts.md) | TASK | Relocate Foundry Scripts | coder | [9668786107690361163](https://jules.google.com/session/9668786107690361163) |
