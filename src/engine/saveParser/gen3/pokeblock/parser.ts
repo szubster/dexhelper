@@ -1,4 +1,3 @@
-import type { GameVersion } from '../../parsers/common';
 import {
   BITTER_OFFSET,
   COLOR_OFFSET,
@@ -11,7 +10,8 @@ import {
   SOUR_OFFSET,
   SPICY_OFFSET,
   SWEET_OFFSET,
-} from './constants';
+} from '@dexhelper/core';
+import type { GameVersion } from '../../parsers/common';
 import type { Gen3Pokeblock, PokeblockColor } from './types';
 
 export function parseGen3Pokeblocks(

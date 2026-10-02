@@ -1,6 +1,6 @@
 import 'fake-indexeddb/auto';
+import { MAX_SAVE_STATES_PER_PLAYTHROUGH } from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
-import { MAX_SAVE_STATES_PER_PLAYTHROUGH } from './constants';
 import {
   countSavesForPlaythrough,
   deleteSaveState,

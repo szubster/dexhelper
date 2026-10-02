@@ -1,16 +1,18 @@
-import { describe, expect, it } from 'vitest';
-import { FRLG_FLAGS_OFFSET, RSE_FLAGS_OFFSET_E, RSE_FLAGS_OFFSET_RS } from '../narrative/constants';
 import {
   FRLG_FLAG_DEFEATED_ARTICUNO,
   FRLG_FLAG_DEFEATED_MEWTWO,
   FRLG_FLAG_DEFEATED_MOLTRES,
   FRLG_FLAG_DEFEATED_ZAPDOS,
   FRLG_FLAG_RECEIVED_MASTER_BALL,
+  FRLG_FLAGS_OFFSET,
   RSE_FLAG_DEFEATED_GROUDON,
   RSE_FLAG_DEFEATED_KYOGRE,
   RSE_FLAG_DEFEATED_RAYQUAZA,
   RSE_FLAG_RECEIVED_MASTER_BALL,
-} from './constants';
+  RSE_FLAGS_OFFSET_E,
+  RSE_FLAGS_OFFSET_RS,
+} from '@dexhelper/core';
+import { describe, expect, it } from 'vitest';
 import { parseGen3MissedItemsAndMilestones } from './parser';
 
 describe('parseGen3MissedItemsAndMilestones', () => {

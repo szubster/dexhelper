@@ -32,6 +32,8 @@
  *    - `69-50`: High-probability encounters or nearby maps.
  *    - `<50`: Long-term goals, breeding, or low-encounter-rate grinds.
  */
+
+import { SPECIES_MEWTWO } from '@dexhelper/core';
 import { dexDataLoader } from '../../db/DexDataLoader';
 import { pokeDB } from '../../db/PokeDB';
 import { type LocationAreaEncounters, POKE_VERSION_MAP, type PokemonMetadata } from '../../db/schema';
@@ -50,7 +52,6 @@ import {
   STATIC_NPC_TRADE_DATA as STATIC_NPC_TRADE_DATA_GEN3,
 } from '../data/gen3/assistantData';
 import type { SaveData } from '../saveParser/index';
-import { SPECIES_MEWTWO } from './constants';
 import { generateBreedingSuggestions } from './generators/breedGenerator';
 // Generators
 import { generateCatchSuggestions } from './generators/catchGenerator';

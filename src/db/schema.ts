@@ -1,3 +1,7 @@
+import { ENCOUNTER_METHOD } from '@dexhelper/core';
+
+export { ENCOUNTER_METHOD };
+
 import type { DBSchema } from 'idb';
 import type { UpcomingTrainer } from '../engine/gen3/playerLocation/trainerMapping';
 
@@ -34,18 +38,6 @@ export const POKE_VERSION_MAP: Record<string, number> = {
   firered: 10,
   leafgreen: 11,
 };
-
-export const ENCOUNTER_METHOD = {
-  WALK: 1,
-  SURF: 2,
-  OLD_ROD: 3,
-  GOOD_ROD: 4,
-  SUPER_ROD: 5,
-  GIFT: 6,
-  ROCK_SMASH: 7,
-  HEADBUTT: 8,
-  BUG_CATCHING_CONTEST: 18,
-} as const;
 
 export const ENCOUNTER_METHOD_MAP: Record<string, number> = {
   walk: 1,

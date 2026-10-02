@@ -1,5 +1,5 @@
+import { SECRET_BASE_SIZE } from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
-import { SECRET_BASE_SIZE } from './constants';
 import { parseSecretBaseParty, parseSecretBaseRecord } from './parser';
 
 describe('Secret Base Parser', () => {

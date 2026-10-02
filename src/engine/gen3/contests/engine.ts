@@ -1,7 +1,7 @@
+import type { ContestCondition, Nature } from '@dexhelper/core';
 import type { BerryProfile, PokeblockProfile } from './blending';
 import { calculatePokeblockProfile } from './blending';
 import { getDislikedCondition, getPreferredCondition } from './natureMapping';
-import type { ContestCondition, Nature } from './types';
 
 export interface InventoryBerry extends BerryProfile {
   id: string;

@@ -1,4 +1,4 @@
-import type { Nature } from './contests/types';
+import type { Nature } from '@dexhelper/core';
 
 export const NATURES: readonly Nature[] = [
   'hardy',

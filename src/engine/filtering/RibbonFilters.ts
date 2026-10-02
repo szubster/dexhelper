@@ -1,4 +1,4 @@
-import type { ContestCondition } from '../gen3/contests/types';
+import type { ContestCondition } from '@dexhelper/core';
 import type { PokemonInstance } from '../saveParser/parsers/common';
 
 export interface RibbonFilterState {

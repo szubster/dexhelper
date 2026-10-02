@@ -1,5 +1,5 @@
+import type { ContestCondition, Nature } from '@dexhelper/core';
 import { getDislikedCondition, getPreferredCondition } from './natureMapping';
-import type { ContestCondition, Nature } from './types';
 
 export type Conditions = Record<ContestCondition, number>;
 

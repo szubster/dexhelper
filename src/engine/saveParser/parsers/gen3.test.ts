@@ -1,6 +1,7 @@
-import { describe, expect, it } from 'vitest';
-import { FEEBAS_SEED_RELATIVE_OFFSET_RS } from '../../gen3/feebas';
 import {
+  GEN3_ROAMER_OFFSET_EMERALD,
+  GEN3_ROAMER_OFFSET_FRLG,
+  GEN3_ROAMER_OFFSET_RS,
   RIBBON_ARTIST_BIT,
   RIBBON_BATTLE_CHAMPION_BIT,
   RIBBON_BEAUTY_SHIFT,
@@ -20,11 +21,6 @@ import {
   RIBBON_WINNING_BIT,
   RIBBON_WORLD_BIT,
   RIBBONS_OFFSET_IN_M,
-} from '../gen3/ribbons/constants';
-import {
-  GEN3_ROAMER_OFFSET_EMERALD,
-  GEN3_ROAMER_OFFSET_FRLG,
-  GEN3_ROAMER_OFFSET_RS,
   ROAMER_ACTIVE_OFFSET,
   ROAMER_BEAUTY_OFFSET,
   ROAMER_COOL_OFFSET,
@@ -37,7 +33,9 @@ import {
   ROAMER_SPECIES_ID_OFFSET,
   ROAMER_STATUS_OFFSET,
   ROAMER_TOUGH_OFFSET,
-} from '../gen3/roamer/constants';
+} from '@dexhelper/core';
+import { describe, expect, it } from 'vitest';
+import { FEEBAS_SEED_RELATIVE_OFFSET_RS } from '../../gen3/feebas';
 import { isGen3Save } from '../utils/detection';
 import {
   EMERALD_MOVE_TUTOR_BYTE_1_OFFSET,

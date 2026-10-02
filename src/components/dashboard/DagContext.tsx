@@ -1,3 +1,4 @@
+import { MAX_REJECTION_THRESHOLD } from '@dexhelper/core';
 import {
   type Edge,
   type Node,
@@ -9,7 +10,6 @@ import {
 } from '@xyflow/react';
 import dagre from 'dagre';
 import { createContext, type ReactNode, useContext, useEffect, useMemo, useState, useTransition } from 'react';
-import { MAX_REJECTION_THRESHOLD } from '../../utils/constants';
 import type { ParsedNode } from '../../utils/dag/builder';
 import { buildDagGraph } from '../../utils/dag/builder';
 

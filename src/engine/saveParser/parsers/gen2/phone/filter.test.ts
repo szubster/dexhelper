@@ -1,5 +1,5 @@
+import { GEN2_CONTACT_GINA, GEN2_CONTACT_RALPH, GEN2_CONTACT_TULLY } from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
-import { GEN2_CONTACT_GINA, GEN2_CONTACT_RALPH, GEN2_CONTACT_TULLY } from './constants';
 import { filterHighValueCalls } from './filter';
 
 describe('filterHighValueCalls', () => {

@@ -1,4 +1,3 @@
-import { describe, expect, it } from 'vitest';
 import {
   BERRY_POCKET_OFFSET_EMERALD,
   BERRY_POCKET_OFFSET_FRLG,
@@ -10,7 +9,8 @@ import {
   KEY_ITEM_POCKET_OFFSET_EMERALD,
   KEY_ITEM_POCKET_OFFSET_FRLG,
   KEY_ITEM_POCKET_OFFSET_RS,
-} from './constants';
+} from '@dexhelper/core';
+import { describe, expect, it } from 'vitest';
 import { parseGen3BerryPouch, parseGen3EventItems } from './parser';
 
 describe('parseGen3EventItems', () => {

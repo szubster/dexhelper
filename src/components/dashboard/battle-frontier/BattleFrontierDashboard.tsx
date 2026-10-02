@@ -1,5 +1,5 @@
+import { FRONTIER_BRAIN_THRESHOLDS } from '@dexhelper/core';
 import React from 'react';
-import { FRONTIER_BRAIN_THRESHOLDS } from '../../../engine/gen3/battleFrontier/constants';
 import type { Gen3BattleFrontierWinStreaks, SaveData } from '../../../engine/saveParser/parsers/common';
 import { objectKeys } from '../../../utils/object';
 import { DataPoint } from '../../DataPoint';

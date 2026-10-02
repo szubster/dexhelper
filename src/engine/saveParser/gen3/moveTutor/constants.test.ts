@@ -1,4 +1,3 @@
-import { describe, expect, it } from 'vitest';
 import {
   EMERALD_EVENT_FLAGS_BASE_OFFSET,
   EMERALD_MOVE_TUTOR_DOUBLE_EDGE_FLAG,
@@ -30,7 +29,8 @@ import {
   FRLG_MOVE_TUTOR_SUBSTITUTE_FLAG,
   FRLG_MOVE_TUTOR_SWORDS_DANCE_FLAG,
   FRLG_MOVE_TUTOR_THUNDER_WAVE_FLAG,
-} from './constants';
+} from '@dexhelper/core';
+import { describe, expect, it } from 'vitest';
 
 describe('Gen 3 Move Tutor Constants', () => {
   it('should define correct base offsets for Event Flags', () => {

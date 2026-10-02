@@ -1,4 +1,4 @@
-import type { ContestCondition, Nature } from './types';
+import type { ContestCondition, Nature } from '@dexhelper/core';
 
 export const NATURE_CONDITION_MAPPING: Record<
   Nature,

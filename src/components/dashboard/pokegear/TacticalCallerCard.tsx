@@ -1,4 +1,4 @@
-import type { CallerType } from '../../../engine/saveParser/parsers/gen2/phone/constants';
+import type { CallerType } from '@dexhelper/core';
 import type { Contact } from '../../../engine/saveParser/parsers/gen2/phone/predictor';
 import { CornerCrosshairs } from '../../CornerCrosshairs';
 import { HoverScanner } from '../../HoverScanner';

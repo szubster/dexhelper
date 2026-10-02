@@ -1,6 +1,6 @@
+import type { Nature } from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
 import { getDislikedCondition, getPreferredCondition, NATURE_CONDITION_MAPPING } from './natureMapping';
-import type { Nature } from './types';
 
 describe('natureMapping', () => {
   it('has 25 natures', () => {

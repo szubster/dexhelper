@@ -1,44 +1,3 @@
-export * from '../gen3/ribbons/constants';
-
-import {
-  OBEDIENCE_FLAG_BIT,
-  RIBBON_ARTIST_BIT,
-  RIBBON_BATTLE_CHAMPION_BIT,
-  RIBBON_BEAUTY_SHIFT,
-  RIBBON_CHAMPION_BIT,
-  RIBBON_COOL_SHIFT,
-  RIBBON_COUNTRY_BIT,
-  RIBBON_CUTE_SHIFT,
-  RIBBON_EARTH_BIT,
-  RIBBON_EFFORT_BIT,
-  RIBBON_NATIONAL_BIT,
-  RIBBON_NATIONAL_CHAMPION_BIT,
-  RIBBON_RANK_MASK,
-  RIBBON_REGIONAL_CHAMPION_BIT,
-  RIBBON_SMART_SHIFT,
-  RIBBON_TOUGH_SHIFT,
-  RIBBON_VICTORY_BIT,
-  RIBBON_WINNING_BIT,
-  RIBBON_WORLD_BIT,
-  RIBBONS_OFFSET_IN_M,
-} from '../gen3/ribbons/constants';
-import {
-  GEN3_ROAMER_OFFSET_EMERALD,
-  GEN3_ROAMER_OFFSET_FRLG,
-  GEN3_ROAMER_OFFSET_RS,
-  ROAMER_ACTIVE_OFFSET,
-  ROAMER_BEAUTY_OFFSET,
-  ROAMER_COOL_OFFSET,
-  ROAMER_CUTE_OFFSET,
-  ROAMER_HP_OFFSET,
-  ROAMER_IVS_OFFSET,
-  ROAMER_LEVEL_OFFSET,
-  ROAMER_PV_OFFSET,
-  ROAMER_SMART_OFFSET,
-  ROAMER_SPECIES_ID_OFFSET,
-  ROAMER_STATUS_OFFSET,
-  ROAMER_TOUGH_OFFSET,
-} from '../gen3/roamer/constants';
 import {
   FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON,
   FLAG_GOT_TM03_FROM_MISTY,
@@ -77,7 +36,42 @@ import {
   FLAG_RECEIVED_TM_THIEF,
   FLAG_RECEIVED_TM_TORMENT,
   FLAG_RECEIVED_TM_WATER_PULSE,
-} from '../gen3/tmFlags/constants';
+  GEN3_ROAMER_OFFSET_EMERALD,
+  GEN3_ROAMER_OFFSET_FRLG,
+  GEN3_ROAMER_OFFSET_RS,
+  OBEDIENCE_FLAG_BIT,
+  RIBBON_ARTIST_BIT,
+  RIBBON_BATTLE_CHAMPION_BIT,
+  RIBBON_BEAUTY_SHIFT,
+  RIBBON_CHAMPION_BIT,
+  RIBBON_COOL_SHIFT,
+  RIBBON_COUNTRY_BIT,
+  RIBBON_CUTE_SHIFT,
+  RIBBON_EARTH_BIT,
+  RIBBON_EFFORT_BIT,
+  RIBBON_NATIONAL_BIT,
+  RIBBON_NATIONAL_CHAMPION_BIT,
+  RIBBON_RANK_MASK,
+  RIBBON_REGIONAL_CHAMPION_BIT,
+  RIBBON_SMART_SHIFT,
+  RIBBON_TOUGH_SHIFT,
+  RIBBON_VICTORY_BIT,
+  RIBBON_WINNING_BIT,
+  RIBBON_WORLD_BIT,
+  RIBBONS_OFFSET_IN_M,
+  ROAMER_ACTIVE_OFFSET,
+  ROAMER_BEAUTY_OFFSET,
+  ROAMER_COOL_OFFSET,
+  ROAMER_CUTE_OFFSET,
+  ROAMER_HP_OFFSET,
+  ROAMER_IVS_OFFSET,
+  ROAMER_LEVEL_OFFSET,
+  ROAMER_PV_OFFSET,
+  ROAMER_SMART_OFFSET,
+  ROAMER_SPECIES_ID_OFFSET,
+  ROAMER_STATUS_OFFSET,
+  ROAMER_TOUGH_OFFSET,
+} from '@dexhelper/core';
 import type { SpindaSpotCoordinate } from './common';
 
 /**
@@ -100,26 +94,6 @@ import type { SpindaSpotCoordinate } from './common';
  * is determined by `PV % 24`.
  */
 
-import { BERRY_TREE_LOCATIONS } from '../../gen3/berryPatches/berryLocations';
-import { type Gen3FameCheckerData, parseGen3FameChecker } from '../../gen3/fameChecker/parser';
-import { extractFeebasSeed } from '../../gen3/feebas';
-import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
-import {
-  SECRET_BASE_OFFSET_EMERALD,
-  SECRET_BASE_OFFSET_RS,
-  SECRET_BASE_SIZE,
-  SECRET_BASES_COUNT,
-} from '../../gen3/secretBase/constants';
-import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
-import { extractGen3StaticEncounterFlags } from '../../gen3/staticEncounters';
-import {
-  parseGen3BattleFrontierSymbols,
-  parseGen3BattleFrontierWinStreaks,
-  parseGen3BattlePoints,
-  parseGen3TotalBattlePoints,
-} from '../gen3/battleFrontier/parser';
-import { parseRSBattleTowerWinStreaks } from '../gen3/battleTower/parser';
-import { parseGen3BerryTrees } from '../gen3/berry/parser';
 import {
   CONDITION_BEAUTY_OFFSET,
   CONDITION_COOL_OFFSET,
@@ -127,13 +101,6 @@ import {
   CONDITION_SHEEN_OFFSET,
   CONDITION_SMART_OFFSET,
   CONDITION_TOUGH_OFFSET,
-} from '../gen3/conditionStats/constants';
-import { parseGen3Daycare } from '../gen3/daycare/parser';
-import { parseGen3BerryPouch, parseGen3EventItems } from '../gen3/inventory/parser';
-import { parseGen3MissedItemsAndMilestones } from '../gen3/missedItems/parser';
-import { parseGen3MysteryGift } from '../gen3/mysteryGift';
-import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
-import {
   FLAG_BATTLE_FRONTIER_TRADE_DONE,
   FLAG_DID_CH_DING_TRADE,
   FLAG_DID_ESPHERE_TRADE,
@@ -147,7 +114,30 @@ import {
   FLAG_FORTREE_NPC_TRADE_COMPLETED,
   FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED,
   FLAG_RUSTBORO_NPC_TRADE_COMPLETED,
-} from '../gen3/npcTrades/constants';
+  SECRET_BASE_OFFSET_EMERALD,
+  SECRET_BASE_OFFSET_RS,
+  SECRET_BASE_SIZE,
+  SECRET_BASES_COUNT,
+} from '@dexhelper/core';
+import { BERRY_TREE_LOCATIONS } from '../../gen3/berryPatches/berryLocations';
+import { type Gen3FameCheckerData, parseGen3FameChecker } from '../../gen3/fameChecker/parser';
+import { extractFeebasSeed } from '../../gen3/feebas';
+import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
+import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
+import { extractGen3StaticEncounterFlags } from '../../gen3/staticEncounters';
+import {
+  parseGen3BattleFrontierSymbols,
+  parseGen3BattleFrontierWinStreaks,
+  parseGen3BattlePoints,
+  parseGen3TotalBattlePoints,
+} from '../gen3/battleFrontier/parser';
+import { parseRSBattleTowerWinStreaks } from '../gen3/battleTower/parser';
+import { parseGen3BerryTrees } from '../gen3/berry/parser';
+import { parseGen3Daycare } from '../gen3/daycare/parser';
+import { parseGen3BerryPouch, parseGen3EventItems } from '../gen3/inventory/parser';
+import { parseGen3MissedItemsAndMilestones } from '../gen3/missedItems/parser';
+import { parseGen3MysteryGift } from '../gen3/mysteryGift';
+import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
 import { parseGen3Pokeblocks } from '../gen3/pokeblock/parser';
 import { extractPokedexGaps } from '../gen3/pokedex/gaps';
 import { parseGen3Pokedex } from '../gen3/pokedex/parser';
@@ -621,7 +611,7 @@ export const BYTES_PER_GAME_STAT = 4;
  * Used to calculate the `hoennDexCount` stat since the save file only tracks
  * Pokédex completion globally via National Dex flags.
  */
-import { HOENN_DEX_NATIONAL_IDS } from '../gen3/pokedex/constants';
+import { HOENN_DEX_NATIONAL_IDS } from '@dexhelper/core';
 
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
@@ -2752,4 +2742,5 @@ export function parseGen3MetLocation(view: DataView, miscSubstructureOffset: num
   }
 }
 
+export { OBEDIENCE_FLAG_BIT } from '@dexhelper/core';
 export * from '../gen3/trainerFlags/parser';

@@ -1,6 +1,6 @@
+import type { Nature } from '@dexhelper/core';
+import { MAX_CONDITION, MAX_FEEL, NATURE_FLAVOR_MODIFIERS } from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
-import { MAX_CONDITION, MAX_FEEL, NATURE_FLAVOR_MODIFIERS } from './constants';
-import type { Nature } from './types';
 
 describe('Gen 3 Contest Constants', () => {
   it('defines max feel as 255', () => {

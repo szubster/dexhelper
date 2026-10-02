@@ -1,8 +1,8 @@
+import type { ContestCondition, Nature } from '@dexhelper/core';
 import type React from 'react';
 import { createContext, useCallback, useContext, useMemo, useState } from 'react';
 import type { InventoryBerry, RecommendationResult } from '../../engine/gen3/contests/engine';
 import { recommendPokeblocks } from '../../engine/gen3/contests/engine';
-import type { ContestCondition, Nature } from '../../engine/gen3/contests/types';
 
 export interface PokeblockState {
   inventory: InventoryBerry[];

@@ -26,9 +26,9 @@ locks: []
 This task involves moving the game constants (`src/utils/constants.ts`, `src/engine/**/constants.ts`, etc.) into the `@dexhelper/core` package to isolate domain logic and prepare for the pnpm workspace migration, in line with Phase 3 of PRD 157-519.
 
 ## Acceptance Criteria
-- [ ] Move constants files to `packages/core/src/...` while maintaining directory structure logic.
-- [ ] Ensure `@dexhelper/core` exports these constants.
-- [ ] Ensure strict zero DOM, React, or browser-specific dependencies.
+- [x] Move constants files to `packages/core/src/...` while maintaining directory structure logic.
+- [x] Ensure `@dexhelper/core` exports these constants.
+- [x] Ensure strict zero DOM, React, or browser-specific dependencies.
 
 ## Implementation Details
 - This task may require setting up `packages/core/package.json` if it doesn't exist, though this might be part of an earlier epic/story. Wait, looking at Phase 1 vs Phase 3, we should ensure the files are moved into the correct workspace.

@@ -1,7 +1,7 @@
+import { METHOD_NAMES } from '@dexhelper/core';
 import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN1 } from '../../data/gen1/assistantData';
 import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN2 } from '../../data/gen2/assistantData';
 import type { SaveData } from '../../saveParser/index';
-import { METHOD_NAMES } from '../constants';
 import type { AssistantStrategy, EncounterDetail, Suggestion } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 

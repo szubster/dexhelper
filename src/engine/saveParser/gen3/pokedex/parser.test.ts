@@ -1,5 +1,5 @@
+import { GEN3_POKEDEX_OFFSET, GEN3_POKEDEX_OWNED_OFFSET, GEN3_POKEDEX_SEEN_OFFSET } from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
-import { GEN3_POKEDEX_OFFSET, GEN3_POKEDEX_OWNED_OFFSET, GEN3_POKEDEX_SEEN_OFFSET } from './constants';
 import { parseGen3Pokedex } from './parser';
 
 describe('parseGen3Pokedex', () => {

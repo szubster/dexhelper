@@ -1,7 +1,3 @@
-import type { UnifiedLocation } from '../../../db/schema';
-import { getGen3UnobtainableReason } from '../../exclusives/gen3Exclusives';
-import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen3Graph';
-import type { SaveData } from '../../saveParser/index';
 import {
   SPECIES_ALAKAZAM,
   SPECIES_DEOXYS,
@@ -19,7 +15,11 @@ import {
   SPECIES_SCIZOR,
   SPECIES_SLOWKING,
   SPECIES_STEELIX,
-} from '../constants';
+} from '@dexhelper/core';
+import type { UnifiedLocation } from '../../../db/schema';
+import { getGen3UnobtainableReason } from '../../exclusives/gen3Exclusives';
+import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen3Graph';
+import type { SaveData } from '../../saveParser/index';
 import type { AssistantStrategy, Suggestion } from './types';
 import { getMatchCallSuggestions } from './utils/matchCall';
 import { getRoamerSuggestions } from './utils/roamer';

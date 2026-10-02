@@ -18,7 +18,7 @@ import {
   RSE_FLAG_BADGE08_GET,
   RSE_FLAGS_OFFSET_E,
   RSE_FLAGS_OFFSET_RS,
-} from './constants';
+} from '@dexhelper/core';
 
 const BITS_PER_BYTE = 8;
 const BIT_MASK = 1;

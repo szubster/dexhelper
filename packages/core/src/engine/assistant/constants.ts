@@ -1,4 +1,16 @@
-import { ENCOUNTER_METHOD } from '../../db/schema';
+
+export const ENCOUNTER_METHOD = {
+  WALK: 1,
+  SURF: 2,
+  OLD_ROD: 3,
+  GOOD_ROD: 4,
+  SUPER_ROD: 5,
+  GIFT: 6,
+  ROCK_SMASH: 7,
+  HEADBUTT: 8,
+  BUG_CATCHING_CONTEST: 18,
+} as const;
+
 
 export const METHOD_NAMES: Record<number, string> = {
   [ENCOUNTER_METHOD.WALK]: 'walk',

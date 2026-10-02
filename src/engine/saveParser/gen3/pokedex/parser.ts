@@ -4,7 +4,7 @@ import {
   GEN3_POKEDEX_OWNED_OFFSET,
   GEN3_POKEDEX_SEEN_OFFSET,
   NATIONAL_DEX_MAX,
-} from './constants';
+} from '@dexhelper/core';
 
 /**
  * Parses the Pokédex seen and owned data from a Generation 3 save file.

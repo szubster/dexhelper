@@ -1,5 +1,5 @@
+import * as Constants from '@dexhelper/core';
 import { decodeGen3String } from '../../parsers/common';
-import * as Constants from './constants';
 import type { Gen3MixedRecordNPC, Gen3MixedRecordNPCPokemon } from './types';
 
 export function parseGen3MixedRecordNPC(view: DataView, offset: number): Gen3MixedRecordNPC {

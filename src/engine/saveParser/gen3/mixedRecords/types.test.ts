@@ -1,5 +1,5 @@
+import * as Constants from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
-import * as Constants from './constants';
 import type { Gen3MixedRecordNPC, Gen3MixedRecordNPCPokemon } from './types';
 
 describe('Gen 3 Mixed Records Types & Constants', () => {

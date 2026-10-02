@@ -1,4 +1,4 @@
-import { GEN2_PHONE_CALLER_REGISTRY, type HighValueContact } from './constants';
+import { GEN2_PHONE_CALLER_REGISTRY, type HighValueContact } from '@dexhelper/core';
 
 /**
  * Filters a list of phone contact IDs to identify high-value callers (Swarms or Items).

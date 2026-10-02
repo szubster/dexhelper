@@ -1,4 +1,4 @@
-import { GEN2_PHONE_CALLER_REGISTRY } from '../../../engine/saveParser/parsers/gen2/phone/constants';
+import { GEN2_PHONE_CALLER_REGISTRY } from '@dexhelper/core';
 import type { Contact, TimerState } from '../../../engine/saveParser/parsers/gen2/phone/predictor';
 import { CornerCrosshairs } from '../../CornerCrosshairs';
 import { TacticalHeaderDivider } from '../../TacticalHeaderDivider';

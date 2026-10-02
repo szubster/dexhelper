@@ -23,8 +23,8 @@ export const MIN_RED_SCORE_FOR_CONFIDENCE = 4;
  * - Unlike later generations, Pokémon data structs do not hold a "caught location", making origin tracking reliant entirely on Original Trainer (OT) matches.
  */
 
+import { INTERNAL_ID_TO_DEX } from '@dexhelper/core';
 import gen1MapLocations from '../../data/gen1/mapLocations.json';
-import { INTERNAL_ID_TO_DEX } from '../gen1/constants';
 import {
   BIT_FLAG,
   GEN1_TM_HM_TO_MOVE_ID,
