@@ -31,5 +31,5 @@ After downloading public save files based on the new methodology, they must be v
 2. Move them into `tests/fixtures/`.
 
 ## Acceptance Criteria
-- [ ] Save files are verified for structural integrity.
-- [ ] Save files are moved to `tests/fixtures/`.
+- [x] Save files are verified for structural integrity.
+- [x] Save files are moved to `tests/fixtures/`.
