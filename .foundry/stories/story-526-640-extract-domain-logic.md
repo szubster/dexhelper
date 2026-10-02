@@ -2,12 +2,12 @@
 id: story-526-640-extract-domain-logic
 type: STORY
 title: Extract pure JS/TS domain logic to core package
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: '12734823283747454015'
+jules_session_id: '1518612860879436383'
 pr_number: null
 parent: epic-519-526-extract-core-domain
 tags:
