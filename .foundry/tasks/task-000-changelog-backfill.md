@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-10-02'
@@ -26,27 +26,26 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `053baf14d34d72aaed552dca136139a989dffac5`
-- **Previous Commit SHA:** `cd452d1a20a4ec28e50784ab967edad0cd1e4fdc`
+- **Commit SHA:** `92ae5ee2cddb3c7b1c07b66e353a31f6d9055d11`
+- **Previous Commit SHA:** `2da17e9792cd41167a5846673ffd40321510d7dc`
 - **Commit Date:** `2026-03-30`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `patch` (from `0.21.3` -> `0.21.4`)
+- **Suggested SemVer Bump:** `patch` (from `0.21.4` -> `0.21.5`)
 
 ## Commit Message
 ```text
-build(deps): Bump @tanstack/react-query from 5.95.0 to 5.95.2
+build(deps-dev): Bump vitest from 4.1.0 to 4.1.1
 
-Bumps [@tanstack/react-query](https://github.com/TanStack/query/tree/HEAD/packages/react-query) from 5.95.0 to 5.95.2.
-- [Release notes](https://github.com/TanStack/query/releases)
-- [Changelog](https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md)
-- [Commits](https://github.com/TanStack/query/commits/@tanstack/react-query@5.95.2/packages/react-query)
+Bumps [vitest](https://github.com/vitest-dev/vitest/tree/HEAD/packages/vitest) from 4.1.0 to 4.1.1.
+- [Release notes](https://github.com/vitest-dev/vitest/releases)
+- [Commits](https://github.com/vitest-dev/vitest/commits/v4.1.1/packages/vitest)
 
 ---
 updated-dependencies:
-- dependency-name: "@tanstack/react-query"
-  dependency-version: 5.95.2
-  dependency-type: direct:production
+- dependency-name: vitest
+  dependency-version: 4.1.1
+  dependency-type: direct:development
   update-type: version-update:semver-patch
 ...
 
@@ -59,15 +58,15 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ## Diff Summary
 ```text
-053baf14d build(deps): Bump @tanstack/react-query from 5.95.0 to 5.95.2
- package-lock.json | 22 ++++++++--------------
- package.json      |  2 +-
- 2 files changed, 9 insertions(+), 15 deletions(-)
+92ae5ee2c build(deps-dev): Bump vitest from 4.1.0 to 4.1.1
+ package-lock.json | 100 +++++++++++++++++++++++++++---------------------------
+ package.json      |   2 +-
+ 2 files changed, 51 insertions(+), 51 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 053baf14d34d72aaed552dca136139a989dffac5` (or `git diff cd452d1a20a4ec28e50784ab967edad0cd1e4fdc..053baf14d34d72aaed552dca136139a989dffac5`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show 92ae5ee2cddb3c7b1c07b66e353a31f6d9055d11` (or `git diff 2da17e9792cd41167a5846673ffd40321510d7dc..92ae5ee2cddb3c7b1c07b66e353a31f6d9055d11`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.4] - 2026-03-30` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.3...0.21.4`](https://github.com/${repo}/compare/cd452d1...053baf1)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.5] - 2026-03-30` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.4...0.21.5`](https://github.com/${repo}/compare/2da17e9...92ae5ee)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
