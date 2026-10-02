@@ -173,7 +173,7 @@ describe('changelog-engine', () => {
         sha: '888',
         message: 'refactor: optimize orchestrator dependency resolution',
         date: '2026-05-01',
-        files: ['.github/scripts/foundry-orchestrator.ts']
+        files: ['packages/foundry/foundry-orchestrator.ts']
       });
       expect(res.action).toBe('dispatch');
       expect(res.domain).toBe('foundry');

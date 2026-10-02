@@ -25,7 +25,7 @@ jobs:
             MERGE=true
           else
             echo "Non-empty PR. Analyzing diff for checkbox-only or journal changes..."
-            if gh pr diff "$PR_NUMBER" --repo "${{ github.repository }}" | node .github/scripts/analyze-diff.js; then
+            if gh pr diff "$PR_NUMBER" --repo "${{ github.repository }}" | node packages/foundry/analyze-diff.js; then
               echo "Checkbox-only or journal changes detected."
               MERGE=true
             else

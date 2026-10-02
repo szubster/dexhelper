@@ -204,7 +204,7 @@ export function classifyCommit(details: CommitDetails): CommitClassification {
   );
 
   const hasFoundryEngineChanges = files.some(
-    (f) => f.startsWith('.github/scripts/') || f.startsWith('.github/workflows/') || f.startsWith('.github/agents/')
+    (f) => f.startsWith('packages/foundry/') || f.startsWith('.github/workflows/') || f.startsWith('.github/agents/')
   );
 
   if (hasAppChanges) {
