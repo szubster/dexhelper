@@ -34,5 +34,5 @@ We need to implement a Playwright Component Object Model (COM) for the Pokedex G
 - Ensure proper typings and export the COM class.
 
 ## Acceptance Criteria
-- [ ] Implement `tests/e2e/models/PokedexGridModel.ts` with required methods.
-- [ ] Ensure all locators are semantic and wait conditions are robust.
+- [x] Implement `tests/e2e/models/PokedexGridModel.ts` with required methods.
+- [x] Ensure all locators are semantic and wait conditions are robust.
