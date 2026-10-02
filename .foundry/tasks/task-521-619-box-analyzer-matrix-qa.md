@@ -34,3 +34,7 @@ This QA task ensures the component meets visual and functional requirements befo
 - [ ] Verify all required columns (Level, Gender, DVs/IVs, Calculated IV Total/Average, Nature, Hidden Power, and Shininess) are rendered correctly.
 - [ ] Verify adherence to ADR 024 (tactical aesthetic, `tactical-*` utilities, sharp edges, monospaced fonts).
 - [ ] Verify unit test coverage is sufficient.
+
+
+### QA Rejection
+Target task failed validation due to non-compliance with ADR 024. The component relies on raw inline Tailwind classes instead of the required `tactical-*` utility classes for the tactical hardware aesthetic. Triggering transient rejection.
