@@ -61,7 +61,80 @@ export const BattleFrontierDashboard = React.memo(({ saveData }: BattleFrontierD
     return null;
   }
 
-  const { gen3BattlePoints, gen3BattleFrontierWinStreaks, gen3BattleFrontierSymbols } = saveData;
+  const {
+    gameVersion,
+    gen3BattlePoints,
+    gen3BattleFrontierWinStreaks,
+    gen3BattleFrontierSymbols,
+    gen3RSBattleTowerWinStreaks,
+  } = saveData;
+  const isRS = gameVersion === 'ruby' || gameVersion === 'sapphire';
+
+  if (isRS) {
+    if (!gen3RSBattleTowerWinStreaks) {
+      return (
+        <TacticalPanel className="p-4 text-center">
+          <span className="tactical-text text-zinc-500">NO BATTLE TOWER DATA FOUND</span>
+        </TacticalPanel>
+      );
+    }
+
+    const rsFacilities = [
+      {
+        key: 'level50',
+        name: 'BATTLE TOWER (LV. 50)',
+        variant: 'default' as const,
+        data: {
+          label: 'BATTLE TOWER (LV. 50)',
+          current: gen3RSBattleTowerWinStreaks.level50.current,
+          target: null,
+          record: gen3RSBattleTowerWinStreaks.level50.record,
+          status: 'RECORD LOGGED',
+          statusColor: 'bg-zinc-800/50 text-zinc-500 border-t border-dashed border-zinc-700',
+        },
+      },
+      {
+        key: 'level100',
+        name: 'BATTLE TOWER (LV. 100)',
+        variant: 'default' as const,
+        data: {
+          label: 'BATTLE TOWER (LV. 100)',
+          current: gen3RSBattleTowerWinStreaks.level100.current,
+          target: null,
+          record: gen3RSBattleTowerWinStreaks.level100.record,
+          status: 'RECORD LOGGED',
+          statusColor: 'bg-zinc-800/50 text-zinc-500 border-t border-dashed border-zinc-700',
+        },
+      },
+    ];
+
+    return (
+      <div className="flex flex-col gap-6">
+        <TacticalPanel className="mt-4 flex items-center justify-between border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+          <TelemetryDecoration label="SYS.BATTLE_TOWER" className="-top-[17px] left-[-1px]" />
+          <span className="tactical-text z-10 font-black text-lg text-white">COMBAT SIMULATION MATRIX</span>
+        </TacticalPanel>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {rsFacilities.map((facility) => (
+            <TacticalPanel
+              key={facility.key}
+              variant={facility.variant}
+              className="flex h-[250px] flex-col gap-0 border-l-2 p-0"
+            >
+              <div className="flex items-center justify-between border-zinc-800 border-b border-dashed bg-black/40 p-3 pb-2">
+                <span className="tactical-text z-10 font-black text-white">[ {facility.name} ]</span>
+              </div>
+
+              <div className="flex h-full w-full items-center justify-center bg-[#3f3f46]/20">
+                <ProgressNode data={facility.data} />
+              </div>
+            </TacticalPanel>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   if (gen3BattlePoints === undefined || !gen3BattleFrontierWinStreaks || !gen3BattleFrontierSymbols) {
     return (
