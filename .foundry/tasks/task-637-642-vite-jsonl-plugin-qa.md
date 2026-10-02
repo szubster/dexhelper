@@ -2,13 +2,13 @@
 id: task-637-642-vite-jsonl-plugin-qa
 type: TASK
 title: QA Vite Plugin Update for JSONL Data
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-30'
 updated_at: '2026-10-02'
 depends_on:
   - task-637-641-vite-jsonl-plugin-impl
-jules_session_id: null
+jules_session_id: '7572990355358703410'
 pr_number: null
 parent: story-088-637-vite-jsonl-plugin-update
 tags:
