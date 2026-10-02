@@ -2,12 +2,12 @@
 id: task-637-641-vite-jsonl-plugin-impl
 type: TASK
 title: Implement Vite Plugin Update for JSONL Data
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-30'
-updated_at: '2026-09-30'
+updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16999204929096617535'
 locks: []
 pr_number: null
 parent: story-088-637-vite-jsonl-plugin-update
