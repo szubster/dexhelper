@@ -35,4 +35,8 @@ Based on epic-565-571, the UI dashboard needs to visualize the confidence scores
   - Green for `90+`
 
 ## Acceptance Criteria
+- [ ] task-644-649-parser-and-builder-confidence
+- [ ] task-644-650-qa-parser-and-builder-confidence
+- [ ] task-644-651-context-and-ui-confidence
+- [ ] task-644-652-qa-context-and-ui-confidence
 - [ ] Implement the UI components for agent confidence metrics.
