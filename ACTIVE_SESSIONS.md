@@ -29,3 +29,4 @@
 | [task-638-639-init-vite-plugins-package](.foundry/tasks/task-638-639-init-vite-plugins-package.md) | TASK | Initialize @dexhelper/vite-plugins package | coder | [12870370968171265162](https://jules.google.com/session/12870370968171265162) |
 | [task-638-645-init-ui-package](.foundry/tasks/task-638-645-init-ui-package.md) | TASK | Initialize @dexhelper/ui Package Structure | coder | [8464961097363766367](https://jules.google.com/session/8464961097363766367) |
 | [task-639-641-extract-base-save-parsers](.foundry/tasks/task-639-641-extract-base-save-parsers.md) | TASK | Extract base save parsers and utilities to core package | coder | [3851484199405290087](https://jules.google.com/session/3851484199405290087) |
+| [task-640-642-extract-core-domain-logic](.foundry/tasks/task-640-642-extract-core-domain-logic.md) | TASK | Migrate pure JS/TS logic from src/engine to packages/core | coder | [2529912939958030355](https://jules.google.com/session/2529912939958030355) |

@@ -2,13 +2,13 @@
 id: task-640-642-extract-core-domain-logic
 type: TASK
 title: Migrate pure JS/TS logic from src/engine to packages/core
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-02'
 depends_on:
   - task-640-641-create-core-package-infrastructure
-jules_session_id: null
+jules_session_id: '2529912939958030355'
 pr_number: null
 parent: story-526-640-extract-domain-logic
 tags:
