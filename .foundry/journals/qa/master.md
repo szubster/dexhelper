@@ -1162,3 +1162,49 @@ I will approve the coder's task for the linter implementation and check the QA t
 When writing utility scripts that process Foundry Markdown files, we must strictly parse the YAML frontmatter instead of using regex matching across the entire file body. For example, using a global regex match like `content.match(/^status:\s*(ACTIVE|PENDING|READY)\s*$/m)` is dangerous because it will match a status line anywhere in the markdown body, not just the frontmatter.
 
 Future QA validation and script generation should always assert that frontmatter properties are extracted explicitly from the top of the file (e.g. splitting by `---` or using a yaml frontmatter parser) to prevent unintended side effects on completed tasks that might contain the word `status:` in their descriptions.
+
+
+---
+
+# QA Journal Entry - 2026-09-29
+
+## Rejection of Task: task-520-550-refactor-gen2-parser-impl
+
+The implementation of `task-520-550-refactor-gen2-parser-impl` was rejected during the QA phase because it violates the constraints specified in ADR 028 (No Magic Numbers).
+
+While the coder successfully moved many constants to `gen2Constants.ts`, there were still several instances of inline magic numbers left inside `src/engine/saveParser/parsers/gen2.ts`, primarily for:
+
+- Max Box capacity (20)
+- Pockets capacities (20 for items, 26 for key items, 12 for balls, 50 for PC items)
+- Party Max Size (6)
+- Bit logic numbers (16, 8 for shifts)
+- Legendary IDs (243, 244, 245 for Raikou, Entei, Suicune)
+- Radix for parseInt (10)
+
+These numbers must be defined as reusable constants at the module level to comply with ADR 028. The task was moved to `status: FAILED` and `rejection_count` incremented to 1 to trigger a resurrection loop for the coder to fix these missing elements.
+
+---
+
+---
+id: journal-gen3-ash-ui-validation
+type: RESEARCH
+title: 'QA Journal: Gen 3 Volcanic Ash UI'
+status: COMPLETED
+owner_persona: qa
+created_at: '2026-09-22'
+updated_at: '2026-09-22'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: task-348-508-gen3-ash-ui-qa
+tags: []
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+locks: []
+---
+
+# QA Journal: Gen 3 Volcanic Ash UI
+
+I successfully validated the Gen 3 Volcanic Ash UI integration by creating and executing an E2E test suite via Playwright in `tests/e2e/gen3_volcanic_ash_ui.spec.ts`. The test successfully mounts the `AssistantDebugView` with an Emerald save containing 49155 volcanic ash, and correctly asserts the presence of the `ASH.CNT` label and value after toggling the debug mode. The test also verified that 0 volcanic ash does not crash the UI.

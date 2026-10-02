@@ -67,3 +67,12 @@
 **Outcome:** Merged (Optimistic execution)
 **Why:** Header elements across application modules were unencapsulated and lacked hardware texture. The redesign elevates section headers to distinct telemetry block anchors that adhere strictly to the tactical hardware/snooping aesthetic (ADR 008).
 **Pattern:** Core layout headers should feature corner hardware accents, left accent bars, and optional telemetry badge/action slots to establish clear visual hierarchy across telemetry panels.
+
+
+---
+
+## 2026-09-30 - [Accepted] - 🖼️ Canvas: Bold TacticalStatusPanelItem Hardware Redesign
+**What:** Redesigned `TacticalStatusPanelItem` from a flat flex div into a cased tactical hardware telemetry status module. Added 4-corner crosshair hardware accents, a left border status indicator bar, an active status LED dot with glow, micro telemetry code tags, subtle LCD grid texture overlay, interactive hover scanline highlights, and support for optional `sublabel` and `variant` props while maintaining complete backward compatibility.
+**Outcome:** Merged (Optimistic execution)
+**Why:** Status panel items across event items, static encounters, and secret bases were unencapsulated and visually flat. The redesign transforms status items into tactical telemetry modules adhering to ADR 008, improving visual hierarchy and active status readability across telemetry dashboards.
+**Pattern:** Status display items should feature left accent indicator bars, status LED dots, and hardware corner accents to convey live system telemetry states cleanly.
