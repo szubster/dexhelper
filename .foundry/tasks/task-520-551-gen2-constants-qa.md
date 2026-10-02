@@ -2,15 +2,15 @@
 id: task-520-551-gen2-constants-qa
 type: TASK
 title: QA - Gen 2 Constants Extraction
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-06'
-updated_at: '2026-09-30'
+updated_at: '2026-10-02'
 depends_on:
   - task-520-550-refactor-gen2-parser-impl
-jules_session_id: '8906206402208958945'
+jules_session_id: null
 parent: story-522-520-gen2-constants-extraction
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 locks: []
 ---
 # TASK: QA - Gen 2 Constants Extraction

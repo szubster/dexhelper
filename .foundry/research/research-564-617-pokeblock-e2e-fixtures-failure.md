@@ -2,12 +2,12 @@
 id: research-564-617-pokeblock-e2e-fixtures-failure
 type: RESEARCH
 title: Investigate Pokeblock E2E Fixtures Generation Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-22T12:00:00Z'
-updated_at: '2026-09-30'
+updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: '8766762717800779815'
+jules_session_id: null
 pr_number: null
 parent: story-540-564-gen3-pokeblock-optimizer-e2e
 tags:

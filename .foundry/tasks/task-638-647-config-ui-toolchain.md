@@ -1,11 +1,11 @@
 ---
 id: task-638-647-config-ui-toolchain
 type: TASK
-title: "Configure @dexhelper/ui Build and Toolchain"
-status: READY
+title: Configure @dexhelper/ui Build and Toolchain
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on:
   - task-638-645-init-ui-package
 jules_session_id: null

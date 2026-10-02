@@ -2,10 +2,10 @@
 id: story-525-639-extract-data-generation-scripts
 type: STORY
 title: Extract Data Generation Scripts
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
