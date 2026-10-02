@@ -27,7 +27,7 @@ Based on the findings from research-540-608-benchmark-failure-investigation, imp
 **CRITICAL CONSTRAINT**: The runner must strictly use ephemeral packages installed in a `/tmp` directory. Included toolchain dependencies MUST NOT pollute the main workspace `package.json`.
 
 ## Acceptance Criteria
-- [ ] Implement the script to execute benchmark runs per the research recommendations.
-- [ ] Record start and end times for each toolchain.
-- [ ] Record dependency overhead for each toolchain.
-- [ ] Output a report of execution times and dependency overhead.
+- [x] Implement the script to execute benchmark runs per the research recommendations.
+- [x] Record start and end times for each toolchain.
+- [x] Record dependency overhead for each toolchain.
+- [x] Output a report of execution times and dependency overhead.
