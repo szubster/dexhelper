@@ -27,6 +27,6 @@ rejection_count: 1
 Write end-to-end tests to verify the extraction of the Friendship (Happiness) value for Gen 3 Pokémon in both the active Party and PC Boxes. Tests must handle the 48-byte encrypted Data block and use `PV % 24` logic.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for Gen 3 Party parsing to extract Friendship.
-- [ ] Implement Playwright E2E tests for Gen 3 PC parsing to extract Friendship.
-- [ ] Ensure `xvfb-run -a pnpm test:e2e` passes for the new test file.
+- [x] Implement Playwright E2E tests for Gen 3 Party parsing to extract Friendship.
+- [x] Implement Playwright E2E tests for Gen 3 PC parsing to extract Friendship.
+- [x] Ensure `xvfb-run -a pnpm test:e2e` passes for the new test file.
