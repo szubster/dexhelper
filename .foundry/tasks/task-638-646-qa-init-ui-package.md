@@ -27,4 +27,4 @@ locks: []
 Verify the `@dexhelper/ui` package was initialized correctly in `packages/ui` with the proper `package.json` structure.
 
 ## Acceptance Criteria
-- [ ] Implement the objective as described.
+- [x] Implement the objective as described.
