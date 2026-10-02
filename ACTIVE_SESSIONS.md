@@ -7,6 +7,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [research-640-645-investigate-extract-core-domain-timeout](.foundry/research/research-640-645-investigate-extract-core-domain-timeout.md) | RESEARCH | Investigate timeout during core domain extraction | researcher | [3404925110720365319](https://jules.google.com/session/3404925110720365319) |
+| [story-425-495-reactive-ui-components](.foundry/stories/story-425-495-reactive-ui-components.md) | STORY | Reactive UI Components | tech_lead | [733467788895889434](https://jules.google.com/session/733467788895889434) |
 | [story-525-640-relocate-foundry-scripts](.foundry/stories/story-525-640-relocate-foundry-scripts.md) | STORY | Relocate Foundry Scripts | tech_lead | [8618986375013989512](https://jules.google.com/session/8618986375013989512) |
 | [story-526-640-extract-domain-logic](.foundry/stories/story-526-640-extract-domain-logic.md) | STORY | Extract pure JS/TS domain logic to core package | tech_lead | [16147585637430526078](https://jules.google.com/session/16147585637430526078) |
 | [story-552-580-gen3-fossil-schema-docs](.foundry/stories/story-552-580-gen3-fossil-schema-docs.md) | STORY | Update Schema Documentation for Gen 3 Fossil Offsets | tech_lead | [7363915021030093857](https://jules.google.com/session/7363915021030093857) |
