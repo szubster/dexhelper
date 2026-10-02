@@ -22,7 +22,7 @@ locks: []
 priority: 60
 rejection_reason: ''
 rejection_count: 0
-notes: []
+notes: ''
 ---
 
 # Story: Theming Integration and Unit Test Verification
