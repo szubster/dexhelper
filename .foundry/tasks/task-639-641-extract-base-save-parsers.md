@@ -2,12 +2,12 @@
 id: task-639-641-extract-base-save-parsers
 type: TASK
 title: Extract base save parsers and utilities to core package
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3727259759014604986'
 pr_number: null
 parent: story-526-639-extract-parsers
 tags:
