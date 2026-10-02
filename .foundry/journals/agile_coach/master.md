@@ -255,3 +255,21 @@ Analyzed session 2897712216952814014 and discovered a QA agent asking the user w
 - **Observation**: Reviewed `research-570-590-investigate-cva-tactical-aesthetic-e2e-failure.md` where E2E Playwright tests for CVA tactical aesthetic components were written using `page.evaluate()` to manually inject hardcoded HTML strings directly into the DOM instead of testing actual React component rendering.
 - **Impact**: Manual HTML injection creates tautological tests that pass or fail independently of the actual React components and view hierarchy, defeating the purpose of E2E verification.
 - **Action Taken**: Added `Playwright E2E UI Component Integration Testing` to `.foundry/docs/knowledge_base/agents/core_policies.md` under `Playwright E2E Best Practices` explicitly forbidding `page.evaluate()` HTML injection for UI component testing and requiring tests to target rendered React components on active routes or dedicated kitchen sink views.
+
+
+---
+
+# Agile Coach Journal Entry - 2026-09-30-05-13-02
+
+---
+
+## Analysis & Learnings
+
+### 1. Journal & Rejection Scan
+- Reviewed past journals in `.foundry/journals/agile_coach/master.md` and recent system execution patterns.
+- Analyzed cross-persona journals (`coder`, `qa`, `auditor`, `tech_lead`) to assess system compliance with core policies defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+- Evaluated journal aggregation (`.github/scripts/aggregate-journals.ts`) and sweep behavior (`.github/scripts/sweep-journals.ts`).
+
+### 2. Organizational Alignment & Evaluation
+- Concluded that adding rigid automated timestamp format linting across ephemeral journal files interacts tightly with `.github/scripts/aggregate-journals.ts` (which processes any `.md` file other than `master.md` before deleting/merging it).
+- Determined that additional automated static linter checks on ephemeral journal filenames provide minimal yield relative to complexity, as the existing consolidation script already ingests non-master markdown entries safely into `master.md`.

@@ -143,26 +143,47 @@ export async function generateEvolutionSuggestions(
         if (min_l) {
           const isReady = bestInstance.level >= min_l;
           let rpsMet = true;
-          if (rps !== undefined && bestInstance.dvs && bestInstance.statExp) {
-            const baseAtk = 35;
-            const baseDef = 35;
-            const calcAtk =
-              Math.floor(
-                (((baseAtk + bestInstance.dvs.atk) * 2 +
-                  Math.floor(Math.min(Math.floor(Math.ceil(Math.sqrt(bestInstance.statExp.atk))), 255) / 4)) *
-                  bestInstance.level) /
-                  100,
-              ) + 5;
-            const calcDef =
-              Math.floor(
-                (((baseDef + bestInstance.dvs.def) * 2 +
-                  Math.floor(Math.min(Math.floor(Math.ceil(Math.sqrt(bestInstance.statExp.def))), 255) / 4)) *
-                  bestInstance.level) /
-                  100,
-              ) + 5;
-            if (rps === 1) rpsMet = calcAtk > calcDef;
-            else if (rps === -1) rpsMet = calcAtk < calcDef;
-            else if (rps === 0) rpsMet = calcAtk === calcDef;
+          if (rps !== undefined) {
+            let calcAtk: number | undefined;
+            let calcDef: number | undefined;
+
+            if (bestInstance.stats) {
+              calcAtk = bestInstance.stats.atk;
+              calcDef = bestInstance.stats.def;
+            } else if (bestInstance.ivs || bestInstance.evs) {
+              const baseAtk = 35;
+              const baseDef = 35;
+              const atkIv = bestInstance.ivs?.atk ?? 0;
+              const defIv = bestInstance.ivs?.def ?? 0;
+              const atkEv = bestInstance.evs?.atk ?? 0;
+              const defEv = bestInstance.evs?.def ?? 0;
+
+              calcAtk = Math.floor((((baseAtk + atkIv) * 2 + Math.floor(atkEv / 4)) * bestInstance.level) / 100) + 5;
+              calcDef = Math.floor((((baseDef + defIv) * 2 + Math.floor(defEv / 4)) * bestInstance.level) / 100) + 5;
+            } else if (bestInstance.dvs && bestInstance.statExp) {
+              const baseAtk = 35;
+              const baseDef = 35;
+              calcAtk =
+                Math.floor(
+                  (((baseAtk + bestInstance.dvs.atk) * 2 +
+                    Math.floor(Math.min(Math.floor(Math.ceil(Math.sqrt(bestInstance.statExp.atk))), 255) / 4)) *
+                    bestInstance.level) /
+                    100,
+                ) + 5;
+              calcDef =
+                Math.floor(
+                  (((baseDef + bestInstance.dvs.def) * 2 +
+                    Math.floor(Math.min(Math.floor(Math.ceil(Math.sqrt(bestInstance.statExp.def))), 255) / 4)) *
+                    bestInstance.level) /
+                    100,
+                ) + 5;
+            }
+
+            if (calcAtk !== undefined && calcDef !== undefined) {
+              if (rps === 1) rpsMet = calcAtk > calcDef;
+              else if (rps === -1) rpsMet = calcAtk < calcDef;
+              else if (rps === 0) rpsMet = calcAtk === calcDef;
+            }
           }
           const isActuallyReady = isReady && rpsMet;
           let rpsReq = '';

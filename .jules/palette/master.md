@@ -120,3 +120,19 @@ Learned that the e2e test takes a long time and times out, skipping per memory.
 
 ## Accessibility & Decorative Telemetry Brackets
 - Wrapping decorative status brackets `[` and `]` in `<span aria-hidden="true">` inside status display components (such as `EmptyState`) prevents screen readers from redundantly announcing literal bracket characters while preserving the tactical ASCII hardware aesthetic visually.
+
+
+---
+
+# Palette Journal Entry - NavigationTab Decorative Brackets A11y
+
+## Date
+2026-03-30
+
+## Micro-UX / Accessibility Improvement
+Wrapped the decorative telemetry brackets (`[` and `]`) in `<NavigationTab />` with `<span aria-hidden="true">`.
+
+## Key Learnings
+- **Screen Reader Noise Reduction**: Interactive elements such as header navigation links (`<NavigationTab>`) that visually style their text label with tactical ASCII brackets `[` and `]` must wrap these brackets in `<span aria-hidden="true">`.
+- Without `aria-hidden="true"`, screen readers announce "left bracket SYS.DEX right bracket link", creating repetitive acoustic bloat when navigating through primary application tabs using screen readers.
+- Hiding decorative characters screen-reader side preserves the tactical hardware visual aesthetic without degrading accessibility.

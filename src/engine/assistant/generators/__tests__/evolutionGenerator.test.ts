@@ -252,6 +252,94 @@ describe('evolutionGenerator', () => {
       expect(suggestions[0]?.priority).toBe(90);
     });
 
+    it('handles Gen 3 Tyrogue RPS stat requirements using stats object and ivs/evs fallback', async () => {
+      const apiData: AssistantApiData = {
+        pokemonMetadata: {
+          106: {
+            id: 106, // Hitmonlee (Atk > Def)
+            efrm: [236],
+            det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 20, rps: 1 }],
+          },
+          107: {
+            id: 107, // Hitmonchan (Atk < Def)
+            efrm: [236],
+            det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 20, rps: -1 }],
+          },
+          237: {
+            id: 237, // Hitmontop (Atk == Def)
+            efrm: [236],
+            det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 20, rps: 0 }],
+          },
+        },
+      } as unknown as AssistantApiData;
+
+      // 1. Test with explicit stats object (Atk > Def)
+      const tyrogueWithStats = {
+        speciesId: 236,
+        level: 20,
+        stats: { hp: 40, atk: 25, def: 20, spd: 20, spatk: 20, spdef: 20 },
+      } as unknown as PokemonInstance;
+
+      const instancesMap = new Map([[236, [tyrogueWithStats]]]);
+
+      const suggestionsLee: Suggestion[] = [];
+      await generateEvolutionSuggestions(
+        [106],
+        mockSaveData,
+        apiData,
+        instancesMap,
+        suggestionsLee,
+        'emerald',
+        new Set([106]),
+      );
+      expect(suggestionsLee[0]?.priority).toBe(90); // Ready
+
+      const suggestionsChan: Suggestion[] = [];
+      await generateEvolutionSuggestions(
+        [107],
+        mockSaveData,
+        apiData,
+        instancesMap,
+        suggestionsChan,
+        'emerald',
+        new Set([107]),
+      );
+      expect(suggestionsChan[0]?.priority).toBe(75); // Needs stat adjustment
+
+      const suggestionsTop: Suggestion[] = [];
+      await generateEvolutionSuggestions(
+        [237],
+        mockSaveData,
+        apiData,
+        instancesMap,
+        suggestionsTop,
+        'emerald',
+        new Set([237]),
+      );
+      expect(suggestionsTop[0]?.priority).toBe(75); // Needs stat adjustment
+
+      // 2. Test with ivs/evs fallback (Atk < Def)
+      const tyrogueWithIvs = {
+        speciesId: 236,
+        level: 20,
+        ivs: { hp: 10, atk: 5, def: 31, spd: 10, spatk: 10, spdef: 10 },
+        evs: { hp: 0, atk: 0, def: 0, spe: 0, spa: 0, spd: 0 },
+      } as unknown as PokemonInstance;
+
+      const instancesMapIvs = new Map([[236, [tyrogueWithIvs]]]);
+      const suggestionsChan2: Suggestion[] = [];
+      await generateEvolutionSuggestions(
+        [107],
+        mockSaveData,
+        apiData,
+        instancesMapIvs,
+        suggestionsChan2,
+        'emerald',
+        new Set([107]),
+      );
+      expect(suggestionsChan2[0]?.priority).toBe(90); // Ready for Hitmonchan
+    });
+
     it('handles happiness/friendship evolution with time-of-day requirements', async () => {
       const suggestions: Suggestion[] = [];
       const apiData: AssistantApiData = {

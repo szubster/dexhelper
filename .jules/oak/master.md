@@ -65,3 +65,14 @@ Fixed missing FireRed exclusives (LeafGreen exclusives) list.
   * Meowth and Persian were previously categorized in `GEN3_VERSION_EXCLUSIVES.firered` as unobtainable (LeafGreen exclusives).
   * Cross-referencing against committed PokeAPI encounter data (`data/db/encounters.jsonl`) and canonical game sources confirms that Meowth is catchable in BOTH FireRed and LeafGreen on Routes 5, 6, 7, 8, etc.
   * Removing 52 and 53 from FireRed missing exclusives and LeafGreen available exclusives corrects the data discrepancy so DexHelper accurately reflects that FireRed players can catch Meowth natively without trading.
+
+
+---
+
+# Oak Journal - Gen 2 Exclusives Audit & Data Integrity
+
+## Learnings
+- **Gen 2 Version Exclusives & Unobtainables:**
+  - Audited Gen 2 version exclusive listings in `src/engine/exclusives/gen2Exclusives.ts` against committed PokeAPI encounter data in `data/db/encounters.jsonl`.
+  - Confirmed that Gold exclusives (missing in Silver: Delibird, Skarmory, Phanpy, Donphan), Silver exclusives (missing in Gold: Gligar, Teddiursa, Ursaring, Mantine), and Crystal exclusives (missing in Crystal: Mareep, Flaaffy, Ampharos, Girafarig, Remoraid, Octillery, Mankey, Primeape, Vulpix, Ninetales) perfectly match the wild encounter distributions in `data/db/encounters.jsonl`.
+  - Added unit test assertions in `src/engine/exclusives/__tests__/gen2Exclusives.test.ts` to ensure these version exclusive unobtainable locks remain enforced.

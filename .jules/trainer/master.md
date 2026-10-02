@@ -64,3 +64,22 @@ When fixing Assistant Logic related to branching vs linear evolutions, ensure th
 # Learnings
 - **Daycare Instance Extraction:** In Gen 2 (`saveData.daycare`) and Gen 3 (`saveData.gen3Daycare?.mons`), Daycare Pokémon are stored separately from `partyDetails` and `pcDetails`. By updating `extractAllInstances` in `src/engine/breeding/inventoryTools.ts` to include Daycare Pokémon, all assistant recommendation generators (evolutions, trades, breeding, OT tracking, and HM/utility tools) automatically account for Pokémon stored in the Daycare.
 - **Clear UI Indicators:** When generating evolution suggestions for pre-evolutions stored in the Daycare, appending `(in Daycare)` to the pre-evolution label in suggestion descriptions provides explicit clarity to the user on where their candidate Pokémon is located.
+
+
+---
+
+# Session Details
+- Date: $(date)
+- Focus: Prioritized held-item trade evolutions in Assistant recommendation engine.
+
+# Learnings
+- **Evolution Recommendation Priorities:** When evaluating trade evolutions that require held items (e.g., Seadra -> Kingdra with Dragon Scale, Clamperl -> Gorebyss with DeepSeaScale), if the player already possesses the required item in their inventory or equipped on a Pokémon, the recommendation priority should be boosted to `95` (matching Stone/Use Item evolutions). This ensures immediately actionable trade evolutions are prioritized over level-up evolutions (`90`) or missing-item trade evolutions (`45`).
+
+---
+
+# Session Details
+- Focus: Improved Gen 3 Tyrogue branching evolution stat inference in Assistant engine.
+
+# Learnings
+- **Gen 3 Stat Calculation in Assistant:** In Gen 3 saves, `PokemonInstance` provides `stats` or `ivs`/`evs`, whereas Gen 1/2 saves provide `dvs` and `statExp`. Previously, `evolutionGenerator.ts` only evaluated `rps` (relative physical stats: Atk > Def for Hitmonlee, Atk < Def for Hitmonchan, Atk == Def for Hitmontop) when `bestInstance.dvs` was present, causing Gen 3 Tyrogue instances to default to marking all three evolution targets as "ready to evolve" regardless of Tyrogue's stats.
+- **Fallback Hierarchy:** By evaluating `bestInstance.stats` first, falling back to Gen 3 IV/EV stat calculation, and then falling back to Gen 1/2 DVs, the Assistant now accurately infers which branching evolution target is ready to evolve for Tyrogue across all generations.
