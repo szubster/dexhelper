@@ -5,8 +5,9 @@
   "type": "module",
   "main": "src/index.ts",
   "dependencies": {
-    "vite": "^8.3.0",
-    "@11ty/gray-matter": "^3.0.0"
+    "@11ty/gray-matter": "^3.0.0",
+    "msgpackr": "^2.1.0",
+    "vite": "^8.3.0"
   },
   "devDependencies": {
     "@dexhelper/config": "workspace:*",
