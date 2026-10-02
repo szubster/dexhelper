@@ -31,5 +31,5 @@ End-to-end and integration verification is required to ensure that PokeDB proper
 - Ensure all tests pass cleanly in headless browser environments.
 
 ## Acceptance Criteria
-- [ ] Verify core database sync and extension loading via integration/E2E tests.
-- [ ] Confirm all tests pass without errors.
+- [x] Verify core database sync and extension loading via integration/E2E tests.
+- [x] Confirm all tests pass without errors.
