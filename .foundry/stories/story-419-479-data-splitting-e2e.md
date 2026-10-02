@@ -2,10 +2,10 @@
 id: story-419-479-data-splitting-e2e
 type: STORY
 title: Data splitting integration and E2E verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-10-02'
 depends_on:
   - story-419-478-pokedb-sync-refactor
 jules_session_id: '6706478323854200827'
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Story: Data splitting integration and E2E verification

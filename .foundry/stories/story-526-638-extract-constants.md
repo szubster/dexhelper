@@ -2,12 +2,12 @@
 id: story-526-638-extract-constants
 type: STORY
 title: Extract game constants to core package
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: '10717119449548013569'
+jules_session_id: null
 pr_number: null
 parent: epic-519-526-extract-core-domain
 tags:
@@ -15,7 +15,9 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

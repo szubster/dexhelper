@@ -2,10 +2,10 @@
 id: epic-519-526-extract-core-domain
 type: EPIC
 title: Phase 3 - Extract Core Domain Logic & Parsers
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-03'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on:
   - epic-519-524-workspace-infrastructure
 jules_session_id: null

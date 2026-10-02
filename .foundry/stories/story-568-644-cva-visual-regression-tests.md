@@ -2,7 +2,7 @@
 id: story-568-644-cva-visual-regression-tests
 type: STORY
 title: Implement CVA Visual Regression Tests
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-02'
 updated_at: '2026-10-02'
@@ -16,8 +16,8 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 60

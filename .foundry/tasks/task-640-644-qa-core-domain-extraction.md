@@ -5,7 +5,7 @@ title: QA Verification for Core Domain Extraction
 status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on:
   - task-640-643-update-app-imports
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: 'Parent dependency permanently failed'
+rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
 notes: ''
 locks: []
 ---

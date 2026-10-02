@@ -2,12 +2,12 @@
 id: story-525-638-isolate-vite-plugins
 type: STORY
 title: Isolate Vite Plugins
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: '6603541222635974556'
+jules_session_id: null
 pr_number: null
 parent: epic-519-525-extract-build-tooling
 tags:

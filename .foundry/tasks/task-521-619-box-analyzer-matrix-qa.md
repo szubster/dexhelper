@@ -2,7 +2,7 @@
 id: task-521-619-box-analyzer-matrix-qa
 type: TASK
 title: Box Analyzer Matrix UI QA
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-06-28'
 updated_at: '2026-10-02'
@@ -15,8 +15,8 @@ tags:
   - feature
   - ui
 research_references: []
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

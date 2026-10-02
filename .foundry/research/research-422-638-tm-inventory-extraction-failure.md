@@ -2,12 +2,12 @@
 id: research-422-638-tm-inventory-extraction-failure
 type: RESEARCH
 title: Investigate TM Inventory Extraction Logic Permanent Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-29T00:00:00.000Z'
 updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: '5839500195079518445'
+jules_session_id: null
 pr_number: null
 parent: story-411-422-pc-box-and-tm-extraction
 tags:
@@ -15,7 +15,9 @@ tags:
   - debugging
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
