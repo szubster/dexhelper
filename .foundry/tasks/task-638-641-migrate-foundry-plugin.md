@@ -2,13 +2,13 @@
 id: task-638-641-migrate-foundry-plugin
 type: TASK
 title: Migrate Foundry Plugin
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on:
   - task-638-639-init-vite-plugins-package
-jules_session_id: null
+jules_session_id: '4368713163776008074'
 pr_number: null
 parent: story-525-638-isolate-vite-plugins
 tags:

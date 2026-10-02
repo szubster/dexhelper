@@ -85,7 +85,7 @@ export function SearchAndFilters() {
 
         <div className="relative z-10 flex flex-col gap-6 pt-4 xl:flex-row xl:items-stretch">
           {/* Left Pane: Target Acquisition Array */}
-          <div className="group relative flex-1 overflow-hidden border border-cyan-500/30 border-dashed bg-cyan-950/10 p-5 shadow-[inset_0_0_30px_rgba(6,182,212,0.03)] transition-colors hover:bg-cyan-950/20">
+          <div className="group relative flex-1 border border-cyan-500/30 border-dashed bg-cyan-950/10 p-5 shadow-[inset_0_0_30px_rgba(6,182,212,0.03)] transition-colors hover:bg-cyan-950/20">
             {/* Tactical Corners */}
             <CornerCrosshairs className="h-3 w-3 border-cyan-500/60" thickness={2} />
 
@@ -175,7 +175,7 @@ export function SearchAndFilters() {
             <TacticalMultiSelectControl<FilterType>
               ariaLabel="Filter Pokémon"
               containerClassName="h-full justify-center pt-4"
-              buttonBaseClassName="relative group min-w-[80px] xl:min-w-[90px] h-14 flex flex-col items-center justify-center !border border-solid transition-all overflow-hidden"
+              buttonBaseClassName="relative group min-w-[95px] xl:min-w-[105px] h-14 flex flex-col items-center justify-center !border border-solid transition-all overflow-hidden"
               selectedValues={filtersSet}
               onValueToggle={handleToggleFilter}
               defaultActiveClassName="!border-cyan-500 bg-cyan-950 text-cyan-300 shadow-[inset_0_4px_10px_rgba(6,182,212,0.15)]"

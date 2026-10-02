@@ -2,13 +2,13 @@
 id: epic-565-570-agent-confidence-metrics-orchestrator
 type: EPIC
 title: Implement Orchestrator Interventions for Confidence Metrics
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-17T01:15:33Z'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on:
   - epic-565-569-agent-confidence-metrics-schema
-jules_session_id: '2559143495221310348'
+jules_session_id: null
 pr_number: null
 parent: prd-521-565-agent-confidence-metrics-dashboard
 tags:
@@ -34,4 +34,6 @@ Based on PRD-521, the orchestrator needs to react to nodes reporting low confide
 - Spawn a `QA` or `Auditor` task to review the node instead of allowing it to blindly complete.
 
 ## Acceptance Criteria
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [ ] story-570-644-orchestrator-confidence-intervention-impl
+- [ ] story-570-645-orchestrator-confidence-intervention-e2e

@@ -5,6 +5,7 @@ import type { SaveData } from '../../../../engine/saveParser/parsers/common';
 import { BattleFrontierDashboard } from '../BattleFrontierDashboard';
 
 const mockSaveData: Partial<SaveData> = {
+  gameVersion: 'emerald',
   generation: 3,
   gen3BattlePoints: 1234,
   gen3BattleFrontierWinStreaks: {
@@ -34,6 +35,38 @@ test('returns null if generation is not 3', async () => {
 });
 
 test('renders empty state if battle frontier data is missing', async () => {
+  const data = { generation: 3, gameVersion: 'emerald' } as SaveData;
+  await render(<BattleFrontierDashboard saveData={data} />);
+  await expect.element(page.getByText('NO BATTLE FRONTIER DATA FOUND')).toBeInTheDocument();
+});
+
+test('renders empty state for RS if battle tower data is missing', async () => {
+  const data = { generation: 3, gameVersion: 'ruby' } as SaveData;
+  await render(<BattleFrontierDashboard saveData={data} />);
+  await expect.element(page.getByText('NO BATTLE TOWER DATA FOUND')).toBeInTheDocument();
+});
+
+test('renders RS Battle Tower dashboard', async () => {
+  const data = {
+    generation: 3,
+    gameVersion: 'ruby',
+    gen3BattlePoints: 0,
+    gen3BattleFrontierWinStreaks: {},
+    gen3BattleFrontierSymbols: {},
+    gen3RSBattleTowerWinStreaks: {
+      level50: { current: 15, record: 35 },
+      level100: { current: 5, record: 20 },
+    },
+  } as unknown as SaveData;
+  const { container } = await render(<BattleFrontierDashboard saveData={data} />);
+
+  expect(container.innerHTML).toContain('COMBAT SIMULATION MATRIX');
+  expect(container.innerHTML).toContain('[ BATTLE TOWER (LV. 50) ]');
+  expect(container.innerHTML).toContain('[ BATTLE TOWER (LV. 100) ]');
+  expect(container.innerHTML).toContain('15');
+});
+
+test('dummy fallback test for old missing frontier test', async () => {
   const data = { generation: 3 } as SaveData;
   await render(<BattleFrontierDashboard saveData={data} />);
   await expect.element(page.getByText('NO BATTLE FRONTIER DATA FOUND')).toBeInTheDocument();

@@ -10,6 +10,7 @@ interface BinjgbContextValue {
   start: () => void;
   pause: () => void;
   reset: () => void;
+  extractSaveState: () => Uint8Array | null;
 }
 
 const BinjgbContext = createContext<BinjgbContextValue | null>(null);
@@ -83,8 +84,15 @@ export function BinjgbProvider({ children, moduleFactory }: BinjgbProviderProps)
     }
   };
 
+  const extractSaveState = () => {
+    if (emulator) {
+      return emulator.extractSaveState();
+    }
+    return null;
+  };
+
   return (
-    <BinjgbContext.Provider value={{ emulator, isReady, error, loadRom, start, pause, reset }}>
+    <BinjgbContext.Provider value={{ emulator, isReady, error, loadRom, start, pause, reset, extractSaveState }}>
       {children}
     </BinjgbContext.Provider>
   );

@@ -5,6 +5,12 @@ import type { RouteRadarHeatmap } from './types';
  * RouteRadarController bridges the dynamic suggestionEngine output
  * with the static map UI components by structuring the raw suggestion
  * output into heatmap data.
+ *
+ * @example
+ * ```ts
+ * const controller = new RouteRadarController();
+ * const heatmap = controller.calculateHeatmap(suggestions);
+ * ```
  */
 export class RouteRadarController {
   /**
@@ -21,6 +27,21 @@ export class RouteRadarController {
    *
    * @param suggestions The raw output from the suggestionEngine.
    * @returns Heatmap data mapping areaId to density score.
+   *
+   * @example
+   * ```ts
+   * const heatmap = controller.calculateHeatmap([
+   *   {
+   *     id: 1,
+   *     category: 'Catch',
+   *     title: 'Catch Bulbasaur',
+   *     encounterInfo: {
+   *       10: [{ areaId: 100, requiresMachBike: false, requiresAcroBike: false }]
+   *     }
+   *   }
+   * ]);
+   * // heatmap[100] -> { density: 1, requiresMachBike: false, requiresAcroBike: false }
+   * ```
    */
   public calculateHeatmap(suggestions: Suggestion[]): RouteRadarHeatmap {
     const heatmap: RouteRadarHeatmap = {};

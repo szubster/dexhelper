@@ -103,3 +103,20 @@ Date: 2026-09-30 03:20:00
   - `task-410-493-update-journal-paths-impl`
   - `task-410-494-update-journal-paths-qa`
   - `story-401-411-conflictless-journals-e2e-verification`
+
+
+---
+
+# TPM Session Journal
+Date: 2026-10-02 00:00:00
+
+## Architectural Findings and Lessons Learned
+
+### Deadlock Resolution
+- Resolved a minor DAG orchestrator deadlock in `.foundry/prds/prd-122-339-pokemon-themed-foundry-personas.md` where `parent` was specified as `.foundry/ideas/idea-122-pokemon-themed-foundry-personas.md` instead of the pure Node ID `idea-122-pokemon-themed-foundry-personas`.
+
+### Terminal Tree Verification and Archival Scope
+- Successfully archived the 100% terminal tree rooted at `idea-517-gen2-radio-password-tracker` (3 nodes total):
+  - `idea-517-gen2-radio-password-tracker`
+  - `prd-517-564-gen2-radio-password-tracker`
+  - `research-564-565-buena-password-offsets`

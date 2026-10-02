@@ -36,6 +36,19 @@ describe('extractBugCatchingContestData', () => {
     });
   });
 
+  it('should extract correct data when passed a DataView directly', () => {
+    const buffer = createMockSave(true, 123, 14, 35, 40);
+    const view = new DataView(buffer);
+    const result = extractBugCatchingContestData(view, true);
+
+    expect(result).toEqual({
+      speciesId: 123,
+      level: 14,
+      currentHp: 35,
+      maxHp: 40,
+    });
+  });
+
   it('should extract correct data for Pokemon Gold/Silver', () => {
     // Pinsir (127), Level 13, HP 10/40
     const buffer = createMockSave(false, 127, 13, 10, 40);

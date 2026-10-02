@@ -2,7 +2,7 @@
 id: epic-519-525-extract-build-tooling
 type: EPIC
 title: Phase 2 - Extract Build Tooling & Data Pipelines
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-03'
 updated_at: '2026-10-02'

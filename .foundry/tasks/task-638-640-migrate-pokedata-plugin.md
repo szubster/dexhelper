@@ -2,13 +2,13 @@
 id: task-638-640-migrate-pokedata-plugin
 type: TASK
 title: Migrate PokeData Plugin
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on:
   - task-638-639-init-vite-plugins-package
-jules_session_id: null
+jules_session_id: '16948112239375633600'
 pr_number: null
 parent: story-525-638-isolate-vite-plugins
 tags:

@@ -8,7 +8,7 @@ created_at: '2026-10-01'
 updated_at: '2026-10-02'
 depends_on:
   - task-640-641-create-core-package-infrastructure
-jules_session_id: null
+jules_session_id: '13644629649209908782'
 pr_number: null
 parent: story-526-640-extract-domain-logic
 tags:
@@ -16,8 +16,8 @@ tags:
   - monorepo
   - pnpm
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

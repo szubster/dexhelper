@@ -2,7 +2,7 @@
 id: research-478-638-investigate-cloning-logic-failure
 type: RESEARCH
 title: Investigate DAG Node Cloning Logic Failure
-status: READY
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-16'
 updated_at: '2026-10-02'
@@ -15,7 +15,9 @@ tags:
   - research
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

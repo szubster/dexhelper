@@ -2,18 +2,18 @@
 id: story-407-573-item-gating-data-mapping
 type: STORY
 title: Item Gating Data Mapping
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-16T05:45:31Z'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: '15495505721329488706'
+jules_session_id: null
 pr_number: null
 parent: epic-339-407-gen3-bike-item-gating-integration
 tags:
   - gen3
   - map
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

@@ -2,13 +2,13 @@
 id: epic-565-572-agent-confidence-metrics-agent-capability
 type: EPIC
 title: Implement Agent Capability for Confidence Metrics
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-17T01:15:33Z'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on:
   - epic-565-569-agent-confidence-metrics-schema
-jules_session_id: '14102121182706043219'
+jules_session_id: null
 pr_number: null
 parent: prd-521-565-agent-confidence-metrics-dashboard
 tags:
@@ -32,4 +32,6 @@ Based on PRD-521, agents need to be instructed on how to report their confidence
 - This might involve updating core policies or prompt files to ensure they know when and how to update the `confidence_score` frontmatter.
 
 ## Acceptance Criteria
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [ ] story-572-644-update-agent-prompts-for-confidence
+- [ ] story-572-645-agent-capability-integration-e2e
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
