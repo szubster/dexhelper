@@ -30,5 +30,5 @@ locks: []
 Write comprehensive unit tests for the newly added \`readBits\` and \`readFlag\` methods in \`SaveDataReader\`.
 
 ## Acceptance Criteria
-- [ ] Add unit tests for \`readBits\` verifying correct extraction and bounds checking.
-- [ ] Add unit tests for \`readFlag\` verifying correct flag extraction.
+- [x] Add unit tests for \`readBits\` verifying correct extraction and bounds checking.
+- [x] Add unit tests for \`readFlag\` verifying correct flag extraction.
