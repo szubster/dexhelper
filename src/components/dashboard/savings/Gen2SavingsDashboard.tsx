@@ -1,5 +1,6 @@
 import type React from 'react';
 import { useParsedSaveData } from '../../../contexts/EmulatorContext';
+import { getSavingsProgress } from '../../../utils/gen2Savings';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
@@ -11,6 +12,7 @@ export const Gen2SavingsDashboard: React.FC = () => {
   }
 
   const { money, savingActive } = saveData.gen2MomsSavings;
+  const progress = getSavingsProgress(money);
 
   return (
     <TacticalPanel className="relative mt-6 flex flex-col gap-4 border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
@@ -26,6 +28,25 @@ export const Gen2SavingsDashboard: React.FC = () => {
       <div className="flex flex-col gap-1">
         <span className="font-mono text-xs text-zinc-400">CURRENT BALANCE</span>
         <span className="font-mono text-2xl text-emerald-400">₽{money.toLocaleString()}</span>
+      </div>
+
+      <div className="mt-2 border-zinc-800 border-t border-dashed pt-4">
+        {progress.allThresholdsReached ? (
+          <div className="flex items-center justify-center rounded-none border border-emerald-900/50 bg-emerald-900/10 p-2">
+            <span className="font-bold font-mono text-emerald-400 text-xs tracking-wider">ALL THRESHOLDS REACHED</span>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-2">
+            <div className="flex items-end justify-between">
+              <span className="font-mono text-[10px] text-zinc-500 tracking-wider">
+                NEXT UNLOCK: {progress.nextDecoration?.toUpperCase()}
+              </span>
+              <span className="font-mono text-[10px] text-zinc-400">
+                ₽{progress.amountRemaining.toLocaleString()} REMAINING
+              </span>
+            </div>
+          </div>
+        )}
       </div>
     </TacticalPanel>
   );
