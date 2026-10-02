@@ -6,6 +6,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [research-478-638-investigate-cloning-logic-failure](.foundry/research/research-478-638-investigate-cloning-logic-failure.md) | RESEARCH | Investigate DAG Node Cloning Logic Failure | researcher | [5969859121869854970](https://jules.google.com/session/5969859121869854970) |
 | [research-495-649-investigate-reactive-dashboards-failures-v3](.foundry/research/research-495-649-investigate-reactive-dashboards-failures-v3.md) | RESEARCH | Investigate Reactive Dashboards Failures V3 | researcher | [12957497859741421249](https://jules.google.com/session/12957497859741421249) |
 | [research-640-645-investigate-extract-core-domain-timeout](.foundry/research/research-640-645-investigate-extract-core-domain-timeout.md) | RESEARCH | Investigate timeout during core domain extraction | researcher | [3404925110720365319](https://jules.google.com/session/3404925110720365319) |
 | [story-525-638-isolate-vite-plugins](.foundry/stories/story-525-638-isolate-vite-plugins.md) | STORY | Isolate Vite Plugins | tech_lead | [6603541222635974556](https://jules.google.com/session/6603541222635974556) |
