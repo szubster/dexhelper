@@ -2,15 +2,16 @@
 id: task-520-550-refactor-gen2-parser-impl
 type: TASK
 title: Refactor Gen 2 Parser to use Constants
-status: COMPLETED
+status: READY
 owner_persona: coder
 created_at: '2026-09-06'
-updated_at: '2026-09-29'
+updated_at: '2026-10-02'
 depends_on:
   - task-520-549-define-gen2-constants-impl
 jules_session_id: null
 parent: story-522-520-gen2-constants-extraction
 rejection_reason: ''
+rejection_count: 2
 locks: []
 ---
 # TASK: Refactor Gen 2 Parser to use Constants
@@ -22,3 +23,7 @@ Update gen2.ts to use the new constants module.
 - [x] Update `src/engine/saveParser/parsers/gen2.ts` to import constants from `gen2Constants.ts`.
 - [x] Replace any remaining inline magic numbers within the parser logic with named constants.
 - [x] Ensure the existing Gen 2 test suite passes without regressions.
+
+
+### QA Rejection
+Magic numbers like 20, 26, 12, 50, 6, 8, 16, 243, 244, 245 still exist in `src/engine/saveParser/parsers/gen2.ts`, violating ADR 028. These numbers must be defined as reusable constants at the module level. Please fix these issues.

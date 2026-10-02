@@ -2,10 +2,10 @@
 id: research-599-633-investigate-dynamic-berry-data
 type: RESEARCH
 title: Investigate Discrepancy Between Dynamic Gen 3 Berry Data and Static Pipeline
-status: PENDING
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-29'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,7 +29,7 @@ Investigate the original intent behind this requirement. Determine whether:
 3. The original task instructions simply confused dynamic save data with static game data, and a new plan or task definition is required.
 
 ## Acceptance Criteria
-- [ ] adr-599-638-dynamic-data-hydration
+- [x] adr-599-638-dynamic-data-hydration
 - [x] Investigate the architectural intent for Gen 3 Berry Patch data serialization.
 - [x] Determine if `BERRY_TREE_LOCATIONS` or other static metadata should be added to the generation pipeline.
 - [x] Provide a clear recommendation on how to handle the data serialization requirement.

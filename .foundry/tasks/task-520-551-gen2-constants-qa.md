@@ -2,14 +2,15 @@
 id: task-520-551-gen2-constants-qa
 type: TASK
 title: QA - Gen 2 Constants Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-06'
-updated_at: '2026-09-30'
+updated_at: '2026-10-02'
 depends_on:
   - task-520-550-refactor-gen2-parser-impl
-jules_session_id: '8906206402208958945'
+jules_session_id: null
 parent: story-522-520-gen2-constants-extraction
+rejection_count: 1
 rejection_reason: ''
 locks: []
 ---
@@ -21,3 +22,7 @@ Verify compliance with ADR 028 for the Gen 2 parser.
 ## Acceptance Criteria
 - [ ] Review `gen2.ts` and `gen2Constants.ts` to ensure no inline magic numbers exist.
 - [ ] Verify that all unit tests for the Gen 2 parser are passing.
+
+
+### Note on Failure
+The implementation task `task-520-550-refactor-gen2-parser-impl` was rejected because it failed to replace all magic numbers with constants as per ADR 028. See journal entry for details.

@@ -2,10 +2,10 @@
 id: story-554-563-gen3-dashboard-data-integration
 type: STORY
 title: Gen 3 Dashboard Data Integration
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-13'
+updated_at: '2026-10-02'
 depends_on:
   - story-554-562-gen3-dashboard-layout-and-routing
 jules_session_id: null

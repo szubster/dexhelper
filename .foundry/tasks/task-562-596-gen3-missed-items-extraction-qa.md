@@ -2,10 +2,10 @@
 id: task-562-596-gen3-missed-items-extraction-qa
 type: TASK
 title: Gen 3 Missed Items Extraction QA
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-19'
-updated_at: '2026-09-25'
+updated_at: '2026-10-02'
 depends_on:
   - task-562-595-gen3-missed-items-extraction-tests
 jules_session_id: null
@@ -26,8 +26,8 @@ rejection_count: 1
 Perform Quality Assurance on the Gen 3 missed items extraction logic implemented in `task-562-594-gen3-missed-items-extraction-logic` and its corresponding tests in `task-562-595-gen3-missed-items-extraction-tests`.
 
 ## Acceptance Criteria
-- [ ] Verify that the extraction logic strictly adheres to the guidelines in Section 13 of `.foundry/docs/schema.md`.
-- [ ] Confirm all memory offsets and bit locations are defined as reusable module-level constants (no magic numbers).
-- [ ] Confirm that relative offsets using section offsets are used instead of absolute hardcoded offsets.
-- [ ] Confirm `RangeError` catching and the specific error messaging is implemented correctly.
-- [ ] Verify unit tests are passing and correctly test the implementation.
+- [x] Verify that the extraction logic strictly adheres to the guidelines in Section 13 of `.foundry/docs/schema.md`.
+- [x] Confirm all memory offsets and bit locations are defined as reusable module-level constants (no magic numbers).
+- [x] Confirm that relative offsets using section offsets are used instead of absolute hardcoded offsets.
+- [x] Confirm `RangeError` catching and the specific error messaging is implemented correctly.
+- [x] Verify unit tests are passing and correctly test the implementation.

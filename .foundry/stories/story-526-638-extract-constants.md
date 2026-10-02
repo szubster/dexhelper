@@ -23,4 +23,6 @@ locks: []
 # Extract game constants to core package
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-638-641-extract-constants-to-core
+- [ ] task-638-642-extract-constants-tests-qa

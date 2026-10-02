@@ -2,10 +2,10 @@
 id: story-268-348-gen3-ash-integration
 type: STORY
 title: 'Story: Gen 3 Volcanic Ash Integration & View'
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-07-29'
-updated_at: '2026-09-21'
+updated_at: '2026-10-02'
 depends_on:
   - story-268-331-gen3-ash-dataview-extraction-relative
 jules_session_id: null
@@ -39,6 +39,6 @@ Integrate the extracted Gen 3 Volcanic Ash count into the frontend UI and ensure
 - [x] research-348-461-investigate-isgen3save-stub
 - [x] task-348-462-gen3-ash-ui-impl
 - [x] task-348-463-gen3-ash-ui-qa
-- [ ] research-348-506-investigate-ui-impl-failure
-- [ ] task-348-507-gen3-ash-ui-impl
-- [ ] task-348-508-gen3-ash-ui-qa
+- [x] research-348-506-investigate-ui-impl-failure
+- [x] task-348-507-gen3-ash-ui-impl
+- [x] task-348-508-gen3-ash-ui-qa

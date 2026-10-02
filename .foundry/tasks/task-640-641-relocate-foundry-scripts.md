@@ -2,12 +2,12 @@
 id: task-640-641-relocate-foundry-scripts
 type: TASK
 title: Relocate Foundry Scripts
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5881842082046709922'
 pr_number: null
 parent: story-525-640-relocate-foundry-scripts
 tags:
@@ -15,7 +15,7 @@ tags:
   - monorepo
   - pnpm
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

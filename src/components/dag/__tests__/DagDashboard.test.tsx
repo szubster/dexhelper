@@ -245,13 +245,27 @@ test('DagDashboard handles selection and highlighting', async () => {
   await vi.waitFor(async () => await expect.element(n2DagNode).not.toHaveClass('!border-cyan-500'), { timeout: 3000 });
 
   // Hit onNodeMouseLeave and onNodeMouseEnter logic via fireEvent or element
-  n2DagNode.element().dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
-  n2DagNode.element().dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
+  // Hover interactions via react flow wrapper
+  const n2Wrapper = n2DagNode.element().closest('.react-flow__node') as HTMLElement;
+  if (n2Wrapper) {
+    n2Wrapper.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }));
+    n2Wrapper.dispatchEvent(new MouseEvent('mouseout', { bubbles: true }));
+  }
 
+  // Also call the functions directly if needed for coverage (mocking)
   // To make sure coverage on filter logic handles undefined
   const taskTypeButton = page.getByTestId('TASK');
   await taskTypeButton.click();
   await taskTypeButton.click();
+
+  // Test status filter toggle
+  const statusButton = page.getByTestId('ACTIVE');
+  await statusButton.click(); // removes it
+  await statusButton.click(); // adds it back
+
+  // Test heatmap overlay toggle
+  const heatmapButton = page.getByText('[ HEATMAP_OVERLAY ]');
+  await heatmapButton.click(); // toggles it
 });
 
 test('DagDashboard handles non-ok fetch response', async () => {

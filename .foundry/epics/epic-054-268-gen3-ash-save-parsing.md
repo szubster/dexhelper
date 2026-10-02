@@ -2,10 +2,10 @@
 id: epic-054-268-gen3-ash-save-parsing
 type: EPIC
 title: 'Epic: Gen 3 Volcanic Ash Save Parsing'
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-07-29'
+updated_at: '2026-10-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -38,4 +38,4 @@ Extract the Volcanic Ash count (step counter) from Gen 3 save files (Ruby, Sapph
 ## Acceptance Criteria
 - [x] Break down this Epic into corresponding STORY nodes.
 - [x] [story-268-331-gen3-ash-dataview-extraction-relative](.foundry/archive/stories/story-268-331-gen3-ash-dataview-extraction-relative.md)
-- [ ] story-268-348-gen3-ash-integration
+- [x] story-268-348-gen3-ash-integration

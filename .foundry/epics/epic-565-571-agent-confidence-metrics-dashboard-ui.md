@@ -36,4 +36,7 @@ Based on PRD-521, the UI dashboard needs to visualize the confidence scores repo
   - Green for `90+`
 
 ## Acceptance Criteria
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+
+- [ ] story-571-644-dashboard-metrics-ui-components
+- [ ] story-571-645-dashboard-metrics-integration-e2e

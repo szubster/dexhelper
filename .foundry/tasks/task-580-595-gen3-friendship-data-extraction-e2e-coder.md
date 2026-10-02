@@ -2,12 +2,12 @@
 id: task-580-595-gen3-friendship-data-extraction-e2e-coder
 type: TASK
 title: Gen 3 Friendship Data Extraction E2E Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19T11:29:17Z'
-updated_at: '2026-09-20'
+updated_at: '2026-10-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14144842663625378813'
 pr_number: null
 parent: story-094-580-friendship-data-extraction-e2e
 tags:
@@ -27,6 +27,6 @@ rejection_count: 1
 Write end-to-end tests to verify the extraction of the Friendship (Happiness) value for Gen 3 Pokémon in both the active Party and PC Boxes. Tests must handle the 48-byte encrypted Data block and use `PV % 24` logic.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for Gen 3 Party parsing to extract Friendship.
-- [ ] Implement Playwright E2E tests for Gen 3 PC parsing to extract Friendship.
-- [ ] Ensure `xvfb-run -a pnpm test:e2e` passes for the new test file.
+- [x] Implement Playwright E2E tests for Gen 3 Party parsing to extract Friendship.
+- [x] Implement Playwright E2E tests for Gen 3 PC parsing to extract Friendship.
+- [x] Ensure `xvfb-run -a pnpm test:e2e` passes for the new test file.

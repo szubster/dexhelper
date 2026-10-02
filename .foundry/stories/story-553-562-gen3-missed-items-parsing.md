@@ -2,10 +2,10 @@
 id: story-553-562-gen3-missed-items-parsing
 type: STORY
 title: Gen 3 Missed Items & Milestones Parsing Core
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-21'
+updated_at: '2026-10-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,6 +28,6 @@ Implement the core save file parsing logic to extract missed milestones and valu
 - [x] Decompose into granular TASK nodes for implementation.
 - [x] Define the extraction methods and required state variables.
 - [x] Create a specific QA task to verify the parsed offsets.
-- [ ] task-562-594-gen3-missed-items-extraction-logic
-- [ ] task-562-595-gen3-missed-items-extraction-tests
-- [ ] task-562-596-gen3-missed-items-extraction-qa
+- [x] task-562-594-gen3-missed-items-extraction-logic
+- [x] task-562-595-gen3-missed-items-extraction-tests
+- [x] task-562-596-gen3-missed-items-extraction-qa

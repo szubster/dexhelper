@@ -193,3 +193,10 @@ Improve AI readability by extracting Gen 3 roamer offsets into a centralized con
 ## Critical Learnings
 * **Inline magic numbers obfuscate data structures and bitmasks:** Using inline hex values (like `0x3a54`, `0x3`, `0xfff`) deeply embedded in parsing logic makes it difficult for AI to grasp the binary architecture and bounds of save files.
 * **Top-level constants provide semantic mapping:** Extracting these to named constants (`GEN3_FAME_CHECKER_OFFSET`, `FAME_CHECKER_PICK_STATE_MASK`, `FAME_CHECKER_FLAVOR_FLAGS_MASK`, etc.) in `constants.ts` drastically improves semantic readability and AI comprehension of Generation 3 save file data parsing.
+
+
+---
+
+## Critical Learnings
+* **Inline numerical literals obscure domain boundaries:** Using raw magic numbers (`151`, `251`, `386` for Pokédex species limits or `165` for Gen 1 move limits) across utility functions, configs, and health verification scanners obscures generation boundaries for AI models.
+* **Top-level domain constants establish self-documenting code:** Extracting species and move bounds (`GEN1_MAX_SPECIES_ID`, `GEN2_MAX_SPECIES_ID`, `GEN3_MAX_SPECIES_ID`, `GEN1_MAX_MOVE_ID`) to `src/utils/species.ts` and `src/engine/moves/gen2Moves.ts` allows LLMs and AI developers to immediately grasp boundary requirements and prevent accidental logic drift across disparate modules.

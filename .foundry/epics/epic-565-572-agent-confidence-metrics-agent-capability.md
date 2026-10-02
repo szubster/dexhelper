@@ -32,4 +32,6 @@ Based on PRD-521, agents need to be instructed on how to report their confidence
 - This might involve updating core policies or prompt files to ensure they know when and how to update the `confidence_score` frontmatter.
 
 ## Acceptance Criteria
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [ ] story-572-644-update-agent-prompts-for-confidence
+- [ ] story-572-645-agent-capability-integration-e2e
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.

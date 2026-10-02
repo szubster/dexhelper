@@ -5,7 +5,7 @@ title: Gen 3 Pokéblock Optimizer UI
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-19'
+updated_at: '2026-10-02'
 depends_on: []
 jules_session_id: null
 pr_number: null

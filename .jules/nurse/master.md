@@ -68,3 +68,12 @@ It tightens type safety for data loaded from IndexedDB, a common source of impli
 **Outcome:** Replaced unnecessary `as PokemonInstance | null` casts in `usePokerusSpreadPlanner` with clean nullish coalescing (`?? null`).
 **Why:** Reading indexed array values under strict TypeScript configurations yields `T | null | undefined`. Using `as` assertions was an unsafe bypass of the compiler. Adding `?? null` cleanly narrows the expression to `PokemonInstance | null` without resorting to type casting.
 **Learn:** Array element access in strict TypeScript modes evaluates with optional `undefined`. Using `array[index] ?? null` is the canonical, safe type narrowing pattern for `(T | null)[]` state arrays.
+
+
+---
+
+# Nurse Joy Journal Entry
+
+- **Issue:** Unsafe `as string` type assertion in `src/engine/saveParser/gen3/storage/parser.ts` when extracting PC box index (`pokemon.storageLocation.split(' ')[1] as string`).
+- **Solution:** Replaced `as string` cast with array destructuring (`const [, boxNumStr] = pokemon.storageLocation.split(' ');`) and an explicit string guard check (`if (!boxNumStr) continue;`).
+- **Learn:** When parsing structured string descriptions like `"Box N"` in domain models, favor array destructuring combined with guard checks (`if (!val) continue;`) over direct array indexing with `as string` casts. This improves type safety and prevents potential `NaN` calculations or runtime errors if the input string format changes.

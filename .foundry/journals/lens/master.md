@@ -85,3 +85,40 @@ In accordance with the Skeptical Player Mindset and the Exploratory Visual QA di
 ### 3. Tactical Hardware Aesthetic Compliance
 * **Sharp Edges & Monospaced Fonts**: Tactical hardware panels strictly adhere to `rounded-none` borders and `font-mono` styling across viewports, satisfying ADR 008.
 * **Bracket Wrapping**: No isolated tactical ASCII brackets (`[` or `]`) were found split onto separate lines.
+
+
+---
+
+# Mobile Navigation Alignment & Generation Context Filter
+
+## Overview
+During visual and layout audit across mobile viewports (Pixel 9: 393x852) and generation save states (Gen 1 `yellow.sav`, Gen 2 `crystal.sav`, Gen 3 `emerald-vithuang.sav`), we observed that `BottomNav` rendered Gen 2 (`DASH`) and Gen 3 (`SFRI`, `G3DB`) navigation tabs unconditionally for all save states (including Gen 1 and no-save state), causing horizontal cramming and dead-end navigation targets.
+
+## Key Changes & Remediation
+1. **Generation-Filtered Tabs**: `BottomNav` now reads `saveData` from `useStore` and conditionally renders:
+   - `DASH` (`/dashboard`) only when Gen 2 or Gen 3 save data is active.
+   - `SFRI` (`/safari-zone`) and `G3DB` (`/gen3-dashboard`) only when Gen 3 save data is active.
+2. **Horizontal Scrolling Enclosure**: Added `overflow-x-auto custom-scrollbar` and `min-w-[52px]` to button containers within `BottomNav` to guarantee touch target accessibility on narrow screens.
+3. **Unit Test Verification**: Updated `src/components/__tests__/BottomNav.test.tsx` using `vitest-browser-react` and `page` from `vitest/browser` to verify conditional tab rendering across Gen 1, Gen 2, and Gen 3 save states.
+
+## Architectural & QA Takeaways
+- Mobile navigation controls must align with the active save context (matching `AppHeader.tsx`), eliminating invalid or empty-state navigation tabs.
+
+---
+
+# Lens Visual QA Audit Journal — 2025-10-02
+
+## Exploration & Discoveries
+During live web application inspection on Desktop FullHD (1920x1080) and Mobile Pixel 9 (393x852) viewports across save files (`yellow.sav`, `crystal.sav`, `emerald.sav`), two primary visual layout issues were identified on the main Search & Filters panel (`SearchAndFilters.tsx`):
+1. **Vertical Button Misalignment**: `ClearFiltersBadge` rendered at `h-10` while adjacent filter buttons in `TacticalMultiSelectControl` rendered at `h-14`, creating an awkward height mismatch on the hardware control array.
+2. **Bracket Text Wrapping**: Parameter routing badges (`[ SECURED ]`, `[ MISSING ]`, `[ DEX_ONLY ]`) wrapped brackets onto separate lines due to tight container widths (`min-w-[80px]`) and padding inside `FilterBadge.tsx`.
+3. **Clipped Header Labels**: The `EdgeLabel` for `TARGET_ACQUISITION_ARRAY` was vertically clipped by the parent container's `overflow-hidden` class.
+
+## Remediation Applied
+* **Height Uniformity**: Adjusted `ClearFiltersBadge.tsx` button container height to `h-14` matching `TacticalMultiSelectControl`.
+* **Inline Label Formatting**: Added `whitespace-nowrap inline-flex` to `FilterBadge.tsx` and widened `TacticalMultiSelectControl` button width to `min-w-[95px] xl:min-w-[105px]`, ensuring `[ SECURED ]`, `[ MISSING ]`, and `[ DEX_ONLY ]` render cleanly on a single line.
+* **Unclipped Edge Labels**: Removed `overflow-hidden` from the left pane container in `SearchAndFilters.tsx` so edge label text renders unclipped above the border.
+
+## Verification
+* Executed local Playwright visual verification script (`verify_filters.py`), confirming unclipped headers, level button alignment, and zero bracket line wrapping in recorded screenshot and video.
+* All 1947 unit/browser tests passed cleanly (`pnpm test`), and project-wide linting (`pnpm lint`) passed with 0 errors.

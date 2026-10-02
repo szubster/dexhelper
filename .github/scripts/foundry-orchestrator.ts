@@ -29,7 +29,7 @@ import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
 import { buildDocumentationIndex } from "./flexsearch-utils.ts";
-import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal, updateActiveSessionsTable } from './dag-utils.ts';
+import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal, updateActiveSessionsTable, trackCycleDetectionFailure } from './dag-utils.ts';
 import { NodeFrontmatterSchema, type NodeFrontmatter } from './schema.ts';
 
 // gray-matter is CJS; import via require() for clean ESM interop.
@@ -347,6 +347,7 @@ function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
   } else if (fs.existsSync(fallbackPath)) {
     genericPrompt = fs.readFileSync(fallbackPath, 'utf-8');
   } else {
+    warn(`Base persona prompt not found for: ${ownerPersona}, using default generic prompt.`);
     genericPrompt = `As the ${ownerPersona} of The Foundry, your task is described in the provided node file.`;
   }
 
@@ -408,8 +409,8 @@ function compileScheduledPrompt(persona: string, repoRoot: string): string {
   } else if (fs.existsSync(fallbackPath)) {
     basePrompt = fs.readFileSync(fallbackPath, 'utf-8');
   } else {
-    warn(`Scheduled agent persona prompt not found for: ${persona}`);
-    return '';
+    warn(`Scheduled agent persona prompt not found for: ${persona}, using default generic prompt.`);
+    basePrompt = `As the ${persona} of The Foundry, your task is to execute your scheduled responsibilities.`;
   }
 
   let combined = basePrompt;
@@ -937,6 +938,7 @@ function main(): void {
         cyclePath.push(dep);
 
         warn(`Detected circular dependency: ${cyclePath.join(' -> ')}`);
+        trackCycleDetectionFailure(cyclePath);
 
         for (const cycleNode of cyclePath) {
           nodesInCycle.add(cycleNode);
@@ -1021,6 +1023,7 @@ function main(): void {
 
       if (isCyclic) {
         warn(`Hierarchical deadlock detected: Parent '${node.frontmatter.id}' (${node.repoPath}) has unchecked/incomplete child '${child.frontmatter.id}' (${child.repoPath}), but a dependency cycle exists between them!`);
+        trackCycleDetectionFailure([node.repoPath, child.repoPath]);
         if (node.frontmatter.status === 'PENDING') {
           promoteNodeToFailedWithReason(node, 'Hierarchical deadlock detected');
         }

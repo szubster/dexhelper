@@ -373,7 +373,16 @@ export interface RuinsOfAlphPuzzles {
   omanyte: boolean;
 }
 
+export interface BugCatchingContestData {
+  speciesId: number;
+  level: number;
+  currentHp: number;
+  maxHp: number;
+}
+
 export interface Gen2SaveData extends BaseSaveData {
+  /** Gen 2 specific: The basic data of the currently caught Bug-Catching Contest Pokémon. */
+  bugCatchingContestData?: BugCatchingContestData;
   /** The generation of the parsed save file. */
   generation: 2;
   /** Gen 2 specific: Narrative progression flags. */

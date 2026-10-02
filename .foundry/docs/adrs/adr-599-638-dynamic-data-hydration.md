@@ -2,10 +2,10 @@
 id: adr-599-638-dynamic-data-hydration
 type: ADR
 title: 'ADR 028: Runtime Hydration for Parsed Save Data vs Static Pipeline'
-status: READY
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-09-30'
-updated_at: '2026-09-30'
+updated_at: '2026-10-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -23,7 +23,7 @@ notes: ''
 # ADR 028: Runtime Hydration for Parsed Save Data vs Static Pipeline
 
 ## Status
-Proposed
+Accepted
 
 ## Context
 During the Gen 3 berry tracking implementation (`story-513-537-gen3-berry-serialization-and-api`), instructions mistakenly conflated parsed save file data (dynamic, user-specific, mutable) with PokeAPI/ROM base data (static, universal, immutable).

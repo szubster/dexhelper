@@ -2,13 +2,13 @@
 id: story-411-422-pc-box-and-tm-extraction
 type: STORY
 title: Extract PC Box and TM Inventory data concurrently.
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-11T00:00:00.000Z'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on:
   - story-411-421-active-party-extraction
-jules_session_id: null
+jules_session_id: '3644000096559785753'
 pr_number: null
 parent: epic-340-411-save-data-extraction
 tags:

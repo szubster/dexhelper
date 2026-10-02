@@ -11,7 +11,10 @@ export const TargetPokemonSelector: React.FC = () => {
 
   const { data: pokemonList } = useQuery({
     queryKey: ['allPokemon'],
-    queryFn: () => pokeDB.getAllPokemon(),
+    queryFn: async () => {
+      const result = await pokeDB.getAllPokemon();
+      return result || [];
+    },
   });
 
   const sortedPokemon = useMemo(() => {
