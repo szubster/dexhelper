@@ -28,4 +28,4 @@ Initialize the `@dexhelper/ui` package in `packages/ui`.
 - Configure dependencies (React, etc.).
 
 ## Acceptance Criteria
-- [ ] Implement the objective as described.
+- [x] Implement the objective as described.
