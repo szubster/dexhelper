@@ -1,6 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority';
-import type React from 'react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { cn } from '../utils/cn';
 
 import { HardwareScrews } from './HardwareScrews';
@@ -47,7 +46,10 @@ interface TacticalSegmentedControlProps<T extends string | number | readonly str
   defaultInactiveClassName?: string;
 }
 
-export function TacticalSegmentedControl<T extends string | number | readonly string[]>({
+// ⚡ Bolt: Wrapped in React.memo to eliminate redundant re-renders when parent state updates without props changing.
+export const TacticalSegmentedControl = React.memo(function TacticalSegmentedControl<
+  T extends string | number | readonly string[],
+>({
   items,
   selectedValue,
   onValueChange,
@@ -64,9 +66,10 @@ export function TacticalSegmentedControl<T extends string | number | readonly st
     if (!containerRef.current) return;
 
     // Find all non-disabled radio buttons
-    const buttons = Array.from(
-      containerRef.current.querySelectorAll<HTMLButtonElement>('button[role="radio"]:not([disabled])'),
+    const buttonsList = containerRef.current.querySelectorAll<HTMLButtonElement>(
+      'button[role="radio"]:not([disabled])',
     );
+    const buttons = Array.from(buttonsList);
     if (buttons.length === 0) return;
 
     const currentIndex =
@@ -162,4 +165,4 @@ export function TacticalSegmentedControl<T extends string | number | readonly st
       </div>
     </fieldset>
   );
-}
+}) as <T extends string | number | readonly string[]>(props: TacticalSegmentedControlProps<T>) => React.ReactElement;
