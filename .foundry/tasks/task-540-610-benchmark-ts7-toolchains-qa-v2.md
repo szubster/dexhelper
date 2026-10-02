@@ -25,5 +25,5 @@ locks: []
 Verify the benchmark runner implemented in V2 accurately measures performance differences and dependency overhead between the specified toolchains.
 
 ## Acceptance Criteria
-- [ ] Verify the runner implementation aligns with the research recommendations.
-- [ ] Run the benchmark script and ensure results are accurate.
+- [x] Verify the runner implementation aligns with the research recommendations.
+- [x] Run the benchmark script and ensure results are accurate.
