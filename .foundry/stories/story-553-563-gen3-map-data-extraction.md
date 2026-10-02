@@ -35,6 +35,11 @@ Extract the binary data representing the player location, roamer positions, berr
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into TASK nodes (e.g., logic implementation, unit tests, QA).
 - [ ] task-563-581-map-data-types
-- [ ] task-563-582-map-data-extraction-logic
-- [ ] task-563-583-map-data-tests
-- [ ] task-563-584-map-data-qa
+- [x] task-563-582-map-data-extraction-logic
+- [x] task-563-583-map-data-tests
+- [x] task-563-584-map-data-qa
+
+- [ ] research-563-640-investigate-map-data-extraction-failure
+- [ ] task-563-641-map-data-extraction-logic-v2
+- [ ] task-563-642-map-data-tests-v2
+- [ ] task-563-643-map-data-qa-v2
