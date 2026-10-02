@@ -2,13 +2,13 @@
 id: task-412-567-feebas-parsing-e2e-impl-v2
 type: TASK
 title: Feebas Parsing E2E Integration Impl V2
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: $(date -I)
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on:
   - research-412-563-investigate-feebas-e2e-timeout
-jules_session_id: null
+jules_session_id: '11779074710403368305'
 pr_number: null
 parent: story-058-412-feebas-parsing-e2e
 tags:
