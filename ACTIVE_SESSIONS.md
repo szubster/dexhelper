@@ -7,6 +7,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [research-640-645-investigate-extract-core-domain-timeout](.foundry/research/research-640-645-investigate-extract-core-domain-timeout.md) | RESEARCH | Investigate timeout during core domain extraction | researcher | [3404925110720365319](https://jules.google.com/session/3404925110720365319) |
+| [story-525-638-isolate-vite-plugins](.foundry/stories/story-525-638-isolate-vite-plugins.md) | STORY | Isolate Vite Plugins | tech_lead | [6603541222635974556](https://jules.google.com/session/6603541222635974556) |
 | [story-526-638-extract-constants](.foundry/stories/story-526-638-extract-constants.md) | STORY | Extract game constants to core package | tech_lead | [10717119449548013569](https://jules.google.com/session/10717119449548013569) |
 | [story-526-639-extract-parsers](.foundry/stories/story-526-639-extract-parsers.md) | STORY | Extract save file parsers to core package | tech_lead | [5792597183461802518](https://jules.google.com/session/5792597183461802518) |
 | [story-526-640-extract-domain-logic](.foundry/stories/story-526-640-extract-domain-logic.md) | STORY | Extract pure JS/TS domain logic to core package | tech_lead | [1518612860879436383](https://jules.google.com/session/1518612860879436383) |
