@@ -2,12 +2,12 @@
 id: research-563-640-investigate-map-data-extraction-failure
 type: RESEARCH
 title: Investigate Map Data Extraction Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2023-10-27T00:00:00Z'
 updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12758954767870843865'
 parent: story-553-563-gen3-map-data-extraction
 tags: []
 research_references: []
