@@ -34,4 +34,7 @@ Verify the newly implemented Core Component Models integrate correctly within E2
 - Verify tests pass headless execution.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-639-652-settings-modal-model-integration
+- [ ] task-639-653-pokedex-grid-model-integration
+- [ ] task-639-654-e2e-core-components-qa
