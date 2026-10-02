@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [epic-519-526-extract-core-domain](.foundry/epics/epic-519-526-extract-core-domain.md) | EPIC | Phase 3 - Extract Core Domain Logic & Parsers | story_owner | [3452728301710453895](https://jules.google.com/session/3452728301710453895) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
