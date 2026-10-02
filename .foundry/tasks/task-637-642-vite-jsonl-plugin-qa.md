@@ -33,5 +33,5 @@ The coder has implemented updates to the Vite plugin to correctly resolve, bundl
 3. Verify that the build succeeds and the files are served correctly in development and production environments.
 
 ## Acceptance Criteria
-- [ ] Confirmed `vite-plugins/pokedata-plugin.ts` properly resolves, bundles, and serves `.jsonl` data.
-- [ ] Confirmed tests and build pass successfully.
+- [x] Confirmed `vite-plugins/pokedata-plugin.ts` properly resolves, bundles, and serves `.jsonl` data.
+- [x] Confirmed tests and build pass successfully.
