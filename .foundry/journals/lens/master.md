@@ -103,3 +103,22 @@ During visual and layout audit across mobile viewports (Pixel 9: 393x852) and ge
 
 ## Architectural & QA Takeaways
 - Mobile navigation controls must align with the active save context (matching `AppHeader.tsx`), eliminating invalid or empty-state navigation tabs.
+
+---
+
+# Lens Visual QA Audit Journal — 2025-10-02
+
+## Exploration & Discoveries
+During live web application inspection on Desktop FullHD (1920x1080) and Mobile Pixel 9 (393x852) viewports across save files (`yellow.sav`, `crystal.sav`, `emerald.sav`), two primary visual layout issues were identified on the main Search & Filters panel (`SearchAndFilters.tsx`):
+1. **Vertical Button Misalignment**: `ClearFiltersBadge` rendered at `h-10` while adjacent filter buttons in `TacticalMultiSelectControl` rendered at `h-14`, creating an awkward height mismatch on the hardware control array.
+2. **Bracket Text Wrapping**: Parameter routing badges (`[ SECURED ]`, `[ MISSING ]`, `[ DEX_ONLY ]`) wrapped brackets onto separate lines due to tight container widths (`min-w-[80px]`) and padding inside `FilterBadge.tsx`.
+3. **Clipped Header Labels**: The `EdgeLabel` for `TARGET_ACQUISITION_ARRAY` was vertically clipped by the parent container's `overflow-hidden` class.
+
+## Remediation Applied
+* **Height Uniformity**: Adjusted `ClearFiltersBadge.tsx` button container height to `h-14` matching `TacticalMultiSelectControl`.
+* **Inline Label Formatting**: Added `whitespace-nowrap inline-flex` to `FilterBadge.tsx` and widened `TacticalMultiSelectControl` button width to `min-w-[95px] xl:min-w-[105px]`, ensuring `[ SECURED ]`, `[ MISSING ]`, and `[ DEX_ONLY ]` render cleanly on a single line.
+* **Unclipped Edge Labels**: Removed `overflow-hidden` from the left pane container in `SearchAndFilters.tsx` so edge label text renders unclipped above the border.
+
+## Verification
+* Executed local Playwright visual verification script (`verify_filters.py`), confirming unclipped headers, level button alignment, and zero bracket line wrapping in recorded screenshot and video.
+* All 1947 unit/browser tests passed cleanly (`pnpm test`), and project-wide linting (`pnpm lint`) passed with 0 errors.
