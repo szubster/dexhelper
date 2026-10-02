@@ -2,13 +2,13 @@
 id: task-558-571-flexsearch-tooling-e2e-qa
 type: TASK
 title: QA Integration Verification for Flexsearch Indexing
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2025-02-14'
 updated_at: '2026-10-02'
 depends_on:
   - task-558-570-flexsearch-tooling-e2e
-jules_session_id: null
+jules_session_id: '13320987023165268501'
 parent: story-534-558-rag-tooling-and-indexing
 tags:
   - foundry
