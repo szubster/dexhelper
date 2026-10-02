@@ -2,14 +2,14 @@
 id: epic-565-568-theming-e2e-verification
 type: EPIC
 title: Theming E2E and Visual Regression Verification
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-14'
 updated_at: '2026-10-02'
 depends_on:
   - epic-565-566-cva-setup
   - epic-565-567-core-components-refactor
-jules_session_id: null
+jules_session_id: '5476794898734184716'
 pr_number: null
 parent: prd-523-565-component-variants-theming-consolidation-refactor
 tags:
