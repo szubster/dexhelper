@@ -238,6 +238,15 @@ importers:
 
   packages/core: {}
 
+  packages/ui:
+    dependencies:
+      react:
+        specifier: ^19.3.0
+        version: 19.3.0
+      react-dom:
+        specifier: ^19.3.0
+        version: 19.3.0(react@19.3.0)
+
 packages:
 
   '@11ty/gray-matter@3.0.0':
