@@ -2,12 +2,12 @@
 id: story-572-644-update-agent-prompts-for-confidence
 type: STORY
 title: Update Agent Prompts for Confidence Score Reporting
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-01T15:12:11Z'
-updated_at: '2026-10-01T15:12:11Z'
+updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14191547479904258343'
 pr_number: null
 parent: epic-565-572-agent-confidence-metrics-agent-capability
 tags:
