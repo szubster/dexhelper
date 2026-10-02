@@ -15,12 +15,15 @@ export const BUG_CONTEST_MAX_HP_OFFSET = BUG_CONTEST_MON_RELATIVE_OFFSET + 0x24;
  * Extracts the basic data for the currently caught Bug-Catching Contest Pokémon
  * from the Gen 2 save file.
  *
- * @param buffer The full save file ArrayBuffer.
+ * @param bufferOrView The full save file ArrayBuffer or DataView.
  * @param isCrystal Whether the save file is from Pokemon Crystal.
  * @returns The BugCatchingContestData, or null if no valid species is found.
  */
-export function extractBugCatchingContestData(buffer: ArrayBuffer, isCrystal: boolean): BugCatchingContestData | null {
-  const view = new DataView(buffer);
+export function extractBugCatchingContestData(
+  bufferOrView: DataView | ArrayBuffer,
+  isCrystal: boolean,
+): BugCatchingContestData | null {
+  const view = bufferOrView instanceof DataView ? bufferOrView : new DataView(bufferOrView);
 
   // The start of the sPokemonData block in SRAM
   const sPokemonDataOffset = isCrystal ? 0x2865 : 0x288a;
