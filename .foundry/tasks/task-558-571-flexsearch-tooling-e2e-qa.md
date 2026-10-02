@@ -29,4 +29,4 @@ As part of the RAG context hydration epic, we need to build an in-memory search 
 This task verifies the integration/E2E tests for the indexing logic.
 
 ## Acceptance Criteria
-- [ ] Verify the integration/E2E test passes and correctly initializes the index.
+- [x] Verify the integration/E2E test passes and correctly initializes the index.
