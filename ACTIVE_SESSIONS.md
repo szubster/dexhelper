@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [epic-565-568-theming-e2e-verification](.foundry/epics/epic-565-568-theming-e2e-verification.md) | EPIC | Theming E2E and Visual Regression Verification | story_owner | [3512438044000984842](https://jules.google.com/session/3512438044000984842) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
