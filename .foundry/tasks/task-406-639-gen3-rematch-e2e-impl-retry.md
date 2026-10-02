@@ -2,13 +2,13 @@
 id: task-406-639-gen3-rematch-e2e-impl-retry
 type: TASK
 title: Retry Gen 3 NPC Rematch Status E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-22'
 updated_at: '2026-10-02'
 depends_on:
   - research-406-638-investigate-gen3-rematch-e2e-failure
-jules_session_id: null
+jules_session_id: '1162994222270708932'
 pr_number: null
 parent: story-397-406-gen3-npc-rematch-status
 tags:
