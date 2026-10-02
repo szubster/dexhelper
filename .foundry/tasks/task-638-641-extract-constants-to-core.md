@@ -2,12 +2,12 @@
 id: task-638-641-extract-constants-to-core
 type: TASK
 title: Extract Constants to Core Package
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7199159203697401081'
 pr_number: null
 parent: story-526-638-extract-constants
 tags:
