@@ -7,9 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-03-30
+### Changed
+- Bumped `actions/configure-pages` from v5 to v6 in the deployment workflow.
+
 ## [0.1.1] - 2026-03-30
 ### Changed
 - Bumped `actions/deploy-pages` from v4 to v5 in the deployment workflow to ensure compatibility with latest GitHub Pages deployment infrastructure.
 
 
+[0.1.2]: https://github.com/szubster/dexhelper/compare/02aa931...cd452d1
 [0.1.1]: https://github.com/szubster/dexhelper/compare/38365f3...02aa931
