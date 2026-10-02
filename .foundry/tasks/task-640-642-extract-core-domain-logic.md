@@ -2,7 +2,7 @@
 id: task-640-642-extract-core-domain-logic
 type: TASK
 title: Migrate pure JS/TS logic from src/engine to packages/core
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-02'

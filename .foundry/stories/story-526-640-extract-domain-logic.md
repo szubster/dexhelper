@@ -24,7 +24,11 @@ locks: []
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-640-641-create-core-package-infrastructure
-- [ ] task-640-642-extract-core-domain-logic
-- [ ] task-640-643-update-app-imports
-- [ ] task-640-644-qa-core-domain-extraction
+- [x] task-640-641-create-core-package-infrastructure
+- [x] task-640-642-extract-core-domain-logic
+- [x] task-640-643-update-app-imports
+- [x] task-640-644-qa-core-domain-extraction
+- [ ] research-640-645-investigate-extract-core-domain-timeout
+- [ ] task-640-646-extract-core-domain-logic-replacement
+- [ ] task-640-647-update-app-imports-replacement
+- [ ] task-640-648-qa-core-domain-extraction-replacement
