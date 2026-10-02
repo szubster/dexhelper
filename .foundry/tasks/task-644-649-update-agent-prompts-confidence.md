@@ -1,15 +1,15 @@
 ---
-id: story-572-644-update-agent-prompts-for-confidence
-type: STORY
+id: task-644-649-update-agent-prompts-confidence
+type: TASK
 title: Update Agent Prompts for Confidence Score Reporting
 status: READY
-owner_persona: tech_lead
-created_at: '2026-10-01T15:12:11Z'
-updated_at: '2026-10-01T15:12:11Z'
+owner_persona: coder
+created_at: '2026-10-01T15:15:00Z'
+updated_at: '2026-10-01T15:15:00Z'
 depends_on: []
 jules_session_id: null
 pr_number: null
-parent: epic-565-572-agent-confidence-metrics-agent-capability
+parent: story-572-644-update-agent-prompts-for-confidence
 tags:
   - prompt
   - foundry
@@ -30,5 +30,4 @@ As part of the Agent Confidence Metrics Dashboard epic, we need to instruct agen
 - Update the relevant agent prompts or core policies so they know to include a `confidence_score` (0-100) in the YAML frontmatter of the task nodes they complete or work on.
 
 ## Acceptance Criteria
-- [ ] task-644-649-update-agent-prompts-confidence
-- [x] Break down into Tasks
+- [ ] Agent prompts/policies updated to include instructions for `confidence_score`.
