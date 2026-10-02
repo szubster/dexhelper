@@ -33,5 +33,5 @@ The application now generates `moves.jsonl` and `items.jsonl` containing extract
 4. If they are already correctly included, ensure everything works as expected. If there are any other missing adjustments to serve them in dev/prod correctly, implement them. `pokedata-core.msgpack` is served and bundled, and it contains the `exportData`. Note that `vite-plugins/pokedata-plugin.ts` includes `*.jsonl` in the `configureServer`'s `server.watcher.add` list, so file watching should be covered.
 
 ## Acceptance Criteria
-- [ ] `vite-plugins/pokedata-plugin.ts` is correctly set up to resolve, bundle, and serve `items.jsonl` and `moves.jsonl` data.
-- [ ] Tests and build pass successfully.
+- [x] `vite-plugins/pokedata-plugin.ts` is correctly set up to resolve, bundle, and serve `items.jsonl` and `moves.jsonl` data.
+- [x] Tests and build pass successfully.
