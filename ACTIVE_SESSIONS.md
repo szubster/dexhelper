@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [epic-519-525-extract-build-tooling](.foundry/epics/epic-519-525-extract-build-tooling.md) | EPIC | Phase 2 - Extract Build Tooling & Data Pipelines | story_owner | [6605061633945487808](https://jules.google.com/session/6605061633945487808) |
 | [epic-565-568-theming-e2e-verification](.foundry/epics/epic-565-568-theming-e2e-verification.md) | EPIC | Theming E2E and Visual Regression Verification | story_owner | [5476794898734184716](https://jules.google.com/session/5476794898734184716) |
 | [epic-565-570-agent-confidence-metrics-orchestrator](.foundry/epics/epic-565-570-agent-confidence-metrics-orchestrator.md) | EPIC | Implement Orchestrator Interventions for Confidence Metrics | story_owner | [2559143495221310348](https://jules.google.com/session/2559143495221310348) |
 | [epic-565-571-agent-confidence-metrics-dashboard-ui](.foundry/epics/epic-565-571-agent-confidence-metrics-dashboard-ui.md) | EPIC | Implement Dashboard UI for Confidence Metrics | story_owner | [14199080363037592986](https://jules.google.com/session/14199080363037592986) |
