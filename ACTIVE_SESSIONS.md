@@ -7,6 +7,7 @@
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [research-406-638-investigate-gen3-rematch-e2e-failure](.foundry/research/research-406-638-investigate-gen3-rematch-e2e-failure.md) | RESEARCH | Investigate Gen 3 Rematch E2E Failure | researcher | [16608455037873902175](https://jules.google.com/session/16608455037873902175) |
 | [story-425-495-reactive-ui-components](.foundry/stories/story-425-495-reactive-ui-components.md) | STORY | Reactive UI Components | tech_lead | [6138265640985669138](https://jules.google.com/session/6138265640985669138) |
+| [task-000-changelog-backfill](.foundry/tasks/task-000-changelog-backfill.md) | TASK | Changelog Backfill Commit Evaluation | changelogger | [15554879000834916411](https://jules.google.com/session/15554879000834916411) |
 | [task-471-638-verify-and-move-saves-retry](.foundry/tasks/task-471-638-verify-and-move-saves-retry.md) | TASK | Verify and Move Saves | coder | [1189950394379594112](https://jules.google.com/session/1189950394379594112) |
 | [task-478-517-setup-mystery-gift-e2e-fixtures](.foundry/tasks/task-478-517-setup-mystery-gift-e2e-fixtures.md) | TASK | Setup Mystery Gift E2E Fixtures | coder | [9835482761274296925](https://jules.google.com/session/9835482761274296925) |
 | [task-521-619-box-analyzer-matrix-qa](.foundry/tasks/task-521-619-box-analyzer-matrix-qa.md) | TASK | Box Analyzer Matrix UI QA | qa | [17327731466529073027](https://jules.google.com/session/17327731466529073027) |
