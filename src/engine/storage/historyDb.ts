@@ -143,6 +143,21 @@ export const countSavesForPlaythrough = async (playthroughId: string): Promise<n
   }
 };
 
+export const deleteSaveState = async (id: string): Promise<void> => {
+  try {
+    const db = await initHistoryDb();
+    const tx = db.transaction(['saves', 'metadata'], 'readwrite');
+
+    const savesStore = tx.objectStore('saves');
+    const metadataStore = tx.objectStore('metadata');
+
+    await Promise.all([savesStore.delete(id), metadataStore.delete(id), tx.done]);
+  } catch (error) {
+    console.error('Failed to delete save state:', error instanceof Error ? error.message : 'Unknown error');
+    throw error;
+  }
+};
+
 export const writeSaveState = async (id: string, saveData: Uint8Array, metadata: SaveMetadata): Promise<void> => {
   try {
     if (metadata.playthroughId) {
