@@ -43,3 +43,22 @@
 ## Critical Learnings
 - **Journal Aggregation & Curation**: Aggregating scattered session files with `aggregate-journals.ts` and programmatically purging transient logs (such as raw session IDs, task completion lists, and empty PR logs) keeps agent master journals concise, high-signal, and token-efficient.
 - **Context Window Hygiene**: Regular curation of `master.md` logs prevents token bloat in context windows for future agent runs while keeping high-value architectural lessons intact.
+
+
+---
+
+# 2026-10-02 - Archivist Knowledge Hygiene & Journal Aggregation Session
+
+---
+
+## Actions Taken
+- Executed `node --experimental-strip-types .github/scripts/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
+- Consolidated entries for `agile_coach`, `coder`, `lens`, `qa`, `researcher`, `canvas`, `nurse`, `oak`, `palette`, `sculptor`, `strategist`, and `trainer`, safely unlinking transient session files upon aggregation.
+- Cleaned up unparsed `$(date)` placeholders and redundant session headers in `.jules/trainer/master.md`.
+- Verified no legacy `.Jules/` (uppercase) directory exists and confirmed `.serena/memories/` symlink validity.
+- Ran project linting and unit test suite via `pnpm lint && pnpm test`.
+
+---
+
+## Critical Learnings
+- **Journal Hygiene & Placeholder Stripping**: Unparsed placeholders (like `$(date)`) and repetitive section headers in aggregated journals should be stripped during curation sessions to keep master journals readable and concise for LLM context windows.
