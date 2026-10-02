@@ -4,8 +4,6 @@
   "ignoreDependencies": [
     "wrangler",
     "@cloudflare/pages-plugin-cloudflare-access",
-    "@tsconfig/strictest",
-    "@tsconfig/vite-react"
   ],
   "ignore": [
     "src/test-setup.ts",
@@ -13,7 +11,6 @@
     "src/contexts/binjgb/index.ts",
     "src/hooks/useBinjgb.ts",
     ".github/scripts/extract-research.ts",
-    "scripts/gen3-fetch-locations.ts",
     "functions/_middleware.ts",
     "functions/api/saves/index.ts",
     "functions/api/saves/[id].ts",
@@ -34,7 +31,6 @@
     "src/engine/gen3/contests/index.ts",
     "src/engine/gen3/contests/constants.ts",
     "src/engine/radar/index.ts",
-    "src/engine/saveParser/parsers/common.ts",
     "src/engine/saveParser/parsers/gen2Constants.ts"
   ],
   "rules": {
