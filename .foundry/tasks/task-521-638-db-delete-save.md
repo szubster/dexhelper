@@ -29,5 +29,5 @@ Implement a `deleteSaveState(id: string): Promise<void>` utility function in `sr
 To enforce LRU eviction, we need a way to delete specific saves from both the `saves` and `metadata` object stores.
 
 ## Acceptance Criteria
-- [ ] Implement `deleteSaveState` function.
-- [ ] Add unit tests in `historyDb.test.ts` to verify deletion.
+- [x] Implement `deleteSaveState` function.
+- [x] Add unit tests in `historyDb.test.ts` to verify deletion.

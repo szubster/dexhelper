@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { MAX_SAVE_STATES_PER_PLAYTHROUGH } from './constants';
 import {
   countSavesForPlaythrough,
+  deleteSaveState,
   getMostRecentSave,
   getPreviousSave,
   initHistoryDb,
@@ -23,6 +24,46 @@ describe('SaveHistoryDB', () => {
     expect(db.objectStoreNames.contains('metadata')).toBe(true);
     expect(db.objectStoreNames.contains('indexes')).toBe(true);
     db.close();
+  });
+
+  describe('deleteSaveState', () => {
+    it('should successfully delete save data and metadata', async () => {
+      const id = 'test-delete-id';
+      const saveData = new Uint8Array([1, 2, 3]);
+      const metadata = { playthroughId: 'pt-test-delete', timestamp: 12345, name: 'Test Save to Delete' };
+
+      await writeSaveState(id, saveData, metadata);
+
+      // Verify it exists first
+      let db = await initHistoryDb();
+      let tx = db.transaction(['saves', 'metadata'], 'readonly');
+      let storedSaveData = await tx.objectStore('saves').get(id);
+      let storedMetadata = await tx.objectStore('metadata').get(id);
+
+      expect(storedSaveData).toEqual(saveData);
+      expect(storedMetadata).toEqual(metadata);
+      db.close();
+
+      // Delete it
+      await deleteSaveState(id);
+
+      // Verify it's gone
+      db = await initHistoryDb();
+      tx = db.transaction(['saves', 'metadata'], 'readonly');
+      storedSaveData = await tx.objectStore('saves').get(id);
+      storedMetadata = await tx.objectStore('metadata').get(id);
+
+      expect(storedSaveData).toBeUndefined();
+      expect(storedMetadata).toBeUndefined();
+      db.close();
+    });
+
+    it('should propagate errors if a delete fails', async () => {
+      // @ts-expect-error - testing invalid input
+      await expect(deleteSaveState(Symbol('bad-id'))).rejects.toThrow(
+        'Data provided to an operation does not meet requirements',
+      );
+    });
   });
 
   describe('writeSaveState', () => {
