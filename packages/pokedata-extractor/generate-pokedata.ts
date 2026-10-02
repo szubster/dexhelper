@@ -45,15 +45,15 @@ import {
   EGG_GROUP_MAP,
   MOVE_DAMAGE_CLASS,
   POKEMON_TYPE_MAP
-} from '../src/db/schema.ts';
+} from '../../src/db/schema.ts';
 import { GEN1_MAPS, INDOOR_TO_PARENT_MAP } from './data/gen1/mapping.ts';
 import { GEN2_MAP_TO_AID, decodeGen2Id } from './data/gen2/mapping.ts';
 import { GEN3_MAPS, GEN3_INDOOR_TO_PARENT_MAP } from './data/gen3/mapping.ts';
 
 const POKEMON_COUNT = 386; // Gen 1, 2, & 3
 const REPO_URL = 'https://github.com/PokeAPI/api-data.git';
-const TEMP_DIR = path.join(process.cwd(), 'scratch/temp_pokeapi');
-const OUTPUT_DIR = path.join(process.cwd(), 'data/db');
+const TEMP_DIR = path.join(process.cwd(), '../../scratch/temp_pokeapi');
+const OUTPUT_DIR = path.join(process.cwd(), '../../data/db');
 
 
 

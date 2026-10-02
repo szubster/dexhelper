@@ -236,6 +236,23 @@ importers:
         specifier: ^8.1.1
         version: 8.1.1
 
+  packages/core: {}
+
+  packages/pokedata-extractor:
+    devDependencies:
+      '@types/node':
+        specifier: ^22.9.0
+        version: 22.20.4
+
+  packages/ui:
+    dependencies:
+      react:
+        specifier: ^19.3.0
+        version: 19.3.0
+      react-dom:
+        specifier: ^19.3.0
+        version: 19.3.0(react@19.3.0)
+
   packages/vite-plugins:
     dependencies:
       '@11ty/gray-matter':
@@ -254,16 +271,6 @@ importers:
       typescript:
         specifier: ~5.5.4
         version: 5.5.4
-  packages/core: {}
-
-  packages/ui:
-    dependencies:
-      react:
-        specifier: ^19.3.0
-        version: 19.3.0
-      react-dom:
-        specifier: ^19.3.0
-        version: 19.3.0(react@19.3.0)
 
 packages:
 

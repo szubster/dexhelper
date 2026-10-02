@@ -255,8 +255,8 @@ async function run() {
 
   output += `export interface MapNode {\n  id: number;\n  aid: number;\n  name: string;\n  connections: number[];\n}\n`;
 
-  fs.mkdirSync('scripts/data/gen3', { recursive: true });
-  fs.writeFileSync('scripts/data/gen3/mapping.ts', output);
+  fs.mkdirSync('./data/gen3', { recursive: true });
+  fs.writeFileSync('./data/gen3/mapping.ts', output);
 
   console.log('Done!');
 }

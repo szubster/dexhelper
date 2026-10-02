@@ -207,8 +207,8 @@ async function run() {
      finalGen1Mapping[id] = finalName;
   }
 
-  fs.mkdirSync('src/engine/data/gen1', { recursive: true });
-  fs.writeFileSync('src/engine/data/gen1/mapLocations.json', JSON.stringify(finalGen1Mapping, null, 2));
+  fs.mkdirSync('../../src/engine/data/gen1', { recursive: true });
+  fs.writeFileSync('../../src/engine/data/gen1/mapLocations.json', JSON.stringify(finalGen1Mapping, null, 2));
   console.log('Gen 1 mapped', Object.keys(finalGen1Mapping).length, 'maps');
 
 
@@ -305,9 +305,9 @@ async function run() {
   finalGen2Landmarks[126] = 'Event/Gift';
   finalGen2Landmarks[127] = 'Special Event/Traded';
 
-  fs.mkdirSync('src/engine/data/gen2', { recursive: true });
-  fs.writeFileSync('src/engine/data/gen2/mapLocations.json', JSON.stringify(finalGen2Mapping, null, 2));
-  fs.writeFileSync('src/engine/data/gen2/landmarks.json', JSON.stringify(finalGen2Landmarks, null, 2));
+  fs.mkdirSync('../../src/engine/data/gen2', { recursive: true });
+  fs.writeFileSync('../../src/engine/data/gen2/mapLocations.json', JSON.stringify(finalGen2Mapping, null, 2));
+  fs.writeFileSync('../../src/engine/data/gen2/landmarks.json', JSON.stringify(finalGen2Landmarks, null, 2));
   console.log('Gen 2 mapped', Object.keys(finalGen2Mapping).length, 'map groups and', Object.keys(finalGen2Landmarks).length, 'landmarks');
 
 }
