@@ -40,5 +40,8 @@ With the React context and state management layer in place (`story-425-494-react
 - [ ] research-495-627-investigate-reactive-ui-failures-v2
 - [ ] task-495-628-reactive-pokemon-details-impl-retry
 - [ ] task-495-629-reactive-pokedex-grid-impl-retry-v2
-- [ ] task-495-630-reactive-dashboards-impl-retry-v2
-- [ ] task-495-631-reactive-ui-components-qa-retry-v2
+- [x] task-495-630-reactive-dashboards-impl-retry-v2
+- [x] task-495-631-reactive-ui-components-qa-retry-v2
+- [ ] research-495-649-investigate-reactive-ui-failures-v3
+- [ ] task-495-650-reactive-dashboards-impl-retry-v3
+- [ ] task-495-651-reactive-ui-components-qa-retry-v3
