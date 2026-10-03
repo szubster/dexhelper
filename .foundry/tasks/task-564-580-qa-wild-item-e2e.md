@@ -2,13 +2,13 @@
 id: task-564-580-qa-wild-item-e2e
 type: TASK
 title: QA E2E Test for Complete End-to-End Flow
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-15T06:49:02Z'
 updated_at: '2026-10-03'
 depends_on:
   - task-564-579-e2e-save-upload-success
-jules_session_id: '11664270794976536144'
+jules_session_id: null
 pr_number: null
 parent: story-556-564-e2e-tests-end-to-end-flow
 tags:

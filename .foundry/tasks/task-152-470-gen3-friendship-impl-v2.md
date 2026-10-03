@@ -8,7 +8,7 @@ created_at: '2026-08-23'
 updated_at: '2026-08-30'
 depends_on:
   - research-152-469-investigate-gen3-friendship-failure
-jules_session_id: '1590934103816804168'
+jules_session_id: null
 pr_number: null
 parent: story-094-152-gen3-friendship-extraction
 tags:

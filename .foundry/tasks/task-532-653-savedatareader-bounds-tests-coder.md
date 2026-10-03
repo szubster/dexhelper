@@ -2,7 +2,7 @@
 id: task-532-653-savedatareader-bounds-tests-coder
 type: TASK
 title: Implement SaveDataReader Bounds Checking Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-03'
@@ -11,15 +11,16 @@ depends_on:
 jules_session_id: null
 pr_number: null
 parent: story-521-532-savedatareader-tests
-priority: 50
-confidence_score: null
 tags:
   - testing
   - dataview
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
+confidence_score: null
 ---
 
 # Implement SaveDataReader Bounds Checking Tests
