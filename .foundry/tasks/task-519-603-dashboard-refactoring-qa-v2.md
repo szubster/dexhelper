@@ -21,5 +21,5 @@ locks: []
 ## Objectives
 
 ## Acceptance Criteria
-- [ ] No visual regressions in tactical hardware aesthetic.
-- [ ] Z-indexing and responsive behaviors remain intact.
+- [x] No visual regressions in tactical hardware aesthetic.
+- [x] Z-indexing and responsive behaviors remain intact.
