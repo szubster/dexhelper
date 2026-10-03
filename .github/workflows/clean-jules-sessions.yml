@@ -27,6 +27,9 @@ concurrency:
   group: clean-jules-sessions
   cancel-in-progress: false
 
+permissions:
+  contents: read
+
 jobs:
   clean-sessions:
     name: Prune Jules Sessions
@@ -55,23 +58,22 @@ jobs:
         env:
           JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_MODE: ${{ github.event.inputs.mode || 'all' }}
+          INPUT_LIMIT: ${{ github.event.inputs.limit || '500' }}
+          INPUT_DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
         run: |
           set -o pipefail
-          
-          MODE="${{ github.event.inputs.mode || 'all' }}"
-          LIMIT="${{ github.event.inputs.limit || '500' }}"
-          DRY_RUN="${{ github.event.inputs.dry_run }}"
 
-          FLAGS="--limit $LIMIT"
-          if [[ "$MODE" == "all" ]]; then
-            FLAGS="$FLAGS --all"
+          FLAGS=("--limit" "$INPUT_LIMIT")
+          if [[ "$INPUT_MODE" == "all" ]]; then
+            FLAGS+=("--all")
           else
-            FLAGS="$FLAGS --stuck-only"
+            FLAGS+=("--stuck-only")
           fi
 
-          if [[ "$DRY_RUN" == "true" ]]; then
-            FLAGS="$FLAGS --dry-run"
+          if [[ "$INPUT_DRY_RUN" == "true" ]]; then
+            FLAGS+=("--dry-run")
           fi
 
-          echo "Running session cleanup with flags: $FLAGS"
-          node --strip-types .github/scripts/clean-jules-sessions.ts $FLAGS
+          echo "Running session cleanup with flags: ${FLAGS[*]}"
+          node --strip-types .github/scripts/clean-jules-sessions.ts "${FLAGS[@]}"
