@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { ShieldAlert } from 'lucide-react';
 import React, { Suspense } from 'react';
 import { EmptyState } from '../components/EmptyState';
+import { SafariAreaHighlighter } from '../components/safari-zone/SafariAreaHighlighter';
 import { TacticalBadge } from '../components/TacticalBadge';
 import { useStore } from '../store';
 
@@ -41,6 +42,12 @@ function SafariZonePage() {
       <Suspense fallback={<EmptyState label="INITIALIZING SAFARI ZONE TELEMETRY..." />}>
         <SafariZoneEncountersList saveData={saveData} />
       </Suspense>
+
+      <SafariAreaHighlighter
+        initialVersion={
+          saveData.gameVersion as 'red' | 'blue' | 'yellow' | 'ruby' | 'sapphire' | 'emerald' | 'firered' | 'leafgreen'
+        }
+      />
     </div>
   );
 }
