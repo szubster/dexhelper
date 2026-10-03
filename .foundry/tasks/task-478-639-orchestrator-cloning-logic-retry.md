@@ -2,10 +2,10 @@
 id: task-478-639-orchestrator-cloning-logic-retry
 type: TASK
 title: Implement DAG Node Cloning Logic (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-16'
-updated_at: '2026-09-16'
+updated_at: '2026-10-03'
 depends_on:
   - research-478-638-investigate-cloning-logic-failure
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - generation
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-478-638-investigate-cloning-logic-failure
 notes: ''
 locks: []
 ---

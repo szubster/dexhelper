@@ -2,10 +2,10 @@
 id: research-478-638-investigate-cloning-logic-failure
 type: RESEARCH
 title: Investigate DAG Node Cloning Logic Failure
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-09-16'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,10 +14,8 @@ tags:
   - orchestrator
   - research
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

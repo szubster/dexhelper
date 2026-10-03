@@ -2,10 +2,10 @@
 id: task-640-641-relocate-foundry-scripts
 type: TASK
 title: Relocate Foundry Scripts
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - monorepo
   - pnpm
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

@@ -2,12 +2,12 @@
 id: research-473-638-investigate-condition-stats-parser-failure-v2
 type: RESEARCH
 title: Investigate Gen 3 Condition Stats Parser Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-09-30'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '3964593394571807791'
+jules_session_id: null
 pr_number: null
 parent: story-134-473-gen3-condition-stats-extraction-impl
 tags:
@@ -16,7 +16,9 @@ tags:
   - data-extraction
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

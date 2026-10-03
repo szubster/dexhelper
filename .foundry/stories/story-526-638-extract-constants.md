@@ -2,10 +2,10 @@
 id: story-526-638-extract-constants
 type: STORY
 title: Extract game constants to core package
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,10 +14,8 @@ tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

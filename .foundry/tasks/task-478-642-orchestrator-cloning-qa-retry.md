@@ -2,10 +2,10 @@
 id: task-478-642-orchestrator-cloning-qa-retry
 type: TASK
 title: QA - Dynamic Node Cloning and Prompt Adaptation (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-16'
-updated_at: '2026-09-16'
+updated_at: '2026-10-03'
 depends_on:
   - task-478-641-orchestrator-cloning-tests-retry
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-478-638-investigate-cloning-logic-failure
 notes: ''
 locks: []
 ---

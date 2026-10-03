@@ -2,13 +2,13 @@
 id: story-425-495-reactive-ui-components
 type: STORY
 title: Reactive UI Components
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on:
   - story-425-494-reactive-ui-context
-jules_session_id: '733467788895889434'
+jules_session_id: null
 pr_number: null
 parent: epic-343-425-reactive-ui-updates
 tags:
@@ -16,7 +16,9 @@ tags:
   - emulator
   - components
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
