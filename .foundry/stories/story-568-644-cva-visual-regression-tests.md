@@ -32,4 +32,8 @@ Add visual regression tests using Playwright to ensure component variants from t
 - Write Playwright visual tests for all refactored CVA components.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into modular implementation and QA tasks.
+- [x] Tech Lead: Break down this Story into modular implementation and QA tasks.
+- [ ] task-644-654-cva-visual-regression-base-components-impl
+- [ ] task-644-656-cva-visual-regression-base-components-qa
+- [ ] task-644-655-cva-visual-regression-complex-components-impl
+- [ ] task-644-657-cva-visual-regression-complex-components-qa
