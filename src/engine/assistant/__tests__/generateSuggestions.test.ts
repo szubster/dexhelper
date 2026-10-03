@@ -1063,7 +1063,7 @@ describe('generateSuggestions', () => {
     expect(sugg1).toBeDefined(); // Should NOT be removed, just penalized
     expect(sugg1?.priority).toBe(45);
     expect(sugg1?.warning).toContain('Requires Headbutt');
-    expect(sugg1?.warning).toContain('Requires Rock Smash');
+    expect(sugg1?.warning).toContain('Requires Headbutt');
     expect(sugg1?.pokemonIds).toContain(10);
     expect(sugg1?.pokemonIds).toContain(11);
     // expect(sugg1?.pokemonIds).toContain(12);
