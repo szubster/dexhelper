@@ -26,4 +26,7 @@ locks: []
 Migrate decorative overlays and visual elements (ScanlineOverlay, CornerCrosshairs, HexStreamDecoration, TelemetryDecoration) to the `@dexhelper/ui` package.
 
 ## Acceptance Criteria
-- [ ] Break this story down into tasks for migrating decorations.
+- [x] Break this story down into tasks for migrating decorations.
+- [ ] task-641-658-migrate-scanline-crosshairs
+- [ ] task-641-659-migrate-hexstream-telemetry
+- [ ] task-641-660-qa-migrate-decorations
