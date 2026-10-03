@@ -33,4 +33,4 @@ Based on PRD-521 and EPIC 570, the orchestrator needs to react to nodes reportin
 - Ensure the new logic is covered by unit tests in `.github/scripts/foundry-orchestrator.test.ts`.
 
 ## Acceptance Criteria
-- [ ] Implement the objective as described.
+- [x] Implement the objective as described.
