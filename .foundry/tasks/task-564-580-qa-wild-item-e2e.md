@@ -33,5 +33,5 @@ QA Verification for the Wild Item E2E Verification flow.
 - Verify adherence to UI Aesthetic Constraints (ADR 008) indirectly if assertions rely on classes (ensure no invalid classes are enforced).
 
 ## Acceptance Criteria
-- [ ] Verify E2E tests pass locally.
-- [ ] Verify E2E code structure and Playwright best practices.
+- [x] Verify E2E tests pass locally.
+- [x] Verify E2E code structure and Playwright best practices.
