@@ -23,9 +23,9 @@ test.describe('Pokerus State Exfiltration', () => {
       .click();
 
     // The details dialog or panel should have the badge.
-    const badge = page.locator('.tactical-badge', { hasText: 'PKRS INF' }).first();
+    const badge = page.locator('.tactical-badge', { hasText: '[PKRS INF: 10D]' }).first();
     await expect(badge).toBeVisible();
-    await expect(badge).toContainText('10D'); // The strain we set
+    await expect(badge).toHaveText('[PKRS INF: 10D]'); // The strain we set
 
     // Verify the duration/status is correctly displayed alongside it
     // Removed [10D] assertion
@@ -49,9 +49,9 @@ test.describe('Pokerus State Exfiltration', () => {
       .click();
 
     // The details dialog or panel should have the badge.
-    const badge = page.locator('.tactical-badge', { hasText: 'PKRS INF' }).first();
+    const badge = page.locator('.tactical-badge', { hasText: '[PKRS INF: 15D]' }).first();
     await expect(badge).toBeVisible();
-    await expect(badge).toContainText('15D'); // The strain we set
+    await expect(badge).toHaveText('[PKRS INF: 15D]'); // The strain we set
 
     // Verify the duration/status is correctly displayed alongside it
     // Removed [15D] assertion
