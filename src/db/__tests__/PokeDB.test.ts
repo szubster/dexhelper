@@ -598,6 +598,34 @@ describe('PokeDB', () => {
       expect(b?.name).toBe('cheri');
     });
 
+    it('getBerriesBulk returns array of berries or errors', async () => {
+      const mockData = {
+        items: [],
+        berries: [
+          { id: 1, name: 'cheri' },
+          { id: 2, name: 'chesto' },
+        ],
+        hash: 'new-hash',
+        poke: [],
+        enc: [],
+        loc: [],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
+      await pokeDB.sync();
+
+      const results = await pokeDB.getBerriesBulk([1, 2, 999]);
+      expect(results).toHaveLength(3);
+      expect((results[0] as { name: string }).name).toBe('cheri');
+      expect((results[1] as { name: string }).name).toBe('chesto');
+      expect(results[2]).toBeInstanceOf(Error);
+
+      const invalidResults = await pokeDB.getBerriesBulk([NaN]);
+      expect(invalidResults[0]).toBeInstanceOf(Error);
+    });
+
     it('getBerry returns undefined for invalid id', async () => {
       expect(await pokeDB.getBerry(NaN)).toBeUndefined();
     });
