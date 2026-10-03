@@ -27,4 +27,7 @@ Investigate the root cause for the permanent failure of the task-563-582-map-dat
 - Provide actionable findings or missing domain facts (e.g. constant offsets) that blocked the initial implementation.
 
 ## Acceptance Criteria
-- [ ] Determine the cause of the failure and document findings.
+- [x] Determine the cause of the failure and document findings.
+
+## Findings
+The map data extraction logic for Gen 3 (roamers, berry patches, TV swarms, Feebas tiles, and player map locations) has already been successfully implemented across independent modules in the codebase (`parseGen3Roamer`, `parseGen3BerryTrees`, `parseGen3ActiveSwarm`, `extractFeebasSeed`, `extractPlayerLocation`). The A/B bank flash memory architecture is correctly resolved via `getLatestSectionOffset(view, 1)` and these resolved offsets are correctly passed down to the respective parsers. No missing domain facts or constant offsets blocked the logic; the failure was likely due to the task's monolithic scope which has since been handled dynamically.
