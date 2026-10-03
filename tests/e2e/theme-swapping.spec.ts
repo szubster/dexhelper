@@ -71,11 +71,11 @@ test.describe('Theme Swapping E2E', () => {
     await versionSelector.click();
 
     // Wait for the Version Modal to appear
-    const versionModal = page.locator('[role="dialog"]').filter({ hasText: 'Version' }).first();
-    await expect(versionModal).toBeVisible();
+    await expect(page.locator('[role="dialog"]').filter({ hasText: 'Version' }).first()).toBeVisible();
 
     // The version modal has grid of versions.
     // Let's click "Red" version button inside the modal.
+    const versionModal = page.locator('[role="dialog"]').filter({ hasText: 'Version' }).first();
     const redButton = versionModal.locator('button').filter({ hasText: 'Red' }).first();
     if (await redButton.isVisible()) {
       await redButton.click();
@@ -108,11 +108,11 @@ test.describe('Theme Swapping E2E', () => {
     await versionSelector.click();
 
     // We might have multiple version modals on screen if not unmounted cleanly, so use the first visible.
-    const versionModal2 = page.locator('[role="dialog"]').filter({ hasText: 'Version' }).first();
-    await expect(versionModal2).toBeVisible();
+    await expect(page.locator('[role="dialog"]').filter({ hasText: 'Version' }).first()).toBeVisible();
 
     // Since Crystal isn't always available, let's use Emerald since Emerald was available in the grid for Yellow/Crystal ? Wait, yellow only has gen1 versions!
     // That's why Crystal wasn't found in the grid or list of versions. Let's switch to Blue instead.
+    const versionModal2 = page.locator('[role="dialog"]').filter({ hasText: 'Version' }).first();
     const blueButton = versionModal2.locator('button').filter({ hasText: 'Blue' }).first();
     if (await blueButton.isVisible()) {
       await blueButton.click();

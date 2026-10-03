@@ -32,4 +32,4 @@ Refactor existing Playwright E2E tests to utilize the `SettingsModalModel`.
 - Replace hardcoded DOM locators and interactions related to the settings modal with the COM's methods.
 
 ## Acceptance Criteria
-- [ ] Implement integration.
+- [x] Implement integration.
