@@ -2,7 +2,7 @@
 id: story-425-495-reactive-ui-components
 type: STORY
 title: Reactive UI Components
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-30'
 updated_at: '2026-10-03'
@@ -15,10 +15,8 @@ tags:
   - ui
   - emulator
   - components
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

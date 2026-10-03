@@ -2,13 +2,13 @@
 id: epic-343-425-reactive-ui-updates
 type: EPIC
 title: Reactive UI Updates
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
 updated_at: '2026-10-03'
 depends_on:
   - epic-343-424-live-memory-reading
-jules_session_id: '7347126620871710179'
+jules_session_id: null
 pr_number: null
 parent: prd-137-343-built-in-emulator
 tags:

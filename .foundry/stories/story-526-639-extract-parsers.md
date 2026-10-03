@@ -2,12 +2,12 @@
 id: story-526-639-extract-parsers
 type: STORY
 title: Extract save file parsers to core package
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '9592926477837388416'
+jules_session_id: null
 pr_number: null
 parent: epic-519-526-extract-core-domain
 tags:
