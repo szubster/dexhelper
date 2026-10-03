@@ -2,13 +2,13 @@
 id: story-428-471-verify-and-integrate-saves
 type: STORY
 title: Verify and Integrate Saves
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-24'
 updated_at: '2026-10-03'
 depends_on:
   - story-428-470-identify-public-saves
-jules_session_id: '1645088624770414714'
+jules_session_id: '15256415894973339243'
 pr_number: null
 parent: epic-345-428-source-additional-save-files
 tags:
