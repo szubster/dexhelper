@@ -24,7 +24,9 @@ locks: []
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-639-641-extract-base-save-parsers
+- [x] task-639-641-extract-base-save-parsers
+- [ ] research-639-652-investigate-extract-base-save-parsers-failure
+- [ ] task-639-653-extract-base-save-parsers-replacement
 - [ ] task-639-642-extract-generation-parsers
 - [ ] task-639-643-integrate-core-parsers
 - [ ] task-639-644-qa-parser-extraction
