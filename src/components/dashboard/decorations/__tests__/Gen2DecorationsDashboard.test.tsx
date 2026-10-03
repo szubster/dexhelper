@@ -46,7 +46,7 @@ describe('Gen2DecorationsDashboard', () => {
 
     // Check Mystery Gift indicator is rendered
     // Pikachu Poster is MG, Red Carpet is MG, Tropic Plant is MG
-    await expect.element(screen.getByText('[MG]').first()).toBeVisible();
+    await expect.element(screen.getByText('MYSTERY GIFT').first()).toBeVisible();
   });
 
   it('renders fallback for unknown decoration ID', async () => {

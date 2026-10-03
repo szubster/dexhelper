@@ -26,6 +26,6 @@ As part of `story-313-563-gen2-room-decoration-ui-components`, we need to implem
 - Ensure strict adherence to ADR 008 (Tactical Hardware aesthetics), including sharp edges (`rounded-none`), dashed borders (`border-dashed`), and monospaced typography.
 
 ## Acceptance Criteria
-- [ ] React components for the layout and categorized display are implemented.
-- [ ] Mystery Gift exclusive decorations are correctly highlighted.
-- [ ] The UI adheres to ADR 008 styling constraints.
+- [x] React components for the layout and categorized display are implemented.
+- [x] Mystery Gift exclusive decorations are correctly highlighted.
+- [x] The UI adheres to ADR 008 styling constraints.
