@@ -39,7 +39,12 @@ Extract the binary data representing the player location, roamer positions, berr
 - [x] task-563-583-map-data-tests
 - [x] task-563-584-map-data-qa
 
-- [ ] research-563-640-investigate-map-data-extraction-failure
-- [ ] task-563-641-map-data-extraction-logic-v2
-- [ ] task-563-642-map-data-tests-v2
-- [ ] task-563-643-map-data-qa-v2
+- [x] research-563-640-investigate-map-data-extraction-failure
+- [x] task-563-641-map-data-extraction-logic-v2
+- [x] task-563-642-map-data-tests-v2
+- [x] task-563-643-map-data-qa-v2
+
+- [ ] research-563-658-investigate-map-data-extraction-failure-v2
+- [ ] task-563-659-map-data-extraction-logic-v3
+- [ ] task-563-660-map-data-tests-v3
+- [ ] task-563-661-map-data-qa-v3
