@@ -53,6 +53,18 @@ export const TacticalKitchenSink: React.FC = () => {
       <TacticalButton variant="sidebar" id="btn-sidebar">
         Sidebar
       </TacticalButton>
+      <TacticalButton size="sm" id="btn-size-sm">
+        Small
+      </TacticalButton>
+      <TacticalButton size="lg" id="btn-size-lg">
+        Large
+      </TacticalButton>
+      <TacticalButton size="icon" id="btn-size-icon">
+        I
+      </TacticalButton>
+      <TacticalButton disabled id="btn-disabled">
+        Disabled
+      </TacticalButton>
 
       {/* Panels */}
       <TacticalPanel variant="emerald" id="panel-emerald">
@@ -102,9 +114,13 @@ export const TacticalKitchenSink: React.FC = () => {
       <TacticalCard variant="storage-red" testId="card-storage-red">
         Storage Red
       </TacticalCard>
+      <TacticalCard disabled testId="card-disabled">
+        Disabled
+      </TacticalCard>
 
       {/* Input */}
       <TacticalInput id="input-default" />
+      <TacticalInput disabled id="input-disabled" placeholder="DISABLED" />
     </div>
   );
 };
