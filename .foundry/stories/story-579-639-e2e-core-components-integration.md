@@ -2,14 +2,14 @@
 id: story-579-639-e2e-core-components-integration
 type: STORY
 title: E2E Integration and Verification for Core Component Models
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-29'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on:
   - story-579-637-settings-modal-model
   - story-579-638-pokedex-grid-model
-jules_session_id: '17901909657395583933'
+jules_session_id: null
 pr_number: null
 parent: epic-566-579-e2e-core-component-models
 tags:

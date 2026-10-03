@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-06-15'
 updated_at: '2026-09-21'
 depends_on: []
-jules_session_id: '13631392337897817392'
+jules_session_id: null
 pr_number: null
 parent: epic-034-047-permanent-failure-dashboard-ui
 tags:

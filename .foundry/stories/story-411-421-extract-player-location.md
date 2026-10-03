@@ -8,7 +8,7 @@ created_at: '2026-08-13'
 updated_at: '2026-08-21'
 depends_on:
   - story-411-420-extract-player-team
-jules_session_id: '17261174665554238358'
+jules_session_id: null
 pr_number: null
 parent: epic-340-411-gen3-ai-data-extraction
 tags:

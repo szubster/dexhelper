@@ -2,12 +2,12 @@
 id: task-521-639-db-get-oldest-saves
 type: TASK
 title: Implement getOldestSaves in historyDb
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-28'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '13559285907828045122'
+jules_session_id: null
 pr_number: null
 parent: story-399-521-save-state-lru-eviction
 tags:

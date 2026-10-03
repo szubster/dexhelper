@@ -2,20 +2,20 @@
 id: task-638-640-migrate-pokedata-plugin
 type: TASK
 title: Migrate PokeData Plugin
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on:
   - task-638-639-init-vite-plugins-package
-jules_session_id: '1556041341420994828'
+jules_session_id: null
 pr_number: null
 parent: story-525-638-isolate-vite-plugins
 tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
