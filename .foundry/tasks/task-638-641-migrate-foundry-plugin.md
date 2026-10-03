@@ -26,4 +26,4 @@ locks: []
 Move `foundry-plugin.ts` from the root `vite-plugins/` directory to `packages/vite-plugins/src/`. Update all imports and ensure it builds correctly. Export it from `packages/vite-plugins/src/index.ts`.
 
 ## Acceptance Criteria
-- [ ] Implement Migrate Foundry Plugin
+- [x] Implement Migrate Foundry Plugin
