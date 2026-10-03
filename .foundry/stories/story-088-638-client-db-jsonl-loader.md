@@ -2,13 +2,13 @@
 id: story-088-638-client-db-jsonl-loader
 type: STORY
 title: Client Data Loading for JSONL Moves and Items
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-03'
 depends_on:
   - story-088-637-vite-jsonl-plugin-update
-jules_session_id: null
+jules_session_id: '11058287358326101385'
 pr_number: null
 parent: epic-049-088-vite-plugin-jsonl-integration
 tags:
