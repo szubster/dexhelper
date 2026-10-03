@@ -114,6 +114,11 @@
       "filename": "firered-mystery-gift.sav",
       "version": "firered",
       "original_source": "./tests/fixtures/saves/gen3/firered_mystery_gift.sav"
+    },
+    {
+      "filename": "emerald-vithuang-rtc.sav",
+      "version": "emerald",
+      "original_source": "./tests/fixtures/saves/gen3/emerald_vithuang_rtc.sav"
     }
   ],
   "emeraldVithuangRtc": {
