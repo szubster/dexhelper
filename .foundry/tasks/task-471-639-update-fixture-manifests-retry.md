@@ -30,5 +30,5 @@ The test fixtures have been updated with new save files. We must update any inde
 1. Update any index/manifest files or tests that load all fixtures.
 
 ## Acceptance Criteria
-- [ ] Index/manifest files are updated with the new fixture names.
-- [ ] Tests load all fixtures, including the newly added ones.
+- [x] Index/manifest files are updated with the new fixture names.
+- [x] Tests load all fixtures, including the newly added ones.
