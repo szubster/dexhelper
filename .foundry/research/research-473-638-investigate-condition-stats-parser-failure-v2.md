@@ -31,5 +31,8 @@ Investigate the root cause of the permanent failure of \`task-473-494-gen3-condi
 - We need to determine why it failed by looking into reviewer journals.
 
 ## Acceptance Criteria
-- [ ] Determine the root cause of the failure.
-- [ ] Document the findings and any required architectural or procedural adjustments.
+- [x] Determine the root cause of the failure.
+- [x] Document the findings and any required architectural or procedural adjustments.
+
+## Findings
+The previous task `task-473-494-gen3-condition-stats-parser` failed because its acceptance criteria erroneously required the coder to "Integrate the permutation logic to correctly locate the 'E' substructure in the decrypted block". However, the overarching `extractGen3PokemonData` function in `src/engine/saveParser/parsers/gen3.ts` already decrypts and permutes the substructures into the canonical `GAEM` order before `parseGen3ConditionStats` is ever called. Attempting to implement permutation logic again inside `parseGen3ConditionStats` would be incorrect and redundant. The downstream retry tasks must be updated to remove this invalid requirement.
