@@ -9,7 +9,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { browserslistToTargets } from 'lightningcss';
 import browserslist from 'browserslist';
 
-import { pokedataPlugin } from './vite-plugins/pokedata-plugin.ts';
+import { pokedataPlugin } from './packages/vite-plugins/src/pokedata-plugin.ts';
 import { foundryPlugin } from './packages/vite-plugins/src/foundry-plugin.ts';
 
 export default defineConfig(() => {
