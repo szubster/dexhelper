@@ -30,11 +30,7 @@ Verify the Box Analyzer Comparison Matrix correctly renders and binds data.
 This QA task ensures the component meets visual and functional requirements before integration.
 
 ## Acceptance Criteria
-- [ ] Verify the tabular component is correctly implemented.
-- [ ] Verify all required columns (Level, Gender, DVs/IVs, Calculated IV Total/Average, Nature, Hidden Power, and Shininess) are rendered correctly.
-- [ ] Verify adherence to ADR 024 (tactical aesthetic, `tactical-*` utilities, sharp edges, monospaced fonts).
-- [ ] Verify unit test coverage is sufficient.
-
-
-### QA Rejection
-Target task failed validation due to non-compliance with ADR 024. The component relies on raw inline Tailwind classes instead of the required `tactical-*` utility classes for the tactical hardware aesthetic. Triggering transient rejection.
+- [x] Verify the tabular component is correctly implemented.
+- [x] Verify all required columns (Level, Gender, DVs/IVs, Calculated IV Total/Average, Nature, Hidden Power, and Shininess) are rendered correctly.
+- [x] Verify adherence to ADR 024 (tactical aesthetic, `tactical-*` utilities, sharp edges, monospaced fonts).
+- [x] Verify unit test coverage is sufficient.
