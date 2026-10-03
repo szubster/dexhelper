@@ -36,6 +36,6 @@ Implement the dropdown/search input for selecting valid Safari Zone Pokemon.
 - Use Vitest and `vitest-browser-react` to unit test the component.
 
 ## Acceptance Criteria
-- [ ] Component allows target Pokemon selection.
-- [ ] Adheres to the Tactical Hardware aesthetic.
-- [ ] Unit tests pass.
+- [x] Component allows target Pokemon selection.
+- [x] Adheres to the Tactical Hardware aesthetic.
+- [x] Unit tests pass.
