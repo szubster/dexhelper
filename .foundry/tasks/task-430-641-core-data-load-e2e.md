@@ -2,12 +2,12 @@
 id: task-430-641-core-data-load-e2e
 type: TASK
 title: Core Data Load E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13557610436705492873'
 pr_number: null
 parent: story-400-430-data-splitting-integration-e2e
 tags:
