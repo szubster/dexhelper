@@ -8,7 +8,7 @@ created_at: '2026-08-26'
 updated_at: '2026-09-16'
 depends_on:
   - task-361-495-sorting-algorithms-e2e-impl-retry
-jules_session_id: '3958189168282060270'
+jules_session_id: null
 parent: story-136-361-sorting-algorithms-e2e
 locks: []
 rejection_reason: >-

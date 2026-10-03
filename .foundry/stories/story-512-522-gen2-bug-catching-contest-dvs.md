@@ -2,13 +2,13 @@
 id: story-512-522-gen2-bug-catching-contest-dvs
 type: STORY
 title: Gen 2 Bug-Catching Contest DVs and Stats Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
 updated_at: '2026-10-03'
 depends_on:
   - story-512-521-gen2-bug-catching-contest-core-data
-jules_session_id: '13558066291394700674'
+jules_session_id: null
 pr_number: null
 parent: epic-343-512-save-data-extraction
 tags:

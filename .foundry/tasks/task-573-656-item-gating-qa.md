@@ -2,10 +2,10 @@
 id: task-573-656-item-gating-qa
 type: TASK
 title: Item Gating QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-16T05:45:31Z'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on:
   - task-573-655-item-gating-tests
 jules_session_id: null

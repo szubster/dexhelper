@@ -2,7 +2,7 @@
 id: task-478-655-orchestrator-cloning-tests-retry-2
 type: TASK
 title: Write Tests for DAG Node Cloning and Prompt Adaptation (Retry 2)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-03'

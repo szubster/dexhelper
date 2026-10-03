@@ -2,12 +2,12 @@
 id: task-644-649-parser-and-builder-confidence
 type: TASK
 title: Update DAG parser and builder for confidence metrics
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")'
 updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '11771721621635903108'
+jules_session_id: null
 pr_number: null
 parent: story-571-644-dashboard-metrics-ui-components
 tags:

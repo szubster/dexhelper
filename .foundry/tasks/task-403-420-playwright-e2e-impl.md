@@ -9,7 +9,7 @@ updated_at: '2026-08-24'
 depends_on:
   - task-403-418-gen2-dv-integration-impl
   - task-403-419-gen3-iv-pv-integration-impl
-jules_session_id: '1860128968628607219'
+jules_session_id: null
 pr_number: null
 parent: story-112-403-integration-e2e
 tags:

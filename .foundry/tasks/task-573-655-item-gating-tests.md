@@ -2,10 +2,10 @@
 id: task-573-655-item-gating-tests
 type: TASK
 title: Item Gating Utilities Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-16T05:45:31Z'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on:
   - task-573-654-item-gating-utilities
 jules_session_id: null

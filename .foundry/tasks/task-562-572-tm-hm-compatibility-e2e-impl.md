@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2025-02-14'
 updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: '8203757802449895987'
+jules_session_id: null
 pr_number: null
 parent: story-402-562-tm-hm-compatibility-e2e
 tags:

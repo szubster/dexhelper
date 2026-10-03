@@ -2,10 +2,10 @@
 id: task-573-653-item-gating-constants
 type: TASK
 title: Item Gating Data Constants
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-16T05:45:31Z'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on:
   - task-573-652-item-gating-types
 jules_session_id: null

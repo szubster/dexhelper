@@ -2,7 +2,7 @@
 id: task-522-653-gen2-bug-catching-contest-dvs-stats-qa
 type: TASK
 title: Gen 2 Bug-Catching Contest DVs and Stats extraction QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-03'
 updated_at: '2026-10-03'

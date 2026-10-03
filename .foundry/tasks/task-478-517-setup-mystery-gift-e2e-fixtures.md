@@ -2,7 +2,7 @@
 id: task-478-517-setup-mystery-gift-e2e-fixtures
 type: TASK
 title: Setup Mystery Gift E2E Fixtures
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-10-03'
