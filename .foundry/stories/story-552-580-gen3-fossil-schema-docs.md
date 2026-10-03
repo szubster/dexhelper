@@ -30,4 +30,5 @@ Update `.foundry/docs/schema.md` or the dedicated offset Markdown files with the
 - Document FRLG offsets: Helix Fossil (Omanyte), Dome Fossil (Kabuto), Old Amber (Aerodactyl).
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks.
+- [x] Break down this story into tasks.
+- [ ] task-580-649-gen3-fossil-schema-docs-impl
