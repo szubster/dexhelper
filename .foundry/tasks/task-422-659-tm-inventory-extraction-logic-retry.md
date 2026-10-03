@@ -4,9 +4,22 @@ type: TASK
 title: Implement TM Inventory data extraction logic
 status: PENDING
 owner_persona: coder
+created_at: '2026-10-03T13:51:00.000Z'
+updated_at: '2026-10-03'
 depends_on:
   - research-422-658-tm-inventory-extraction-failure-retry
+jules_session_id: null
+pr_number: null
 parent: story-411-422-pc-box-and-tm-extraction
+tags:
+  - gen1
+  - gen2
+  - gen3
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 # Implement TM Inventory data extraction logic
 

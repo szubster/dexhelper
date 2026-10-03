@@ -4,9 +4,20 @@ type: TASK
 title: QA verification for PC Box and TM Inventory extraction logic
 status: PENDING
 owner_persona: qa
+created_at: '2026-10-03T13:51:00.000Z'
+updated_at: '2026-10-03'
 depends_on:
   - task-422-660-pc-box-tm-extraction-tests-retry
+jules_session_id: null
+pr_number: null
 parent: story-411-422-pc-box-and-tm-extraction
+tags:
+  - qa
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 # QA verification for PC Box and TM Inventory extraction logic
 

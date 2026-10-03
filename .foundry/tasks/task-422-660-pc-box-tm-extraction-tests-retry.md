@@ -4,10 +4,21 @@ type: TASK
 title: Write unit tests for PC Box and TM Inventory extraction logic
 status: PENDING
 owner_persona: coder
+created_at: '2026-10-03T13:51:00.000Z'
+updated_at: '2026-10-03'
 depends_on:
   - task-422-659-tm-inventory-extraction-logic-retry
   - task-422-590-pc-box-extraction-logic
+jules_session_id: null
+pr_number: null
 parent: story-411-422-pc-box-and-tm-extraction
+tags:
+  - testing
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 # Write unit tests for PC Box and TM Inventory extraction logic
 
