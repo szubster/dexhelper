@@ -31,5 +31,5 @@ As part of the Bundle and Data Splitting Strategy (ADR 029), we need to split th
 Verify the E2E tests implemented for core data loading and gen-specific extension loading.
 
 ## Acceptance Criteria
-- [ ] Verify core data load E2E tests pass reliably and correctly assert data loading.
-- [ ] Verify gen-specific extension load E2E tests pass reliably and correctly assert extension loading on save upload.
+- [x] Verify core data load E2E tests pass reliably and correctly assert data loading.
+- [x] Verify gen-specific extension load E2E tests pass reliably and correctly assert extension loading on save upload.
