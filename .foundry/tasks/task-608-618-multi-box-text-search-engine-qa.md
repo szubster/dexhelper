@@ -32,6 +32,6 @@ QA verification for the Multi-Box Text Search Engine implementation. The coder h
 - Verify performance and correct UI rendering of the search results in the BoxAnalyzerView.
 
 ## Acceptance Criteria
-- [ ] Verify that the search properly filters by Nickname, Species Name, and OT Name.
-- [ ] Verify that the search UI is performant.
-- [ ] Ensure that string comparisons are case-insensitive.
+- [x] Verify that the search properly filters by Nickname, Species Name, and OT Name.
+- [x] Verify that the search UI is performant.
+- [x] Ensure that string comparisons are case-insensitive.
