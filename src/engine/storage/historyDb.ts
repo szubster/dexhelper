@@ -1,5 +1,5 @@
+import { MAX_SAVE_STATES_PER_PLAYTHROUGH } from '@dexhelper/core';
 import { type DBSchema, type IDBPDatabase, openDB } from 'idb';
-import { MAX_SAVE_STATES_PER_PLAYTHROUGH } from './constants';
 
 export interface SaveMetadata {
   playthroughId: string;

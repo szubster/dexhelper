@@ -1,5 +1,5 @@
+import { WEATHER_ANOMALY_VAR_RELATIVE_OFFSET } from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
-import { WEATHER_ANOMALY_VAR_RELATIVE_OFFSET } from './constants';
 import { extractWeatherAnomaly } from './extractor';
 
 describe('extractWeatherAnomaly', () => {

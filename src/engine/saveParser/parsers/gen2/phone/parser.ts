@@ -19,7 +19,7 @@ export const CRYSTAL_WPHONE_LIST = 0xdc7c;
 export const CONTACT_LIST_SIZE = 10;
 export const PHONE_LIST_LENGTH = CONTACT_LIST_SIZE + 1;
 
-import type { HighValueContact } from './constants';
+import type { HighValueContact } from '@dexhelper/core';
 import { filterHighValueCalls } from './filter';
 
 export interface PokegearPhoneData {

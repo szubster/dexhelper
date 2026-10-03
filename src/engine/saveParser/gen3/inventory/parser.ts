@@ -1,4 +1,3 @@
-import type { GameVersion } from '../../parsers/common';
 import {
   BERRY_POCKET_OFFSET_EMERALD,
   BERRY_POCKET_OFFSET_FRLG,
@@ -18,7 +17,8 @@ import {
   KEY_ITEM_POCKET_SIZE_EMERALD,
   KEY_ITEM_POCKET_SIZE_FRLG,
   KEY_ITEM_POCKET_SIZE_RS,
-} from './constants';
+} from '@dexhelper/core';
+import type { GameVersion } from '../../parsers/common';
 
 export const ITEM_QUANTITY_OFFSET = 0x02;
 export const LOWER_16_BIT_MASK = 0xffff;

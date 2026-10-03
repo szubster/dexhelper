@@ -5,7 +5,7 @@ import {
   FAME_CHECKER_RECORD_SIZE,
   GEN3_FAME_CHECKER_OFFSET,
   NUM_FAMECHECKER_PERSONS,
-} from './constants';
+} from '@dexhelper/core';
 
 export interface Gen3FameCheckerData {
   pickState: number;

@@ -1,5 +1,5 @@
+import { FAME_CHECKER_RECORD_SIZE, GEN3_FAME_CHECKER_OFFSET, NUM_FAMECHECKER_PERSONS } from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
-import { FAME_CHECKER_RECORD_SIZE, GEN3_FAME_CHECKER_OFFSET, NUM_FAMECHECKER_PERSONS } from './constants';
 import { parseGen3FameChecker } from './parser';
 
 describe('parseGen3FameChecker', () => {

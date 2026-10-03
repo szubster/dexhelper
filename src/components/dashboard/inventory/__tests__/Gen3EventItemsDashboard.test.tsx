@@ -1,12 +1,7 @@
+import { ITEM_AURORA_TICKET, ITEM_EON_TICKET, ITEM_MYSTIC_TICKET, ITEM_OLD_SEA_MAP } from '@dexhelper/core';
 import { describe, expect, test } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import {
-  ITEM_AURORA_TICKET,
-  ITEM_EON_TICKET,
-  ITEM_MYSTIC_TICKET,
-  ITEM_OLD_SEA_MAP,
-} from '../../../../engine/saveParser/gen3/inventory/constants';
 import type { SaveData } from '../../../../engine/saveParser/parsers/common';
 import { Gen3EventItemsDashboard } from '../Gen3EventItemsDashboard';
 

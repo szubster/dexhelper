@@ -1,4 +1,4 @@
-import { HOENN_DEX_NATIONAL_IDS, NATIONAL_DEX_MAX } from './constants';
+import { HOENN_DEX_NATIONAL_IDS, NATIONAL_DEX_MAX } from '@dexhelper/core';
 
 /**
  * Calculates the missing Pokémon in the Pokédex for both National and Hoenn dexes.

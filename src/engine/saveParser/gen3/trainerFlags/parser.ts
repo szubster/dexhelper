@@ -1,3 +1,4 @@
+import { BIT_MASK, BITS_PER_BYTE, FRLG_FLAGS_OFFSET, RSE_FLAGS_OFFSET_E, RSE_FLAGS_OFFSET_RS } from '@dexhelper/core';
 /**
  * Gen 3 Trainer Defeat Flags and Rematch Flags Parser
  */
@@ -5,9 +6,6 @@
 // --- Module-Level Constants ---
 
 // Game-specific offset for `flags` array in SaveBlock1
-export const RSE_FLAGS_OFFSET_E = 0x1270;
-export const RSE_FLAGS_OFFSET_RS = 0x1220;
-export const FRLG_FLAGS_OFFSET = 0x0ee0;
 
 // Logical ID start inside flags array
 export const TRAINER_FLAGS_START = 0x500;
@@ -26,9 +24,6 @@ export const REMATCH_OFFSET_FRLG = 0x063a;
 
 // Size of the trainerRematches array
 export const MAX_REMATCH_ENTRIES = 100;
-
-export const BITS_PER_BYTE = 8;
-export const BIT_MASK = 1;
 
 /**
  * Parses the standard trainer defeat flags from a Gen 3 save file.

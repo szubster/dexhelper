@@ -30,7 +30,7 @@ import {
   FRLG_MOVE_TUTOR_SUBSTITUTE_FLAG,
   FRLG_MOVE_TUTOR_SWORDS_DANCE_FLAG,
   FRLG_MOVE_TUTOR_THUNDER_WAVE_FLAG,
-} from './constants';
+} from '@dexhelper/core';
 
 const readFlag = (dataView: DataView, baseOffset: number, flagId: number): boolean => {
   const byteOffset = Math.floor(flagId / BITS_PER_BYTE);

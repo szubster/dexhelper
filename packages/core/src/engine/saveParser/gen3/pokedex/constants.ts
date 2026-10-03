@@ -2,7 +2,6 @@ export const GEN3_POKEDEX_OFFSET = 0x18;
 export const GEN3_POKEDEX_OWNED_OFFSET = 0x10;
 export const GEN3_POKEDEX_SEEN_OFFSET = 0x44;
 export const NATIONAL_DEX_MAX = 386;
-export const BITS_PER_BYTE = 8;
 
 export const HOENN_DEX_ORDER = [
   252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274,

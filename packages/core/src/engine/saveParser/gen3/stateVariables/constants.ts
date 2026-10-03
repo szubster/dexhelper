@@ -15,7 +15,6 @@ export const FLAG_BYTE_SHIFT = 3; // (flag >> 3)
 export const FLAG_BIT_MASK = 7; // (flag & 7)
 
 // Common bit constants
-export const BIT_MASK = 1;
 
 // Flash bank constants
 export const BANK_A_START = 0x0000;

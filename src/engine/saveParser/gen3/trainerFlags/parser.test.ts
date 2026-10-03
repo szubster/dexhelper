@@ -1,13 +1,11 @@
+import { FRLG_FLAGS_OFFSET, RSE_FLAGS_OFFSET_E, RSE_FLAGS_OFFSET_RS } from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
 import {
-  FRLG_FLAGS_OFFSET,
   parseGen3TrainerDefeatFlags,
   parseGen3TrainerRematchFlags,
   REMATCH_OFFSET_E,
   REMATCH_OFFSET_FRLG,
   REMATCH_OFFSET_RS,
-  RSE_FLAGS_OFFSET_E,
-  RSE_FLAGS_OFFSET_RS,
   TRAINER_FLAGS_BYTE_OFFSET,
 } from './parser';
 

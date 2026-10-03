@@ -1,4 +1,3 @@
-import { describe, expect, it } from 'vitest';
 import {
   BANK_A_START,
   BANK_B_START,
@@ -12,7 +11,8 @@ import {
   SIGNATURE_VALUE,
   VARIABLE_SIZE,
   VARS_START,
-} from './constants';
+} from '@dexhelper/core';
+import { describe, expect, it } from 'vitest';
 import { extractEventFlag, extractGameVariable, extractLatestSectionOffset } from './parser';
 
 describe('extractGameVariable', () => {

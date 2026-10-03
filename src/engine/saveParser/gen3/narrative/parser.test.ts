@@ -1,4 +1,3 @@
-import { describe, expect, it } from 'vitest';
 import {
   FRLG_FLAG_BADGE01_GET,
   FRLG_FLAG_BADGE02_GET,
@@ -19,7 +18,8 @@ import {
   RSE_FLAG_BADGE08_GET,
   RSE_FLAGS_OFFSET_E,
   RSE_FLAGS_OFFSET_RS,
-} from './constants';
+} from '@dexhelper/core';
+import { describe, expect, it } from 'vitest';
 import { parseGen3NarrativeFlags } from './parser';
 
 describe('parseGen3NarrativeFlags', () => {

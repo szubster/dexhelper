@@ -1,16 +1,18 @@
-import type { GameVersion } from '../../parsers/common';
-import { FRLG_FLAGS_OFFSET, RSE_FLAGS_OFFSET_E, RSE_FLAGS_OFFSET_RS } from '../narrative/constants';
 import {
   FRLG_FLAG_DEFEATED_ARTICUNO,
   FRLG_FLAG_DEFEATED_MEWTWO,
   FRLG_FLAG_DEFEATED_MOLTRES,
   FRLG_FLAG_DEFEATED_ZAPDOS,
   FRLG_FLAG_RECEIVED_MASTER_BALL,
+  FRLG_FLAGS_OFFSET,
   RSE_FLAG_DEFEATED_GROUDON,
   RSE_FLAG_DEFEATED_KYOGRE,
   RSE_FLAG_DEFEATED_RAYQUAZA,
   RSE_FLAG_RECEIVED_MASTER_BALL,
-} from './constants';
+  RSE_FLAGS_OFFSET_E,
+  RSE_FLAGS_OFFSET_RS,
+} from '@dexhelper/core';
+import type { GameVersion } from '../../parsers/common';
 
 const BITS_PER_BYTE = 8;
 const BIT_MASK = 1;

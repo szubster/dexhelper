@@ -1,8 +1,3 @@
-import type { UnifiedLocation } from '../../../db/schema';
-import { getGenerationConfig } from '../../../utils/generationConfig';
-import { getGen2UnobtainableReason } from '../../exclusives/gen2Exclusives';
-import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen2Graph';
-import type { SaveData } from '../../saveParser/index';
 import {
   SPECIES_ALAKAZAM,
   SPECIES_CELEBI,
@@ -22,7 +17,12 @@ import {
   SPECIES_STEELIX,
   SPECIES_SUICUNE,
   SPECIES_TYROGUE,
-} from '../constants';
+} from '@dexhelper/core';
+import type { UnifiedLocation } from '../../../db/schema';
+import { getGenerationConfig } from '../../../utils/generationConfig';
+import { getGen2UnobtainableReason } from '../../exclusives/gen2Exclusives';
+import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen2Graph';
+import type { SaveData } from '../../saveParser/index';
 import { ITEM_HEADBUTT_GEN2, ITEM_ROCK_SMASH_GEN2, MOVE_HEADBUTT, MOVE_ROCK_SMASH } from '../utils/encounterTools';
 import type { AssistantStrategy, Suggestion } from './types';
 import { getRoamerSuggestions } from './utils/roamer';

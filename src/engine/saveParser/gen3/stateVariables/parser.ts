@@ -15,7 +15,7 @@ import {
   SIGNATURE_VALUE,
   VARIABLE_SIZE,
   VARS_START,
-} from './constants';
+} from '@dexhelper/core';
 
 /**
  * Extracts a specific game variable (u16) from the save file using relative offsets.

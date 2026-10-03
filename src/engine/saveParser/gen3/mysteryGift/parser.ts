@@ -1,4 +1,3 @@
-import type { GameVersion, Gen3MysteryGift } from '../../parsers/common';
 import {
   FRLG_FLAG_ENABLE_SHIP_BIRTH_ISLAND_BIT,
   FRLG_FLAG_ENABLE_SHIP_BIRTH_ISLAND_BYTE,
@@ -25,7 +24,8 @@ import {
   RSE_FLAG_RECEIVED_MYSTIC_TICKET_BYTE,
   RSE_FLAG_RECEIVED_OLD_SEA_MAP_BIT,
   RSE_FLAG_RECEIVED_OLD_SEA_MAP_BYTE,
-} from './constants';
+} from '@dexhelper/core';
+import type { GameVersion, Gen3MysteryGift } from '../../parsers/common';
 
 function checkFlag(view: DataView, baseOffset: number, byteOffset: number, bitIndex: number): boolean {
   try {

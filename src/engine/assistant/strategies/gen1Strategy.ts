@@ -1,9 +1,9 @@
+import { SPECIES_MEWTWO } from '@dexhelper/core';
 import type { UnifiedLocation } from '../../../db/schema';
 import { getGenerationConfig } from '../../../utils/generationConfig';
 import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
 import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen1Graph';
 import type { SaveData } from '../../saveParser/index';
-import { SPECIES_MEWTWO } from '../constants';
 import type { AssistantStrategy, Suggestion } from './types';
 
 export const gen1Strategy: AssistantStrategy = {

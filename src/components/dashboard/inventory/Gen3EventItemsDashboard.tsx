@@ -1,10 +1,5 @@
+import { ITEM_AURORA_TICKET, ITEM_EON_TICKET, ITEM_MYSTIC_TICKET, ITEM_OLD_SEA_MAP } from '@dexhelper/core';
 import type React from 'react';
-import {
-  ITEM_AURORA_TICKET,
-  ITEM_EON_TICKET,
-  ITEM_MYSTIC_TICKET,
-  ITEM_OLD_SEA_MAP,
-} from '../../../engine/saveParser/gen3/inventory/constants';
 import type { SaveData } from '../../../engine/saveParser/parsers/common';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TacticalStatusPanelItem } from '../../TacticalStatusPanelItem';

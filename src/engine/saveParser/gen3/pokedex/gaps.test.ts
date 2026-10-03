@@ -1,5 +1,5 @@
+import { NATIONAL_DEX_MAX } from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
-import { NATIONAL_DEX_MAX } from './constants';
 import { extractPokedexGaps } from './gaps';
 
 describe('extractPokedexGaps', () => {

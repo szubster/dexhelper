@@ -1,5 +1,5 @@
+import { HOENN_DEX_ORDER } from '@dexhelper/core';
 import { getMissingRibbonCount } from '../filtering/RibbonFilters';
-import { HOENN_DEX_ORDER } from '../saveParser/gen3/pokedex/constants';
 import type { GameVersion } from '../saveParser/parsers/common';
 import type { SortingStrategy } from './SortingStrategy';
 

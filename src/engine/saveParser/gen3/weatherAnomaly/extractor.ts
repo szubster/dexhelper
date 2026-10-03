@@ -1,4 +1,4 @@
-import { WEATHER_ANOMALY_VAR_RELATIVE_OFFSET } from './constants';
+import { WEATHER_ANOMALY_VAR_RELATIVE_OFFSET } from '@dexhelper/core';
 import type { Gen3WeatherAnomaly } from './types';
 
 /**

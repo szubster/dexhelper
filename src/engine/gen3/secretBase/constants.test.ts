@@ -1,5 +1,5 @@
+import * as Constants from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
-import * as Constants from './constants';
 
 describe('Secret Base Constants', () => {
   it('should have correct values for Secret Base counts and offsets', () => {

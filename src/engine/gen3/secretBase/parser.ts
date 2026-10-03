@@ -1,5 +1,3 @@
-import { decodeGen12String, type Gen3SecretBasePartyMember } from '../../saveParser/parsers/common';
-
 import {
   BATTLED_OWNER_TODAY_MASK,
   DECOR_MAX_SECRET_BASE,
@@ -29,7 +27,8 @@ import {
   TRAINER_ID_OFFSET,
   TRAINER_NAME_LENGTH,
   TRAINER_NAME_OFFSET,
-} from './constants';
+} from '@dexhelper/core';
+import { decodeGen12String, type Gen3SecretBasePartyMember } from '../../saveParser/parsers/common';
 
 /**
  * Parses the Secret Base Party member structures from a Gen 3 save file.

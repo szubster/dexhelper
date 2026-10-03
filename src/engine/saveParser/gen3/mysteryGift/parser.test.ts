@@ -1,5 +1,5 @@
+import * as constants from '@dexhelper/core';
 import { describe, expect, it } from 'vitest';
-import * as constants from './constants';
 import { parseGen3MysteryGift } from './parser';
 
 describe('parseGen3MysteryGift', () => {
