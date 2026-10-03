@@ -22,6 +22,6 @@ locks: []
 Update the runtime data API to correctly deserialize the msgpackr payload containing the new Gen 3 berry properties. Surface this data through the application's state layer. Write necessary unit tests.
 
 ## Acceptance Criteria
-- [ ] Update runtime data API to deserialize the payload.
-- [ ] Surface data through state layer.
-- [ ] Use defined types for type safety.
+- [x] Update runtime data API to deserialize the payload.
+- [x] Surface data through state layer.
+- [x] Use defined types for type safety.

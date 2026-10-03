@@ -689,6 +689,58 @@ describe('PokeDB', () => {
       expect(enc?.pid).toBe(1);
     });
 
+    it('getBerriesBulk returns correctly', async () => {
+      const mockData = {
+        items: [],
+        hash: 'new-hash',
+        poke: [],
+        enc: [],
+        berries: [
+          {
+            id: 1,
+            name: 'cheri',
+            item_id: 126,
+            growth_time: 3,
+            max_harvest: 5,
+            size: 20,
+            smoothness: 25,
+            soil_dryness: 15,
+            firmness: 2,
+            flavors: { spicy: 10, dry: 0, sweet: 0, bitter: 0, sour: 0 },
+          },
+          {
+            id: 2,
+            name: 'chesto',
+            item_id: 127,
+            growth_time: 3,
+            max_harvest: 5,
+            size: 80,
+            smoothness: 25,
+            soil_dryness: 15,
+            firmness: 5,
+            flavors: { spicy: 0, dry: 10, sweet: 0, bitter: 0, sour: 0 },
+          },
+        ],
+        loc: [],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
+      await pokeDB.sync();
+
+      const results = await pokeDB.getBerriesBulk([1, 2, 999]);
+      expect(results).toHaveLength(3);
+      expect((results[0] as { id: number }).id).toBe(1);
+      expect((results[1] as { id: number }).id).toBe(2);
+      expect(results[2]).toBeInstanceOf(Error);
+    });
+
+    it('getBerriesBulk returns errors for invalid ids', async () => {
+      const manyResult = await pokeDB.getBerriesBulk([NaN]);
+      expect(manyResult[0]).toBeInstanceOf(Error);
+    });
+
     it('getEncountersBulk returns correctly', async () => {
       const mockData = {
         items: [],
