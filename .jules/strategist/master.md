@@ -364,3 +364,12 @@ Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing 
 **Outcome:** Merged
 **Why:** The `.github/agents/architect_visionary.md` prompt contained redundant and non-standard journal reading directives in its `Boundaries` section ("Read your past journals in `.foundry/journals/architect_visionary/master.md` to recall past generated ideas and their outcomes."). Standardizing the journal reading phrasing across all agent prompts ensures compliance with core journaling rules and eliminates duplicate instructions.
 **Pattern:** Ensure all agent prompts contain uniform journal reading directives pointing strictly to `<path>/master.md` in the `## Journal` section, avoiding duplicated journal instructions in other prompt sections.
+
+
+---
+
+## 2026-10-02 - [Accepted] - Prompt improvement: Remove stale agile_coach reference from strategist.md
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** `.github/agents/strategist.md` contained a stale reference to `.foundry/journals/agile_coach/master.md` as an example journal path in its Context section. Replacing it with `.foundry/journals/tech_lead/master.md` ensures example paths in prompt documentation point to active, representative personas.
+**Pattern:** Keep example file paths in schedule prompts up to date with active agent roster definitions to prevent confusion.

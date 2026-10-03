@@ -1208,3 +1208,22 @@ locks: []
 # QA Journal: Gen 3 Volcanic Ash UI
 
 I successfully validated the Gen 3 Volcanic Ash UI integration by creating and executing an E2E test suite via Playwright in `tests/e2e/gen3_volcanic_ash_ui.spec.ts`. The test successfully mounts the `AssistantDebugView` with an Emerald save containing 49155 volcanic ash, and correctly asserts the presence of the `ASH.CNT` label and value after toggling the debug mode. The test also verified that 0 volcanic ash does not crash the UI.
+
+---
+
+# QA Journal Entry - Session 2026-10-02T01-18-34-640Z
+
+---
+
+## Target Task
+`task-521-619-box-analyzer-matrix-qa`
+
+---
+
+## Details
+During QA verification of `task-521-618-box-analyzer-matrix-component`, I observed that the implementation in `src/features/box-analyzer/components/BoxAnalyzerMatrix.tsx` fails to adhere to the tactical hardware aesthetic guidelines outlined in ADR 024. Specifically, it uses raw inline Tailwind utility classes (e.g., `rounded-none`, `border-dashed`, `font-mono`) instead of the required `tactical-*` utility classes (such as `tactical-panel`, `tactical-text`) defined in `src/index.css`.
+
+---
+
+## Action Taken
+The target implementation task `task-521-618-box-analyzer-matrix-component` has been marked as `FAILED` to trigger a transient rejection and allow the coder to update the component to use the proper `tactical-*` utilities in a subsequent session. The acceptance criteria for both the coder's task and this QA task remain unchecked. The QA task was appended with a QA rejection note detailing the reason.
