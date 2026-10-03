@@ -2,14 +2,14 @@
 id: task-430-643-data-splitting-e2e-qa
 type: TASK
 title: QA for Data Splitting E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-01'
 updated_at: '2026-10-03'
 depends_on:
   - task-430-641-core-data-load-e2e
   - task-430-642-gen-specific-load-e2e
-jules_session_id: null
+jules_session_id: '10924833761258442440'
 pr_number: null
 parent: story-400-430-data-splitting-integration-e2e
 tags:
