@@ -36,4 +36,6 @@ Create a dedicated UI view or panel within DexHelper that explicitly displays th
 - No PokeAPI dependency; rely entirely on internal logic and local save data.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into corresponding STORY nodes.
+- [x] Break down this Epic into corresponding STORY nodes.
+- [ ] story-269-647-gen3-ash-dashboard-ui
+- [ ] story-269-648-gen3-ash-dashboard-e2e
