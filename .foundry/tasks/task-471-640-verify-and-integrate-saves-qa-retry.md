@@ -30,5 +30,5 @@ Verify the integrity and integration of downloaded save files into `tests/fixtur
 1. Ensure the new test fixtures are structurally valid and are loaded correctly by the tests.
 
 ## Acceptance Criteria
-- [ ] Run test suite and ensure tests successfully pass with the new fixtures.
-- [ ] Ensure all newly downloaded files are correctly documented in the manifest files.
+- [x] Run test suite and ensure tests successfully pass with the new fixtures.
+- [x] Ensure all newly downloaded files are correctly documented in the manifest files.
