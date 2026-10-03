@@ -27,5 +27,5 @@ notes: "The tests might already be written in SaveDataReader.test.ts. Verify and
 Write unit tests for the core `DataView` wrapper methods in `SaveDataReader`.
 
 ## Acceptance Criteria
-- [ ] Write tests for 8-bit, 16-bit, and 32-bit integer reads (both endianness).
-- [ ] Write tests for 32-bit and 64-bit floating point numbers.
+- [x] Write tests for 8-bit, 16-bit, and 32-bit integer reads (both endianness).
+- [x] Write tests for 32-bit and 64-bit floating point numbers.
