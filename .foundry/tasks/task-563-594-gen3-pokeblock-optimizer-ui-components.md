@@ -31,6 +31,6 @@ Users need an interactive UI dashboard to interact with the Pokéblock Optimizer
 Implement the UI presentation components for the Pokéblock Optimizer dashboard. This includes controls to select a target Pokémon, choose a contest goal, and a display for the recommended berry sequence. Ensure strict adherence to ADR 008 (tactical hardware aesthetic, sharp edges `rounded-none`, dashed borders, monospaced fonts). Consume the state from the Context provider.
 
 ## Acceptance Criteria
-- [ ] Build the presentation components for Pokémon selection and contest goal setting.
-- [ ] Build the display component for the recommended berry sequence.
-- [ ] Adhere to ADR 008 tactical hardware aesthetic guidelines.
+- [x] Build the presentation components for Pokémon selection and contest goal setting.
+- [x] Build the display component for the recommended berry sequence.
+- [x] Adhere to ADR 008 tactical hardware aesthetic guidelines.
