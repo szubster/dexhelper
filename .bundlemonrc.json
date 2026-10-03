@@ -106,6 +106,14 @@
       "maxSize": "60kb"
     },
     {
+      "path": "assets/safariZone-<hash>.js",
+      "maxSize": "60kb"
+    },
+    {
+      "path": "assets/SafariAreaHighlighter-<hash>.js",
+      "maxSize": "20kb"
+    },
+    {
       "path": "assets/store-<hash>.js",
       "maxSize": "15kb"
     },
