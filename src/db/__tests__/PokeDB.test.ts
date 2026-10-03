@@ -77,6 +77,25 @@ describe('PokeDB', () => {
 
       await pokeDB.ensureExtension(4);
       expect(spy).toHaveBeenCalledTimes(1); // Not called for 4
+      spy.mockRestore();
+    });
+
+    it('sanitizes error logging on syncExtension failure', async () => {
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      vi.mocked(fetch).mockResolvedValueOnce({
+        ok: false,
+        status: 404,
+        statusText: 'Not Found',
+      } as unknown as Response);
+
+      await expect(pokeDB.syncExtension(5)).rejects.toThrow('Failed to fetch pokedata-gen5.msgpack: 404 Not Found');
+
+      expect(errorSpy).toHaveBeenCalledWith(
+        'System: sync extension 5 failed',
+        'Failed to fetch pokedata-gen5.msgpack: 404 Not Found',
+      );
+
+      errorSpy.mockRestore();
     });
   });
 
