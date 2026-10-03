@@ -153,7 +153,7 @@ Instead, active nodes MUST utilize Late Binding to spawn appropriate child or up
 5. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/` rather than burying it in your private journal.
 
 ## YAML Frontmatter Rules
-**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
+**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED, OR when adding/updating the `confidence_score` (0-100) to self-report your confidence level.
 
 ### Foundry Markdown Parsing
 When writing utility scripts or tools that process `.foundry` markdown files, metadata (such as `status` or `depends_on`) must be extracted by strictly isolating and parsing the YAML frontmatter block (e.g., by splitting on `---` boundaries or using a YAML frontmatter parser like `gray-matter`). Do NOT use global regex matching directly across the entire raw file body, as this risks matching keywords inside markdown descriptions or acceptance criteria.

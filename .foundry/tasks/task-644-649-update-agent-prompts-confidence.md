@@ -19,6 +19,7 @@ rejection_reason: ''
 notes: ''
 locks: []
 priority: 60
+confidence_score: 100
 ---
 
 # Update Agent Prompts for Confidence Score Reporting
@@ -30,4 +31,4 @@ As part of the Agent Confidence Metrics Dashboard epic, we need to instruct agen
 - Update the relevant agent prompts or core policies so they know to include a `confidence_score` (0-100) in the YAML frontmatter of the task nodes they complete or work on.
 
 ## Acceptance Criteria
-- [ ] Agent prompts/policies updated to include instructions for `confidence_score`.
+- [x] Agent prompts/policies updated to include instructions for `confidence_score`.
