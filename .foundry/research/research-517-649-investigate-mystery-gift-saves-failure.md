@@ -7,7 +7,7 @@ owner_persona: researcher
 created_at: '2026-10-02'
 updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '7665557432015026788'
+jules_session_id: '1019958942872471223'
 pr_number: null
 parent: task-478-517-setup-mystery-gift-e2e-fixtures
 tags:
@@ -15,7 +15,7 @@ tags:
   - mystery-gift
   - fixtures
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

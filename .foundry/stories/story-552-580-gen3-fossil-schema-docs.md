@@ -2,12 +2,12 @@
 id: story-552-580-gen3-fossil-schema-docs
 type: STORY
 title: Update Schema Documentation for Gen 3 Fossil Offsets
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-17T18:41:42Z'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '7363915021030093857'
+jules_session_id: null
 pr_number: null
 parent: epic-520-552-gen3-fossil-memory-research
 tags:
@@ -30,4 +30,5 @@ Update `.foundry/docs/schema.md` or the dedicated offset Markdown files with the
 - Document FRLG offsets: Helix Fossil (Omanyte), Dome Fossil (Kabuto), Old Amber (Aerodactyl).
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks.
+- [x] Break down this story into tasks.
+- [ ] task-580-649-gen3-fossil-schema-docs-impl

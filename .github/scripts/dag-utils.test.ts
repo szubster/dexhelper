@@ -218,12 +218,13 @@ describe('dag-utils', () => {
 
         const newContent = fs.readFileSync(logPath, 'utf-8');
         const lines = newContent.trim().split('\n');
+        const parsedLines = lines.map(line => JSON.parse(line));
+        const parsed = parsedLines.find((p: any) => JSON.stringify(p.cycleNodes) === JSON.stringify(cycleNodes));
 
-
-        const parsed = lines.map((l) => JSON.parse(l)).find((p) => p.cycleNodes.includes('node-a-unique'));
+        expect(parsed).toBeDefined();
         expect(parsed).toHaveProperty('timestamp');
         expect(parsed).toHaveProperty('cycleNodes');
-        expect(parsed.cycleNodes).toEqual(cycleNodes);
+        expect(parsed!.cycleNodes).toEqual(cycleNodes);
 
       } finally {
         // cleanup

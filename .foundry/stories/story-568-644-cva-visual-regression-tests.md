@@ -2,12 +2,12 @@
 id: story-568-644-cva-visual-regression-tests
 type: STORY
 title: Implement CVA Visual Regression Tests
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-02'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '14438319457934955029'
+jules_session_id: null
 pr_number: null
 parent: epic-565-568-theming-e2e-verification
 tags:
@@ -32,4 +32,8 @@ Add visual regression tests using Playwright to ensure component variants from t
 - Write Playwright visual tests for all refactored CVA components.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into modular implementation and QA tasks.
+- [x] Tech Lead: Break down this Story into modular implementation and QA tasks.
+- [ ] task-644-654-cva-visual-regression-base-components-impl
+- [ ] task-644-656-cva-visual-regression-base-components-qa
+- [ ] task-644-655-cva-visual-regression-complex-components-impl
+- [ ] task-644-657-cva-visual-regression-complex-components-qa

@@ -116,3 +116,9 @@
 ## Critical Learnings
 - **Knip Ignore Maintenance**: Stale entries in `knip.json` `ignore` array for files that either exist and are properly imported/used or were restructured trigger configuration hints from Knip (e.g. `Remove from ignore`). Removing these stale ignore entries keeps the linting output clean and avoids noise in local and CI static analysis pipelines.
 - **BundleMon Size Limits for Dynamic JSON Artifacts**: Generated data files such as `data/foundry.json` grow as the Foundry DAG / nodes ecosystem expands. Adjusting `maxSize` in `.bundlemonrc.json` (e.g. from 600kb to 650kb) is necessary to accommodate expected growth of repository metadata artifacts and prevent false-positive CI BundleMon check failures.
+
+
+---
+
+## Critical Learnings
+- **Knip Configuration Hint Maintenance**: Stale entries in `knip.json` (such as files that exist and are properly imported or tsconfig dependencies auto-detected by Knip) trigger configuration hint warnings. Cleaning up stale entries keeps the static analysis pipeline completely warning-free.

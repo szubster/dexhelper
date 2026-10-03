@@ -2,10 +2,10 @@
 id: story-536-540-benchmarking-ts7-toolchains
 type: STORY
 title: Benchmark TS 7.x Toolchain Options
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-22'
+updated_at: '2026-10-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,6 +28,6 @@ This story entails benchmarking various TypeScript 7.x toolchains (e.g., ts-node
 - [x] task-540-546-benchmark-runner-script-coder
 - [x] task-540-547-toolchain-configurations-coder
 - [x] task-540-548-benchmark-ts7-toolchains-qa
-- [ ] research-540-608-benchmark-failure-investigation
-- [ ] task-540-609-benchmark-runner-script-coder-v2
-- [ ] task-540-610-benchmark-ts7-toolchains-qa-v2
+- [x] research-540-608-benchmark-failure-investigation
+- [x] task-540-609-benchmark-runner-script-coder-v2
+- [x] task-540-610-benchmark-ts7-toolchains-qa-v2

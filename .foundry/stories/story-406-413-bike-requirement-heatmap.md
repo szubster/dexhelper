@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-08-10'
 updated_at: '2026-09-07'
 depends_on: []
-jules_session_id: '3948674596086442666'
+jules_session_id: null
 pr_number: null
 parent: epic-339-406-gen3-bike-requirement-route-mapping
 tags:

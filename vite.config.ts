@@ -10,7 +10,7 @@ import { browserslistToTargets } from 'lightningcss';
 import browserslist from 'browserslist';
 
 import { pokedataPlugin } from './vite-plugins/pokedata-plugin.ts';
-import { foundryPlugin } from './vite-plugins/foundry-plugin.ts';
+import { foundryPlugin } from './packages/vite-plugins/src/foundry-plugin.ts';
 
 export default defineConfig(() => {
   const sourceDir = path.resolve(import.meta.dirname, 'data/db');

@@ -2,7 +2,7 @@
 id: task-560-609-tm-hm-compatibility-matching-impl-retry
 type: TASK
 title: Implement TM/HM Compatibility Matching Core Logic (Retry)
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-21'
 updated_at: '2026-10-03'
@@ -15,8 +15,8 @@ tags:
   - feature
   - logic
 research_references: []
-rejection_count: 2
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 priority: 50

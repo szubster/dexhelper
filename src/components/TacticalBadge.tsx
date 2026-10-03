@@ -2,7 +2,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
 import { cn } from '../utils/cn';
 
-export const badgeVariants = cva('tactical-badge inline-flex flex-row px-2 py-1 text-[8px]', {
+export const badgeVariants = cva('tactical-badge inline-flex flex-row px-2 py-1 text-[8px] whitespace-nowrap', {
   variants: {
     variant: {
       primary: 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)]',

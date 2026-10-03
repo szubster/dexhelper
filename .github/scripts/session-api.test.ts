@@ -1,5 +1,6 @@
 import { test, expect, vi, describe, beforeEach, afterEach } from 'vitest';
-import { checkSessionLiveliness, getSessionActivities } from './session-api';
+import { checkSessionLiveliness, getSessionActivities, deleteJulesSession, getSessionDetails } from './session-api';
+
 
 describe('checkSessionLiveliness', () => {
     const MOCK_JULES_KEY = 'test_jules_key';
@@ -163,3 +164,137 @@ describe('getSessionActivities', () => {
         expect(stderrWriteSpy).toHaveBeenCalledWith('[session-api] Jules API getSessionActivities error: Error: Network error\n');
     });
 });
+
+describe('deleteJulesSession', () => {
+    const MOCK_JULES_KEY = 'test_jules_key';
+    const MOCK_SESSION_ID = 'test_session_id';
+
+    let stderrWriteSpy: ReturnType<typeof vi.spyOn>;
+
+    beforeEach(() => {
+        stderrWriteSpy = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+    });
+
+    afterEach(() => {
+        vi.restoreAllMocks();
+    });
+
+    test('returns true on HTTP 200 ok', async () => {
+        // @ts-ignore
+        global.fetch = vi.fn<any>(() => Promise.resolve({
+            status: 200,
+            ok: true
+        }));
+
+        const result = await deleteJulesSession(MOCK_SESSION_ID, MOCK_JULES_KEY);
+        expect(result).toBe(true);
+        expect(global.fetch).toHaveBeenCalledWith(
+            `https://jules.googleapis.com/v1alpha/sessions/${MOCK_SESSION_ID}`,
+            {
+                method: 'DELETE',
+                headers: { 'X-Goog-Api-Key': MOCK_JULES_KEY }
+            }
+        );
+        expect(stderrWriteSpy).not.toHaveBeenCalled();
+    });
+
+    test('returns true on HTTP 404 (already deleted/not found)', async () => {
+        // @ts-ignore
+        global.fetch = vi.fn<any>(() => Promise.resolve({
+            status: 404,
+            ok: false
+        }));
+
+        const result = await deleteJulesSession(MOCK_SESSION_ID, MOCK_JULES_KEY);
+        expect(result).toBe(true);
+        expect(stderrWriteSpy).not.toHaveBeenCalled();
+    });
+
+    test('returns false on non-ok HTTP status (e.g. 500)', async () => {
+        // @ts-ignore
+        global.fetch = vi.fn<any>(() => Promise.resolve({
+            status: 500,
+            ok: false
+        }));
+
+        const result = await deleteJulesSession(MOCK_SESSION_ID, MOCK_JULES_KEY);
+        expect(result).toBe(false);
+        expect(stderrWriteSpy).toHaveBeenCalledWith(`[session-api] Failed to delete session ${MOCK_SESSION_ID}: status 500\n`);
+    });
+
+    test('returns false on network fetch exception', async () => {
+        // @ts-ignore
+        global.fetch = vi.fn<any>(() => Promise.reject(new Error('Network error')));
+
+        const result = await deleteJulesSession(MOCK_SESSION_ID, MOCK_JULES_KEY);
+        expect(result).toBe(false);
+        expect(stderrWriteSpy).toHaveBeenCalledWith(`[session-api] Error deleting session ${MOCK_SESSION_ID}: Error: Network error\n`);
+    });
+});
+
+describe('getSessionDetails', () => {
+    const MOCK_JULES_KEY = 'test_jules_key';
+    const MOCK_SESSION_ID = 'test_session_id';
+
+    let stderrWriteSpy: ReturnType<typeof vi.spyOn>;
+
+    beforeEach(() => {
+        stderrWriteSpy = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+    });
+
+    afterEach(() => {
+        vi.restoreAllMocks();
+    });
+
+    test('returns session details on HTTP 200 ok', async () => {
+        const mockData = { id: MOCK_SESSION_ID, state: 'IN_PROGRESS', title: 'Test Task' };
+        // @ts-ignore
+        global.fetch = vi.fn<any>(() => Promise.resolve({
+            status: 200,
+            ok: true,
+            json: () => Promise.resolve(mockData)
+        }));
+
+        const result = await getSessionDetails(MOCK_SESSION_ID, MOCK_JULES_KEY);
+        expect(result).toEqual(mockData);
+        expect(global.fetch).toHaveBeenCalledWith(
+            `https://jules.googleapis.com/v1alpha/sessions/${MOCK_SESSION_ID}`,
+            { headers: { 'X-Goog-Api-Key': MOCK_JULES_KEY } }
+        );
+        expect(stderrWriteSpy).not.toHaveBeenCalled();
+    });
+
+    test('returns null on HTTP 404', async () => {
+        // @ts-ignore
+        global.fetch = vi.fn<any>(() => Promise.resolve({
+            status: 404,
+            ok: false
+        }));
+
+        const result = await getSessionDetails(MOCK_SESSION_ID, MOCK_JULES_KEY);
+        expect(result).toBeNull();
+        expect(stderrWriteSpy).not.toHaveBeenCalled();
+    });
+
+    test('returns null and logs warning on non-ok HTTP status (e.g. 500)', async () => {
+        // @ts-ignore
+        global.fetch = vi.fn<any>(() => Promise.resolve({
+            status: 500,
+            ok: false
+        }));
+
+        const result = await getSessionDetails(MOCK_SESSION_ID, MOCK_JULES_KEY);
+        expect(result).toBeNull();
+        expect(stderrWriteSpy).toHaveBeenCalledWith(`[session-api] Failed to get session ${MOCK_SESSION_ID}: status 500\n`);
+    });
+
+    test('returns null on network exception', async () => {
+        // @ts-ignore
+        global.fetch = vi.fn<any>(() => Promise.reject(new Error('Network error')));
+
+        const result = await getSessionDetails(MOCK_SESSION_ID, MOCK_JULES_KEY);
+        expect(result).toBeNull();
+        expect(stderrWriteSpy).toHaveBeenCalledWith(`[session-api] Error getting session ${MOCK_SESSION_ID}: Error: Network error\n`);
+    });
+});
+

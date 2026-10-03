@@ -122,3 +122,13 @@ During live web application inspection on Desktop FullHD (1920x1080) and Mobile 
 ## Verification
 * Executed local Playwright visual verification script (`verify_filters.py`), confirming unclipped headers, level button alignment, and zero bracket line wrapping in recorded screenshot and video.
 * All 1947 unit/browser tests passed cleanly (`pnpm test`), and project-wide linting (`pnpm lint`) passed with 0 errors.
+
+---
+
+# Tactical Badge Non-Wrapping Guarantee — 2025-10-03
+
+## Overview
+During visual inspection of badge components across mobile and desktop viewports, `TacticalBadge` variant definitions were updated with `whitespace-nowrap` to enforce single-line text and bracket alignment.
+
+## Key Changes & Remediation
+* **Whitespace Preservation**: Updated `badgeVariants` in `src/components/TacticalBadge.tsx` to include `whitespace-nowrap`. This prevents badge labels or tactical brackets (`[ ]`) from splitting or wrapping vertically under constrained container widths.

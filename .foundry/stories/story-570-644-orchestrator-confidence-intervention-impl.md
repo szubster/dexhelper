@@ -2,12 +2,12 @@
 id: story-570-644-orchestrator-confidence-intervention-impl
 type: STORY
 title: Implement Orchestrator Interventions for Confidence Metrics
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-01T15:03:21Z'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '10782344193053337866'
+jules_session_id: null
 pr_number: null
 parent: epic-565-570-agent-confidence-metrics-orchestrator
 tags:
@@ -33,4 +33,6 @@ Based on PRD-521 and EPIC 570, the orchestrator needs to react to nodes reportin
 - Spawn a QA or Auditor task to review the node.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-644-649-orchestrator-confidence-intervention-impl
+- [ ] task-644-650-orchestrator-confidence-intervention-qa

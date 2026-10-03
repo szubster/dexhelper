@@ -2,12 +2,12 @@
 id: story-572-644-update-agent-prompts-for-confidence
 type: STORY
 title: Update Agent Prompts for Confidence Score Reporting
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-01T15:12:11Z'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '14191547479904258343'
+jules_session_id: null
 pr_number: null
 parent: epic-565-572-agent-confidence-metrics-agent-capability
 tags:
@@ -30,4 +30,5 @@ As part of the Agent Confidence Metrics Dashboard epic, we need to instruct agen
 - Update the relevant agent prompts or core policies so they know to include a `confidence_score` (0-100) in the YAML frontmatter of the task nodes they complete or work on.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [ ] task-644-649-update-agent-prompts-confidence
+- [x] Break down into Tasks

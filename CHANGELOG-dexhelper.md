@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.21.5] - 2026-03-30
+### Changed
+- Bump `vitest` development dependency from 4.1.0 to 4.1.2.
+
 ## [0.21.4] - 2026-03-30
 ### Changed
 - Bump `@tanstack/react-query` dependency from 5.95.0 to 5.95.2.
@@ -155,3 +159,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.21.3]: https://github.com/szubster/dexhelper/compare/19736ac5285ef7f5e2478fff92a866a7dd7c46de...38365f35e66a5d9341ac5b61663659685fcd11d7
 
 [0.21.4]: https://github.com/szubster/dexhelper/compare/cd452d1a20a4ec28e50784ab967edad0cd1e4fdc...053baf14d34d72aaed552dca136139a989dffac5
+[0.21.5]: https://github.com/szubster/dexhelper/compare/2da17e9792cd41167a5846673ffd40321510d7dc...92ae5ee2cddb3c7b1c07b66e353a31f6d9055d11

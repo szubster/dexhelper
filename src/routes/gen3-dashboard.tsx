@@ -4,6 +4,7 @@ import { LayoutGrid, ShieldAlert } from 'lucide-react';
 import { EmptyState } from '../components/EmptyState';
 import { TacticalBlockHeader } from '../components/TacticalBlockHeader';
 import { TacticalPanel } from '../components/TacticalPanel';
+import { FeebasMapComponent } from '../features/feebas/components/FeebasMapComponent';
 import { useStore } from '../store';
 
 export const Route = createFileRoute('/gen3-dashboard')({
@@ -26,10 +27,7 @@ function Gen3DashboardPage() {
           icon={<LayoutGrid size={12} />}
         />
         <div className="flex flex-col gap-4">
-          {/* Trackers will go here */}
-          <div className="flex h-32 items-center justify-center border border-zinc-800 border-dashed bg-zinc-900/50">
-            <span className="font-mono text-sm text-zinc-500">[ AWAITING MODULES ]</span>
-          </div>
+          <FeebasMapComponent />
         </div>
       </TacticalPanel>
     </div>
