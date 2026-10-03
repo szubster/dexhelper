@@ -5,6 +5,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [research-495-649-investigate-reactive-dashboards-failures-v3](.foundry/research/research-495-649-investigate-reactive-dashboards-failures-v3.md) | RESEARCH | Investigate Reactive Dashboards Failures V3 | researcher | [7791402642825447973](https://jules.google.com/session/7791402642825447973) |
 | [research-640-645-investigate-extract-core-domain-timeout](.foundry/research/research-640-645-investigate-extract-core-domain-timeout.md) | RESEARCH | Investigate timeout during core domain extraction | researcher | [3404925110720365319](https://jules.google.com/session/3404925110720365319) |
 | [story-525-640-relocate-foundry-scripts](.foundry/stories/story-525-640-relocate-foundry-scripts.md) | STORY | Relocate Foundry Scripts | tech_lead | [2618713235152824015](https://jules.google.com/session/2618713235152824015) |
 | [story-526-639-extract-parsers](.foundry/stories/story-526-639-extract-parsers.md) | STORY | Extract save file parsers to core package | tech_lead | [9592926477837388416](https://jules.google.com/session/9592926477837388416) |

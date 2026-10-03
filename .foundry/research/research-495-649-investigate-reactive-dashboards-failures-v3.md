@@ -2,12 +2,12 @@
 id: research-495-649-investigate-reactive-dashboards-failures-v3
 type: RESEARCH
 title: Investigate Reactive Dashboards Failures V3
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-02'
 updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7791402642825447973'
 pr_number: null
 parent: story-425-495-reactive-ui-components
 tags:
