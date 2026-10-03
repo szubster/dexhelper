@@ -26,5 +26,5 @@ research_references: []
 Create a Feebas UI visualizer component to display the 6 tile markers based on the seed data.
 
 ## Acceptance Criteria
-- [ ] Implement UI map component for Feebas markers in `gen3-dashboard.tsx`.
-- [ ] Integrate with `saveData.gen3FeebasTiles`.
+- [x] Implement UI map component for Feebas markers in `gen3-dashboard.tsx`.
+- [x] Integrate with `saveData.gen3FeebasTiles`.
