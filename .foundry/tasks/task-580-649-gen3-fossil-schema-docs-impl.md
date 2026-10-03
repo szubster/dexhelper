@@ -35,4 +35,4 @@ See `.foundry/docs/knowledge_base/gen3_fossil_revival_offsets.md` for the exact 
 The update should follow the conventions in `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Ensure RSE and FRLG fossil offset documentation is correctly formatted and added to `.foundry/docs/schema.md` or appropriately organized in dedicated files.
+- [x] Ensure RSE and FRLG fossil offset documentation is correctly formatted and added to `.foundry/docs/schema.md` or appropriately organized in dedicated files.
