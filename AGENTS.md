@@ -14,6 +14,7 @@ Under NO circumstances should an agent post conversational questions or prompts 
 - "Should I request code review now?"
 - "Are there any other tasks you'd like me to focus on before submitting?"
 - "Is there anything else you'd like me to address before submitting?"
+- "Is there anything else you need me to cover, or should I proceed with final submission?"
 - "Which option do you prefer?"
 - "Could you provide any hints or direct me to where I might find...?"
 - "Could you explain why [node/task] failed to reach completion?"
