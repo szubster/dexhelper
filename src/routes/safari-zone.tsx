@@ -2,11 +2,13 @@ import { createFileRoute } from '@tanstack/react-router';
 import { ShieldAlert } from 'lucide-react';
 import React, { Suspense } from 'react';
 import { EmptyState } from '../components/EmptyState';
-import { SafariAreaHighlighter } from '../components/safari-zone/SafariAreaHighlighter';
 import { TacticalBadge } from '../components/TacticalBadge';
 import { useStore } from '../store';
 
 const SafariZoneEncountersList = React.lazy(() => import('../components/safari-zone/SafariZoneEncountersList'));
+const SafariAreaHighlighter = React.lazy(() =>
+  import('../components/safari-zone/SafariAreaHighlighter').then((m) => ({ default: m.SafariAreaHighlighter })),
+);
 
 export const Route = createFileRoute('/safari-zone')({
   component: SafariZonePage,
@@ -43,11 +45,21 @@ function SafariZonePage() {
         <SafariZoneEncountersList saveData={saveData} />
       </Suspense>
 
-      <SafariAreaHighlighter
-        initialVersion={
-          saveData.gameVersion as 'red' | 'blue' | 'yellow' | 'ruby' | 'sapphire' | 'emerald' | 'firered' | 'leafgreen'
-        }
-      />
+      <Suspense fallback={<EmptyState label="INITIALIZING AREA RADAR..." />}>
+        <SafariAreaHighlighter
+          initialVersion={
+            saveData.gameVersion as
+              | 'red'
+              | 'blue'
+              | 'yellow'
+              | 'ruby'
+              | 'sapphire'
+              | 'emerald'
+              | 'firered'
+              | 'leafgreen'
+          }
+        />
+      </Suspense>
     </div>
   );
 }
