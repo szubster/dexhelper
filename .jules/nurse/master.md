@@ -77,3 +77,14 @@ It tightens type safety for data loaded from IndexedDB, a common source of impli
 - **Issue:** Unsafe `as string` type assertion in `src/engine/saveParser/gen3/storage/parser.ts` when extracting PC box index (`pokemon.storageLocation.split(' ')[1] as string`).
 - **Solution:** Replaced `as string` cast with array destructuring (`const [, boxNumStr] = pokemon.storageLocation.split(' ');`) and an explicit string guard check (`if (!boxNumStr) continue;`).
 - **Learn:** When parsing structured string descriptions like `"Box N"` in domain models, favor array destructuring combined with guard checks (`if (!val) continue;`) over direct array indexing with `as string` casts. This improves type safety and prevents potential `NaN` calculations or runtime errors if the input string format changes.
+
+---
+
+# Nurse Joy Journal
+
+## [2026-10-02] - Accepted - Nurse: Type-safety improvement for BugCatchingContestData extraction
+
+**Type:** Type Narrowing / Parameter Union Expansion
+**Outcome:** Updated `extractBugCatchingContestData` parameter type from `ArrayBuffer` to `DataView | ArrayBuffer`, and refactored `parseGen2` to evaluate the extractor once.
+**Why:** `DataView.prototype.buffer` is typed as `ArrayBufferLike` (`ArrayBuffer | SharedArrayBuffer`), forcing callers like `parseGen2` to use `as ArrayBuffer` casts. Furthermore, `parseGen2` evaluated `extractBugCatchingContestData` twice in a conditional spread object, requiring an unsafe `as BugCatchingContestData` cast.
+**Learn:** When an extraction utility takes binary save data, typing its parameter as `DataView | ArrayBuffer` allows direct passage of `DataView` instances without casting `view.buffer`. Evaluating the optional result once into a local variable (`const contestData = extract(...)`) allows TypeScript's conditional object spread (`...(contestData ? { contestData } : {})`) to naturally narrow `contestData` to its truthy type without `as` assertions.
