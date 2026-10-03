@@ -29,5 +29,5 @@ As part of the Bundle and Data Splitting Strategy (ADR 029), we need to split th
 Write E2E tests verifying that generation-specific extensions load properly upon save upload.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for gen-specific extensions load.
-- [ ] Tests verify that after a save upload, the required extension data is successfully loaded and parsed.
+- [x] Implement E2E tests for gen-specific extensions load.
+- [x] Tests verify that after a save upload, the required extension data is successfully loaded and parsed.
