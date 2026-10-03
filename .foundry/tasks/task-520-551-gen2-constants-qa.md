@@ -2,13 +2,13 @@
 id: task-520-551-gen2-constants-qa
 type: TASK
 title: QA - Gen 2 Constants Extraction
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-06'
 updated_at: '2026-10-03'
 depends_on:
   - task-520-550-refactor-gen2-parser-impl
-jules_session_id: null
+jules_session_id: '10004246997686962624'
 parent: story-522-520-gen2-constants-extraction
 rejection_count: 1
 rejection_reason: ''
