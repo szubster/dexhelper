@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-10-03'
@@ -26,26 +26,27 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `92ae5ee2cddb3c7b1c07b66e353a31f6d9055d11`
-- **Previous Commit SHA:** `2da17e9792cd41167a5846673ffd40321510d7dc`
+- **Commit SHA:** `c25761f0b21f41fee6bae5b1f4763552149d6ef5`
+- **Previous Commit SHA:** `92ae5ee2cddb3c7b1c07b66e353a31f6d9055d11`
 - **Commit Date:** `2026-03-30`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `patch` (from `0.21.4` -> `0.21.5`)
+- **Suggested SemVer Bump:** `patch` (from `0.21.5` -> `0.21.6`)
 
 ## Commit Message
 ```text
-build(deps-dev): Bump vitest from 4.1.0 to 4.1.1
+build(deps): Bump @tanstack/react-router from 1.168.2 to 1.168.3
 
-Bumps [vitest](https://github.com/vitest-dev/vitest/tree/HEAD/packages/vitest) from 4.1.0 to 4.1.1.
-- [Release notes](https://github.com/vitest-dev/vitest/releases)
-- [Commits](https://github.com/vitest-dev/vitest/commits/v4.1.1/packages/vitest)
+Bumps [@tanstack/react-router](https://github.com/TanStack/router/tree/HEAD/packages/react-router) from 1.168.2 to 1.168.3.
+- [Release notes](https://github.com/TanStack/router/releases)
+- [Changelog](https://github.com/TanStack/router/blob/main/packages/react-router/CHANGELOG.md)
+- [Commits](https://github.com/TanStack/router/commits/@tanstack/react-router@1.168.3/packages/react-router)
 
 ---
 updated-dependencies:
-- dependency-name: vitest
-  dependency-version: 4.1.1
-  dependency-type: direct:development
+- dependency-name: "@tanstack/react-router"
+  dependency-version: 1.168.3
+  dependency-type: direct:production
   update-type: version-update:semver-patch
 ...
 
@@ -58,15 +59,15 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ## Diff Summary
 ```text
-92ae5ee2c build(deps-dev): Bump vitest from 4.1.0 to 4.1.1
- package-lock.json | 100 +++++++++++++++++++++++++++---------------------------
- package.json      |   2 +-
- 2 files changed, 51 insertions(+), 51 deletions(-)
+c25761f0b build(deps): Bump @tanstack/react-router from 1.168.2 to 1.168.3
+ package-lock.json | 32 ++++++++++++++++----------------
+ package.json      |  2 +-
+ 2 files changed, 17 insertions(+), 17 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 92ae5ee2cddb3c7b1c07b66e353a31f6d9055d11` (or `git diff 2da17e9792cd41167a5846673ffd40321510d7dc..92ae5ee2cddb3c7b1c07b66e353a31f6d9055d11`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show c25761f0b21f41fee6bae5b1f4763552149d6ef5` (or `git diff 92ae5ee2cddb3c7b1c07b66e353a31f6d9055d11..c25761f0b21f41fee6bae5b1f4763552149d6ef5`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.5] - 2026-03-30` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.4...0.21.5`](https://github.com/${repo}/compare/2da17e9...92ae5ee)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.6] - 2026-03-30` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.5...0.21.6`](https://github.com/${repo}/compare/92ae5ee...c25761f)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
