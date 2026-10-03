@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { PokedexGridModel } from './models/PokedexGridModel';
 import { initializeWithSave } from './test-utils';
 
 test.describe('Gen 3 Wallpaper State Tracking', () => {
@@ -7,8 +8,9 @@ test.describe('Gen 3 Wallpaper State Tracking', () => {
   });
 
   test('should persist wallpaper unlock state across reloads', async ({ page }) => {
+    const gridModel = new PokedexGridModel(page);
     // Wait for initial load
-    await expect(page.getByText(/TRNR/i).first().or(page.getByTestId('pokedex-card').first()).first()).toBeVisible();
+    await expect(page.getByText(/TRNR/i).first().or(gridModel.pokemonCards.first()).first()).toBeVisible();
 
     // Interact with the Zustand store to toggle a wallpaper for a specific save file
     await page.evaluate(() => {
@@ -27,7 +29,7 @@ test.describe('Gen 3 Wallpaper State Tracking', () => {
     await page.reload();
 
     // Wait for load again
-    await expect(page.getByText(/TRNR/i).first().or(page.getByTestId('pokedex-card').first()).first()).toBeVisible();
+    await expect(page.getByText(/TRNR/i).first().or(gridModel.pokemonCards.first()).first()).toBeVisible();
 
     // Verify localStorage still contains the persisted state
     const persistedState = await page.evaluate(() => {

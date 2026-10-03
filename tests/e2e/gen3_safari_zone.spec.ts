@@ -1,8 +1,10 @@
 import { expect, test } from '@playwright/test';
+import { PokedexGridModel } from './models/PokedexGridModel';
 import { clearStorage, initializeWithSave, waitForSync } from './test-utils';
 
 test.describe('Gen 3 Safari Zone E2E Tests', () => {
   test('safari encounters extraction should handle gen3 emerald saves', async ({ page }) => {
+    const gridModel = new PokedexGridModel(page);
     await clearStorage(page);
     await initializeWithSave(page, 'tests/fixtures/emerald.sav');
     await waitForSync(page);
@@ -30,7 +32,7 @@ test.describe('Gen 3 Safari Zone E2E Tests', () => {
     await page.goto('./');
     await waitForSync(page);
 
-    const cards = page.getByTestId('pokedex-card');
+    const cards = gridModel.pokemonCards;
     await expect(cards.first()).toBeVisible({ timeout: 15000 });
 
     const firstCard = cards.first();
@@ -43,6 +45,7 @@ test.describe('Gen 3 Safari Zone E2E Tests', () => {
   });
 
   test('safari encounters extraction should handle gen3 firered saves', async ({ page }) => {
+    const gridModel = new PokedexGridModel(page);
     await clearStorage(page);
     await initializeWithSave(page, 'tests/fixtures/firered.sav');
     await waitForSync(page);
@@ -70,7 +73,7 @@ test.describe('Gen 3 Safari Zone E2E Tests', () => {
     await page.goto('./');
     await waitForSync(page);
 
-    const cards = page.getByTestId('pokedex-card');
+    const cards = gridModel.pokemonCards;
     await expect(cards.first()).toBeVisible({ timeout: 15000 });
 
     const firstCard = cards.first();
