@@ -31,5 +31,5 @@ Modify `writeSaveState` in `src/engine/storage/historyDb.ts` to delete the oldes
 Previously, we threw an error when the limit was reached. Now, if `currentCount >= MAX_SAVE_STATES_PER_PLAYTHROUGH`, we must find the oldest saves and delete them, to ensure the new count is `MAX_SAVE_STATES_PER_PLAYTHROUGH - 1` before writing the new save state.
 
 ## Acceptance Criteria
-- [ ] Update `writeSaveState` to implement LRU eviction.
-- [ ] Update tests in `historyDb.test.ts` to assert eviction rather than error-throwing on limit hit.
+- [x] Update `writeSaveState` to implement LRU eviction.
+- [x] Update tests in `historyDb.test.ts` to assert eviction rather than error-throwing on limit hit.
