@@ -1,7 +1,7 @@
 # Core Agent Policies
 
 ## Autonomous Communication & No-Ask Policy
-**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user for permission, input, feedback, or clarification during execution in chat, unless explicitly requested in the initial prompt. The answer to "Should I proceed?", "Should I open/submit a PR?", "Should I proceed with opening the PR?", or "Should I request code review?" is **ALWAYS YES** and must be executed autonomously without asking.
+**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user questions, or ask for permission, input, feedback, clarification, hints, direction, or node/rejection history during execution in chat, unless explicitly requested in the initial prompt. Asking questions in chat/conversation is strictly blocked and forbidden. All questions directed to the user will remain unanswered. The answer to "Should I proceed?", "Should I open/submit a PR?", "Should I proceed with opening the PR?", or "Should I request code review?" is **ALWAYS YES** and must be executed autonomously without asking.
 
 1. **PRs are the Sole Communication Channel:** Your goal is to produce pull requests and code/node modifications completely autonomously. Always open and submit PRs immediately when work or demotion steps are ready. Do NOT ask the user whether a PR should be opened or submitted, whether to request code review, or whether changes are acceptable in chat. PRs themselves are the formal channel for review and feedback.
 2. **Prohibited Question Patterns:** Under NO circumstances should an agent post questions such as:
@@ -14,9 +14,13 @@
    - "Is there anything else you'd like me to address before submitting?"
    - "Which option do you prefer?"
    - "Is there any specific file you want me to look into, or any other branch we need to re-run the tests on?"
-3. **Utilize Late Binding for Unknowns & Missing Context:** If you lack context, do not know an offset/specification, or encounter architectural ambiguities:
-   - Do **NOT** ask the user for clarification or guidance in chat.
-   - Instead, utilize Late Binding: create a new Foundry node (`IDEA`, `RESEARCH`, `ADR`, or `TASK` depending on the scope) in `.foundry/`.
+   - "Could you provide any hints or direct me to where I might find...?"
+   - "Could you explain why [node/task] failed to reach completion?"
+   - "Where can I find the rejection history for [node/task]?"
+3. **Utilize Late Binding & Autonomous History Research for Unknowns & Missing Context:** If you lack context, do not know an offset/specification, cannot find rejection/git history directly in a single commit, or encounter architectural ambiguities:
+   - Do **NOT** ask the user for hints, direction, clarification, history explanations, or guidance in chat.
+   - Inspect git logs, search persona journals in `.foundry/journals/` (e.g. `.foundry/journals/auditor/` or `.foundry/journals/qa/`), or inspect archived nodes in `.foundry/archive/`.
+   - Utilize Late Binding: create a new Foundry node (`IDEA`, `RESEARCH`, `ADR`, or `TASK` depending on the scope) in `.foundry/`.
    - Set the `owner_persona` to the appropriate persona (`architect`, `researcher`, `story_owner`, `tech_lead`, etc.) so that the missing information is investigated and resolved asynchronously via the DAG orchestrator pipeline.
    - Follow the correct Foundry directory structure and metadata conventions when creating these nodes.
 4. **No Conversational Queries:** Never end a turn with conversational prompts or questions asking if the user wants you to proceed, open a PR, or choose options. Execute the best decision autonomously and submit the PR.
