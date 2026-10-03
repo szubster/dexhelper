@@ -33,4 +33,6 @@ Based on PRD-521 and EPIC 570, the orchestrator needs to react to nodes reportin
 - Spawn a QA or Auditor task to review the node.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-644-649-orchestrator-confidence-intervention-impl
+- [ ] task-644-650-orchestrator-confidence-intervention-qa
