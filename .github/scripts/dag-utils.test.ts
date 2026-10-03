@@ -206,7 +206,7 @@ describe('dag-utils', () => {
           originalContent = fs.readFileSync(logPath, 'utf-8');
         }
 
-        const cycleNodes = ['node-a', 'node-b', 'node-c'];
+        const cycleNodes = ['node-a-unique', 'node-b-unique', 'node-c-unique'];
 
         // Since it's fire-and-forget, we need a small delay in test to check
         trackCycleDetectionFailure(cycleNodes);

@@ -238,3 +238,15 @@ export const UNOWN_FORM_MOD = 28;
 export const UNOWN_FORM_VALID_MAX = 26;
 export const UNOWN_FORM_ASCII_A = 65;
 export const GEN2_PKM_DATA_LENGTH = 73;
+
+export const GEN2_MAX_PARTY_SIZE = 6;
+export const GEN2_MAX_BOX_SIZE = 20;
+export const GEN2_MAX_ITEMS_POCKET = 20;
+export const GEN2_MAX_KEY_ITEMS_POCKET = 26;
+export const GEN2_MAX_BALLS_POCKET = 12;
+export const GEN2_MAX_PC_ITEMS = 50;
+export const GEN2_RAIKOU_SPECIES_ID = 243;
+export const GEN2_ENTEI_SPECIES_ID = 244;
+export const GEN2_SUICUNE_SPECIES_ID = 245;
+export const GEN2_MONEY_BYTE_SHIFT_16 = 16;
+export const GEN2_MONEY_BYTE_SHIFT_8 = 8;
