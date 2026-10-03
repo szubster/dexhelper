@@ -120,3 +120,25 @@ Date: 2026-10-02 00:00:00
   - `idea-517-gen2-radio-password-tracker`
   - `prd-517-564-gen2-radio-password-tracker`
   - `research-564-565-buena-password-offsets`
+---
+
+# TPM Session Journal
+Date: 2026-10-03 03:00:00
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving must strictly operate at the whole DAG tree level. A completed node cannot be archived if any descendant or parent in its hierarchy is in an active or incomplete state.
+- **Node Linkage Preservation**: Moving node files to `.foundry/archive/` preserves historical reference while keeping active directory context windows slim. Inline markdown links targeting relocated files are updated to point to `.foundry/archive/`, while internal `depends_on` and `parent` YAML frontmatter fields strictly remain node IDs without paths to avoid DAG orchestrator circular dependency resolution failures.
+
+### Summary of Archived DAG Tree
+- Successfully archived the completed 100% terminal tree rooted at `idea-096-macro-node-boundary-enforcement` (9 nodes total):
+  - `idea-096-macro-node-boundary-enforcement`
+  - `prd-096-057-macro-node-boundary-enforcement`
+  - `epic-057-129-schema-documentation-updates`
+  - `story-129-420-update-schema-e2e-rule`
+  - `story-129-421-verify-schema-documentation-e2e`
+  - `task-420-422-schema-e2e-rule`
+  - `task-421-496-verify-schema-documentation-script-coder`
+  - `task-421-497-verify-schema-documentation-ci-coder`
+  - `task-421-498-verify-schema-documentation-qa`
