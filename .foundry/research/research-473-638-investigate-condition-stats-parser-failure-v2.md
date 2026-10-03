@@ -31,5 +31,16 @@ Investigate the root cause of the permanent failure of \`task-473-494-gen3-condi
 - We need to determine why it failed by looking into reviewer journals.
 
 ## Acceptance Criteria
-- [ ] Determine the root cause of the failure.
-- [ ] Document the findings and any required architectural or procedural adjustments.
+- [x] Determine the root cause of the failure.
+- [x] Document the findings and any required architectural or procedural adjustments.
+
+## Findings
+Explicit failure logs for `task-473-494-gen3-condition-stats-parser` are missing from the active journals. However, based on the `qa` persona journals (see `.foundry/journals/qa/master.md`), Gen 3 DataView parsing tasks were repeatedly rejected for violating Section 13 ("Save File Parsing & Extraction Guidelines") of `.foundry/docs/schema.md`.
+
+Specifically, the failures were caused by:
+1.  **Magic Numbers:** Using inline magic numbers (e.g., `8`, `24`, `0`) for bitmasks, bit shifts, and offset calculations instead of explicit module-level constants.
+
+The permanent failure of `task-473-494-gen3-condition-stats-parser` was highly likely caused by these recurring Section 13 magic number violations.
+
+## Recommendation
+Implementation retry tasks must strictly ensure all offsets, bit lengths, shifts, and conditional checks are defined as reusable module-level constants to prevent further Section 13 violations.
