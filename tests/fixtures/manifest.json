@@ -6,54 +6,24 @@
       "original_source": "./tests/fixtures/saves/gen1/POKEMON BLUE-0.sav"
     },
     {
-      "filename": "yellow-0.sav",
-      "version": "yellow",
-      "original_source": "./tests/fixtures/saves/gen1/POKEMON YELLOW-0.sav"
+      "filename": "blue-complete.sav",
+      "version": "blue",
+      "original_source": "./tests/fixtures/blue-complete.sav"
     },
     {
-      "filename": "yellow-glitch-hunt-2.sav",
-      "version": "yellow",
-      "original_source": "./tests/fixtures/saves/gen1/Pokemon Yellow - 2nd Glitch Hunt.sav"
+      "filename": "blue-evolve.sav",
+      "version": "blue",
+      "original_source": "./tests/fixtures/blue-evolve.sav"
     },
     {
-      "filename": "yellow-glitch-hunt-1.sav",
-      "version": "yellow",
-      "original_source": "./tests/fixtures/saves/gen1/Pokemon Yellow - 1st Glitch Hunt.sav"
+      "filename": "blue.sav",
+      "version": "blue",
+      "original_source": "./tests/fixtures/blue.sav"
     },
     {
-      "filename": "red-base.sav",
-      "version": "red",
-      "original_source": "./tests/fixtures/saves/gen1/BaseSAV.sav"
-    },
-    {
-      "filename": "red-0.sav",
-      "version": "red",
-      "original_source": "./tests/fixtures/saves/gen1/POKEMON RED-0.sav"
-    },
-    {
-      "filename": "silver-tid-39093.sav",
-      "version": "silver",
-      "original_source": "./tests/fixtures/saves/gen2/Pokemon Silver - TID 39093.sav"
-    },
-    {
-      "filename": "silver-tid-38183.sav",
-      "version": "silver",
-      "original_source": "./tests/fixtures/saves/gen2/Pokemon Silver - TID 38183.sav"
-    },
-    {
-      "filename": "gold-tid-65525.sav",
-      "version": "gold",
-      "original_source": "./tests/fixtures/saves/gen2/Pokemon Gold - TID 65525.sav"
-    },
-    {
-      "filename": "silver-ue-c.sav",
-      "version": "silver",
-      "original_source": "./tests/fixtures/saves/gen2/Pokemon - Silver Version (UE) [C][!].sav"
-    },
-    {
-      "filename": "gold-tid-15051.sav",
-      "version": "gold",
-      "original_source": "./tests/fixtures/saves/gen2/Pokemon Gold - TID 15051.sav"
+      "filename": "crystal_pokegear.sav",
+      "version": "crystal",
+      "original_source": "./tests/fixtures/crystal_pokegear.sav"
     },
     {
       "filename": "crystal-egg-shiny-living-dex.sav",
@@ -61,44 +31,19 @@
       "original_source": "./extracted_save/Egg Shiny Living Dex.sav"
     },
     {
-      "filename": "ruby-vithuang-2.sav",
-      "version": "ruby",
-      "original_source": "./tests/fixtures/saves/gen3/ruby2_vithuang.sav"
+      "filename": "crystal-evolve.sav",
+      "version": "crystal",
+      "original_source": "./tests/fixtures/crystal-evolve.sav"
     },
     {
-      "filename": "firered-eventsgallery.sav",
-      "version": "firered",
-      "original_source": "./tests/fixtures/saves/gen3/firered_eventsgallery.sav"
-    },
-    {
-      "filename": "emerald-spinda-pc.sav",
-      "version": "emerald",
-      "original_source": "./tests/fixtures/saves/gen3/emerald_spinda_pc_fixture.sav"
-    },
-    {
-      "filename": "ruby-vithuang.sav",
-      "version": "ruby",
-      "original_source": "./tests/fixtures/saves/gen3/ruby_vithuang.sav"
-    },
-    {
-      "filename": "firered-vithuang.sav",
-      "version": "firered",
-      "original_source": "./tests/fixtures/saves/gen3/firered_vithuang.sav"
-    },
-    {
-      "filename": "emerald-spinda-party.sav",
-      "version": "emerald",
-      "original_source": "./tests/fixtures/saves/gen3/emerald_spinda_party_fixture.sav"
+      "filename": "crystal.sav",
+      "version": "crystal",
+      "original_source": "./tests/fixtures/crystal.sav"
     },
     {
       "filename": "emerald-bl1ndbeholder.sav",
       "version": "emerald",
       "original_source": "./tests/fixtures/saves/gen3/emerald_bl1ndbeholder.sav"
-    },
-    {
-      "filename": "emerald-vithuang.sav",
-      "version": "emerald",
-      "original_source": "./tests/fixtures/saves/gen3/emerald_vithuang.sav"
     },
     {
       "filename": "emerald-egg.sav",
@@ -111,9 +56,139 @@
       "original_source": "./tests/fixtures/saves/gen3/emerald_mystery_gift.sav"
     },
     {
+      "filename": "emerald-spinda-party.sav",
+      "version": "emerald",
+      "original_source": "./tests/fixtures/saves/gen3/emerald_spinda_party_fixture.sav"
+    },
+    {
+      "filename": "emerald-spinda-pc.sav",
+      "version": "emerald",
+      "original_source": "./tests/fixtures/saves/gen3/emerald_spinda_pc_fixture.sav"
+    },
+    {
+      "filename": "emerald-vithuang.sav",
+      "version": "emerald",
+      "original_source": "./tests/fixtures/saves/gen3/emerald_vithuang.sav"
+    },
+    {
+      "filename": "emerald.sav",
+      "version": "emerald",
+      "original_source": "./tests/fixtures/emerald.sav"
+    },
+    {
+      "filename": "firered-eventsgallery.sav",
+      "version": "firered",
+      "original_source": "./tests/fixtures/saves/gen3/firered_eventsgallery.sav"
+    },
+    {
       "filename": "firered-mystery-gift.sav",
       "version": "firered",
       "original_source": "./tests/fixtures/saves/gen3/firered_mystery_gift.sav"
+    },
+    {
+      "filename": "firered-vithuang.sav",
+      "version": "firered",
+      "original_source": "./tests/fixtures/saves/gen3/firered_vithuang.sav"
+    },
+    {
+      "filename": "firered.sav",
+      "version": "firered",
+      "original_source": "./tests/fixtures/firered.sav"
+    },
+    {
+      "filename": "gold-egg.sav",
+      "version": "gold",
+      "original_source": "./tests/fixtures/gold-egg.sav"
+    },
+    {
+      "filename": "gold-pokerus.sav",
+      "version": "gold",
+      "original_source": "./tests/fixtures/gold-pokerus.sav"
+    },
+    {
+      "filename": "gold-tid-15051.sav",
+      "version": "gold",
+      "original_source": "./tests/fixtures/saves/gen2/Pokemon Gold - TID 15051.sav"
+    },
+    {
+      "filename": "gold-tid-65525.sav",
+      "version": "gold",
+      "original_source": "./tests/fixtures/saves/gen2/Pokemon Gold - TID 65525.sav"
+    },
+    {
+      "filename": "gold.sav",
+      "version": "gold",
+      "original_source": "./tests/fixtures/gold.sav"
+    },
+    {
+      "filename": "red-0.sav",
+      "version": "red",
+      "original_source": "./tests/fixtures/saves/gen1/POKEMON RED-0.sav"
+    },
+    {
+      "filename": "red-base.sav",
+      "version": "red",
+      "original_source": "./tests/fixtures/saves/gen1/BaseSAV.sav"
+    },
+    {
+      "filename": "red.sav",
+      "version": "red",
+      "original_source": "./tests/fixtures/red.sav"
+    },
+    {
+      "filename": "ruby-vithuang-2.sav",
+      "version": "ruby",
+      "original_source": "./tests/fixtures/saves/gen3/ruby2_vithuang.sav"
+    },
+    {
+      "filename": "ruby-vithuang.sav",
+      "version": "ruby",
+      "original_source": "./tests/fixtures/saves/gen3/ruby_vithuang.sav"
+    },
+    {
+      "filename": "silver-tid-38183.sav",
+      "version": "silver",
+      "original_source": "./tests/fixtures/saves/gen2/Pokemon Silver - TID 38183.sav"
+    },
+    {
+      "filename": "silver-tid-39093.sav",
+      "version": "silver",
+      "original_source": "./tests/fixtures/saves/gen2/Pokemon Silver - TID 39093.sav"
+    },
+    {
+      "filename": "silver-ue-c.sav",
+      "version": "silver",
+      "original_source": "./tests/fixtures/saves/gen2/Pokemon - Silver Version (UE) [C][!].sav"
+    },
+    {
+      "filename": "silver.sav",
+      "version": "silver",
+      "original_source": "./tests/fixtures/silver.sav"
+    },
+    {
+      "filename": "yellow-0.sav",
+      "version": "yellow",
+      "original_source": "./tests/fixtures/saves/gen1/POKEMON YELLOW-0.sav"
+    },
+    {
+      "filename": "yellow-2026-03-30.sav",
+      "version": "yellow",
+      "original_source": "./tests/fixtures/yellow-2026-03-30.sav"
+    },
+    {
+      "filename": "yellow-glitch-hunt-1.sav",
+      "version": "yellow",
+      "original_source": "./tests/fixtures/saves/gen1/Pokemon Yellow - 1st Glitch Hunt.sav"
+    },
+    {
+      "filename": "yellow-glitch-hunt-2.sav",
+      "version": "yellow",
+      "original_source": "./tests/fixtures/saves/gen1/Pokemon Yellow - 2nd Glitch Hunt.sav"
+    },
+    {
+      "filename": "yellow.sav",
+      "version": "yellow",
+      "original_source": "./tests/fixtures/yellow.sav"
     }
   ],
   "emeraldVithuangRtc": {
