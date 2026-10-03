@@ -1,24 +1,24 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@playwright/test';
+import { SettingsModalModel } from './models/SettingsModalModel';
 import { initializeWithSave, waitForSync } from './test-utils';
 
 test.describe('Advanced Settings Persistence', () => {
   test('should persist Game Version and Ball Style across reloads', async ({ page }) => {
     await initializeWithSave(page);
 
-    // Open settings modal
-    await page.getByRole('button', { name: 'System Settings' }).click();
+    const settingsModal = new SettingsModalModel(page);
 
-    // Verify settings modal is open
-    await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
+    // Open settings modal
+    await settingsModal.open();
 
     // 1. Change Game Version to Yellow
-    await page.getByRole('radio', { name: 'Yellow', exact: true }).click();
+    await settingsModal.setGameVersion('Yellow');
 
     // 2. Change Ball Style to Great Ball
-    await page.getByRole('radio', { name: 'Great Ball', exact: true }).click();
+    await settingsModal.setBallStyle('Great Ball');
 
     // Close settings
-    await page.getByRole('button', { name: 'Close settings' }).click();
+    await settingsModal.close();
 
     // Wait for the modal to be removed from the DOM / animation to finish
     await page.waitForTimeout(500);
@@ -28,11 +28,10 @@ test.describe('Advanced Settings Persistence', () => {
     await waitForSync(page);
 
     // Re-open settings
-    await page.getByRole('button', { name: 'System Settings' }).click();
-    await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
+    await settingsModal.open();
 
     // Verify persistence via checked state of the radio buttons
-    await expect(page.getByRole('radio', { name: 'Yellow', exact: true })).toBeChecked();
-    await expect(page.getByRole('radio', { name: 'Great Ball', exact: true })).toBeChecked();
+    await settingsModal.assertGameVersion('Yellow');
+    await settingsModal.assertBallStyle('Great Ball');
   });
 });
