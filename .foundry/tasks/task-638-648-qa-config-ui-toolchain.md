@@ -27,4 +27,4 @@ locks: []
 Verify the build/bundling toolchain for `@dexhelper/ui` is correctly configured and working.
 
 ## Acceptance Criteria
-- [ ] Implement the objective as described.
+- [x] Implement the objective as described.
