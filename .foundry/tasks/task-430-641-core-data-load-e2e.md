@@ -29,5 +29,5 @@ As part of the Bundle and Data Splitting Strategy (ADR 029), we need to split th
 Write E2E tests verifying that the core data bundle loads correctly on application startup.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for core data loading.
-- [ ] Ensure tests verify successful parsing and data availability.
+- [x] Implement E2E tests for core data loading.
+- [x] Ensure tests verify successful parsing and data availability.
