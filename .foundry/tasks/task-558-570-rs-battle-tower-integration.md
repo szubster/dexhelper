@@ -2,13 +2,13 @@
 id: task-558-570-rs-battle-tower-integration
 type: TASK
 title: Integrate RS Battle Tower Parsing with Engine
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-12'
 updated_at: '2026-10-03'
 depends_on:
   - task-558-568-rs-battle-tower-data-parsing-impl
-jules_session_id: '10632739454443009902'
+jules_session_id: null
 pr_number: null
 parent: story-078-558-rs-battle-tower-data-parsing
 tags:

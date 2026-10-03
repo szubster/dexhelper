@@ -2,7 +2,7 @@
 id: research-422-638-tm-inventory-extraction-failure
 type: RESEARCH
 title: Investigate TM Inventory Extraction Logic Permanent Failure
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-09-29T00:00:00.000Z'
 updated_at: '2026-10-03'
@@ -14,10 +14,8 @@ tags:
   - extraction
   - debugging
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

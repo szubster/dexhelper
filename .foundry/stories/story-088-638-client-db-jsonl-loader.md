@@ -2,7 +2,7 @@
 id: story-088-638-client-db-jsonl-loader
 type: STORY
 title: Client Data Loading for JSONL Moves and Items
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-03'
@@ -15,10 +15,8 @@ tags:
   - db
   - refactor
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

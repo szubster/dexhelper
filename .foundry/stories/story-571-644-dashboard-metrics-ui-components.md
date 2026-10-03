@@ -2,12 +2,12 @@
 id: story-571-644-dashboard-metrics-ui-components
 type: STORY
 title: Update dashboard components for confidence metrics
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-01T15:08:20.012Z'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '18041543952934159510'
+jules_session_id: null
 pr_number: null
 parent: epic-565-571-agent-confidence-metrics-dashboard-ui
 tags:

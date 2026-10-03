@@ -2,10 +2,10 @@
 id: task-560-611-tm-hm-compatibility-matching-qa-retry
 type: TASK
 title: QA TM/HM Compatibility Matching Logic (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-21'
-updated_at: '2026-09-22'
+updated_at: '2026-10-03'
 depends_on:
   - task-560-610-tm-hm-compatibility-matching-tests-retry
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - logic
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-560-609-tm-hm-compatibility-matching-impl-retry
 notes: ''
 locks: []
 priority: 50

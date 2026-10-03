@@ -2,12 +2,12 @@
 id: story-568-644-cva-visual-regression-tests
 type: STORY
 title: Implement CVA Visual Regression Tests
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-02'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '14438319457934955029'
+jules_session_id: null
 pr_number: null
 parent: epic-565-568-theming-e2e-verification
 tags:
