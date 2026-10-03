@@ -34,6 +34,6 @@ Following the investigation into the previous E2E test failure (`research-406-63
 - Ensure the tests interact with the DOM correctly to validate user-facing data.
 
 ## Acceptance Criteria
-- [ ] Read the research findings.
-- [ ] Implement Playwright E2E tests for the NPC rematch status feature in `tests/e2e/`.
-- [ ] Ensure all tests pass.
+- [x] Read the research findings.
+- [x] Implement Playwright E2E tests for the NPC rematch status feature in `tests/e2e/`.
+- [x] Ensure all tests pass.
