@@ -24,6 +24,7 @@ describe('buildDagGraph', () => {
           owner_persona: 'qa',
           depends_on: ['.foundry/tasks/task-1.md'],
           rejection_count: 0,
+          confidence_score: 0.95,
         },
       },
     ];
@@ -50,6 +51,7 @@ describe('buildDagGraph', () => {
             owner_persona: 'qa',
             rejection_count: 0,
             depends_on: ['.foundry/tasks/task-1.md'],
+            confidence_score: 0.95,
           },
         },
       ],
@@ -84,6 +86,7 @@ describe('buildDagGraph', () => {
           owner_persona: 'qa',
           depends_on: ['./.foundry/tasks/task-1.md'],
           rejection_count: 0,
+          confidence_score: null,
         },
       },
     ];

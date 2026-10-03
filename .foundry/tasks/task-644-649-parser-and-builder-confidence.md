@@ -33,4 +33,4 @@ The system needs to visually display confidence scores for nodes in the UI.
 - Modify `src/utils/dag/builder.ts` to include `confidence_score` in `GraphNode["data"]`, and pass it through in `buildDagGraph`.
 
 ## Acceptance Criteria
-- [ ] Implement the required updates to parser.ts and builder.ts.
+- [x] Implement the required updates to parser.ts and builder.ts.
