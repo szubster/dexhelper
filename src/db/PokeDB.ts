@@ -655,7 +655,7 @@ export const pokeDB = {
       await mStore.put({ key: extKey, value: 'loaded' });
       await tx.done;
     } catch (err) {
-      console.error(`System: sync extension ${gen} failed`, err);
+      console.error(`System: sync extension ${gen} failed`, err instanceof Error ? err.message : String(err));
       throw err;
     }
   },
