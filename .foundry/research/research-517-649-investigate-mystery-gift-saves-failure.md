@@ -2,12 +2,12 @@
 id: research-517-649-investigate-mystery-gift-saves-failure
 type: RESEARCH
 title: Investigate Mystery Gift Saves Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-02'
 updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1019958942872471223'
 pr_number: null
 parent: task-478-517-setup-mystery-gift-e2e-fixtures
 tags:
