@@ -2,13 +2,13 @@
 id: task-471-639-update-fixture-manifests-retry
 type: TASK
 title: Update Fixture Manifests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-30'
 updated_at: '2026-10-03'
 depends_on:
   - task-471-638-verify-and-move-saves-retry
-jules_session_id: null
+jules_session_id: '16202383115043071156'
 pr_number: null
 parent: story-428-471-verify-and-integrate-saves
 tags:
