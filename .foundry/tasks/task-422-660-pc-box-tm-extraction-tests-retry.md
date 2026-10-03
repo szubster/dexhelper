@@ -1,0 +1,20 @@
+---
+id: task-422-660-pc-box-tm-extraction-tests-retry
+type: TASK
+title: Write unit tests for PC Box and TM Inventory extraction logic
+status: PENDING
+owner_persona: coder
+depends_on:
+  - task-422-659-tm-inventory-extraction-logic-retry
+  - task-422-590-pc-box-extraction-logic
+parent: story-411-422-pc-box-and-tm-extraction
+---
+# Write unit tests for PC Box and TM Inventory extraction logic
+
+## Context
+This task replaces the cancelled `task-422-640-pc-box-tm-extraction-tests`. It depends on the new `task-422-659-tm-inventory-extraction-logic-retry` and the already completed `task-422-590-pc-box-extraction-logic`.
+
+## Acceptance Criteria
+- [ ] Write unit tests covering PC Box extraction logic across supported generations.
+- [ ] Write unit tests covering TM Inventory extraction logic across supported generations.
+- [ ] Verify concurrent execution integrates properly and handles invalid buffers.
