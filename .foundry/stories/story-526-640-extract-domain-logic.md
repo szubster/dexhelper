@@ -29,6 +29,13 @@ locks: []
 - [x] task-640-643-update-app-imports
 - [x] task-640-644-qa-core-domain-extraction
 - [ ] research-640-645-investigate-extract-core-domain-timeout
-- [ ] task-640-646-extract-core-domain-logic-replacement
-- [ ] task-640-647-update-app-imports-replacement
-- [ ] task-640-648-qa-core-domain-extraction-replacement
+- [x] task-640-646-extract-core-domain-logic-replacement
+- [x] task-640-647-update-app-imports-replacement
+- [x] task-640-648-qa-core-domain-extraction-replacement
+- [ ] research-640-658-investigate-extract-core-domain-timeout-v2
+- [ ] task-640-659-extract-utils-to-core
+- [ ] task-640-660-update-app-imports-utils
+- [ ] task-640-661-qa-extract-utils
+- [ ] task-640-662-extract-engine-data-to-core
+- [ ] task-640-663-update-app-imports-engine-data
+- [ ] task-640-664-qa-extract-engine-data

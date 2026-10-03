@@ -2,7 +2,7 @@
 id: task-640-647-update-app-imports-replacement
 type: TASK
 title: Update application imports to use @dexhelper/core (Replacement)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-02'
 updated_at: '2026-10-02'
@@ -17,7 +17,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Parent task failed permanently'
 notes: ''
 locks: []
 ---
