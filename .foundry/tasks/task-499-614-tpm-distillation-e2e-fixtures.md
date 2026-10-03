@@ -30,5 +30,5 @@ Set up the mock Foundry environment with completed epics, stories, and tasks for
 - Seed a dummy STORY node and dummy TASK nodes that are `status: COMPLETED` and link correctly to the dummy EPIC via their `parent` frontmatter.
 
 ## Acceptance Criteria
-- [ ] Create E2E test setup utilities for scaffolding a dummy Foundry environment.
-- [ ] Ensure all required mock files are correctly written before E2E execution.
+- [x] Create E2E test setup utilities for scaffolding a dummy Foundry environment.
+- [x] Ensure all required mock files are correctly written before E2E execution.
