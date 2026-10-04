@@ -37,4 +37,4 @@ The DAG UI needs to display confidence scores for nodes.
 - Ensure the aesthetic follows tactical/snooping guidelines (monospaced fonts, sharp edges).
 
 ## Acceptance Criteria
-- [ ] Implement the UI components for agent confidence metrics.
+- [x] Implement the UI components for agent confidence metrics.
