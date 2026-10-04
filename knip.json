@@ -32,7 +32,10 @@
     "src/engine/gen3/contests/index.ts",
     "src/engine/gen3/contests/constants.ts",
     "src/engine/radar/index.ts",
-    "src/engine/saveParser/parsers/gen2Constants.ts"
+    "src/engine/saveParser/parsers/gen2Constants.ts",
+    "tests/e2e/models/PokedexGridModel.ts",
+    "tests/e2e/models/SettingsModalModel.ts",
+    "src/engine/saveParser/index.ts"
   ],
   "rules": {
     "files": "warn",

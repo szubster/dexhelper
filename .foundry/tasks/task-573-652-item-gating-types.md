@@ -29,4 +29,4 @@ We need to define a data structure for item gating requirements to support the B
 Create a TypeScript definition file for the item gating types. This should define requirements like bikes, specific items (e.g., Storage Key), HMs (e.g., Dive), and their logical combinations (AND/OR).
 
 ## Acceptance Criteria
-- [ ] coder: Define TypeScript types/interfaces for item gating requirements.
+- [x] coder: Define TypeScript types/interfaces for item gating requirements.
