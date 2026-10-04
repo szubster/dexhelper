@@ -14,8 +14,9 @@ import type { BerryMetadata, CompactChainLink, LocationAreaEncounters, PokemonMe
  * `bulkGet` database transaction on the next tick, ensuring O(1) transaction overhead.
  */
 export const dexDataLoader = {
-  berries: new DataLoader<number, import('./schema').BerryMetadata>(
+  berries: new DataLoader<number, BerryMetadata>(
     async (ids) => {
+      // ⚡ Bolt: Use bulk fetch to prevent N+1 IDB queries for berries
       return pokeDB.getBerriesBulk([...ids]);
     },
     { cache: true },
@@ -23,14 +24,6 @@ export const dexDataLoader = {
   pokemon: new DataLoader<number, PokemonMetadata>(
     async (ids) => {
       return pokeDB.getPokemons([...ids]);
-    },
-    { cache: true },
-  ),
-
-  berries: new DataLoader<number, BerryMetadata>(
-    async (ids) => {
-      // ⚡ Bolt: Use bulk fetch to prevent N+1 IDB queries for berries
-      return pokeDB.getBerriesBulk([...ids]);
     },
     { cache: true },
   ),
