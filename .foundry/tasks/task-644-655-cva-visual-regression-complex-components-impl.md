@@ -34,6 +34,6 @@ Write Playwright visual regression tests for the refactored complex CVA componen
 - Ensure tests run correctly in CI.
 
 ## Acceptance Criteria
-- [ ] Create E2E test file(s) for complex CVA components.
-- [ ] Ensure the tests can run in a headless CI environment.
-- [ ] Verify that visual snapshots match the expected tactical output.
+- [x] Create E2E test file(s) for complex CVA components.
+- [x] Ensure the tests can run in a headless CI environment.
+- [x] Verify that visual snapshots match the expected tactical output.
