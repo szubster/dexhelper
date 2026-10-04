@@ -2,7 +2,7 @@
 id: task-495-650-reactive-dashboards-impl-retry-v3
 type: TASK
 title: Update Dashboard Components for Reactivity (Retry V3)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-02'
 updated_at: '2026-10-02'
@@ -16,7 +16,7 @@ tags:
   - emulator
   - components
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Aborted, handling through replacement node.'
 notes: ''
 locks: []
 ---
