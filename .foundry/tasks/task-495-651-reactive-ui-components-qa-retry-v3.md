@@ -2,10 +2,10 @@
 id: task-495-651-reactive-ui-components-qa-retry-v3
 type: TASK
 title: QA Verification for Reactive UI Components (Retry V3)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-02'
-updated_at: '2026-10-02'
+updated_at: '2026-10-04'
 depends_on:
   - task-495-650-reactive-dashboards-impl-retry-v3
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - emulator
   - components
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-495-649-investigate-reactive-dashboards-failures-v3
 notes: ''
 locks: []
 ---

@@ -2,10 +2,10 @@
 id: research-495-649-investigate-reactive-dashboards-failures-v3
 type: RESEARCH
 title: Investigate Reactive Dashboards Failures V3
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-02'
-updated_at: '2026-10-03'
+updated_at: '2026-10-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - emulator
   - components
   - research
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

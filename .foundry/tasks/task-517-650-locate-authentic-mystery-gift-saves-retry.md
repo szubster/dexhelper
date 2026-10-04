@@ -2,10 +2,10 @@
 id: task-517-650-locate-authentic-mystery-gift-saves-retry
 type: TASK
 title: Locate Authentic Mystery Gift Saves Retry
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-02'
-updated_at: '2026-10-02'
+updated_at: '2026-10-04'
 depends_on:
   - research-517-649-investigate-mystery-gift-saves-failure
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-517-649-investigate-mystery-gift-saves-failure
 notes: ''
 locks: []
 ---

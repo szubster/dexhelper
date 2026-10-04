@@ -8,7 +8,7 @@ created_at: '2026-09-12'
 updated_at: '2026-09-24'
 depends_on:
   - task-562-578-wild-item-selection-state
-jules_session_id: '16731247521072978925'
+jules_session_id: null
 pr_number: null
 parent: story-555-562-wild-item-selection-ui
 tags:

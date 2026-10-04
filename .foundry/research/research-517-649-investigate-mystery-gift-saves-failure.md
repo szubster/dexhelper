@@ -2,10 +2,10 @@
 id: research-517-649-investigate-mystery-gift-saves-failure
 type: RESEARCH
 title: Investigate Mystery Gift Saves Failure
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-02'
-updated_at: '2026-10-03'
+updated_at: '2026-10-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,10 +15,8 @@ tags:
   - mystery-gift
   - fixtures
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
