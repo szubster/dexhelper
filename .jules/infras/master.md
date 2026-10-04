@@ -122,3 +122,8 @@
 
 ## Critical Learnings
 - **Knip Configuration Hint Maintenance**: Stale entries in `knip.json` (such as files that exist and are properly imported or tsconfig dependencies auto-detected by Knip) trigger configuration hint warnings. Cleaning up stale entries keeps the static analysis pipeline completely warning-free.
+
+---
+
+## Critical Learnings
+- **CI Synchronization & Knip Ignored Models**: Synchronized `.github/workflows/ci.yml` by adding `Dependency Cruiser Check` (`pnpm lint:deps`), ensuring local `pnpm lint` checks match GitHub Actions CI. Added `tests/e2e/models/**` to `knip.json` `ignore` list to prevent false positive unused file warnings for Playwright E2E Page Object Models.
