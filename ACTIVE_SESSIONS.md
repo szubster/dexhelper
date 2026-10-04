@@ -6,6 +6,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [research-478-652-investigate-cloning-failure-retry](.foundry/research/research-478-652-investigate-cloning-failure-retry.md) | RESEARCH | Investigate DAG Node Cloning Logic Failure (Retry) | researcher | [2899727411414053624](https://jules.google.com/session/2899727411414053624) |
 | [research-640-652-investigate-relocate-scripts-failure](.foundry/research/research-640-652-investigate-relocate-scripts-failure.md) | RESEARCH | Investigate failure during relocation of foundry scripts | researcher | [570820321743428370](https://jules.google.com/session/570820321743428370) |
 | [story-088-638-client-db-jsonl-loader](.foundry/stories/story-088-638-client-db-jsonl-loader.md) | STORY | Client Data Loading for JSONL Moves and Items | tech_lead | [7458716183221184198](https://jules.google.com/session/7458716183221184198) |
 | [story-411-422-pc-box-and-tm-extraction](.foundry/stories/story-411-422-pc-box-and-tm-extraction.md) | STORY | Extract PC Box and TM Inventory data concurrently. | tech_lead | [2194830167205301912](https://jules.google.com/session/2194830167205301912) |
