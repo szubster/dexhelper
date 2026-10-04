@@ -2,13 +2,13 @@
 id: task-527-595-safari-zone-selection-ui
 type: TASK
 title: Safari Zone Target Selection UI
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-24'
+updated_at: '2026-10-03'
 depends_on:
   - task-527-594-safari-zone-data-hook
-jules_session_id: null
+jules_session_id: '12723067366381658938'
 pr_number: null
 parent: story-325-527-safari-zone-area-highlighting
 tags:

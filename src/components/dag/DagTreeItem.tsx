@@ -52,7 +52,10 @@ export function DagTreeItem({ nodeId, label, status, isPermanentFailure, childre
         <button
           type="button"
           onClick={() => hasChildren && toggleNode(nodeId)}
-          className="flex h-6 w-6 shrink-0 items-center justify-center rounded-none p-1 hover:bg-zinc-700/50"
+          aria-expanded={hasChildren ? isExpanded : undefined}
+          aria-label={hasChildren ? (isExpanded ? `Collapse ${label}` : `Expand ${label}`) : undefined}
+          title={hasChildren ? (isExpanded ? `Collapse ${label}` : `Expand ${label}`) : undefined}
+          className="focus-visible:tactical-focus flex h-6 w-6 shrink-0 items-center justify-center rounded-none p-1 transition-colors hover:bg-zinc-700/50 disabled:cursor-not-allowed disabled:opacity-30"
           disabled={!hasChildren}
         >
           {hasChildren ? (

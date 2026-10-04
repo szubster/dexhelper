@@ -2,13 +2,13 @@
 id: task-406-639-gen3-rematch-e2e-impl-retry
 type: TASK
 title: Retry Gen 3 NPC Rematch Status E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on:
   - research-406-638-investigate-gen3-rematch-e2e-failure
-jules_session_id: '1162994222270708932'
+jules_session_id: null
 pr_number: null
 parent: story-397-406-gen3-npc-rematch-status
 tags:
@@ -34,6 +34,6 @@ Following the investigation into the previous E2E test failure (`research-406-63
 - Ensure the tests interact with the DOM correctly to validate user-facing data.
 
 ## Acceptance Criteria
-- [ ] Read the research findings.
-- [ ] Implement Playwright E2E tests for the NPC rematch status feature in `tests/e2e/`.
-- [ ] Ensure all tests pass.
+- [x] Read the research findings.
+- [x] Implement Playwright E2E tests for the NPC rematch status feature in `tests/e2e/`.
+- [x] Ensure all tests pass.

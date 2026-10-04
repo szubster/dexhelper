@@ -77,6 +77,25 @@ describe('PokeDB', () => {
 
       await pokeDB.ensureExtension(4);
       expect(spy).toHaveBeenCalledTimes(1); // Not called for 4
+      spy.mockRestore();
+    });
+
+    it('sanitizes error logging on syncExtension failure', async () => {
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      vi.mocked(fetch).mockResolvedValueOnce({
+        ok: false,
+        status: 404,
+        statusText: 'Not Found',
+      } as unknown as Response);
+
+      await expect(pokeDB.syncExtension(5)).rejects.toThrow('Failed to fetch pokedata-gen5.msgpack: 404 Not Found');
+
+      expect(errorSpy).toHaveBeenCalledWith(
+        'System: sync extension 5 failed',
+        'Failed to fetch pokedata-gen5.msgpack: 404 Not Found',
+      );
+
+      errorSpy.mockRestore();
     });
   });
 
@@ -577,6 +596,34 @@ describe('PokeDB', () => {
 
       const b = await pokeDB.getBerry(1);
       expect(b?.name).toBe('cheri');
+    });
+
+    it('getBerriesBulk returns array of berries or errors', async () => {
+      const mockData = {
+        items: [],
+        berries: [
+          { id: 1, name: 'cheri' },
+          { id: 2, name: 'chesto' },
+        ],
+        hash: 'new-hash',
+        poke: [],
+        enc: [],
+        loc: [],
+      };
+      vi.mocked(fetch).mockResolvedValue({
+        ok: true,
+        arrayBuffer: async () => pack(mockData),
+      } as unknown as Response);
+      await pokeDB.sync();
+
+      const results = await pokeDB.getBerriesBulk([1, 2, 999]);
+      expect(results).toHaveLength(3);
+      expect((results[0] as { name: string }).name).toBe('cheri');
+      expect((results[1] as { name: string }).name).toBe('chesto');
+      expect(results[2]).toBeInstanceOf(Error);
+
+      const invalidResults = await pokeDB.getBerriesBulk([NaN]);
+      expect(invalidResults[0]).toBeInstanceOf(Error);
     });
 
     it('getBerry returns undefined for invalid id', async () => {

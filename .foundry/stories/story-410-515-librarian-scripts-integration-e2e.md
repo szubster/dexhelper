@@ -10,7 +10,7 @@ depends_on:
   - story-410-512-librarian-ingestion-synthesis-script
   - story-410-513-librarian-doc-update-script
   - story-410-514-librarian-garbage-collection-script
-jules_session_id: '17896743256907976283'
+jules_session_id: null
 pr_number: null
 parent: epic-339-410-librarian-github-scripts-implementation
 tags:

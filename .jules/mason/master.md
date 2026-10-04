@@ -365,3 +365,14 @@ Removed redundant dead code (like the `ledOuter` and `ledInner` styles from `Tac
 - **Why**: `Gen3EventItemsDashboard.tsx`, `Gen3StaticEncountersDashboard.tsx`, and `Gen3SecretBaseDashboard.tsx` all repeated the exact same JSX structure for rendering status/item claim panels in a responsive grid.
   - Providing flexible props like `active`, `statusText`, `activeClassName`, and `inactiveClassName` allows the component to support default `[X]` / `[ ]` badges while seamlessly accommodating custom status labels (e.g. `[ BATTLE AVAILABLE ]` vs `[ ALREADY BATTLED ]`).
   - Standardizing status panel items improves component modularity, reduces DOM markup duplication, and ensures consistent tactical theme styling (ADR 008 / ADR 024) across dashboard blades.
+
+
+---
+
+# TacticalInput Refactoring in Gen3RTCControls
+
+- **What**: Replaced standard HTML `<input type="time">` element in `Gen3RTCControls.tsx` with the project's existing `TacticalInput` component.
+- **Why**: Reusing existing reusable design system primitives (`TacticalInput`) for standard HTML form controls eliminates unstandardized styling boilerplate and ensures consistent tactical aesthetics across controls (`TacticalInput`, `TacticalSelect`, `TacticalButton`).
+- **Key Learnings**:
+  - `TacticalInput` supports container layout overrides via `containerClassName="flex-1"` while allowing customized styling on the inner input through `className`.
+  - Reusing standard React design system primitives maintains consistency across the codebase and fulfills ADR 008 aesthetic guidelines.

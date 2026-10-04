@@ -2,13 +2,13 @@
 id: epic-054-269-gen3-ash-dashboard
 type: EPIC
 title: 'Epic: Gen 3 Volcanic Ash Tracker Dashboard UI'
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on:
   - epic-054-268-gen3-ash-save-parsing
-jules_session_id: null
+jules_session_id: '10265157947803212658'
 pr_number: null
 parent: prd-089-054-gen3-ash-gathering-tracker
 tags:

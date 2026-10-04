@@ -8,7 +8,7 @@ created_at: '2026-08-23'
 updated_at: '2026-08-27'
 depends_on:
   - story-417-443-prompt-fragment-schema
-jules_session_id: '783063289718919723'
+jules_session_id: null
 pr_number: null
 parent: epic-343-417-prompt-fragment-layering
 tags:

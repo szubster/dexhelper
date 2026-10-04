@@ -5,6 +5,7 @@ import {
   countSavesForPlaythrough,
   deleteSaveState,
   getMostRecentSave,
+  getOldestSaves,
   getPreviousSave,
   initHistoryDb,
   writeSaveState,
@@ -221,5 +222,44 @@ describe('SaveHistoryDB', () => {
       expect(result?.saveData).toEqual(new Uint8Array([8]));
       expect(result?.metadata).toEqual({ playthroughId: ptId, timestamp: 200 });
     });
+  });
+});
+
+describe('getOldestSaves', () => {
+  it('should return an empty array if no saves exist for the playthrough', async () => {
+    const result = await getOldestSaves('non-existent-pt', 5);
+    expect(result).toEqual([]);
+  });
+
+  it('should correctly order saves by timestamp ascending and limit the results', async () => {
+    const ptId = 'pt-oldest-test';
+    await writeSaveState('save-t100', new Uint8Array([1]), { playthroughId: ptId, timestamp: 100 });
+    await writeSaveState('save-t300', new Uint8Array([3]), { playthroughId: ptId, timestamp: 300 });
+    await writeSaveState('save-t50', new Uint8Array([5]), { playthroughId: ptId, timestamp: 50 });
+    await writeSaveState('save-t200', new Uint8Array([2]), { playthroughId: ptId, timestamp: 200 });
+
+    const result = await getOldestSaves(ptId, 2);
+
+    expect(result.length).toBe(2);
+    // t50 and t100 are the oldest
+    expect(result).toEqual(['save-t50', 'save-t100']);
+  });
+
+  it('should return all available saves if the limit is greater than the total saves', async () => {
+    const ptId = 'pt-oldest-test-2';
+    await writeSaveState('save-1', new Uint8Array([1]), { playthroughId: ptId, timestamp: 100 });
+    await writeSaveState('save-2', new Uint8Array([2]), { playthroughId: ptId, timestamp: 200 });
+
+    const result = await getOldestSaves(ptId, 10);
+
+    expect(result.length).toBe(2);
+    expect(result).toEqual(['save-1', 'save-2']);
+  });
+
+  it('should propagate errors if querying fails', async () => {
+    // @ts-expect-error - testing invalid input
+    await expect(getOldestSaves(Symbol('bad-id'), 5)).rejects.toThrow(
+      'Data provided to an operation does not meet requirements',
+    );
   });
 });

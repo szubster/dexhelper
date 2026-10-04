@@ -8,7 +8,7 @@ created_at: '2026-08-27'
 updated_at: '2026-09-08'
 depends_on:
   - task-473-498-gen3-wallpaper-phrase-generator-impl
-jules_session_id: '15196085943706007987'
+jules_session_id: null
 parent: story-335-473-gen3-wallpaper-phrase-generator
 tags:
   - gen3

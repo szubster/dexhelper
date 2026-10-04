@@ -2,12 +2,12 @@
 id: story-407-573-item-gating-data-mapping
 type: STORY
 title: Item Gating Data Mapping
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-16T05:45:31Z'
 updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '1531222304323472875'
+jules_session_id: null
 pr_number: null
 parent: epic-339-407-gen3-bike-item-gating-integration
 tags:
@@ -28,4 +28,9 @@ To introduce a "Bike Requirement Filter" to DexHelper's Smart Route Radar, we fi
 Define a data structure and mapping logic to associate items with their requirements. For example, identifying that a specific item on Route 119 requires an Acro Bike to reach, or TM13 in Abandoned Ship requires Dive & Storage Key. Create the necessary utility functions to parse this data based on save flags.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks for Coder and QA.
+- [x] tech_lead: Break down this Story into Tasks for Coder and QA.
+- [ ] task-573-652-item-gating-types
+- [ ] task-573-653-item-gating-constants
+- [ ] task-573-654-item-gating-utilities
+- [ ] task-573-655-item-gating-tests
+- [ ] task-573-656-item-gating-qa

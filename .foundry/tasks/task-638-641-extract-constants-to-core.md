@@ -5,16 +5,16 @@ title: Extract Constants to Core Package
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: '6979250225269423666'
+jules_session_id: '1697290646932671413'
 pr_number: null
 parent: story-526-638-extract-constants
 tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

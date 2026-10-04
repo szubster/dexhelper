@@ -8,7 +8,7 @@ created_at: '2026-10-01'
 updated_at: '2026-10-02'
 depends_on:
   - task-640-641-create-core-package-infrastructure
-jules_session_id: '13644629649209908782'
+jules_session_id: null
 pr_number: null
 parent: story-526-640-extract-domain-logic
 tags:

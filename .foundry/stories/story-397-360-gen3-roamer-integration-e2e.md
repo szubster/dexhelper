@@ -8,7 +8,7 @@ created_at: '2026-08-05'
 updated_at: '2026-10-01'
 depends_on:
   - story-397-359-gen3-roamer-unit-tests
-jules_session_id: '14117753440197048908'
+jules_session_id: null
 pr_number: null
 parent: epic-044-397-gen3-roamer-core-extraction-v5
 tags:

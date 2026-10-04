@@ -2,12 +2,12 @@
 id: task-644-654-cva-visual-regression-base-components-impl
 type: TASK
 title: Implement CVA Visual Regression Tests - Base Components
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-02'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4715309742588313431'
 pr_number: null
 parent: story-568-644-cva-visual-regression-tests
 tags:
