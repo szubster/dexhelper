@@ -34,6 +34,6 @@ QA Verification for the Gen 3 NPC Rematch Status implementation. This ensures al
 - Confirm E2E and unit tests cover the new logic and pass reliably.
 
 ## Acceptance Criteria
-- [ ] Verify the parser implementation.
-- [ ] Verify the UI implementation.
-- [ ] Ensure E2E tests run successfully.
+- [x] Verify the parser implementation.
+- [x] Verify the UI implementation.
+- [x] Ensure E2E tests run successfully.
