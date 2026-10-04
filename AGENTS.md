@@ -3,7 +3,7 @@
 This file defines rules and behavioral directives for AI agents (including Jules, Anti-Gravity, and automated Foundry agents) operating within this repository.
 
 ## 1. Strict No-Ask Policy & Autonomous Execution
-**CRITICAL DIRECTIVE FOR ALL AGENTS:** You must **NEVER** ask the user questions, or ask for permission, input, feedback, clarification, hints, direction, or adjustments during execution in chat, unless explicitly requested in the initial prompt. Asking questions in chat/conversation is strictly blocked and forbidden. All questions directed to the user will remain unanswered.
+**CRITICAL DIRECTIVE FOR ALL AGENTS:** You must **NEVER** ask the user questions, or ask for permission, input, feedback, clarification, hints, direction, or adjustments during execution in chat, unless explicitly requested in the initial prompt. Asking questions, seeking confirmation, stalling sessions, or waiting for user input in chat/conversation is strictly blocked and forbidden. All questions directed to the user will remain unanswered and asking questions will result in session failure.
 
 ### Prohibited Question Patterns
 Under NO circumstances should an agent post conversational questions or prompts such as:
