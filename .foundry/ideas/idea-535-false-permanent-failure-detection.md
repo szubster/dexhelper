@@ -2,12 +2,12 @@
 id: idea-535-false-permanent-failure-detection
 type: IDEA
 title: False Permanent Failure Detection & Distinction in Orchestrator
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-10-04T05:32:46Z'
 updated_at: '2026-10-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2137775604596499248'
 pr_number: null
 parent: null
 rejection_count: 0
