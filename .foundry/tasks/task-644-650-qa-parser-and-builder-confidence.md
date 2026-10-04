@@ -2,13 +2,13 @@
 id: task-644-650-qa-parser-and-builder-confidence
 type: TASK
 title: QA DAG parser and builder for confidence metrics
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")'
-updated_at: '2026-10-03'
+updated_at: '2026-10-04'
 depends_on:
   - task-644-649-parser-and-builder-confidence
-jules_session_id: null
+jules_session_id: '5349264457079989589'
 pr_number: null
 parent: story-571-644-dashboard-metrics-ui-components
 tags:
