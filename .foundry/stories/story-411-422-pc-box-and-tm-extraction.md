@@ -25,13 +25,17 @@ locks: []
 # Extract PC Box and TM Inventory data concurrently.
 
 ## Acceptance Criteria
-- [ ] research-422-638-tm-inventory-extraction-failure
-- [ ] task-422-639-tm-inventory-extraction-logic
-- [ ] task-422-640-pc-box-tm-extraction-tests
-- [ ] task-422-641-pc-box-tm-extraction-qa
+- [x] research-422-638-tm-inventory-extraction-failure
+- [x] task-422-639-tm-inventory-extraction-logic
+- [x] task-422-640-pc-box-tm-extraction-tests
+- [x] task-422-641-pc-box-tm-extraction-qa
 - [ ] Extract PC Box data concurrently.
 - [ ] Extract TM Inventory data concurrently.
-- [ ] task-422-590-pc-box-extraction-logic
+- [x] task-422-590-pc-box-extraction-logic
 - [x] task-422-591-tm-inventory-extraction-logic
 - [x] task-422-592-pc-box-tm-extraction-tests
 - [x] task-422-593-pc-box-tm-extraction-qa
+- [ ] research-422-658-tm-inventory-extraction-failure-retry
+- [ ] task-422-659-tm-inventory-extraction-logic-retry
+- [ ] task-422-660-pc-box-tm-extraction-tests-retry
+- [ ] task-422-661-pc-box-tm-extraction-qa-retry
