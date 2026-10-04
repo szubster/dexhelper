@@ -2,13 +2,13 @@
 id: task-473-639-gen3-condition-stats-parser-v3
 type: TASK
 title: Implement Gen 3 Contest Condition Stats Parser (Retry 2)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-30'
-updated_at: '2026-10-03'
+updated_at: '2026-10-04'
 depends_on:
   - research-473-638-investigate-condition-stats-parser-failure-v2
-jules_session_id: null
+jules_session_id: '84572156569908071'
 pr_number: null
 parent: story-134-473-gen3-condition-stats-extraction-impl
 tags:
