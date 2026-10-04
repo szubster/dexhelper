@@ -68,6 +68,10 @@ test('DagProvider provides maxRejectionThreshold and handles data loading correc
   await expect.element(page.getByTestId('node-rejection')).toHaveTextContent('3');
   await expect.element(page.getByTestId('failed-count')).toHaveTextContent('1');
   await expect.element(page.getByTestId('is-pending')).toHaveTextContent('false');
+  await expect.element(page.getByTestId('show-heatmap')).toHaveTextContent('false');
+  await page.getByTestId('btn').click();
+  await page.getByTestId('btn-heatmap').click();
+  await expect.element(page.getByTestId('show-heatmap')).toHaveTextContent('true');
 });
 
 test('DagProvider correctly maps confidence_score from node data', async () => {
@@ -93,11 +97,7 @@ test('DagProvider correctly maps confidence_score from node data', async () => {
 
   const TestConfidenceComponent = () => {
     const { nodes } = useDagContext();
-    return (
-      <div>
-        {nodes.length > 0 && <div data-testid="node-confidence">{nodes[0]?.data.confidence_score}</div>}
-      </div>
-    );
+    return <div>{nodes.length > 0 && <div data-testid="node-confidence">{nodes[0]?.data.confidence_score}</div>}</div>;
   };
 
   await render(
