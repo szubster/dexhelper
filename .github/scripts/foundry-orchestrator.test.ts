@@ -3756,4 +3756,45 @@ Target artifact: task-completed
     process.exitCode = 0;
     stderrSpy.mockRestore();
   });
+
+  test('Confidence Intervention: Low confidence score on TASK overrides COMPLETED transition to READY and assigns qa', () => {
+    // If a leaf task has all acceptance criteria checked, it is promoted directly to COMPLETED.
+    createValidTestNode(tmpDir, '.foundry/tasks/task-low-confidence.md', {
+      id: "task-low-confidence", type: "TASK", title: "Low Confidence", status: "PENDING",
+      owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20",
+      depends_on: [], jules_session_id: null, confidence_score: 50
+    }, '# Title\n## Acceptance Criteria\n- [x] Check 1');
+    // removed unused warnSpy
+    main();
+    // removed unused result
+    const fileContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-low-confidence.md'), 'utf-8');
+    expect(fileContent).toContain('status: READY');
+    expect(fileContent).toContain('owner_persona: qa');
+  });
+
+  test('Confidence Intervention: Low confidence score on STORY overrides COMPLETED transition to READY and assigns auditor', () => {
+    // Story will be promoted to COMPLETED if it has no unchecked checkboxes.
+    createValidTestNode(tmpDir, '.foundry/stories/story-low-confidence.md', {
+      id: "story-low-confidence", type: "STORY", title: "Low Confidence", status: "PENDING",
+      owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20",
+      depends_on: [], jules_session_id: null, confidence_score: 40
+    }, '# Title\n## Acceptance Criteria\n- [x] Check 1');
+    // removed unused warnSpy
+    main();
+    const fileContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-low-confidence.md'), 'utf-8');
+    expect(fileContent).toContain('status: READY');
+    expect(fileContent).toContain('owner_persona: auditor');
+  });
+
+  test('Confidence Intervention: High confidence score does not override COMPLETED transition', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-high-confidence.md', {
+      id: "task-high-confidence", type: "TASK", title: "High Confidence", status: "PENDING",
+      owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20",
+      depends_on: [], jules_session_id: null, confidence_score: 85
+    }, '# Title\n## Acceptance Criteria\n- [x] Check 1');
+    main();
+    const fileContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-high-confidence.md'), 'utf-8');
+    expect(fileContent).toContain('status: COMPLETED');
+    expect(fileContent).toContain('owner_persona: coder');
+  });
 });
