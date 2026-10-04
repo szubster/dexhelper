@@ -32,3 +32,7 @@ With the Vite plugin now capable of bundling `.jsonl` files, the application run
 - [ ] Update application data layer to fetch and parse the loaded `moves.jsonl` and `items.jsonl` datasets.
 - [ ] Integrate the parsed data structures into the existing move and item data providers to ensure smooth UI transition.
 - [ ] Ensure efficient loading to minimize performance impact.
+
+- [ ] task-638-658-client-db-jsonl-loader-db-impl
+- [ ] task-638-659-client-db-jsonl-loader-dataloader-impl
+- [ ] task-638-660-client-db-jsonl-loader-qa
