@@ -4,6 +4,7 @@ title: False Permanent Failure Detection & Distinction in Orchestrator
 type: IDEA
 status: PENDING
 owner_persona: product_manager
+priority: 80
 created_at: '2026-10-04T05:32:46Z'
 updated_at: '2026-10-04T05:32:46Z'
 jules_session_id: null
