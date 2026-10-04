@@ -1,4 +1,6 @@
 import type React from 'react';
+import { ClearFiltersBadge } from './ClearFiltersBadge';
+import { FilterBadge } from './FilterBadge';
 import { TacticalBadge } from './TacticalBadge';
 import { TacticalButton } from './TacticalButton';
 import { TacticalCard } from './TacticalCard';
@@ -8,6 +10,15 @@ import { TacticalPanel } from './TacticalPanel';
 export const TacticalKitchenSink: React.FC = () => {
   return (
     <div className="flex flex-col gap-4 p-4">
+      {/* Filter Badges */}
+      <div className="flex flex-wrap items-center gap-2">
+        <FilterBadge isActive={false} label="SECURED" variant="cyan" />
+        <FilterBadge isActive={true} label="MISSING" variant="emerald" count={12} />
+        <FilterBadge isActive={true} label="DEX_ONLY" variant="amber" count={5} />
+        <ClearFiltersBadge isActive={false} onClick={() => {}} />
+        <ClearFiltersBadge isActive={true} onClick={() => {}} />
+      </div>
+
       {/* Badges */}
       <TacticalBadge variant="primary" id="badge-primary">
         Primary
