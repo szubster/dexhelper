@@ -28,4 +28,4 @@ locks: []
 QA the Feebas UI visualizer component.
 
 ## Acceptance Criteria
-- [ ] Verify UI map component for Feebas markers works as intended.
+- [x] Verify UI map component for Feebas markers works as intended.
