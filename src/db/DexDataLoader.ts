@@ -14,12 +14,6 @@ import type { BerryMetadata, CompactChainLink, LocationAreaEncounters, PokemonMe
  * `bulkGet` database transaction on the next tick, ensuring O(1) transaction overhead.
  */
 export const dexDataLoader = {
-  berries: new DataLoader<number, import('./schema').BerryMetadata>(
-    async (ids) => {
-      return pokeDB.getBerriesBulk([...ids]);
-    },
-    { cache: true },
-  ),
   pokemon: new DataLoader<number, PokemonMetadata>(
     async (ids) => {
       return pokeDB.getPokemons([...ids]);
