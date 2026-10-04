@@ -29,5 +29,5 @@ export const NATURES: readonly Nature[] = [
 ] as const;
 
 export function getNature(personalityValue: number): Nature {
-  return NATURES[personalityValue % 25] as Nature;
+  return NATURES[personalityValue % 25] ?? 'hardy';
 }
