@@ -71,7 +71,7 @@ function DecorationItemCard({ item }: DecorationItemCardProps) {
             <span className="tactical-badge bg-[var(--theme-primary)] px-1 text-[8px] text-white">ACTIVE</span>
           )}
           {item.isMysteryGift && (
-            <span className="tactical-badge border-amber-500 px-1 text-[8px] text-amber-500">MYSTERY GIFT</span>
+            <span className="tactical-badge border-amber-500 px-1 text-[8px] text-amber-500">[MG]</span>
           )}
         </div>
       </div>
