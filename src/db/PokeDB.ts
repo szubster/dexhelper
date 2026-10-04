@@ -578,6 +578,29 @@ export const pokeDB = {
    * Fetches multiple Encounter records in a single database transaction using `bulkGet`.
    * Designed to be called exclusively by `DexDataLoader` to prevent N+1 IDB query bottlenecks.
    */
+  getBerriesBulk: async (ids: number[]): Promise<(BerryMetadata | Error)[]> => {
+    await pokeDB.ready();
+    const db = await getDB();
+    const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
+    if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
+
+    const tx = db.transaction(DB_CONFIG.STORES.BERRIES, 'readonly');
+    const store = unwrap(tx.objectStore(DB_CONFIG.STORES.BERRIES));
+    const fetched = await bulkGet<BerryMetadata>(store, validIds);
+    await tx.done;
+
+    const resultMap = new Map<number, BerryMetadata>();
+    for (const b of fetched) {
+      if (b) resultMap.set(b.id, b);
+    }
+
+    return ids.map((id) => {
+      if (typeof id !== 'number' || Number.isNaN(id)) return new Error('Invalid ID');
+      const found = resultMap.get(id);
+      return found ?? new Error(`Berries not found for ${id}`);
+    });
+  },
+
   getEncountersBulk: async (ids: number[]): Promise<(LocationAreaEncounters | Error)[]> => {
     await pokeDB.ready();
     const db = await getDB();
