@@ -2,10 +2,10 @@
 id: task-644-657-cva-visual-regression-complex-components-qa
 type: TASK
 title: QA CVA Visual Regression Tests - Complex Components
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-02'
-updated_at: '2026-10-02'
+updated_at: '2026-10-04'
 depends_on:
   - task-644-655-cva-visual-regression-complex-components-impl
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-473-640-gen3-condition-stats-qa-v3
 type: TASK
 title: QA Gen 3 Contest Condition Stats Extraction (Retry 2)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-30'
-updated_at: '2026-09-30'
+updated_at: '2026-10-04'
 depends_on:
   - task-473-639-gen3-condition-stats-parser-v3
 jules_session_id: null

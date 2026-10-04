@@ -2,10 +2,10 @@
 id: research-639-658-investigate-extract-data-scripts-failure
 type: RESEARCH
 title: Investigate Data Generation Scripts Extraction Failure
-status: PENDING
+status: READY
 owner_persona: researcher
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-04'
 depends_on: []
 jules_session_id: null
 pr_number: null

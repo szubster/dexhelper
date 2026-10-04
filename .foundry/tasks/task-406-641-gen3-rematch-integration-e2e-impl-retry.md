@@ -2,10 +2,10 @@
 id: task-406-641-gen3-rematch-integration-e2e-impl-retry
 type: TASK
 title: Integration and E2E Verification for Gen 3 Rematch (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-09-22'
+updated_at: '2026-10-04'
 depends_on:
   - task-406-639-gen3-rematch-e2e-impl-retry
   - task-406-640-gen3-rematch-qa-retry
