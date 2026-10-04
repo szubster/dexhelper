@@ -32,3 +32,6 @@ Enhance the Orchestrator (Phase 3.0 rejection processing) and telemetry scripts 
 
 ## Value
 Reduces false-positive task cancellations, prevents unnecessary DAG deadlocks, and improves pipeline throughput across The Foundry.
+
+## Acceptance Criteria
+- [ ] prd-535-586-false-permanent-failure-detection
