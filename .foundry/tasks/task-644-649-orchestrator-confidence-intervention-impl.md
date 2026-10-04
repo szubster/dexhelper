@@ -1,13 +1,13 @@
 ---
 id: task-644-649-orchestrator-confidence-intervention-impl
 type: TASK
-title: Implement Orchestrator Confidence Intervention Logic
-status: ACTIVE
+title: 'Implement Orchestrator Confidence Intervention Logic'
+status: READY
 owner_persona: coder
 created_at: '2026-10-02'
-updated_at: '2026-10-03'
+updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: '15847124351858294327'
+jules_session_id: null
 pr_number: null
 parent: story-570-644-orchestrator-confidence-intervention-impl
 tags:

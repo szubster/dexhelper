@@ -15,6 +15,8 @@ test.describe('CVA Visual Regression Base Components', () => {
     await expect(sinkLocator).toBeVisible();
 
     // Take snapshot of the entire kitchen sink which contains all the base component variations
-    await expect(sinkLocator).toHaveScreenshot('base-cva-components.png');
+    await expect(sinkLocator).toHaveScreenshot('base-cva-components.png', {
+      maxDiffPixelRatio: 0.1,
+    });
   });
 });

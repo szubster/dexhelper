@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2025-02-14'
 updated_at: '2026-09-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15057454909006344623'
 pr_number: null
 parent: epic-110-402-tm-hm-compatibility-logic-v2
 tags:

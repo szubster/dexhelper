@@ -2,12 +2,12 @@
 id: task-521-639-db-get-oldest-saves
 type: TASK
 title: Implement getOldestSaves in historyDb
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-28'
-updated_at: '2026-10-03'
+updated_at: '2026-10-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13559285907828045122'
 pr_number: null
 parent: story-399-521-save-state-lru-eviction
 tags:
@@ -29,5 +29,5 @@ Implement a `getOldestSaves(playthroughId: string, limit: number): Promise<strin
 To enforce the maximum limit (50), we must identify the oldest save(s) (by timestamp, in ascending order) so they can be deleted when a new save exceeds the limit.
 
 ## Acceptance Criteria
-- [x] Implement `getOldestSaves` function returning an array of IDs.
-- [x] Add unit tests in `historyDb.test.ts` to verify oldest saves retrieval.
+- [ ] Implement `getOldestSaves` function returning an array of IDs.
+- [ ] Add unit tests in `historyDb.test.ts` to verify oldest saves retrieval.

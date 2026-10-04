@@ -18,10 +18,6 @@ export const PokeblockColor = {
 
 export type PokeblockColor = (typeof PokeblockColor)[keyof typeof PokeblockColor];
 
-export function isPokeblockColor(color: number): color is PokeblockColor {
-  return Number.isInteger(color) && color >= PokeblockColor.Red && color <= PokeblockColor.Gold;
-}
-
 export interface Gen3Pokeblock {
   color: PokeblockColor;
   spicy: number;

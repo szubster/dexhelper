@@ -2,12 +2,12 @@
 id: task-644-649-update-agent-prompts-confidence
 type: TASK
 title: Update Agent Prompts for Confidence Score Reporting
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-10-01T15:15:00Z'
-updated_at: '2026-10-03'
+updated_at: '2026-10-01T15:15:00Z'
 depends_on: []
-jules_session_id: '13548589452281834172'
+jules_session_id: null
 pr_number: null
 parent: story-572-644-update-agent-prompts-for-confidence
 tags:

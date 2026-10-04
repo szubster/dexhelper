@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-09-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15223710073836904227'
 pr_number: null
 parent: story-410-512-librarian-ingestion-synthesis-script
 tags:

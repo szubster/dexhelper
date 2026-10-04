@@ -2,13 +2,13 @@
 id: story-428-471-verify-and-integrate-saves
 type: STORY
 title: Verify and Integrate Saves
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-24'
 updated_at: '2026-10-03'
 depends_on:
   - story-428-470-identify-public-saves
-jules_session_id: null
+jules_session_id: '15256415894973339243'
 pr_number: null
 parent: epic-345-428-source-additional-save-files
 tags:
@@ -36,7 +36,7 @@ After downloading public save files, they must be validated to ensure they are v
 - [x] task-471-627-verify-and-move-saves
 - [x] task-471-628-update-fixture-manifests
 - [x] task-471-629-verify-and-integrate-saves-qa
-- [x] research-471-637-investigate-save-file-sourcing
-- [x] task-471-638-verify-and-move-saves-retry
-- [x] task-471-639-update-fixture-manifests-retry
-- [x] task-471-640-verify-and-integrate-saves-qa-retry
+- [ ] research-471-637-investigate-save-file-sourcing
+- [ ] task-471-638-verify-and-move-saves-retry
+- [ ] task-471-639-update-fixture-manifests-retry
+- [ ] task-471-640-verify-and-integrate-saves-qa-retry

@@ -8,7 +8,7 @@ created_at: '2026-09-03'
 updated_at: '2026-09-29'
 depends_on:
   - story-524-524-architectural-linting
-jules_session_id: null
+jules_session_id: '14756438219841272412'
 pr_number: null
 parent: epic-519-524-workspace-infrastructure
 tags:

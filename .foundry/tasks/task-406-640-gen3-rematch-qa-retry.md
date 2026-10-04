@@ -2,13 +2,13 @@
 id: task-406-640-gen3-rematch-qa-retry
 type: TASK
 title: QA Gen 3 NPC Rematch Status Implementation (Retry)
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-22'
-updated_at: '2026-10-04'
+updated_at: '2026-09-22'
 depends_on:
   - task-406-639-gen3-rematch-e2e-impl-retry
-jules_session_id: '820901120004765267'
+jules_session_id: null
 pr_number: null
 parent: story-397-406-gen3-npc-rematch-status
 tags:
@@ -34,6 +34,6 @@ QA Verification for the Gen 3 NPC Rematch Status implementation. This ensures al
 - Confirm E2E and unit tests cover the new logic and pass reliably.
 
 ## Acceptance Criteria
-- [x] Verify the parser implementation.
-- [x] Verify the UI implementation.
-- [x] Ensure E2E tests run successfully.
+- [ ] Verify the parser implementation.
+- [ ] Verify the UI implementation.
+- [ ] Ensure E2E tests run successfully.

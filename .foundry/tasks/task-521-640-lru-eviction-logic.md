@@ -2,22 +2,22 @@
 id: task-521-640-lru-eviction-logic
 type: TASK
 title: Implement LRU eviction in writeSaveState
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-28'
-updated_at: '2026-10-03'
+updated_at: '2026-09-28'
 depends_on:
   - task-521-638-db-delete-save
   - task-521-639-db-get-oldest-saves
-jules_session_id: '11430232979051565855'
+jules_session_id: null
 pr_number: null
 parent: story-399-521-save-state-lru-eviction
 tags:
   - storage
   - indexeddb
-research_references: []
 rejection_count: 0
 rejection_reason: ''
+research_references: []
 notes: ''
 locks: []
 ---

@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-09-08'
 updated_at: '2026-09-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4005148598362637443'
 pr_number: null
 parent: epic-048-084-gen3-match-call-static-data
 tags:

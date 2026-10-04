@@ -2,12 +2,12 @@
 id: task-644-649-parser-and-builder-confidence
 type: TASK
 title: Update DAG parser and builder for confidence metrics
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")'
 updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11771721621635903108'
 pr_number: null
 parent: story-571-644-dashboard-metrics-ui-components
 tags:
@@ -33,4 +33,4 @@ The system needs to visually display confidence scores for nodes in the UI.
 - Modify `src/utils/dag/builder.ts` to include `confidence_score` in `GraphNode["data"]`, and pass it through in `buildDagGraph`.
 
 ## Acceptance Criteria
-- [x] Implement the required updates to parser.ts and builder.ts.
+- [ ] Implement the required updates to parser.ts and builder.ts.

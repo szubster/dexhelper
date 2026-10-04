@@ -8,7 +8,6 @@ export interface FoundryNodeData {
   depends_on: string[];
   rejection_count: number;
   experiment_variants?: string[] | undefined;
-  confidence_score?: number | null;
 }
 
 export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
@@ -30,26 +29,15 @@ export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
     const parsedRejectionCount = data['rejection_count'];
     const rejection_count = typeof parsedRejectionCount === 'number' ? parsedRejectionCount : 0;
 
-    const result: FoundryNodeData = {
+    return {
       id: data['id'],
       type: data['type'],
       status: data['status'],
       owner_persona: data['owner_persona'],
       depends_on: data['depends_on'],
       rejection_count,
+      experiment_variants: Array.isArray(data['experiment_variants']) ? data['experiment_variants'] : undefined,
     };
-
-    if (Array.isArray(data['experiment_variants'])) {
-      result.experiment_variants = data['experiment_variants'];
-    }
-
-    if (typeof data['confidence_score'] === 'number') {
-      result.confidence_score = data['confidence_score'];
-    } else if (data['confidence_score'] === null) {
-      result.confidence_score = null;
-    }
-
-    return result;
   } catch {
     // If gray-matter fails to parse, return null
     return null;

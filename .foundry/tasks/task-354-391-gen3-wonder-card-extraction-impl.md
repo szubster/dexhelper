@@ -8,7 +8,7 @@ created_at: '2026-08-02'
 updated_at: '2026-08-16'
 depends_on:
   - research-391-393-gen3-wonder-card-offsets
-jules_session_id: null
+jules_session_id: '2444734361635274119'
 pr_number: null
 parent: story-345-354-gen3-wonder-card-extraction
 tags:

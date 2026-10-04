@@ -8,7 +8,7 @@ created_at: '2026-08-21'
 updated_at: '2026-08-31'
 depends_on:
   - task-421-460-matchup-context-state-layer-impl
-jules_session_id: null
+jules_session_id: '6001284076015774702'
 pr_number: null
 parent: story-411-421-active-party-extraction
 tags:

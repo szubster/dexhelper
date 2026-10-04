@@ -1,47 +1,47 @@
 // Pokeballs
-const ITEM_MASTER_BALL = 1;
+export const ITEM_MASTER_BALL = 1;
 
 // Hold items / battle items
-const ITEM_LEFTOVERS = 200;
-const ITEM_LUCKY_EGG = 197;
-const ITEM_EXP_SHARE = 182;
-const ITEM_AMULET_COIN = 189;
-const ITEM_SOUL_DEW = 191;
-const ITEM_CHOICE_BAND = 186;
-const ITEM_FOCUS_BAND = 196;
-const ITEM_MACHO_BRACE = 181;
+export const ITEM_LEFTOVERS = 200;
+export const ITEM_LUCKY_EGG = 197;
+export const ITEM_EXP_SHARE = 182;
+export const ITEM_AMULET_COIN = 189;
+export const ITEM_SOUL_DEW = 191;
+export const ITEM_CHOICE_BAND = 186;
+export const ITEM_FOCUS_BAND = 196;
+export const ITEM_MACHO_BRACE = 181;
 
 // Consumables / stat boosters
-const ITEM_RARE_CANDY = 68;
-const ITEM_PP_UP = 69;
-const ITEM_PP_MAX = 71;
-const ITEM_HP_UP = 63;
-const ITEM_PROTEIN = 64;
-const ITEM_IRON = 65;
-const ITEM_CARBOS = 66;
-const ITEM_CALCIUM = 67;
-const ITEM_ZINC = 70;
+export const ITEM_RARE_CANDY = 68;
+export const ITEM_PP_UP = 69;
+export const ITEM_PP_MAX = 71;
+export const ITEM_HP_UP = 63;
+export const ITEM_PROTEIN = 64;
+export const ITEM_IRON = 65;
+export const ITEM_CARBOS = 66;
+export const ITEM_CALCIUM = 67;
+export const ITEM_ZINC = 70;
 
 // Evolution/revival/rare items
-const ITEM_HEART_SCALE = 111;
-const ITEM_SACRED_ASH = 45;
+export const ITEM_HEART_SCALE = 111;
+export const ITEM_SACRED_ASH = 45;
 
 // Fossils
-const ITEM_HELIX_FOSSIL = 357;
-const ITEM_DOME_FOSSIL = 358;
-const ITEM_OLD_AMBER = 354;
-const ITEM_ROOT_FOSSIL = 286;
-const ITEM_CLAW_FOSSIL = 287;
+export const ITEM_HELIX_FOSSIL = 357;
+export const ITEM_DOME_FOSSIL = 358;
+export const ITEM_OLD_AMBER = 354;
+export const ITEM_ROOT_FOSSIL = 286;
+export const ITEM_CLAW_FOSSIL = 287;
 
 // Rare Berries
-const ITEM_LIECHI_BERRY = 168;
-const ITEM_GANLON_BERRY = 169;
-const ITEM_SALAC_BERRY = 170;
-const ITEM_PETAYA_BERRY = 171;
-const ITEM_APICOT_BERRY = 172;
-const ITEM_LANSAT_BERRY = 173;
-const ITEM_STARF_BERRY = 174;
-const ITEM_ENIGMA_BERRY = 175;
+export const ITEM_LIECHI_BERRY = 168;
+export const ITEM_GANLON_BERRY = 169;
+export const ITEM_SALAC_BERRY = 170;
+export const ITEM_PETAYA_BERRY = 171;
+export const ITEM_APICOT_BERRY = 172;
+export const ITEM_LANSAT_BERRY = 173;
+export const ITEM_STARF_BERRY = 174;
+export const ITEM_ENIGMA_BERRY = 175;
 
 export const PAL_PARK_HIGH_VALUE_ITEM_NAMES: Record<number, string> = {
   // Pokeballs

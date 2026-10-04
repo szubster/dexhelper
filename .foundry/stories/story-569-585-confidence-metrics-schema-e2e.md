@@ -8,7 +8,7 @@ created_at: '2026-09-20'
 updated_at: '2026-10-01'
 depends_on:
   - story-569-584-confidence-metrics-schema
-jules_session_id: null
+jules_session_id: '10895463350495991567'
 pr_number: null
 parent: epic-565-569-agent-confidence-metrics-schema
 tags:

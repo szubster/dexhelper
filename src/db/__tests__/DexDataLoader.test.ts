@@ -6,8 +6,6 @@ import type { CompactEncounter, LocationAreaEncounters, PokemonMetadata } from '
 // Mock pokeDB
 vi.mock('../PokeDB', () => ({
   pokeDB: {
-    getBerriesBulk: vi.fn<() => Promise<import('../schema').BerryMetadata[]>>(),
-
     getPokemons: vi.fn<() => Promise<PokemonMetadata[]>>(),
     getEncountersBulk: vi.fn<() => Promise<LocationAreaEncounters[]>>(),
     getAreaNames: vi.fn<() => Promise<Record<number, string>>>(),

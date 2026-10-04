@@ -27,7 +27,3 @@ scratch/
 _worker.bundle
 rgbds-0.5.2/
 v0.5.2.tar.gz
-
-# Jules scratch / session cache
-deleted_sessions.txt
-

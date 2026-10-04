@@ -90,27 +90,16 @@ import {
   GEN2_EGG_CYCLE_STEPS,
   GEN2_EGG_SPECIES_ID,
   GEN2_EMPTY_SLOT,
-  GEN2_ENTEI_SPECIES_ID,
   GEN2_HOF_MAX_RECORDS,
   GEN2_HOF_POKEMON_COUNT,
   GEN2_HOF_POKEMON_LENGTH,
   GEN2_HOF_POKEMON_OFFSET_LEVEL,
   GEN2_HOF_POKEMON_OFFSET_NICKNAME,
   GEN2_HOF_RECORD_LENGTH,
-  GEN2_MAX_BALLS_POCKET,
-  GEN2_MAX_BOX_SIZE,
-  GEN2_MAX_ITEMS_POCKET,
-  GEN2_MAX_KEY_ITEMS_POCKET,
-  GEN2_MAX_PARTY_SIZE,
-  GEN2_MAX_PC_ITEMS,
-  GEN2_MONEY_BYTE_SHIFT_8,
-  GEN2_MONEY_BYTE_SHIFT_16,
   GEN2_NPC_TRADE_COUNT,
   GEN2_PARTY_POKEMON_BLOCK_SIZE,
   GEN2_PARTY_SPECIES_LIST_LENGTH,
   GEN2_PKM_DATA_LENGTH,
-  GEN2_RAIKOU_SPECIES_ID,
-  GEN2_SUICUNE_SPECIES_ID,
   GEN2_TM_BASE_ITEM_ID,
   GEN2_TM_EVENT_FLAGS,
   GEN2_TM_HM_COUNT,
@@ -444,8 +433,8 @@ function parsePokedex(view: DataView, offsets: { owned: number; seen: number }) 
   const seen = new Set<number>();
 
   for (let dexId = 1; dexId <= MAX_VALID_SPECIES_ID; dexId++) {
-    const byteIdx = Math.floor((dexId - 1) / BITS_PER_BYTE);
-    const bitIdx = (dexId - 1) % BITS_PER_BYTE;
+    const byteIdx = Math.floor((dexId - 1) / 8);
+    const bitIdx = (dexId - 1) % 8;
 
     const oByte = view.getUint8(offsets.owned + byteIdx);
     const sByte = view.getUint8(offsets.seen + byteIdx);
@@ -546,7 +535,7 @@ export function* iterateGen2PCBoxes(
   for (const [i, offset] of boxOffsets.entries()) {
     if (i === currentBoxNum) continue;
     const count = view.getUint8(offset);
-    if (count > GEN2_MAX_BOX_SIZE) continue;
+    if (count > 20) continue;
     for (let j = 0; j < count; j++) {
       const speciesId = view.getUint8(offset + BOX_SPECIES_LIST_OFFSET + j);
       const pOff = offset + BOX_DATA_BLOCK_OFFSET + j * POKEMON_DATA_BLOCK_SIZE;
@@ -623,7 +612,7 @@ function parseInventory(view: DataView, isCrystal: boolean) {
 
     // Items
     const itemsCount = view.getUint8(itemsPocket);
-    if (itemsCount > 0 && itemsCount <= GEN2_MAX_ITEMS_POCKET) {
+    if (itemsCount > 0 && itemsCount <= 20) {
       for (let i = 0; i < itemsCount; i++) {
         const offset = itemsPocket + ITEM_LIST_OFFSET + i * ITEM_RECORD_SIZE;
         const id = view.getUint8(offset);
@@ -634,7 +623,7 @@ function parseInventory(view: DataView, isCrystal: boolean) {
 
     // Key Items
     const keyItemsCount = view.getUint8(keyItemsPocket);
-    if (keyItemsCount > 0 && keyItemsCount <= GEN2_MAX_KEY_ITEMS_POCKET) {
+    if (keyItemsCount > 0 && keyItemsCount <= 26) {
       for (let i = 0; i < keyItemsCount; i++) {
         const offset = keyItemsPocket + 1 + i;
         const id = view.getUint8(offset);
@@ -644,7 +633,7 @@ function parseInventory(view: DataView, isCrystal: boolean) {
 
     // Balls
     const ballsCount = view.getUint8(ballsPocket);
-    if (ballsCount > 0 && ballsCount <= GEN2_MAX_BALLS_POCKET) {
+    if (ballsCount > 0 && ballsCount <= 12) {
       for (let i = 0; i < ballsCount; i++) {
         const offset = ballsPocket + ITEM_LIST_OFFSET + i * ITEM_RECORD_SIZE;
         const id = view.getUint8(offset);
@@ -739,11 +728,7 @@ function parseRoamingLegendaries(view: DataView, isCrystal: boolean) {
     for (let i = 0; i < ROAMER_COUNT; i++) {
       const structOffset = roamingOffset + i * ROAMER_STRUCT_SIZE;
       const speciesId = view.getUint8(structOffset + ROAMER_OFFSET_SPECIES);
-      if (
-        speciesId === GEN2_RAIKOU_SPECIES_ID ||
-        speciesId === GEN2_ENTEI_SPECIES_ID ||
-        speciesId === GEN2_SUICUNE_SPECIES_ID
-      ) {
+      if (speciesId === 243 || speciesId === 244 || speciesId === 245) {
         const mapGroup = view.getUint8(structOffset + ROAMER_OFFSET_MAP_GROUP);
         const rawDvs = parseDVs(view.getUint16(structOffset + ROAMER_OFFSET_DVS, false));
         const hp = view.getUint8(structOffset + ROAMER_OFFSET_HP);
@@ -798,7 +783,7 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
   if (!isCrystal) {
     const gsPartyCount = view.getUint8(PARTY_COUNT_OFFSET_GS);
     const cPartyCount = view.getUint8(PARTY_COUNT_OFFSET_CRYSTAL);
-    if (cPartyCount <= GEN2_MAX_PARTY_SIZE && cPartyCount > 0 && gsPartyCount > GEN2_MAX_PARTY_SIZE) {
+    if (cPartyCount <= 6 && cPartyCount > 0 && gsPartyCount > 6) {
       isCrystal = true;
     }
   }
@@ -853,7 +838,7 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
   let badges = 0;
   const jBadges = view.getUint8(johtoBadgesOffset);
   const kBadges = view.getUint8(kantoBadgesOffset);
-  for (let i = 0; i < BITS_PER_BYTE; i++) {
+  for (let i = 0; i < 8; i++) {
     if ((jBadges & (1 << i)) !== 0) badges++;
     if ((kBadges & (1 << i)) !== 0) badges++;
   }
@@ -885,7 +870,7 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
   const pcItems: { id: number; quantity: number }[] = [];
   const pcItemsPocket = isCrystal ? PC_ITEMS_POCKET_OFFSET_CRYSTAL : PC_ITEMS_POCKET_OFFSET_GS;
   const pcItemsCount = view.getUint8(pcItemsPocket);
-  if (pcItemsCount > 0 && pcItemsCount <= GEN2_MAX_PC_ITEMS) {
+  if (pcItemsCount > 0 && pcItemsCount <= 50) {
     for (let i = 0; i < pcItemsCount; i++) {
       const offset = pcItemsPocket + ITEM_LIST_OFFSET + i * ITEM_RECORD_SIZE;
       const id = view.getUint8(offset);
@@ -954,8 +939,8 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
   try {
     const momsMoneyOffset = johtoBadgesOffset + MOMS_MONEY_OFFSET_RELATIVE;
     const momsMoney =
-      (view.getUint8(momsMoneyOffset) << GEN2_MONEY_BYTE_SHIFT_16) |
-      (view.getUint8(momsMoneyOffset + 1) << GEN2_MONEY_BYTE_SHIFT_8) |
+      (view.getUint8(momsMoneyOffset) << 16) |
+      (view.getUint8(momsMoneyOffset + 1) << 8) |
       view.getUint8(momsMoneyOffset + 2);
     const momSavingMoneyOffset = johtoBadgesOffset + MOM_SAVING_MONEY_OFFSET_RELATIVE;
     const momSavingMoneyByte = view.getUint8(momSavingMoneyOffset);

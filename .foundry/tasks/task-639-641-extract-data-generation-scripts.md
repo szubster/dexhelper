@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14775809326213842687'
 pr_number: null
 parent: story-525-639-extract-data-generation-scripts
 tags:

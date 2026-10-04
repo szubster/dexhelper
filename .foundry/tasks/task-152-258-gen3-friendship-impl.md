@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-07-03'
 updated_at: '2026-08-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '846019353466887955'
 pr_number: null
 parent: story-094-152-gen3-friendship-extraction
 tags:

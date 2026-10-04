@@ -206,7 +206,7 @@ describe('dag-utils', () => {
           originalContent = fs.readFileSync(logPath, 'utf-8');
         }
 
-        const cycleNodes = ['node-a-unique', 'node-b-unique', 'node-c-unique'];
+        const cycleNodes = ['node-a', 'node-b', 'node-c'];
 
         // Since it's fire-and-forget, we need a small delay in test to check
         trackCycleDetectionFailure(cycleNodes);
@@ -218,13 +218,12 @@ describe('dag-utils', () => {
 
         const newContent = fs.readFileSync(logPath, 'utf-8');
         const lines = newContent.trim().split('\n');
-        const parsedLines = lines.map(line => JSON.parse(line));
-        const parsed = parsedLines.find((p: any) => JSON.stringify(p.cycleNodes) === JSON.stringify(cycleNodes));
+        const lastLine = lines[lines.length - 1];
 
-        expect(parsed).toBeDefined();
+        const parsed = JSON.parse(lastLine);
         expect(parsed).toHaveProperty('timestamp');
         expect(parsed).toHaveProperty('cycleNodes');
-        expect(parsed!.cycleNodes).toEqual(cycleNodes);
+        expect(parsed.cycleNodes).toEqual(cycleNodes);
 
       } finally {
         // cleanup

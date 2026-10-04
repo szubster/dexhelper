@@ -1,10 +1,8 @@
 import { Link } from '@tanstack/react-router';
-import React from 'react';
 import type { SaveData } from '../../engine/saveParser/index';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
 
-// ⚡ Bolt: Wrap in React.memo to prevent unnecessary re-renders when parent AssistantSuggestionCard re-renders
-export const PokemonListSection = React.memo(function PokemonListSection({
+export function PokemonListSection({
   pokemonIds,
   saveData,
   getPokemonName,
@@ -41,4 +39,4 @@ export const PokemonListSection = React.memo(function PokemonListSection({
       )}
     </div>
   );
-});
+}

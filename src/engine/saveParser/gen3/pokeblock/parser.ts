@@ -12,7 +12,7 @@ import {
   SPICY_OFFSET,
   SWEET_OFFSET,
 } from './constants';
-import { type Gen3Pokeblock, isPokeblockColor } from './types';
+import type { Gen3Pokeblock, PokeblockColor } from './types';
 
 export function parseGen3Pokeblocks(
   view: DataView,
@@ -31,9 +31,10 @@ export function parseGen3Pokeblocks(
       const blockOffset = saveBlock1Offset + baseOffset + i * POKEBLOCK_STRUCT_SIZE;
       const color = view.getUint8(blockOffset + COLOR_OFFSET);
 
-      if (isPokeblockColor(color)) {
+      // If color is 0 (None), we skip or we can include it. Let's include it only if it's non-zero.
+      if (color !== 0) {
         pokeblocks.push({
-          color,
+          color: color as PokeblockColor,
           spicy: view.getUint8(blockOffset + SPICY_OFFSET),
           dry: view.getUint8(blockOffset + DRY_OFFSET),
           sweet: view.getUint8(blockOffset + SWEET_OFFSET),

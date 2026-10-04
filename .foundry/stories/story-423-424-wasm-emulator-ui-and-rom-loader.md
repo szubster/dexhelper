@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-08-14'
 updated_at: '2026-08-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '688815083985622894'
 pr_number: null
 parent: epic-343-423-wasm-emulator-integration
 tags:

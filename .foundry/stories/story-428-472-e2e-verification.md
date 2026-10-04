@@ -2,13 +2,13 @@
 id: story-428-472-e2e-verification
 type: STORY
 title: E2E and Integration Verification of New Fixtures
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-24'
-updated_at: '2026-10-04'
+updated_at: '2026-08-24'
 depends_on:
   - story-428-471-verify-and-integrate-saves
-jules_session_id: '10807349452168888007'
+jules_session_id: null
 pr_number: null
 parent: epic-345-428-source-additional-save-files
 tags:
@@ -20,7 +20,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # STORY: E2E and Integration Verification of New Fixtures

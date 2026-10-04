@@ -2,7 +2,7 @@
 id: task-638-648-qa-config-ui-toolchain
 type: TASK
 title: 'QA: Verify @dexhelper/ui Toolchain'
-status: COMPLETED
+status: READY
 owner_persona: qa
 created_at: '2026-10-01'
 updated_at: '2026-10-03'
@@ -27,4 +27,4 @@ locks: []
 Verify the build/bundling toolchain for `@dexhelper/ui` is correctly configured and working.
 
 ## Acceptance Criteria
-- [x] Implement the objective as described.
+- [ ] Implement the objective as described.

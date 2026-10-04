@@ -8,7 +8,7 @@ created_at: '2026-08-26'
 updated_at: '2026-10-02'
 depends_on:
   - story-419-477-pokedata-plugin-refactor
-jules_session_id: null
+jules_session_id: '6706478323854200827'
 pr_number: null
 parent: epic-340-419-data-splitting
 tags:

@@ -179,26 +179,3 @@ export const writeSaveState = async (id: string, saveData: Uint8Array, metadata:
     throw error;
   }
 };
-
-export const getOldestSaves = async (playthroughId: string, limit: number): Promise<string[]> => {
-  try {
-    const db = await initHistoryDb();
-    const tx = db.transaction('metadata', 'readonly');
-    const metadataStore = tx.objectStore('metadata');
-    const index = metadataStore.index('by-playthrough-timestamp');
-
-    const range = IDBKeyRange.bound([playthroughId, -Infinity], [playthroughId, Infinity]);
-    let cursor = await index.openCursor(range, 'next');
-
-    const result: string[] = [];
-    while (cursor && result.length < limit) {
-      result.push(cursor.primaryKey as string);
-      cursor = await cursor.continue();
-    }
-
-    return result;
-  } catch (error) {
-    console.error('Failed to get oldest saves:', error instanceof Error ? error.message : 'Unknown error');
-    throw error;
-  }
-};

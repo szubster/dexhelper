@@ -137,21 +137,3 @@ Learned that running coverage reports can clutter the working directory, and ens
 
 **Learnings:**
 - Default fallback branches for approximation calculations in utility functions can easily be missed if tests only verify common constant values. Adding non-standard rate tests achieves full branch coverage for calculation utilities.
-
-
----
-
-# Sentinel Session: breedGenerator Test Coverage
-
-**Target File:** `src/engine/assistant/generators/breedGenerator.ts`
-
-**Observations & Actions:**
-- Extended `src/engine/assistant/generators/__tests__/breedGenerator.test.ts` to cover key branching logic in breeding suggestions.
-- Added explicit tests for:
-  - Base target breeding with owned evolutions.
-  - Incense items when breeding Azurill (`#298` - Sea Incense) and Wynaut (`#360` - Lax Incense).
-  - Daycare status transitions (`Need Partner`, `Egg Ready`, `Breeding in Progress`).
-  - Gen 3 vs Gen 2 gender calculations during Egg Move chain missing links calculation (`calculateGen3Gender`).
-
-**Learnings & Gotchas:**
-- In Gen 3, gender thresholds use `personalityValue & 0xff`. When mocking Pokémon instances for Gen 3 test cases, ensure `personalityValue` is explicitly set to test male vs female branches properly rather than assuming DVs as in Gen 2.

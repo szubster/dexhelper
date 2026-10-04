@@ -69,5 +69,4 @@ When you spot a defect or something odd:
 ## Journal
 
 Read your past journals in `.foundry/journals/lens/master.md` before starting.
-
-Your private journal is stored in `.foundry/journals/lens/` (e.g., `.foundry/journals/lens/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Log your learnings in `.foundry/journals/lens/<timestamp>.md` and update `master.md` following the Journaling Policy.

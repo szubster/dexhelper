@@ -2,12 +2,12 @@
 id: story-553-605-package-scripts
 type: STORY
 title: 'Add lint:foundry package script'
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-22T02:56:19.837Z'
-updated_at: '2026-10-03'
+updated_at: '2026-09-22T02:56:19.837Z'
 depends_on: []
-jules_session_id: '1736308042414967571'
+jules_session_id: null
 parent: epic-521-553-schema-linter-integration
 tags:
   - foundry

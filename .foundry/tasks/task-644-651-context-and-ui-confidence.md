@@ -2,13 +2,13 @@
 id: task-644-651-context-and-ui-confidence
 type: TASK
 title: Update DagContext and DagNode for confidence metrics
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")'
-updated_at: '2026-10-04'
+updated_at: '$(date -u +"%Y-%m-%d")'
 depends_on:
   - task-644-649-parser-and-builder-confidence
-jules_session_id: '11013170850132816701'
+jules_session_id: null
 pr_number: null
 parent: story-571-644-dashboard-metrics-ui-components
 tags:

@@ -2,10 +2,10 @@
 id: task-564-580-qa-wild-item-e2e
 type: TASK
 title: QA E2E Test for Complete End-to-End Flow
-status: COMPLETED
+status: READY
 owner_persona: qa
 created_at: '2026-09-15T06:49:02Z'
-updated_at: '2026-10-03'
+updated_at: '2026-09-23'
 depends_on:
   - task-564-579-e2e-save-upload-success
 jules_session_id: null
@@ -33,5 +33,5 @@ QA Verification for the Wild Item E2E Verification flow.
 - Verify adherence to UI Aesthetic Constraints (ADR 008) indirectly if assertions rely on classes (ensure no invalid classes are enforced).
 
 ## Acceptance Criteria
-- [x] Verify E2E tests pass locally.
-- [x] Verify E2E code structure and Playwright best practices.
+- [ ] Verify E2E tests pass locally.
+- [ ] Verify E2E code structure and Playwright best practices.

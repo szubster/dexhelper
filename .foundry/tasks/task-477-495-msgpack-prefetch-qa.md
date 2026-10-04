@@ -9,7 +9,7 @@ updated_at: '2026-09-14'
 depends_on:
   - task-477-493-msgpack-prefetch-logic-impl
   - task-477-494-msgpack-prefetch-state-layer-impl
-jules_session_id: null
+jules_session_id: '2516259550963043840'
 pr_number: null
 parent: story-420-477-implement-msgpack-prefetching
 tags: []

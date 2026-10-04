@@ -2,14 +2,14 @@
 id: story-579-639-e2e-core-components-integration
 type: STORY
 title: E2E Integration and Verification for Core Component Models
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-29'
-updated_at: '2026-10-03'
+updated_at: '2026-10-02'
 depends_on:
   - story-579-637-settings-modal-model
   - story-579-638-pokedex-grid-model
-jules_session_id: null
+jules_session_id: '17901909657395583933'
 pr_number: null
 parent: epic-566-579-e2e-core-component-models
 tags:
@@ -34,7 +34,4 @@ Verify the newly implemented Core Component Models integrate correctly within E2
 - Verify tests pass headless execution.
 
 ## Acceptance Criteria
-- [x] Tech Lead: Break down into Tasks.
-- [ ] task-639-652-settings-modal-model-integration
-- [ ] task-639-653-pokedex-grid-model-integration
-- [ ] task-639-654-e2e-core-components-qa
+- [ ] Tech Lead: Break down into Tasks.

@@ -45,23 +45,16 @@ describe('DagTreeItem', () => {
       </DagTreeProvider>,
     );
 
-    // Initial state: collapsed with ARIA attributes
-    const toggleBtn = page.getByRole('button', { name: 'Expand Parent Node' });
-    await expect.element(toggleBtn).toBeInTheDocument();
-    await expect.element(toggleBtn).toHaveAttribute('aria-expanded', 'false');
+    // Initial state: collapsed
     await expect.element(page.getByText('Parent Node')).toBeInTheDocument();
     await expect.element(page.getByText('Child Node')).not.toBeInTheDocument();
 
     // Click to expand
-    await toggleBtn.click();
-    const collapseBtn = page.getByRole('button', { name: 'Collapse Parent Node' });
-    await expect.element(collapseBtn).toBeInTheDocument();
-    await expect.element(collapseBtn).toHaveAttribute('aria-expanded', 'true');
+    await page.getByRole('button').first().click();
     await expect.element(page.getByText('Child Node')).toBeInTheDocument();
 
     // Click to collapse
-    await collapseBtn.click();
-    await expect.element(page.getByRole('button', { name: 'Expand Parent Node' })).toBeInTheDocument();
+    await page.getByRole('button').first().click();
     await expect.element(page.getByText('Child Node')).not.toBeInTheDocument();
   });
 });

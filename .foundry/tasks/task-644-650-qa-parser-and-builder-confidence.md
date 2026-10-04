@@ -2,13 +2,13 @@
 id: task-644-650-qa-parser-and-builder-confidence
 type: TASK
 title: QA DAG parser and builder for confidence metrics
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")'
-updated_at: '2026-10-04'
+updated_at: '$(date -u +"%Y-%m-%d")'
 depends_on:
   - task-644-649-parser-and-builder-confidence
-jules_session_id: '5349264457079989589'
+jules_session_id: null
 pr_number: null
 parent: story-571-644-dashboard-metrics-ui-components
 tags:
@@ -34,4 +34,4 @@ QA verification for the `task-644-649-parser-and-builder-confidence` task.
 - Run unit tests to verify the changes.
 
 ## Acceptance Criteria
-- [x] QA verification passed.
+- [ ] QA verification passed.

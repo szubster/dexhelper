@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-09-02'
 updated_at: '2026-09-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14441819888021979538'
 pr_number: null
 parent: epic-517-551-deterministic-archival-markdown-link-resolution
 tags:

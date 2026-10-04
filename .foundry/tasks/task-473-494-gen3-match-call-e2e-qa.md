@@ -8,7 +8,7 @@ created_at: '2026-08-26'
 updated_at: '2026-09-20'
 depends_on:
   - task-473-493-gen3-match-call-e2e-impl
-jules_session_id: null
+jules_session_id: '907086452839081057'
 pr_number: null
 parent: story-083-473-gen3-match-call-e2e-verification
 tags:

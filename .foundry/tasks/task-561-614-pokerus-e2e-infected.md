@@ -2,12 +2,12 @@
 id: task-561-614-pokerus-e2e-infected
 type: TASK
 title: Pokerus UI Badges E2E - Infected State Refactoring
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-23'
-updated_at: '2026-10-03'
+updated_at: '2026-09-25'
 depends_on: []
-jules_session_id: '140820740086869622'
+jules_session_id: null
 pr_number: null
 parent: story-412-561-pokerus-ui-e2e
 tags:

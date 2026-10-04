@@ -14,7 +14,6 @@ export interface GraphNode {
     rejection_count: number;
     depends_on: string[];
     experiment_variants?: string[] | undefined;
-    confidence_score?: number | null;
   };
 }
 
@@ -52,25 +51,16 @@ export function buildDagGraph(parsedNodes: ParsedNode[]): DagGraph {
     // Also map the direct ID to support the DAG ID Strictness rule
     pathToIdMap.set(id, id);
 
-    const graphNodeData: GraphNode['data'] = {
-      type: node.data.type,
-      status: node.data.status,
-      owner_persona: node.data.owner_persona,
-      rejection_count: node.data.rejection_count,
-      depends_on: node.data.depends_on,
-    };
-
-    if (node.data.experiment_variants !== undefined) {
-      graphNodeData.experiment_variants = node.data.experiment_variants;
-    }
-
-    if (node.data.confidence_score !== undefined) {
-      graphNodeData.confidence_score = node.data.confidence_score;
-    }
-
     nodes.push({
       id,
-      data: graphNodeData,
+      data: {
+        type: node.data.type,
+        status: node.data.status,
+        owner_persona: node.data.owner_persona,
+        rejection_count: node.data.rejection_count,
+        depends_on: node.data.depends_on,
+        experiment_variants: node.data.experiment_variants,
+      },
     });
   }
 

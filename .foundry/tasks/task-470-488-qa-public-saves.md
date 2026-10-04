@@ -8,7 +8,7 @@ created_at: '2026-08-24'
 updated_at: '2026-09-07'
 depends_on:
   - task-470-487-catalog-integrate-saves
-jules_session_id: null
+jules_session_id: '11825684621245897714'
 pr_number: null
 parent: story-428-470-identify-public-saves
 tags:

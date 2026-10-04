@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-09-15'
 updated_at: '2026-09-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9777630159226920463'
 pr_number: null
 parent: epic-565-567-core-components-refactor
 tags:

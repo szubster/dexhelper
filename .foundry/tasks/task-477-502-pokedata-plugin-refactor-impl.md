@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-08-30'
 updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4209453661192641369'
 pr_number: null
 parent: story-419-477-pokedata-plugin-refactor
 tags:
