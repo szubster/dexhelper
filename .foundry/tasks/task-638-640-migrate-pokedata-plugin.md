@@ -26,4 +26,4 @@ locks: []
 Move `pokedata-plugin.ts` from the root `vite-plugins/` directory to `packages/vite-plugins/src/`. Update all imports and ensure it builds correctly. Export it from `packages/vite-plugins/src/index.ts`.
 
 ## Acceptance Criteria
-- [ ] Implement Migrate PokeData Plugin
+- [x] Implement Migrate PokeData Plugin
