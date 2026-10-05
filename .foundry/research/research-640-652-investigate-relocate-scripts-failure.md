@@ -2,12 +2,12 @@
 id: research-640-652-investigate-relocate-scripts-failure
 type: RESEARCH
 title: Investigate failure during relocation of foundry scripts
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: '570820321743428370'
+jules_session_id: null
 pr_number: null
 parent: story-525-640-relocate-foundry-scripts
 tags:

@@ -2,12 +2,12 @@
 id: task-580-649-gen3-fossil-schema-docs-impl
 type: TASK
 title: Implement Gen 3 Fossil Schema Docs
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-02T14:30:00Z'
-updated_at: '2026-10-03'
+updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: '8664099926756549236'
+jules_session_id: null
 pr_number: null
 parent: story-552-580-gen3-fossil-schema-docs
 tags:
@@ -15,7 +15,7 @@ tags:
   - documentation
   - schema
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---

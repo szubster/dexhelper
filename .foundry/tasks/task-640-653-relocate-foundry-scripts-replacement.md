@@ -2,10 +2,10 @@
 id: task-640-653-relocate-foundry-scripts-replacement
 type: TASK
 title: Relocate Foundry Scripts Replacement
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-05'
 depends_on:
   - research-640-652-investigate-relocate-scripts-failure
 jules_session_id: null

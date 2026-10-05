@@ -2,10 +2,10 @@
 id: task-581-658-storage-grid-e2e-tests-coder
 type: TASK
 title: Implement E2E Tests for Virtualized StorageGrid
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-03T19:01:37Z'
-updated_at: '2026-10-03T19:01:37Z'
+updated_at: '2026-10-05'
 depends_on:
   - story-566-580-virtualize-storage-grid-impl
 jules_session_id: null

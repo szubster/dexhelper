@@ -2,10 +2,10 @@
 id: task-412-567-feebas-parsing-e2e-impl-v2
 type: TASK
 title: Feebas Parsing E2E Integration Impl V2
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: $(date -I)
-updated_at: '2026-10-04'
+updated_at: '2026-10-05'
 depends_on:
   - research-412-563-investigate-feebas-e2e-timeout
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - gen3
   - backend
   - e2e
-rejection_count: 2
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
