@@ -1,27 +1,27 @@
 ---
-id: "idea-535-save-data-validation-report"
-type: "IDEA"
-title: "Save File Corruption & Data Structure Integrity Diagnostic Report"
-status: "PENDING"
-owner_persona: "product_manager"
-created_at: "2026-04-20"
-updated_at: "2026-04-20"
+id: idea-535-save-data-validation-report
+type: IDEA
+title: Save File Corruption & Data Structure Integrity Diagnostic Report
+status: READY
+owner_persona: product_manager
+created_at: '2026-04-20'
+updated_at: '2026-10-05'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: null
-priority: 50
-confidence_score: 90
 tags:
-  - "save-parser"
-  - "diagnostics"
-  - "dx"
-  - "ui"
+  - save-parser
+  - diagnostics
+  - dx
+  - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
+confidence_score: 90
 ---
 
 # Save File Corruption & Data Structure Integrity Diagnostic Report

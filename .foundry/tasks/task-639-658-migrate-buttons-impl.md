@@ -2,19 +2,21 @@
 id: task-639-658-migrate-buttons-impl
 type: TASK
 title: Migrate Tactical Buttons Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: '1719776682765863656'
+jules_session_id: null
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
 tags:
   - react
   - components
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
