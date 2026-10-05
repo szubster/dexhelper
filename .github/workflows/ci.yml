@@ -58,7 +58,7 @@ jobs:
         uses: tj-actions/changed-files@v47
         with:
           files: |
-            .github/scripts/semantic/**
+            packages/foundry/semantic/**
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
@@ -133,13 +133,13 @@ jobs:
       - name: Verify Schema Documentation
         run: node --experimental-strip-types scripts/verify-schema-documentation.ts
       - name: Verify DAG References
-        run: node --experimental-strip-types .github/scripts/verify-dag-refs.ts
+        run: node --experimental-strip-types packages/foundry/verify-dag-refs.ts
       - name: Check Links
         run: node --experimental-strip-types scripts/check-links.ts
       - name: Test Foundry Scripts
-        run: cd .github/scripts && pnpm install --frozen-lockfile && npx vitest run
+        run: cd packages/foundry && pnpm install --frozen-lockfile && npx vitest run
       - name: Foundry Orchestrator Dry Run
-        run: node --experimental-strip-types .github/scripts/foundry-orchestrator.ts --dry-run --strict
+        run: node --experimental-strip-types packages/foundry/foundry-orchestrator.ts --dry-run --strict
 
   build:
     runs-on: ubuntu-latest

@@ -3,6 +3,7 @@ id: task-640-653-relocate-foundry-scripts-replacement
 type: TASK
 title: Relocate Foundry Scripts Replacement
 status: READY
+confidence_score: 100
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-05'
@@ -27,7 +28,7 @@ locks: []
 Move `.github/scripts/` to `packages/foundry/`. Ensure the `packages/foundry/package.json` reflects its new location and name (`@dexhelper/foundry`). Update file paths referencing `.github/scripts/` to `packages/foundry/` across the repository (e.g. GitHub workflow files, `pnpm-workspace.yaml`, tests, etc). Ensure tests in `packages/foundry/fragments.test.ts` point to the correct absolute/relative path of `.github/agents/fragments`. Use the findings from the research task to avoid previous failure modes.
 
 ## Acceptance Criteria
-- [ ] Move `.github/scripts/` to `packages/foundry/`
-- [ ] Update `package.json` name to `@dexhelper/foundry`
-- [ ] Update repository references to the new paths
-- [ ] Tests and builds still pass
+- [x] Move `.github/scripts/` to `packages/foundry/`
+- [x] Update `package.json` name to `@dexhelper/foundry`
+- [x] Update repository references to the new paths
+- [x] Tests and builds still pass
