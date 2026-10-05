@@ -33,4 +33,7 @@ Ensure that the newly added save fixtures are correctly parsed and loaded by our
 2. Ensure no regressions are introduced.
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks.
+- [x] Break down this story into tasks.
+- [ ] task-472-658-implement-integration-tests
+- [ ] task-472-659-implement-e2e-tests
+- [ ] task-472-660-qa-tests-verification
