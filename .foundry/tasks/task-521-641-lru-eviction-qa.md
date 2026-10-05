@@ -2,13 +2,13 @@
 id: task-521-641-lru-eviction-qa
 type: TASK
 title: Verify LRU eviction logic for save states
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-28'
 updated_at: '2026-10-05'
 depends_on:
   - task-521-640-lru-eviction-logic
-jules_session_id: null
+jules_session_id: '10539172250668160760'
 pr_number: null
 parent: story-399-521-save-state-lru-eviction
 tags:
