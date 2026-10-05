@@ -2,13 +2,13 @@
 id: task-644-652-qa-context-and-ui-confidence
 type: TASK
 title: QA DagContext and DagNode for confidence metrics
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")'
-updated_at: '$(date -u +"%Y-%m-%d")'
+updated_at: '2026-10-05'
 depends_on:
   - task-644-651-context-and-ui-confidence
-jules_session_id: null
+jules_session_id: '14223112521776134471'
 pr_number: null
 parent: story-571-644-dashboard-metrics-ui-components
 tags:

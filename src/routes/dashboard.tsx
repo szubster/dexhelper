@@ -22,6 +22,12 @@ const Gen3SecretBaseDashboard = React.lazy(() =>
   })),
 );
 
+const Gen3MirageIslandTracker = React.lazy(() =>
+  import('../components/dashboard/mirage-island/Gen3MirageIslandTracker').then((m) => ({
+    default: m.Gen3MirageIslandTracker,
+  })),
+);
+
 const Gen3TrickHouseDashboard = React.lazy(() =>
   import('../components/dashboard/trick-house/Gen3TrickHouseDashboard').then((m) => ({
     default: m.Gen3TrickHouseDashboard,
@@ -133,6 +139,7 @@ function DashboardPage() {
             <WildItemSelector />
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
+            <Gen3MirageIslandTracker saveData={saveData} />
             <Gen3SecretBaseDashboard saveData={saveData} />
             <Gen3EventItemsDashboard saveData={saveData} />
             <Gen3StaticEncountersDashboard saveData={saveData} />

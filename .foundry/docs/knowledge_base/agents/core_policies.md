@@ -1,7 +1,7 @@
 # Core Agent Policies
 
 ## Autonomous Communication & No-Ask Policy
-**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user questions, or ask for permission, input, feedback, clarification, hints, direction, or node/rejection history during execution in chat, unless explicitly requested in the initial prompt. Asking questions in chat/conversation is strictly blocked and forbidden. All questions directed to the user will remain unanswered. The answer to "Should I proceed?", "Should I open/submit a PR?", "Should I proceed with opening the PR?", or "Should I request code review?" is **ALWAYS YES** and must be executed autonomously without asking.
+**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user questions, or ask for permission, input, feedback, clarification, hints, direction, or node/rejection history during execution in chat, unless explicitly requested in the initial prompt. Asking questions, seeking confirmation, stalling sessions, or waiting for user input in chat/conversation is strictly blocked and forbidden. All questions directed to the user will remain unanswered and asking questions will result in session failure. The answer to "Should I proceed?", "Should I open/submit a PR?", "Should I proceed with opening the PR?", or "Should I request code review?" is **ALWAYS YES** and must be executed autonomously without asking.
 
 1. **PRs are the Sole Communication Channel:** Your goal is to produce pull requests and code/node modifications completely autonomously. Always open and submit PRs immediately when work or demotion steps are ready. Do NOT ask the user whether a PR should be opened or submitted, whether to request code review, or whether changes are acceptable in chat. PRs themselves are the formal channel for review and feedback.
 2. **Prohibited Question Patterns:** Under NO circumstances should an agent post questions such as:
@@ -153,7 +153,7 @@ Instead, active nodes MUST utilize Late Binding to spawn appropriate child or up
 5. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/` rather than burying it in your private journal.
 
 ## YAML Frontmatter Rules
-**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
+**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED, OR when adding/updating the `confidence_score` (0-100) to self-report your confidence level.
 
 ### Foundry Markdown Parsing
 When writing utility scripts or tools that process `.foundry` markdown files, metadata (such as `status` or `depends_on`) must be extracted by strictly isolating and parsing the YAML frontmatter block (e.g., by splitting on `---` boundaries or using a YAML frontmatter parser like `gray-matter`). Do NOT use global regex matching directly across the entire raw file body, as this risks matching keywords inside markdown descriptions or acceptance criteria.

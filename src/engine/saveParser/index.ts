@@ -28,12 +28,7 @@ const GEN2_CHECKSUM_DATA_END = 0x2d0c;
 const GEN2_CHECKSUM_OFFSET = 0x2d0d;
 
 export type {
-  BaseSaveData,
-  BugCatchingContestData,
   GameVersion,
-  Gen1SaveData,
-  Gen2SaveData,
-  Gen3SaveData,
   PokemonInstance,
   SaveData,
 } from './parsers/common';
@@ -135,3 +130,4 @@ export async function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: Gam
     throw error;
   }
 }
+export * from './parsers/common';

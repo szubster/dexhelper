@@ -1,10 +1,12 @@
+import React from 'react';
 import { cn } from '../utils/cn';
 
 interface TargetLockOverlayProps {
   className?: string;
 }
 
-export function TargetLockOverlay({ className }: TargetLockOverlayProps) {
+// ⚡ Bolt: Wrapped TargetLockOverlay in React.memo to prevent unnecessary re-renders when parent cards re-render.
+export const TargetLockOverlay = React.memo(function TargetLockOverlay({ className }: TargetLockOverlayProps) {
   return (
     <div
       className={cn(
@@ -18,4 +20,4 @@ export function TargetLockOverlay({ className }: TargetLockOverlayProps) {
       <div className="absolute right-1 bottom-1 h-2 w-2 border-cyan-400/0 border-r border-b transition-colors duration-300 group-hover/card:border-cyan-400/80 group-focus-visible/card:border-cyan-400/80" />
     </div>
   );
-}
+});
