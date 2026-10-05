@@ -18,6 +18,7 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ''
+confidence_score: 100
 notes: ''
 locks: []
 priority: 60
@@ -34,4 +35,4 @@ QA verification for `task-644-651-context-and-ui-confidence`.
 - Run the corresponding unit tests and visually verify through E2E/Playwright testing.
 
 ## Acceptance Criteria
-- [ ] QA verification passed.
+- [x] QA verification passed.
