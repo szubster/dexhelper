@@ -262,6 +262,9 @@ importers:
       '@11ty/gray-matter':
         specifier: ^3.0.0
         version: 3.0.0
+      msgpackr:
+        specifier: ^1.11.2
+        version: 1.12.1
       vite:
         specifier: ^8.3.0
         version: 8.3.0(@types/node@22.20.4)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(yaml@2.9.1)
@@ -4080,6 +4083,9 @@ packages:
   msgpackr-extract@3.0.4:
     resolution: {integrity: sha512-4kmO/MdyUIkLIvTPr8VHLil4AtoKIoniWPIEk5+CDy0xnWC84azhSFmuJ7PxZdsYtiP5kEeQsORAVIeMgxT+Hw==}
     hasBin: true
+
+  msgpackr@1.12.1:
+    resolution: {integrity: sha512-4EUH9tQHnMmEgzW/MdAP0KIfa1T9AF+htl0ffe2n5vb2EKn9y2co8ccpgWko6S52Jy1PQZKwRnx5/KkYjtd9MQ==}
 
   msgpackr@2.1.0:
     resolution: {integrity: sha512-p/pBCVO63CsvvpkomUnNNag6+n38rULuDA6HHe70o2gtC8ODI52foF/4ko2qQcp6OiErJXTmrZeXmsGGHsIQNQ==}
@@ -8680,6 +8686,10 @@ snapshots:
       '@msgpackr-extract/msgpackr-extract-linux-x64': 3.0.4
       '@msgpackr-extract/msgpackr-extract-win32-x64': 3.0.4
     optional: true
+
+  msgpackr@1.12.1:
+    optionalDependencies:
+      msgpackr-extract: 3.0.4
 
   msgpackr@2.1.0:
     optionalDependencies:
