@@ -1,14 +1,14 @@
 ---
-id: story-553-605-package-scripts
-type: STORY
+id: task-605-658-lint-foundry-coder
+type: TASK
 title: 'Add lint:foundry package script'
-status: ACTIVE
-owner_persona: tech_lead
-created_at: '2026-09-22T02:56:19.837Z'
-updated_at: '2026-10-03'
+status: PENDING
+owner_persona: coder
+created_at: '2025-02-18T00:00:00.000Z'
+updated_at: '2025-02-18T00:00:00.000Z'
 depends_on: []
-jules_session_id: '1736308042414967571'
-parent: epic-521-553-schema-linter-integration
+jules_session_id: null
+parent: story-553-605-package-scripts
 tags:
   - foundry
   - linting
@@ -21,12 +21,9 @@ locks: []
 # Add lint:foundry package script
 
 ## Objectives
-- Integrate the updated validation script into `package.json`.
-- Add a `lint:foundry` script.
+- Add a `lint:foundry` script that runs `node --experimental-strip-types scripts/validate-foundry-schema.ts`.
 - Append `pnpm lint:foundry` to the main `lint` script.
 
 ## Acceptance Criteria
 - [ ] Add `"lint:foundry"` to `package.json`.
 - [ ] Integrate `"lint:foundry"` into the main `"lint"` script in `package.json`.
-- [ ] task-605-658-lint-foundry-coder
-- [ ] task-605-659-lint-foundry-qa
