@@ -22,4 +22,6 @@ locks: []
 
 ## Acceptance Criteria
 - [ ] E2E tests pass consistently for all refactored components.
-- [ ] Generate tasks for test updates if required.
+- [x] Generate tasks for test updates if required.
+- [ ] task-604-658-dashboard-refactoring-e2e-update
+- [ ] task-604-659-dashboard-refactoring-e2e-qa
