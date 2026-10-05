@@ -27,6 +27,6 @@ locks: []
 Refactor the existing E2E tests for the Pokerus "Infected" state in `tests/e2e/pokerus.spec.ts`. Currently, the tests verify that the badge is displayed for infected Pokémon, but they need to be updated to assert the exact styling and structure introduced in ADR 008/024 (tactical hardware aesthetic).
 
 ## Acceptance Criteria
-- [ ] Ensure the existing E2E tests for infected Pokémon explicitly assert the presence of the `tactical-badge` class.
-- [ ] Verify that the exact text `[PKRS INF: <N>D]` is correctly displayed according to the newly implemented `PokerusBadge.tsx` component.
-- [ ] Verify that the badge appears for infected Pokémon in both the party list and the PC.
+- [x] Ensure the existing E2E tests for infected Pokémon explicitly assert the presence of the `tactical-badge` class.
+- [x] Verify that the exact text `[PKRS INF: <N>D]` is correctly displayed according to the newly implemented `PokerusBadge.tsx` component.
+- [x] Verify that the badge appears for infected Pokémon in both the party list and the PC.

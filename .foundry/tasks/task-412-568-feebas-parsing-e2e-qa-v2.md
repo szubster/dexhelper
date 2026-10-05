@@ -2,10 +2,10 @@
 id: task-412-568-feebas-parsing-e2e-qa-v2
 type: TASK
 title: Feebas Parsing E2E Integration QA V2
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: $(date -I)
-updated_at: '2026-09-13'
+updated_at: '2026-10-05'
 depends_on:
   - task-412-567-feebas-parsing-e2e-impl-v2
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - backend
   - e2e
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-412-567-feebas-parsing-e2e-impl-v2
 notes: ''
 locks: []
 ---

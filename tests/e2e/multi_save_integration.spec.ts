@@ -1,9 +1,11 @@
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
+import { PokedexGridModel } from './models/PokedexGridModel';
 import { clearStorage, waitForSync } from './test-utils';
 
 test.describe('Multi-Save Architecture Integration', () => {
   test('should allow switching between multiple saves and retain state', async ({ page }) => {
+    const gridModel = new PokedexGridModel(page);
     await clearStorage(page);
     await page.goto('.');
     await waitForSync(page);
@@ -19,7 +21,7 @@ test.describe('Multi-Save Architecture Integration', () => {
         .getByText(/YELLOW/i)
         .first(),
     ).toBeVisible();
-    await expect(page.getByTestId('pokedex-card').first()).toBeVisible();
+    await expect(gridModel.pokemonCards.first()).toBeVisible();
 
     const fileInput2 = page.locator('input[type="file"]').first();
     await fileInput2.setInputFiles(path.join('tests', 'fixtures', 'crystal.sav'));
