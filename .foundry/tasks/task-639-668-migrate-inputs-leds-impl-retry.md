@@ -1,12 +1,13 @@
 ---
-id: task-639-660-migrate-inputs-leds-impl
+id: task-639-668-migrate-inputs-leds-impl-retry
 type: TASK
-title: Migrate Tactical Inputs and LEDs Implementation
-status: CANCELLED
+title: Migrate Tactical Inputs and LEDs Implementation (Retry)
+status: PENDING
 owner_persona: coder
-created_at: '2026-10-03'
+created_at: '2026-10-05'
 updated_at: '2026-10-05'
-depends_on: []
+depends_on:
+  - research-639-665-investigate-migration-failures
 jules_session_id: null
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
@@ -14,12 +15,12 @@ tags:
   - react
   - components
 rejection_count: 0
-rejection_reason: 'Tasks permanently failed due to continuous timeouts/rejections, cancelling to replace via Impossible Loop'
+rejection_reason: ''
 notes: ''
 locks: []
 ---
 
-# Migrate Tactical Inputs and LEDs Implementation
+# Migrate Tactical Inputs and LEDs Implementation (Retry)
 
 ## Objective
 Migrate input and LED UI components (TacticalInput, TacticalFileInput, TacticalLed) and their tests from `src/components` to the `@dexhelper/ui` package.

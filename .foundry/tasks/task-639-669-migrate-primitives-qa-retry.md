@@ -1,15 +1,15 @@
 ---
-id: task-639-661-migrate-primitives-qa
+id: task-639-669-migrate-primitives-qa-retry
 type: TASK
-title: QA for Tactical Primitives Migration
-status: CANCELLED
+title: QA for Tactical Primitives Migration (Retry)
+status: PENDING
 owner_persona: qa
-created_at: '2026-10-03'
-updated_at: '2026-10-03'
+created_at: '2026-10-05'
+updated_at: '2026-10-05'
 depends_on:
-  - task-639-658-migrate-buttons-impl
-  - task-639-659-migrate-badges-impl
-  - task-639-660-migrate-inputs-leds-impl
+  - task-639-666-migrate-buttons-impl-retry
+  - task-639-667-migrate-badges-impl-retry
+  - task-639-668-migrate-inputs-leds-impl-retry
 jules_session_id: null
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
@@ -17,12 +17,12 @@ tags:
   - react
   - components
 rejection_count: 0
-rejection_reason: 'Tasks permanently failed due to continuous timeouts/rejections, cancelling to replace via Impossible Loop'
+rejection_reason: ''
 notes: ''
 locks: []
 ---
 
-# QA for Tactical Primitives Migration
+# QA for Tactical Primitives Migration (Retry)
 
 ## Objective
 Verify that all tactical primitives (Buttons, Badges, Inputs, Leds) have been correctly migrated to the `@dexhelper/ui` package without regressions.
