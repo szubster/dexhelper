@@ -2,12 +2,12 @@
 id: task-605-658-lint-foundry-coder
 type: TASK
 title: 'Add lint:foundry package script'
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2025-02-18T00:00:00.000Z'
 updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12017390931386900905'
 parent: story-553-605-package-scripts
 tags:
   - foundry
