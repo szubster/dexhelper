@@ -24,5 +24,8 @@ locks: []
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-638-641-extract-constants-to-core
-- [ ] task-638-642-extract-constants-tests-qa
+- [x] task-638-641-extract-constants-to-core
+- [x] task-638-642-extract-constants-tests-qa
+- [ ] research-638-665-investigate-constants-extraction
+- [ ] task-638-666-extract-constants-to-core-retry
+- [ ] task-638-667-extract-constants-tests-qa-retry
