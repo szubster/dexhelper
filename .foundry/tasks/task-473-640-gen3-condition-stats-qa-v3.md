@@ -2,13 +2,13 @@
 id: task-473-640-gen3-condition-stats-qa-v3
 type: TASK
 title: QA Gen 3 Contest Condition Stats Extraction (Retry 2)
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-30'
 updated_at: '2026-10-05'
 depends_on:
   - task-473-639-gen3-condition-stats-parser-v3
-jules_session_id: '9585820897956717513'
+jules_session_id: null
 pr_number: null
 parent: story-134-473-gen3-condition-stats-extraction-impl
 tags:
@@ -17,7 +17,9 @@ tags:
   - data-extraction
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

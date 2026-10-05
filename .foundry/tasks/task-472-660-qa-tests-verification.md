@@ -2,10 +2,10 @@
 id: task-472-660-qa-tests-verification
 type: TASK
 title: QA Verification of New Fixture Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-04'
-updated_at: '2026-10-04'
+updated_at: '2026-10-05'
 depends_on:
   - task-472-658-implement-integration-tests
   - task-472-659-implement-e2e-tests

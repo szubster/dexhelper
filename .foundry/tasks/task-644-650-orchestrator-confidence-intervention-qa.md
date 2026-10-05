@@ -2,10 +2,10 @@
 id: task-644-650-orchestrator-confidence-intervention-qa
 type: TASK
 title: 'QA: Verify Orchestrator Confidence Intervention Logic'
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-02'
-updated_at: '2026-10-02'
+updated_at: '2026-10-05'
 depends_on:
   - task-644-649-orchestrator-confidence-intervention-impl
 jules_session_id: null
