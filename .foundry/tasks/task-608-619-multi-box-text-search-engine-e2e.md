@@ -2,13 +2,13 @@
 id: task-608-619-multi-box-text-search-engine-e2e
 type: TASK
 title: Multi-Box Text Search Engine E2E
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-10-04'
+updated_at: '2026-10-05'
 depends_on:
   - task-608-617-multi-box-text-search-engine-impl
-jules_session_id: null
+jules_session_id: '2727107950331934065'
 pr_number: null
 parent: story-574-608-multi-box-text-search-engine
 tags:
