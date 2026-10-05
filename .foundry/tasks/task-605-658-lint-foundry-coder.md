@@ -16,6 +16,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Add lint:foundry package script
@@ -25,5 +26,5 @@ locks: []
 - Append `pnpm lint:foundry` to the main `lint` script.
 
 ## Acceptance Criteria
-- [ ] Add `"lint:foundry"` to `package.json`.
-- [ ] Integrate `"lint:foundry"` into the main `"lint"` script in `package.json`.
+- [x] Add `"lint:foundry"` to `package.json`.
+- [x] Integrate `"lint:foundry"` into the main `"lint"` script in `package.json`.
