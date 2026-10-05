@@ -1,10 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
+import { PokedexGridModel } from './models/PokedexGridModel';
 import { clearStorage, waitForSync } from './test-utils';
 
 test.describe('Cloudflare R2 Offline-First Save Syncing', () => {
   test('should pull save file from R2 on successful login', async ({ page }) => {
+    const gridModel = new PokedexGridModel(page);
     // Read the fixture to be intercepted and returned by mocked fetch
     const fixturePath = path.join('tests', 'fixtures', 'yellow.sav');
     const saveBuffer = fs.readFileSync(fixturePath);
@@ -45,7 +47,7 @@ test.describe('Cloudflare R2 Offline-First Save Syncing', () => {
         .getByText(/YELLOW/i)
         .first(),
     ).toBeVisible();
-    await expect(page.getByTestId('pokedex-card').first()).toBeVisible();
+    await expect(gridModel.pokemonCards.first()).toBeVisible();
   });
 
   test('should push save file changes to R2', async ({ page }) => {
