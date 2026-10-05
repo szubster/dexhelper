@@ -2,10 +2,10 @@
 id: task-563-595-gen3-pokeblock-optimizer-tests
 type: TASK
 title: Gen 3 Pokéblock Optimizer Unit Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-19'
+updated_at: '2026-10-05'
 depends_on:
   - task-563-593-gen3-pokeblock-optimizer-state
   - task-563-594-gen3-pokeblock-optimizer-ui-components

@@ -142,3 +142,27 @@ Date: 2026-10-03 03:00:00
   - `task-421-496-verify-schema-documentation-script-coder`
   - `task-421-497-verify-schema-documentation-ci-coder`
   - `task-421-498-verify-schema-documentation-qa`
+
+---
+
+# TPM Session Journal
+Date: 2026-10-04 03:30:00
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving must strictly operate at the whole DAG tree level. A completed node cannot be archived if any descendant or parent in its hierarchy is in an active or incomplete state.
+- **Node Linkage Preservation**: Moving node files to `.foundry/archive/` preserves historical reference while keeping active directory context windows slim.
+
+### Summary of Archived DAG Tree
+- Successfully archived the completed 100% terminal tree rooted at `idea-085-lift-rejection-count-state` (10 nodes total):
+  - `idea-085-lift-rejection-count-state`
+  - `prd-085-107-lift-rejection-count-state`
+  - `epic-107-344-update-dashboard-rejection-count`
+  - `story-344-494-dashboard-rejection-count`
+  - `story-344-495-dashboard-rejection-count-e2e`
+  - `task-494-512-refactor-dashboard-ui`
+  - `task-494-513-refactor-dashboard-tests`
+  - `task-494-514-qa-verify-dashboard`
+  - `task-495-528-dashboard-rejection-count-e2e`
+  - `task-495-529-qa-dashboard-rejection-count-e2e`

@@ -574,10 +574,6 @@ export const pokeDB = {
     });
   },
 
-  /**
-   * Fetches multiple Encounter records in a single database transaction using `bulkGet`.
-   * Designed to be called exclusively by `DexDataLoader` to prevent N+1 IDB query bottlenecks.
-   */
   getEncountersBulk: async (ids: number[]): Promise<(LocationAreaEncounters | Error)[]> => {
     await pokeDB.ready();
     const db = await getDB();

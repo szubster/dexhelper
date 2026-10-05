@@ -5,6 +5,7 @@
   "type": "module",
   "main": "src/index.ts",
   "dependencies": {
+    "msgpackr": "^1.11.2",
     "vite": "^8.3.0",
     "@11ty/gray-matter": "^3.0.0"
   },

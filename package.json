@@ -79,6 +79,7 @@
     "@biomejs/biome": "^2.5.14",
     "@cloudflare/workers-types": "^5.20261001.1",
     "@codecov/vite-plugin": "^2.0.1",
+    "@dexhelper/vite-plugins": "workspace:*",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/typography": "0.5.20",
     "@tailwindcss/vite": "4.3.3",

@@ -130,3 +130,4 @@ export async function parseSaveFile(buffer: ArrayBufferLike, forcedVersion?: Gam
     throw error;
   }
 }
+export * from './parsers/common';

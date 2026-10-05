@@ -2,7 +2,7 @@
 id: task-608-619-multi-box-text-search-engine-e2e
 type: TASK
 title: Multi-Box Text Search Engine E2E
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-22'
 updated_at: '2026-10-04'
@@ -17,10 +17,8 @@ tags:
   - search
   - pc-box
   - e2e
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
