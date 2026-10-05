@@ -20,7 +20,7 @@ rejection_reason: ''
 notes: ''
 locks: []
 priority: 50
-confidence_score: null
+confidence_score: 100
 ---
 
 # Implement SaveDataReader Bitwise Helper Tests
@@ -29,5 +29,5 @@ confidence_score: null
 Write unit tests for the bitwise helpers `readBits` and `readFlag` in `SaveDataReader`.
 
 ## Acceptance Criteria
-- [ ] Write tests for `readBits`.
-- [ ] Write tests for `readFlag`.
+- [x] Write tests for `readBits`.
+- [x] Write tests for `readFlag`.
