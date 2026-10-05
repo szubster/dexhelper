@@ -1,3 +1,4 @@
+import React from 'react';
 import { cn } from '../utils/cn';
 
 export interface TargetingRingsProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -5,7 +6,13 @@ export interface TargetingRingsProps extends React.HTMLAttributes<HTMLDivElement
   innerClassName?: string;
 }
 
-export function TargetingRings({ className, outerClassName, innerClassName, ...props }: TargetingRingsProps) {
+// ⚡ Bolt: Wrapped TargetingRings in React.memo to prevent unnecessary re-renders when parent cards re-render.
+export const TargetingRings = React.memo(function TargetingRings({
+  className,
+  outerClassName,
+  innerClassName,
+  ...props
+}: TargetingRingsProps) {
   return (
     <div className={cn('pointer-events-none absolute inset-0', className)} {...props}>
       <div
@@ -22,4 +29,4 @@ export function TargetingRings({ className, outerClassName, innerClassName, ...p
       />
     </div>
   );
-}
+});
