@@ -9,8 +9,8 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { browserslistToTargets } from 'lightningcss';
 import browserslist from 'browserslist';
 
-import { pokedataPlugin } from './vite-plugins/pokedata-plugin.ts';
-import { foundryPlugin } from './packages/vite-plugins/src/foundry-plugin.ts';
+import { pokedataPlugin } from '@dexhelper/vite-plugins';
+import { foundryPlugin } from '@dexhelper/vite-plugins';
 
 export default defineConfig(() => {
   const sourceDir = path.resolve(import.meta.dirname, 'data/db');

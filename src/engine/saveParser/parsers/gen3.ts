@@ -1063,9 +1063,9 @@ export function calculateGen3HiddenPower(
     'Ice',
     'Dragon',
     'Dark',
-  ];
+  ] as const;
 
-  return { type: TYPES[typeIndex] as string, power };
+  return { type: TYPES[typeIndex] ?? 'Dark', power };
 }
 
 /**

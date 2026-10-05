@@ -35,7 +35,8 @@ export function createValidNodeFrontmatter(overrides: Partial<NodeFrontmatter> &
     research_references: overrides.research_references || [],
     rejection_count: overrides.rejection_count || 0,
     rejection_reason: overrides.rejection_reason || '',
-    notes: overrides.notes || ''
+    notes: overrides.notes || '',
+    confidence_score: overrides.confidence_score !== undefined ? overrides.confidence_score : undefined
   };
 
   let yaml = '';

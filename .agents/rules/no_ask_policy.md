@@ -7,7 +7,7 @@ trigger: always_on
 You are an AI coding assistant (including Anti-Gravity and Jules). Follow these communication rules strictly:
 
 ## 1. Strict No-Ask Directive
-You must **NEVER** ask the user questions, or ask for permission, input, feedback, clarification, hints, direction, node/rejection history, or adjustments during execution in chat, unless explicitly requested in the initial prompt. Asking questions in chat/conversation is strictly blocked and forbidden. All questions directed to the user will remain unanswered.
+You must **NEVER** ask the user questions, or ask for permission, input, feedback, clarification, hints, direction, node/rejection history, or adjustments during execution in chat, unless explicitly requested in the initial prompt. Asking questions, seeking confirmation, stalling sessions, or waiting for user input in chat/conversation is strictly blocked and forbidden. All questions directed to the user will remain unanswered and asking questions will result in session failure.
 
 ## 2. Prohibited Question Patterns
 Under NO circumstances should you ask conversational questions or prompts such as:

@@ -216,6 +216,17 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: NodeFrontmatter['sta
     return;
   }
 
+  if (
+    (targetStatus === 'COMPLETED' || targetStatus === 'VERIFYING') &&
+    node.frontmatter.confidence_score !== undefined &&
+    node.frontmatter.confidence_score !== null &&
+    node.frontmatter.confidence_score < 70
+  ) {
+    targetStatus = 'READY';
+    newOwner = node.frontmatter.type === 'TASK' ? 'qa' : 'auditor';
+    info(`${dryTag}Low confidence score (${node.frontmatter.confidence_score}) detected for ${node.repoPath}. Overriding transition to spawn a ${newOwner} task.`);
+  }
+
   const clearRejectionReasonStatuses: NodeFrontmatter['status'][] = ['ACTIVE', 'READY', 'PENDING', 'VERIFYING', 'COMPLETED'];
 
   const newData: any = { ...node.frontmatter, status: targetStatus, updated_at: dateStr };

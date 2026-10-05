@@ -26,7 +26,7 @@ export function findInstanceHoldingItem(
  *
  * Checks against level requirements, required evolution items in the inventory,
  * time of day, and friendship levels.
- * Priority boosts significantly if the evolution criteria are actively met (e.g. required level reached).
+ * Priority boosts significantly if the evolution criteria are actively met (e.g. required level reached, held item on pre-evolution).
  *
  * **Architecture Note: In-Place Mutation**
  * It mutates the provided `suggestions` array.

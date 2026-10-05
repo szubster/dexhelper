@@ -1,16 +1,18 @@
 import { expect, test } from '@playwright/test';
+import { PokedexGridModel } from './models/PokedexGridModel';
 import { clearStorage, initializeWithSave } from './test-utils';
 
 // This test aims to use Playwright to simulate game scenarios
 // and verify memory is successfully mapped to standard save block parsers continuously
 test.describe('Live Memory E2E - WASM Hooking', () => {
   test('verify continuous memory mapping to save block parsers', async ({ page }) => {
+    const gridModel = new PokedexGridModel(page);
     // 1. Initial State Setup
     await clearStorage(page);
     await initializeWithSave(page, 'tests/fixtures/emerald.sav');
 
     // Wait for the app to reach a stable state showing core data
-    await expect(page.getByText(/TRNR/i).first().or(page.getByTestId('pokedex-card').first()).first()).toBeVisible({
+    await expect(page.getByText(/TRNR/i).first().or(gridModel.pokemonCards.first()).first()).toBeVisible({
       timeout: 20000,
     });
 

@@ -1,9 +1,11 @@
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
+import { PokedexGridModel } from './models/PokedexGridModel';
 import { clearStorage, waitForSync } from './test-utils';
 
 test.describe('Save Management', () => {
   test('should upload a save file and persist it on reload', async ({ page }) => {
+    const gridModel = new PokedexGridModel(page);
     await clearStorage(page);
     await page.goto('.');
     await waitForSync(page);
@@ -17,7 +19,7 @@ test.describe('Save Management', () => {
     await fileInput.setInputFiles(path.join('tests', 'fixtures', 'yellow.sav'));
 
     // 3. Verify Hydration: Pokedex grid should appear
-    await expect(page.getByTestId('pokedex-card').first()).toBeVisible();
+    await expect(gridModel.pokemonCards.first()).toBeVisible();
 
     // 4. Verify Trainer Info in Header
     await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible();
@@ -33,7 +35,7 @@ test.describe('Save Management', () => {
     await waitForSync(page);
 
     // 6. Verify it's still hydrated (persisted in localStorage)
-    await expect(page.getByTestId('pokedex-card').first()).toBeVisible();
+    await expect(gridModel.pokemonCards.first()).toBeVisible();
     await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible();
   });
 

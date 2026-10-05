@@ -1,10 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { expect, test } from '@playwright/test';
+import { PokedexGridModel } from './models/PokedexGridModel';
 import { initializeWithSave } from './test-utils';
 
 test.describe('Pokemon Details Modal', () => {
   test('should display detailed information for a Pokemon', async ({ page }) => {
+    const gridModel = new PokedexGridModel(page);
     // 1. Initialize with a Gen 1 save (Yellow)
     const savePath = path.join(process.cwd(), 'tests/fixtures/yellow.sav');
     const saveData = fs.readFileSync(savePath);
@@ -15,7 +17,7 @@ test.describe('Pokemon Details Modal', () => {
     await searchInput.click({ force: true });
     await searchInput.fill('Pikachu');
 
-    const pikachuCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="25"]');
+    const pikachuCard = gridModel.getPokemonCard('25');
     // Ensure we scroll the element to the center of the screen to avoid top/bottom sticky navs
     await pikachuCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
     await page.waitForTimeout(500); // allow layout to settle
@@ -41,6 +43,7 @@ test.describe('Pokemon Details Modal', () => {
   });
 
   test('should show correct locations for the version', async ({ page }) => {
+    const gridModel = new PokedexGridModel(page);
     const savePath = path.join(process.cwd(), 'tests/fixtures/yellow.sav');
     const saveData = fs.readFileSync(savePath);
     await initializeWithSave(page, new Uint8Array(saveData));
@@ -53,7 +56,7 @@ test.describe('Pokemon Details Modal', () => {
 
     // 2. Click Pidgey Card
     await page.waitForTimeout(3000);
-    const pidgeyCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="16"]');
+    const pidgeyCard = gridModel.getPokemonCard('16');
     // Ensure we scroll the element to the center of the screen to avoid top/bottom sticky navs
     await pidgeyCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
     await page.waitForTimeout(500); // allow layout to settle

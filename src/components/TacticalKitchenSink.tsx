@@ -1,13 +1,17 @@
 import type React from 'react';
 import { ClearFiltersBadge } from './ClearFiltersBadge';
 import { FilterBadge } from './FilterBadge';
+import { useState } from 'react';
 import { TacticalBadge } from './TacticalBadge';
 import { TacticalButton } from './TacticalButton';
 import { TacticalCard } from './TacticalCard';
 import { TacticalInput } from './TacticalInput';
+import { TacticalModal } from './TacticalModal';
 import { TacticalPanel } from './TacticalPanel';
 
 export const TacticalKitchenSink: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="flex flex-col gap-4 p-4">
       {/* Filter Badges */}
@@ -65,6 +69,11 @@ export const TacticalKitchenSink: React.FC = () => {
         Sidebar
       </TacticalButton>
 
+      {/* Modal Trigger */}
+      <TacticalButton variant="primary" id="btn-open-modal" onClick={() => setIsModalOpen(true)}>
+        Open Modal
+      </TacticalButton>
+
       {/* Panels */}
       <TacticalPanel variant="emerald" id="panel-emerald">
         Emerald
@@ -116,6 +125,19 @@ export const TacticalKitchenSink: React.FC = () => {
 
       {/* Input */}
       <TacticalInput id="input-default" />
+
+      {/* Modal */}
+      <TacticalModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <TacticalPanel variant="emerald" className="p-6">
+          <h2 className="font-bold text-xl">Tactical Modal Content</h2>
+          <p className="mt-2 text-zinc-300">This is a complex slotted layout inside a modal.</p>
+          <div className="mt-4 flex justify-end">
+            <TacticalButton variant="secondary" id="btn-close-modal" onClick={() => setIsModalOpen(false)}>
+              Close
+            </TacticalButton>
+          </div>
+        </TacticalPanel>
+      </TacticalModal>
     </div>
   );
 };

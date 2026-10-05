@@ -2,13 +2,13 @@
 id: task-406-640-gen3-rematch-qa-retry
 type: TASK
 title: QA Gen 3 NPC Rematch Status Implementation (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-22'
 updated_at: '2026-10-04'
 depends_on:
   - task-406-639-gen3-rematch-e2e-impl-retry
-jules_session_id: '820901120004765267'
+jules_session_id: null
 pr_number: null
 parent: story-397-406-gen3-npc-rematch-status
 tags:

@@ -382,3 +382,15 @@ We enforce a strict boundary between static and dynamic data:
 *   **Dynamic Save Data:** Growth stages, inventory counts, and game time are parsed entirely at runtime when a user imports a `.sav` file (e.g., in `src/engine/saveParser/...`).
 
 Parsed dynamic save data (such as `Gen3BerryTree` states) must **never** use the static data pipeline for serialization. It must be stored in the application runtime state manager (e.g., Zustand) or a dedicated runtime IndexedDB wrapper for save files, separated entirely from `pokedata-core`.
+
+---
+
+## 17. Gen 3 Fossil Revival Offsets
+
+For detailed memory layout, variables, and event flags used to track the status of Fossil drop-off and pickup across Generation 3 games (Ruby/Sapphire, Emerald, FireRed/LeafGreen), refer to the dedicated knowledge base document:
+
+**[`gen3_fossil_revival_offsets.md`](./knowledge_base/gen3_fossil_revival_offsets.md)**
+
+This document details:
+- **RSE (Devon Corporation):** Root Fossil (Lileep), Claw Fossil (Anorith). Variables and event flags (e.g., `VAR_FOSSIL_RESURRECTION_STATE`, `FLAG_RECEIVED_REVIVED_FOSSIL_MON`).
+- **FRLG (Cinnabar Lab):** Helix Fossil (Omanyte), Dome Fossil (Kabuto), Old Amber (Aerodactyl). Variables and event flags (e.g., `VAR_MAP_SCENE_CINNABAR_ISLAND_POKEMON_LAB_EXPERIMENT_ROOM_WHICH_FOSSIL`).

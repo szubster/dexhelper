@@ -2,10 +2,14 @@ import { createFileRoute } from '@tanstack/react-router';
 import { ShieldAlert } from 'lucide-react';
 import React, { Suspense } from 'react';
 import { EmptyState } from '../components/EmptyState';
+import { useSafariZoneSelection } from '../components/safari-zone/useSafariZoneSelection';
 import { TacticalBadge } from '../components/TacticalBadge';
 import { useStore } from '../store';
 
 const SafariZoneEncountersList = React.lazy(() => import('../components/safari-zone/SafariZoneEncountersList'));
+const SafariTargetSelection = React.lazy(() =>
+  import('../components/safari-zone/SafariTargetSelection').then((m) => ({ default: m.SafariTargetSelection })),
+);
 
 export const Route = createFileRoute('/safari-zone')({
   component: SafariZonePage,
@@ -13,6 +17,19 @@ export const Route = createFileRoute('/safari-zone')({
 
 function SafariZonePage() {
   const saveData = useStore((s) => s.saveData);
+  const selection = useSafariZoneSelection({
+    initialVersion:
+      saveData?.gameVersion === 'red' ||
+      saveData?.gameVersion === 'blue' ||
+      saveData?.gameVersion === 'yellow' ||
+      saveData?.gameVersion === 'ruby' ||
+      saveData?.gameVersion === 'sapphire' ||
+      saveData?.gameVersion === 'emerald' ||
+      saveData?.gameVersion === 'firered' ||
+      saveData?.gameVersion === 'leafgreen'
+        ? saveData.gameVersion
+        : 'emerald',
+  });
 
   if (!saveData) {
     return <EmptyState icon={<ShieldAlert size={24} />} label="SAFARI ZONE TELEMETRY UNLINKED" />;
@@ -39,6 +56,7 @@ function SafariZonePage() {
       </div>
 
       <Suspense fallback={<EmptyState label="INITIALIZING SAFARI ZONE TELEMETRY..." />}>
+        <SafariTargetSelection selection={selection} />
         <SafariZoneEncountersList saveData={saveData} />
       </Suspense>
     </div>

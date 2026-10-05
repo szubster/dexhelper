@@ -99,7 +99,7 @@ describe('SaveHistoryDB', () => {
       await expect(writeSaveState(id, saveData, invalidMetadata)).rejects.toThrow('could not be cloned');
     });
 
-    it('should throw an error if maximum number of saves per playthrough is reached', async () => {
+    it('should evict the oldest save if maximum number of saves per playthrough is reached', async () => {
       const ptId = 'limit-test';
 
       // Insert maximum allowed saves
@@ -110,10 +110,15 @@ describe('SaveHistoryDB', () => {
         });
       }
 
-      // The next save should fail
-      await expect(
-        writeSaveState('limit-save-final', new Uint8Array([1]), { playthroughId: ptId, timestamp: 1000 }),
-      ).rejects.toThrow('Maximum number of save states reached for this playthrough');
+      // The next save should trigger eviction of the oldest (limit-save-0)
+      await writeSaveState('limit-save-final', new Uint8Array([1]), { playthroughId: ptId, timestamp: 1000 });
+
+      const currentCount = await countSavesForPlaythrough(ptId);
+      expect(currentCount).toBe(MAX_SAVE_STATES_PER_PLAYTHROUGH);
+
+      // Verify the oldest save was evicted (it had timestamp 0)
+      const oldestSaves = await getOldestSaves(ptId, 1);
+      expect(oldestSaves[0]).not.toBe('limit-save-0');
     });
   });
 

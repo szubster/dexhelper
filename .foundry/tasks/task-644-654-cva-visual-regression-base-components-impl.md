@@ -5,9 +5,9 @@ title: Implement CVA Visual Regression Tests - Base Components
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-02'
-updated_at: '2026-10-03'
+updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: '4715309742588313431'
+jules_session_id: '8106104577078333368'
 pr_number: null
 parent: story-568-644-cva-visual-regression-tests
 tags:
@@ -16,7 +16,7 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
