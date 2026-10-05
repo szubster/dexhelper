@@ -9,3 +9,26 @@ export interface RouteRadarHeatmap {
     requiresAcroBike: boolean;
   };
 }
+
+export interface ItemRequirement {
+  type: 'item';
+  itemId: string;
+}
+
+export interface HMRequirement {
+  type: 'hm';
+  hmId: string;
+}
+
+export interface BikeRequirement {
+  type: 'bike';
+  bikeType: 'mach' | 'acro' | 'any';
+}
+
+export interface LogicalRequirement {
+  type: 'logical';
+  operator: 'AND' | 'OR';
+  requirements: GatingRequirement[];
+}
+
+export type GatingRequirement = ItemRequirement | HMRequirement | BikeRequirement | LogicalRequirement;
