@@ -62,14 +62,16 @@ export function DagTree() {
         <button
           type="button"
           onClick={handleExpandAll}
-          className="rounded-none border border-zinc-700 border-dashed bg-zinc-900 px-3 py-1 font-mono text-sm text-zinc-300 hover:bg-zinc-800"
+          title="Expand All Nodes"
+          className="focus-visible:tactical-focus rounded-none border border-zinc-700 border-dashed bg-zinc-900 px-3 py-1 font-mono text-sm text-zinc-300 transition-colors hover:bg-zinc-800"
         >
           Expand All
         </button>
         <button
           type="button"
           onClick={collapseAll}
-          className="rounded-none border border-zinc-700 border-dashed bg-zinc-900 px-3 py-1 font-mono text-sm text-zinc-300 hover:bg-zinc-800"
+          title="Collapse All Nodes"
+          className="focus-visible:tactical-focus rounded-none border border-zinc-700 border-dashed bg-zinc-900 px-3 py-1 font-mono text-sm text-zinc-300 transition-colors hover:bg-zinc-800"
         >
           Collapse All
         </button>

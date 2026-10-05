@@ -143,12 +143,31 @@ export const countSavesForPlaythrough = async (playthroughId: string): Promise<n
   }
 };
 
+export const deleteSaveState = async (id: string): Promise<void> => {
+  try {
+    const db = await initHistoryDb();
+    const tx = db.transaction(['saves', 'metadata'], 'readwrite');
+
+    const savesStore = tx.objectStore('saves');
+    const metadataStore = tx.objectStore('metadata');
+
+    await Promise.all([savesStore.delete(id), metadataStore.delete(id), tx.done]);
+  } catch (error) {
+    console.error('Failed to delete save state:', error instanceof Error ? error.message : 'Unknown error');
+    throw error;
+  }
+};
+
 export const writeSaveState = async (id: string, saveData: Uint8Array, metadata: SaveMetadata): Promise<void> => {
   try {
     if (metadata.playthroughId) {
       const currentCount = await countSavesForPlaythrough(metadata.playthroughId);
       if (currentCount >= MAX_SAVE_STATES_PER_PLAYTHROUGH) {
-        throw new Error('Maximum number of save states reached for this playthrough');
+        const numToDelete = currentCount - MAX_SAVE_STATES_PER_PLAYTHROUGH + 1;
+        const oldestSaves = await getOldestSaves(metadata.playthroughId, numToDelete);
+        for (const oldSaveId of oldestSaves) {
+          await deleteSaveState(oldSaveId);
+        }
       }
     }
 
@@ -161,6 +180,29 @@ export const writeSaveState = async (id: string, saveData: Uint8Array, metadata:
     await Promise.all([savesStore.put(saveData, id), metadataStore.put(metadata, id), tx.done]);
   } catch (error) {
     console.error('Failed to write save state', error instanceof Error ? error.message : 'Unknown error');
+    throw error;
+  }
+};
+
+export const getOldestSaves = async (playthroughId: string, limit: number): Promise<string[]> => {
+  try {
+    const db = await initHistoryDb();
+    const tx = db.transaction('metadata', 'readonly');
+    const metadataStore = tx.objectStore('metadata');
+    const index = metadataStore.index('by-playthrough-timestamp');
+
+    const range = IDBKeyRange.bound([playthroughId, -Infinity], [playthroughId, Infinity]);
+    let cursor = await index.openCursor(range, 'next');
+
+    const result: string[] = [];
+    while (cursor && result.length < limit) {
+      result.push(cursor.primaryKey as string);
+      cursor = await cursor.continue();
+    }
+
+    return result;
+  } catch (error) {
+    console.error('Failed to get oldest saves:', error instanceof Error ? error.message : 'Unknown error');
     throw error;
   }
 };

@@ -1,4 +1,5 @@
 import type { BugCatchingContestData } from '../parsers/common';
+import { GEN2_PARTY_COUNT_OFFSET_CRYSTAL, GEN2_PARTY_COUNT_OFFSET_GS } from '../utils/detection';
 
 /**
  * Constant offsets relative to the start of the sPokemonData block
@@ -11,25 +12,31 @@ export const BUG_CONTEST_LEVEL_OFFSET = BUG_CONTEST_MON_RELATIVE_OFFSET + 0x1f;
 export const BUG_CONTEST_CURRENT_HP_OFFSET = BUG_CONTEST_MON_RELATIVE_OFFSET + 0x22;
 export const BUG_CONTEST_MAX_HP_OFFSET = BUG_CONTEST_MON_RELATIVE_OFFSET + 0x24;
 
+export const BUG_CONTEST_SPECIES_MISSINGNO = 0x00;
+export const BUG_CONTEST_SPECIES_EMPTY_SLOT = 0xff;
+
 /**
  * Extracts the basic data for the currently caught Bug-Catching Contest Pokémon
  * from the Gen 2 save file.
  *
- * @param buffer The full save file ArrayBuffer.
+ * @param bufferOrView The full save file ArrayBuffer or DataView.
  * @param isCrystal Whether the save file is from Pokemon Crystal.
  * @returns The BugCatchingContestData, or null if no valid species is found.
  */
-export function extractBugCatchingContestData(buffer: ArrayBuffer, isCrystal: boolean): BugCatchingContestData | null {
-  const view = new DataView(buffer);
+export function extractBugCatchingContestData(
+  bufferOrView: DataView | ArrayBuffer,
+  isCrystal: boolean,
+): BugCatchingContestData | null {
+  const view = bufferOrView instanceof DataView ? bufferOrView : new DataView(bufferOrView);
 
   // The start of the sPokemonData block in SRAM
-  const sPokemonDataOffset = isCrystal ? 0x2865 : 0x288a;
+  const sPokemonDataOffset = isCrystal ? GEN2_PARTY_COUNT_OFFSET_CRYSTAL : GEN2_PARTY_COUNT_OFFSET_GS;
 
   try {
     const speciesId = view.getUint8(sPokemonDataOffset + BUG_CONTEST_SPECIES_OFFSET);
 
     // If species is 0 (missingno) or FF (empty), there is no Pokemon caught.
-    if (speciesId === 0 || speciesId === 0xff) {
+    if (speciesId === BUG_CONTEST_SPECIES_MISSINGNO || speciesId === BUG_CONTEST_SPECIES_EMPTY_SLOT) {
       return null;
     }
 

@@ -1,8 +1,9 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { main, identifyBranchesForCleanup, cleanupRemoteBranches, transitionNodeToCompleted, transitionNodeToReady, transitionNodeToReadyWithoutPenalty, transitionNodeToFailed } from './foundry-heartbeat.ts';
+import { main, identifyBranchesForCleanup, cleanupRemoteBranches, transitionNodeToCompleted, transitionNodeToReady, transitionNodeToReadyWithoutPenalty, transitionNodeToFailed, cleanupLingeringCompletedSessions } from './foundry-heartbeat.ts';
 import * as orchestrator from './foundry-orchestrator.ts';
+
 
 vi.mock('node:fs');
 vi.mock('./foundry-orchestrator.ts');
@@ -613,7 +614,7 @@ ok: false,
     );
   });
 
-  it('should NOT transition a node if its Jules session is IN_PROGRESS and under 7 days old', async () => {
+  it('should NOT transition a node if its Jules session is IN_PROGRESS and has activities under 7 days old', async () => {
     const mockNode = {
       filePath: '/mock/repo/.foundry/tasks/task-recent.md',
       repoPath: '.foundry/tasks/task-recent.md',
@@ -630,15 +631,134 @@ ok: false,
 
     // 2 days ago (48h)
     const recentDate = new Date(Date.now() - 48 * 60 * 60 * 1000).toISOString();
-    globalFetch.mockResolvedValue({
-      ok: true,
-      status: 200,
-      json: async () => ({ state: 'IN_PROGRESS', updateTime: recentDate })
-    } as unknown as Response);
+    globalFetch.mockImplementation(async (url: any) => {
+      if (String(url).includes('/activities')) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ activities: [{ id: 'activity-1' }] })
+        } as unknown as Response;
+      }
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({ state: 'IN_PROGRESS', updateTime: recentDate })
+      } as unknown as Response;
+    });
 
     await main();
 
     expect(fs.writeFileSync).not.toHaveBeenCalled();
+  });
+
+  it('should transition node to READY without penalty and delete session if IN_PROGRESS with 0 activities after 20 minutes', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-stuck-env.md',
+      repoPath: '.foundry/tasks/task-stuck-env.md',
+      frontmatter: {
+        id: 'task-stuck-env',
+        status: 'ACTIVE',
+        jules_session_id: 'session-stuck-env'
+      },
+      rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-stuck-env"\ncreated_at: "2026-09-22T10:00:00Z"\n---\nBody'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-stuck-env.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    // 1 hour ago
+    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+    globalFetch.mockImplementation(async (url: any, opts: any) => {
+      const urlStr = String(url);
+      if (opts?.method === 'DELETE') {
+        return { ok: true, status: 200, json: async () => ({}) } as unknown as Response;
+      }
+      if (urlStr.includes('/activities')) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ activities: [] })
+        } as unknown as Response;
+      }
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({ state: 'IN_PROGRESS', createTime: oneHourAgo, updateTime: oneHourAgo })
+      } as unknown as Response;
+    });
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalledWith(
+      '/mock/repo/.foundry/tasks/task-stuck-env.md',
+      expect.stringContaining('status: READY'),
+      'utf-8'
+    );
+    expect(fs.writeFileSync).toHaveBeenCalledWith(
+      '/mock/repo/.foundry/tasks/task-stuck-env.md',
+      expect.stringContaining('jules_session_id: null'),
+      'utf-8'
+    );
+
+    // Verify DELETE was called to kill the stuck session
+    expect(globalFetch).toHaveBeenCalledWith(
+      'https://jules.googleapis.com/v1alpha/sessions/session-stuck-env',
+      expect.objectContaining({ method: 'DELETE' })
+    );
+  });
+
+  it('should delete Jules session when PR is merged', async () => {
+    const mockNode = {
+      filePath: '/mock/repo/.foundry/tasks/task-merged.md',
+      repoPath: '.foundry/tasks/task-merged.md',
+      frontmatter: {
+        id: 'task-merged',
+        type: 'TASK',
+        status: 'ACTIVE',
+        jules_session_id: 'session-merged'
+      },
+      rawContent: '---\nid: task-merged\ntype: TASK\nstatus: ACTIVE\njules_session_id: "session-merged"\n---\n## Acceptance Criteria\n- [x] All done\n'
+    };
+
+    vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-merged.md']);
+    vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+    globalFetch.mockImplementation(async (url: any, opts: any) => {
+      const urlStr = String(url);
+      if (opts?.method === 'DELETE') {
+        return { ok: true, status: 200, json: async () => ({}) } as unknown as Response;
+      }
+      if (urlStr.includes('/sessions/session-merged')) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            state: 'COMPLETED',
+            outputs: [{ pullRequest: { url: 'https://github.com/szubster/dexhelper/pull/999' } }]
+          })
+        } as unknown as Response;
+      }
+      if (urlStr.includes('/pulls/999')) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ state: 'closed', merged: true, number: 999 })
+        } as unknown as Response;
+      }
+      return { ok: false, status: 404 } as unknown as Response;
+    });
+
+    await main();
+
+    expect(fs.writeFileSync).toHaveBeenCalledWith(
+      '/mock/repo/.foundry/tasks/task-merged.md',
+      expect.stringContaining('status: COMPLETED'),
+      'utf-8'
+    );
+    expect(globalFetch).toHaveBeenCalledWith(
+      'https://jules.googleapis.com/v1alpha/sessions/session-merged',
+      expect.objectContaining({ method: 'DELETE' })
+    );
   });
 
   it('should NOT transition a node if its Jules session is IN_PROGRESS', async () => {
@@ -1833,3 +1953,100 @@ status: ACTIVE
       expect(fs.writeFileSync).not.toHaveBeenCalled();
     });
   });
+
+  describe('cleanupLingeringCompletedSessions', () => {
+    it('should delete sessions and clear jules_session_id on COMPLETED and CANCELLED nodes', async () => {
+      const completedNodePath = '/mock/repo/.foundry/epics/epic-completed.md';
+      const completedContent = '---\ntype: EPIC\nstatus: COMPLETED\njules_session_id: "session-completed-1"\n---\nBody';
+      const completedNode = {
+        filePath: completedNodePath,
+        repoPath: '.foundry/epics/epic-completed.md',
+        frontmatter: { id: 'epic-completed', type: 'EPIC', status: 'COMPLETED', jules_session_id: 'session-completed-1' },
+        rawContent: completedContent,
+        body: 'Body'
+      };
+
+      const cancelledNodePath = '/mock/repo/.foundry/tasks/task-cancelled.md';
+      const cancelledContent = '---\ntype: TASK\nstatus: CANCELLED\njules_session_id: "session-cancelled-2"\n---\nBody';
+      const cancelledNode = {
+        filePath: cancelledNodePath,
+        repoPath: '.foundry/tasks/task-cancelled.md',
+        frontmatter: { id: 'task-cancelled', type: 'TASK', status: 'CANCELLED', jules_session_id: 'session-cancelled-2' },
+        rawContent: cancelledContent,
+        body: 'Body'
+      };
+
+      const activeNodePath = '/mock/repo/.foundry/tasks/task-active.md';
+      const activeContent = '---\ntype: TASK\nstatus: ACTIVE\njules_session_id: "session-active-3"\n---\nBody';
+      const activeNode = {
+        filePath: activeNodePath,
+        repoPath: '.foundry/tasks/task-active.md',
+        frontmatter: { id: 'task-active', type: 'TASK', status: 'ACTIVE', jules_session_id: 'session-active-3' },
+        rawContent: activeContent,
+        body: 'Body'
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue([completedNodePath, cancelledNodePath, activeNodePath]);
+      vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp: string) => {
+        if (fp === completedNodePath) return completedNode as any;
+        if (fp === cancelledNodePath) return cancelledNode as any;
+        if (fp === activeNodePath) return activeNode as any;
+        return null;
+      });
+
+      globalFetch.mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => ({})
+      } as any);
+
+      const cleaned = await cleanupLingeringCompletedSessions('/mock/repo', 'mock-jules-key', 10);
+      expect(cleaned).toBe(2);
+
+      // Verify DELETE was called for completed and cancelled, but NOT active
+      const deleteCalls = globalFetch.mock.calls.filter(c => c[1]?.method === 'DELETE');
+      expect(deleteCalls.length).toBe(2);
+      expect(deleteCalls[0][0]).toContain('session-completed-1');
+      expect(deleteCalls[1][0]).toContain('session-cancelled-2');
+
+      // Verify files were updated to clear jules_session_id
+      expect(fs.writeFileSync).toHaveBeenCalledTimes(2);
+      const writeCalls = vi.mocked(fs.writeFileSync).mock.calls;
+      expect(writeCalls[0][1]).toContain('jules_session_id: null');
+      expect(writeCalls[1][1]).toContain('jules_session_id: null');
+    });
+
+    it('should respect maxPerRun limit', async () => {
+      const nodePath1 = '/mock/repo/.foundry/epics/epic-1.md';
+      const nodePath2 = '/mock/repo/.foundry/epics/epic-2.md';
+      const node1 = {
+        filePath: nodePath1,
+        repoPath: '.foundry/epics/epic-1.md',
+        frontmatter: { id: 'epic-1', type: 'EPIC', status: 'COMPLETED', jules_session_id: 'session-1' },
+        rawContent: '---\ntype: EPIC\nstatus: COMPLETED\njules_session_id: "session-1"\n---\nBody'
+      };
+      const node2 = {
+        filePath: nodePath2,
+        repoPath: '.foundry/epics/epic-2.md',
+        frontmatter: { id: 'epic-2', type: 'EPIC', status: 'COMPLETED', jules_session_id: 'session-2' },
+        rawContent: '---\ntype: EPIC\nstatus: COMPLETED\njules_session_id: "session-2"\n---\nBody'
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue([nodePath1, nodePath2]);
+      vi.mocked(orchestrator.parseNodeFile).mockImplementation((fp: string) => {
+        if (fp === nodePath1) return node1 as any;
+        if (fp === nodePath2) return node2 as any;
+        return null;
+      });
+
+      globalFetch.mockClear();
+      globalFetch.mockResolvedValue({ ok: true, status: 200 } as any);
+
+      const cleaned = await cleanupLingeringCompletedSessions('/mock/repo', 'mock-jules-key', 1);
+
+      expect(cleaned).toBe(1);
+      expect(globalFetch).toHaveBeenCalledTimes(1);
+    });
+  });
+
+

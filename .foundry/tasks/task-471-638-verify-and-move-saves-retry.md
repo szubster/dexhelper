@@ -2,13 +2,13 @@
 id: task-471-638-verify-and-move-saves-retry
 type: TASK
 title: Verify and Move Saves
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-30'
 updated_at: '2026-10-02'
 depends_on:
   - research-471-637-investigate-save-file-sourcing
-jules_session_id: '1189950394379594112'
+jules_session_id: null
 pr_number: null
 parent: story-428-471-verify-and-integrate-saves
 tags:
@@ -31,5 +31,5 @@ After downloading public save files based on the new methodology, they must be v
 2. Move them into `tests/fixtures/`.
 
 ## Acceptance Criteria
-- [ ] Save files are verified for structural integrity.
-- [ ] Save files are moved to `tests/fixtures/`.
+- [x] Save files are verified for structural integrity.
+- [x] Save files are moved to `tests/fixtures/`.

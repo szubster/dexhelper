@@ -1,5 +1,21 @@
 import { describe, expect, it } from 'vitest';
 import { parseGen3Pokeblocks } from './parser';
+import { isPokeblockColor, PokeblockColor } from './types';
+
+describe('isPokeblockColor', () => {
+  it('returns true for valid non-zero PokeblockColor values (1-14)', () => {
+    expect(isPokeblockColor(PokeblockColor.Red)).toBe(true);
+    expect(isPokeblockColor(PokeblockColor.Gold)).toBe(true);
+    expect(isPokeblockColor(7)).toBe(true);
+  });
+
+  it('returns false for 0 (None) and out of bound numbers', () => {
+    expect(isPokeblockColor(PokeblockColor.None)).toBe(false);
+    expect(isPokeblockColor(-1)).toBe(false);
+    expect(isPokeblockColor(15)).toBe(false);
+    expect(isPokeblockColor(1.5)).toBe(false);
+  });
+});
 
 describe('parseGen3Pokeblocks', () => {
   it('returns undefined for firered and leafgreen', () => {
@@ -24,7 +40,7 @@ describe('parseGen3Pokeblocks', () => {
     view.setUint8(firstBlockIndex + 5, 50); // sour
     view.setUint8(firstBlockIndex + 6, 60); // feel
 
-    // Set second pokeblock to color 0 (empty)
+    // Set second pokeblock to color 0 (empty/invalid color)
     const secondBlockIndex = firstBlockIndex + 8;
     view.setUint8(secondBlockIndex + 0, 0);
 

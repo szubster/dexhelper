@@ -3,7 +3,9 @@ import { describe, expect, it } from 'vitest';
 import { MAX_SAVE_STATES_PER_PLAYTHROUGH } from './constants';
 import {
   countSavesForPlaythrough,
+  deleteSaveState,
   getMostRecentSave,
+  getOldestSaves,
   getPreviousSave,
   initHistoryDb,
   writeSaveState,
@@ -23,6 +25,46 @@ describe('SaveHistoryDB', () => {
     expect(db.objectStoreNames.contains('metadata')).toBe(true);
     expect(db.objectStoreNames.contains('indexes')).toBe(true);
     db.close();
+  });
+
+  describe('deleteSaveState', () => {
+    it('should successfully delete save data and metadata', async () => {
+      const id = 'test-delete-id';
+      const saveData = new Uint8Array([1, 2, 3]);
+      const metadata = { playthroughId: 'pt-test-delete', timestamp: 12345, name: 'Test Save to Delete' };
+
+      await writeSaveState(id, saveData, metadata);
+
+      // Verify it exists first
+      let db = await initHistoryDb();
+      let tx = db.transaction(['saves', 'metadata'], 'readonly');
+      let storedSaveData = await tx.objectStore('saves').get(id);
+      let storedMetadata = await tx.objectStore('metadata').get(id);
+
+      expect(storedSaveData).toEqual(saveData);
+      expect(storedMetadata).toEqual(metadata);
+      db.close();
+
+      // Delete it
+      await deleteSaveState(id);
+
+      // Verify it's gone
+      db = await initHistoryDb();
+      tx = db.transaction(['saves', 'metadata'], 'readonly');
+      storedSaveData = await tx.objectStore('saves').get(id);
+      storedMetadata = await tx.objectStore('metadata').get(id);
+
+      expect(storedSaveData).toBeUndefined();
+      expect(storedMetadata).toBeUndefined();
+      db.close();
+    });
+
+    it('should propagate errors if a delete fails', async () => {
+      // @ts-expect-error - testing invalid input
+      await expect(deleteSaveState(Symbol('bad-id'))).rejects.toThrow(
+        'Data provided to an operation does not meet requirements',
+      );
+    });
   });
 
   describe('writeSaveState', () => {
@@ -57,7 +99,7 @@ describe('SaveHistoryDB', () => {
       await expect(writeSaveState(id, saveData, invalidMetadata)).rejects.toThrow('could not be cloned');
     });
 
-    it('should throw an error if maximum number of saves per playthrough is reached', async () => {
+    it('should evict the oldest save if maximum number of saves per playthrough is reached', async () => {
       const ptId = 'limit-test';
 
       // Insert maximum allowed saves
@@ -68,10 +110,15 @@ describe('SaveHistoryDB', () => {
         });
       }
 
-      // The next save should fail
-      await expect(
-        writeSaveState('limit-save-final', new Uint8Array([1]), { playthroughId: ptId, timestamp: 1000 }),
-      ).rejects.toThrow('Maximum number of save states reached for this playthrough');
+      // The next save should trigger eviction of the oldest (limit-save-0)
+      await writeSaveState('limit-save-final', new Uint8Array([1]), { playthroughId: ptId, timestamp: 1000 });
+
+      const currentCount = await countSavesForPlaythrough(ptId);
+      expect(currentCount).toBe(MAX_SAVE_STATES_PER_PLAYTHROUGH);
+
+      // Verify the oldest save was evicted (it had timestamp 0)
+      const oldestSaves = await getOldestSaves(ptId, 1);
+      expect(oldestSaves[0]).not.toBe('limit-save-0');
     });
   });
 
@@ -180,5 +227,44 @@ describe('SaveHistoryDB', () => {
       expect(result?.saveData).toEqual(new Uint8Array([8]));
       expect(result?.metadata).toEqual({ playthroughId: ptId, timestamp: 200 });
     });
+  });
+});
+
+describe('getOldestSaves', () => {
+  it('should return an empty array if no saves exist for the playthrough', async () => {
+    const result = await getOldestSaves('non-existent-pt', 5);
+    expect(result).toEqual([]);
+  });
+
+  it('should correctly order saves by timestamp ascending and limit the results', async () => {
+    const ptId = 'pt-oldest-test';
+    await writeSaveState('save-t100', new Uint8Array([1]), { playthroughId: ptId, timestamp: 100 });
+    await writeSaveState('save-t300', new Uint8Array([3]), { playthroughId: ptId, timestamp: 300 });
+    await writeSaveState('save-t50', new Uint8Array([5]), { playthroughId: ptId, timestamp: 50 });
+    await writeSaveState('save-t200', new Uint8Array([2]), { playthroughId: ptId, timestamp: 200 });
+
+    const result = await getOldestSaves(ptId, 2);
+
+    expect(result.length).toBe(2);
+    // t50 and t100 are the oldest
+    expect(result).toEqual(['save-t50', 'save-t100']);
+  });
+
+  it('should return all available saves if the limit is greater than the total saves', async () => {
+    const ptId = 'pt-oldest-test-2';
+    await writeSaveState('save-1', new Uint8Array([1]), { playthroughId: ptId, timestamp: 100 });
+    await writeSaveState('save-2', new Uint8Array([2]), { playthroughId: ptId, timestamp: 200 });
+
+    const result = await getOldestSaves(ptId, 10);
+
+    expect(result.length).toBe(2);
+    expect(result).toEqual(['save-1', 'save-2']);
+  });
+
+  it('should propagate errors if querying fails', async () => {
+    // @ts-expect-error - testing invalid input
+    await expect(getOldestSaves(Symbol('bad-id'), 5)).rejects.toThrow(
+      'Data provided to an operation does not meet requirements',
+    );
   });
 });

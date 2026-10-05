@@ -5,10 +5,10 @@ title: Reactive UI Updates
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-31'
+updated_at: '2026-10-03'
 depends_on:
   - epic-343-424-live-memory-reading
-jules_session_id: '10398295121444200675'
+jules_session_id: null
 pr_number: null
 parent: prd-137-343-built-in-emulator
 tags:
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Reactive UI Updates

@@ -2,10 +2,10 @@
 id: task-640-643-update-app-imports
 type: TASK
 title: Update application imports to use @dexhelper/core
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-02'
 depends_on:
   - task-640-642-extract-core-domain-logic
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
 notes: ''
 locks: []
 ---

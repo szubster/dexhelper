@@ -103,3 +103,66 @@ Date: 2026-09-30 03:20:00
   - `task-410-493-update-journal-paths-impl`
   - `task-410-494-update-journal-paths-qa`
   - `story-401-411-conflictless-journals-e2e-verification`
+
+
+---
+
+# TPM Session Journal
+Date: 2026-10-02 00:00:00
+
+## Architectural Findings and Lessons Learned
+
+### Deadlock Resolution
+- Resolved a minor DAG orchestrator deadlock in `.foundry/prds/prd-122-339-pokemon-themed-foundry-personas.md` where `parent` was specified as `.foundry/ideas/idea-122-pokemon-themed-foundry-personas.md` instead of the pure Node ID `idea-122-pokemon-themed-foundry-personas`.
+
+### Terminal Tree Verification and Archival Scope
+- Successfully archived the 100% terminal tree rooted at `idea-517-gen2-radio-password-tracker` (3 nodes total):
+  - `idea-517-gen2-radio-password-tracker`
+  - `prd-517-564-gen2-radio-password-tracker`
+  - `research-564-565-buena-password-offsets`
+---
+
+# TPM Session Journal
+Date: 2026-10-03 03:00:00
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving must strictly operate at the whole DAG tree level. A completed node cannot be archived if any descendant or parent in its hierarchy is in an active or incomplete state.
+- **Node Linkage Preservation**: Moving node files to `.foundry/archive/` preserves historical reference while keeping active directory context windows slim. Inline markdown links targeting relocated files are updated to point to `.foundry/archive/`, while internal `depends_on` and `parent` YAML frontmatter fields strictly remain node IDs without paths to avoid DAG orchestrator circular dependency resolution failures.
+
+### Summary of Archived DAG Tree
+- Successfully archived the completed 100% terminal tree rooted at `idea-096-macro-node-boundary-enforcement` (9 nodes total):
+  - `idea-096-macro-node-boundary-enforcement`
+  - `prd-096-057-macro-node-boundary-enforcement`
+  - `epic-057-129-schema-documentation-updates`
+  - `story-129-420-update-schema-e2e-rule`
+  - `story-129-421-verify-schema-documentation-e2e`
+  - `task-420-422-schema-e2e-rule`
+  - `task-421-496-verify-schema-documentation-script-coder`
+  - `task-421-497-verify-schema-documentation-ci-coder`
+  - `task-421-498-verify-schema-documentation-qa`
+
+---
+
+# TPM Session Journal
+Date: 2026-10-04 03:30:00
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving must strictly operate at the whole DAG tree level. A completed node cannot be archived if any descendant or parent in its hierarchy is in an active or incomplete state.
+- **Node Linkage Preservation**: Moving node files to `.foundry/archive/` preserves historical reference while keeping active directory context windows slim.
+
+### Summary of Archived DAG Tree
+- Successfully archived the completed 100% terminal tree rooted at `idea-085-lift-rejection-count-state` (10 nodes total):
+  - `idea-085-lift-rejection-count-state`
+  - `prd-085-107-lift-rejection-count-state`
+  - `epic-107-344-update-dashboard-rejection-count`
+  - `story-344-494-dashboard-rejection-count`
+  - `story-344-495-dashboard-rejection-count-e2e`
+  - `task-494-512-refactor-dashboard-ui`
+  - `task-494-513-refactor-dashboard-tests`
+  - `task-494-514-qa-verify-dashboard`
+  - `task-495-528-dashboard-rejection-count-e2e`
+  - `task-495-529-qa-dashboard-rejection-count-e2e`

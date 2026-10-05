@@ -15,7 +15,7 @@ test.describe('Gen 2 Daily/Weekly Events', () => {
     await expect(page.getByText('BUG CATCHING CONTEST')).toBeVisible();
     await expect(page.getByText('HAIRCUT (OLDER)')).toBeVisible();
     await expect(page.getByText('HAIRCUT (YOUNGER)')).toBeVisible();
-    await expect(page.getByText('MYSTERY GIFT')).toBeVisible();
+    await expect(page.getByText('MYSTERY GIFT', { exact: true })).toBeVisible();
     await expect(page.getByText('BUENA NO BLUE CARD')).toBeVisible();
     await expect(page.getByText('MONICA (MONDAY)')).toBeVisible();
     await expect(page.getByText('TUSCANY (TUESDAY)')).toBeVisible();

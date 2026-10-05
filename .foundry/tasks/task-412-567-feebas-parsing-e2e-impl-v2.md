@@ -2,10 +2,10 @@
 id: task-412-567-feebas-parsing-e2e-impl-v2
 type: TASK
 title: Feebas Parsing E2E Integration Impl V2
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: $(date -I)
-updated_at: '2026-10-01'
+updated_at: '2026-10-05'
 depends_on:
   - research-412-563-investigate-feebas-e2e-timeout
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - gen3
   - backend
   - e2e
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
@@ -30,3 +30,5 @@ Write Playwright E2E tests to verify that uploading a Gen 3 save file correctly 
 - [ ] Create Playwright E2E tests to verify the Feebas data parsing end-to-end.
 - [ ] Apply recommendations from `research-412-563-investigate-feebas-e2e-timeout` to prevent timeouts.
 - [ ] Verify that UI visually renders the 6 expected tile markers.
+- [ ] task-567-637-feebas-ui-component-impl
+- [ ] task-567-638-feebas-ui-component-qa

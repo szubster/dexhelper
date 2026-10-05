@@ -2,10 +2,10 @@
 id: task-527-595-safari-zone-selection-ui
 type: TASK
 title: Safari Zone Target Selection UI
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-24'
+updated_at: '2026-10-05'
 depends_on:
   - task-527-594-safari-zone-data-hook
 jules_session_id: null
@@ -36,6 +36,6 @@ Implement the dropdown/search input for selecting valid Safari Zone Pokemon.
 - Use Vitest and `vitest-browser-react` to unit test the component.
 
 ## Acceptance Criteria
-- [ ] Component allows target Pokemon selection.
-- [ ] Adheres to the Tactical Hardware aesthetic.
-- [ ] Unit tests pass.
+- [x] Component allows target Pokemon selection.
+- [x] Adheres to the Tactical Hardware aesthetic.
+- [x] Unit tests pass.

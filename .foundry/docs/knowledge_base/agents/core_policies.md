@@ -1,7 +1,7 @@
 # Core Agent Policies
 
 ## Autonomous Communication & No-Ask Policy
-**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user for permission, input, feedback, or clarification during execution in chat, unless explicitly requested in the initial prompt. The answer to "Should I proceed?", "Should I open/submit a PR?", "Should I proceed with opening the PR?", or "Should I request code review?" is **ALWAYS YES** and must be executed autonomously without asking.
+**CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user questions, or ask for permission, input, feedback, clarification, hints, direction, or node/rejection history during execution in chat, unless explicitly requested in the initial prompt. Asking questions, seeking confirmation, stalling sessions, or waiting for user input in chat/conversation is strictly blocked and forbidden. All questions directed to the user will remain unanswered and asking questions will result in session failure. The answer to "Should I proceed?", "Should I open/submit a PR?", "Should I proceed with opening the PR?", or "Should I request code review?" is **ALWAYS YES** and must be executed autonomously without asking.
 
 1. **PRs are the Sole Communication Channel:** Your goal is to produce pull requests and code/node modifications completely autonomously. Always open and submit PRs immediately when work or demotion steps are ready. Do NOT ask the user whether a PR should be opened or submitted, whether to request code review, or whether changes are acceptable in chat. PRs themselves are the formal channel for review and feedback.
 2. **Prohibited Question Patterns:** Under NO circumstances should an agent post questions such as:
@@ -14,9 +14,13 @@
    - "Is there anything else you'd like me to address before submitting?"
    - "Which option do you prefer?"
    - "Is there any specific file you want me to look into, or any other branch we need to re-run the tests on?"
-3. **Utilize Late Binding for Unknowns & Missing Context:** If you lack context, do not know an offset/specification, or encounter architectural ambiguities:
-   - Do **NOT** ask the user for clarification or guidance in chat.
-   - Instead, utilize Late Binding: create a new Foundry node (`IDEA`, `RESEARCH`, `ADR`, or `TASK` depending on the scope) in `.foundry/`.
+   - "Could you provide any hints or direct me to where I might find...?"
+   - "Could you explain why [node/task] failed to reach completion?"
+   - "Where can I find the rejection history for [node/task]?"
+3. **Utilize Late Binding & Autonomous History Research for Unknowns & Missing Context:** If you lack context, do not know an offset/specification, cannot find rejection/git history directly in a single commit, or encounter architectural ambiguities:
+   - Do **NOT** ask the user for hints, direction, clarification, history explanations, or guidance in chat.
+   - Inspect git logs, search persona journals in `.foundry/journals/` (e.g. `.foundry/journals/auditor/` or `.foundry/journals/qa/`), or inspect archived nodes in `.foundry/archive/`.
+   - Utilize Late Binding: create a new Foundry node (`IDEA`, `RESEARCH`, `ADR`, or `TASK` depending on the scope) in `.foundry/`.
    - Set the `owner_persona` to the appropriate persona (`architect`, `researcher`, `story_owner`, `tech_lead`, etc.) so that the missing information is investigated and resolved asynchronously via the DAG orchestrator pipeline.
    - Follow the correct Foundry directory structure and metadata conventions when creating these nodes.
 4. **No Conversational Queries:** Never end a turn with conversational prompts or questions asking if the user wants you to proceed, open a PR, or choose options. Execute the best decision autonomously and submit the PR.
@@ -149,7 +153,7 @@ Instead, active nodes MUST utilize Late Binding to spawn appropriate child or up
 5. If the knowledge is universally applicable and should be shared across all agents, you MUST instead update or create a relevant document in `.foundry/docs/` rather than burying it in your private journal.
 
 ## YAML Frontmatter Rules
-**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED.
+**CRITICAL**: When successfully completing a node, DO NOT modify its YAML frontmatter; only update the markdown body (e.g., checking off acceptance criteria checkboxes). Modifying the YAML frontmatter is only permitted when explicitly changing the status to FAILED or CANCELLED, OR when adding/updating the `confidence_score` (0-100) to self-report your confidence level.
 
 ### Foundry Markdown Parsing
 When writing utility scripts or tools that process `.foundry` markdown files, metadata (such as `status` or `depends_on`) must be extracted by strictly isolating and parsing the YAML frontmatter block (e.g., by splitting on `---` boundaries or using a YAML frontmatter parser like `gray-matter`). Do NOT use global regex matching directly across the entire raw file body, as this risks matching keywords inside markdown descriptions or acceptance criteria.
@@ -190,7 +194,7 @@ When modifying or verifying central systems like the DAG Orchestrator (`.github/
 
 ## Architectural & Coding Constraints
 - **Save File Parsing**: When implementing save file parsing, extraction functions, or mapping bitwise blocks, you MUST strictly adhere to the guidelines defined in **Section 13 ("Save File Parsing & Extraction Guidelines")** of `.foundry/docs/schema.md`. This includes rules regarding module-level constants, avoiding magic numbers, using relative offsets for Gen 3, and catching `RangeError`.
-- **UI Aesthetic Constraints (ADR 008)**: When implementing UI components, you MUST adhere strictly to the "tactical hardware/snooping" aesthetic outlined in ADR 008. Explicitly use sharp edges (`rounded-none`). Strictly avoid any rounded corners (e.g., do not use `rounded-t`, `rounded-b`, `rounded-sm`, etc.) EXCEPT for `rounded-full` which is explicitly allowed for physical screws, targeting rings/reticles, and small LED status indicator dots. Use dashed borders (`border-dashed`) and monospaced telemetry fonts (e.g. `font-mono`).
+- **UI Aesthetic Constraints (ADR 008)**: When implementing UI components, you MUST adhere strictly to the "tactical hardware/snooping" aesthetic outlined in ADR 008. Explicitly use sharp edges (`rounded-none`). Strictly avoid any rounded corners (e.g., do not use `rounded-t`, `rounded-b`, `rounded-sm`, etc.) EXCEPT for `rounded-full` which is explicitly allowed for physical screws, targeting rings/reticles, and small LED status indicator dots. Use dashed borders (`border-dashed`) and monospaced telemetry fonts (e.g. `font-mono`). Furthermore, UI components MUST favor using defined `@utility` tactical primitives from `src/index.css` (such as `tactical-panel`, `tactical-text`, `tactical-button`) rather than repeating raw inline Tailwind classes.
 - **Architectural Scaffolding & Shared State**: If a Story involves complex shared state or architectural patterns (such as those mandated by ADR 013 and ADR 017), blueprints MUST provide explicit scaffolding instructions (e.g., explicitly instructing the coder to define the React Context layer first before implementing the UI components).
 - **Architectural Compliance & Enforcement**: When a QA agent rejects a task for missing architectural requirements, the coder MUST comprehensively implement the missing architectural layer (no faking fixes). QA agents MUST strictly enforce architectural patterns mandated by ADRs and explicitly document persistent failures.
 - **Vitest Mocks**: Vitest requires explicit generic typing on `vi.fn()` mocks (e.g. `vi.fn<(type: string) => void>()`) when testing callback props for components, to satisfy `vitest(require-mock-type-parameters)`.

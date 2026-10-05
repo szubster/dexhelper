@@ -2,7 +2,7 @@
 id: task-517-576-orchestrator-fallback-generic-prompt
 type: TASK
 title: Orchestrator Fallback to Generic Prompt
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-13'
 updated_at: '2026-10-02'
@@ -15,8 +15,8 @@ tags:
   - orchestrator
   - fallback
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 experiment_variants: []
 locks: []

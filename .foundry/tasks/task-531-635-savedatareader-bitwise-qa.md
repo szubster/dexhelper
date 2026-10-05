@@ -2,7 +2,7 @@
 id: task-531-635-savedatareader-bitwise-qa
 type: TASK
 title: SaveDataReader Bitwise Helpers QA
-status: READY
+status: COMPLETED
 owner_persona: qa
 created_at: '2024-05-24'
 updated_at: '2026-10-02'
@@ -30,6 +30,6 @@ locks: []
 Perform Quality Assurance verification on the \`SaveDataReader\` bitwise helpers implementation.
 
 ## Acceptance Criteria
-- [ ] Verify \`readBits\` and \`readFlag\` helper methods in \`SaveDataReader\` are implemented correctly.
-- [ ] Verify bounds checking and shifts are handled correctly.
-- [ ] Ensure unit tests pass and provide adequate coverage.
+- [x] Verify `readBits` and `readFlag` helper methods in `SaveDataReader` are implemented correctly.
+- [x] Verify bounds checking and shifts are handled correctly.
+- [x] Ensure unit tests pass and provide adequate coverage.

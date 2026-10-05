@@ -2,10 +2,10 @@
 id: task-430-643-data-splitting-e2e-qa
 type: TASK
 title: QA for Data Splitting E2E Tests
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-04'
 depends_on:
   - task-430-641-core-data-load-e2e
   - task-430-642-gen-specific-load-e2e
@@ -31,5 +31,5 @@ As part of the Bundle and Data Splitting Strategy (ADR 029), we need to split th
 Verify the E2E tests implemented for core data loading and gen-specific extension loading.
 
 ## Acceptance Criteria
-- [ ] Verify core data load E2E tests pass reliably and correctly assert data loading.
-- [ ] Verify gen-specific extension load E2E tests pass reliably and correctly assert extension loading on save upload.
+- [x] Verify core data load E2E tests pass reliably and correctly assert data loading.
+- [x] Verify gen-specific extension load E2E tests pass reliably and correctly assert extension loading on save upload.

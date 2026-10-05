@@ -2,10 +2,10 @@
 id: story-565-581-pokedex-grid-e2e-verification
 type: STORY
 title: PokedexGrid Virtualization E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-18'
-updated_at: '2026-10-02'
+updated_at: '2026-10-05'
 depends_on:
   - story-565-580-virtualize-pokedex-grid-implementation
 jules_session_id: null
@@ -27,4 +27,6 @@ locks: []
 E2E verification and integration testing for the `PokedexGrid` virtualization implementation. This ensures scrolling behaves correctly and pokemon cards are correctly rendered within the virtualized viewport.
 
 ## Acceptance Criteria
-- [ ] Break down into tasks to write and execute E2E tests for the virtualized grid.
+- [x] Break down into tasks to write and execute E2E tests for the virtualized grid.
+- [ ] task-581-658-pokedex-grid-virtualization-e2e-impl
+- [ ] task-581-659-pokedex-grid-virtualization-e2e-qa

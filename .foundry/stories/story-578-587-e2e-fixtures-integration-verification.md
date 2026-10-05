@@ -8,7 +8,7 @@ created_at: '2026-09-20'
 updated_at: '2026-09-29'
 depends_on:
   - story-578-586-create-playwright-fixtures-definition
-jules_session_id: '9177521611628617241'
+jules_session_id: null
 pr_number: null
 parent: epic-566-578-e2e-fixtures-setup
 tags:

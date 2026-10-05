@@ -1,10 +1,11 @@
-import { Search, X } from 'lucide-react';
+import { Search } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useMemo, useState } from 'react';
 import { pokeDB } from '../../../db/PokeDB';
 import type { ItemMetadata } from '../../../db/schema';
 import { useStore } from '../../../store';
 import { TacticalButton } from '../../TacticalButton';
+import { TacticalChip } from '../../TacticalChip';
 import { TacticalInput } from '../../TacticalInput';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
@@ -82,20 +83,13 @@ export const WildItemSelector: React.FC = () => {
           <span className="font-mono text-xs text-zinc-500">SELECTED TARGETS</span>
           <div className="flex flex-wrap gap-2">
             {selectedItems.map((item) => (
-              <div
+              <TacticalChip
                 key={item.id}
-                className="flex items-center gap-2 rounded-none border border-[var(--theme-primary)] border-dashed bg-[var(--theme-primary)]/10 px-2 py-1 font-mono text-[var(--theme-primary)] text-xs"
+                onRemove={() => removeSelectedWildItemId(item.id)}
+                removeButtonTitle="Remove target"
               >
-                <span>{item.name.toUpperCase()}</span>
-                <button
-                  onClick={() => removeSelectedWildItemId(item.id)}
-                  className="rounded-none text-[var(--theme-primary)] hover:text-white"
-                  title="Remove target"
-                  type="button"
-                >
-                  <X className="h-3 w-3" />
-                </button>
-              </div>
+                {item.name.toUpperCase()}
+              </TacticalChip>
             ))}
           </div>
         </div>

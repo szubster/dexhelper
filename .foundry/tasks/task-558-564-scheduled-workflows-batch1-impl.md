@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-09-08'
 updated_at: '2026-09-16'
 depends_on: []
-jules_session_id: '3762866381632040783'
+jules_session_id: null
 pr_number: null
 parent: story-531-558-modify-scheduled-workflows-impl
 tags:

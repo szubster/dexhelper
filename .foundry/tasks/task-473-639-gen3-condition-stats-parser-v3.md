@@ -2,10 +2,10 @@
 id: task-473-639-gen3-condition-stats-parser-v3
 type: TASK
 title: Implement Gen 3 Contest Condition Stats Parser (Retry 2)
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-30'
-updated_at: '2026-09-30'
+updated_at: '2026-10-04'
 depends_on:
   - research-473-638-investigate-condition-stats-parser-failure-v2
 jules_session_id: null
@@ -33,7 +33,7 @@ Implement the logic to extract the Contest Condition stats using the \`DataView\
 - Read the 32-bit Personality Value at offset 0x00 and locate the EVs & Condition (E) substructure at offset 0x20.
 
 ## Acceptance Criteria
-- [ ] Implement parsing function using DataView API to extract Condition stats.
-- [ ] Integrate the permutation logic to correctly locate the 'E' substructure.
-- [ ] Catch RangeError from DataView and throw the required error message.
-- [ ] Ensure all offset and size values use the module-level constants.
+- [x] Implement parsing function using DataView API to extract Condition stats.
+- [x] Integrate the permutation logic to correctly locate the 'E' substructure.
+- [x] Catch RangeError from DataView and throw the required error message.
+- [x] Ensure all offset and size values use the module-level constants.

@@ -5,7 +5,7 @@ title: Client Data Loading for JSONL Moves and Items
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-01'
+updated_at: '2026-10-05'
 depends_on:
   - story-088-637-vite-jsonl-plugin-update
 jules_session_id: null
@@ -15,7 +15,7 @@ tags:
   - db
   - refactor
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
@@ -32,3 +32,7 @@ With the Vite plugin now capable of bundling `.jsonl` files, the application run
 - [ ] Update application data layer to fetch and parse the loaded `moves.jsonl` and `items.jsonl` datasets.
 - [ ] Integrate the parsed data structures into the existing move and item data providers to ensure smooth UI transition.
 - [ ] Ensure efficient loading to minimize performance impact.
+
+- [ ] task-638-658-client-db-jsonl-loader-db-impl
+- [ ] task-638-659-client-db-jsonl-loader-dataloader-impl
+- [ ] task-638-660-client-db-jsonl-loader-qa

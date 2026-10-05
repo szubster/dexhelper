@@ -64,6 +64,13 @@ describe('Gen 3 Trainer Flags Parser', () => {
       expect(flags[1]).toBe(true);
     });
 
+    it('returns an empty array for unsupported game versions', () => {
+      const buffer = new ArrayBuffer(5000);
+      const view = new DataView(buffer);
+      const flags = parseGen3TrainerDefeatFlags(view, 0, 'unsupported_game');
+      expect(flags).toEqual([]);
+    });
+
     it('throws custom error on out-of-bounds read (boundary test)', () => {
       const buffer = new ArrayBuffer(10); // Too small
       const view = new DataView(buffer);
@@ -72,6 +79,18 @@ describe('Gen 3 Trainer Flags Parser', () => {
       expect(() => {
         parseGen3TrainerDefeatFlags(view, saveBlock1Offset, 'emerald');
       }).toThrow('The save file is corrupted or incomplete.');
+    });
+
+    it('re-throws non-RangeError exceptions in parseGen3TrainerDefeatFlags', () => {
+      const buffer = new ArrayBuffer(5000);
+      const view = new DataView(buffer);
+      view.getUint8 = () => {
+        throw new TypeError('Custom error');
+      };
+
+      expect(() => {
+        parseGen3TrainerDefeatFlags(view, 0, 'emerald');
+      }).toThrow('Custom error');
     });
   });
 
@@ -120,6 +139,13 @@ describe('Gen 3 Trainer Flags Parser', () => {
       expect(flags[0]).toBe(8);
     });
 
+    it('returns an empty array for unsupported game versions', () => {
+      const buffer = new ArrayBuffer(3000);
+      const view = new DataView(buffer);
+      const flags = parseGen3TrainerRematchFlags(view, 0, 'unsupported_game');
+      expect(flags).toEqual([]);
+    });
+
     it('throws custom error on out-of-bounds read', () => {
       const buffer = new ArrayBuffer(10); // Too small
       const view = new DataView(buffer);
@@ -128,6 +154,18 @@ describe('Gen 3 Trainer Flags Parser', () => {
       expect(() => {
         parseGen3TrainerRematchFlags(view, saveBlock1Offset, 'firered');
       }).toThrow('The save file is corrupted or incomplete.');
+    });
+
+    it('re-throws non-RangeError exceptions in parseGen3TrainerRematchFlags', () => {
+      const buffer = new ArrayBuffer(3000);
+      const view = new DataView(buffer);
+      view.getUint8 = () => {
+        throw new TypeError('Custom error');
+      };
+
+      expect(() => {
+        parseGen3TrainerRematchFlags(view, 0, 'emerald');
+      }).toThrow('Custom error');
     });
   });
 });

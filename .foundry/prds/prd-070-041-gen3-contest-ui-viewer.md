@@ -7,7 +7,7 @@ owner_persona: epic_planner
 created_at: '2026-06-08'
 updated_at: '2026-08-20'
 depends_on: []
-jules_session_id: '3197885195207899979'
+jules_session_id: null
 pr_number: null
 parent: idea-070-gen3-contest-tracker
 tags:

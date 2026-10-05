@@ -102,7 +102,7 @@
       "maxSize": "30kb"
     },
     {
-      "path": "assets/SafariZoneEncountersList-<hash>.js",
+      "path": "assets/safariZone-<hash>.js",
       "maxSize": "60kb"
     },
     {

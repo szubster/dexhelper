@@ -12,6 +12,7 @@ import * as path from 'node:path';
 import matter from 'gray-matter';
 import { discoverNodeFiles, parseNodeFile } from './foundry-orchestrator.ts';
 import { todayISO, updateActiveSessionsTable } from './dag-utils.ts';
+import { deleteJulesSession, getSessionActivities } from './session-api.ts';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
@@ -535,9 +536,17 @@ export async function main() {
 
         if (isMerged) {
           await transitionNodeToCompleted(node, repoRoot, pr.number);
+          if (sessionId) {
+            info(`Cleaning up merged Jules session from API: ${sessionId}`);
+            await deleteJulesSession(sessionId, julesKey);
+          }
           continue;
         } else {
           await transitionNodeToReady(node, repoRoot, `PR #${pr.number} closed without merging.`);
+          if (sessionId) {
+            info(`Cleaning up closed unmerged Jules session from API: ${sessionId}`);
+            await deleteJulesSession(sessionId, julesKey);
+          }
           continue;
         }
       } else {
@@ -551,9 +560,17 @@ export async function main() {
       if (sessionStatus === 'AWAITING_USER_FEEDBACK') {
         info(`Session ${sessionId} entered AWAITING_USER_FEEDBACK. This violates the Autonomous No-Ask Policy. Transitioning to FAILED.`);
         await transitionNodeToFailed(node, repoRoot, 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK');
+        if (sessionId) {
+          info(`Killing Jules session ${sessionId} after policy violation.`);
+          await deleteJulesSession(sessionId, julesKey);
+        }
       } else if (sessionStatus && !ACTIVE_SESSION_STATES.includes(sessionStatus)) {
         info(`Session ${sessionId} (Status: ${sessionStatus}) terminated without PR. Transitioning to FAILED.`);
         await transitionNodeToFailed(node, repoRoot, `Session terminated with state: ${sessionStatus}`);
+        if (sessionId) {
+          info(`Deleting terminated Jules session: ${sessionId}`);
+          await deleteJulesSession(sessionId, julesKey);
+        }
       } else if (sessionStatus === 'NOT_FOUND') {
         info(`Session ${sessionId} NOT_FOUND without PR. Failing.`);
         await transitionNodeToFailed(node, repoRoot, `Session terminated with state: NOT_FOUND`);
@@ -563,11 +580,31 @@ export async function main() {
           const creationTime = new Date(creationTimeStr).getTime();
           if (!isNaN(creationTime)) {
             const now = Date.now();
-            const hoursElapsed = (now - creationTime) / (1000 * 60 * 60);
+            const minsElapsed = (now - creationTime) / (1000 * 60);
 
+            // Check if stuck in environment setup script (0 activities after 20 minutes)
+            if (sessionId && minsElapsed > 20) {
+              const activities = await getSessionActivities(sessionId, julesKey);
+              if (activities.length === 0) {
+                info(`Session ${sessionId} has 0 activities after ${minsElapsed.toFixed(0)}m. Stuck in environment setup script. Resurrecting to READY.`);
+                await transitionNodeToReadyWithoutPenalty(
+                  node,
+                  repoRoot,
+                  `Session stuck in environment setup script (${minsElapsed.toFixed(0)}m elapsed, 0 activities)`
+                );
+                info(`Killing stuck Jules session: ${sessionId}`);
+                await deleteJulesSession(sessionId, julesKey);
+                continue;
+              }
+            }
+
+            const hoursElapsed = minsElapsed / 60;
             if (hoursElapsed > 168) { // 7 days (7 * 24 = 168 hours)
               info(`Session ${sessionId} (or node ${node.repoPath}) created >7 days ago (${hoursElapsed.toFixed(1)}h) without PR. Transitioning to FAILED.`);
               await transitionNodeToFailed(node, repoRoot, 'Session timed out (>7 days without PR)');
+              if (sessionId) {
+                await deleteJulesSession(sessionId, julesKey);
+              }
             }
           }
         }
@@ -595,11 +632,53 @@ export async function main() {
   } catch (err) {
     warn(`Failed to update ACTIVE_SESSIONS.md: ${String(err)}`);
   }
+
+  // --- Pass 5: Periodic Lingering Session Cleanup ---
+  try {
+    await cleanupLingeringCompletedSessions(repoRoot, julesKey);
+  } catch (err) {
+    warn(`Failed cleanupLingeringCompletedSessions: ${String(err)}`);
+  }
+}
+
+/**
+ * Periodically cleans up lingering jules_session_id from terminal (COMPLETED/CANCELLED) nodes
+ * and deletes them from Jules API to free cloud resources and maintain UI responsiveness.
+ */
+export async function cleanupLingeringCompletedSessions(repoRoot: string, julesKey: string, maxPerRun = 20): Promise<number> {
+  const filePaths = discoverNodeFiles(path.join(repoRoot, '.foundry'));
+  let cleanedCount = 0;
+
+  for (const fp of filePaths) {
+    if (cleanedCount >= maxPerRun) break;
+    const node = parseNodeFile(fp, repoRoot);
+    if (!node) continue;
+
+    const status = node.frontmatter.status;
+    const sessionId = getSessionId(node);
+
+    if (sessionId && sessionId !== '123' && ['COMPLETED', 'CANCELLED'].includes(status)) {
+      info(`Purging lingering session ${sessionId} for ${status} node: ${node.repoPath}`);
+      if (!DRY_RUN) {
+        await deleteJulesSession(sessionId, julesKey);
+        const parsed = matter(node.rawContent);
+        parsed.data.jules_session_id = null;
+        fs.writeFileSync(node.filePath, matter.stringify(parsed.content, parsed.data), 'utf-8');
+      }
+      cleanedCount++;
+    }
+  }
+
+  if (cleanedCount > 0) {
+    info(`Purged ${cleanedCount} lingering Jules sessions from terminal nodes.`);
+  }
+  return cleanedCount;
 }
 
 if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('foundry-heartbeat.ts')) {
   main().catch(err => { warn(`Fatal: ${String(err)}`); process.exit(1); });
 }
+
 
 /**
  * Identifies Git branches that are safe to delete, based on FAILED or CANCELLED task nodes.

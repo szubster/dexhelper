@@ -5,7 +5,7 @@ title: Relocate Foundry Scripts
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-02'
+updated_at: '2026-10-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -26,5 +26,8 @@ Relocate `.github/scripts/` into `@dexhelper/foundry`.
 
 ## Acceptance Criteria
 - [ ] Relocate `.github/scripts/` into `@dexhelper/foundry`
-- [ ] task-640-641-relocate-foundry-scripts
-- [ ] task-640-642-qa-relocate-foundry-scripts
+- [x] task-640-641-relocate-foundry-scripts
+- [x] task-640-642-qa-relocate-foundry-scripts
+- [ ] research-640-652-investigate-relocate-scripts-failure
+- [ ] task-640-653-relocate-foundry-scripts-replacement
+- [ ] task-640-654-qa-relocate-foundry-scripts-replacement

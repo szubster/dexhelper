@@ -125,6 +125,19 @@ describe('SaveDataReader', () => {
 
     expect(() => reader.readBits(4, 0, 1)).toThrow(errorMessage);
     expect(() => reader.readBits(3, 7, 2)).toThrow(errorMessage);
+
+    expect(() => reader.readBits(0, -1, 1)).toThrow(errorMessage);
+    expect(() => reader.readBits(0, 0, -1)).toThrow(errorMessage);
+    expect(() => reader.readBits(0, 0, 33)).toThrow(errorMessage);
+  });
+
+  it('should return unsigned value for 32-bit reads', () => {
+    const buffer = new ArrayBuffer(4);
+    const view = new DataView(buffer);
+    const reader = new SaveDataReader(view);
+
+    view.setUint32(0, 0xffffffff, true);
+    expect(reader.readBits(0, 0, 32)).toBe(0xffffffff);
   });
 
   it('should throw an Error for out-of-bounds reading in readFlag', () => {

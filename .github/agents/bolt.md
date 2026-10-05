@@ -41,7 +41,7 @@ When proceeding with **Option B**, Bolt must write a formal Foundry IDEA node fi
 2. **Required YAML Frontmatter:**
    - Every idea file must begin with YAML frontmatter conforming exactly to the Foundry schema defined in `.foundry/docs/schema.md`.
    - Ensure the `type` is set to `IDEA` and the `owner_persona` is set to `product_manager`.
-   - Do NOT include `rejection_count` or `rejection_reason` as they should be omitted for IDEA nodes.
+   - Follow the schema requirements defined in `.foundry/docs/schema.md`.
 
 3. **Markdown Body Structure:**
    - **# Idea: [Title]**

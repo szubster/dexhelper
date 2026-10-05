@@ -2,10 +2,10 @@
 id: task-471-639-update-fixture-manifests-retry
 type: TASK
 title: Update Fixture Manifests
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-30'
-updated_at: '2026-09-30'
+updated_at: '2026-10-03'
 depends_on:
   - task-471-638-verify-and-move-saves-retry
 jules_session_id: null
@@ -15,7 +15,7 @@ tags:
   - testing
   - fixtures
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -30,5 +30,5 @@ The test fixtures have been updated with new save files. We must update any inde
 1. Update any index/manifest files or tests that load all fixtures.
 
 ## Acceptance Criteria
-- [ ] Index/manifest files are updated with the new fixture names.
-- [ ] Tests load all fixtures, including the newly added ones.
+- [x] Index/manifest files are updated with the new fixture names.
+- [x] Tests load all fixtures, including the newly added ones.

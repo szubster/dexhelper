@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useGen3RTC } from '../../contexts/Gen3RTCContext';
 import { useTimeOverride } from '../../contexts/TimeOverrideContext';
 import { TacticalButton } from '../TacticalButton';
+import { TacticalInput } from '../TacticalInput';
 import { TacticalSelect } from '../TacticalSelect';
 
 const DISPLAY_DAYS_OF_WEEK = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -51,12 +52,13 @@ export const Gen3RTCControls: React.FC = () => {
           Manual Time Override (HH:MM)
         </label>
         <div className="flex gap-2">
-          <input
+          <TacticalInput
             id="rtc-time-input"
             type="time"
             value={inputTime}
             onChange={(e) => setInputTime(e.target.value)}
-            className="flex-1 rounded-none border border-white/20 border-dashed bg-zinc-900/50 p-2 font-mono text-sm text-white outline-none transition-all focus:border-[var(--theme-primary)]"
+            className="border-white/20 bg-zinc-900/50 text-white focus:border-[var(--theme-primary)]"
+            containerClassName="flex-1"
             data-testid="rtc-time-input"
           />
           <TacticalButton

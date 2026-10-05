@@ -107,3 +107,66 @@ export async function dispatchJulesSession(prompt: string, julesKey: string, git
     const data = await res.json() as any;
     return data.id;
 }
+
+export interface SessionDetails {
+  id?: string;
+  name?: string;
+  state?: string;
+  title?: string;
+  createTime?: string;
+  updateTime?: string;
+  outputs?: any[];
+  [key: string]: unknown;
+}
+
+export async function getSessionDetails(sessionId: string, julesKey: string): Promise<SessionDetails | null> {
+  try {
+    const res = await fetch(`https://jules.googleapis.com/v1alpha/sessions/${sessionId}`, {
+      headers: { 'X-Goog-Api-Key': julesKey }
+    });
+
+    if (res.status === 404) {
+      return null;
+    }
+
+    if (!res.ok) {
+      process.stderr.write(`[session-api] Failed to get session ${sessionId}: status ${res.status}\n`);
+      return null;
+    }
+
+    return await res.json() as SessionDetails;
+  } catch (err) {
+    process.stderr.write(`[session-api] Error getting session ${sessionId}: ${String(err)}\n`);
+    return null;
+  }
+}
+
+export async function deleteJulesSession(sessionId: string, julesKey: string): Promise<boolean> {
+  try {
+    const res = await fetch(`https://jules.googleapis.com/v1alpha/sessions/${sessionId}`, {
+      method: 'DELETE',
+      headers: { 'X-Goog-Api-Key': julesKey }
+    });
+
+    if (res.ok || res.status === 404) {
+      return true;
+    }
+
+    if (res.status === 429) {
+      await new Promise(r => setTimeout(r, 2000));
+      const retryRes = await fetch(`https://jules.googleapis.com/v1alpha/sessions/${sessionId}`, {
+        method: 'DELETE',
+        headers: { 'X-Goog-Api-Key': julesKey }
+      });
+      return retryRes.ok || retryRes.status === 404;
+    }
+
+    process.stderr.write(`[session-api] Failed to delete session ${sessionId}: status ${res.status}\n`);
+    return false;
+  } catch (err) {
+    process.stderr.write(`[session-api] Error deleting session ${sessionId}: ${String(err)}\n`);
+    return false;
+  }
+}
+
+

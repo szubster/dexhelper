@@ -123,6 +123,24 @@ describe('Real Save Fixtures Verification', () => {
       expectedId: 58646,
       expectedPartyLength: 5,
     },
+    {
+      file: 'emerald-mystery-gift.sav',
+      gen: 3 as const,
+      forcedVersion: 'emerald' as GameVersion,
+      expectedVersion: 'emerald',
+      expectedTrainer: '',
+      expectedId: 58646,
+      expectedPartyLength: 5,
+    },
+    {
+      file: 'firered-mystery-gift.sav',
+      gen: 3 as const,
+      forcedVersion: 'firered' as GameVersion,
+      expectedVersion: 'firered',
+      expectedTrainer: '',
+      expectedId: 16152,
+      expectedPartyLength: 6,
+    },
   ];
 
   customTest.for(saveCases)(

@@ -2,10 +2,10 @@
 id: task-430-641-core-data-load-e2e
 type: TASK
 title: Core Data Load E2E Tests
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-03'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,5 +29,5 @@ As part of the Bundle and Data Splitting Strategy (ADR 029), we need to split th
 Write E2E tests verifying that the core data bundle loads correctly on application startup.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for core data loading.
-- [ ] Ensure tests verify successful parsing and data availability.
+- [x] Implement E2E tests for core data loading.
+- [x] Ensure tests verify successful parsing and data availability.

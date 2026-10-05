@@ -8,7 +8,7 @@ interface BoxAnalyzerMatrixProps {
 
 export function BoxAnalyzerMatrix({ data, columns }: BoxAnalyzerMatrixProps) {
   return (
-    <div className="w-full overflow-x-auto rounded-none border border-cyan-500/30 border-dashed bg-zinc-950/60 p-2">
+    <div className="tactical-panel w-full overflow-x-auto border-cyan-500/30 p-2">
       <table className="w-full text-left font-mono text-xs text-zinc-300">
         <thead>
           <tr className="border-cyan-500/30 border-b border-dashed">

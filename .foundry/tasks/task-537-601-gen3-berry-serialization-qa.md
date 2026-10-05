@@ -2,17 +2,19 @@
 id: task-537-601-gen3-berry-serialization-qa
 type: TASK
 title: QA Verification of Gen 3 Berry Serialization
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-10-05'
 depends_on:
   - task-537-600-gen3-berry-runtime-api
 jules_session_id: null
 pr_number: null
 parent: story-513-537-gen3-berry-serialization-and-api
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-537-600-gen3-berry-runtime-api
 locks: []
 ---
 
