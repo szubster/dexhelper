@@ -171,7 +171,7 @@ describe('AppLayout file upload', () => {
       </QueryClientProvider>,
     );
 
-    const button = page.getByTitle('Import New Save');
+    const button = page.getByRole('button', { name: 'Import New Save' }).first();
     await expect.element(button).toBeInTheDocument();
 
     const input = document.getElementById('import-save-input') as HTMLInputElement;
