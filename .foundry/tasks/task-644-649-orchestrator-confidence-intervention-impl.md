@@ -2,7 +2,7 @@
 id: task-644-649-orchestrator-confidence-intervention-impl
 type: TASK
 title: Implement Orchestrator Confidence Intervention Logic
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-02'
 updated_at: '2026-10-05'
@@ -14,8 +14,8 @@ tags:
   - orchestrator
   - foundry
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

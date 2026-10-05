@@ -2,10 +2,10 @@
 id: task-641-659-migrate-hexstream-telemetry
 type: TASK
 title: Migrate HexStream and Telemetry Decorations
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,7 +2,7 @@
 id: task-638-641-extract-constants-to-core
 type: TASK
 title: Extract Constants to Core Package
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-05'
@@ -14,8 +14,8 @@ tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

@@ -2,13 +2,13 @@
 id: task-559-618-scheduled-workflow-e2e-impl
 type: TASK
 title: Scheduled Workflow E2E - Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-23'
-updated_at: '2026-10-03'
+updated_at: '2026-10-05'
 depends_on:
   - task-559-617-scheduled-workflow-e2e-fixtures
-jules_session_id: '8320371913418316962'
+jules_session_id: null
 pr_number: null
 parent: story-531-559-modify-scheduled-workflows-e2e
 tags:

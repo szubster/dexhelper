@@ -2,10 +2,10 @@
 id: task-638-658-client-db-jsonl-loader-db-impl
 type: TASK
 title: Implement Bulk DB Fetching for JSONL Data
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-05'
 depends_on:
   - story-088-637-vite-jsonl-plugin-update
 jules_session_id: null

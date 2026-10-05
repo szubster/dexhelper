@@ -2,10 +2,10 @@
 id: story-553-565-gen3-map-data-integration-e2e
 type: STORY
 title: Gen 3 Map Data Integration & E2E Verification
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-13'
+updated_at: '2026-10-05'
 depends_on:
   - story-553-564-gen3-coordinate-mapping
 jules_session_id: null
@@ -20,7 +20,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  story-553-563-gen3-map-data-extraction
 notes: ''
 locks: []
 ---

@@ -2,7 +2,7 @@
 id: story-411-422-pc-box-and-tm-extraction
 type: STORY
 title: Extract PC Box and TM Inventory data concurrently.
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11T00:00:00.000Z'
 updated_at: '2026-10-05'
@@ -17,8 +17,8 @@ tags:
   - gen2
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

@@ -2,19 +2,19 @@
 id: task-639-659-migrate-badges-impl
 type: TASK
 title: Migrate Tactical Badges Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: '10111584055807714722'
+jules_session_id: null
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
 tags:
   - react
   - components
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

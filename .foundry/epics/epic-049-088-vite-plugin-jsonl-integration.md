@@ -2,7 +2,7 @@
 id: epic-049-088-vite-plugin-jsonl-integration
 type: EPIC
 title: Vite Plugin Integration for JSONL Data
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-13'
 updated_at: '2026-10-05'

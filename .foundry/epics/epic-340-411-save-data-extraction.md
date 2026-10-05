@@ -2,7 +2,7 @@
 id: epic-340-411-save-data-extraction
 type: EPIC
 title: Active Party Matchup - Save Data Extraction
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-11'
 updated_at: '2026-10-05'

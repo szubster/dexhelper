@@ -2,7 +2,7 @@
 id: story-553-563-gen3-map-data-extraction
 type: STORY
 title: Gen 3 Map Data Extraction (Offsets & Binary Parsing)
-status: FAILED
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-09-12'
 updated_at: '2026-10-05'
@@ -16,8 +16,8 @@ tags:
   - map
   - data
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

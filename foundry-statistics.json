@@ -7,16 +7,16 @@
       "PRD": 199,
       "RESEARCH": 232,
       "STORY": 987,
-      "TASK": 2221
+      "TASK": 2226
     },
     "byStatus": {
-      "COMPLETED": 2868,
-      "ACTIVE": 27,
-      "CANCELLED": 531,
-      "PENDING": 794,
-      "READY": 158,
+      "COMPLETED": 2879,
+      "ACTIVE": 22,
+      "CANCELLED": 534,
+      "PENDING": 786,
+      "READY": 165,
       "BLOCKED": 14,
-      "FAILED": 9
+      "FAILED": 6
     }
   },
   "prs": {
@@ -25,5 +25,5 @@
     "mergedPRs": 6,
     "closedPRs": 3
   },
-  "timestamp": "2026-10-05T01:20:11.746Z"
+  "timestamp": "2026-10-05T07:45:09.153Z"
 }

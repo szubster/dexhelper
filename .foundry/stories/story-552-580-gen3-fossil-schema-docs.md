@@ -2,7 +2,7 @@
 id: story-552-580-gen3-fossil-schema-docs
 type: STORY
 title: Update Schema Documentation for Gen 3 Fossil Offsets
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-17T18:41:42Z'
 updated_at: '2026-10-05'

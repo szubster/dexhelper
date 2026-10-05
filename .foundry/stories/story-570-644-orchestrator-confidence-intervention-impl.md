@@ -2,12 +2,12 @@
 id: story-570-644-orchestrator-confidence-intervention-impl
 type: STORY
 title: Implement Orchestrator Interventions for Confidence Metrics
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-01T15:03:21Z'
 updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: '14754581358187580301'
+jules_session_id: null
 pr_number: null
 parent: epic-565-570-agent-confidence-metrics-orchestrator
 tags:

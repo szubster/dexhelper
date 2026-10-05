@@ -2,10 +2,10 @@
 id: task-521-641-lru-eviction-qa
 type: TASK
 title: Verify LRU eviction logic for save states
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-28'
-updated_at: '2026-09-28'
+updated_at: '2026-10-05'
 depends_on:
   - task-521-640-lru-eviction-logic
 jules_session_id: null
@@ -15,9 +15,9 @@ tags:
   - storage
   - indexeddb
   - qa
+research_references: []
 rejection_count: 0
 rejection_reason: ''
-research_references: []
 notes: ''
 locks: []
 ---
