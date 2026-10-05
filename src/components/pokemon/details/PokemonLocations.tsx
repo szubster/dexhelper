@@ -1,3 +1,4 @@
+import { ScanlineOverlay } from '@dexhelper/ui';
 import {
   Activity,
   AlertTriangle,
@@ -18,7 +19,6 @@ import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schem
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
 import { isValidStaticGameVersion, staticEncounters } from '../../../engine/data/shared/staticData';
 import { DataLabel } from '../../DataLabel';
-import { ScanlineOverlay } from '../../ScanlineOverlay';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalNode } from '../../TacticalNode';

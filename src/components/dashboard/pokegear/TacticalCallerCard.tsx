@@ -1,6 +1,6 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import type { CallerType } from '../../../engine/saveParser/parsers/gen2/phone/constants';
 import type { Contact } from '../../../engine/saveParser/parsers/gen2/phone/predictor';
-import { CornerCrosshairs } from '../../CornerCrosshairs';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
 

@@ -1,10 +1,10 @@
+import { ScanlineOverlay } from '@dexhelper/ui';
 import { Activity, CheckCircle2, Key, Server } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import { cn } from '../utils/cn';
 import { EdgeLabel } from './EdgeLabel';
 import { LcdGrid } from './LcdGrid';
-import { ScanlineOverlay } from './ScanlineOverlay';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
 interface SyncProgressDetail {

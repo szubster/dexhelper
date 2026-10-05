@@ -1,3 +1,4 @@
+import { ScanlineOverlay } from '@dexhelper/ui';
 import { useNavigate } from '@tanstack/react-router';
 import { CircleDot, Monitor, Sparkles } from 'lucide-react';
 import React from 'react';
@@ -9,7 +10,6 @@ import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { PokemonStatusBadge } from './pokemon/PokemonStatusBadge';
-import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalCard } from './TacticalCard';
 import { TargetingRings } from './TargetingRings';
 import { TargetLockOverlay } from './TargetLockOverlay';

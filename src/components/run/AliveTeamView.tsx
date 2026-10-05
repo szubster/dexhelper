@@ -1,8 +1,8 @@
+import { ScanlineOverlay } from '@dexhelper/ui';
 import { ShieldAlert, Zap } from 'lucide-react';
 import React, { useMemo } from 'react';
 import type { PokemonInstance } from '../../engine/saveParser/parsers/common';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
-import { ScanlineOverlay } from '../ScanlineOverlay';
 import { TacticalPanel } from '../TacticalPanel';
 import { TelemetryDecoration } from '../TelemetryDecoration';
 

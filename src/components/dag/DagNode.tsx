@@ -1,8 +1,8 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import { Handle, Position } from '@xyflow/react';
 import { AlertTriangle } from 'lucide-react';
 import React from 'react';
 import { cn } from '../../utils/cn';
-import { CornerCrosshairs } from '../CornerCrosshairs';
 import { useDagContext } from '../dashboard/DagContext';
 import { TelemetryDecoration } from '../TelemetryDecoration';
 import { PersonaBadge } from './PersonaBadge';

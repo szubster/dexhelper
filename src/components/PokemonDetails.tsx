@@ -1,3 +1,4 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import { useQuery } from '@tanstack/react-query';
 import { AlertCircle, CheckCircle2, Monitor, X } from 'lucide-react';
 import React, { useEffect } from 'react';
@@ -8,7 +9,6 @@ import type { SaveData } from '../engine/saveParser/index';
 import type { PokeballType } from '../store';
 import { cn } from '../utils/cn';
 import { getGenerationConfig } from '../utils/generationConfig';
-import { CornerCrosshairs } from './CornerCrosshairs';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { PokemonSprite } from './pokemon/PokemonSprite';
@@ -33,7 +33,7 @@ const PokerusSpreadPlanner = React.lazy(() =>
   import('./PokerusSpreadPlanner').then((m) => ({ default: m.PokerusSpreadPlanner })),
 );
 
-import { ScanlineOverlay } from './ScanlineOverlay';
+import { ScanlineOverlay } from '@dexhelper/ui';
 import { ShinyBadge } from './ShinyBadge';
 import { TacticalIconButton } from './TacticalIconButton';
 import { TacticalModal } from './TacticalModal';

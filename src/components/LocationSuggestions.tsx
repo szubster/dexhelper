@@ -1,11 +1,10 @@
+import { CornerCrosshairs, ScanlineOverlay } from '@dexhelper/ui';
 import { useQuery } from '@tanstack/react-query';
 import { MapPin, X } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { pokeDB } from '../db/PokeDB';
 import type { GenericLocation } from '../db/schema';
 import { useStore } from '../store';
-import { CornerCrosshairs } from './CornerCrosshairs';
-import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalIconButton } from './TacticalIconButton';
 
 export function LocationSuggestions() {

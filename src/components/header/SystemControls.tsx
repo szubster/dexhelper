@@ -1,7 +1,7 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import { Activity, RefreshCw, Settings2, Zap } from 'lucide-react';
 import type React from 'react';
 import { cn } from '../../utils/cn';
-import { CornerCrosshairs } from '../CornerCrosshairs';
 import { TacticalButton } from '../TacticalButton';
 import { TacticalFileInput } from '../TacticalFileInput';
 import { VerticalDivider } from '../VerticalDivider';

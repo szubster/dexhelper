@@ -1,3 +1,4 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import { Activity, Dna, MapPin, Sparkles } from 'lucide-react';
 import React from 'react';
 import { useParsedSaveData } from '../../../contexts/EmulatorContext';
@@ -6,7 +7,6 @@ import { getContestRecommendations } from '../../../engine/gen3/contests/recomme
 import { getNature } from '../../../engine/gen3/nature';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
 import { getTimeCapsuleValidation } from '../../../utils/timeCapsule';
-import { CornerCrosshairs } from '../../CornerCrosshairs';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
 import { PokerusBadge } from '../../PokerusBadge';

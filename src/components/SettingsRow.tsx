@@ -1,6 +1,6 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import type React from 'react';
 import { cn } from '../utils/cn';
-import { CornerCrosshairs } from './CornerCrosshairs';
 
 interface SettingsRowProps extends React.HTMLAttributes<HTMLDivElement> {
   icon: React.ReactNode;

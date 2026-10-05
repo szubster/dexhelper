@@ -1,15 +1,14 @@
+import { CornerCrosshairs, ScanlineOverlay } from '@dexhelper/ui';
 import { Link } from '@tanstack/react-router';
 import { Database, GitGraph, LayoutGrid, Network, Sparkles, Swords } from 'lucide-react';
 import React from 'react';
 import type { SaveData } from '../engine/saveParser';
 import { useFileSyncController } from '../hooks/useFileSyncController';
 import { getGenerationConfig } from '../utils/generationConfig';
-import { CornerCrosshairs } from './CornerCrosshairs';
 import { OfflineControls } from './header/OfflineControls';
 import { SystemControls } from './header/SystemControls';
 import { TelemetryMatrix } from './header/TelemetryMatrix';
 import { NavigationTab } from './NavigationTab';
-import { ScanlineOverlay } from './ScanlineOverlay';
 
 interface AppHeaderProps {
   saveData: SaveData | null;

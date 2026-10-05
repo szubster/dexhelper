@@ -1,10 +1,8 @@
+import { CornerCrosshairs, ScanlineOverlay } from '@dexhelper/ui';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, { useRef } from 'react';
 import { cn } from '../utils/cn';
-
-import { CornerCrosshairs } from './CornerCrosshairs';
 import { HardwareScrews } from './HardwareScrews';
-import { ScanlineOverlay } from './ScanlineOverlay';
 
 export const tacticalSegmentedItemVariants = cva(
   'tactical-badge relative flex-1 border border-dashed border-zinc-950 px-2.5 py-2 transition-all duration-150 overflow-hidden group',

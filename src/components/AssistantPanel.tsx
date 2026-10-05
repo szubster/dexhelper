@@ -1,3 +1,4 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { Bug, Egg, Flag, Info, Sparkles, Target, Zap } from 'lucide-react';
 import React from 'react';
@@ -9,7 +10,6 @@ import { pokemonListQueryOptions } from '../utils/pokemonQueries';
 import { AssistantDebugView } from './assistant/AssistantDebugView';
 import { AssistantSuggestionCard } from './assistant/AssistantSuggestionCard';
 import { MapUI } from './assistant/MapUI';
-import { CornerCrosshairs } from './CornerCrosshairs';
 import { EdgeLabel } from './EdgeLabel';
 import { TacticalIconButton } from './TacticalIconButton';
 
