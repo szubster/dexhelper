@@ -27,4 +27,6 @@ locks: []
 E2E verification and integration testing for the `PokedexGrid` virtualization implementation. This ensures scrolling behaves correctly and pokemon cards are correctly rendered within the virtualized viewport.
 
 ## Acceptance Criteria
-- [ ] Break down into tasks to write and execute E2E tests for the virtualized grid.
+- [x] Break down into tasks to write and execute E2E tests for the virtualized grid.
+- [ ] task-581-658-pokedex-grid-virtualization-e2e-impl
+- [ ] task-581-659-pokedex-grid-virtualization-e2e-qa
