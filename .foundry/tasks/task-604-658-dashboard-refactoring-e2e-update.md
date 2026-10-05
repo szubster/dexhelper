@@ -2,12 +2,12 @@
 id: task-604-658-dashboard-refactoring-e2e-update
 type: TASK
 title: Update E2E Tests for Dashboard Refactoring (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-03T23:00:51.000Z'
-updated_at: '2026-10-03T23:00:51.000Z'
+updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16542946738415680024'
 pr_number: null
 parent: story-519-604-dashboard-refactoring-e2e-v2
 tags:
