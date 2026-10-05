@@ -2,13 +2,13 @@
 id: task-532-654-savedatareader-bitwise-tests-coder
 type: TASK
 title: Implement SaveDataReader Bitwise Helper Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-05'
 depends_on:
   - task-532-653-savedatareader-bounds-tests-coder
-jules_session_id: null
+jules_session_id: '7407012861253395808'
 pr_number: null
 parent: story-521-532-savedatareader-tests
 tags:
