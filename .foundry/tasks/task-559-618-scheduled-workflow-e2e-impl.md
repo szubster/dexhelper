@@ -26,7 +26,7 @@ rejection_reason: ''
 Following the implementation of issue-based dispatching for scheduled agent workflows, we need to implement the E2E tests for the new mechanisms.
 
 ## Acceptance Criteria
-- [ ] Validate that GitHub Action schedule-*.yml modifications reliably create correctly formatted issues.
-- [ ] Confirm the foundry-orchestrator.ts --compile-scheduled execution properly compiles prompts and creates the issue payload.
-- [ ] Ensure the newly created issues successfully trigger Jules' native issue-watching integration when labeled with jules.
-- [ ] Document any end-to-end delays or rate-limiting behaviors discovered during simulation testing.
+- [x] Validate that GitHub Action schedule-*.yml modifications reliably create correctly formatted issues.
+- [x] Confirm the foundry-orchestrator.ts --compile-scheduled execution properly compiles prompts and creates the issue payload.
+- [x] Ensure the newly created issues successfully trigger Jules' native issue-watching integration when labeled with jules.
+- [x] Document any end-to-end delays or rate-limiting behaviors discovered during simulation testing.
