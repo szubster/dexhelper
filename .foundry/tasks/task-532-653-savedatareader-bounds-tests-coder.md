@@ -29,4 +29,4 @@ confidence_score: null
 Write unit tests to verify strict bounds checking assertions in `SaveDataReader`.
 
 ## Acceptance Criteria
-- [ ] Write tests verifying that out-of-bounds accesses throw `RangeError` with the message "The save file is corrupted or incomplete."
+- [x] Write tests verifying that out-of-bounds accesses throw `RangeError` with the message "The save file is corrupted or incomplete."
