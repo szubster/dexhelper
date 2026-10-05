@@ -2,13 +2,13 @@
 id: task-527-596-safari-zone-area-map-ui
 type: TASK
 title: Safari Zone Area Map UI Component
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-10-03'
+updated_at: '2026-10-05'
 depends_on:
   - task-527-594-safari-zone-data-hook
-jules_session_id: '17521945246235503267'
+jules_session_id: null
 pr_number: null
 parent: story-325-527-safari-zone-area-highlighting
 tags:
@@ -17,7 +17,7 @@ tags:
   - react
   - safari-zone
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

@@ -163,7 +163,11 @@ export const writeSaveState = async (id: string, saveData: Uint8Array, metadata:
     if (metadata.playthroughId) {
       const currentCount = await countSavesForPlaythrough(metadata.playthroughId);
       if (currentCount >= MAX_SAVE_STATES_PER_PLAYTHROUGH) {
-        throw new Error('Maximum number of save states reached for this playthrough');
+        const numToDelete = currentCount - MAX_SAVE_STATES_PER_PLAYTHROUGH + 1;
+        const oldestSaves = await getOldestSaves(metadata.playthroughId, numToDelete);
+        for (const oldSaveId of oldestSaves) {
+          await deleteSaveState(oldSaveId);
+        }
       }
     }
 

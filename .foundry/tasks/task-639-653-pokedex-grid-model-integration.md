@@ -2,12 +2,12 @@
 id: task-639-653-pokedex-grid-model-integration
 type: TASK
 title: Integrate PokedexGridModel COM in E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-02'
-updated_at: '2026-10-03'
+updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: '1390094608704711711'
+jules_session_id: null
 pr_number: null
 parent: story-579-639-e2e-core-components-integration
 tags:
@@ -32,4 +32,4 @@ Refactor existing Playwright E2E tests to utilize the `PokedexGridModel`.
 - Replace hardcoded DOM locators and interactions related to the pokedex grid with the COM's methods.
 
 ## Acceptance Criteria
-- [ ] Implement integration.
+- [x] Implement integration.

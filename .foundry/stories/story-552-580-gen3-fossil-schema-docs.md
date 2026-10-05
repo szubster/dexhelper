@@ -5,7 +5,7 @@ title: Update Schema Documentation for Gen 3 Fossil Offsets
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-17T18:41:42Z'
-updated_at: '2026-10-03'
+updated_at: '2026-10-05'
 depends_on: []
 jules_session_id: null
 pr_number: null

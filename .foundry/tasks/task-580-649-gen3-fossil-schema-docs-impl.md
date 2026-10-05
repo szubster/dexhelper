@@ -2,19 +2,19 @@
 id: task-580-649-gen3-fossil-schema-docs-impl
 type: TASK
 title: Implement Gen 3 Fossil Schema Docs
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-10-02T14:30:00Z'
-updated_at: '2026-10-03'
+updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: '8664099926756549236'
+jules_session_id: null
 pr_number: null
 parent: story-552-580-gen3-fossil-schema-docs
 tags:
   - gen3
   - documentation
   - schema
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -35,4 +35,4 @@ See `.foundry/docs/knowledge_base/gen3_fossil_revival_offsets.md` for the exact 
 The update should follow the conventions in `.foundry/docs/schema.md`.
 
 ## Acceptance Criteria
-- [ ] Ensure RSE and FRLG fossil offset documentation is correctly formatted and added to `.foundry/docs/schema.md` or appropriately organized in dedicated files.
+- [x] Ensure RSE and FRLG fossil offset documentation is correctly formatted and added to `.foundry/docs/schema.md` or appropriately organized in dedicated files.

@@ -1,8 +1,10 @@
 import { expect, test } from '@playwright/test';
+import { PokedexGridModel } from './models/PokedexGridModel';
 import { initializeWithSave, waitForSync } from './test-utils';
 
 test.describe('Living Dex PC Mapping Integration E2E', () => {
   test('PC mapping data displays in Pokemon details modal when living dex is active', async ({ page }) => {
+    const gridModel = new PokedexGridModel(page);
     // 1. Initialize with Yellow save
     await initializeWithSave(page, 'tests/fixtures/yellow.sav');
 
@@ -19,7 +21,7 @@ test.describe('Living Dex PC Mapping Integration E2E', () => {
     await searchInput.click({ force: true });
     await searchInput.fill('Pikachu');
 
-    const pikachuCard = page.locator('[data-testid="pokedex-card"][data-pokemon-id="25"]');
+    const pikachuCard = gridModel.getPokemonCard('25');
     await pikachuCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
     await page.waitForTimeout(500);
     await expect(pikachuCard).toBeVisible({ timeout: 15000 });

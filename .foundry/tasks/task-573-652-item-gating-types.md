@@ -2,12 +2,12 @@
 id: task-573-652-item-gating-types
 type: TASK
 title: Item Gating Types Definition
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-16T05:45:31Z'
-updated_at: '2026-10-02'
+updated_at: '2026-10-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6916905304384252412'
 pr_number: null
 parent: story-407-573-item-gating-data-mapping
 tags:
