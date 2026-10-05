@@ -524,6 +524,28 @@ export const pokeDB = {
     await pokeDB.ready();
     return (await getDB()).getAll(DB_CONFIG.STORES.ITEMS);
   },
+  getItemsBulk: async (ids: number[]): Promise<(ItemMetadata | Error)[]> => {
+    await pokeDB.ready();
+    const db = await getDB();
+    const validIds = ids.filter((id) => typeof id === 'number' && !Number.isNaN(id));
+    if (validIds.length === 0) return ids.map(() => new Error('Invalid ID provided'));
+
+    const tx = db.transaction(DB_CONFIG.STORES.ITEMS, 'readonly');
+    const store = unwrap(tx.objectStore(DB_CONFIG.STORES.ITEMS));
+    const fetched = await bulkGet<ItemMetadata>(store, validIds);
+    await tx.done;
+
+    const resultMap = new Map<number, ItemMetadata>();
+    for (const it of fetched) {
+      if (it) resultMap.set(it.id, it);
+    }
+
+    return ids.map((id) => {
+      if (typeof id !== 'number' || Number.isNaN(id)) return new Error('Invalid ID');
+      const found = resultMap.get(id);
+      return found ?? new Error(`Item not found for ${id}`);
+    });
+  },
   getBerriesBulk: async (ids: number[]): Promise<(BerryMetadata | Error)[]> => {
     await pokeDB.ready();
     const db = await getDB();

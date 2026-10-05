@@ -354,6 +354,44 @@ describe('PokeDB', () => {
     expect(results[2]).toBeInstanceOf(Error);
   });
 
+  it('getMovesBulk returns errors for invalid ids', async () => {
+    const invalidResults = await pokeDB.getMovesBulk([NaN]);
+    expect(invalidResults[0]).toBeInstanceOf(Error);
+  });
+
+  it('performs bulk operations for items', async () => {
+    const mockData = {
+      items: [
+        { id: 1, name: 'Item1', gen1_id: 1, gen2_id: 1, gen3_id: 1 },
+        { id: 2, name: 'Item2', gen1_id: 2, gen2_id: 2, gen3_id: 2 },
+      ],
+      hash: 'bulk-items-hash',
+      poke: [],
+      enc: [],
+      loc: [],
+    };
+    vi.mocked(fetch).mockResolvedValue({
+      ok: true,
+      arrayBuffer: async () => pack(mockData),
+    } as unknown as Response);
+    await pokeDB.sync();
+
+    const results = await pokeDB.getItemsBulk([1, 2, 999]);
+    expect(results).toHaveLength(3);
+    const r1 = results[0];
+    if (!r1 || r1 instanceof Error) throw r1 ?? new Error('r1 undefined');
+    expect(r1.name).toBe('Item1');
+    const r2 = results[1];
+    if (!r2 || r2 instanceof Error) throw r2 ?? new Error('r2 undefined');
+    expect(r2.name).toBe('Item2');
+    expect(results[2]).toBeInstanceOf(Error);
+  });
+
+  it('getItemsBulk returns errors for invalid ids', async () => {
+    const invalidResults = await pokeDB.getItemsBulk([NaN]);
+    expect(invalidResults[0]).toBeInstanceOf(Error);
+  });
+
   it('performs bulk operations for pokemons', async () => {
     const mockData = {
       items: [],
