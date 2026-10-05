@@ -43,8 +43,9 @@ interface TacticalButtonProps
 export const TacticalButton = React.forwardRef<HTMLButtonElement, TacticalButtonProps>(
   ({ className, variant = 'default', size = 'default', hasCrosshairs = false, children, ...props }, ref) => {
     const title = props.title || props['aria-label'];
+    const { title: _title, ...restProps } = props;
     return (
-      <button ref={ref} className={cn(buttonVariants({ variant, size, className }))} {...props}>
+      <button ref={ref} aria-label={title} className={cn(buttonVariants({ variant, size, className }))} {...restProps}>
         {hasCrosshairs === 'corners' ? (
           <CornerCrosshairs
             corners={['top-left', 'bottom-right']}

@@ -72,4 +72,5 @@ export const test = base.extend<Fixtures>({
   },
 });
 
+export { createMockFoundry } from './mock-foundry';
 export { expect };

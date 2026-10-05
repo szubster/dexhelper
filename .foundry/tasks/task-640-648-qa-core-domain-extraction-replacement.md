@@ -2,10 +2,10 @@
 id: task-640-648-qa-core-domain-extraction-replacement
 type: TASK
 title: QA Verification for Core Domain Extraction (Replacement)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-02'
-updated_at: '2026-10-02'
+updated_at: '2026-10-05'
 depends_on:
   - task-640-647-update-app-imports-replacement
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Parent task failed permanently'
 notes: ''
 locks: []
 ---
