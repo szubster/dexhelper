@@ -33,4 +33,6 @@ This story serves as the final step in the `StorageGrid` virtualization epic to 
 3. Ensure dynamic column adjustments scale appropriately under various viewport widths, including mobile.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-581-658-storage-grid-e2e-tests-coder
+- [ ] task-581-659-storage-grid-e2e-tests-qa
