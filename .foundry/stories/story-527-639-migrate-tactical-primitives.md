@@ -26,4 +26,8 @@ locks: []
 Migrate simple tactical UI components (Buttons, Badges, Inputs, Leds) to the `@dexhelper/ui` package.
 
 ## Acceptance Criteria
-- [ ] Break this story down into tasks for migrating tactical primitives.
+- [x] Break this story down into tasks for migrating tactical primitives.
+- [ ] task-639-658-migrate-buttons-impl
+- [ ] task-639-659-migrate-badges-impl
+- [ ] task-639-660-migrate-inputs-leds-impl
+- [ ] task-639-661-migrate-primitives-qa
