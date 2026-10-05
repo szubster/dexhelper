@@ -27,6 +27,9 @@ locks: []
 Implement systematic file move to `.foundry/archive/*` preserving subdirectories for terminal trees. Ensure archival operation is deterministic and automated via orchestrator cycle.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-574-658-archival-file-move-automation-coder
+- [ ] task-574-660-archival-file-move-automation-tests
+- [ ] task-574-659-archival-file-move-automation-qa
 - [ ] Implement systematic file move to `.foundry/archive/*` preserving subdirectories for terminal trees
 - [ ] Ensure archival operation is deterministic and automated via orchestrator cycle
