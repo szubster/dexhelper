@@ -2,7 +2,7 @@
 id: task-474-606-gen3-wallpaper-e2e-interaction-impl-v2
 type: TASK
 title: Gen 3 Wallpaper State E2E Interaction Implementation v2
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-21'
 updated_at: '2026-10-06'
@@ -13,10 +13,8 @@ parent: story-116-474-gen3-wallpaper-app-state-tracking-e2e
 tags:
   - e2e
   - gen3
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 locks: []
 ---
 

@@ -2,10 +2,10 @@
 id: task-638-666-extract-constants-to-core-retry
 type: TASK
 title: Extract Constants to Core Package Retry
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-05'
-updated_at: '2026-10-05'
+updated_at: '2026-10-06'
 depends_on:
   - research-638-665-investigate-constants-extraction
 jules_session_id: null

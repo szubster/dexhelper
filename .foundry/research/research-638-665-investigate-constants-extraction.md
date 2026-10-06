@@ -2,12 +2,12 @@
 id: research-638-665-investigate-constants-extraction
 type: RESEARCH
 title: Investigate Constants Extraction Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-05'
 updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: '433743166750867582'
+jules_session_id: null
 pr_number: null
 parent: story-526-638-extract-constants
 tags:

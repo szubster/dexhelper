@@ -2,7 +2,7 @@
 id: task-640-659-extract-utils-to-core
 type: TASK
 title: Migrate pure JS/TS logic from src/utils to packages/core
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-06'
@@ -16,8 +16,8 @@ tags:
   - monorepo
   - pnpm
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
