@@ -13,14 +13,6 @@ export const TacticalKitchenSink: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-4 p-4">
-      {/* SubDataPoint Showcase */}
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4" id="subdatapoint-showcase">
-        <SubDataPoint label="OT_ID" value="ASH / 12345" />
-        <SubDataPoint label="HELD_ITEM" value="SOOTHE BELL" />
-        <SubDataPoint label="SYNC_RATE" value="255 PT" />
-        <SubDataPoint label="STATUS" value="ACTIVE_LINK" />
-      </div>
-
       {/* Badges */}
       <TacticalBadge variant="primary" id="badge-primary">
         Primary
@@ -136,6 +128,14 @@ export const TacticalKitchenSink: React.FC = () => {
           </div>
         </TacticalPanel>
       </TacticalModal>
+
+      {/* SubDataPoint Showcase */}
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4" id="subdatapoint-showcase">
+        <SubDataPoint label="OT_ID" value="ASH / 12345" />
+        <SubDataPoint label="HELD_ITEM" value="SOOTHE BELL" />
+        <SubDataPoint label="SYNC_RATE" value="255 PT" />
+        <SubDataPoint label="STATUS" value="ACTIVE_LINK" />
+      </div>
     </div>
   );
 };
