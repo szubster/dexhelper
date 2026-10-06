@@ -34,4 +34,9 @@ Group flagged Pokémon into batches of 6 and locate their physical Box and Slot 
 - Extract or resolve the Box and Slot index for each Pokémon to help the user locate them in-game.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-492-668-pal-park-batch-logic-impl
+- [ ] task-492-669-pal-park-batch-logic-tests
+- [ ] task-492-670-pal-park-batch-ui-impl
+- [ ] task-492-671-pal-park-batch-ui-tests
+- [ ] task-492-672-pal-park-batch-qa
