@@ -33,5 +33,7 @@ As part of the Cross-Save Synergy Analysis Engine, we need to perform Integratio
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into QA tasks for testing.
-- [ ] task-442-668-implement-cross-save-synergy-e2e
-- [ ] task-442-669-qa-cross-save-synergy-e2e
+- [ ] task-442-668-integration-cross-save-synergy
+- [ ] task-442-669-e2e-cross-save-synergy
+- [ ] task-442-670-qa-integration-cross-save-synergy
+- [ ] task-442-671-qa-e2e-cross-save-synergy
