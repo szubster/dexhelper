@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-10-06'
@@ -27,28 +27,28 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `6334dbd01830d3844185f1ef2d3e92ec6d5b910b`
-- **Previous Commit SHA:** `72a8ba6780d89efe35e83d1873b237f4641b9057`
-- **Commit Date:** `2026-04-01`
+- **Commit SHA:** `dce451f55b6e6e31e1e2f7b4bf09ff3c949ad8f3`
+- **Previous Commit SHA:** `6a17b750adfcafcb7aec032ee3e97fa58eedfb31`
+- **Commit Date:** `2026-04-02`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `patch` (from `0.21.8` -> `0.21.9`)
+- **Suggested SemVer Bump:** `patch` (from `0.21.9` -> `0.21.10`)
 
 ## Commit Message
 ```text
-build(deps): Bump @tanstack/react-query from 5.95.2 to 5.96.0
+build(deps): Bump @tanstack/react-query from 5.96.0 to 5.96.1
 
-Bumps [@tanstack/react-query](https://github.com/TanStack/query/tree/HEAD/packages/react-query) from 5.95.2 to 5.96.0.
+Bumps [@tanstack/react-query](https://github.com/TanStack/query/tree/HEAD/packages/react-query) from 5.96.0 to 5.96.1.
 - [Release notes](https://github.com/TanStack/query/releases)
 - [Changelog](https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md)
-- [Commits](https://github.com/TanStack/query/commits/@tanstack/react-query@5.96.0/packages/react-query)
+- [Commits](https://github.com/TanStack/query/commits/@tanstack/react-query@5.96.1/packages/react-query)
 
 ---
 updated-dependencies:
 - dependency-name: "@tanstack/react-query"
-  dependency-version: 5.96.0
+  dependency-version: 5.96.1
   dependency-type: direct:production
-  update-type: version-update:semver-minor
+  update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
@@ -60,15 +60,15 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ## Diff Summary
 ```text
-6334dbd01 build(deps): Bump @tanstack/react-query from 5.95.2 to 5.96.0
+dce451f55 build(deps): Bump @tanstack/react-query from 5.96.0 to 5.96.1
  package-lock.json | 16 ++++++++--------
  package.json      |  2 +-
  2 files changed, 9 insertions(+), 9 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 6334dbd01830d3844185f1ef2d3e92ec6d5b910b` (or `git diff 72a8ba6780d89efe35e83d1873b237f4641b9057..6334dbd01830d3844185f1ef2d3e92ec6d5b910b`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show dce451f55b6e6e31e1e2f7b4bf09ff3c949ad8f3` (or `git diff 6a17b750adfcafcb7aec032ee3e97fa58eedfb31..dce451f55b6e6e31e1e2f7b4bf09ff3c949ad8f3`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.9] - 2026-04-01` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.8...0.21.9`](https://github.com/${repo}/compare/72a8ba6...6334dbd)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.10] - 2026-04-02` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.9...0.21.10`](https://github.com/${repo}/compare/6a17b75...dce451f)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
