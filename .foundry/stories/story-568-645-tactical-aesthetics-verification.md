@@ -2,13 +2,13 @@
 id: story-568-645-tactical-aesthetics-verification
 type: STORY
 title: Tactical Aesthetics Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-02'
 updated_at: '2026-10-06'
 depends_on:
   - story-568-644-cva-visual-regression-tests
-jules_session_id: null
+jules_session_id: '2142762939296480660'
 pr_number: null
 parent: epic-565-568-theming-e2e-verification
 tags:
