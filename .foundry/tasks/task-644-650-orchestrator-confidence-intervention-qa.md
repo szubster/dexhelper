@@ -19,6 +19,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # QA: Verify Orchestrator Confidence Intervention Logic
@@ -27,4 +28,4 @@ locks: []
 Verify the logic in `.github/scripts/foundry-orchestrator.ts` correctly overrides the transition and spawns a QA/Auditor task when a node transitions with a `confidence_score < 70`.
 
 ## Acceptance Criteria
-- [ ] Implement the objective as described.
+- [x] Implement the objective as described.
