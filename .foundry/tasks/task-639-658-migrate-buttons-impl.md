@@ -2,12 +2,12 @@
 id: task-639-658-migrate-buttons-impl
 type: TASK
 title: Migrate Tactical Buttons Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16654476127909438376'
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
 tags:
