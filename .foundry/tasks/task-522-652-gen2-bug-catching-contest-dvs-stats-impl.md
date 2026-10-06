@@ -16,6 +16,7 @@ tags:
   - backend
   - save-extraction
 research_references: []
+confidence_score: 100
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -28,6 +29,6 @@ locks: []
 This task involves expanding the `BugCatchingContestData` interface and extraction logic to include hidden values (DVs), held item, and calculates actual stats for the currently caught Bug-Catching Contest Pokémon.
 
 ## Acceptance Criteria
-- [ ] Update `BugCatchingContestData` interface in `src/engine/saveParser/parsers/common.ts` to include `dvs` (Attack, Defense, Speed, Special), `heldItem`, and `stats` (Attack, Defense, Speed, Special Attack, Special Defense).
-- [ ] Update `extractBugCatchingContestData` in `src/engine/saveParser/gen2/extractors.ts` to parse the new fields from the save block based on proper offsets.
-- [ ] Update `extractBugCatchingContestData` unit tests in `src/engine/saveParser/gen2/extractors.test.ts` to include the new properties.
+- [x] Update `BugCatchingContestData` interface in `src/engine/saveParser/parsers/common.ts` to include `dvs` (Attack, Defense, Speed, Special), `heldItem`, and `stats` (Attack, Defense, Speed, Special Attack, Special Defense).
+- [x] Update `extractBugCatchingContestData` in `src/engine/saveParser/gen2/extractors.ts` to parse the new fields from the save block based on proper offsets.
+- [x] Update `extractBugCatchingContestData` unit tests in `src/engine/saveParser/gen2/extractors.test.ts` to include the new properties.

@@ -378,6 +378,9 @@ export interface BugCatchingContestData {
   level: number;
   currentHp: number;
   maxHp: number;
+  heldItem: number;
+  dvs: { hp: number; atk: number; def: number; spd: number; spc: number };
+  stats: { atk: number; def: number; spd: number; spatk: number; spdef: number };
 }
 
 export interface Gen2SaveData extends BaseSaveData {
