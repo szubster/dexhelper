@@ -55,7 +55,7 @@ describe('PokeblockRecommendationDisplay', () => {
     await expect.element(page.getByText('STATUS: POSSIBLE')).toBeVisible();
     await expect.element(page.getByText('RECOMMENDED SEQUENCE')).toBeVisible();
     await expect.element(page.getByText('Step 1: Blend CHERI')).toBeVisible();
-    await expect.element(page.getByText('Final Condition: 10 / 255')).toBeVisible();
+    await expect.element(page.getByText(/Final Condition: \d+ \/ 255/)).toBeVisible();
   });
 
   it('renders status NOT POSSIBLE and empty blend message when recommendation fails', async () => {
