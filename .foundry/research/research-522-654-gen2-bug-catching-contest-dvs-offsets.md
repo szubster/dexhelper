@@ -2,12 +2,12 @@
 id: research-522-654-gen2-bug-catching-contest-dvs-offsets
 type: RESEARCH
 title: Investigate Gen 2 Bug-Catching Contest DVs and Stats Offsets
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-03'
-updated_at: '2026-10-04'
+updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: '15234924508032801923'
+jules_session_id: null
 pr_number: null
 parent: story-512-522-gen2-bug-catching-contest-dvs
 tags:

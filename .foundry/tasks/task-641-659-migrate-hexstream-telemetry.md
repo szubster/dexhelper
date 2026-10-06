@@ -2,19 +2,19 @@
 id: task-641-659-migrate-hexstream-telemetry
 type: TASK
 title: Migrate HexStream and Telemetry Decorations
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-05'
+updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: '11341126716704367094'
+jules_session_id: null
 pr_number: null
 parent: story-527-641-migrate-decorations
 tags:
   - react
   - components
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
 notes: ''
 locks: []
 ---
