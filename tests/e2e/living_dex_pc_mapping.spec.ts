@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { PokedexGridModel } from './models/PokedexGridModel';
+import { SettingsModalModel } from './models/SettingsModalModel';
 import { initializeWithSave, waitForSync } from './test-utils';
 
 test.describe('Living Dex PC Mapping Integration E2E', () => {
@@ -9,11 +10,10 @@ test.describe('Living Dex PC Mapping Integration E2E', () => {
     await initializeWithSave(page, 'tests/fixtures/yellow.sav');
 
     // 2. Turn on Living Dex mode
-    await page.getByRole('button', { name: 'System Settings' }).click();
-    await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
-    const livingDexBtn = page.getByText('[ LIVING DEX ]');
-    await livingDexBtn.click();
-    await page.getByRole('button', { name: 'Close settings' }).click();
+    const settingsModal = new SettingsModalModel(page);
+    await settingsModal.open();
+    await settingsModal.toggleLivingDexMode();
+    await settingsModal.close();
     await waitForSync(page);
 
     // 3. Search and click the Pikachu cell in the Living Dex Grid
