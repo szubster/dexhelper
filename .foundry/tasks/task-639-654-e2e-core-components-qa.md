@@ -22,6 +22,7 @@ rejection_reason: ''
 notes: ''
 locks: []
 priority: 60
+confidence_score: 100
 ---
 
 # Task: QA E2E Core Components Integration
@@ -34,4 +35,4 @@ Verify the refactoring of existing E2E tests using the new Component Object Mode
 - Ensure the tests use the correct COM abstractions and don't leak implementation details into the spec files.
 
 ## Acceptance Criteria
-- [ ] QA verification complete.
+- [x] QA verification complete.
