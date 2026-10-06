@@ -2,10 +2,10 @@
 id: story-526-640-extract-domain-logic
 type: STORY
 title: Extract pure JS/TS domain logic to core package
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-05'
+updated_at: '2026-10-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,7 +28,7 @@ locks: []
 - [x] task-640-642-extract-core-domain-logic
 - [x] task-640-643-update-app-imports
 - [x] task-640-644-qa-core-domain-extraction
-- [ ] research-640-645-investigate-extract-core-domain-timeout
+- [x] research-640-645-investigate-extract-core-domain-timeout
 - [x] task-640-646-extract-core-domain-logic-replacement
 - [x] task-640-647-update-app-imports-replacement
 - [x] task-640-648-qa-core-domain-extraction-replacement

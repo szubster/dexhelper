@@ -71,4 +71,13 @@ describe('TacticalButton', () => {
     await render(<TacticalButton size="icon">Icon</TacticalButton>);
     await expect.element(page.getByText('Icon')).toBeInTheDocument();
   });
+
+  it('omits native title attribute while setting aria-label and rendering custom tactical tooltip', async () => {
+    await render(<TacticalButton title="Custom Tooltip">Icon Only</TacticalButton>);
+    const button = page.getByRole('button', { name: 'Custom Tooltip' });
+    await expect.element(button).toBeInTheDocument();
+    const el = button.element() as HTMLButtonElement;
+    expect(el.getAttribute('title')).toBeNull();
+    expect(el.getAttribute('aria-label')).toBe('Custom Tooltip');
+  });
 });

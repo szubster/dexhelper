@@ -8,7 +8,7 @@ owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7551959177881656687'
 pr_number: null
 parent: story-527-641-migrate-decorations
 tags:

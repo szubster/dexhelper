@@ -39,6 +39,8 @@
     "tests/e2e/fixtures/index.ts",
     "src/engine/saveParser/index.ts"
   ],
+  "ignoreExportsUsedInFile": true,
+  "ignoreBinaries": [],
   "rules": {
     "files": "warn",
     "exports": "warn",

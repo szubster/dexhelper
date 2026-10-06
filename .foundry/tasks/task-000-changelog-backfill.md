@@ -2,12 +2,12 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: ACTIVE
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-10-05'
+updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13537964149951037434'
 locks: []
 pr_number: null
 parent: null
@@ -18,6 +18,7 @@ priority: 100
 research_references: []
 rejection_count: 0
 rejection_reason: ''
+confidence_score: 100
 notes: >-
   Re-opened dynamically by changelog-engine.ts for each commit during repository
   history backfill.
@@ -26,26 +27,26 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `86bca891cdbab961269d7985923aa428dff2687f`
-- **Previous Commit SHA:** `ee57cbf965fb4b9b7fbf4409086bfc82ecef2b22`
-- **Commit Date:** `2026-03-31`
+- **Commit SHA:** `dce451f55b6e6e31e1e2f7b4bf09ff3c949ad8f3`
+- **Previous Commit SHA:** `6a17b750adfcafcb7aec032ee3e97fa58eedfb31`
+- **Commit Date:** `2026-04-02`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `patch` (from `0.21.6` -> `0.21.7`)
+- **Suggested SemVer Bump:** `patch` (from `0.21.9` -> `0.21.10`)
 
 ## Commit Message
 ```text
-build(deps): Bump @tanstack/router-vite-plugin from 1.166.18 to 1.166.27
+build(deps): Bump @tanstack/react-query from 5.96.0 to 5.96.1
 
-Bumps [@tanstack/router-vite-plugin](https://github.com/TanStack/router/tree/HEAD/packages/router-vite-plugin) from 1.166.18 to 1.166.27.
-- [Release notes](https://github.com/TanStack/router/releases)
-- [Changelog](https://github.com/TanStack/router/blob/main/packages/router-vite-plugin/CHANGELOG.md)
-- [Commits](https://github.com/TanStack/router/commits/@tanstack/router-vite-plugin@1.166.27/packages/router-vite-plugin)
+Bumps [@tanstack/react-query](https://github.com/TanStack/query/tree/HEAD/packages/react-query) from 5.96.0 to 5.96.1.
+- [Release notes](https://github.com/TanStack/query/releases)
+- [Changelog](https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md)
+- [Commits](https://github.com/TanStack/query/commits/@tanstack/react-query@5.96.1/packages/react-query)
 
 ---
 updated-dependencies:
-- dependency-name: "@tanstack/router-vite-plugin"
-  dependency-version: 1.166.27
+- dependency-name: "@tanstack/react-query"
+  dependency-version: 5.96.1
   dependency-type: direct:production
   update-type: version-update:semver-patch
 ...
@@ -59,15 +60,15 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ## Diff Summary
 ```text
-86bca891c build(deps): Bump @tanstack/router-vite-plugin from 1.166.18 to 1.166.27
- package-lock.json | 42 +++++++++++++++++++++---------------------
+dce451f55 build(deps): Bump @tanstack/react-query from 5.96.0 to 5.96.1
+ package-lock.json | 16 ++++++++--------
  package.json      |  2 +-
- 2 files changed, 22 insertions(+), 22 deletions(-)
+ 2 files changed, 9 insertions(+), 9 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 86bca891cdbab961269d7985923aa428dff2687f` (or `git diff ee57cbf965fb4b9b7fbf4409086bfc82ecef2b22..86bca891cdbab961269d7985923aa428dff2687f`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show dce451f55b6e6e31e1e2f7b4bf09ff3c949ad8f3` (or `git diff 6a17b750adfcafcb7aec032ee3e97fa58eedfb31..dce451f55b6e6e31e1e2f7b4bf09ff3c949ad8f3`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.7] - 2026-03-31` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.6...0.21.7`](https://github.com/${repo}/compare/ee57cbf...86bca89)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.10] - 2026-04-02` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.9...0.21.10`](https://github.com/${repo}/compare/6a17b75...dce451f)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
