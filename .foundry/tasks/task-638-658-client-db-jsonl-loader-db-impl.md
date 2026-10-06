@@ -4,6 +4,7 @@ type: TASK
 title: Implement Bulk DB Fetching for JSONL Data
 status: ACTIVE
 owner_persona: coder
+confidence_score: 100
 created_at: '2026-10-03'
 updated_at: '2026-10-05'
 depends_on:
@@ -27,7 +28,7 @@ locks: []
 With the Vite plugin now capable of bundling \`.jsonl\` files, the application runtime needs to be updated to load this data efficiently.
 
 ## Acceptance Criteria
-- [ ] Add \`getItemsBulk\` and \`getMovesBulk\` methods to \`src/db/PokeDB.ts\` that utilize the \`bulkGet\` utility to fetch multiple records in a single database transaction.
-- [ ] Ensure the mapped results match the requested array lengths and positions, returning \`Error\` instances for not-found entries.
-- [ ] Add unit tests in \`src/db/__tests__/PokeDB.test.ts\` for \`getItemsBulk\` and \`getMovesBulk\`.
-- [ ] Verify that missing identifiers correctly return an Error object instead of blowing up the application.
+- [x] Add `getItemsBulk` and `getMovesBulk` methods to `src/db/PokeDB.ts` that utilize the `bulkGet` utility to fetch multiple records in a single database transaction.
+- [x] Ensure the mapped results match the requested array lengths and positions, returning `Error` instances for not-found entries.
+- [x] Add unit tests in `src/db/__tests__/PokeDB.test.ts` for `getItemsBulk` and `getMovesBulk`.
+- [x] Verify that missing identifiers correctly return an Error object instead of blowing up the application.
