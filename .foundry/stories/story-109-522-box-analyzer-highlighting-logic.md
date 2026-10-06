@@ -33,4 +33,7 @@ Implement the visual highlighting logic for the comparison matrix to indicate th
 ## Acceptance Criteria
 - [ ] Implement utility functions to calculate and identify best stats across a group.
 - [ ] Apply visual highlights to the matrix UI for the identified stats.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-522-668-box-analyzer-highlight-utils
+- [ ] task-522-669-box-analyzer-highlight-ui
+- [ ] task-522-670-box-analyzer-highlight-qa
