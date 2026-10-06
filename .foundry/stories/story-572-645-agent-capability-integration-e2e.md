@@ -33,4 +33,6 @@ This story serves as the mandatory Integration and E2E verification dedicated st
 - Ensure that e2e tests or integration tests are updated/created to verify the agent confidence score reporting capability works correctly with the prompt updates.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-645-665-agent-capability-integration-e2e-impl
+- [ ] task-645-666-qa-agent-capability-integration-e2e
