@@ -27,5 +27,14 @@ locks: []
 The task `task-640-646-extract-core-domain-logic-replacement` failed permanently due to a session timeout. We need to investigate why this replacement task timed out again before attempting further extraction.
 
 ## Acceptance Criteria
-- [ ] Determine the root cause of the timeout during the domain logic extraction retry.
-- [ ] Provide actionable recommendations for the replacement task to avoid timing out again.
+- [x] Determine the root cause of the timeout during the domain logic extraction retry.
+- [x] Provide actionable recommendations for the replacement task to avoid timing out again.
+
+## Findings
+
+The root cause of the timeout is a false permanent failure. The task `task-640-646-extract-core-domain-logic-replacement` repeatedly failed with `[ACKNOWLEDGED] Session terminated with state: COMPLETED` which indicates a system-level crash or failure to explicitly invoke the `submit` tool to open a Pull Request. This falsely incremented the rejection count until it hit the maximum limit.
+
+## Recommendations
+
+1. Ensure the replacement task explicitly instructs the assigned coder to always use the `submit` tool to finalize their work and open a PR, even if no file changes were made (Empty PR Policy).
+2. Proceed with the core domain logic extraction using smaller, modular chunks as originally recommended in `research-640-645-investigate-extract-core-domain-timeout`.
