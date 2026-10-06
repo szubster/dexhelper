@@ -1,8 +1,10 @@
 import { expect, test } from '@playwright/test';
+import { PokedexGridModel } from './models/PokedexGridModel';
 import { clearStorage, initializeWithSave, waitForSync } from './test-utils';
 
 test.describe('Gen 3 FRLG Data Extraction E2E Validation', () => {
   test('successfully extracts party Pokemon data from firered.sav', async ({ page }) => {
+    const gridModel = new PokedexGridModel(page);
     await clearStorage(page);
 
     // We expect initializeWithSave to correctly populate the dashboard
@@ -10,7 +12,7 @@ test.describe('Gen 3 FRLG Data Extraction E2E Validation', () => {
 
     await waitForSync(page);
 
-    const cards = page.getByTestId('pokedex-card');
+    const cards = gridModel.pokemonCards;
     await expect(cards.first()).toBeVisible({ timeout: 15000 });
 
     const count = await cards.count();

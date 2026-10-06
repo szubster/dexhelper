@@ -16,7 +16,7 @@ test.describe('Gen 2 Static Encounters', () => {
     // Check specific items based on the gold.sav
     // gold.sav might have some flags set, let's just make sure the items exist
     await expect(page.getByText('SUDOWOODO')).toBeVisible();
-    await expect(page.getByText('SNORLAX')).toBeVisible();
+    await expect(page.getByText('SNORLAX', { exact: true })).toBeVisible();
     await expect(page.getByText('RED GYARADOS')).toBeVisible();
     await expect(page.getByText('HO-OH')).toBeVisible();
     await expect(page.getByText('LUGIA')).toBeVisible();
@@ -31,7 +31,7 @@ test.describe('Gen 2 Static Encounters', () => {
 
     await expect(page.locator('text=STATIC ENCOUNTERS')).toBeVisible();
     await expect(page.getByText('SUDOWOODO')).toBeVisible();
-    await expect(page.getByText('SNORLAX')).toBeVisible();
+    await expect(page.getByText('SNORLAX', { exact: true })).toBeVisible();
     await expect(page.getByText('RED GYARADOS')).toBeVisible();
     await expect(page.getByText('HO-OH')).toBeVisible();
     await expect(page.getByText('LUGIA')).toBeVisible();

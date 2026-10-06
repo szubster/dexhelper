@@ -2,19 +2,19 @@
 id: research-639-658-investigate-extract-data-scripts-failure
 type: RESEARCH
 title: Investigate Data Generation Scripts Extraction Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-03'
-updated_at: '2026-10-04'
+updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4352982627059735564'
 pr_number: null
 parent: story-525-639-extract-data-generation-scripts
 tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

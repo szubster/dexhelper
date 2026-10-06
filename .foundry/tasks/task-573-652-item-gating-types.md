@@ -2,12 +2,12 @@
 id: task-573-652-item-gating-types
 type: TASK
 title: Item Gating Types Definition
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-16T05:45:31Z'
-updated_at: '2026-10-04'
+updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: '6916905304384252412'
+jules_session_id: null
 pr_number: null
 parent: story-407-573-item-gating-data-mapping
 tags:
@@ -29,4 +29,4 @@ We need to define a data structure for item gating requirements to support the B
 Create a TypeScript definition file for the item gating types. This should define requirements like bikes, specific items (e.g., Storage Key), HMs (e.g., Dive), and their logical combinations (AND/OR).
 
 ## Acceptance Criteria
-- [ ] coder: Define TypeScript types/interfaces for item gating requirements.
+- [x] coder: Define TypeScript types/interfaces for item gating requirements.

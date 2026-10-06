@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.21.9] - 2026-04-01
+### Changed
+- Bump `@tanstack/react-query` dependency from 5.95.2 to 5.96.0.
+
+## [0.21.8] - 2026-03-31
+### Changed
+- Bump `@tanstack/react-router` dependency from 1.168.8 to 1.168.10.
+
+## [0.21.7] - 2026-03-31
+### Changed
+- Bump `@tanstack/router-vite-plugin` dependency from 1.166.18 to 1.166.27.
+
 ## [0.21.6] - 2026-03-30
 ### Changed
 - Bump `vite` development dependency from 8.0.0 to 8.0.2.
@@ -165,3 +177,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.21.4]: https://github.com/szubster/dexhelper/compare/cd452d1a20a4ec28e50784ab967edad0cd1e4fdc...053baf14d34d72aaed552dca136139a989dffac5
 [0.21.5]: https://github.com/szubster/dexhelper/compare/2da17e9792cd41167a5846673ffd40321510d7dc...92ae5ee2cddb3c7b1c07b66e353a31f6d9055d11
 [0.21.6]: https://github.com/szubster/dexhelper/compare/2243321c7cb2b75fae7093d64c1d81a7d036a3c7...bf732ac8d4de4215017f0348723511bdc40296e1
+[0.21.7]: https://github.com/szubster/dexhelper/compare/ee57cbf965fb4b9b7fbf4409086bfc82ecef2b22...86bca891cdbab961269d7985923aa428dff2687f
+[0.21.8]: https://github.com/szubster/dexhelper/compare/86bca891cdbab961269d7985923aa428dff2687f...942497a590c67313f7b5f4567cdc182f839aa25f
+[0.21.9]: https://github.com/szubster/dexhelper/compare/72a8ba6780d89efe35e83d1873b237f4641b9057...6334dbd01830d3844185f1ef2d3e92ec6d5b910b

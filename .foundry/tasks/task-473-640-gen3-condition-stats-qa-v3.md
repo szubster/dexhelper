@@ -2,10 +2,10 @@
 id: task-473-640-gen3-condition-stats-qa-v3
 type: TASK
 title: QA Gen 3 Contest Condition Stats Extraction (Retry 2)
-status: READY
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-30'
-updated_at: '2026-10-04'
+updated_at: '2026-10-06'
 depends_on:
   - task-473-639-gen3-condition-stats-parser-v3
 jules_session_id: null
@@ -16,8 +16,10 @@ tags:
   - save-engine
   - data-extraction
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

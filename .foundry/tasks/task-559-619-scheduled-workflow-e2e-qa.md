@@ -2,10 +2,10 @@
 id: task-559-619-scheduled-workflow-e2e-qa
 type: TASK
 title: Scheduled Workflow E2E - QA Verification
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-23'
-updated_at: '2026-09-23'
+updated_at: '2026-10-05'
 depends_on:
   - task-559-618-scheduled-workflow-e2e-impl
 jules_session_id: null
@@ -17,6 +17,8 @@ tags:
   - github-issues
   - e2e
   - integration
+locks: []
+rejection_reason: ''
 ---
 # Scheduled Workflow E2E - QA Verification
 

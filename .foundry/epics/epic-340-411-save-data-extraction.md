@@ -5,7 +5,7 @@ title: Active Party Matchup - Save Data Extraction
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-08-14'
+updated_at: '2026-10-05'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Active Party Matchup - Save Data Extraction

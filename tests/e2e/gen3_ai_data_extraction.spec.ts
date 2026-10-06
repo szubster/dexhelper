@@ -1,8 +1,10 @@
 import { expect, test } from '@playwright/test';
+import { PokedexGridModel } from './models/PokedexGridModel';
 import { clearStorage, initializeWithSave } from './test-utils';
 
 test.describe('Gen 3 AI Data Extraction E2E', () => {
   test('should extract and display player, location, trainer, and opponent data', async ({ page, isMobile }) => {
+    const gridModel = new PokedexGridModel(page);
     // 1. Setup mock environment intercepts if necessary (like location)
     // The assistant API call will be intercepted to ensure the full engine logic executes
     // over modified metadata instead of exposing internal state.
@@ -13,7 +15,7 @@ test.describe('Gen 3 AI Data Extraction E2E', () => {
 
     // 3. Verify Player's Active Team Data Extraction
     // Ensure the party count is greater than 0 and cards are rendered
-    const partyPokemon = page.getByTestId('pokedex-card');
+    const partyPokemon = gridModel.pokemonCards;
     await expect(partyPokemon.first()).toBeVisible({ timeout: 15000 });
     const count = await partyPokemon.count();
     expect(count).toBeGreaterThan(0);

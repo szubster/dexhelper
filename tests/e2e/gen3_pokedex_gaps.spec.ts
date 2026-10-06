@@ -1,13 +1,15 @@
 import { expect, test } from '@playwright/test';
+import { PokedexGridModel } from './models/PokedexGridModel';
 import { clearStorage, initializeWithSave } from './test-utils';
 
 test.describe('Gen 3 Pokedex Gaps Tracker', () => {
   test('should display gaps and version exclusive indicators for Gen 3 saves', async ({ page }) => {
+    const gridModel = new PokedexGridModel(page);
     await clearStorage(page);
     await initializeWithSave(page, 'tests/fixtures/emerald.sav');
 
     // Wait for the cards to load
-    const cards = page.getByTestId('pokedex-card');
+    const cards = gridModel.pokemonCards;
     await expect(cards.first()).toBeVisible({ timeout: 15000 });
 
     // Verify secured (emerald) items exist by toggling secured filter

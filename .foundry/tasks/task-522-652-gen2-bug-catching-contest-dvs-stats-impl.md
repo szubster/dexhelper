@@ -2,13 +2,13 @@
 id: task-522-652-gen2-bug-catching-contest-dvs-stats-impl
 type: TASK
 title: Gen 2 Bug-Catching Contest DVs and Stats extraction Implementation
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-06'
 depends_on:
   - research-522-654-gen2-bug-catching-contest-dvs-offsets
-jules_session_id: null
+jules_session_id: '2868385110318197172'
 pr_number: null
 parent: story-512-522-gen2-bug-catching-contest-dvs
 tags:
