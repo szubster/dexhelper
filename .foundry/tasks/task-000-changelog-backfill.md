@@ -18,6 +18,7 @@ priority: 100
 research_references: []
 rejection_count: 0
 rejection_reason: ''
+confidence_score: 100
 notes: >-
   Re-opened dynamically by changelog-engine.ts for each commit during repository
   history backfill.
