@@ -2,14 +2,14 @@
 id: task-639-654-e2e-core-components-qa
 type: TASK
 title: QA E2E Core Components Integration
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-02'
 updated_at: '2026-10-06'
 depends_on:
   - task-639-652-settings-modal-model-integration
   - task-639-653-pokedex-grid-model-integration
-jules_session_id: null
+jules_session_id: '567597944610319237'
 pr_number: null
 parent: story-579-639-e2e-core-components-integration
 tags:
