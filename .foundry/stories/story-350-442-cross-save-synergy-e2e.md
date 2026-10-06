@@ -32,4 +32,6 @@ As part of the Cross-Save Synergy Analysis Engine, we need to perform Integratio
 - Integration tests ensuring Pokédex and game-exclusive data is correctly parsed and passed to the evaluator.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into QA tasks for testing.
+- [x] Tech Lead: Break down into QA tasks for testing.
+- [ ] task-442-668-implement-cross-save-synergy-e2e
+- [ ] task-442-669-qa-cross-save-synergy-e2e
