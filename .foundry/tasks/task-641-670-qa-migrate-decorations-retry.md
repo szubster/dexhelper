@@ -9,6 +9,7 @@ updated_at: '2026-10-06'
 depends_on:
   - task-641-658-migrate-scanline-crosshairs
   - task-641-669-migrate-hexstream-telemetry-retry
+jules_session_id: null
 parent: story-527-641-migrate-decorations
 tags:
   - react

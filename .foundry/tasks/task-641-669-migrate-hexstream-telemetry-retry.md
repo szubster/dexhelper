@@ -8,6 +8,7 @@ created_at: '2026-10-06'
 updated_at: '2026-10-06'
 depends_on:
   - research-641-668-investigate-hexstream-telemetry-failure
+jules_session_id: null
 parent: story-527-641-migrate-decorations
 tags:
   - react
