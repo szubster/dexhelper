@@ -2,12 +2,12 @@
 id: task-639-659-migrate-badges-impl
 type: TASK
 title: Migrate Tactical Badges Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7831158895489097095'
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
 tags:
