@@ -34,7 +34,11 @@ When tasks hit the maximum rejection count (`MAX_REJECTION_THRESHOLD = 3`), the 
 - Update Telemetry tools and metrics dashboards to display and distinguish these two failure types.
 
 ## Acceptance Criteria
-- [ ] Define the technical architecture for the new failure tracking (ADR).
-- [ ] Breakdown Epic to implement the phase 3.0 Orchestrator rejection processing logic.
-- [ ] Breakdown Epic to update the schema and validation logic for new YAML counters.
-- [ ] Breakdown Epic to update telemetry scripts and dashboards.
+- [x] Define the technical architecture for the new failure tracking (ADR).
+- [x] Breakdown Epic to implement the phase 3.0 Orchestrator rejection processing logic.
+- [x] Breakdown Epic to update the schema and validation logic for new YAML counters.
+- [x] Breakdown Epic to update telemetry scripts and dashboards.
+- [ ] adr-586-665-false-permanent-failure-tracking
+- [ ] epic-586-666-orchestrator-rejection-processing
+- [ ] epic-586-667-yaml-counters-schema
+- [ ] epic-586-668-telemetry-dashboards
