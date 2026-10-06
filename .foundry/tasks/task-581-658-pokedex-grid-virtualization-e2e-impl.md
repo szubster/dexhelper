@@ -2,12 +2,12 @@
 id: task-581-658-pokedex-grid-virtualization-e2e-impl
 type: TASK
 title: Implement E2E Tests for Virtualized PokedexGrid
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12331642576425380350'
 pr_number: null
 parent: story-565-581-pokedex-grid-e2e-verification
 tags:
