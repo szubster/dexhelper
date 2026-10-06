@@ -20,6 +20,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Task: Verify LRU eviction logic for save states
@@ -28,7 +29,7 @@ locks: []
 QA verification task to ensure LRU eviction works as expected.
 
 ## Acceptance Criteria
-- [ ] Verify `deleteSaveState` works correctly.
-- [ ] Verify `getOldestSaves` retrieves correctly sorted oldest records.
-- [ ] Verify `writeSaveState` successfully evicts older records when limits are exceeded.
-- [ ] Verify no regressions in general DB behavior.
+- [x] Verify `deleteSaveState` works correctly.
+- [x] Verify `getOldestSaves` retrieves correctly sorted oldest records.
+- [x] Verify `writeSaveState` successfully evicts older records when limits are exceeded.
+- [x] Verify no regressions in general DB behavior.
