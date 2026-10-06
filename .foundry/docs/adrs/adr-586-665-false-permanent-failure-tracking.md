@@ -2,7 +2,7 @@
 id: adr-586-665-false-permanent-failure-tracking
 type: ADR
 title: Architecture for False Permanent Failure Tracking
-status: DRAFT
+status: READY
 owner_persona: architect
 created_at: '2026-10-06'
 updated_at: '2026-10-06'

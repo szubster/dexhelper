@@ -2,10 +2,10 @@
 id: prd-535-586-false-permanent-failure-detection
 type: PRD
 title: False Permanent Failure Detection & Distinction in Orchestrator
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-10-04'
-updated_at: '2026-10-04'
+updated_at: '2026-10-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
