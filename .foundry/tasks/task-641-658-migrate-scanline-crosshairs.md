@@ -2,7 +2,7 @@
 id: task-641-658-migrate-scanline-crosshairs
 type: TASK
 title: Migrate Scanline and Corner Crosshairs
-status: READY
+status: ACTIVE
 confidence_score: 100
 owner_persona: coder
 created_at: '2026-10-03'
