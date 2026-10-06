@@ -2,13 +2,13 @@
 id: task-608-619-multi-box-text-search-engine-e2e
 type: TASK
 title: Multi-Box Text Search Engine E2E
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-22'
 updated_at: '2026-10-06'
 depends_on:
   - task-608-617-multi-box-text-search-engine-impl
-jules_session_id: '11361482996526553493'
+jules_session_id: null
 pr_number: null
 parent: story-574-608-multi-box-text-search-engine
 tags:
@@ -18,7 +18,9 @@ tags:
   - pc-box
   - e2e
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

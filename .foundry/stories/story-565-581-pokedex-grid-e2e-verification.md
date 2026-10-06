@@ -2,7 +2,7 @@
 id: story-565-581-pokedex-grid-e2e-verification
 type: STORY
 title: PokedexGrid Virtualization E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-18'
 updated_at: '2026-10-06'

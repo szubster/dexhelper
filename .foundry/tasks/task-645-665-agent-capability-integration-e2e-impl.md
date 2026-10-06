@@ -2,12 +2,12 @@
 id: task-645-665-agent-capability-integration-e2e-impl
 type: TASK
 title: Implement Integration and E2E Tests for Agent Confidence Capability
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-05T01:48:00Z'
 updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: '15401182566185961155'
+jules_session_id: null
 pr_number: null
 parent: story-572-645-agent-capability-integration-e2e
 tags:
@@ -17,7 +17,9 @@ tags:
   - foundry
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 priority: 60

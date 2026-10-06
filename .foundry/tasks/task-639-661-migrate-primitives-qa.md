@@ -2,10 +2,10 @@
 id: task-639-661-migrate-primitives-qa
 type: TASK
 title: QA for Tactical Primitives Migration
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-06'
 depends_on:
   - task-639-658-migrate-buttons-impl
   - task-639-659-migrate-badges-impl
@@ -17,7 +17,9 @@ tags:
   - react
   - components
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-639-658-migrate-buttons-impl
 notes: ''
 locks: []
 ---
