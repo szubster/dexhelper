@@ -10,6 +10,9 @@ const SafariZoneEncountersList = React.lazy(() => import('../components/safari-z
 const SafariTargetSelection = React.lazy(() =>
   import('../components/safari-zone/SafariTargetSelection').then((m) => ({ default: m.SafariTargetSelection })),
 );
+const SafariAreaMap = React.lazy(() =>
+  import('../components/safari-zone/SafariAreaMap').then((m) => ({ default: m.SafariAreaMap })),
+);
 
 export const Route = createFileRoute('/safari-zone')({
   component: SafariZonePage,
@@ -57,6 +60,11 @@ function SafariZonePage() {
 
       <Suspense fallback={<EmptyState label="INITIALIZING SAFARI ZONE TELEMETRY..." />}>
         <SafariTargetSelection selection={selection} />
+        <SafariAreaMap
+          version={selection.version}
+          availableAreas={selection.availableAreas}
+          targetPokemon={selection.targetPokemon}
+        />
         <SafariZoneEncountersList saveData={saveData} />
       </Suspense>
     </div>

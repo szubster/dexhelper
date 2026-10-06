@@ -3,6 +3,7 @@ id: task-527-596-safari-zone-area-map-ui
 type: TASK
 title: Safari Zone Area Map UI Component
 status: READY
+confidence_score: 95
 owner_persona: coder
 created_at: '2026-09-19'
 updated_at: '2026-10-06'
@@ -37,7 +38,7 @@ Implement the visual area map that highlights specific zones based on target sel
 - Use Vitest and `vitest-browser-react` to unit test the component.
 
 ## Acceptance Criteria
-- [ ] Component renders areas based on game version.
-- [ ] Appropriate areas highlight based on selected Pokemon.
-- [ ] Adheres to the Tactical Hardware aesthetic.
-- [ ] Unit tests pass.
+- [x] Component renders areas based on game version.
+- [x] Appropriate areas highlight based on selected Pokemon.
+- [x] Adheres to the Tactical Hardware aesthetic.
+- [x] Unit tests pass.
