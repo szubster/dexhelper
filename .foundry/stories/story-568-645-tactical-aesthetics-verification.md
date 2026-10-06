@@ -33,4 +33,8 @@ Verify that styling complies with ADR 008 tactical aesthetics (sharp edges, dash
 - Implement visual regression and structural Playwright tests for tactical styling invariants.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into modular implementation and QA tasks.
+- [x] Tech Lead: Break down this Story into modular implementation and QA tasks.
+- [ ] task-645-668-tactical-aesthetics-e2e-base-impl
+- [ ] task-645-669-tactical-aesthetics-e2e-base-qa
+- [ ] task-645-670-tactical-aesthetics-e2e-complex-impl
+- [ ] task-645-671-tactical-aesthetics-e2e-complex-qa
