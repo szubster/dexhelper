@@ -2,12 +2,12 @@
 id: task-639-652-settings-modal-model-integration
 type: TASK
 title: Integrate SettingsModalModel COM in E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-02'
-updated_at: '2026-10-05'
+updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: '3594899066174380103'
+jules_session_id: null
 pr_number: null
 parent: story-579-639-e2e-core-components-integration
 tags:

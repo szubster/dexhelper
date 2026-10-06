@@ -2,12 +2,12 @@
 id: research-640-658-investigate-extract-core-domain-timeout-v2
 type: RESEARCH
 title: Investigate timeout during core domain extraction (v2)
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-03'
-updated_at: '2026-10-05'
+updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: '9019935881721831943'
+jules_session_id: null
 pr_number: null
 parent: story-526-640-extract-domain-logic
 tags:

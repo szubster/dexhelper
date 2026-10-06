@@ -2,10 +2,10 @@
 id: task-640-659-extract-utils-to-core
 type: TASK
 title: Migrate pure JS/TS logic from src/utils to packages/core
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-06'
 depends_on:
   - research-640-658-investigate-extract-core-domain-timeout-v2
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: research-638-665-investigate-constants-extraction
 type: RESEARCH
 title: Investigate Constants Extraction Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-05'
-updated_at: '2026-10-05'
+updated_at: '2026-10-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
 notes: ''
 locks: []
 ---
