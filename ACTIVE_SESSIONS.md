@@ -5,6 +5,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [prd-535-586-false-permanent-failure-detection](.foundry/prds/prd-535-586-false-permanent-failure-detection.md) | PRD | False Permanent Failure Detection & Distinction in Orchestrator | epic_planner | [4788999238856628233](https://jules.google.com/session/4788999238856628233) |
 | [research-422-658-tm-inventory-extraction-failure-retry](.foundry/research/research-422-658-tm-inventory-extraction-failure-retry.md) | RESEARCH | Investigate TM Inventory Extraction Logic Permanent Failure | researcher | [17285225532833259818](https://jules.google.com/session/17285225532833259818) |
 | [research-640-658-investigate-extract-core-domain-timeout-v2](.foundry/research/research-640-658-investigate-extract-core-domain-timeout-v2.md) | RESEARCH | Investigate timeout during core domain extraction (v2) | researcher | [9019935881721831943](https://jules.google.com/session/9019935881721831943) |
 | [story-425-496-reactive-ui-e2e](.foundry/stories/story-425-496-reactive-ui-e2e.md) | STORY | Reactive UI E2E Verification | tech_lead | [13945762668211787017](https://jules.google.com/session/13945762668211787017) |
