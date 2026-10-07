@@ -30,3 +30,5 @@ To complete the visual requirements of the Living Dex Grid, we must visually hig
 ## Acceptance Criteria
 - [ ] Visually highlight missing Pokémon slots as "ghosts".
 - [ ] Implement sharp edges (rounded-none), dashed borders, and monospaced telemetry fonts (font-mono) according to ADR 008.
+- [ ] task-524-667-living-dex-ghosts-ui-coder
+- [ ] task-524-668-living-dex-ghosts-ui-qa
