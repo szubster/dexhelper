@@ -2,13 +2,13 @@
 id: task-638-666-extract-constants-to-core-retry
 type: TASK
 title: Extract Constants to Core Package Retry
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-05'
 updated_at: '2026-10-07'
 depends_on:
   - research-638-665-investigate-constants-extraction
-jules_session_id: null
+jules_session_id: '13034793254372251985'
 pr_number: null
 parent: story-526-638-extract-constants
 tags:

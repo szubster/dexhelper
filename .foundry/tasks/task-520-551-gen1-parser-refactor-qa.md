@@ -2,13 +2,13 @@
 id: task-520-551-gen1-parser-refactor-qa
 type: TASK
 title: QA Gen 1 Core Parser Refactor
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-09-24'
+updated_at: '2026-10-07'
 depends_on:
   - task-520-550-gen1-parser-refactor-impl
-jules_session_id: null
+jules_session_id: '5576202480996358181'
 parent: story-521-520-gen1-parser-refactor-core
 rejection_reason: ''
 locks: []
