@@ -1,4 +1,5 @@
 ---
+confidence_score: 100
 id: task-520-551-gen1-parser-refactor-qa
 type: TASK
 title: QA Gen 1 Core Parser Refactor
@@ -20,5 +21,5 @@ locks: []
 Verify that the refactor to remove magic numbers did not introduce regressions.
 
 ## Acceptance Criteria
-- [ ] Verify that `gen1.ts` correctly uses the extracted constants.
-- [ ] Verify that no regressions were introduced by running `pnpm test`.
+- [x] Verify that `gen1.ts` correctly uses the extracted constants.
+- [x] Verify that no regressions were introduced by running `pnpm test`.
