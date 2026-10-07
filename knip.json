@@ -34,10 +34,7 @@
     "src/engine/radar/index.ts",
     "src/engine/saveParser/parsers/gen2Constants.ts",
     "tests/e2e/fixtures/mock-foundry.ts",
-    "tests/e2e/models/PokedexGridModel.ts",
-    "tests/e2e/models/SettingsModalModel.ts",
-    "tests/e2e/fixtures/index.ts",
-    "src/engine/saveParser/index.ts"
+    "tests/e2e/fixtures/index.ts"
   ],
   "ignoreExportsUsedInFile": true,
   "ignoreBinaries": [],
