@@ -17,6 +17,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Verify lint:foundry package script
@@ -26,5 +27,5 @@ locks: []
 - Verify `lint:foundry` is appended to the main `lint` script.
 
 ## Acceptance Criteria
-- [ ] `"lint:foundry"` exists in `package.json`.
-- [ ] `"lint:foundry"` is integrated into the main `"lint"` script in `package.json`.
+- [x] `"lint:foundry"` exists in `package.json`.
+- [x] `"lint:foundry"` is integrated into the main `"lint"` script in `package.json`.
