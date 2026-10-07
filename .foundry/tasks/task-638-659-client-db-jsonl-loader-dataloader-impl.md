@@ -19,6 +19,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Integrate DataLoader for Items and Moves
@@ -27,5 +28,5 @@ locks: []
 Bulk database methods have been created for items and moves. We now need to integrate them into the global DataLoader to batch requests across components.
 
 ## Acceptance Criteria
-- [ ] Integrate \`DataLoader\` instances for \`items\` and \`moves\` in \`src/db/DexDataLoader.ts\` to batch requests and prevent N+1 IDB query bottlenecks.
-- [ ] Ensure the loaders call \`pokeDB.getItemsBulk\` and \`pokeDB.getMovesBulk\` respectively.
+- [x] Integrate \`DataLoader\` instances for \`items\` and \`moves\` in \`src/db/DexDataLoader.ts\` to batch requests and prevent N+1 IDB query bottlenecks.
+- [x] Ensure the loaders call \`pokeDB.getItemsBulk\` and \`pokeDB.getMovesBulk\` respectively.
