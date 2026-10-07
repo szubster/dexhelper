@@ -76,4 +76,4 @@ jobs:
           fi
 
           echo "Running session cleanup with flags: ${FLAGS[*]}"
-          node --strip-types .github/scripts/clean-jules-sessions.ts "${FLAGS[@]}"
+          node --strip-types packages/foundry/clean-jules-sessions.ts "${FLAGS[@]}"

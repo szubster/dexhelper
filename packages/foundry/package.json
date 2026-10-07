@@ -1,5 +1,5 @@
 {
-  "name": "foundry-scripts",
+  "name": "@dexhelper/foundry",
   "version": "1.0.0",
   "description": "Foundry DAG orchestration scripts — run with Node 24 native TypeScript support.",
   "type": "module",
