@@ -25,4 +25,6 @@ locks: []
 Ensure the storage engine handles IndexedDB quota exceeded errors gracefully, potentially triggering aggressive eviction or user notifications.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-522-668-quota-handling-impl
+- [ ] task-522-669-quota-handling-qa
