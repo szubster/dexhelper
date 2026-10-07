@@ -149,4 +149,22 @@ describe('SaveDataReader', () => {
     expect(() => reader.readFlag(4, 0)).toThrow(errorMessage);
     expect(() => reader.readFlag(3, 8)).toThrow(errorMessage);
   });
+
+  it('should pass through non-RangeError errors', () => {
+    const buffer = new ArrayBuffer(8);
+    const view = new DataView(buffer);
+    const reader = new SaveDataReader(view);
+
+    // Mock the DataView to throw a different kind of error
+    const originalGetUint8 = view.getUint8.bind(view);
+    view.getUint8 = () => {
+      throw new TypeError('Some other error');
+    };
+
+    expect(() => reader.getUint8(0)).toThrow(TypeError);
+    expect(() => reader.getUint8(0)).toThrow('Some other error');
+
+    // Restore the mock
+    view.getUint8 = originalGetUint8;
+  });
 });
