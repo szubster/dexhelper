@@ -18,6 +18,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Archival File Move Automation Coder (Implementation)
@@ -26,4 +27,4 @@ locks: []
 Implement systematic file move to `.foundry/archive/*` preserving subdirectories for terminal trees.
 
 ## Acceptance Criteria
-- [ ] Implement systematic file move to `.foundry/archive/*` preserving subdirectories for terminal trees in `archiveChildNodes` inside `.github/scripts/tpm-archival-fs.ts`.
+- [x] Implement systematic file move to `.foundry/archive/*` preserving subdirectories for terminal trees in `archiveChildNodes` inside `.github/scripts/tpm-archival-fs.ts`.
