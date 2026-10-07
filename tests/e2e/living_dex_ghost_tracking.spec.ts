@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { SettingsModalModel } from './models/SettingsModalModel';
 import { initializeWithSave, waitForSync } from './test-utils';
 
 test.describe('Living Dex Ghost Tracking E2E Validation', () => {
@@ -20,14 +21,12 @@ test.describe('Living Dex Ghost Tracking E2E Validation', () => {
     await expect(page.getByText(/Wild Encounters/i)).toBeVisible({ timeout: 15000 });
 
     // Now Turn on Living Dex
-    await page.getByRole('button', { name: 'System Settings' }).click();
+    const settingsModal = new SettingsModalModel(page);
+    await settingsModal.open();
 
-    await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
+    await settingsModal.toggleLivingDexMode();
 
-    const livingDexBtn = page.getByText('[ LIVING DEX ]');
-    await livingDexBtn.click();
-
-    await page.getByRole('button', { name: 'Close settings' }).click();
+    await settingsModal.close();
 
     await waitForSync(page);
 

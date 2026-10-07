@@ -2,10 +2,10 @@
 id: task-359-441-gen3-trainer-card-parsing-e2e-qa
 type: TASK
 title: Gen 3 Trainer Card E2E QA
-status: READY
+status: FAILED
 owner_persona: qa
 created_at: '2026-08-05'
-updated_at: '2026-09-28'
+updated_at: '2026-10-07'
 depends_on:
   - task-359-440-gen3-trainer-card-parsing-e2e-impl
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - integration
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

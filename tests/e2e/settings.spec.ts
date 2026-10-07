@@ -1,27 +1,25 @@
-import { expect, test } from './fixtures';
+import { test } from './fixtures';
+import { SettingsModalModel } from './models/SettingsModalModel';
 import { waitForSync } from './test-utils';
 
 test.describe('Settings', () => {
   test('should open settings and toggle living dex mode and persist across reload', async ({ page, loadSave }) => {
     await loadSave();
+    const settingsModal = new SettingsModalModel(page);
 
-    await page.getByRole('button', { name: 'System Settings' }).click();
+    await settingsModal.open();
 
-    await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
+    await settingsModal.toggleLivingDexMode();
 
-    const livingDexBtn = page.getByRole('radio', { name: '[ LIVING DEX ]' });
-    await livingDexBtn.click();
-
-    await page.getByRole('button', { name: 'Close settings' }).click();
+    await settingsModal.close();
 
     await page.waitForTimeout(500);
 
     await page.reload();
     await waitForSync(page);
 
-    await page.getByRole('button', { name: 'System Settings' }).click();
-    await expect(page.getByText('SYS.CONFIG').first()).toBeVisible();
+    await settingsModal.open();
 
-    await expect(page.getByRole('radio', { name: '[ LIVING DEX ]' })).toHaveClass(/bg-emerald-500/);
+    await settingsModal.assertLivingDexModeEnabled();
   });
 });

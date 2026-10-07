@@ -2,12 +2,12 @@
 id: idea-535-false-permanent-failure-detection
 type: IDEA
 title: False Permanent Failure Detection & Distinction in Orchestrator
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-10-04T05:32:46Z'
-updated_at: '2026-10-04'
+updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: '2137775604596499248'
+jules_session_id: null
 pr_number: null
 parent: null
 rejection_count: 0
@@ -32,3 +32,6 @@ Enhance the Orchestrator (Phase 3.0 rejection processing) and telemetry scripts 
 
 ## Value
 Reduces false-positive task cancellations, prevents unnecessary DAG deadlocks, and improves pipeline throughput across The Foundry.
+
+## Acceptance Criteria
+- [ ] prd-535-586-false-permanent-failure-detection

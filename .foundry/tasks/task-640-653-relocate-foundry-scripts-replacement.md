@@ -2,13 +2,13 @@
 id: task-640-653-relocate-foundry-scripts-replacement
 type: TASK
 title: Relocate Foundry Scripts Replacement
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-05'
+updated_at: '2026-10-07'
 depends_on:
   - research-640-652-investigate-relocate-scripts-failure
-jules_session_id: '2817220538154040539'
+jules_session_id: null
 pr_number: null
 parent: story-525-640-relocate-foundry-scripts
 tags:
@@ -16,8 +16,8 @@ tags:
   - monorepo
   - pnpm
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
 notes: ''
 locks: []
 ---

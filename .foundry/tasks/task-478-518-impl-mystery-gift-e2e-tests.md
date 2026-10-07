@@ -2,10 +2,10 @@
 id: task-478-518-impl-mystery-gift-e2e-tests
 type: TASK
 title: Implement Mystery Gift E2E Tests
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-10-05'
+updated_at: '2026-10-07'
 depends_on:
   - task-478-517-setup-mystery-gift-e2e-fixtures
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - mystery-gift
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
