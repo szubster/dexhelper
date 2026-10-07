@@ -2,13 +2,13 @@
 id: task-560-569-qa-telemetry-metrics
 type: TASK
 title: QA Telemetry Metrics Implementation
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-10'
-updated_at: '2026-10-02'
+updated_at: '2026-10-07'
 depends_on:
   - task-560-568-orchestrator-integration
-jules_session_id: null
+jules_session_id: '1967304735573661082'
 pr_number: null
 parent: story-530-560-telemetry-metrics-impl
 tags:
