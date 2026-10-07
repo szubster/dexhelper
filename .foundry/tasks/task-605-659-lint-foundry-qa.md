@@ -2,13 +2,13 @@
 id: task-605-659-lint-foundry-qa
 type: TASK
 title: 'Verify lint:foundry package script'
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2025-02-18T00:00:00.000Z'
 updated_at: '2026-10-07'
 depends_on:
   - task-605-658-lint-foundry-coder
-jules_session_id: null
+jules_session_id: '4771089437528261740'
 parent: story-553-605-package-scripts
 tags:
   - foundry
