@@ -2,7 +2,7 @@
 id: task-359-440-gen3-trainer-card-parsing-e2e-impl
 type: TASK
 title: Gen 3 Trainer Card E2E Implementation
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-05'
 updated_at: '2026-09-28'
@@ -15,8 +15,8 @@ tags:
   - integration
   - gen3
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: 'The implementation does not test or render playtime, link battles, or trades as required by the acceptance criteria.'
 notes: ''
 locks: []
 ---

@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 2
 rejection_reason: ''
 notes: ''
+confidence_score: 100
 locks: []
 ---
 
@@ -30,3 +31,7 @@ Verify the Playwright E2E tests for the Gen 3 Trainer Card parsing and UI render
 ## Acceptance Criteria
 - [ ] Run the E2E tests and ensure they pass consistently.
 - [ ] Verify the tests correctly assert all relevant data points on the Trainer Card UI (e.g., playtime, Hall of Fame debut, link battles, trades).
+
+
+### QA Rejection
+I have marked `task-359-440-gen3-trainer-card-parsing-e2e-impl` as FAILED because the implementation does not test or implement parsing and rendering for `playtime`, `link battles`, or `trades`. These are explicitly required by the acceptance criteria.
