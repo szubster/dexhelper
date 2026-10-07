@@ -35,3 +35,5 @@ Based on epic-565-571, we need to add e2e integration tests to verify the UI das
 
 ## Acceptance Criteria
 - [ ] Add E2E test verification
+- [ ] task-645-668-dashboard-metrics-integration-e2e-impl
+- [ ] task-645-669-qa-dashboard-metrics-integration-e2e
