@@ -19,7 +19,6 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
 notes: ''
 locks: []
 ---
