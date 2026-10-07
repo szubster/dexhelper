@@ -18,6 +18,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Item Gating Evaluation Utilities
@@ -29,4 +30,4 @@ With the gating requirements defined, we need utilities that evaluate whether a 
 Create utility functions that take an item requirement and the current save data context to evaluate if the requirement is satisfied.
 
 ## Acceptance Criteria
-- [ ] coder: Implement utility functions to evaluate gating requirements against save data.
+- [x] coder: Implement utility functions to evaluate gating requirements against save data.
