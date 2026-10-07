@@ -31,4 +31,7 @@ Once the daily Mirage Island value and the Pokémon personality values are parse
 3. **System Integrity**: Ensure no existing functionality is broken by adding these fields to the shared payload.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks.
+- [x] Tech Lead: Break down into tasks.
+- [ ] task-605-668-hydrate-mirage-island-state-schema-impl
+- [ ] task-605-670-hydrate-mirage-island-state-logic-impl
+- [ ] task-605-669-hydrate-mirage-island-state-qa
