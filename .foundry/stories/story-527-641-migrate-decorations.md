@@ -2,10 +2,10 @@
 id: story-527-641-migrate-decorations
 type: STORY
 title: Migrate Visual Decorators
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-06'
+updated_at: '2026-10-07'
 depends_on:
   - story-527-638-setup-ui-package
 jules_session_id: '6338240758374919969'

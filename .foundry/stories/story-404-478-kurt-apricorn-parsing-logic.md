@@ -2,20 +2,20 @@
 id: story-404-478-kurt-apricorn-parsing-logic
 type: STORY
 title: Kurt Apricorn Parsing Logic
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-06'
+updated_at: '2026-10-07'
 depends_on:
   - story-404-477-kurt-apricorn-offset-and-constants
-jules_session_id: '11845005062576344446'
+jules_session_id: null
 pr_number: null
 parent: epic-338-404-kurt-apricorn-data-engine
 tags:
   - gen2
   - items
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

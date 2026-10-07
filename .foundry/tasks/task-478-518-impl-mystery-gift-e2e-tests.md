@@ -2,13 +2,13 @@
 id: task-478-518-impl-mystery-gift-e2e-tests
 type: TASK
 title: Implement Mystery Gift E2E Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-10-06'
+updated_at: '2026-10-07'
 depends_on:
   - task-478-517-setup-mystery-gift-e2e-fixtures
-jules_session_id: '1639321665972779601'
+jules_session_id: null
 pr_number: null
 parent: story-345-478-gen3-mystery-gift-e2e-verification
 tags:
@@ -17,7 +17,9 @@ tags:
   - e2e
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

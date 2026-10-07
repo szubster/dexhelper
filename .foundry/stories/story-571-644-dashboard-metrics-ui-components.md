@@ -2,10 +2,10 @@
 id: story-571-644-dashboard-metrics-ui-components
 type: STORY
 title: Update dashboard components for confidence metrics
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-01T15:08:20.012Z'
-updated_at: '2026-10-03'
+updated_at: '2026-10-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -35,8 +35,8 @@ Based on epic-565-571, the UI dashboard needs to visualize the confidence scores
   - Green for `90+`
 
 ## Acceptance Criteria
-- [ ] task-644-649-parser-and-builder-confidence
-- [ ] task-644-650-qa-parser-and-builder-confidence
-- [ ] task-644-651-context-and-ui-confidence
-- [ ] task-644-652-qa-context-and-ui-confidence
-- [ ] Implement the UI components for agent confidence metrics.
+- [x] task-644-649-parser-and-builder-confidence
+- [x] task-644-650-qa-parser-and-builder-confidence
+- [x] task-644-651-context-and-ui-confidence
+- [x] task-644-652-qa-context-and-ui-confidence
+- [x] Implement the UI components for agent confidence metrics.

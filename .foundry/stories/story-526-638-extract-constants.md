@@ -2,10 +2,10 @@
 id: story-526-638-extract-constants
 type: STORY
 title: Extract game constants to core package
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-06'
+updated_at: '2026-10-07'
 depends_on: []
 jules_session_id: null
 pr_number: null

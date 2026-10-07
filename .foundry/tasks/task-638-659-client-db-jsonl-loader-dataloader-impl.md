@@ -2,10 +2,10 @@
 id: task-638-659-client-db-jsonl-loader-dataloader-impl
 type: TASK
 title: Integrate DataLoader for Items and Moves
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-07'
 depends_on:
   - task-638-658-client-db-jsonl-loader-db-impl
 jules_session_id: null
