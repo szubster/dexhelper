@@ -42,8 +42,13 @@ Implement logic to clone nodes for different variants and adjust prompts accordi
 - [x] task-478-640-orchestrator-prompt-adaptation-retry
 - [x] task-478-641-orchestrator-cloning-tests-retry
 - [x] task-478-642-orchestrator-cloning-qa-retry
-- [ ] research-478-652-investigate-cloning-failure-retry
-- [ ] task-478-653-orchestrator-cloning-logic-retry-2
-- [ ] task-478-654-orchestrator-prompt-adaptation-retry-2
-- [ ] task-478-655-orchestrator-cloning-tests-retry-2
-- [ ] task-478-656-orchestrator-cloning-qa-retry-2
+- [x] research-478-652-investigate-cloning-failure-retry
+- [x] task-478-653-orchestrator-cloning-logic-retry-2
+- [x] task-478-654-orchestrator-prompt-adaptation-retry-2
+- [x] task-478-655-orchestrator-cloning-tests-retry-2
+- [x] task-478-656-orchestrator-cloning-qa-retry-2
+- [ ] research-478-668-investigate-cloning-failure-retry-3
+- [ ] task-478-669-orchestrator-cloning-logic-retry-3
+- [ ] task-478-670-orchestrator-prompt-adaptation-retry-3
+- [ ] task-478-671-orchestrator-cloning-tests-retry-3
+- [ ] task-478-672-orchestrator-cloning-qa-retry-3
