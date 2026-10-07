@@ -2,7 +2,7 @@
 id: story-580-652-e2e-migration-verification
 type: STORY
 title: E2E Migration Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-07'
 updated_at: '2026-10-07'
