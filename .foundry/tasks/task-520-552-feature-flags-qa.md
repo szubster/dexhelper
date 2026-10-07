@@ -2,7 +2,7 @@
 id: task-520-552-feature-flags-qa
 type: TASK
 title: 'QA: Feature Flags Implementation'
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-09-05'
 updated_at: '2026-10-07'
@@ -15,10 +15,8 @@ tags:
   - dexhelper
   - wip
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

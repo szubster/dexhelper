@@ -2,10 +2,10 @@
 id: story-552-581-gen3-fossil-constants
 type: STORY
 title: Define Gen 3 Fossil Constants
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-17T18:41:57Z'
-updated_at: '2026-09-17T18:41:57Z'
+updated_at: '2026-10-07'
 depends_on:
   - story-552-580-gen3-fossil-schema-docs
 jules_session_id: null
