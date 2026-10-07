@@ -19,6 +19,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # QA: Feature Flags Implementation
@@ -27,5 +28,5 @@ locks: []
 Verify the robust feature flag system for DexHelper.
 
 ## Acceptance Criteria
-- [ ] Verify feature flags can be toggled via environment variables
-- [ ] Verify feature flags can be toggled via hidden UI
+- [x] Verify feature flags can be toggled via environment variables
+- [x] Verify feature flags can be toggled via hidden UI
