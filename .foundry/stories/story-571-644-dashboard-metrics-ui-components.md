@@ -24,7 +24,7 @@ priority: 60
 # Update dashboard components for confidence metrics
 
 ## Context
-Based on epic-565-571, the UI dashboard needs to visualize the confidence scores reported by agents.
+Based on epic-565-571-agent-confidence-metrics-dashboard-ui, the UI dashboard needs to visualize the confidence scores reported by agents.
 
 ## Requirements
 - Update the UI dashboard components.
