@@ -22,3 +22,7 @@ Implement the chunking logic to limit deletions per execution cycle, prioritizin
 ## Acceptance Criteria
 - [ ] Sort eligible nodes to prioritize the oldest files first.
 - [ ] Limit the deletion queue to a maximum of 50 nodes per execution cycle.
+- [ ] task-551-668-deletion-queue-types-and-sorting
+- [ ] task-551-669-deletion-queue-chunking
+- [ ] task-551-670-deletion-queue-unit-tests
+- [ ] task-551-671-qa-deletion-chunking
