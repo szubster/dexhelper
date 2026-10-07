@@ -2,7 +2,7 @@
 id: task-640-659-extract-utils-to-core
 type: TASK
 title: Migrate pure JS/TS logic from src/utils to packages/core
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-07'

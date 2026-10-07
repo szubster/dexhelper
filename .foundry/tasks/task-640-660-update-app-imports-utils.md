@@ -2,7 +2,9 @@
 id: task-640-660-update-app-imports-utils
 type: TASK
 title: Update application imports to use @dexhelper/core for utils
-status: PENDING
+status: CANCELLED
+rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
+
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-03'
@@ -17,7 +19,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+
 notes: ''
 locks: []
 ---

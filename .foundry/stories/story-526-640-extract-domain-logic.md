@@ -32,10 +32,17 @@ locks: []
 - [x] task-640-646-extract-core-domain-logic-replacement
 - [x] task-640-647-update-app-imports-replacement
 - [x] task-640-648-qa-core-domain-extraction-replacement
-- [ ] research-640-658-investigate-extract-core-domain-timeout-v2
-- [ ] task-640-659-extract-utils-to-core
-- [ ] task-640-660-update-app-imports-utils
-- [ ] task-640-661-qa-extract-utils
-- [ ] task-640-662-extract-engine-data-to-core
-- [ ] task-640-663-update-app-imports-engine-data
-- [ ] task-640-664-qa-extract-engine-data
+- [x] research-640-658-investigate-extract-core-domain-timeout-v2
+- [x] task-640-659-extract-utils-to-core
+- [x] task-640-660-update-app-imports-utils
+- [x] task-640-661-qa-extract-utils
+- [x] task-640-662-extract-engine-data-to-core
+- [x] task-640-663-update-app-imports-engine-data
+- [x] task-640-664-qa-extract-engine-data
+- [ ] research-640-668-investigate-extract-utils-failure
+- [ ] task-640-669-extract-utils-to-core-replacement
+- [ ] task-640-670-update-app-imports-utils-replacement
+- [ ] task-640-671-qa-extract-utils-replacement
+- [ ] task-640-672-extract-engine-data-to-core-replacement
+- [ ] task-640-673-update-app-imports-engine-data-replacement
+- [ ] task-640-674-qa-extract-engine-data-replacement

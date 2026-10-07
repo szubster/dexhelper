@@ -2,7 +2,8 @@
 id: task-640-664-qa-extract-engine-data
 type: TASK
 title: QA Verification for Engine Data Extraction
-status: PENDING
+status: CANCELLED
+rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
 owner_persona: qa
 created_at: '2026-10-03'
 updated_at: '2026-10-03'

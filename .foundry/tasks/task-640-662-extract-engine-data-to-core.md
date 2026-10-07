@@ -2,7 +2,8 @@
 id: task-640-662-extract-engine-data-to-core
 type: TASK
 title: Migrate pure JS/TS logic from src/engine/data to packages/core
-status: PENDING
+status: CANCELLED
+rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-03'
