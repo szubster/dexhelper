@@ -20,6 +20,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Task: QA - Real-Time Statistics Generation
@@ -35,7 +36,7 @@ Verify the implementation of the real-time statistics generation module and its 
 5. Review the coder's unit/integration tests for the statistics logic.
 
 ## Acceptance Criteria
-- [ ] Node state aggregation is verified to be accurate.
-- [ ] PR metrics extraction works correctly.
-- [ ] Output files (`foundry-statistics.json` and `.md`) are correctly formatted and placed at the root.
-- [ ] Integration with the orchestrator/heartbeat is confirmed.
+- [x] Node state aggregation is verified to be accurate.
+- [x] PR metrics extraction works correctly.
+- [x] Output files (`foundry-statistics.json` and `.md`) are correctly formatted and placed at the root.
+- [x] Integration with the orchestrator/heartbeat is confirmed.
