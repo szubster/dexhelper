@@ -2,10 +2,10 @@
 id: task-565-606-hunting-progress-notifications
 type: TASK
 title: Hunting Progress Notifications
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-08-15'
-updated_at: '2026-10-01'
+updated_at: '2026-10-07'
 depends_on:
   - task-565-605-hunting-progress-detection-logic
 jules_session_id: null
@@ -15,8 +15,10 @@ tags:
   - dexhelper
   - react
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

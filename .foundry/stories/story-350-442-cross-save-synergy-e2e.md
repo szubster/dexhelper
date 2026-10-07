@@ -2,14 +2,14 @@
 id: story-350-442-cross-save-synergy-e2e
 type: STORY
 title: Cross-Save Synergy E2E
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-20'
-updated_at: '2026-09-30'
+updated_at: '2026-10-06'
 depends_on:
   - story-350-440-synergy-evaluator-assistant-prompting
   - story-350-441-game-exclusive-pokedex-analysis
-jules_session_id: null
+jules_session_id: '14358159003791760143'
 pr_number: null
 parent: epic-336-350-cross-save-synergy-analysis
 tags:

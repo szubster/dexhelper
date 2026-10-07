@@ -2,13 +2,13 @@
 id: task-564-618-pokeblock-e2e-fixtures-retry
 type: TASK
 title: Generate Test Fixtures for Pokéblock Optimizer E2E Tests (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-22T12:00:00Z'
-updated_at: '2026-10-02'
+updated_at: '2026-10-06'
 depends_on:
   - research-564-617-pokeblock-e2e-fixtures-failure
-jules_session_id: null
+jules_session_id: '14352598511611930618'
 pr_number: null
 parent: story-540-564-gen3-pokeblock-optimizer-e2e
 tags:

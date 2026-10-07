@@ -2,10 +2,10 @@
 id: task-641-660-qa-migrate-decorations
 type: TASK
 title: QA Migrate Visual Decorators
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-06'
 depends_on:
   - task-641-658-migrate-scanline-crosshairs
   - task-641-659-migrate-hexstream-telemetry
@@ -17,7 +17,9 @@ tags:
   - components
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-641-659-migrate-hexstream-telemetry
 notes: ''
 locks: []
 ---

@@ -2,19 +2,19 @@
 id: task-639-659-migrate-badges-impl
 type: TASK
 title: Migrate Tactical Badges Implementation
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-05'
+updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: '14656954010456385141'
+jules_session_id: null
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
 tags:
   - react
   - components
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---

@@ -2,13 +2,13 @@
 id: story-527-639-migrate-tactical-primitives
 type: STORY
 title: Migrate Tactical Primitives
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-05'
+updated_at: '2026-10-06'
 depends_on:
   - story-527-638-setup-ui-package
-jules_session_id: '6893775380519838105'
+jules_session_id: '566065923783405738'
 pr_number: null
 parent: epic-519-527-extract-ui-components
 tags:

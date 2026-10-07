@@ -467,6 +467,38 @@ describe('evolutionGenerator', () => {
       expect(suggestionsMissingItem[0]?.priority).toBe(45);
     });
 
+    it('generates priority 95 trade evolution suggestions when pre-evolution is holding the item', async () => {
+      const apiData: AssistantApiData = {
+        pokemonMetadata: {
+          230: {
+            id: 230, // Kingdra
+            efrm: [117],
+            det: [{ tr: EVO_TRIGGER.TRADE, held: 235 }], // Dragon Scale (235)
+          },
+        },
+      } as unknown as AssistantApiData;
+
+      const suggestions: Suggestion[] = [];
+      const instances = new Map<number, PokemonInstance[]>([
+        [117, [{ speciesId: 117, level: 32, item: 235 } as PokemonInstance]],
+      ]);
+
+      await generateEvolutionSuggestions(
+        [230],
+        mockSaveData,
+        apiData,
+        instances,
+        suggestions,
+        'emerald',
+        new Set([230]),
+      );
+
+      expect(suggestions[0]?.id).toBe('evo-trade-held-230');
+      expect(suggestions[0]?.priority).toBe(95);
+      expect(suggestions[0]?.title).toBe('Ready to Trade Evolve: #230!');
+      expect(suggestions[0]?.description).toContain('Your pre-evolution is already holding');
+    });
+
     it('generates Shedinja special evolution suggestions', async () => {
       const apiData: AssistantApiData = {
         pokemonMetadata: {

@@ -1,8 +1,6 @@
 import fs from 'node:fs';
 
-const diff = fs.readFileSync(0, 'utf-8');
-
-function analyzeDiff(diffText) {
+export function analyzeDiff(diffText) {
   const lines = diffText.split('\n');
   let hasValidChanges = false;
   let currentFileIsJournal = false;
@@ -55,7 +53,7 @@ function analyzeDiff(diffText) {
       line.startsWith('deleted file mode ')
     ) {
       if (!currentFileIsJournal) {
-          return false;
+        return false;
       }
       i++;
       continue;
@@ -78,12 +76,43 @@ function analyzeDiff(diffText) {
         i++;
       }
 
-      // Every removal must have a corresponding addition for it to be a pure "checkbox mark"
-      if (removed.length !== added.length) return false;
+      const remainingRemoved = [];
+      const remainingAdded = [];
+      let addedConfidenceCount = 0;
+      let removedConfidenceCount = 0;
 
-      for (let j = 0; j < removed.length; j++) {
-        const r = removed[j];
-        const a = added[j];
+      const confidenceRegex = /^\s*confidence_score:\s*(['"]?(\d+|null)['"]?)\s*$/;
+      const confidencePrefixRegex = /^\s*confidence_score:\s*.*$/;
+
+      for (const r of removed) {
+        if (confidencePrefixRegex.test(r)) {
+          removedConfidenceCount++;
+        } else {
+          remainingRemoved.push(r);
+        }
+      }
+
+      for (const a of added) {
+        if (confidencePrefixRegex.test(a)) {
+          if (confidenceRegex.test(a)) {
+            addedConfidenceCount++;
+          } else {
+            return false;
+          }
+        } else {
+          remainingAdded.push(a);
+        }
+      }
+
+      const hasConfidenceChange = addedConfidenceCount > 0 || (removedConfidenceCount > 0 && addedConfidenceCount > 0);
+
+      // Every remaining removal must have a corresponding addition for it to be a pure "checkbox mark"
+      if (remainingRemoved.length !== remainingAdded.length) return false;
+
+      let hunkHasCheckboxChanges = false;
+      for (let j = 0; j < remainingRemoved.length; j++) {
+        const r = remainingRemoved[j];
+        const a = remainingAdded[j];
 
         // Match checkboxes: [ ] -> [x] or [X]
         // Note: The leading dash/plus prefix was already sliced off above.
@@ -95,7 +124,13 @@ function analyzeDiff(diffText) {
         const isCheckboxChange = (rReplaced === aReplaced) && /^\s*-\s*\[\s\]/.test(r);
 
         if (!isCheckboxChange) return false;
+        hunkHasCheckboxChanges = true;
+      }
+
+      if (hunkHasCheckboxChanges || hasConfidenceChange) {
         hasValidChanges = true;
+      } else if (remainingRemoved.length === 0 && remainingAdded.length === 0 && !hasConfidenceChange) {
+        return false;
       }
     } else {
       // Any other unexpected line prefix means it's not a clean diff we want to auto-merge
@@ -106,8 +141,11 @@ function analyzeDiff(diffText) {
   return hasValidChanges;
 }
 
-if (analyzeDiff(diff)) {
-  process.exit(0);
-} else {
-  process.exit(1);
+if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('analyze-diff.js')) {
+  const diff = fs.readFileSync(0, 'utf-8');
+  if (analyzeDiff(diff)) {
+    process.exit(0);
+  } else {
+    process.exit(1);
+  }
 }

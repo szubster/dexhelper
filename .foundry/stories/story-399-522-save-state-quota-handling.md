@@ -2,21 +2,21 @@
 id: story-399-522-save-state-quota-handling
 type: STORY
 title: Graceful handling of storage quota errors
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-05'
+updated_at: '2026-10-07'
 depends_on:
   - story-399-521-save-state-lru-eviction
-jules_session_id: null
+jules_session_id: '1603125744065136359'
 pr_number: null
 parent: epic-099-399-save-state-lru-eviction-and-limits-retry
 tags:
   - storage
   - indexeddb
   - history
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # Story: Graceful handling of storage quota errors

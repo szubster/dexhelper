@@ -5,9 +5,9 @@ title: Extract pure JS/TS domain logic to core package
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-05'
+updated_at: '2026-10-07'
 depends_on: []
-jules_session_id: '10419769348885546656'
+jules_session_id: '9807610381894493830'
 pr_number: null
 parent: epic-519-526-extract-core-domain
 tags:

@@ -2,13 +2,13 @@
 id: task-472-658-implement-integration-tests
 type: TASK
 title: Implement Integration Tests for New Save Fixtures
-status: READY
 confidence_score: 95
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-04'
-updated_at: '2026-10-04'
+updated_at: '2026-10-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1976977711415356584'
 pr_number: null
 parent: story-428-472-e2e-verification
 tags:

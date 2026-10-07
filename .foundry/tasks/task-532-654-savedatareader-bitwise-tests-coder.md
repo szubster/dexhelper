@@ -2,13 +2,13 @@
 id: task-532-654-savedatareader-bitwise-tests-coder
 type: TASK
 title: Implement SaveDataReader Bitwise Helper Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-05'
+updated_at: '2026-10-07'
 depends_on:
   - task-532-653-savedatareader-bounds-tests-coder
-jules_session_id: '7407012861253395808'
+jules_session_id: null
 pr_number: null
 parent: story-521-532-savedatareader-tests
 tags:
@@ -20,7 +20,7 @@ rejection_reason: ''
 notes: ''
 locks: []
 priority: 50
-confidence_score: null
+confidence_score: 100
 ---
 
 # Implement SaveDataReader Bitwise Helper Tests
@@ -29,5 +29,5 @@ confidence_score: null
 Write unit tests for the bitwise helpers `readBits` and `readFlag` in `SaveDataReader`.
 
 ## Acceptance Criteria
-- [ ] Write tests for `readBits`.
-- [ ] Write tests for `readFlag`.
+- [x] Write tests for `readBits`.
+- [x] Write tests for `readFlag`.

@@ -1,4 +1,5 @@
 import type { BugCatchingContestData } from '../parsers/common';
+import { GEN2_PARTY_COUNT_OFFSET_CRYSTAL, GEN2_PARTY_COUNT_OFFSET_GS } from '../utils/detection';
 
 /**
  * Constant offsets relative to the start of the sPokemonData block
@@ -10,6 +11,9 @@ export const BUG_CONTEST_SPECIES_OFFSET = BUG_CONTEST_MON_RELATIVE_OFFSET + 0x00
 export const BUG_CONTEST_LEVEL_OFFSET = BUG_CONTEST_MON_RELATIVE_OFFSET + 0x1f;
 export const BUG_CONTEST_CURRENT_HP_OFFSET = BUG_CONTEST_MON_RELATIVE_OFFSET + 0x22;
 export const BUG_CONTEST_MAX_HP_OFFSET = BUG_CONTEST_MON_RELATIVE_OFFSET + 0x24;
+
+export const BUG_CONTEST_SPECIES_MISSINGNO = 0x00;
+export const BUG_CONTEST_SPECIES_EMPTY_SLOT = 0xff;
 
 /**
  * Extracts the basic data for the currently caught Bug-Catching Contest Pokémon
@@ -26,13 +30,13 @@ export function extractBugCatchingContestData(
   const view = bufferOrView instanceof DataView ? bufferOrView : new DataView(bufferOrView);
 
   // The start of the sPokemonData block in SRAM
-  const sPokemonDataOffset = isCrystal ? 0x2865 : 0x288a;
+  const sPokemonDataOffset = isCrystal ? GEN2_PARTY_COUNT_OFFSET_CRYSTAL : GEN2_PARTY_COUNT_OFFSET_GS;
 
   try {
     const speciesId = view.getUint8(sPokemonDataOffset + BUG_CONTEST_SPECIES_OFFSET);
 
     // If species is 0 (missingno) or FF (empty), there is no Pokemon caught.
-    if (speciesId === 0 || speciesId === 0xff) {
+    if (speciesId === BUG_CONTEST_SPECIES_MISSINGNO || speciesId === BUG_CONTEST_SPECIES_EMPTY_SLOT) {
       return null;
     }
 

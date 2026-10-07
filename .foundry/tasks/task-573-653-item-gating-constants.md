@@ -18,6 +18,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Item Gating Data Constants
@@ -29,4 +30,4 @@ Once the types are defined, we need to map actual game data (Route 119 items req
 Implement the item gating constants mapping specific items/locations to their respective requirement objects based on the types defined.
 
 ## Acceptance Criteria
-- [ ] coder: Create the constants defining gating requirements for specific items/locations.
+- [x] coder: Create the constants defining gating requirements for specific items/locations.

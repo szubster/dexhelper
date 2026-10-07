@@ -2,13 +2,13 @@
 id: epic-566-580-e2e-test-migration
 type: EPIC
 title: E2E Test Migration to COM Pattern
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-10-07'
 depends_on:
   - epic-566-579-e2e-core-component-models
-jules_session_id: null
+jules_session_id: '5131410482469745411'
 pr_number: null
 parent: prd-525-582-e2e-page-component-object-models
 tags:
