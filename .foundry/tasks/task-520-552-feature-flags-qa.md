@@ -2,13 +2,13 @@
 id: task-520-552-feature-flags-qa
 type: TASK
 title: 'QA: Feature Flags Implementation'
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-05'
 updated_at: '2026-10-07'
 depends_on:
   - task-520-551-feature-flags-ui-impl
-jules_session_id: '13845791075881648361'
+jules_session_id: null
 pr_number: null
 parent: story-518-520-enforce-feature-flags
 tags:
@@ -16,7 +16,9 @@ tags:
   - wip
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

@@ -2,12 +2,12 @@
 id: task-574-658-archival-file-move-automation-coder
 type: TASK
 title: Archival File Move Automation Coder (Implementation)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-03T19:01:53.934Z'
-updated_at: '2026-10-05'
+updated_at: '2026-10-07'
 depends_on: []
-jules_session_id: '17204621522173471037'
+jules_session_id: null
 pr_number: null
 parent: story-550-574-archival-file-move-automation
 tags:

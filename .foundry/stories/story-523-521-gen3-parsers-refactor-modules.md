@@ -2,10 +2,10 @@
 id: story-523-521-gen3-parsers-refactor-modules
 type: STORY
 title: Refactor Gen 3 Submodule Parsers for ADR 028
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-10-07'
 depends_on:
   - story-523-520-gen3-parsers-refactor-core
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # STORY: Refactor Gen 3 Submodule Parsers for ADR 028
