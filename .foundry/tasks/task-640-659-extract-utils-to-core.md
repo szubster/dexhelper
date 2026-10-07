@@ -2,13 +2,13 @@
 id: task-640-659-extract-utils-to-core
 type: TASK
 title: Migrate pure JS/TS logic from src/utils to packages/core
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-07'
 depends_on:
   - research-640-658-investigate-extract-core-domain-timeout-v2
-jules_session_id: '3800084430481377340'
+jules_session_id: null
 pr_number: null
 parent: story-526-640-extract-domain-logic
 tags:
@@ -17,7 +17,9 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
