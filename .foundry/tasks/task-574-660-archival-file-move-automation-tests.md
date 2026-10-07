@@ -19,6 +19,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Archival File Move Automation Coder (Tests)
@@ -27,5 +28,5 @@ locks: []
 Write tests to cover the subdirectory preservation in `.github/scripts/tpm-archival-fs.test.ts`.
 
 ## Acceptance Criteria
-- [ ] Write tests to cover the subdirectory preservation in `.github/scripts/tpm-archival-fs.test.ts`.
-- [ ] Ensure tests pass successfully.
+- [x] Write tests to cover the subdirectory preservation in `.github/scripts/tpm-archival-fs.test.ts`.
+- [x] Ensure tests pass successfully.
