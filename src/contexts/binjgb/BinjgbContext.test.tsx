@@ -68,6 +68,8 @@ test('useBinjgb exposes emulator controls', async () => {
     _get_file_data_ptr: vi.fn<(ptr: number) => number>(),
     _get_file_data_size: vi.fn<(ptr: number) => number>(),
     _file_data_delete: vi.fn<(ptr: number) => void>(),
+    _emulator_set_joypad_state: vi.fn<(state: number) => void>(),
+    setJoypadState: vi.fn<(state: number) => void>(),
   };
   const mockModuleFactory = vi.fn<() => Promise<BinjgbModule>>().mockResolvedValue(mockModule);
 

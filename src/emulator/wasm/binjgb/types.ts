@@ -6,6 +6,8 @@ export interface BinjgbModule {
   _emulator_run(): void;
   _emulator_pause(): void;
   _emulator_reset(): void;
+  setJoypadState(state: number): void;
+  _emulator_set_joypad_state(state: number): void;
   _ext_ram_file_data_new(): number;
   _get_file_data_ptr(fileDataPtr: number): number;
   _get_file_data_size(fileDataPtr: number): number;

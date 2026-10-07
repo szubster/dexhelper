@@ -44,6 +44,13 @@ export class BinjgbWrapper implements BinjgbInstance {
     this.module._emulator_reset();
   }
 
+  public setJoypadState(state: number): void {
+    if (!this.module) {
+      throw new Error('Module not initialized');
+    }
+    this.module._emulator_set_joypad_state(state);
+  }
+
   public extractSaveState(): Uint8Array | null {
     if (!this.module) {
       throw new Error('Module not initialized');

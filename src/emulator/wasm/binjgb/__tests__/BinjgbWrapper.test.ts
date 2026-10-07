@@ -20,6 +20,8 @@ describe('BinjgbWrapper', () => {
       _get_file_data_ptr: vi.fn<(ptr: number) => number>() as import('vitest').Mock<(ptr: number) => number>,
       _get_file_data_size: vi.fn<(ptr: number) => number>() as import('vitest').Mock<(ptr: number) => number>,
       _file_data_delete: vi.fn<(ptr: number) => void>() as import('vitest').Mock<(ptr: number) => void>,
+      _emulator_set_joypad_state: vi.fn<(state: number) => void>(),
+      setJoypadState: vi.fn<(state: number) => void>(),
     };
   });
 

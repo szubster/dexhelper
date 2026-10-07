@@ -11,6 +11,7 @@ interface BinjgbContextValue {
   pause: () => void;
   reset: () => void;
   extractSaveState: () => Uint8Array | null;
+  setJoypadState: (state: number) => void;
 }
 
 const BinjgbContext = createContext<BinjgbContextValue | null>(null);
@@ -84,6 +85,12 @@ export function BinjgbProvider({ children, moduleFactory }: BinjgbProviderProps)
     }
   };
 
+  const setJoypadState = (state: number) => {
+    if (emulator) {
+      emulator.setJoypadState(state);
+    }
+  };
+
   const extractSaveState = () => {
     if (emulator) {
       return emulator.extractSaveState();
@@ -92,7 +99,9 @@ export function BinjgbProvider({ children, moduleFactory }: BinjgbProviderProps)
   };
 
   return (
-    <BinjgbContext.Provider value={{ emulator, isReady, error, loadRom, start, pause, reset, extractSaveState }}>
+    <BinjgbContext.Provider
+      value={{ emulator, isReady, error, loadRom, start, pause, reset, extractSaveState, setJoypadState }}
+    >
       {children}
     </BinjgbContext.Provider>
   );
