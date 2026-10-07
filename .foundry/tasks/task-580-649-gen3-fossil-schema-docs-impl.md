@@ -18,6 +18,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Implement Gen 3 Fossil Schema Docs
