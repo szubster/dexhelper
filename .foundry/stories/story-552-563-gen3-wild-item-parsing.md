@@ -33,6 +33,10 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks for Gen 3 data extraction.
-- [ ] task-563-578-gen3-wild-item-data-parsing-logic
-- [ ] task-563-579-gen3-wild-item-data-parsing-tests
-- [ ] task-563-580-gen3-wild-item-data-parsing-qa
+- [x] task-563-578-gen3-wild-item-data-parsing-logic
+- [x] task-563-579-gen3-wild-item-data-parsing-tests
+- [x] task-563-580-gen3-wild-item-data-parsing-qa
+- [ ] research-563-668-investigate-wild-item-parsing-failure
+- [ ] task-563-669-gen3-wild-item-data-parsing-logic-retry
+- [ ] task-563-670-gen3-wild-item-data-parsing-tests-retry
+- [ ] task-563-671-gen3-wild-item-data-parsing-qa-retry
