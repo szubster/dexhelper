@@ -2,13 +2,13 @@
 id: task-478-653-orchestrator-cloning-logic-retry-2
 type: TASK
 title: Implement DAG Node Cloning Logic (Retry 2)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-07'
 depends_on:
   - research-478-652-investigate-cloning-failure-retry
-jules_session_id: '14513036564680680501'
+jules_session_id: null
 pr_number: null
 parent: story-412-478-node-cloning-logic
 tags:
@@ -16,7 +16,9 @@ tags:
   - generation
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

@@ -2,12 +2,12 @@
 id: story-526-638-extract-constants
 type: STORY
 title: Extract game constants to core package
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-07'
 depends_on: []
-jules_session_id: '6337459551457537927'
+jules_session_id: null
 pr_number: null
 parent: epic-519-526-extract-core-domain
 tags:
