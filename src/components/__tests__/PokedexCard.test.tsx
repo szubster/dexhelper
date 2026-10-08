@@ -50,6 +50,7 @@ describe('PokedexCard', () => {
         partySet={new Set()}
         pcSet={new Set()}
         shinySpeciesIds={new Set()}
+        versionExclusiveIds={new Set()}
       />,
     );
 
@@ -71,6 +72,7 @@ describe('PokedexCard', () => {
         partySet={new Set([1])}
         pcSet={new Set()}
         shinySpeciesIds={new Set()}
+        versionExclusiveIds={new Set()}
       />,
     );
 
@@ -91,6 +93,7 @@ describe('PokedexCard', () => {
         partySet={new Set()}
         pcSet={new Set()}
         shinySpeciesIds={new Set()}
+        versionExclusiveIds={new Set()}
       />,
     );
 
@@ -111,6 +114,7 @@ describe('PokedexCard', () => {
         partySet={new Set()}
         pcSet={new Set()}
         shinySpeciesIds={new Set()}
+        versionExclusiveIds={new Set()}
       />,
     );
 

@@ -19,6 +19,7 @@ tags:
 research_references: []
 rejection_reason: ''
 locks: []
+confidence_score: 100
 ---
 
 # Implement Gen 3 Pokédex Gaps UI
@@ -27,5 +28,5 @@ locks: []
 Implement the UI components in `PokedexCard.tsx` and `PokedexGrid.tsx` to display the missing Pokémon, highlighting obtainable vs. version exclusives. Use the variant system to apply different visual styles for version exclusive Pokemon.
 
 ## Acceptance Criteria
-- [ ] Modify `PokedexCard.tsx` to conditionally render version exclusive styling
-- [ ] Ensure version exclusive highlighting is distinct from obtainable
+- [x] Modify `PokedexCard.tsx` to conditionally render version exclusive styling
+- [x] Ensure version exclusive highlighting is distinct from obtainable

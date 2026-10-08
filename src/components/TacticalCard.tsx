@@ -12,6 +12,7 @@ const cardVariants = cva(
           'border-emerald-500/50 bg-emerald-950/20 hover:border-emerald-400 hover:bg-emerald-900/30 tactical-card',
         amber: 'border-amber-500/50 bg-amber-950/20 hover:border-amber-400 hover:bg-amber-900/30 tactical-card',
         default: 'border-white/20 bg-zinc-900/50 hover:border-white/40 hover:bg-zinc-800/80 tactical-card',
+        red: 'border-red-500/50 bg-red-950/20 hover:border-red-400 hover:bg-red-900/30 tactical-card',
         'storage-cyan':
           'bg-cyan-900/10 border-cyan-500/50 border-dashed hover:bg-cyan-900/20 tactical-card items-center p-5 duration-200 enabled:active:scale-95 enabled:hover:-translate-y-1 enabled:hover:scale-100',
         'storage-amber':

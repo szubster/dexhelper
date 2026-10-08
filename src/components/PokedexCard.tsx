@@ -22,6 +22,7 @@ interface PokedexCardProps {
   partySet: Set<number>;
   pcSet: Set<number>;
   shinySpeciesIds: Set<number>;
+  versionExclusiveIds: Set<number>;
 }
 
 // ⚡ Bolt: Wrapped PokedexCard in React.memo to prevent unnecessary re-renders when parent PokedexGrid updates.
@@ -33,6 +34,7 @@ function getPokemonStatusFlags(
   partySet: Set<number>,
   pcSet: Set<number>,
   shinySpeciesIds: Set<number>,
+  versionExclusiveIds: Set<number>,
 ) {
   const inParty = saveData ? partySet.has(pokemonId) : false;
   const inPC = saveData ? pcSet.has(pokemonId) : false;
@@ -49,11 +51,13 @@ function getPokemonStatusFlags(
 
   const isShiny = shinySpeciesIds.has(pokemonId);
 
-  let variant: 'default' | 'emerald' | 'amber' = 'default';
+  let variant: 'default' | 'emerald' | 'amber' | 'red' = 'default';
   if (hasInStorage) {
     variant = 'emerald';
   } else if (saveData?.owned.has(pokemonId)) {
     variant = 'amber';
+  } else if (versionExclusiveIds.has(pokemonId)) {
+    variant = 'red';
   }
 
   return {
@@ -76,12 +80,13 @@ export const PokedexCard = React.memo(function PokedexCard({
   partySet,
   pcSet,
   shinySpeciesIds,
+  versionExclusiveIds,
 }: PokedexCardProps) {
   const saveData = useParsedSaveData();
   const navigate = useNavigate();
 
   const { inParty, inPC, hasInStorage, isOwnedInDex, isSeenInDex, isUnseen, isSeenNotOwned, isShiny, variant } =
-    getPokemonStatusFlags(pokemon.id, saveData, isLivingDex, partySet, pcSet, shinySpeciesIds);
+    getPokemonStatusFlags(pokemon.id, saveData, isLivingDex, partySet, pcSet, shinySpeciesIds, versionExclusiveIds);
 
   // Derive isOwned and isSeen from the status flags
   const isOwned = isOwnedInDex || hasInStorage;
@@ -102,7 +107,9 @@ export const PokedexCard = React.memo(function PokedexCard({
           ? 'border-emerald-500/50'
           : variant === 'amber'
             ? 'border-amber-500/50'
-            : 'border-cyan-500/30',
+            : variant === 'red'
+              ? 'border-red-500/50'
+              : 'border-cyan-500/30',
       )}
     >
       {/* Decorative Target Lock overlay on hover */}
@@ -117,7 +124,9 @@ export const PokedexCard = React.memo(function PokedexCard({
               ? 'border-emerald-900'
               : variant === 'amber'
                 ? 'border-amber-900'
-                : 'border-cyan-900/50',
+                : variant === 'red'
+                  ? 'border-red-900'
+                  : 'border-cyan-900/50',
           )}
         >
           {/* Enhanced LCD Grid Background */}
@@ -184,7 +193,9 @@ export const PokedexCard = React.memo(function PokedexCard({
                       ? 'text-emerald-500'
                       : variant === 'amber'
                         ? 'text-amber-500'
-                        : 'text-cyan-600 group-hover/card:text-cyan-400',
+                        : variant === 'red'
+                          ? 'text-red-500'
+                          : 'text-cyan-600 group-hover/card:text-cyan-400',
                   )}
                 >
                   ID.{pokemon.id.toString().padStart(3, '0')}
@@ -237,7 +248,9 @@ export const PokedexCard = React.memo(function PokedexCard({
                   ? 'border-emerald-900/50'
                   : variant === 'amber'
                     ? 'border-amber-900/50'
-                    : 'border-zinc-800 group-hover/card:border-cyan-900/50',
+                    : variant === 'red'
+                      ? 'border-red-900/50'
+                      : 'border-zinc-800 group-hover/card:border-cyan-900/50',
               )}
             >
               <PokemonStatusBadge

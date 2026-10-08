@@ -3,6 +3,8 @@ import { SearchX } from 'lucide-react';
 import React, { useMemo } from 'react';
 import { useParsedSaveData } from '../contexts/EmulatorContext';
 import { pokeDB } from '../db/PokeDB';
+import { getVersionExclusives } from '../engine/exclusives/gen3Exclusives';
+import { isGen3Save } from '../engine/saveParser';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import type { PokemonListItem } from '../utils/pokemonQueries';
@@ -94,7 +96,6 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
   const shinySpeciesIds = useMemo(() => {
     const set = new Set<number>();
     if (saveData) {
-      // ⚡ Bolt: Replaced .forEach with for loops to avoid closure creation and function call overhead
       for (let i = 0; i < saveData.partyDetails.length; i++) {
         const p = saveData.partyDetails[i];
         if (p?.isShiny) set.add(p.speciesId);
@@ -105,6 +106,13 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
       }
     }
     return set;
+  }, [saveData]);
+
+  const versionExclusiveIds = useMemo(() => {
+    if (saveData && isGen3Save(saveData) && saveData.gameVersion) {
+      return new Set(getVersionExclusives(saveData.gameVersion).missing);
+    }
+    return new Set<number>();
   }, [saveData]);
 
   const { containerRef, columns, virtualizer } = usePokedexGridVirtualizer({
@@ -188,6 +196,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
                         partySet={partySet}
                         pcSet={pcSet}
                         shinySpeciesIds={shinySpeciesIds}
+                        versionExclusiveIds={versionExclusiveIds}
                       />
                     </div>
                   );
