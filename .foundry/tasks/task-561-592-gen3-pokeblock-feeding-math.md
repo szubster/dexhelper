@@ -10,6 +10,7 @@ depends_on:
   - task-561-590-gen3-nature-modifiers-constants
   - task-561-591-gen3-pokeblock-blending-math
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-540-561-gen3-pokeblock-math-formulas
 tags:
@@ -37,5 +38,5 @@ When a Pokémon is fed a Pokéblock, its contest condition stats increase based 
 - Write unit tests to verify condition stat calculations for various Natures and Pokéblock combinations.
 
 ## Acceptance Criteria
-- [ ] Implement condition gain math functions.
-- [ ] Write unit tests for feeding calculations and Nature modifiers.
+- [x] Implement condition gain math functions.
+- [x] Write unit tests for feeding calculations and Nature modifiers.
