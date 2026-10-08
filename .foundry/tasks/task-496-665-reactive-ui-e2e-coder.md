@@ -1,16 +1,15 @@
 ---
-id: story-425-496-reactive-ui-e2e
-type: STORY
+id: task-496-665-reactive-ui-e2e-coder
+type: TASK
 title: Reactive UI E2E Verification
-status: ACTIVE
-owner_persona: tech_lead
-created_at: '2026-08-30'
+status: READY
+owner_persona: coder
+created_at: '2026-10-05'
 updated_at: '2026-10-05'
-depends_on:
-  - story-425-495-reactive-ui-components
-jules_session_id: '13945762668211787017'
+depends_on: []
+jules_session_id: null
 pr_number: null
-parent: epic-343-425-reactive-ui-updates
+parent: story-425-496-reactive-ui-e2e
 tags:
   - ui
   - emulator
@@ -22,11 +21,11 @@ notes: ''
 locks: []
 ---
 
-# Story: Reactive UI E2E Verification
+# Task: Reactive UI E2E Coder Implementation
 
 ## Context
 As required by the Orchestrator Safeguard (E2E/Integration Requirement), this final story is dedicated exclusively to Integration and E2E Verification for the Reactive UI Updates epic. We must verify that the UI components correctly consume the React context and reactively re-render in response to simulated real-time game state changes.
 
 ## Acceptance Criteria
-- [x] Tech Lead: Break down this STORY into a single TASK node for writing automated E2E and integration tests.
-- [ ] task-496-665-reactive-ui-e2e-coder
+- [ ] Coder: Write automated Playwright E2E and integration tests to verify the UI components re-render correctly in response to game state changes.
+- [ ] Coder: Ensure the E2E tests target the actual rendered React components on existing routes or kitchen sink views.
