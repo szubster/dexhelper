@@ -9,6 +9,7 @@ updated_at: '2026-09-24'
 depends_on:
   - task-523-598-artifact-promotion-e2e-fixtures
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-519-523-artifact-promotion-e2e
 tags: []
@@ -26,6 +27,6 @@ priority: 50
 Implement the core Playwright end-to-end tests to verify the artifact promotion workflow.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright tests verifying banner removal works synchronously.
-- [ ] Implement Playwright tests verifying frontmatter updates are applied correctly.
-- [ ] Implement Playwright tests verifying feature flag resolution completes successfully.
+- [x] Implement Playwright tests verifying banner removal works synchronously.
+- [x] Implement Playwright tests verifying frontmatter updates are applied correctly.
+- [x] Implement Playwright tests verifying feature flag resolution completes successfully.
