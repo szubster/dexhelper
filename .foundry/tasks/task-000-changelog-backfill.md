@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-10-08'
@@ -27,53 +27,42 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `748a61356bbecf42660c6e2c38a8df5265e7507f`
-- **Previous Commit SHA:** `8bb4419a8419c389c6b36cead2ef6d0b59ed7a53`
+- **Commit SHA:** `14bc9b60fae74a1f114130391bd9e23b2096145d`
+- **Previous Commit SHA:** `748a61356bbecf42660c6e2c38a8df5265e7507f`
 - **Commit Date:** `2026-04-02`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.21.10` -> `0.22.0`)
+- **Suggested SemVer Bump:** `patch` (from `0.22.0` -> `0.22.1`)
 
 ## Commit Message
 ```text
-feat: integrate Playwright component testing and update Vitest configuration
+🧪 [testing improvement] Add edge case tests for decodeGen12String
+
+Added unit tests for `decodeGen12String` in `src/utils/saveParser.test.ts`.
+Scenarios covered:
+- Happy path (normal characters)
+- Unmapped characters (returns "?")
+- Multiple terminators (0x50, 0x00, 0xFF)
+- maxLength constraint
+- Trimming behavior
+- String filling maxLength without terminator
+
+Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
 ```
 
 ## Modified Files
-- `.github/workflows/playwright.yml`
-- `.gitignore`
-- `package-lock.json`
-- `package.json`
-- `playwright-ct.config.ts`
-- `playwright.config.ts`
-- `playwright/index.html`
-- `playwright/index.tsx`
-- `src/components/VersionModal.spec.tsx`
-- `src/test/setup.ts`
-- `tests/e2e/home.spec.ts`
-- `vite.config.ts`
+- `src/utils/saveParser.test.ts`
 
 ## Diff Summary
 ```text
-748a61356 feat: integrate Playwright component testing and update Vitest configuration
- .github/workflows/playwright.yml     |   51 +
- .gitignore                           |    6 +
- package-lock.json                    | 2098 ++++++++++++++++++++--------------
- package.json                         |   11 +-
- playwright-ct.config.ts              |   38 +
- playwright.config.ts                 |   35 +
- playwright/index.html                |   12 +
- playwright/index.tsx                 |    2 +
- src/components/VersionModal.spec.tsx |   21 +
- src/test/setup.ts                    |    1 -
- tests/e2e/home.spec.ts               |   15 +
- vite.config.ts                       |    3 +-
- 12 files changed, 1454 insertions(+), 839 deletions(-)
+14bc9b60f 🧪 [testing improvement] Add edge case tests for decodeGen12String
+ src/utils/saveParser.test.ts | 42 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 748a61356bbecf42660c6e2c38a8df5265e7507f` (or `git diff 8bb4419a8419c389c6b36cead2ef6d0b59ed7a53..748a61356bbecf42660c6e2c38a8df5265e7507f`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show 14bc9b60fae74a1f114130391bd9e23b2096145d` (or `git diff 748a61356bbecf42660c6e2c38a8df5265e7507f..14bc9b60fae74a1f114130391bd9e23b2096145d`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.22.0] - 2026-04-02` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.10...0.22.0`](https://github.com/${repo}/compare/8bb4419...748a613)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.22.1] - 2026-04-02` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.22.0...0.22.1`](https://github.com/${repo}/compare/748a613...14bc9b6)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
