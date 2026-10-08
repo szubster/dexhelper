@@ -2,12 +2,12 @@
 id: research-422-658-tm-inventory-extraction-failure-retry
 type: RESEARCH
 title: Investigate TM Inventory Extraction Logic Permanent Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-03T13:51:00.000Z'
-updated_at: '2026-10-05'
+updated_at: '2026-10-08'
 depends_on: []
-jules_session_id: '17285225532833259818'
+jules_session_id: null
 pr_number: null
 parent: story-411-422-pc-box-and-tm-extraction
 tags:

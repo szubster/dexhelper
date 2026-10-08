@@ -2,13 +2,13 @@
 id: task-479-609-gen3-pokeblock-e2e-impl-v2
 type: TASK
 title: Implement Gen 3 Pokéblock E2E Tests (v2)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-21'
-updated_at: '2026-10-05'
+updated_at: '2026-10-08'
 depends_on:
   - research-479-608-investigate-gen3-pokeblock-e2e-failure
-jules_session_id: '15812997436389452646'
+jules_session_id: null
 pr_number: null
 parent: story-400-479-gen3-pokeblock-parsing-e2e
 tags:

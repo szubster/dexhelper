@@ -2,12 +2,12 @@
 id: research-512-617-investigate-idempotent-bypass-qa-failure
 type: RESEARCH
 title: Investigate QA Idempotent Bypass Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-09-24'
-updated_at: '2026-10-06'
+updated_at: '2026-10-08'
 depends_on: []
-jules_session_id: '3136071540018443321'
+jules_session_id: null
 pr_number: null
 parent: story-018-512-idempotent-orchestrator-bypass
 tags:

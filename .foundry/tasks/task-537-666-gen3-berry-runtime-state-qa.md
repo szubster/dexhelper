@@ -2,10 +2,10 @@
 id: task-537-666-gen3-berry-runtime-state-qa
 type: TASK
 title: QA Gen 3 Berry Runtime State Hydration
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-05'
-updated_at: '2026-10-05'
+updated_at: '2026-10-08'
 depends_on:
   - task-537-665-gen3-berry-runtime-state-hydration
 jules_session_id: null
