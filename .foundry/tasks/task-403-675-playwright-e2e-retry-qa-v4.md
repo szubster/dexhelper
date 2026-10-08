@@ -1,13 +1,13 @@
 ---
-id: task-403-670-playwright-e2e-retry-qa-v3
+id: task-403-675-playwright-e2e-retry-qa-v4
 type: TASK
-title: QA Verification for Playwright E2E Tests V3
-status: CANCELLED
+title: QA Verification for Playwright E2E Tests V4
+status: PENDING
 owner_persona: qa
-created_at: '2026-10-06'
-updated_at: '2026-10-06'
+created_at: '2026-10-08'
+updated_at: '2026-10-08'
 depends_on:
-  - task-403-669-playwright-e2e-retry-impl-v3
+  - task-403-674-playwright-e2e-retry-impl-v4
 jules_session_id: null
 pr_number: null
 parent: story-112-403-integration-e2e
@@ -19,15 +19,15 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
+rejection_reason: ''
 notes: ''
 locks: []
 ---
 
-# QA Verification for Playwright E2E Tests V3
+# QA Verification for Playwright E2E Tests V4
 
 ## Context
-The coder will implement Playwright E2E tests for the frontend UI (`task-403-669-playwright-e2e-retry-impl-v3`). This task requires a QA review of those tests to ensure sufficient coverage and correctness.
+The coder will implement Playwright E2E tests for the frontend UI (`task-403-674-playwright-e2e-retry-impl-v4`). This task requires a QA review of those tests to ensure sufficient coverage and correctness.
 
 ## Execution Blueprint
 1. **Review Test Implementation**

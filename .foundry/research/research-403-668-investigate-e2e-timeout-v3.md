@@ -2,7 +2,7 @@
 id: research-403-668-investigate-e2e-timeout-v3
 type: RESEARCH
 title: Investigate Playwright E2E Session Timeout V3
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-06'
 updated_at: '2026-10-08'
