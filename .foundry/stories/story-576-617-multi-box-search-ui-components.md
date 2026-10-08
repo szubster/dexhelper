@@ -31,4 +31,7 @@ As part of the Multi-Box Search and Filtering system, we need to implement the c
 - Implement dropdowns/toggles for attribute filters (Nature, Ability, Gender, Held Item).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into implementation tasks for the UI components.
+- [x] Tech Lead: Break down into implementation tasks for the UI components.
+- [ ] task-617-667-multi-box-search-input-ui
+- [ ] task-617-668-multi-box-attribute-filters-ui
+- [ ] task-617-669-qa-multi-box-search-ui
