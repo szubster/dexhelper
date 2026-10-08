@@ -1,13 +1,13 @@
 ---
-id: task-639-669-migrate-buttons-impl-retry
+id: task-639-674-migrate-buttons-impl-retry-v2
 type: TASK
-title: Migrate Tactical Buttons Implementation (Retry)
-status: CANCELLED
+title: Migrate Tactical Buttons Implementation (Retry v2)
+status: PENDING
 owner_persona: coder
-created_at: '2026-10-06'
-updated_at: '2026-10-06'
+created_at: '2026-10-08'
+updated_at: '2026-10-08'
 depends_on:
-  - research-639-668-investigate-primitives-migration-failures
+  - research-639-673-investigate-primitives-migration-failures-v2
 jules_session_id: null
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
@@ -15,12 +15,12 @@ tags:
   - react
   - components
 rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
+rejection_reason: ''
 notes: ''
 locks: []
 ---
 
-# Migrate Tactical Buttons Implementation (Retry)
+# Migrate Tactical Buttons Implementation (Retry v2)
 
 ## Objective
 Migrate basic button UI components (TacticalButton, NavButton, TacticalIconButton) and their tests from `src/components` to the `@dexhelper/ui` package, implementing the fixes identified in the research phase.
