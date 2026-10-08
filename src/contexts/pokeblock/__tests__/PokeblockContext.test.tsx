@@ -60,4 +60,58 @@ describe('PokeblockContext', () => {
 
     await expect.element(page.getByTestId('is-possible')).toHaveTextContent('true');
   });
+
+  it('updates state using individual setters and resets correctly', async () => {
+    const TestComponent2: React.FC = () => {
+      const actions = usePokeblock();
+      return (
+        <div>
+          <div data-testid="curr-condition">{actions.currentCondition}</div>
+          <div data-testid="curr-sheen">{actions.currentSheen}</div>
+          <div data-testid="target-cat">{actions.targetCategory}</div>
+          <div data-testid="nature">{actions.nature}</div>
+          <div data-testid="num-players">{actions.numPlayers}</div>
+          <button type="button" onClick={() => actions.setCurrentCondition(10)}>
+            Set Cond
+          </button>
+          <button type="button" onClick={() => actions.setCurrentSheen(20)}>
+            Set Sheen
+          </button>
+          <button type="button" onClick={() => actions.setTargetCategory('beauty')}>
+            Set Cat
+          </button>
+          <button type="button" onClick={() => actions.setNature('bold')}>
+            Set Nature
+          </button>
+          <button type="button" onClick={() => actions.setNumPlayers(3)}>
+            Set Players
+          </button>
+          <button type="button" onClick={() => actions.reset()}>
+            Reset
+          </button>
+        </div>
+      );
+    };
+    await render(
+      <PokeblockProvider>
+        <TestComponent2 />
+      </PokeblockProvider>,
+    );
+
+    await page.getByRole('button', { name: 'Set Cond' }).click();
+    await page.getByRole('button', { name: 'Set Sheen' }).click();
+    await page.getByRole('button', { name: 'Set Cat' }).click();
+    await page.getByRole('button', { name: 'Set Nature' }).click();
+    await page.getByRole('button', { name: 'Set Players' }).click();
+
+    await expect.element(page.getByTestId('curr-condition')).toHaveTextContent('10');
+    await expect.element(page.getByTestId('curr-sheen')).toHaveTextContent('20');
+    await expect.element(page.getByTestId('target-cat')).toHaveTextContent('beauty');
+    await expect.element(page.getByTestId('nature')).toHaveTextContent('bold');
+    await expect.element(page.getByTestId('num-players')).toHaveTextContent('3');
+
+    await page.getByRole('button', { name: 'Reset' }).click();
+    await expect.element(page.getByTestId('curr-condition')).toHaveTextContent('0');
+    await expect.element(page.getByTestId('target-cat')).toHaveTextContent('cool');
+  });
 });

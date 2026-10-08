@@ -59,4 +59,10 @@ describe('Gen3PokeblocksDashboard', () => {
     await expect.element(page.getByText('50')).toBeInTheDocument();
     await expect.element(page.getByText('Feel: 60')).toBeInTheDocument();
   });
+  it('renders nothing when generation is 2', async () => {
+    // biome-ignore lint/suspicious/noExplicitAny: Mocking zustand selector
+    vi.mocked(storeModule.useStore).mockImplementation((selector: any) => selector({ saveData: { generation: 2 } }));
+    await render(<Gen3PokeblocksDashboard />);
+    await expect.element(page.getByText('POKÉBLOCKS')).not.toBeInTheDocument();
+  });
 });
