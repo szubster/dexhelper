@@ -9,6 +9,7 @@ updated_at: '2026-10-08'
 depends_on:
   - task-479-609-gen3-pokeblock-e2e-impl-v2
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-400-479-gen3-pokeblock-parsing-e2e
 tags:
@@ -29,6 +30,6 @@ locks: []
 Verify the E2E tests for Gen 3 Pokéblock extraction implemented by the coder.
 
 ## Acceptance Criteria
-- [ ] Verify that `tests/e2e/gen3_pokeblocks.spec.ts` executes successfully.
-- [ ] Verify that the E2E tests correctly validate the parsing logic for Emerald and Ruby/Sapphire.
-- [ ] Verify that the tests ensure FireRed/LeafGreen gracefully handles missing Pokéblock data.
+- [x] Verify that `tests/e2e/gen3_pokeblocks.spec.ts` executes successfully.
+- [x] Verify that the E2E tests correctly validate the parsing logic for Emerald and Ruby/Sapphire.
+- [x] Verify that the tests ensure FireRed/LeafGreen gracefully handles missing Pokéblock data.
