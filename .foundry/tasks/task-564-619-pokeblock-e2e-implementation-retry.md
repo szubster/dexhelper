@@ -9,6 +9,7 @@ updated_at: '2026-10-08'
 depends_on:
   - task-564-618-pokeblock-e2e-fixtures-retry
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-540-564-gen3-pokeblock-optimizer-e2e
 tags:
@@ -36,7 +37,7 @@ Implement Playwright tests in the `tests/e2e/` directory. The tests should cover
 - Verifying the generated optimal recipe results in the UI.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for the Gen 3 Pokéblock Recipe Optimizer flow.
-- [ ] Ensure tests use `isMobile` context conditionally if navigating layout.
-- [ ] Tests must initialize via `clearStorage(page)`, `initializeWithSave(page, 'tests/fixtures/...')`, and `await waitForSync(page)`.
-- [ ] Tests execute successfully locally using `xvfb-run -a pnpm test:e2e tests/e2e/pokeblock.spec.ts` (or similar specific file).
+- [x] Implement Playwright E2E tests for the Gen 3 Pokéblock Recipe Optimizer flow.
+- [x] Ensure tests use `isMobile` context conditionally if navigating layout.
+- [x] Tests must initialize via `clearStorage(page)`, `initializeWithSave(page, 'tests/fixtures/...')`, and `await waitForSync(page)`.
+- [x] Tests execute successfully locally using `xvfb-run -a pnpm test:e2e tests/e2e/pokeblock.spec.ts` (or similar specific file).
