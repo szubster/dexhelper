@@ -31,4 +31,6 @@ Implement module-level constants for Gen 3 fossil offsets as determined by the p
 - Ensure constants adhere to Section 13 guidelines (no magic numbers, relative offsets).
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks.
+- [x] Break down this story into tasks.
+- [ ] task-581-668-gen3-fossil-constants-impl
+- [ ] task-581-669-gen3-fossil-constants-qa
