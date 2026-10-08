@@ -9,6 +9,7 @@ updated_at: '2026-10-05'
 depends_on:
   - task-561-614-pokerus-e2e-infected
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-412-561-pokerus-ui-e2e
 tags:
@@ -28,6 +29,6 @@ locks: []
 Implement new E2E tests in `tests/e2e/pokerus.spec.ts` for the "Uninfected" and "Cured" Pokerus states to achieve full coverage of the `PokerusBadge.tsx` component.
 
 ## Acceptance Criteria
-- [ ] Implement an E2E test verifying that Uninfected Pokémon correctly display the `[PKRS STRN: 0]` text with the `tactical-badge` class.
-- [ ] Implement an E2E test verifying that Cured Pokémon correctly display the `[PKRS CURED]` text with the `tactical-badge` class.
-- [ ] Ensure that styling and functionality assertions align with the tactical UI aesthetics defined in ADR 008/024.
+- [x] Implement an E2E test verifying that Uninfected Pokémon correctly display the `[PKRS STRN: 0]` text with the `tactical-badge` class.
+- [x] Implement an E2E test verifying that Cured Pokémon correctly display the `[PKRS CURED]` text with the `tactical-badge` class.
+- [x] Ensure that styling and functionality assertions align with the tactical UI aesthetics defined in ADR 008/024.

@@ -26,9 +26,6 @@ test.describe('Pokerus State Exfiltration', () => {
     const badge = page.locator('.tactical-badge', { hasText: '[PKRS INF: 10D]' }).first();
     await expect(badge).toBeVisible();
     await expect(badge).toHaveText('[PKRS INF: 10D]'); // The strain we set
-
-    // Verify the duration/status is correctly displayed alongside it
-    // Removed [10D] assertion
   });
 
   test('displays pokerus badge for PC pokemon', async ({ page }) => {
@@ -52,8 +49,69 @@ test.describe('Pokerus State Exfiltration', () => {
     const badge = page.locator('.tactical-badge', { hasText: '[PKRS INF: 15D]' }).first();
     await expect(badge).toBeVisible();
     await expect(badge).toHaveText('[PKRS INF: 15D]'); // The strain we set
+  });
 
-    // Verify the duration/status is correctly displayed alongside it
-    // Removed [15D] assertion
+  test('displays uninfected pokerus badge for pokemon with strain 0', async ({ page }) => {
+    // 160 is Feraligatr, which is uninfected in this save (strain undefined, but badge renders for strain 0, let's inject a mock to make sure strain is 0)
+    await initializeWithSave(page, 'tests/fixtures/gold-tid-15051.sav');
+
+    await page.evaluate(() => {
+      // biome-ignore lint/suspicious/noExplicitAny: needed for E2E testing
+      const store = (window as any).__store();
+      const data = store.saveData;
+      // biome-ignore lint/suspicious/noExplicitAny: needed for E2E testing
+      const feraligatr = data.partyDetails.find((p: any) => p.speciesId === 160);
+      if (feraligatr) {
+        feraligatr.pokerus = { strain: 0, daysRemaining: 0 };
+      }
+      store.setSaveData({ ...data });
+    });
+
+    const searchInput = page.getByTestId('search-input');
+    await searchInput.click({ force: true });
+    await searchInput.fill('FERALIGATR');
+
+    await expect(page.getByText('FERALIGATR', { exact: false }).first()).toBeVisible({ timeout: 15000 });
+
+    await page
+      .locator('button', { hasText: /FERALIGATR/i })
+      .first()
+      .click();
+
+    const badge = page.locator('.tactical-badge', { hasText: '[PKRS STRN: 0]' }).first();
+    await expect(badge).toBeVisible();
+    await expect(badge).toHaveText('[PKRS STRN: 0]');
+  });
+
+  test('displays cured pokerus badge for pokemon with strain > 0 but daysRemaining = 0', async ({ page }) => {
+    // 176 is Togetic, which we will inject as cured
+    await initializeWithSave(page, 'tests/fixtures/gold-tid-15051.sav');
+
+    await page.evaluate(() => {
+      // biome-ignore lint/suspicious/noExplicitAny: needed for E2E testing
+      const store = (window as any).__store();
+      const data = store.saveData;
+      // biome-ignore lint/suspicious/noExplicitAny: needed for E2E testing
+      const togetic = data.partyDetails.find((p: any) => p.speciesId === 176);
+      if (togetic) {
+        togetic.pokerus = { strain: 3, daysRemaining: 0 };
+      }
+      store.setSaveData({ ...data });
+    });
+
+    const searchInput = page.getByTestId('search-input');
+    await searchInput.click({ force: true });
+    await searchInput.fill('TOGETIC');
+
+    await expect(page.getByText('TOGETIC', { exact: false }).first()).toBeVisible({ timeout: 15000 });
+
+    await page
+      .locator('button', { hasText: /TOGETIC/i })
+      .first()
+      .click();
+
+    const badge = page.locator('.tactical-badge', { hasText: '[PKRS CURED]' }).first();
+    await expect(badge).toBeVisible();
+    await expect(badge).toHaveText('[PKRS CURED]');
   });
 });
