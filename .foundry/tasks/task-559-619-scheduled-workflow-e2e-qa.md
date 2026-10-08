@@ -9,6 +9,7 @@ updated_at: '2026-10-05'
 depends_on:
   - task-559-618-scheduled-workflow-e2e-impl
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-531-559-modify-scheduled-workflows-e2e
 tags:
@@ -26,4 +27,4 @@ rejection_reason: ''
 QA Verification for the E2E implementation of Scheduled Workflow Issue Dispatch.
 
 ## Acceptance Criteria
-- [ ] QA verification of the E2E test implementation for scheduled workflows, ensuring it covers all required test cases and runs reliably.
+- [x] QA verification of the E2E test implementation for scheduled workflows, ensuring it covers all required test cases and runs reliably.
