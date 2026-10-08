@@ -9,6 +9,7 @@ updated_at: '2026-10-05'
 depends_on:
   - task-563-589-gen2-room-decoration-ui-impl
 jules_session_id: null
+confidence_score: 100
 parent: story-313-563-gen2-room-decoration-ui-components
 rejection_reason: ''
 locks: []
@@ -26,6 +27,6 @@ Following the implementation of the UI components in `task-563-589-gen2-room-dec
 - Ensure the React components properly handle empty or missing decoration data.
 
 ## Acceptance Criteria
-- [ ] Unit tests correctly verify the categorization layout.
-- [ ] Unit tests correctly verify the visual display of Mystery Gift exclusives.
-- [ ] Tests pass without errors.
+- [x] Unit tests correctly verify the categorization layout.
+- [x] Unit tests correctly verify the visual display of Mystery Gift exclusives.
+- [x] Tests pass without errors.
