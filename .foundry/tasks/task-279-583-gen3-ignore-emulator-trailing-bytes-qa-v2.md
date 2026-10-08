@@ -9,6 +9,7 @@ updated_at: '2026-10-01'
 depends_on:
   - task-279-582-gen3-ignore-emulator-trailing-bytes-impl-v2
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-081-279-gen3-ignore-emulator-trailing-bytes
 tags:
@@ -30,4 +31,4 @@ QA verify the logic implemented in `task-279-582-gen3-ignore-emulator-trailing-b
 1. Perform QA.
 
 ## Acceptance Criteria
-- [ ] QA complete.
+- [x] QA complete.
