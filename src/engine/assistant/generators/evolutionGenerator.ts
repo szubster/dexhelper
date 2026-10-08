@@ -98,7 +98,7 @@ export async function generateEvolutionSuggestions(
     if (!details || details.length === 0) continue;
 
     for (const detail of details) {
-      const tr = detail.tr;
+      const tr = detail.tr ?? (detail.ml || detail.mh || detail.time ? EVO_TRIGGER.LEVEL_UP : undefined);
       const min_l = detail.ml;
       const min_h = detail.mh;
       const item = detail.item;
@@ -138,6 +138,19 @@ export async function generateEvolutionSuggestions(
       const preEvoLabel = bestInstance.storageLocation?.toLowerCase().includes('daycare')
         ? 'pre-evolution (in Daycare)'
         : 'pre-evolution';
+
+      // Feebas -> Milotic special case (Gen 3 Beauty condition)
+      if (closestOwnedParentId === 349 && targetId === 350 && saveData.generation === 3) {
+        suggestions.push({
+          id: `evo-beauty-${targetId}`,
+          category: 'Evolve',
+          title: isIntermediate ? pathTitlePrefix : `Beauty Evolution: #${targetId}`,
+          description: `Feed your ${preEvoLabel} Dry Pokéblocks (made from Chesto, Wiki, or Pamtre Berries) to maximize its Beauty stat, then level it up!`,
+          pokemonId: targetId,
+          priority: 80,
+        });
+        break;
+      }
 
       if (tr === EVO_TRIGGER.LEVEL_UP) {
         if (min_l) {

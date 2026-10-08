@@ -8,7 +8,7 @@ created_at: '2026-09-30'
 updated_at: '2026-10-07'
 depends_on:
   - story-527-638-setup-ui-package
-jules_session_id: '7107664657623611296'
+jules_session_id: '8437221523828392121'
 pr_number: null
 parent: epic-519-527-extract-ui-components
 tags:

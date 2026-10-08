@@ -2,10 +2,10 @@
 id: task-574-659-archival-file-move-automation-qa
 type: TASK
 title: Archival File Move Automation QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-03T19:01:53.934Z'
-updated_at: '2026-10-03T19:01:53.934Z'
+updated_at: '2026-10-08'
 depends_on:
   - task-574-658-archival-file-move-automation-coder
   - task-574-660-archival-file-move-automation-tests

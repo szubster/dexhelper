@@ -2,7 +2,7 @@
 id: task-641-658-migrate-scanline-crosshairs
 type: TASK
 title: Migrate Scanline and Corner Crosshairs
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-03'
 updated_at: '2026-10-07'
@@ -13,8 +13,8 @@ parent: story-527-641-migrate-decorations
 tags:
   - react
   - components
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---
