@@ -2,12 +2,12 @@
 id: task-472-659-implement-e2e-tests
 type: TASK
 title: Implement E2E Tests for New Save Fixtures
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-04'
-updated_at: '2026-10-07'
+updated_at: '2026-10-08'
 depends_on: []
-jules_session_id: '16632771516202405439'
+jules_session_id: null
 pr_number: null
 parent: story-428-472-e2e-verification
 tags:
@@ -16,7 +16,7 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---
