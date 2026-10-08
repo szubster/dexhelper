@@ -1,13 +1,13 @@
 ---
-id: task-403-669-playwright-e2e-retry-impl-v3
+id: task-403-674-playwright-e2e-retry-impl-v4
 type: TASK
-title: Retry Playwright E2E Tests for DV/IV Extraction V3
-status: CANCELLED
+title: Retry Playwright E2E Tests for DV/IV Extraction V4
+status: PENDING
 owner_persona: coder
-created_at: '2026-10-06'
-updated_at: '2026-10-06'
+created_at: '2026-10-08'
+updated_at: '2026-10-08'
 depends_on:
-  - research-403-668-investigate-e2e-timeout-v3
+  - research-403-673-investigate-e2e-timeout-v4
 jules_session_id: null
 pr_number: null
 parent: story-112-403-integration-e2e
@@ -18,15 +18,15 @@ tags:
   - playwright
 research_references: []
 rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
+rejection_reason: ''
 notes: ''
 locks: []
 ---
 
-# Retry Playwright E2E Tests for DV/IV Extraction V3
+# Retry Playwright E2E Tests for DV/IV Extraction V4
 
 ## Context
-As part of `story-112-403-integration-e2e`, we need to write E2E tests using Playwright to verify that the frontend UI correctly handles Gen 2 and Gen 3 save files. This is a third retry, depending on the findings from `research-403-668-investigate-e2e-timeout-v3`.
+As part of `story-112-403-integration-e2e`, we need to write E2E tests using Playwright to verify that the frontend UI correctly handles Gen 2 and Gen 3 save files. This is a fourth retry, depending on the findings from `research-403-673-investigate-e2e-timeout-v4`.
 
 ## Execution Blueprint
 1. **Implement Playwright Tests**
