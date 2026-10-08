@@ -9,6 +9,7 @@ updated_at: '2026-10-01'
 depends_on:
   - task-478-572-impl-mystery-gift-e2e-tests
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-345-478-gen3-mystery-gift-e2e-verification
 tags:
@@ -28,6 +29,6 @@ locks: []
 Verify the E2E tests for Gen 3 Mystery Gift extraction are correctly implemented and passing.
 
 ## Acceptance Criteria
-- [ ] Verify E2E tests correctly cover Wonder Card extraction.
-- [ ] Verify E2E tests correctly cover Event Flag extraction.
-- [ ] Verify E2E tests run successfully via Playwright.
+- [x] Verify E2E tests correctly cover Wonder Card extraction.
+- [x] Verify E2E tests correctly cover Event Flag extraction.
+- [x] Verify E2E tests run successfully via Playwright.
