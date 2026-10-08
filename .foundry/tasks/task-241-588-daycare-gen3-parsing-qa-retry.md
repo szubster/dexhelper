@@ -9,6 +9,7 @@ updated_at: '2026-10-02'
 depends_on:
   - task-241-587-daycare-gen3-parsing-impl-retry
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-105-241-daycare-gen3-parsing
 tags:
@@ -34,4 +35,4 @@ QA verification for the Gen 3 Daycare data parsing implementation. This replaces
 - Verify that the issues identified in `research-241-586-gen3-daycare-parsing-failure-investigation` were correctly addressed.
 
 ## Acceptance Criteria
-- [ ] QA Gen 3 Daycare parsing implementation retry.
+- [x] QA Gen 3 Daycare parsing implementation retry.
