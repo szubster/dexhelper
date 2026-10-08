@@ -30,7 +30,10 @@ Take the parsed Gen 3 berry patch data and integrate it with the PokeData storag
 - [ ] Implement serialization of the parsed berry patch data using `msgpackr`.
 - [ ] Integrate the serialized data into the PokeData storage generation pipeline.
 - [ ] Ensure the runtime data API correctly surfaces the newly extracted berry properties.
-- [ ] task-537-598-gen3-berry-serialization-types
-- [ ] task-537-599-gen3-berry-pipeline-integration
-- [ ] task-537-600-gen3-berry-runtime-api
-- [ ] task-537-601-gen3-berry-serialization-qa
+- [x] task-537-598-gen3-berry-serialization-types
+- [x] task-537-599-gen3-berry-pipeline-integration
+- [x] task-537-600-gen3-berry-runtime-api
+- [x] task-537-601-gen3-berry-serialization-qa
+- [ ] research-537-659-investigate-runtime-api-failure
+- [ ] task-537-665-gen3-berry-runtime-state-hydration
+- [ ] task-537-666-gen3-berry-runtime-state-qa
