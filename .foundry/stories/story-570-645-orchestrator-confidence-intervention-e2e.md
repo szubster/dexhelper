@@ -2,13 +2,13 @@
 id: story-570-645-orchestrator-confidence-intervention-e2e
 type: STORY
 title: Confidence Metrics Intervention E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-01T15:03:21Z'
 updated_at: '2026-10-08'
 depends_on:
   - story-570-644-orchestrator-confidence-intervention-impl
-jules_session_id: null
+jules_session_id: '14951755953361136737'
 pr_number: null
 parent: epic-565-570-agent-confidence-metrics-orchestrator
 tags:
