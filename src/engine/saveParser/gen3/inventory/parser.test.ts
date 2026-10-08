@@ -71,6 +71,13 @@ describe('parseGen3EventItems', () => {
 });
 
 describe('parseGen3BerryPouch', () => {
+  it('should handle empty inventories properly', () => {
+    const buffer = new ArrayBuffer(0x1000);
+    const view = new DataView(buffer);
+    const result = parseGen3BerryPouch(view, 0, 'emerald', 0x1234abcd);
+    expect(result).toHaveLength(0);
+  });
+
   it('should parse berry pouch items correctly for RS without security key', () => {
     const buffer = new ArrayBuffer(0x1000);
     const view = new DataView(buffer);
