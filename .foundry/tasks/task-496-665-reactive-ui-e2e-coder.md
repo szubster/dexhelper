@@ -2,12 +2,12 @@
 id: task-496-665-reactive-ui-e2e-coder
 type: TASK
 title: Reactive UI E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-05'
-updated_at: '2026-10-05'
+updated_at: '2026-10-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1478200245596110597'
 pr_number: null
 parent: story-425-496-reactive-ui-e2e
 tags:

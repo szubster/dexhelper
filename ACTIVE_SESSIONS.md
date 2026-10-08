@@ -50,6 +50,7 @@
 | [task-473-537-breeding-e2e-qa](.foundry/tasks/task-473-537-breeding-e2e-qa.md) | TASK | QA Verify Gen 2 Shiny Breeding E2E Tests | qa | [9639571275002627711](https://jules.google.com/session/9639571275002627711) |
 | [task-478-573-qa-mystery-gift-e2e](.foundry/tasks/task-478-573-qa-mystery-gift-e2e.md) | TASK | QA Mystery Gift E2E Verification | qa | [1022068307507410211](https://jules.google.com/session/1022068307507410211) |
 | [task-478-618-msgpack-prefetch-e2e-tests](.foundry/tasks/task-478-618-msgpack-prefetch-e2e-tests.md) | TASK | Write Msgpack Prefetch E2E Tests | coder | [11797635989371491355](https://jules.google.com/session/11797635989371491355) |
+| [task-496-665-reactive-ui-e2e-coder](.foundry/tasks/task-496-665-reactive-ui-e2e-coder.md) | TASK | Reactive UI E2E Verification | coder | [1478200245596110597](https://jules.google.com/session/1478200245596110597) |
 | [task-517-530-binjgb-emulator-ui-impl](.foundry/tasks/task-517-530-binjgb-emulator-ui-impl.md) | TASK | Implement binjgb Emulator UI Component | coder | [7019567073463602006](https://jules.google.com/session/7019567073463602006) |
 | [task-520-531-statistics-generation-qa](.foundry/tasks/task-520-531-statistics-generation-qa.md) | TASK | QA - Real-Time Statistics Generation | qa | [15910643181429896292](https://jules.google.com/session/15910643181429896292) |
 | [task-520-552-feature-flags-qa](.foundry/tasks/task-520-552-feature-flags-qa.md) | TASK | QA: Feature Flags Implementation | qa | [3096113447067335204](https://jules.google.com/session/3096113447067335204) |
