@@ -6,6 +6,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [prd-535-586-false-permanent-failure-detection](.foundry/prds/prd-535-586-false-permanent-failure-detection.md) | PRD | False Permanent Failure Detection & Distinction in Orchestrator | epic_planner | [4468709008518253959](https://jules.google.com/session/4468709008518253959) |
 | [story-049-574-heatmap-ui-overlay-component](.foundry/stories/story-049-574-heatmap-ui-overlay-component.md) | STORY | Heatmap UI Overlay Component | tech_lead | [16173751105517313263](https://jules.google.com/session/16173751105517313263) |
 | [story-063-605-mirage-island-unified-state-hydration](.foundry/stories/story-063-605-mirage-island-unified-state-hydration.md) | STORY | Hydrate Mirage Island State into PokeDB | tech_lead | [779504974006393556](https://jules.google.com/session/779504974006393556) |
 | [story-109-522-box-analyzer-highlighting-logic](.foundry/stories/story-109-522-box-analyzer-highlighting-logic.md) | STORY | Box Analyzer Stat Highlighting Logic | tech_lead | [9448726848104940265](https://jules.google.com/session/9448726848104940265) |
