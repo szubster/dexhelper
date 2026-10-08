@@ -2,14 +2,13 @@
 id: task-478-519-qa-mystery-gift-e2e
 type: TASK
 title: QA Mystery Gift E2E Verification
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-02'
-updated_at: '2026-09-02'
+updated_at: '2026-10-07'
 depends_on:
   - task-478-518-impl-mystery-gift-e2e-tests
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-345-478-gen3-mystery-gift-e2e-verification
 tags:
@@ -18,8 +17,11 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-478-518-impl-mystery-gift-e2e-tests
 notes: ''
+locks: []
 ---
 
 # QA Mystery Gift E2E Verification

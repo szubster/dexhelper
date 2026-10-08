@@ -2,10 +2,10 @@
 id: task-639-659-extract-data-generation-scripts-v2
 type: TASK
 title: Extract Data Generation Scripts to Workspace Package
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-06'
 depends_on:
   - research-639-658-investigate-extract-data-scripts-failure
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-639-658-investigate-extract-data-scripts-failure
 notes: ''
 locks: []
 ---

@@ -2,7 +2,7 @@
 id: task-608-619-multi-box-text-search-engine-e2e
 type: TASK
 title: Multi-Box Text Search Engine E2E
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-22'
 updated_at: '2026-10-06'
@@ -17,8 +17,8 @@ tags:
   - search
   - pc-box
   - e2e
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---

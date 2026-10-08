@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-10-05T01:48:00Z'
 updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: '15401182566185961155'
+jules_session_id: '12935681318470036829'
 pr_number: null
 parent: story-572-645-agent-capability-integration-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - prompt
   - foundry
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

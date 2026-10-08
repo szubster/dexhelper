@@ -2,12 +2,12 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: ACTIVE
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-10-06'
+updated_at: '2026-10-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17339711332379294623'
 locks: []
 pr_number: null
 parent: null
@@ -27,48 +27,42 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `6334dbd01830d3844185f1ef2d3e92ec6d5b910b`
-- **Previous Commit SHA:** `72a8ba6780d89efe35e83d1873b237f4641b9057`
-- **Commit Date:** `2026-04-01`
+- **Commit SHA:** `14bc9b60fae74a1f114130391bd9e23b2096145d`
+- **Previous Commit SHA:** `748a61356bbecf42660c6e2c38a8df5265e7507f`
+- **Commit Date:** `2026-04-02`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `patch` (from `0.21.8` -> `0.21.9`)
+- **Suggested SemVer Bump:** `patch` (from `0.22.0` -> `0.22.1`)
 
 ## Commit Message
 ```text
-build(deps): Bump @tanstack/react-query from 5.95.2 to 5.96.0
+🧪 [testing improvement] Add edge case tests for decodeGen12String
 
-Bumps [@tanstack/react-query](https://github.com/TanStack/query/tree/HEAD/packages/react-query) from 5.95.2 to 5.96.0.
-- [Release notes](https://github.com/TanStack/query/releases)
-- [Changelog](https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md)
-- [Commits](https://github.com/TanStack/query/commits/@tanstack/react-query@5.96.0/packages/react-query)
+Added unit tests for `decodeGen12String` in `src/utils/saveParser.test.ts`.
+Scenarios covered:
+- Happy path (normal characters)
+- Unmapped characters (returns "?")
+- Multiple terminators (0x50, 0x00, 0xFF)
+- maxLength constraint
+- Trimming behavior
+- String filling maxLength without terminator
 
----
-updated-dependencies:
-- dependency-name: "@tanstack/react-query"
-  dependency-version: 5.96.0
-  dependency-type: direct:production
-  update-type: version-update:semver-minor
-...
-
-Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
 ```
 
 ## Modified Files
-- `package-lock.json`
-- `package.json`
+- `src/utils/saveParser.test.ts`
 
 ## Diff Summary
 ```text
-6334dbd01 build(deps): Bump @tanstack/react-query from 5.95.2 to 5.96.0
- package-lock.json | 16 ++++++++--------
- package.json      |  2 +-
- 2 files changed, 9 insertions(+), 9 deletions(-)
+14bc9b60f 🧪 [testing improvement] Add edge case tests for decodeGen12String
+ src/utils/saveParser.test.ts | 42 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 6334dbd01830d3844185f1ef2d3e92ec6d5b910b` (or `git diff 72a8ba6780d89efe35e83d1873b237f4641b9057..6334dbd01830d3844185f1ef2d3e92ec6d5b910b`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show 14bc9b60fae74a1f114130391bd9e23b2096145d` (or `git diff 748a61356bbecf42660c6e2c38a8df5265e7507f..14bc9b60fae74a1f114130391bd9e23b2096145d`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.9] - 2026-04-01` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.8...0.21.9`](https://github.com/${repo}/compare/72a8ba6...6334dbd)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.22.1] - 2026-04-02` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.22.0...0.22.1`](https://github.com/${repo}/compare/748a613...14bc9b6)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.

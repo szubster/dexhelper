@@ -2,10 +2,10 @@
 id: story-397-406-gen3-npc-rematch-status
 type: STORY
 title: Track Gen 3 NPC Rematch Status
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-10-01'
+updated_at: '2026-10-07'
 depends_on:
   - story-397-405-gen3-mixed-record-npc-data
 jules_session_id: null
@@ -33,13 +33,13 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer Epic, we need to track 
 - Ensure strict adherence to Section 13 of `.foundry/docs/schema.md` (Save File Parsing & Extraction Guidelines).
 
 ## Acceptance Criteria
-- [ ] research-406-638-investigate-gen3-rematch-e2e-failure
-- [ ] task-406-639-gen3-rematch-e2e-impl-retry
-- [ ] task-406-640-gen3-rematch-qa-retry
-- [ ] task-406-641-gen3-rematch-integration-e2e-impl-retry
+- [x] research-406-638-investigate-gen3-rematch-e2e-failure
+- [x] task-406-639-gen3-rematch-e2e-impl-retry
+- [x] task-406-640-gen3-rematch-qa-retry
+- [x] task-406-641-gen3-rematch-integration-e2e-impl-retry
 - [x] Tech Lead: Break down into actionable TASK nodes (Coder/QA as needed).
-- [ ] task-406-526-gen3-rematch-parser-impl
-- [ ] task-406-527-gen3-rematch-ui-impl
+- [x] task-406-526-gen3-rematch-parser-impl
+- [x] task-406-527-gen3-rematch-ui-impl
 - [x] task-406-528-gen3-rematch-e2e-impl
 - [x] task-406-529-gen3-rematch-qa
 - [x] task-406-530-gen3-rematch-integration-e2e-impl

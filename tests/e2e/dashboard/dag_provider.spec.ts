@@ -128,4 +128,55 @@ test.describe('DagProvider Data Fetching', () => {
 
     // We could also check the console, but checking that the UI renders empty is good enough for 'graceful' without crashing.
   });
+
+  test('surfaces confidence_score in the UI with correct color coding', async ({ page }) => {
+    await page.unrouteAll({ behavior: 'ignoreErrors' });
+    await page.addInitScript(() => {
+      const originalFetch = window.fetch;
+      window.fetch = async (input, init) => {
+        let url = '';
+        if (typeof input === 'string') {
+          url = input;
+        } else if (input instanceof URL) {
+          url = input.toString();
+        } else if (input && typeof input === 'object' && 'url' in input) {
+          url = input.url;
+        }
+
+        if (url.includes('foundry.json')) {
+          return new Response(
+            JSON.stringify([
+              {
+                filePath: '.foundry/tasks/task-test-confidence.md',
+                data: {
+                  id: 'task-test-confidence',
+                  type: 'TASK',
+                  status: 'COMPLETED',
+                  owner_persona: 'coder',
+                  depends_on: [],
+                  confidence_score: 85,
+                },
+              },
+            ]),
+            {
+              status: 200,
+              headers: { 'Content-Type': 'application/json' },
+            },
+          );
+        }
+        return originalFetch(input, init);
+      };
+    });
+
+    await page.goto('./dag');
+    await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();
+
+    const node = page.locator(
+      'xpath=//div[@data-testid="dag-node" and .//*[contains(text(), "task-test-confidence")]]',
+    );
+    await expect(node).toBeVisible();
+    const confElement = node.locator('text=CONF: 85%');
+    await expect(confElement).toBeVisible();
+    await expect(confElement).toHaveClass(/text-amber-500/);
+  });
 });
