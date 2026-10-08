@@ -2,10 +2,10 @@
 id: research-403-668-investigate-e2e-timeout-v3
 type: RESEARCH
 title: Investigate Playwright E2E Session Timeout V3
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,7 +17,7 @@ tags:
   - playwright
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
 notes: ''
 locks: []
 ---

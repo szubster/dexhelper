@@ -2,14 +2,14 @@
 id: story-112-403-integration-e2e
 type: STORY
 title: Integration and E2E Verification
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-10-06'
+updated_at: '2026-10-08'
 depends_on:
   - story-112-401-gen2-dv-extraction
   - story-112-402-gen3-iv-pv-extraction
-jules_session_id: '6005380845308821016'
+jules_session_id: null
 pr_number: null
 parent: epic-112-400-npc-size-record-data-extraction
 tags:

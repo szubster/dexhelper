@@ -2,10 +2,10 @@
 id: task-527-596-safari-zone-area-map-ui
 type: TASK
 title: Safari Zone Area Map UI Component
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-10-06'
+updated_at: '2026-10-08'
 depends_on:
   - task-527-594-safari-zone-data-hook
 jules_session_id: '11370368538805188497'
@@ -17,8 +17,8 @@ tags:
   - react
   - safari-zone
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
