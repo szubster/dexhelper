@@ -34,6 +34,10 @@ Implement lock aggregation and evaluation in the RESOLVE phase of the orchestrat
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-478-528-aggregate-active-locks
-- [ ] task-478-529-evaluate-locks-for-pending-nodes
-- [ ] task-478-530-resolve-phase-locking-qa
+- [x] task-478-528-aggregate-active-locks
+- [x] task-478-529-evaluate-locks-for-pending-nodes
+- [x] task-478-530-resolve-phase-locking-qa
+- [ ] research-478-668-investigate-locking-failure
+- [ ] task-478-669-aggregate-active-locks-retry
+- [ ] task-478-670-evaluate-locks-for-pending-nodes-retry
+- [ ] task-478-671-resolve-phase-locking-qa-retry

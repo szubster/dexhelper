@@ -2,10 +2,10 @@
 id: story-407-522-gen3-move-tutor-cross-referencing
 type: STORY
 title: Gen 3 Move Tutor Compatibility Logic
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-29'
+updated_at: '2026-10-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -33,6 +33,6 @@ Implement logic to cross-reference available tutor moves with Pokémon in the pl
 
 ## Acceptance Criteria
 - [x] Technical implementation tasks are created.
-- [ ] task-522-549-gen3-move-tutor-compatibility-logic-coder
-- [ ] task-522-550-gen3-move-tutor-compatibility-ui-coder
-- [ ] task-522-551-gen3-move-tutor-compatibility-qa
+- [x] task-522-549-gen3-move-tutor-compatibility-logic-coder
+- [x] task-522-550-gen3-move-tutor-compatibility-ui-coder
+- [x] task-522-551-gen3-move-tutor-compatibility-qa

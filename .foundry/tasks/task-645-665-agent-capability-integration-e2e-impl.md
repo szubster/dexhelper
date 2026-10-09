@@ -34,5 +34,5 @@ As part of the Agent Confidence Metrics epic, we need to ensure that our prompt 
 - Add an explicit E2E or integration test that passes a mock node with a low `confidence_score` and verifies that the system interprets the `confidence_score` capability correctly according to core policies.
 
 ## Acceptance Criteria
-- [ ] Implement or update E2E tests to verify agent confidence capability.
-- [ ] Tests pass locally and demonstrate the correctness of the confidence score processing.
+- [x] Implement or update E2E tests to verify agent confidence capability.
+- [x] Tests pass locally and demonstrate the correctness of the confidence score processing.
