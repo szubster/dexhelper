@@ -2,7 +2,7 @@
 id: epic-338-404-kurt-apricorn-data-engine
 type: EPIC
 title: Gen 2 Kurt Apricorn Data Parsing Engine
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-06'
 updated_at: '2026-10-07'
