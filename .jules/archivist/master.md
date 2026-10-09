@@ -62,3 +62,20 @@
 
 ## Critical Learnings
 - **Journal Hygiene & Placeholder Stripping**: Unparsed placeholders (like `$(date)`) and repetitive section headers in aggregated journals should be stripped during curation sessions to keep master journals readable and concise for LLM context windows.
+
+
+---
+
+# 2026-10-09 - Archivist Knowledge Hygiene Session
+
+---
+
+## Actions Taken
+- Ran `.github/scripts/aggregate-journals.ts` to consolidate scattered session files into `master.md` journals across `.foundry/journals/` and `.jules/`.
+- Curated master journals across all personas to purge transient status logs (raw session IDs, "Checked off...", "Submitted empty PR...") and deduplicate repeated entries.
+- Verified workspace health using `pnpm lint` and `pnpm test`.
+
+---
+
+## Critical Learnings
+- **Journal Aggregation Efficiency**: Consolidating session files using `aggregate-journals.ts` followed by targeted regex-based purging of transient lines keeps master journals high-signal and token-efficient.
