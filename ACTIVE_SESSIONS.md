@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [adr-586-584-failure-tracking-architecture](.foundry/docs/adrs/adr-586-584-failure-tracking-architecture.md) | ADR | Technical Architecture for Failure Tracking | architect | [13375914325660456299](https://jules.google.com/session/13375914325660456299) |
+| [epic-566-580-e2e-test-migration](.foundry/epics/epic-566-580-e2e-test-migration.md) | EPIC | E2E Test Migration to COM Pattern | story_owner | [4099276891458752926](https://jules.google.com/session/4099276891458752926) |
 | [epic-586-581-orchestrator-rejection-processing](.foundry/epics/epic-586-581-orchestrator-rejection-processing.md) | EPIC | Implement Phase 3.0 Orchestrator Rejection Processing Logic | story_owner | [6737123496821041618](https://jules.google.com/session/6737123496821041618) |
 | [epic-586-582-yaml-schema-counters](.foundry/epics/epic-586-582-yaml-schema-counters.md) | EPIC | Update Schema and Validation Logic for New YAML Counters | story_owner | [7587249326560552860](https://jules.google.com/session/7587249326560552860) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
