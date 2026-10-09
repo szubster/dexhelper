@@ -389,3 +389,11 @@ Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing 
 **Outcome:** Accepted
 **Why:** The `agile_coach.md` prompt contained item 6 under `## Core Directives` ("Consolidate Redundancy") which was explicitly duplicated from `.foundry/docs/knowledge_base/agents/core_policies.md` ("Prompt Compilation Architecture & Fragment Layering"). Since `core_policies.md` is automatically appended to all persona prompts by the orchestrator at dispatch time, repeating this instruction in `agile_coach.md` creates token bloat and risk of prompt rot.
 **Pattern:** Scrub agent persona prompts for duplicate instructions that are centrally defined in `core_policies.md` to keep prompts lean and maintain a single source of truth.
+
+---
+
+## 2026-10-07 - [Accepted] - Prompt improvement - Scrub redundant Core Directives from tech_lead.md
+**Type:** Prompt improvement
+**Outcome:** Merged (Optimistic execution)
+**Why:** The `.github/agents/tech_lead.md` prompt contained a redundant `## Core Directives` section (with numbered items starting at 2) outlining task drafting, defining contracts, and maintaining architecture. These rules are already centrally defined and enforced in `.foundry/docs/knowledge_base/agents/core_policies.md` under "Node Generation Rules", "Mandate Decomposition, Granularity, and Late Binding", and "Architectural & Coding Constraints". Since `core_policies.md` is automatically appended to all agent prompts by the orchestrator at dispatch time, repeating these instructions in `tech_lead.md` creates token bloat and risk of prompt rot.
+**Pattern:** Regularly scrub agent persona prompts for duplicate instructions that are centrally defined in `core_policies.md` to keep prompts lean and maintain a single source of truth.
