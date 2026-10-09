@@ -217,3 +217,40 @@ Date: 2026-10-09 14:23:19
   - `task-414-493-zod-orchestrator-fixtures`
   - `task-414-494-zod-orchestrator-e2e-impl`
   - `task-414-495-zod-orchestrator-e2e-qa`
+
+---
+
+# TPM Session Journal
+Date: 2026-10-09 16:31:33
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving must strictly operate at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`. A completed node cannot be archived if any descendant or parent in its hierarchy is in an active or incomplete state.
+- **Node Linkage Preservation**: Moving node files to `.foundry/archive/` preserves historical reference while keeping active directory context windows slim. Internal `depends_on` and `parent` YAML frontmatter fields strictly remain node IDs without paths to avoid DAG orchestrator circular dependency resolution failures.
+
+### Summary of Archived DAG Tree
+- Successfully archived the completed 100% terminal tree rooted at `idea-124-librarian-persona-context-optimizer` (23 nodes total):
+  - `idea-124-librarian-persona-context-optimizer`
+  - `prd-124-339-librarian-persona-context-optimizer`
+  - `epic-339-409-librarian-schema-updates`
+  - `epic-339-410-librarian-github-scripts-implementation`
+  - `story-409-412-add-librarian-persona-schema`
+  - `story-409-413-librarian-schema-e2e`
+  - `story-410-512-librarian-ingestion-synthesis-script`
+  - `story-410-513-librarian-doc-update-script`
+  - `story-410-514-librarian-garbage-collection-script`
+  - `story-410-515-librarian-scripts-integration-e2e`
+  - `task-412-422-implement-librarian-persona-schema`
+  - `task-412-423-qa-librarian-persona-schema`
+  - `task-413-440-verify-librarian-schema-e2e`
+  - `task-512-517-librarian-ingestion-script`
+  - `task-512-518-librarian-synthesis-script`
+  - `task-512-519-librarian-scripts-qa`
+  - `task-513-521-implement-librarian-doc-update-script`
+  - `task-513-522-qa-librarian-doc-update-script`
+  - `task-514-521-librarian-gc-script-impl`
+  - `task-514-522-librarian-gc-script-tests`
+  - `task-514-523-librarian-gc-script-qa`
+  - `task-515-568-librarian-e2e-tests`
+  - `task-515-569-librarian-e2e-qa`
