@@ -27,7 +27,7 @@ priority: 60
 # E2E and Integration Verification for Confidence Metrics Dashboard
 
 ## Context
-Based on epic-565-571, we need to add e2e integration tests to verify the UI dashboard component correctly visualizes agent confidence metrics.
+Based on epic-565-571-agent-confidence-metrics-dashboard-ui, we need to add e2e integration tests to verify the UI dashboard component correctly visualizes agent confidence metrics.
 
 ## Requirements
 - Ensure that color coding logic works accurately
@@ -35,3 +35,5 @@ Based on epic-565-571, we need to add e2e integration tests to verify the UI das
 
 ## Acceptance Criteria
 - [ ] Add E2E test verification
+- [ ] task-645-668-dashboard-metrics-integration-e2e-impl
+- [ ] task-645-669-qa-dashboard-metrics-integration-e2e

@@ -33,11 +33,12 @@
     "format:checkboxes": "node --experimental-strip-types .github/scripts/utils/format-checkboxes.ts",
     "postinstall": "lefthook install || true",
     "knip": "knip",
-    "lint": "pnpm type-check && pnpm check:biome && pnpm exec oxlint -c .oxlintrc.json --type-aware --type-check . && pnpm knip && pnpm lint:circular && pnpm lint:deps && pnpm lint:package-json",
+    "lint": "pnpm type-check && pnpm check:biome && pnpm exec oxlint -c .oxlintrc.json --type-aware --type-check . && pnpm knip && pnpm lint:circular && pnpm lint:deps && pnpm lint:foundry && pnpm lint:package-json",
     "lint:biome": "biome lint --error-on-warnings .",
     "lint:ci": "pnpm lint",
     "lint:circular": "dpdm --circular --no-warning --no-tree src/main.tsx",
     "lint:deps": "depcruise src packages",
+    "lint:foundry": "node --experimental-strip-types scripts/validate-foundry-schema.ts",
     "lint:oxlint": "pnpm exec oxlint -c .oxlintrc.json --type-aware --type-check .",
     "lint:package-json": "sort-package-json --check",
     "preview": "vite preview",
@@ -99,7 +100,7 @@
     "@vitest/ui": "^4.1.11",
     "browserslist": "^4.29.3",
     "bundlemon": "^3.1.0",
-    "dependency-cruiser": "^18.4.0",
+    "dependency-cruiser": "^18.5.0",
     "dpdm": "^4.3.0",
     "fake-indexeddb": "^6.2.5",
     "fast-check": "^4.9.0",
@@ -118,7 +119,7 @@
     "vite-plugin-pwa": "^2.0.0",
     "vitest": "^4.1.11",
     "vitest-browser-react": "^2.3.0",
-    "wrangler": "^4.143.0"
+    "wrangler": "^4.147.0"
   },
   "packageManager": "pnpm@11.25.0+sha512.5cde925b4f075f725eb71fbae18a42ffe784524789f19b61c731cb8721ec28aaee160e01a8d5af4fedb2a42cdbf300efe23db356b0d4a17b4d63e11f8ab7c956",
   "engines": {

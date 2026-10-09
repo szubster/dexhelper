@@ -2,6 +2,7 @@
 id: task-604-659-dashboard-refactoring-e2e-qa
 type: TASK
 title: QA Verification for Dashboard E2E Test Updates
+confidence_score: 100
 status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-03T23:00:51.000Z'
@@ -31,5 +32,5 @@ E2E tests for complex dashboard components and specialized trackers have been up
 - Ensure that any visual regressions from the refactoring have been caught or correctly updated in snapshots.
 
 ## Acceptance Criteria
-- [ ] E2E tests run and pass without failures in the `xvfb-run -a pnpm test:e2e` execution context.
-- [ ] No regression introduced to existing non-dashboard test suites.
+- [x] E2E tests run and pass without failures in the `xvfb-run -a pnpm test:e2e` execution context.
+- [x] No regression introduced to existing non-dashboard test suites.

@@ -2,10 +2,10 @@
 id: task-640-663-update-app-imports-engine-data
 type: TASK
 title: Update application imports to use @dexhelper/core for engine/data
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-07'
 depends_on:
   - task-640-662-extract-engine-data-to-core
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-640-659-extract-utils-to-core
 notes: ''
 locks: []
 ---

@@ -2,13 +2,13 @@
 id: story-534-559-rag-dynamic-querying-retrieval
 type: STORY
 title: Implement Dynamic Querying and Chunk Retrieval Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-10-02'
+updated_at: '2026-10-07'
 depends_on:
   - story-534-558-rag-tooling-and-indexing
-jules_session_id: null
+jules_session_id: '6998885037176500500'
 parent: epic-520-534-dynamic-rag-context-hydration
 tags:
   - foundry

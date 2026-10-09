@@ -2,20 +2,20 @@
 id: story-531-534-idea-reverification-stage
 type: STORY
 title: IDEA Re-Verification Stage Implementation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-10-01'
+updated_at: '2026-10-07'
 depends_on:
   - story-531-533-orchestrator-trigger-logic-updates
-jules_session_id: null
+jules_session_id: '8634325032637449245'
 parent: epic-518-531-orchestrator-curator-loop
 tags:
   - orchestrator
   - curator
   - e2e
   - integration
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -30,3 +30,8 @@ Add support in the Orchestrator for an "IDEA Re-Verification Stage" so that cont
 - Update the DAG Orchestrator to recognize when an IDEA node is in a "Re-Verification" loop state after downstream features have been curated.
 - Handle node spawning initiated by the `curator` and seamlessly link these back up to the source IDEA.
 - Verify through E2E/integration tests that the system successfully runs through the full cycle: Idea -> Implementation -> Curator Trigger -> Curator Spawning Nodes -> Idea Re-Verification.
+
+## Acceptance Criteria
+- [ ] task-534-668-orchestrator-idea-reverification-impl
+- [ ] task-534-669-orchestrator-idea-reverification-qa
+- [ ] task-534-670-orchestrator-idea-reverification-tests
