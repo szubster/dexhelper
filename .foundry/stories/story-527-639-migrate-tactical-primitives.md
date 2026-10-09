@@ -2,13 +2,13 @@
 id: story-527-639-migrate-tactical-primitives
 type: STORY
 title: Migrate Tactical Primitives
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-06'
+updated_at: '2026-10-09'
 depends_on:
   - story-527-638-setup-ui-package
-jules_session_id: '566065923783405738'
+jules_session_id: null
 pr_number: null
 parent: epic-519-527-extract-ui-components
 tags:
@@ -27,7 +27,12 @@ Migrate simple tactical UI components (Buttons, Badges, Inputs, Leds) to the `@d
 
 ## Acceptance Criteria
 - [x] Break this story down into tasks for migrating tactical primitives.
-- [ ] task-639-658-migrate-buttons-impl
-- [ ] task-639-659-migrate-badges-impl
-- [ ] task-639-660-migrate-inputs-leds-impl
-- [ ] task-639-661-migrate-primitives-qa
+- [x] task-639-658-migrate-buttons-impl
+- [x] task-639-659-migrate-badges-impl
+- [x] task-639-660-migrate-inputs-leds-impl
+- [x] task-639-661-migrate-primitives-qa
+- [ ] research-639-668-investigate-primitives-migration-failures
+- [ ] task-639-669-migrate-buttons-impl-retry
+- [ ] task-639-670-migrate-badges-impl-retry
+- [ ] task-639-671-migrate-inputs-leds-impl-retry
+- [ ] task-639-672-migrate-primitives-qa-retry

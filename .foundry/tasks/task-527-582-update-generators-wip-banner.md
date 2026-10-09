@@ -2,13 +2,13 @@
 id: task-527-582-update-generators-wip-banner
 type: TASK
 title: Update documentation generators to include WIP/DRAFT banner
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-15T18:24:00Z'
-updated_at: '2026-09-19'
+updated_at: '2026-10-08'
 depends_on:
   - task-527-581-define-markdown-banner
-jules_session_id: null
+jules_session_id: '4632996750283506459'
 pr_number: null
 parent: story-517-527-markdown-banner
 tags:
