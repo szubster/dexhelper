@@ -34,4 +34,7 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer Epic, we must perform i
 - Ensure integration between base location parsing, mixed record trainer extraction, and rematch status tracking.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into actionable TASK nodes (Coder/QA as needed).
+- [x] Tech Lead: Break down into actionable TASK nodes (Coder/QA as needed).
+- [ ] task-407-668-e2e-base-location-parsing
+- [ ] task-407-669-e2e-mixed-records-rematch
+- [ ] task-407-670-qa-e2e-secret-base
