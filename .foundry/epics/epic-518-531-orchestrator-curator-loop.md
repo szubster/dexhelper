@@ -2,7 +2,7 @@
 id: epic-518-531-orchestrator-curator-loop
 type: EPIC
 title: Orchestrator Curator Loop and Re-Verification
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
 updated_at: '2026-10-07'

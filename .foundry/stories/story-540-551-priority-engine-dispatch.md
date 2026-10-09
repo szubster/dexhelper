@@ -2,13 +2,13 @@
 id: story-540-551-priority-engine-dispatch
 type: STORY
 title: Implement Priority Engine Dispatch Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-06'
-updated_at: '2026-09-22'
+updated_at: '2026-10-07'
 depends_on:
   - story-540-550-priority-field-schema
-jules_session_id: null
+jules_session_id: '17443379623240476483'
 parent: epic-521-540-orchestrator-priority-scheduling
 rejection_reason: ''
 locks: []

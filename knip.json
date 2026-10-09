@@ -33,7 +33,7 @@
     "src/engine/gen3/contests/constants.ts",
     "src/engine/radar/index.ts",
     "src/engine/saveParser/parsers/gen2Constants.ts",
-    "tests/e2e/fixtures/mock-foundry.ts",
+    "tests/e2e/fixtures/mock-foundry.ts"
   ],
   "ignoreExportsUsedInFile": true,
   "ignoreBinaries": [],

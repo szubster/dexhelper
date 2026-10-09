@@ -2,7 +2,7 @@
 id: story-554-565-progress-tracker-state
 type: STORY
 title: Hunting Progress State Management
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-15'
 updated_at: '2026-10-07'

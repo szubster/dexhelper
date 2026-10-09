@@ -2,10 +2,10 @@
 id: task-567-586-shoal-cave-e2e-coder
 type: TASK
 title: Write Playwright E2E Tests for Shoal Cave Dashboard
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-16T22:50:17Z'
-updated_at: '2026-09-21'
+updated_at: '2026-10-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,8 @@ tags:
   - shoal-cave
   - playwright
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

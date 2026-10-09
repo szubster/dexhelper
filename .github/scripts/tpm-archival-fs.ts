@@ -36,18 +36,12 @@ export function archiveChildNodes(repoRoot: string, childPaths: string[]): void 
       continue;
     }
 
-    // Determine the destination archive subdirectory based on the source path
-    let archiveSubDir = 'tasks'; // Default
-    if (childPath.includes('/stories/') || childPath.includes('\\stories\\')) {
-      archiveSubDir = 'stories';
-    }
+    const foundryDir = path.join(repoRoot, '.foundry');
+    const relativeToFoundry = path.relative(foundryDir, absolutePath);
+    const archivePath = path.join(foundryDir, 'archive', relativeToFoundry);
+    const archiveDir = path.dirname(archivePath);
 
-    const archiveDir = path.join(repoRoot, '.foundry', 'archive', archiveSubDir);
     fs.mkdirSync(archiveDir, { recursive: true });
-
-    const fileName = path.basename(absolutePath);
-    const destinationPath = path.join(archiveDir, fileName);
-
-    fs.renameSync(absolutePath, destinationPath);
+    fs.renameSync(absolutePath, archivePath);
   }
 }

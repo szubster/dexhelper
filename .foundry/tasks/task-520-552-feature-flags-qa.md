@@ -8,14 +8,14 @@ created_at: '2026-09-05'
 updated_at: '2026-10-07'
 depends_on:
   - task-520-551-feature-flags-ui-impl
-jules_session_id: '13845791075881648361'
+jules_session_id: '3096113447067335204'
 pr_number: null
 parent: story-518-520-enforce-feature-flags
 tags:
   - dexhelper
   - wip
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

@@ -5,25 +5,25 @@
       "EPIC": 493,
       "IDEA": 228,
       "PRD": 200,
-      "RESEARCH": 233,
+      "RESEARCH": 239,
       "STORY": 987,
-      "TASK": 2233
+      "TASK": 2251
     },
     "byStatus": {
-      "COMPLETED": 2914,
-      "ACTIVE": 53,
-      "CANCELLED": 558,
-      "PENDING": 741,
-      "READY": 131,
+      "COMPLETED": 2941,
+      "ACTIVE": 94,
+      "CANCELLED": 575,
+      "PENDING": 714,
+      "READY": 100,
       "BLOCKED": 14,
-      "FAILED": 5
+      "FAILED": 2
     }
   },
   "prs": {
     "totalPRs": 30,
-    "openPRs": 23,
-    "mergedPRs": 7,
+    "openPRs": 28,
+    "mergedPRs": 2,
     "closedPRs": 0
   },
-  "timestamp": "2026-10-07T07:46:54.956Z"
+  "timestamp": "2026-10-09T00:44:31.434Z"
 }

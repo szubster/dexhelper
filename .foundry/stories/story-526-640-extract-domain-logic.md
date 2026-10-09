@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-07'
 depends_on: []
-jules_session_id: '9807610381894493830'
+jules_session_id: '333093218560137297'
 pr_number: null
 parent: epic-519-526-extract-core-domain
 tags:
