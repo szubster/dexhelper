@@ -7,14 +7,14 @@ owner_persona: researcher
 created_at: '2026-10-06'
 updated_at: '2026-10-09'
 depends_on: []
-jules_session_id: '12266747359790020807'
+jules_session_id: '413424589004899294'
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
 tags:
   - react
   - components
   - research
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

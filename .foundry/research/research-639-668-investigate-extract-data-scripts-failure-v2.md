@@ -7,14 +7,14 @@ owner_persona: researcher
 created_at: '2026-10-06'
 updated_at: '2026-10-09'
 depends_on: []
-jules_session_id: '7593076428527067967'
+jules_session_id: '4535913588279065472'
 pr_number: null
 parent: story-525-639-extract-data-generation-scripts
 tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
