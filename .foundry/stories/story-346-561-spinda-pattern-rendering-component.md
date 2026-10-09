@@ -33,3 +33,8 @@ This story focuses on creating the reusable UI component (likely Canvas or layer
 - [ ] Render the base Spinda sprite.
 - [ ] Overlay the four spots at the precise calculated coordinates.
 - [ ] Ensure the component complies with Tactical UI aesthetic guidelines (e.g., sharp edges, `rounded-none`, dashed borders if applicable).
+
+- [ ] task-561-668-spinda-rendering-types
+- [ ] task-561-669-spinda-rendering-ui
+- [ ] task-561-670-spinda-rendering-tests
+- [ ] task-561-671-qa-spinda-rendering-component
