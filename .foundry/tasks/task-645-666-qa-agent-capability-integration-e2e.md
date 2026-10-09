@@ -2,10 +2,10 @@
 id: task-645-666-qa-agent-capability-integration-e2e
 type: TASK
 title: QA Verification for Agent Confidence Capability E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-05T01:48:00Z'
-updated_at: '2026-10-06'
+updated_at: '2026-10-09'
 depends_on:
   - task-645-665-agent-capability-integration-e2e-impl
 jules_session_id: null

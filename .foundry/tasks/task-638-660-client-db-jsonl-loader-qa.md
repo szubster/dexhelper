@@ -2,10 +2,10 @@
 id: task-638-660-client-db-jsonl-loader-qa
 type: TASK
 title: QA - Client Data Loading Integration
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-09'
 depends_on:
   - task-638-659-client-db-jsonl-loader-dataloader-impl
 jules_session_id: null

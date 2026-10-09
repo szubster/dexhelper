@@ -2,13 +2,13 @@
 id: task-638-659-client-db-jsonl-loader-dataloader-impl
 type: TASK
 title: Integrate DataLoader for Items and Moves
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-07'
+updated_at: '2026-10-09'
 depends_on:
   - task-638-658-client-db-jsonl-loader-db-impl
-jules_session_id: '9819817243705549032'
+jules_session_id: null
 pr_number: null
 parent: story-088-638-client-db-jsonl-loader
 tags:

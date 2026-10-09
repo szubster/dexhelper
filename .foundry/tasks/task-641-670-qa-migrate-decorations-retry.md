@@ -2,10 +2,10 @@
 id: task-641-670-qa-migrate-decorations-retry
 type: TASK
 title: QA Migrate Visual Decorators Retry
-status: READY
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-09'
 depends_on:
   - task-641-658-migrate-scanline-crosshairs
   - task-641-669-migrate-hexstream-telemetry-retry
@@ -16,7 +16,9 @@ tags:
   - components
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-641-658-migrate-scanline-crosshairs
 notes: ''
 locks: []
 ---

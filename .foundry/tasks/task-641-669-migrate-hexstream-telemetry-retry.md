@@ -2,10 +2,10 @@
 id: task-641-669-migrate-hexstream-telemetry-retry
 type: TASK
 title: Migrate HexStream and Telemetry Decorations Retry
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-09'
 depends_on:
   - research-641-668-investigate-hexstream-telemetry-failure
 jules_session_id: null

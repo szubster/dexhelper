@@ -2,13 +2,13 @@
 id: story-418-517-orchestrator-fallback-mechanisms
 type: STORY
 title: Orchestrator Fallback Mechanisms
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-10-07'
+updated_at: '2026-10-09'
 depends_on:
   - story-418-516-orchestrator-prompt-resolution
-jules_session_id: '292405708619528944'
+jules_session_id: null
 pr_number: null
 parent: epic-343-418-orchestrator-integration
 tags:

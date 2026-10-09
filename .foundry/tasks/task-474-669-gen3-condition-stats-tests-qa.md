@@ -2,10 +2,10 @@
 id: task-474-669-gen3-condition-stats-tests-qa
 type: TASK
 title: QA Verify Gen 3 Condition Stats Unit Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-09'
 depends_on:
   - task-474-668-gen3-condition-stats-tests-coder
 jules_session_id: null
