@@ -12,36 +12,19 @@ export function extractAllInstances(saveData: SaveData): PokemonInstance[] {
       : saveData.generation === 3
         ? saveData.gen3Daycare?.mons || []
         : [];
-  const result: PokemonInstance[] = [];
-  result.length = party.length + pc.length + daycare.length;
-  let index = 0;
-  for (let i = 0; i < party.length; i++) {
-    const p = party[i];
-    if (p) result[index++] = p;
-  }
-  for (let i = 0; i < pc.length; i++) {
-    const p = pc[i];
-    if (p) result[index++] = p;
-  }
-  for (let i = 0; i < daycare.length; i++) {
-    const p = daycare[i];
-    if (p) result[index++] = p;
-  }
-  result.length = index;
-  return result;
+
+  return [party, pc, daycare].flat().filter((p): p is PokemonInstance => Boolean(p));
 }
 
 /**
  * Builds a Map grouping Pokemon instances by their species ID.
  */
 export function buildInventoryBySpecies(instances: PokemonInstance[]): Map<number, PokemonInstance[]> {
-  const instancesBySpecies = new Map<number, PokemonInstance[]>();
-  for (let i = 0; i < instances.length; i++) {
-    const p = instances[i];
-    if (p) {
-      if (!instancesBySpecies.has(p.speciesId)) instancesBySpecies.set(p.speciesId, []);
-      instancesBySpecies.get(p.speciesId)?.push(p);
-    }
-  }
-  return instancesBySpecies;
+  return instances.reduce((inventory, pokemon) => {
+    if (!pokemon) return inventory;
+    const speciesGroup = inventory.get(pokemon.speciesId) ?? [];
+    speciesGroup.push(pokemon);
+    inventory.set(pokemon.speciesId, speciesGroup);
+    return inventory;
+  }, new Map<number, PokemonInstance[]>());
 }
