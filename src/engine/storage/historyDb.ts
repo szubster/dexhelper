@@ -66,7 +66,7 @@ export const getMostRecentSave = async (
     const cursor = await index.openCursor(range, 'prev');
 
     if (cursor) {
-      const saveId = cursor.primaryKey as string;
+      const saveId = typeof cursor.primaryKey === 'string' ? cursor.primaryKey : String(cursor.primaryKey);
       const metadata = cursor.value;
       const savesStore = tx.objectStore('saves');
       const saveData = await savesStore.get(saveId);
@@ -110,7 +110,7 @@ export const getPreviousSave = async (
     const cursor = await index.openCursor(range, 'prev');
 
     if (cursor) {
-      const prevSaveId = cursor.primaryKey as string;
+      const prevSaveId = typeof cursor.primaryKey === 'string' ? cursor.primaryKey : String(cursor.primaryKey);
       const prevMetadata = cursor.value;
       const savesStore = tx.objectStore('saves');
       const prevSaveData = await savesStore.get(prevSaveId);
@@ -196,7 +196,11 @@ export const getOldestSaves = async (playthroughId: string, limit: number): Prom
 
     const result: string[] = [];
     while (cursor && result.length < limit) {
-      result.push(cursor.primaryKey as string);
+      if (typeof cursor.primaryKey === 'string') {
+        result.push(cursor.primaryKey);
+      } else {
+        result.push(String(cursor.primaryKey));
+      }
       cursor = await cursor.continue();
     }
 
