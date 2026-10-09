@@ -2,7 +2,7 @@
 id: task-422-660-pc-box-tm-extraction-tests-retry
 type: TASK
 title: Write unit tests for PC Box and TM Inventory extraction logic
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-03T13:51:00.000Z'
 updated_at: '2026-10-03'
@@ -16,7 +16,7 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: "Cancelled due to permanent failure of dependency: task-422-659-tm-inventory-extraction-logic-retry"
 notes: ''
 locks: []
 ---

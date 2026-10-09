@@ -35,7 +35,11 @@ locks: []
 - [x] task-422-591-tm-inventory-extraction-logic
 - [x] task-422-592-pc-box-tm-extraction-tests
 - [x] task-422-593-pc-box-tm-extraction-qa
-- [ ] research-422-658-tm-inventory-extraction-failure-retry
-- [ ] task-422-659-tm-inventory-extraction-logic-retry
-- [ ] task-422-660-pc-box-tm-extraction-tests-retry
-- [ ] task-422-661-pc-box-tm-extraction-qa-retry
+- [x] research-422-658-tm-inventory-extraction-failure-retry
+- [x] task-422-659-tm-inventory-extraction-logic-retry
+- [x] task-422-660-pc-box-tm-extraction-tests-retry
+- [x] task-422-661-pc-box-tm-extraction-qa-retry
+- [ ] research-422-673-tm-inventory-extraction-failure-v3
+- [ ] task-422-674-tm-inventory-extraction-logic-v3
+- [ ] task-422-675-pc-box-tm-extraction-tests-v3
+- [ ] task-422-676-pc-box-tm-extraction-qa-v3
