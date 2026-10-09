@@ -1367,3 +1367,12 @@ Encountered the Impossible Loop protocol for `story-418-517-orchestrator-fallbac
 
 The task `task-551-565-update-orchestrator-priority-tests` reached its maximum rejection count and permanently failed. Its downstream dependency `task-551-566-qa-orchestrator-priority` was also cancelled.
 To handle this impossible loop, a new `RESEARCH` node (`research-551-668-investigate-orchestrator-priority-tests-failure`) has been spawned to investigate the root cause, and replacement `TASK` nodes (`task-551-669` and `task-551-670`) have been created. The permanently failed/cancelled tasks have been checked off in the parent STORY to allow it to gracefully progress once the new nodes complete.
+
+---
+
+# Tech Lead Journal: Generative Tasks Scope Strictness
+
+- When executing generative tasks (such as decomposing a STORY into TASK nodes), the scope of work must strictly be limited to creating and updating `.foundry` markdown files.
+- Modifying unrelated source code files, configuration files (like `knip.json`), or allowing automated fix tools (`pnpm knip --fix`) to commit destructive changes during a generative session is a severe violation of scope and will be rejected in code review.
+- It's imperative to clean up any scratchpad files (like `plan.md` or generation scripts) before requesting code review.
+- Furthermore, never check off the functional Acceptance Criteria of a parent macro node (like a STORY) prematurely during the decomposition phase. Only the appended child tasks (`- [ ] <node_id>`) should be tracked. Checking off the macro criteria early violates orchestrator constraints.

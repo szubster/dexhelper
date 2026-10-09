@@ -254,3 +254,34 @@ Date: 2026-10-09 16:31:33
   - `task-514-523-librarian-gc-script-qa`
   - `task-515-568-librarian-e2e-tests`
   - `task-515-569-librarian-e2e-qa`
+
+---
+
+# TPM Session Journal
+Date: 2026-10-09 20:45:35
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving must strictly operate at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`. A completed node cannot be archived if any descendant or parent in its hierarchy is in an active or incomplete state.
+- **Node Linkage Preservation**: Moving node files to `.foundry/archive/` preserves historical reference while keeping active directory context windows slim. Internal `depends_on` and `parent` YAML frontmatter fields strictly remain node IDs without paths to avoid DAG orchestrator circular dependency resolution failures.
+
+### Summary of Archived DAG Tree
+- Successfully archived the completed 100% terminal tree rooted at `idea-082-gen3-secret-id-shiny-rng` (17 active nodes total):
+  - `idea-082-gen3-secret-id-shiny-rng`
+  - `prd-082-099-gen3-trainer-data-extraction`
+  - `prd-082-100-rng-calculator-integration`
+  - `epic-099-346-gen3-trainer-data-extraction`
+  - `epic-100-130-rng-tid-sid-display`
+  - `epic-100-131-rng-explainer-section`
+  - `story-346-357-gen3-trainer-data-e2e`
+  - `story-130-349-rng-tid-sid-e2e`
+  - `story-131-526-rng-explainer-ui-component`
+  - `story-131-527-rng-explainer-e2e-verification`
+  - `task-357-399-gen3-trainer-data-e2e-impl`
+  - `task-357-400-gen3-trainer-data-e2e-qa`
+  - `task-349-380-rng-tid-sid-e2e-impl`
+  - `task-349-381-rng-tid-sid-e2e-qa`
+  - `task-526-564-rng-explainer-ui-impl`
+  - `task-527-578-rng-explainer-e2e-coder`
+  - `task-527-579-rng-explainer-e2e-qa`
