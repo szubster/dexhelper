@@ -2,12 +2,12 @@
 id: task-645-668-dashboard-metrics-integration-e2e-impl
 type: TASK
 title: Implement Integration and E2E Tests for Confidence Metrics Dashboard
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-07T04:50:01.754Z'
-updated_at: '2026-10-07'
+updated_at: '2026-10-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '944646054333610190'
 pr_number: null
 parent: story-571-645-dashboard-metrics-integration-e2e
 tags:
