@@ -10,6 +10,7 @@ depends_on:
   - task-574-658-archival-file-move-automation-coder
   - task-574-660-archival-file-move-automation-tests
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-550-574-archival-file-move-automation
 tags:
@@ -28,5 +29,5 @@ locks: []
 Verify the implementation of systematic file move to `.foundry/archive/*` preserves subdirectories for terminal trees and tests pass correctly.
 
 ## Acceptance Criteria
-- [ ] Verify `archiveChildNodes` properly moves files and preserves subdirectories.
-- [ ] Verify tests pass successfully.
+- [x] Verify `archiveChildNodes` properly moves files and preserves subdirectories.
+- [x] Verify tests pass successfully.
