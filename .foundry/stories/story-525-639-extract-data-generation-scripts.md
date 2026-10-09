@@ -2,10 +2,10 @@
 id: story-525-639-extract-data-generation-scripts
 type: STORY
 title: Extract Data Generation Scripts
-status: PENDING
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-08'
+updated_at: '2026-10-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
 notes: ''
 locks: []
 ---
