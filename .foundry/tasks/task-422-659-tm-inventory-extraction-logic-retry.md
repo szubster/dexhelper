@@ -2,7 +2,7 @@
 id: task-422-659-tm-inventory-extraction-logic-retry
 type: TASK
 title: Implement TM Inventory data extraction logic
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-03T13:51:00.000Z'
 updated_at: '2026-10-09'
@@ -17,9 +17,7 @@ tags:
   - gen3
 research_references: []
 rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_reason: "[ACKNOWLEDGED] Parent dependency permanently failed"
 notes: ''
 locks: []
 ---
