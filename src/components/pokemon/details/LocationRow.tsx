@@ -1,4 +1,4 @@
-import type React from 'react';
+import React from 'react';
 import { cn } from '../../../utils/cn';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
@@ -12,7 +12,8 @@ interface LocationRowProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: 'primary' | 'red' | 'amber' | 'emerald';
 }
 
-export function LocationRow({
+// ⚡ Bolt: Wrapped LocationRow in React.memo to prevent unnecessary re-renders when parent location lists update without props changing.
+export const LocationRow = React.memo(function LocationRow({
   icon,
   iconColorClass,
   label,
@@ -54,4 +55,4 @@ export function LocationRow({
       <div className="relative z-10 self-start sm:self-auto">{badge}</div>
     </div>
   );
-}
+});

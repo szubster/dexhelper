@@ -5,7 +5,7 @@ title: Drive Webhook Registration and State Management
 status: READY
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-09-29'
+updated_at: '2026-10-09'
 depends_on:
   - story-402-526-cloudflare-worker-setup
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - sync
 research_references:
   - adr-336-033-server-side-drive-sync
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

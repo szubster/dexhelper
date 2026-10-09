@@ -2,10 +2,10 @@
 id: story-063-605-mirage-island-unified-state-hydration
 type: STORY
 title: Hydrate Mirage Island State into PokeDB
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-10-07'
+updated_at: '2026-10-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,4 +31,7 @@ Once the daily Mirage Island value and the Pokémon personality values are parse
 3. **System Integrity**: Ensure no existing functionality is broken by adding these fields to the shared payload.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks.
+- [x] Tech Lead: Break down into tasks.
+- [ ] task-605-668-hydrate-mirage-island-state-schema-impl
+- [ ] task-605-670-hydrate-mirage-island-state-logic-impl
+- [ ] task-605-669-hydrate-mirage-island-state-qa
