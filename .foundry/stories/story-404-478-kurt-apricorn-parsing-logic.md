@@ -31,4 +31,8 @@ With the memory offsets and constants defined, this story implements the actual 
 - Throw a RangeError for any out-of-bounds reads.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break this STORY down into actionable TASK nodes.
+- [x] tech_lead: Break this STORY down into actionable TASK nodes.
+- [ ] task-478-667-kurt-apricorn-types
+- [ ] task-478-668-kurt-apricorn-core-logic
+- [ ] task-478-669-kurt-apricorn-unit-tests
+- [ ] task-478-670-kurt-apricorn-qa
