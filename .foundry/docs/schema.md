@@ -77,6 +77,7 @@ confidence_score: null  # Optional. Integer (0-100) allowing agents to self-repo
 tags: []                # Optional. Free-form string labels for filtering and context injection.
 research_references: [] # Optional. Array of repo-relative paths to research nodes.
 experiment_variants: [] # Optional. Tracks variant configurations for A/B experiments.
+system_failure_count: 0 # Optional. Incremented when a system-level agent session crashes.
 rejection_count: 0      # Optional. Incremented by the Resurrection Loop on each CEO veto. Omit for IDEA nodes. Broadcasted to UI for permanent failure tracking (ADR 017).
 rejection_reason: ""    # Optional. Used when transitioning a node to FAILED because it is fundamentally impossible to complete.
 notes: ""               # Optional. Free-form Markdown remarks.
@@ -104,6 +105,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `tags` | `string[]` | optional | Labels for filtering and selective context injection (e.g. `["gen2", "save-engine"]`). |
 | `research_references` | `string[]` | optional | Array of repo-relative paths to research nodes. |
 | `experiment_variants` | `string[]` | optional | Tracks variant configurations for A/B experiments. |
+| `system_failure_count` | `integer` | optional | Tracks infrastructure/system-level session failures independent of domain QA rejections. |
 | `rejection_count` | `integer` | optional | Tracks CEO vetoes. Incremented by the Resurrection Loop. The `agile_coach` monitors high values as signals of chronic failure areas. Omit for `IDEA` and `PRD` nodes. Also broadcasted to the Permanent Failure Dashboard UI for visibility (ADR 017). |
 | `rejection_reason` | `string` | optional | Used when transitioning a node to `FAILED` because it is fundamentally impossible to complete. |
 | `notes` | `string` | optional | Free-form Markdown for human remarks, caveats, or inline research. |
@@ -245,6 +247,7 @@ priority: 50
 confidence_score: null
 tags: []
 research_references: []
+system_failure_count: 0
 rejection_count: 0
 rejection_reason: ""
 notes: ""
