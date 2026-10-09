@@ -2,13 +2,13 @@
 id: task-422-659-tm-inventory-extraction-logic-retry
 type: TASK
 title: Implement TM Inventory data extraction logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-03T13:51:00.000Z'
-updated_at: '2026-10-08'
+updated_at: '2026-10-09'
 depends_on:
   - research-422-658-tm-inventory-extraction-failure-retry
-jules_session_id: '13955816563018211648'
+jules_session_id: null
 pr_number: null
 parent: story-411-422-pc-box-and-tm-extraction
 tags:
@@ -17,7 +17,9 @@ tags:
   - gen3
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---
