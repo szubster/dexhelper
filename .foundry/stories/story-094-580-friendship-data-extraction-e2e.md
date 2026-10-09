@@ -2,10 +2,10 @@
 id: story-094-580-friendship-data-extraction-e2e
 type: STORY
 title: Friendship Data Extraction E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-17T18:42:09Z'
-updated_at: '2026-09-20'
+updated_at: '2026-10-09'
 depends_on:
   - story-094-151-gen2-friendship-extraction
   - story-094-152-gen3-friendship-extraction
@@ -28,6 +28,6 @@ E2E verification for the Friendship Data Extraction logic (Gen 2 & 3).
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-580-594-gen2-friendship-data-extraction-e2e-coder
-- [ ] task-580-595-gen3-friendship-data-extraction-e2e-coder
-- [ ] task-580-596-friendship-data-extraction-e2e-qa
+- [x] task-580-594-gen2-friendship-data-extraction-e2e-coder
+- [x] task-580-595-gen3-friendship-data-extraction-e2e-coder
+- [x] task-580-596-friendship-data-extraction-e2e-qa

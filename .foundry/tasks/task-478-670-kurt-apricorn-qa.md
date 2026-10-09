@@ -2,10 +2,10 @@
 id: task-478-670-kurt-apricorn-qa
 type: TASK
 title: Kurt Apricorn Parsing QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-09'
 depends_on:
   - task-478-669-kurt-apricorn-unit-tests
 jules_session_id: null

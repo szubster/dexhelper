@@ -2,14 +2,16 @@
 id: research-551-668-investigate-orchestrator-priority-tests-failure
 type: RESEARCH
 title: Investigate Orchestrator Priority Tests Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-07'
 updated_at: '2026-10-09'
 depends_on: []
-jules_session_id: '15700541337024794545'
+jules_session_id: null
 parent: story-540-551-priority-engine-dispatch
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 locks: []
 ---
 

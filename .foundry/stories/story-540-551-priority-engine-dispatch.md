@@ -2,7 +2,7 @@
 id: story-540-551-priority-engine-dispatch
 type: STORY
 title: Implement Priority Engine Dispatch Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-06'
 updated_at: '2026-10-09'

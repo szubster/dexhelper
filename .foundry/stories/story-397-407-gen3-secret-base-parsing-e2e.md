@@ -2,13 +2,13 @@
 id: story-397-407-gen3-secret-base-parsing-e2e
 type: STORY
 title: E2E Verification for Gen 3 Secret Base Parsing (v3)
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-10-07'
+updated_at: '2026-10-09'
 depends_on:
   - story-397-406-gen3-npc-rematch-status
-jules_session_id: '14142977902072878572'
+jules_session_id: null
 pr_number: null
 parent: epic-045-397-gen3-secret-base-parsing-v3
 tags:

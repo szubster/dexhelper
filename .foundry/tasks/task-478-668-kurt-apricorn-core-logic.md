@@ -2,10 +2,10 @@
 id: task-478-668-kurt-apricorn-core-logic
 type: TASK
 title: Kurt Apricorn Core Parsing Logic
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-09'
 depends_on:
   - task-478-667-kurt-apricorn-types
 jules_session_id: null
