@@ -8,6 +8,7 @@ created_at: '2026-10-06'
 updated_at: '2026-10-06'
 depends_on: []
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-420-492-pal-park-batch-generation
 tags:
@@ -34,4 +35,4 @@ Implement logic to chunk a list of valid flagged Pokémon into batches of 6 and 
 - Ensure no magic numbers are used (e.g., array capacities must use constants).
 
 ## Acceptance Criteria
-- [ ] Implement batching and location mapping logic.
+- [x] Implement batching and location mapping logic.
