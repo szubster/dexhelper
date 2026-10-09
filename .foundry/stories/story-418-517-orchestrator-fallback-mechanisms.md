@@ -32,5 +32,7 @@ Ensure the orchestrator gracefully handles scenarios where expected prompt fragm
 - [ ] Implement fallback to a default generic prompt if the base persona prompt is missing.
 - [ ] Implement graceful ignoring of missing tag-specific fragments, logging a warning instead of throwing an error.
 - [x] Decompose into actionable TASK nodes.
-- [ ] task-517-576-orchestrator-fallback-generic-prompt
-- [ ] task-517-577-orchestrator-fallback-ignore-tags
+- [x] task-517-576-orchestrator-fallback-generic-prompt
+- [x] task-517-577-orchestrator-fallback-ignore-tags
+- [ ] research-517-668-investigate-orchestrator-generic-prompt-failure
+- [ ] task-517-669-orchestrator-fallback-generic-prompt-retry
