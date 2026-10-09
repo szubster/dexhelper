@@ -103,9 +103,15 @@ describe('extractPRMetrics', () => {
     });
   });
 
-  it('should fallback to frontmatter scanning if execSync fails and repoRoot is provided', () => {
-    vi.mocked(execSync).mockImplementation(() => {
-      throw new Error('gh command missing');
+  it('should fallback to frontmatter scanning and git log if execSync gh fails and repoRoot is provided', () => {
+    vi.mocked(execSync).mockImplementation((cmd: string) => {
+      if (cmd.startsWith('gh')) {
+        throw new Error('gh command missing');
+      }
+      if (cmd.startsWith('git log')) {
+        return 'Merge pull request #103 from branch\nchore: test commit (#104)\n' as any;
+      }
+      return '' as any;
     });
 
     const mockRepoRoot = '/mock-repo';
@@ -140,9 +146,9 @@ describe('extractPRMetrics', () => {
     const metrics = extractPRMetrics(mockRepoRoot);
 
     expect(metrics).toEqual({
-      totalPRs: 2,
+      totalPRs: 4,
       openPRs: 1,
-      mergedPRs: 1,
+      mergedPRs: 3,
       closedPRs: 0,
     });
   });

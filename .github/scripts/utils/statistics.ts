@@ -111,19 +111,36 @@ export function extractPRMetrics(repoRoot?: string): PRMetrics | null {
 
         walk(foundryDir);
 
-        if (prMap.size > 0) {
-          let open = 0;
-          let merged = 0;
-          let closed = 0;
-          for (const status of prMap.values()) {
-            if (status === 'COMPLETED') {
+        let open = 0;
+        let merged = 0;
+        let closed = 0;
+        for (const status of prMap.values()) {
+          if (status === 'COMPLETED') {
+            merged++;
+          } else if (status === 'CANCELLED' || status === 'FAILED') {
+            closed++;
+          } else {
+            open++;
+          }
+        }
+
+        // Also check git log commit history for merged PR numbers (e.g. "Merge pull request #123" or "(#123)")
+        try {
+          const gitLogOutput = execSync('git log --format="%s"', { cwd: repoRoot, encoding: 'utf-8', stdio: ['pipe', 'pipe', 'ignore'] });
+          const prRegex = /(?:Merge pull request #|#)(\d+)/g;
+          let match;
+          while ((match = prRegex.exec(gitLogOutput)) !== null) {
+            const num = parseInt(match[1], 10);
+            if (!prMap.has(num)) {
+              prMap.set(num, 'COMPLETED');
               merged++;
-            } else if (status === 'CANCELLED' || status === 'FAILED') {
-              closed++;
-            } else {
-              open++;
             }
           }
+        } catch {
+          // ignore git log errors
+        }
+
+        if (prMap.size > 0) {
           return {
             totalPRs: prMap.size,
             openPRs: open,

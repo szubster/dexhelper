@@ -858,11 +858,12 @@ function main(): void {
   info('Phase 3.6: Checking for Impossible Loop conditions...');
   for (const node of nodes) {
     if (
-      (node.frontmatter.status === 'FAILED' || node.frontmatter.status === 'CANCELLED') &&
-      (node.frontmatter.rejection_reason === 'Max rejection count reached' ||
-       (node.frontmatter.rejection_reason && node.frontmatter.rejection_reason.startsWith('Cancelled due to permanent failure of dependency:')))
+      node.frontmatter.status === 'FAILED' ||
+      (node.frontmatter.status === 'CANCELLED' &&
+       (node.frontmatter.rejection_reason === 'Max rejection count reached' ||
+        (node.frontmatter.rejection_reason && node.frontmatter.rejection_reason.startsWith('Cancelled due to permanent failure of dependency:'))))
     ) {
-      // Auto-cancel orphaned non-completed nodes depending directly or indirectly on this permanently failed/cancelled node
+      // Auto-cancel orphaned non-completed nodes depending directly or indirectly on this failed/cancelled node
 
       const dependents = buildReverseDependencyGraph(nodes, resolveNodePath as (ref: string) => string | null);
       const visited = getOrphanedNodes(node.repoPath, dependents);
