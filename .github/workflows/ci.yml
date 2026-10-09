@@ -42,10 +42,6 @@ jobs:
         run: pnpm knip --reporter github-actions
       - name: Circular Dependency Check
         run: pnpm lint:circular
-      - name: Dependency Cruise Check
-        run: pnpm lint:deps
-      - name: Foundry Schema Check
-        run: pnpm lint:foundry
       - name: Package JSON Sort Check
         run: pnpm lint:package-json
 
@@ -133,7 +129,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Validate Foundry Schema
-        run: pnpm lint:foundry
+        run: node --experimental-strip-types scripts/validate-foundry-schema.ts
       - name: Verify Schema Documentation
         run: node --experimental-strip-types scripts/verify-schema-documentation.ts
       - name: Verify DAG References

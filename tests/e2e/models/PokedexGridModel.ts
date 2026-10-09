@@ -43,24 +43,9 @@ export class PokedexGridModel {
    * Scrolls to the bottom of the grid or page to trigger lazy loading.
    */
   async scrollToBottom() {
-    const customScrollbar = this.page.locator('.custom-scrollbar').first();
-    if (await customScrollbar.isVisible()) {
-      await customScrollbar.evaluate((node) => {
-        node.scrollTo(0, node.scrollHeight);
-      });
-      await this.page.evaluate(() => {
-        const sc = document.querySelector('.custom-scrollbar');
-        if (sc) {
-          // Fake a window scroll event to trick useWindowVirtualizer
-          Object.defineProperty(window, 'scrollY', { value: sc.scrollTop, configurable: true });
-          window.dispatchEvent(new Event('scroll'));
-        }
-      });
-    } else {
-      await this.page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    }
-
-    // Give it time to render new items
-    await this.page.waitForTimeout(500);
+    // If the grid itself is scrollable, we scroll it.
+    // Otherwise we scroll the page window.
+    // Typically in this app window scrolling triggers the virtualizer.
+    await this.page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   }
 }

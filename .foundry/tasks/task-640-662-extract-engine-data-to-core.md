@@ -2,10 +2,10 @@
 id: task-640-662-extract-engine-data-to-core
 type: TASK
 title: Migrate pure JS/TS logic from src/engine/data to packages/core
-status: CANCELLED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-07'
+updated_at: '2026-10-03'
 depends_on:
   - research-640-658-investigate-extract-core-domain-timeout-v2
   - task-640-661-qa-extract-utils
@@ -18,9 +18,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-640-659-extract-utils-to-core
+rejection_reason: ''
 notes: ''
 locks: []
 ---

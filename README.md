@@ -23,8 +23,6 @@ Dexhelper is a React-based web application designed as a Pokédex helper, likely
 
 - Run unit tests: `pnpm test`
 - Run Playwright E2E tests: `pnpm test:e2e`
-- Run Playwright component tests: `pnpm test:ct`
-- Run Playwright tests with UI: `pnpm test:e2e:ui`
 - Run linting and type checking: `pnpm lint`
 - Build the project: `pnpm build`
 # Dependency Cruiser Configuration

@@ -2,13 +2,13 @@
 id: story-402-527-drive-webhook-registration
 type: STORY
 title: Drive Webhook Registration and State Management
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-10-09'
+updated_at: '2026-10-07'
 depends_on:
   - story-402-526-cloudflare-worker-setup
-jules_session_id: null
+jules_session_id: '205025442426137757'
 pr_number: null
 parent: epic-336-402-implement-cloudflare-drive-sync
 tags:
@@ -18,7 +18,7 @@ tags:
   - sync
 research_references:
   - adr-336-033-server-side-drive-sync
-rejection_count: 1
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []

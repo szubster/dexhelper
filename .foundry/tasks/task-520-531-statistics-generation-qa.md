@@ -2,13 +2,13 @@
 id: task-520-531-statistics-generation-qa
 type: TASK
 title: QA - Real-Time Statistics Generation
-status: ACTIVE
+status: READY
 owner_persona: qa
 created_at: '2026-09-03'
-updated_at: '2026-10-07'
+updated_at: '2026-09-25'
 depends_on:
   - task-520-530-statistics-report-integration-impl
-jules_session_id: '15910643181429896292'
+jules_session_id: null
 pr_number: null
 parent: story-417-520-statistics-generation
 tags:

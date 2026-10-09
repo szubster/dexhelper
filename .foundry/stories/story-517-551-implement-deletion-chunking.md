@@ -2,13 +2,13 @@
 id: story-517-551-implement-deletion-chunking
 type: STORY
 title: Implement Deletion Chunking
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-06'
-updated_at: '2026-10-07'
+updated_at: '2026-09-25'
 depends_on:
   - story-517-550-implement-node-age-filtering
-jules_session_id: '18361524710667120585'
+jules_session_id: null
 parent: epic-346-517-archival-cleanup-core-engine
 rejection_reason: ''
 locks: []

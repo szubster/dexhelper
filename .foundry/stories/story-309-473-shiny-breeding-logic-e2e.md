@@ -2,10 +2,10 @@
 id: story-309-473-shiny-breeding-logic-e2e
 type: STORY
 title: Gen 2 Shiny Breeding Logic E2E Integration
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-13'
-updated_at: '2026-10-08'
+updated_at: '2026-09-20'
 depends_on:
   - story-309-001-gender-calculation-engine
   - story-309-002-dv-overlap-constraint
@@ -36,9 +36,9 @@ This story is dedicated exclusively to Integration and E2E Verification for the 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this STORY down into actionable TASK nodes for the engineering team.
 - [x] task-473-493-breeding-e2e-gender-egg-groups
-- [x] research-473-534-timeout-investigation
-- [x] task-473-535-breeding-e2e-gender-egg-groups
+- [ ] research-473-534-timeout-investigation
+- [ ] task-473-535-breeding-e2e-gender-egg-groups
 - [x] task-473-494-breeding-e2e-dv-shiny-odds
-- [x] task-473-536-breeding-e2e-dv-shiny-odds
+- [ ] task-473-536-breeding-e2e-dv-shiny-odds
 - [x] task-473-495-breeding-e2e-qa
-- [x] task-473-537-breeding-e2e-qa
+- [ ] task-473-537-breeding-e2e-qa

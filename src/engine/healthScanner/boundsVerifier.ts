@@ -2,9 +2,6 @@ import { GEN1_MAX_SPECIES_ID, GEN2_MAX_SPECIES_ID } from '../../utils/species';
 import type { PokemonInstance, SaveData } from '../saveParser/parsers/common';
 import type { Anomaly, HealthScanResult, Location } from './models';
 
-export const MIN_DV_VALUE = 0;
-export const MAX_DV_VALUE = 15;
-
 /**
  * Performs boundary verification on the extracted SaveData structure to detect corruption.
  *
@@ -64,44 +61,44 @@ export function verifyBounds(saveData: SaveData): HealthScanResult {
 
       // ⚡ Bolt: Direct property access avoids allocating intermediate key/value arrays via Object.entries(),
       // preventing GC spikes during large PC box array scans.
-      if (hp < MIN_DV_VALUE || hp > MAX_DV_VALUE) {
+      if (hp < 0 || hp > 15) {
         anomalies.push({
           code: 'InvalidStat',
           severity: 'Critical',
           location,
-          description: `DV for HP is out of bounds (${MIN_DV_VALUE}-${MAX_DV_VALUE}): ${hp}.`,
+          description: `DV for HP is out of bounds (0-15): ${hp}.`,
         });
       }
-      if (atk < MIN_DV_VALUE || atk > MAX_DV_VALUE) {
+      if (atk < 0 || atk > 15) {
         anomalies.push({
           code: 'InvalidStat',
           severity: 'Critical',
           location,
-          description: `DV for ATK is out of bounds (${MIN_DV_VALUE}-${MAX_DV_VALUE}): ${atk}.`,
+          description: `DV for ATK is out of bounds (0-15): ${atk}.`,
         });
       }
-      if (def < MIN_DV_VALUE || def > MAX_DV_VALUE) {
+      if (def < 0 || def > 15) {
         anomalies.push({
           code: 'InvalidStat',
           severity: 'Critical',
           location,
-          description: `DV for DEF is out of bounds (${MIN_DV_VALUE}-${MAX_DV_VALUE}): ${def}.`,
+          description: `DV for DEF is out of bounds (0-15): ${def}.`,
         });
       }
-      if (spd < MIN_DV_VALUE || spd > MAX_DV_VALUE) {
+      if (spd < 0 || spd > 15) {
         anomalies.push({
           code: 'InvalidStat',
           severity: 'Critical',
           location,
-          description: `DV for SPD is out of bounds (${MIN_DV_VALUE}-${MAX_DV_VALUE}): ${spd}.`,
+          description: `DV for SPD is out of bounds (0-15): ${spd}.`,
         });
       }
-      if (spc < MIN_DV_VALUE || spc > MAX_DV_VALUE) {
+      if (spc < 0 || spc > 15) {
         anomalies.push({
           code: 'InvalidStat',
           severity: 'Critical',
           location,
-          description: `DV for SPC is out of bounds (${MIN_DV_VALUE}-${MAX_DV_VALUE}): ${spc}.`,
+          description: `DV for SPC is out of bounds (0-15): ${spc}.`,
         });
       }
     }

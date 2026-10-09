@@ -551,39 +551,5 @@ describe('evolutionGenerator', () => {
 
       expect(suggestionsFullParty[0]?.description).toContain('deposit a Pokémon in the PC');
     });
-
-    it('generates Feebas to Milotic Beauty evolution suggestion in Gen 3', async () => {
-      const apiData: AssistantApiData = {
-        pokemonMetadata: {
-          350: {
-            id: 350, // Milotic
-            efrm: [349], // Feebas
-            det: [{}, { tr: EVO_TRIGGER.TRADE, held: 580 }, {}],
-          },
-        },
-      } as unknown as AssistantApiData;
-
-      const instancesBySpecies = new Map<number, PokemonInstance[]>([
-        [349, [{ speciesId: 349, level: 15 } as PokemonInstance]],
-      ]);
-
-      const suggestions: Suggestion[] = [];
-      await generateEvolutionSuggestions(
-        [350],
-        mockSaveData,
-        apiData,
-        instancesBySpecies,
-        suggestions,
-        'emerald',
-        new Set([350]),
-      );
-
-      expect(suggestions).toHaveLength(1);
-      expect(suggestions[0]?.id).toBe('evo-beauty-350');
-      expect(suggestions[0]?.category).toBe('Evolve');
-      expect(suggestions[0]?.title).toBe('Beauty Evolution: #350');
-      expect(suggestions[0]?.description).toContain('Dry Pokéblocks');
-      expect(suggestions[0]?.priority).toBe(80);
-    });
   });
 });

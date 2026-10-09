@@ -2,13 +2,13 @@
 id: story-134-474-gen3-condition-stats-extraction-tests
 type: STORY
 title: Unit Tests for Gen 3 Contest Condition Data Extraction
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-10-09'
+updated_at: '2026-10-06'
 depends_on:
   - story-134-473-gen3-condition-stats-extraction-impl
-jules_session_id: null
+jules_session_id: '15474839442547619074'
 pr_number: null
 parent: epic-101-134-gen3-condition-stats-extraction
 tags:
@@ -32,6 +32,4 @@ Write unit tests to verify Condition data extraction works correctly.
 - See `.foundry/docs/knowledge_base/engine/save_parsing/gen3_condition_stats_offsets.md` for offsets.
 
 ## Acceptance Criteria
-- [ ] task-474-668-gen3-condition-stats-tests-coder
-- [ ] task-474-669-gen3-condition-stats-tests-qa
-- [x] Break down story into tasks for writing Condition extraction unit tests.
+- [ ] Break down story into tasks for writing Condition extraction unit tests.

@@ -2,12 +2,12 @@
 id: story-552-562-gen2-wild-item-parsing
 type: STORY
 title: Gen 2 Wild Encounter and Held Item Parsing
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-07'
+updated_at: '2026-09-30'
 depends_on: []
-jules_session_id: '11567940323214154469'
+jules_session_id: '960057782299991953'
 pr_number: null
 parent: epic-521-552-wild-item-data-engine
 tags:

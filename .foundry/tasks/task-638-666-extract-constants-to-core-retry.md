@@ -2,10 +2,10 @@
 id: task-638-666-extract-constants-to-core-retry
 type: TASK
 title: Extract Constants to Core Package Retry
-status: CANCELLED
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-05'
-updated_at: '2026-10-08'
+updated_at: '2026-10-07'
 depends_on:
   - research-638-665-investigate-constants-extraction
 jules_session_id: null
@@ -15,8 +15,10 @@ tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 3
-rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
+rejection_count: 0
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

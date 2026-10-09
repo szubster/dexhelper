@@ -2,13 +2,13 @@
 id: story-527-641-migrate-decorations
 type: STORY
 title: Migrate Visual Decorators
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-09'
+updated_at: '2026-10-07'
 depends_on:
   - story-527-638-setup-ui-package
-jules_session_id: '8239283640873061100'
+jules_session_id: '6338240758374919969'
 pr_number: null
 parent: epic-519-527-extract-ui-components
 tags:
@@ -28,8 +28,5 @@ Migrate decorative overlays and visual elements (ScanlineOverlay, CornerCrosshai
 ## Acceptance Criteria
 - [x] Break this story down into tasks for migrating decorations.
 - [ ] task-641-658-migrate-scanline-crosshairs
-- [x] task-641-659-migrate-hexstream-telemetry
-- [x] task-641-660-qa-migrate-decorations
-- [ ] research-641-668-investigate-hexstream-telemetry-failure
-- [ ] task-641-669-migrate-hexstream-telemetry-retry
-- [ ] task-641-670-qa-migrate-decorations-retry
+- [ ] task-641-659-migrate-hexstream-telemetry
+- [ ] task-641-660-qa-migrate-decorations

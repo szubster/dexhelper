@@ -1,13 +1,6 @@
 import DataLoader from 'dataloader';
 import { pokeDB } from './PokeDB';
-import type {
-  BerryMetadata,
-  CompactChainLink,
-  ItemMetadata,
-  LocationAreaEncounters,
-  MoveMetadata,
-  PokemonMetadata,
-} from './schema';
+import type { BerryMetadata, CompactChainLink, LocationAreaEncounters, PokemonMetadata } from './schema';
 
 /**
  * Request Batching layer for IndexedDB.
@@ -40,22 +33,6 @@ export const dexDataLoader = {
     async (ids) => {
       // ⚡ Bolt: Use bulk fetch to prevent N+1 IDB queries
       return pokeDB.getEncountersBulk([...ids]);
-    },
-    { cache: true },
-  ),
-
-  items: new DataLoader<number, ItemMetadata>(
-    async (ids) => {
-      // ⚡ Bolt: Use bulk fetch to prevent N+1 IDB queries for items
-      return pokeDB.getItemsBulk([...ids]);
-    },
-    { cache: true },
-  ),
-
-  moves: new DataLoader<number, MoveMetadata>(
-    async (ids) => {
-      // ⚡ Bolt: Use bulk fetch to prevent N+1 IDB queries for moves
-      return pokeDB.getMovesBulk([...ids]);
     },
     { cache: true },
   ),

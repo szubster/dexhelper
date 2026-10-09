@@ -1,26 +1,3 @@
-export const GENDER_RATE_GENDERLESS = -1;
-export const GENDER_RATE_ALWAYS_MALE = 0;
-export const GENDER_RATE_ALWAYS_FEMALE = 8;
-
-export const GENDER_RATE_FEMALE_ONE_EIGHTH = 1;
-export const GENDER_RATE_FEMALE_ONE_FOURTH = 2;
-export const GENDER_RATE_FEMALE_HALF = 4;
-export const GENDER_RATE_FEMALE_THREE_FOURTHS = 6;
-
-export const GEN2_FEMALE_THRESHOLD_ONE_EIGHTH = 1;
-export const GEN2_FEMALE_THRESHOLD_ONE_FOURTH = 3;
-export const GEN2_FEMALE_THRESHOLD_HALF = 7;
-export const GEN2_FEMALE_THRESHOLD_THREE_FOURTHS = 11;
-
-export const GEN3_FEMALE_THRESHOLD_ONE_EIGHTH = 31;
-export const GEN3_FEMALE_THRESHOLD_ONE_FOURTH = 63;
-export const GEN3_FEMALE_THRESHOLD_HALF = 127;
-export const GEN3_FEMALE_THRESHOLD_THREE_FOURTHS = 191;
-
-export const GEN3_PERSONALITY_GENDER_MASK = 0xff;
-export const GEN3_GENDER_RATIO_MAX = 8;
-export const GEN3_GENDER_BYTE_RANGE = 256;
-
 /**
  * Calculates the gender of a Generation 2 Pokémon based on its Attack DV and gender ratio.
  *
@@ -29,30 +6,30 @@ export const GEN3_GENDER_BYTE_RANGE = 256;
  * @returns 'male', 'female', or 'genderless'
  */
 export function calculateGen2Gender(attackDv: number, genderRate: number): 'male' | 'female' | 'genderless' {
-  if (genderRate === GENDER_RATE_GENDERLESS) {
+  if (genderRate === -1) {
     return 'genderless';
   }
-  if (genderRate === GENDER_RATE_ALWAYS_MALE) {
+  if (genderRate === 0) {
     return 'male';
   }
-  if (genderRate === GENDER_RATE_ALWAYS_FEMALE) {
+  if (genderRate === 8) {
     return 'female';
   }
 
   // Determine the threshold for female based on the gender rate
   let femaleThreshold = -1;
   switch (genderRate) {
-    case GENDER_RATE_FEMALE_ONE_EIGHTH: // 1/8 female (7:1 male:female)
-      femaleThreshold = GEN2_FEMALE_THRESHOLD_ONE_EIGHTH;
+    case 1: // 1/8 female (7:1 male:female)
+      femaleThreshold = 1;
       break;
-    case GENDER_RATE_FEMALE_ONE_FOURTH: // 1/4 female (3:1 male:female)
-      femaleThreshold = GEN2_FEMALE_THRESHOLD_ONE_FOURTH;
+    case 2: // 1/4 female (3:1 male:female)
+      femaleThreshold = 3;
       break;
-    case GENDER_RATE_FEMALE_HALF: // 1/2 female (1:1 male:female)
-      femaleThreshold = GEN2_FEMALE_THRESHOLD_HALF;
+    case 4: // 1/2 female (1:1 male:female)
+      femaleThreshold = 7;
       break;
-    case GENDER_RATE_FEMALE_THREE_FOURTHS: // 3/4 female (1:3 male:female)
-      femaleThreshold = GEN2_FEMALE_THRESHOLD_THREE_FOURTHS;
+    case 6: // 3/4 female (1:3 male:female)
+      femaleThreshold = 11;
       break;
     default:
       // Fallback for unexpected rates, though PokeAPI only uses the above values
@@ -72,13 +49,13 @@ export function calculateGen2Gender(attackDv: number, genderRate: number): 'male
  * @returns 'male', 'female', or 'genderless'
  */
 export function calculateGen3Gender(personalityValue: number, genderRate: number): 'male' | 'female' | 'genderless' {
-  if (genderRate === GENDER_RATE_GENDERLESS) {
+  if (genderRate === -1) {
     return 'genderless';
   }
-  if (genderRate === GENDER_RATE_ALWAYS_MALE) {
+  if (genderRate === 0) {
     return 'male';
   }
-  if (genderRate === GENDER_RATE_ALWAYS_FEMALE) {
+  if (genderRate === 8) {
     return 'female';
   }
 
@@ -86,24 +63,24 @@ export function calculateGen3Gender(personalityValue: number, genderRate: number
   // Gender is determined by the lowest 8 bits of the personality value
   let femaleThreshold = 0;
   switch (genderRate) {
-    case GENDER_RATE_FEMALE_ONE_EIGHTH: // 1/8 female
-      femaleThreshold = GEN3_FEMALE_THRESHOLD_ONE_EIGHTH;
+    case 1: // 1/8 female
+      femaleThreshold = 31;
       break;
-    case GENDER_RATE_FEMALE_ONE_FOURTH: // 1/4 female
-      femaleThreshold = GEN3_FEMALE_THRESHOLD_ONE_FOURTH;
+    case 2: // 1/4 female
+      femaleThreshold = 63;
       break;
-    case GENDER_RATE_FEMALE_HALF: // 1/2 female
-      femaleThreshold = GEN3_FEMALE_THRESHOLD_HALF;
+    case 4: // 1/2 female
+      femaleThreshold = 127;
       break;
-    case GENDER_RATE_FEMALE_THREE_FOURTHS: // 3/4 female
-      femaleThreshold = GEN3_FEMALE_THRESHOLD_THREE_FOURTHS;
+    case 6: // 3/4 female
+      femaleThreshold = 191;
       break;
     default:
       // Approximation for other rates
-      femaleThreshold = Math.floor((genderRate / GEN3_GENDER_RATIO_MAX) * GEN3_GENDER_BYTE_RANGE) - 1;
+      femaleThreshold = Math.floor((genderRate / 8) * 256) - 1;
       break;
   }
 
-  const lowestByte = personalityValue & GEN3_PERSONALITY_GENDER_MASK;
+  const lowestByte = personalityValue & 0xff;
   return lowestByte <= femaleThreshold ? 'female' : 'male';
 }

@@ -5,7 +5,7 @@ title: Orchestrator Fallback to Generic Prompt
 status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-10-09'
+updated_at: '2026-10-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - fallback
 research_references: []
 rejection_count: 3
-rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
+rejection_reason: Max rejection count reached
 notes: ''
 experiment_variants: []
 locks: []

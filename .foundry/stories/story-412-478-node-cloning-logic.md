@@ -5,10 +5,10 @@ title: Dynamic Node Cloning and Prompt Adaptation
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-09'
+updated_at: '2026-10-07'
 depends_on:
   - story-412-477-detect-experiment-metadata
-jules_session_id: '402270113051158389'
+jules_session_id: '4098225396411471299'
 pr_number: null
 parent: epic-340-412-orchestrator-parallel-execution
 tags:
@@ -42,13 +42,8 @@ Implement logic to clone nodes for different variants and adjust prompts accordi
 - [x] task-478-640-orchestrator-prompt-adaptation-retry
 - [x] task-478-641-orchestrator-cloning-tests-retry
 - [x] task-478-642-orchestrator-cloning-qa-retry
-- [x] research-478-652-investigate-cloning-failure-retry
-- [x] task-478-653-orchestrator-cloning-logic-retry-2
-- [x] task-478-654-orchestrator-prompt-adaptation-retry-2
-- [x] task-478-655-orchestrator-cloning-tests-retry-2
-- [x] task-478-656-orchestrator-cloning-qa-retry-2
-- [ ] research-478-668-investigate-cloning-logic-failure-retry-2
-- [ ] task-478-669-orchestrator-cloning-logic-retry-3
-- [ ] task-478-670-orchestrator-prompt-adaptation-retry-3
-- [ ] task-478-671-orchestrator-cloning-tests-retry-3
-- [ ] task-478-672-orchestrator-cloning-qa-retry-3
+- [ ] research-478-652-investigate-cloning-failure-retry
+- [ ] task-478-653-orchestrator-cloning-logic-retry-2
+- [ ] task-478-654-orchestrator-prompt-adaptation-retry-2
+- [ ] task-478-655-orchestrator-cloning-tests-retry-2
+- [ ] task-478-656-orchestrator-cloning-qa-retry-2

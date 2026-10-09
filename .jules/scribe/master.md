@@ -236,14 +236,3 @@ The module `src/engine/gen3/staticEncounters.ts` extracts static encounter event
 
 ## Key Learnings
 - **Gen 3 Event Flags Location**: In SaveBlock1, event flags begin at relative byte offset `0x1270` (`EVENT_FLAGS_START`). Each event flag is a single bit within a specific byte offset relative to `EVENT_FLAGS_START`.
-
-
----
-
-# Scribe Memory - Pal Park Migration Rules & HM Restrictions
-
-## Architectural Constraint: Gen 3 HM Move Prohibitions
-In Generation 4 Pal Park migration logic, Pokémon containing any Generation 3 Hidden Machine (HM) move (`Cut`, `Fly`, `Surf`, `Strength`, `Flash`, `Rock Smash`, `Waterfall`, `Dive`) are strictly prohibited from migrating out of Gen 3 cartridges.
-
-### Why This Matters
-HM moves are mandatory for overworld navigation in Generation 3. If the migration tool allowed transferring a Pokémon that is the player's sole possessor of a necessary overworld HM (such as `Surf` or `Fly`), the player could become permanently soft-locked or trapped in an isolated map zone without any way to travel or battle. Identifying these HM moves (`hasGen3HMMoves`) allows the user interface to flag candidates for move deletion prior to transfer.

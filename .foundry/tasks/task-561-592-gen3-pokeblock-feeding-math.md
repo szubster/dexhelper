@@ -2,14 +2,14 @@
 id: task-561-592-gen3-pokeblock-feeding-math
 type: TASK
 title: Implement Gen 3 Pokéblock Feeding Condition Math
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-18'
-updated_at: '2026-10-08'
+updated_at: '2026-09-25'
 depends_on:
   - task-561-590-gen3-nature-modifiers-constants
   - task-561-591-gen3-pokeblock-blending-math
-jules_session_id: '438242298937528758'
+jules_session_id: null
 pr_number: null
 parent: story-540-561-gen3-pokeblock-math-formulas
 tags:

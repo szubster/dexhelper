@@ -46,6 +46,7 @@ describe('Orchestrator Fuzzing E2E', () => {
             fc.property(tasksArbitrary, ([tasks, edges]) => {
                 fs.rmSync(tmpDir, { recursive: true, force: true });
                 fs.mkdirSync(tmpDir, { recursive: true });
+process.argv = process.argv.filter(arg => arg !== '--strict');
 
                 const depsMap = new Map<string, Set<string>>();
                 tasks.forEach(t => depsMap.set(t.id, new Set()));

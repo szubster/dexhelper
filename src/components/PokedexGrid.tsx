@@ -163,39 +163,39 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
       </div>
 
       <div ref={containerRef} className="relative w-full" style={{ height: `${virtualizer.getTotalSize()}px` }}>
-        {virtualizer.getVirtualItems().map((virtualRow) => (
-          <div
-            key={virtualRow.key}
-            ref={virtualizer.measureElement}
-            data-index={virtualRow.index}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              transform: `translateY(${virtualRow.start}px)`,
-            }}
-          >
-            <div className="grid grid-cols-1 gap-4 px-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {columnIndices.map((colIndex) => {
-                const idx = virtualRow.index * columns + colIndex;
-                const pokemon = finalPokemon[idx];
-                if (!pokemon) return <div key={`empty-${idx}`} />;
-                return (
-                  <PokedexCard
-                    key={pokemon.id}
-                    pokemon={pokemon}
-                    idx={idx}
-                    isLivingDex={isLivingDex}
-                    partySet={partySet}
-                    pcSet={pcSet}
-                    shinySpeciesIds={shinySpeciesIds}
-                  />
-                );
-              })}
-            </div>
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            transform: `translateY(${virtualizer.getVirtualItems()[0]?.start ?? 0}px)`,
+          }}
+        >
+          <div className="grid grid-cols-1 gap-4 px-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {virtualizer.getVirtualItems().map((virtualRow) => (
+              <React.Fragment key={virtualRow.index}>
+                {columnIndices.map((colIndex) => {
+                  const idx = virtualRow.index * columns + colIndex;
+                  const pokemon = finalPokemon[idx];
+                  if (!pokemon) return <div key={`empty-${idx}`} />;
+                  return (
+                    <div key={pokemon.id} ref={virtualizer.measureElement} data-index={virtualRow.index}>
+                      <PokedexCard
+                        pokemon={pokemon}
+                        idx={idx}
+                        isLivingDex={isLivingDex}
+                        partySet={partySet}
+                        pcSet={pcSet}
+                        shinySpeciesIds={shinySpeciesIds}
+                      />
+                    </div>
+                  );
+                })}
+              </React.Fragment>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

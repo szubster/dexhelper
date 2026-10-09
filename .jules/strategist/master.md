@@ -373,19 +373,3 @@ Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing 
 **Outcome:** Merged
 **Why:** `.github/agents/strategist.md` contained a stale reference to `.foundry/journals/agile_coach/master.md` as an example journal path in its Context section. Replacing it with `.foundry/journals/tech_lead/master.md` ensures example paths in prompt documentation point to active, representative personas.
 **Pattern:** Keep example file paths in schedule prompts up to date with active agent roster definitions to prevent confusion.
-
----
-
-## 2026-10-03 - [Accepted] - Prompt improvement - Standardize Journal section in Lens schedule
-**Type:** Prompt improvement
-**Outcome:** Merged (Optimistic execution)
-**Why:** `.github/agents/lens.md` was the only agent prompt in `.github/agents/` whose `## Journal` section was missing the mandatory reference to `.foundry/docs/knowledge_base/agents/core_policies.md`. Standardizing this section ensures all agents operate under consistent journaling policies and maintain system-wide prompt uniformity.
-**Pattern:** Audit all persona prompts periodically to ensure standard mandatory phrasing (such as journal reading directives and core policies references) remains uniform across the entire agent roster.
-
----
-
-## 2026-10-04 - [Accepted] - Prompt improvement - Scrub redundant directives from agile_coach.md
-**Type:** Prompt improvement
-**Outcome:** Accepted
-**Why:** The `agile_coach.md` prompt contained item 6 under `## Core Directives` ("Consolidate Redundancy") which was explicitly duplicated from `.foundry/docs/knowledge_base/agents/core_policies.md` ("Prompt Compilation Architecture & Fragment Layering"). Since `core_policies.md` is automatically appended to all persona prompts by the orchestrator at dispatch time, repeating this instruction in `agile_coach.md` creates token bloat and risk of prompt rot.
-**Pattern:** Scrub agent persona prompts for duplicate instructions that are centrally defined in `core_policies.md` to keep prompts lean and maintain a single source of truth.

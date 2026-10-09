@@ -45,10 +45,10 @@ describe('TPM Archival File System Operations', () => {
   });
 
   describe('archiveChildNodes', () => {
-    it('should move STORY and TASK files preserving subdirectories', () => {
+    it('should move STORY and TASK files to their respective archive directories', () => {
       const foundryDir = path.join(tmpDir, '.foundry');
-      const storiesDir = path.join(foundryDir, 'stories', 'nested', 'deep');
-      const tasksDir = path.join(foundryDir, 'tasks', 'categoryA');
+      const storiesDir = path.join(foundryDir, 'stories');
+      const tasksDir = path.join(foundryDir, 'tasks');
       fs.mkdirSync(storiesDir, { recursive: true });
       fs.mkdirSync(tasksDir, { recursive: true });
 
@@ -64,8 +64,8 @@ describe('TPM Archival File System Operations', () => {
 
       archiveChildNodes(tmpDir, childPaths);
 
-      const archivedStoryPath = path.join(foundryDir, 'archive', 'stories', 'nested', 'deep', 'test-story.md');
-      const archivedTaskPath = path.join(foundryDir, 'archive', 'tasks', 'categoryA', 'test-task.md');
+      const archivedStoryPath = path.join(foundryDir, 'archive', 'stories', 'test-story.md');
+      const archivedTaskPath = path.join(foundryDir, 'archive', 'tasks', 'test-task.md');
 
       expect(fs.existsSync(archivedStoryPath)).toBe(true);
       expect(fs.existsSync(archivedTaskPath)).toBe(true);

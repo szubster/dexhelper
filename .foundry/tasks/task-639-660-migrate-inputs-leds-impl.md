@@ -5,7 +5,7 @@ title: Migrate Tactical Inputs and LEDs Implementation
 status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-03'
-updated_at: '2026-10-09'
+updated_at: '2026-10-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - react
   - components
 rejection_count: 3
-rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---

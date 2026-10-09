@@ -2,13 +2,13 @@
 id: epic-519-525-extract-build-tooling
 type: EPIC
 title: Phase 2 - Extract Build Tooling & Data Pipelines
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-03'
-updated_at: '2026-10-09'
+updated_at: '2026-10-02'
 depends_on:
   - epic-519-524-workspace-infrastructure
-jules_session_id: '5517783373052201227'
+jules_session_id: null
 pr_number: null
 parent: prd-157-519-pnpm-workspaces-architecture
 tags:

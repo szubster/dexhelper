@@ -2,13 +2,13 @@
 id: task-479-609-gen3-pokeblock-e2e-impl-v2
 type: TASK
 title: Implement Gen 3 Pokéblock E2E Tests (v2)
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-21'
-updated_at: '2026-10-08'
+updated_at: '2026-10-05'
 depends_on:
   - research-479-608-investigate-gen3-pokeblock-e2e-failure
-jules_session_id: null
+jules_session_id: '15812997436389452646'
 pr_number: null
 parent: story-400-479-gen3-pokeblock-parsing-e2e
 tags:
@@ -22,7 +22,6 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
-confidence_score: 100
 ---
 
 # Implement Gen 3 Pokéblock E2E Tests (v2)
@@ -31,7 +30,7 @@ confidence_score: 100
 We need to verify the Gen 3 Pokéblock parsing logic using real save files to ensure accurate extraction.
 
 ## Acceptance Criteria
-- [x] Create a new Playwright test file `tests/e2e/gen3_pokeblocks.spec.ts`.
-- [x] Implement E2E tests verifying Pokéblock extraction for Emerald using an Emerald save file fixture by navigating to the relevant UI dashboard.
-- [x] Implement E2E tests verifying Pokéblock extraction for Ruby/Sapphire using a Ruby/Sapphire save file fixture.
-- [x] Verify that FireRed/LeafGreen saves appropriately handle the absence of Pokéblocks (either returning null or empty arrays, and the UI handling it gracefully).
+- [ ] Create a new Playwright test file `tests/e2e/gen3_pokeblocks.spec.ts`.
+- [ ] Implement E2E tests verifying Pokéblock extraction for Emerald using an Emerald save file fixture by navigating to the relevant UI dashboard.
+- [ ] Implement E2E tests verifying Pokéblock extraction for Ruby/Sapphire using a Ruby/Sapphire save file fixture.
+- [ ] Verify that FireRed/LeafGreen saves appropriately handle the absence of Pokéblocks (either returning null or empty arrays, and the UI handling it gracefully).

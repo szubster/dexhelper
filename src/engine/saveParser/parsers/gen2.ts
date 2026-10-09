@@ -72,7 +72,6 @@ import {
   DAYCARE_SLOT_1_OFFSET_GS,
   DAYCARE_SLOT_2_OFFSET_CRYSTAL,
   DAYCARE_SLOT_2_OFFSET_GS,
-  DECIMAL_RADIX,
   EVENT_FLAG_HO_OH_BIT,
   EVENT_FLAG_HO_OH_BYTE,
   EVENT_FLAG_LUGIA_BIT,
@@ -95,7 +94,6 @@ import {
   GEN2_HOF_MAX_RECORDS,
   GEN2_HOF_POKEMON_COUNT,
   GEN2_HOF_POKEMON_LENGTH,
-  GEN2_HOF_POKEMON_NICKNAME_LENGTH,
   GEN2_HOF_POKEMON_OFFSET_LEVEL,
   GEN2_HOF_POKEMON_OFFSET_NICKNAME,
   GEN2_HOF_RECORD_LENGTH,
@@ -135,7 +133,6 @@ import {
   MAP_ID_OFFSET_CRYSTAL,
   MAP_ID_OFFSET_GS,
   MAX_VALID_SPECIES_ID,
-  MOM_SAVING_MONEY_ACTIVE_BIT,
   MOM_SAVING_MONEY_OFFSET_RELATIVE,
   MOMS_MONEY_OFFSET_RELATIVE,
   NPC_TRADE_FLAGS_OFFSET_CRYSTAL,
@@ -704,11 +701,7 @@ function parseGen2HallOfFameRecords(
         }
 
         const level = view.getUint8(offset + GEN2_HOF_POKEMON_OFFSET_LEVEL);
-        const nickname = decodeGen12String(
-          view,
-          offset + GEN2_HOF_POKEMON_OFFSET_NICKNAME,
-          GEN2_HOF_POKEMON_NICKNAME_LENGTH,
-        );
+        const nickname = decodeGen12String(view, offset + GEN2_HOF_POKEMON_OFFSET_NICKNAME, 10);
 
         pokemon.push({ speciesId, level, nickname });
       }
@@ -930,7 +923,7 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
   let tms: { id: number; moveId: number; isAcquired: boolean; quantity: number }[] = [];
   try {
     tms = Object.entries(GEN2_TM_HM_MOVE_MAP).map(([idStr, moveId]) => {
-      const id = parseInt(idStr, DECIMAL_RADIX);
+      const id = parseInt(idStr, 10);
       const inventoryQty = inventory.find((i) => i.id === id)?.quantity || 0;
       const pcQty = pcItems.find((i) => i.id === id)?.quantity || 0;
       const quantity = inventoryQty + pcQty;
@@ -966,7 +959,7 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
       view.getUint8(momsMoneyOffset + 2);
     const momSavingMoneyOffset = johtoBadgesOffset + MOM_SAVING_MONEY_OFFSET_RELATIVE;
     const momSavingMoneyByte = view.getUint8(momSavingMoneyOffset);
-    const savingActive = (momSavingMoneyByte & (1 << MOM_SAVING_MONEY_ACTIVE_BIT)) !== 0;
+    const savingActive = (momSavingMoneyByte & (1 << 7)) !== 0;
     gen2MomsSavings = { money: momsMoney, savingActive };
   } catch (error) {
     if (error instanceof RangeError) {

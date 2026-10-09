@@ -2,10 +2,10 @@
 id: task-605-659-lint-foundry-qa
 type: TASK
 title: 'Verify lint:foundry package script'
-status: COMPLETED
+status: PENDING
 owner_persona: qa
 created_at: '2025-02-18T00:00:00.000Z'
-updated_at: '2026-10-08'
+updated_at: '2025-02-18T00:00:00.000Z'
 depends_on:
   - task-605-658-lint-foundry-coder
 jules_session_id: null
@@ -17,7 +17,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
-confidence_score: 100
 ---
 
 # Verify lint:foundry package script
@@ -27,5 +26,5 @@ confidence_score: 100
 - Verify `lint:foundry` is appended to the main `lint` script.
 
 ## Acceptance Criteria
-- [x] `"lint:foundry"` exists in `package.json`.
-- [x] `"lint:foundry"` is integrated into the main `"lint"` script in `package.json`.
+- [ ] `"lint:foundry"` exists in `package.json`.
+- [ ] `"lint:foundry"` is integrated into the main `"lint"` script in `package.json`.
