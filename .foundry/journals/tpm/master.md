@@ -192,3 +192,28 @@ Date: 2026-10-09 03:46:36
   - `task-513-550-schema-verifying-negative-checks-impl`
   - `task-513-551-schema-verifying-tests-impl`
   - `task-513-552-schema-verifying-e2e-qa`
+
+---
+
+# TPM Session Journal
+Date: 2026-10-09 14:23:19
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving must strictly operate at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`. A completed node cannot be archived if any descendant or parent in its hierarchy is in an active or incomplete state.
+- **Node Linkage Preservation**: Moving node files to `.foundry/archive/` preserves historical reference while keeping active directory context windows slim. Internal `depends_on` and `parent` YAML frontmatter fields strictly remain node IDs without paths to avoid DAG orchestrator circular dependency resolution failures.
+
+### Summary of Archived DAG Tree
+- Successfully archived the completed 100% terminal tree rooted at `epic-117-335-integrate-zod-orchestrator` (11 nodes total):
+  - `epic-117-335-integrate-zod-orchestrator`
+  - `story-335-412-integrate-zod-schema`
+  - `story-335-413-zod-validation-error-handling`
+  - `story-335-414-zod-orchestrator-e2e`
+  - `task-412-418-refactor-orchestrator-zod-impl`
+  - `task-412-419-refactor-orchestrator-zod-qa`
+  - `task-413-440-zod-error-orchestrator-impl`
+  - `task-413-441-zod-error-orchestrator-qa`
+  - `task-414-493-zod-orchestrator-fixtures`
+  - `task-414-494-zod-orchestrator-e2e-impl`
+  - `task-414-495-zod-orchestrator-e2e-qa`
