@@ -9,6 +9,7 @@ updated_at: '2026-10-08'
 depends_on:
   - research-512-617-investigate-idempotent-bypass-qa-failure
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-018-512-idempotent-orchestrator-bypass
 tags:
@@ -27,7 +28,7 @@ locks: []
 Verify the implementation of Phase 4.5 auto-checking logic in `.github/scripts/foundry-orchestrator.ts`, incorporating the findings from the preceding research task.
 
 ## Acceptance Criteria
-- [ ] Incorporate insights from `research-512-617-investigate-idempotent-bypass-qa-failure` into the verification process.
-- [ ] Verify that `foundry-orchestrator.ts` automatically checks off non-node checkboxes when `shouldBypass` is true.
-- [ ] Verify that nodes are correctly promoted to READY if there are remaining unchecked tasks after auto-checking.
-- [ ] Verify that nodes are auto-fulfilled and bypass dispatch if all tasks are checked.
+- [x] Incorporate insights from `research-512-617-investigate-idempotent-bypass-qa-failure` into the verification process.
+- [x] Verify that `foundry-orchestrator.ts` automatically checks off non-node checkboxes when `shouldBypass` is true.
+- [x] Verify that nodes are correctly promoted to READY if there are remaining unchecked tasks after auto-checking.
+- [x] Verify that nodes are auto-fulfilled and bypass dispatch if all tasks are checked.

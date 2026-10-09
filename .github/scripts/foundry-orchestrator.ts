@@ -1404,7 +1404,14 @@ function main(): void {
       if (hasUncheckedTasks) {
         info(`Idempotent check: Artifacts for ${node.repoPath} exist. Auto-checking non-node tasks...`);
         const updatedBody = node.body.replace(/(## Acceptance Criteria\s*[\s\S]*?)(?:\n## |$)/, (match) => {
-          return match.replace(/^(\s*-\s*\[)\s(\]\s(?:(?!(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+).)*)$/gm, '$1x$2');
+          return match.replace(/^(\s*-\s*\[)\s(\]\s)(.*)$/gm, (lineMatch, p1, p2, p3) => {
+            const trimmed = p3.trim();
+            const isNodeRefRegex = /^(?:[A-Za-z0-9\s]+:\s*)?(?:`?(?:(?:.*?\/)?(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+(?:\.md)?)`?|\[.*?\]\(.*?(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+(?:\.md)?\))$/;
+            if (isNodeRefRegex.test(trimmed)) {
+              return lineMatch;
+            }
+            return `${p1}x${p2}${p3}`;
+          });
         });
 
         if (updatedBody !== node.body) {
