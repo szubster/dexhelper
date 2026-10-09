@@ -27,4 +27,7 @@ locks: []
 Apply dynamic styling (colors, borders, gradients) to the React Flow nodes based on telemetry metrics when the heatmap toggle is active.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into Task nodes.
+- [x] Tech Lead: Break this Story down into Task nodes.
+- [ ] task-557-668-heatmap-node-styling-types
+- [ ] task-557-669-heatmap-node-styling-ui
+- [ ] task-557-670-heatmap-node-styling-qa
