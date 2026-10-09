@@ -4,9 +4,9 @@ import type { Edge as FlowEdge, Node as FlowNode } from '@xyflow/react';
 import { useCallback, useMemo, useState } from 'react';
 
 import { getHighlightPath } from '../../utils/dag/highlighting';
-import { useDagContext } from '../dashboard/DagContext';
+import { type DagEdge, type DagNodeData, type DagNode as DagNodeType, useDagContext } from '../dashboard/DagContext';
 import { DagFilterPanel } from './DagFilterPanel';
-import { DagNode, type DagNodeData } from './DagNode';
+import { DagNode } from './DagNode';
 
 export function getMiniMapNodeColor(node: FlowNode<DagNodeData>, maxRejectionThreshold: number): string {
   if (
@@ -186,14 +186,12 @@ export function DagDashboard() {
         onTogglePermanentFailures={() => setShowPermanentFailures((prev) => !prev)}
         onToggleHeatmap={() => setShowHeatmap((prev) => !prev)}
       />
-      <ReactFlow
+      <ReactFlow<DagNodeType, DagEdge>
         nodes={displayNodes}
         edges={displayEdges}
         nodeTypes={nodeTypes}
-        // biome-ignore lint/suspicious/noExplicitAny: Temporary workaround for ReactFlow type issues
-        onNodesChange={onNodesChange as any}
-        // biome-ignore lint/suspicious/noExplicitAny: Temporary workaround for ReactFlow type issues
-        onEdgesChange={onEdgesChange as any}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
         onNodeClick={onNodeClick}
         onNodeMouseEnter={onNodeMouseEnter}
         onNodeMouseLeave={onNodeMouseLeave}
