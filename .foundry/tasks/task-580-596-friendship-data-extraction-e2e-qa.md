@@ -2,15 +2,15 @@
 id: task-580-596-friendship-data-extraction-e2e-qa
 type: TASK
 title: QA - Friendship Data Extraction E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-19T11:29:17Z'
-updated_at: '2026-10-02'
+updated_at: '2026-10-08'
 depends_on:
   - task-580-594-gen2-friendship-data-extraction-e2e-coder
   - task-580-595-gen3-friendship-data-extraction-e2e-coder
-jules_session_id: null
 confidence_score: 100
+jules_session_id: '7171980149220277310'
 pr_number: null
 parent: story-094-580-friendship-data-extraction-e2e
 tags:

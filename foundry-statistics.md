@@ -1,36 +1,36 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-08T06:44:30.096Z*
+*Generated at: 2026-10-09T13:54:48.711Z*
 
 ## Node Statistics
 
 ### By Type
 | Type | Count |
 |---|---|
-| ADR | 42 |
-| EPIC | 493 |
+| ADR | 43 |
+| EPIC | 496 |
 | IDEA | 228 |
 | PRD | 200 |
-| RESEARCH | 234 |
+| RESEARCH | 244 |
 | STORY | 987 |
-| TASK | 2236 |
+| TASK | 2285 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 2936 |
-| ACTIVE | 70 |
-| CANCELLED | 571 |
-| PENDING | 716 |
-| READY | 110 |
+| COMPLETED | 2944 |
+| ACTIVE | 93 |
+| CANCELLED | 576 |
+| PENDING | 749 |
+| READY | 102 |
 | BLOCKED | 14 |
-| FAILED | 3 |
+| FAILED | 5 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 30 |
-| Open PRs | 25 |
-| Merged PRs | 5 |
+| Open PRs | 26 |
+| Merged PRs | 4 |
 | Closed PRs | 0 |
