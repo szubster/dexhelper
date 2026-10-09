@@ -1,25 +1,24 @@
 ---
 id: epic-586-583-telemetry-dashboards
 type: EPIC
-title: Update Telemetry Scripts and Dashboards
-status: PENDING
+title: "Update Telemetry Scripts and Dashboards"
+status: READY
 owner_persona: story_owner
-created_at: '2026-10-08'
-updated_at: '2026-10-09'
+created_at: "2026-10-08"
+updated_at: "2026-10-08"
 depends_on:
   - epic-586-581-orchestrator-rejection-processing
   - epic-586-582-yaml-schema-counters
 jules_session_id: null
 pr_number: null
 parent: prd-535-586-false-permanent-failure-detection
+priority: 80
+confidence_score: null
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-notes: ''
-locks: []
-priority: 80
-confidence_score: null
+rejection_reason: ""
+notes: ""
 ---
 
 # Update Telemetry Scripts and Dashboards
