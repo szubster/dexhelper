@@ -1,6 +1,5 @@
 import { Search } from 'lucide-react';
-import type React from 'react';
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { pokeDB } from '../../../db/PokeDB';
 import type { ItemMetadata } from '../../../db/schema';
 import { useStore } from '../../../store';
@@ -10,7 +9,8 @@ import { TacticalInput } from '../../TacticalInput';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 
-export const WildItemSelector: React.FC = () => {
+// ⚡ Bolt: Wrapped in React.memo and pre-built itemsMap / selectedWildItemIdsSet to replace linear scans with O(1) Map/Set lookups (O(N * M) -> O(N)).
+const WildItemSelectorComponent: React.FC = () => {
   const [items, setItems] = useState<ItemMetadata[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -34,6 +34,9 @@ export const WildItemSelector: React.FC = () => {
     };
   }, []);
 
+  const itemsMap = useMemo(() => new Map(items.map((i) => [i.id, i])), [items]);
+  const selectedWildItemIdsSet = useMemo(() => new Set(selectedWildItemIds), [selectedWildItemIds]);
+
   const filteredItems = useMemo(() => {
     if (!searchQuery.trim()) {
       // By default, just show selected items to keep it clean, or all.
@@ -44,10 +47,8 @@ export const WildItemSelector: React.FC = () => {
   }, [items, searchQuery]);
 
   const selectedItems = useMemo(() => {
-    return selectedWildItemIds
-      .map((id) => items.find((i) => i.id === id))
-      .filter((i): i is ItemMetadata => i !== undefined);
-  }, [items, selectedWildItemIds]);
+    return selectedWildItemIds.map((id) => itemsMap.get(id)).filter((i): i is ItemMetadata => i !== undefined);
+  }, [itemsMap, selectedWildItemIds]);
 
   return (
     <TacticalPanel className="flex flex-col gap-4 border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
@@ -97,7 +98,7 @@ export const WildItemSelector: React.FC = () => {
 
       <div className="z-10 mt-4 grid max-h-64 grid-cols-1 gap-2 overflow-y-auto md:grid-cols-2 lg:grid-cols-3">
         {filteredItems.map((item) => {
-          const isSelected = selectedWildItemIds.includes(item.id);
+          const isSelected = selectedWildItemIdsSet.has(item.id);
           return (
             <TacticalButton
               key={item.id}
@@ -114,3 +115,5 @@ export const WildItemSelector: React.FC = () => {
     </TacticalPanel>
   );
 };
+
+export const WildItemSelector = React.memo(WildItemSelectorComponent);
