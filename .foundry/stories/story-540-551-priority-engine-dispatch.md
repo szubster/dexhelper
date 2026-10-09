@@ -2,10 +2,10 @@
 id: story-540-551-priority-engine-dispatch
 type: STORY
 title: Implement Priority Engine Dispatch Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-06'
-updated_at: '2026-10-09'
+updated_at: '2026-09-22'
 depends_on:
   - story-540-550-priority-field-schema
 jules_session_id: null
@@ -17,8 +17,5 @@ locks: []
 ## Acceptance Criteria
 - [x] Tech Lead: Create TASK nodes to update the orchestrator dispatch logic to parse and sort nodes by priority in descending order.
 - [ ] task-551-564-update-orchestrator-priority-logic
-- [x] task-551-565-update-orchestrator-priority-tests
-- [x] task-551-566-qa-orchestrator-priority
-- [ ] research-551-668-investigate-orchestrator-priority-tests-failure
-- [ ] task-551-669-update-orchestrator-priority-tests-v2
-- [ ] task-551-670-qa-orchestrator-priority-v2
+- [ ] task-551-565-update-orchestrator-priority-tests
+- [ ] task-551-566-qa-orchestrator-priority

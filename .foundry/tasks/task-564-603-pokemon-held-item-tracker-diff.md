@@ -2,13 +2,13 @@
 id: task-564-603-pokemon-held-item-tracker-diff
 type: TASK
 title: Pokemon Held Item Tracker Diffing Logic
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-10-08'
+updated_at: '2026-09-27'
 depends_on:
   - task-564-602-pokemon-held-item-tracker-extraction
-jules_session_id: '1820627689974806366'
+jules_session_id: null
 pr_number: null
 parent: story-554-564-pokemon-held-item-tracker
 tags:

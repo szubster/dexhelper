@@ -2,10 +2,10 @@
 id: task-473-537-breeding-e2e-qa
 type: TASK
 title: QA Verify Gen 2 Shiny Breeding E2E Tests
-status: COMPLETED
+status: READY
 owner_persona: qa
 created_at: '2026-09-04'
-updated_at: '2026-10-08'
+updated_at: '2026-10-01'
 depends_on:
   - task-473-536-breeding-e2e-dv-shiny-odds
 jules_session_id: null
@@ -23,7 +23,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
-confidence_score: 100
 ---
 
 # QA Verify Gen 2 Shiny Breeding E2E Tests
@@ -32,5 +31,5 @@ confidence_score: 100
 Review and verify the Playwright E2E tests for the Gen 2 Shiny Breeding DV Compatibility and Odds Engine to ensure full functional coverage.
 
 ## Acceptance Criteria
-- [x] Verify the Playwright tests adequately cover the Gen 2 Shiny Breeding requirements including gender calculation, DV overlap, egg groups, and shiny odds.
-- [x] Execute the relevant tests locally and verify they pass.
+- [ ] Verify the Playwright tests adequately cover the Gen 2 Shiny Breeding requirements including gender calculation, DV overlap, egg groups, and shiny odds.
+- [ ] Execute the relevant tests locally and verify they pass.

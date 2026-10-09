@@ -2,13 +2,13 @@
 id: task-581-659-pokedex-grid-virtualization-e2e-qa
 type: TASK
 title: QA E2E Tests for Virtualized PokedexGrid
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-03'
-updated_at: '2026-10-09'
+updated_at: '2026-10-03'
 depends_on:
   - task-581-658-pokedex-grid-virtualization-e2e-impl
-jules_session_id: '10569106913588863633'
+jules_session_id: null
 pr_number: null
 parent: story-565-581-pokedex-grid-e2e-verification
 tags:

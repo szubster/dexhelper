@@ -2,10 +2,10 @@
 id: story-523-520-gen3-parsers-refactor-core
 type: STORY
 title: Refactor Gen 3 Core Parsers for ADR 028
-status: COMPLETED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-07'
+updated_at: '2026-09-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,7 +30,7 @@ This story addresses the refactoring of core Gen 3 save parsers to comply with A
 ## Acceptance Criteria
 - [x] Decompose this Story into actionable Task nodes for the core Gen 3 parser refactoring.
 - [x] Ensure Tasks address defining module-level constants and implementing relative offsets for core extraction functions.
-- [x] task-520-538-refactor-gen3-pokemon-data-parsers
-- [x] task-520-539-refactor-gen3-world-event-parsers
-- [x] task-520-540-refactor-gen3-items-and-trades-parsers
-- [x] task-520-541-refactor-gen3-parsers-qa
+- [ ] task-520-538-refactor-gen3-pokemon-data-parsers
+- [ ] task-520-539-refactor-gen3-world-event-parsers
+- [ ] task-520-540-refactor-gen3-items-and-trades-parsers
+- [ ] task-520-541-refactor-gen3-parsers-qa

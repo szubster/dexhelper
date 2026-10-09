@@ -2,10 +2,10 @@
 id: task-640-664-qa-extract-engine-data
 type: TASK
 title: QA Verification for Engine Data Extraction
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-03'
-updated_at: '2026-10-07'
+updated_at: '2026-10-03'
 depends_on:
   - task-640-663-update-app-imports-engine-data
 jules_session_id: null
@@ -17,9 +17,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-640-659-extract-utils-to-core
+rejection_reason: ''
 notes: ''
 locks: []
 ---

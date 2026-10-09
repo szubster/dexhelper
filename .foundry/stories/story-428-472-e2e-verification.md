@@ -5,10 +5,10 @@ title: E2E and Integration Verification of New Fixtures
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-24'
-updated_at: '2026-10-08'
+updated_at: '2026-10-05'
 depends_on:
   - story-428-471-verify-and-integrate-saves
-jules_session_id: '5559803326246070966'
+jules_session_id: null
 pr_number: null
 parent: epic-345-428-source-additional-save-files
 tags:

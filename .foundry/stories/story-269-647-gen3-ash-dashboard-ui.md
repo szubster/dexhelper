@@ -2,12 +2,12 @@
 id: story-269-647-gen3-ash-dashboard-ui
 type: STORY
 title: 'Story: Gen 3 Volcanic Ash Tracker Dashboard UI Implementation'
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-03T19:33:53.000Z'
-updated_at: '2026-10-09'
+updated_at: '2026-10-03T19:33:53.000Z'
 depends_on: []
-jules_session_id: '18432456221282246213'
+jules_session_id: null
 pr_number: null
 parent: epic-054-269-gen3-ash-dashboard
 tags:

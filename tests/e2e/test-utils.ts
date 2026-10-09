@@ -125,23 +125,3 @@ export async function mockDagData(page: Page, mockDataPath: string = 'tests/fixt
     });
   });
 }
-
-export async function injectMockState(page: Page, mockDataPath: string) {
-  const mockDataString = fs.readFileSync(mockDataPath, 'utf8');
-  const mockData = JSON.parse(mockDataString);
-
-  await page.evaluate(async (data) => {
-    // We update the window.__store directly in E2E tests for mock data overrides
-    // biome-ignore lint/suspicious/noExplicitAny: needed for E2E testing
-    if ((window as any).__store) {
-      // biome-ignore lint/suspicious/noExplicitAny: needed for E2E testing
-      const store = (window as any).__store();
-      if (store.saveData) {
-        store.setSaveData({
-          ...store.saveData,
-          ...data,
-        });
-      }
-    }
-  }, mockData);
-}

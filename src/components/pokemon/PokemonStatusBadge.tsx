@@ -45,9 +45,7 @@ export const PokemonStatusBadge = React.memo(function PokemonStatusBadge({
             isShiny ? 'text-amber-400' : 'text-emerald-400',
           )}
         >
-          <span aria-hidden="true">[ </span>
-          SECURED
-          <span aria-hidden="true"> ]</span>
+          [ SECURED ]
         </span>
       </div>
     );
@@ -56,11 +54,7 @@ export const PokemonStatusBadge = React.memo(function PokemonStatusBadge({
   if (isOwnedInDex) {
     return (
       <div className="flex w-full items-center justify-center border-amber-500/50 border-t border-dashed bg-amber-500/10 py-1.5">
-        <span className="tactical-text font-black text-[8px] text-amber-400">
-          <span aria-hidden="true">[ </span>
-          DEX_ONLY
-          <span aria-hidden="true"> ]</span>
-        </span>
+        <span className="tactical-text font-black text-[8px] text-amber-400">[ DEX_ONLY ]</span>
       </div>
     );
   }
@@ -68,22 +62,14 @@ export const PokemonStatusBadge = React.memo(function PokemonStatusBadge({
   if (isSeenInDex) {
     return (
       <div className="flex w-full items-center justify-center border-rose-500/50 border-t border-dashed bg-rose-500/10 py-1.5">
-        <span className="tactical-text font-black text-[8px] text-rose-400">
-          <span aria-hidden="true">[ </span>
-          SEEN
-          <span aria-hidden="true"> ]</span>
-        </span>
+        <span className="tactical-text font-black text-[8px] text-rose-400">[ SEEN ]</span>
       </div>
     );
   }
 
   return (
     <div className="flex w-full items-center justify-center border-zinc-700 border-t border-dashed bg-white/5 py-1.5">
-      <span className="tactical-text font-black text-[8px] text-zinc-600">
-        <span aria-hidden="true">[ </span>
-        UNKNOWN
-        <span aria-hidden="true"> ]</span>
-      </span>
+      <span className="tactical-text font-black text-[8px] text-zinc-600">[ UNKNOWN ]</span>
     </div>
   );
 });

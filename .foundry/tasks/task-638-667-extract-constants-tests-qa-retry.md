@@ -2,10 +2,10 @@
 id: task-638-667-extract-constants-tests-qa-retry
 type: TASK
 title: Verify Constants Extraction to Core Package Retry
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-05'
-updated_at: '2026-10-08'
+updated_at: '2026-10-05'
 depends_on:
   - task-638-666-extract-constants-to-core-retry
 jules_session_id: null
@@ -16,9 +16,7 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-638-666-extract-constants-to-core-retry
+rejection_reason: ''
 notes: ''
 locks: []
 ---

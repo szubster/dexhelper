@@ -2,15 +2,15 @@
 id: prd-535-586-false-permanent-failure-detection
 type: PRD
 title: False Permanent Failure Detection & Distinction in Orchestrator
-status: PENDING
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-10-04'
-updated_at: '2026-10-09'
+updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4788999238856628233'
 pr_number: null
 parent: idea-535-false-permanent-failure-detection
-rejection_count: 1
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
@@ -34,11 +34,7 @@ When tasks hit the maximum rejection count (`MAX_REJECTION_THRESHOLD = 3`), the 
 - Update Telemetry tools and metrics dashboards to display and distinguish these two failure types.
 
 ## Acceptance Criteria
-- [x] Define the technical architecture for the new failure tracking (ADR).
-- [ ] adr-586-584-failure-tracking-architecture
-- [x] Breakdown Epic to implement the phase 3.0 Orchestrator rejection processing logic.
-- [ ] epic-586-581-orchestrator-rejection-processing
-- [x] Breakdown Epic to update the schema and validation logic for new YAML counters.
-- [ ] epic-586-582-yaml-schema-counters
-- [x] Breakdown Epic to update telemetry scripts and dashboards.
-- [ ] epic-586-583-telemetry-dashboards
+- [ ] Define the technical architecture for the new failure tracking (ADR).
+- [ ] Breakdown Epic to implement the phase 3.0 Orchestrator rejection processing logic.
+- [ ] Breakdown Epic to update the schema and validation logic for new YAML counters.
+- [ ] Breakdown Epic to update telemetry scripts and dashboards.

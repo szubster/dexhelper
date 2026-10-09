@@ -2,13 +2,13 @@
 id: task-559-619-scheduled-workflow-e2e-qa
 type: TASK
 title: Scheduled Workflow E2E - QA Verification
-status: ACTIVE
+status: READY
 owner_persona: qa
 created_at: '2026-09-23'
-updated_at: '2026-10-08'
+updated_at: '2026-10-05'
 depends_on:
   - task-559-618-scheduled-workflow-e2e-impl
-jules_session_id: '10080486397231773525'
+jules_session_id: null
 pr_number: null
 parent: story-531-559-modify-scheduled-workflows-e2e
 tags:

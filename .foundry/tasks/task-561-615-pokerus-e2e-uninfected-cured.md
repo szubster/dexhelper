@@ -2,13 +2,13 @@
 id: task-561-615-pokerus-e2e-uninfected-cured
 type: TASK
 title: Pokerus UI Badges E2E - Uninfected and Cured States
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-23'
-updated_at: '2026-10-08'
+updated_at: '2026-10-05'
 depends_on:
   - task-561-614-pokerus-e2e-infected
-jules_session_id: '252212784567842330'
+jules_session_id: null
 pr_number: null
 parent: story-412-561-pokerus-ui-e2e
 tags:

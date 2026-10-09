@@ -5,9 +5,9 @@ title: Changelog Backfill Commit Evaluation
 status: ACTIVE
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-10-09'
+updated_at: '2026-10-06'
 depends_on: []
-jules_session_id: '14516333285370710377'
+jules_session_id: '13537964149951037434'
 locks: []
 pr_number: null
 parent: null
@@ -27,46 +27,48 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `2081976b4cb5899ba500f70f7fd6dfc6402a1e2f`
-- **Previous Commit SHA:** `2a7bab11cad0f8df11b84625d2327aaee6d8c57c`
-- **Commit Date:** `2026-04-03`
-- **Classification Reason:** Ad-hoc Foundry system code modification
-- **Recommended Domain:** foundry
-- **Suggested SemVer Bump:** `patch` (from `0.1.2` -> `0.1.3`)
+- **Commit SHA:** `dce451f55b6e6e31e1e2f7b4bf09ff3c949ad8f3`
+- **Previous Commit SHA:** `6a17b750adfcafcb7aec032ee3e97fa58eedfb31`
+- **Commit Date:** `2026-04-02`
+- **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
+- **Recommended Domain:** dexhelper
+- **Suggested SemVer Bump:** `patch` (from `0.21.9` -> `0.21.10`)
 
 ## Commit Message
 ```text
-build(deps): Bump actions/checkout from 4 to 6
+build(deps): Bump @tanstack/react-query from 5.96.0 to 5.96.1
 
-Bumps [actions/checkout](https://github.com/actions/checkout) from 4 to 6.
-- [Release notes](https://github.com/actions/checkout/releases)
-- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
-- [Commits](https://github.com/actions/checkout/compare/v4...v6)
+Bumps [@tanstack/react-query](https://github.com/TanStack/query/tree/HEAD/packages/react-query) from 5.96.0 to 5.96.1.
+- [Release notes](https://github.com/TanStack/query/releases)
+- [Changelog](https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md)
+- [Commits](https://github.com/TanStack/query/commits/@tanstack/react-query@5.96.1/packages/react-query)
 
 ---
 updated-dependencies:
-- dependency-name: actions/checkout
-  dependency-version: '6'
+- dependency-name: "@tanstack/react-query"
+  dependency-version: 5.96.1
   dependency-type: direct:production
-  update-type: version-update:semver-major
+  update-type: version-update:semver-patch
 ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 ```
 
 ## Modified Files
-- `.github/workflows/playwright.yml`
+- `package-lock.json`
+- `package.json`
 
 ## Diff Summary
 ```text
-2081976b4 build(deps): Bump actions/checkout from 4 to 6
- .github/workflows/playwright.yml | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+dce451f55 build(deps): Bump @tanstack/react-query from 5.96.0 to 5.96.1
+ package-lock.json | 16 ++++++++--------
+ package.json      |  2 +-
+ 2 files changed, 9 insertions(+), 9 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 2081976b4cb5899ba500f70f7fd6dfc6402a1e2f` (or `git diff 2a7bab11cad0f8df11b84625d2327aaee6d8c57c..2081976b4cb5899ba500f70f7fd6dfc6402a1e2f`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show dce451f55b6e6e31e1e2f7b4bf09ff3c949ad8f3` (or `git diff 6a17b750adfcafcb7aec032ee3e97fa58eedfb31..dce451f55b6e6e31e1e2f7b4bf09ff3c949ad8f3`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.1.3] - 2026-04-03` in `CHANGELOG-foundry.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.1.2...0.1.3`](https://github.com/${repo}/compare/2a7bab1...2081976)), and update `README.md` if necessary.
-If Keep a Changelog link references exist at the bottom of `CHANGELOG-foundry.md`, update/add link reference comparing the previous commit/release to current commit/release.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.21.10] - 2026-04-02` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.9...0.21.10`](https://github.com/${repo}/compare/6a17b75...dce451f)), and update `README.md` if necessary.
+If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.

@@ -1040,28 +1040,3 @@ Implemented the logic in the Foundry Orchestrator to trigger the `curator` perso
 # 2026-10-01 Session
 
 The `task-542-550-draft-migration-plan-coder` depends on benchmark findings. However, the original execution of benchmarks (`task-549-567-execute-benchmark-runner`) failed and a V2 workflow is currently in progress (`task-540-609-benchmark-runner-script-coder-v2` and `task-540-610-benchmark-ts7-toolchains-qa-v2`). Used the Late Binding pattern to spawn `task-550-637-analyze-v2-benchmark-results` dependent on the V2 QA task, appended it to the current task to wait for the V2 benchmark results to be available.
-
----
-
-# 2026-10-01: Agent Confidence Score Integration
-
-Today, I updated the core agent policies and prompt files (`coder.md`, `qa.md`, and `core_policies.md`) to instruct agents to explicitly include a `confidence_score` (0-100) in the YAML frontmatter of the node files they complete or work on.
-
-This requires a change to the core YAML modification policy, as previously agents were forbidden from editing frontmatter except to mark FAILED or CANCELLED statuses. The policy has been amended to explicitly allow frontmatter modifications when updating the `confidence_score`.
-
-This pattern should be observed when implementing similar metadata metrics in the future: any metadata that needs to be self-reported during execution must explicitly be granted an exception in the `core_policies.md` frontmatter mutability rules.
-
----
-
-# E2E Testing `no-unused-vars` in Try/Catch
-
-When writing Playwright tests or interacting with `indexedDB` where errors must be caught but the error object itself is not used, do **not** use the underscore convention (e.g., `catch (_e)`). ESLint will still throw a `no-unused-vars` error for `_e`.
-
-Instead, entirely omit the catch binding parameter:
-```typescript
-try {
-  // logic
-} catch {
-  // fallback logic
-}
-```

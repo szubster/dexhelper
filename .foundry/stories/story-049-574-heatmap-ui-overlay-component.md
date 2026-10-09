@@ -2,13 +2,13 @@
 id: story-049-574-heatmap-ui-overlay-component
 type: STORY
 title: Heatmap UI Overlay Component
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-16T06:24:34Z'
-updated_at: '2026-10-08'
+updated_at: '2026-09-30'
 depends_on:
   - story-049-573-heatmap-data-processing-layer
-jules_session_id: '16173751105517313263'
+jules_session_id: null
 pr_number: null
 parent: epic-035-049-smart-radar-heatmap-generation
 tags:
