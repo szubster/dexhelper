@@ -3,6 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import type { PokeballType } from '../../../store';
 import { cn } from '../../../utils/cn';
 import { PanelWatermark } from '../../PanelWatermark';
+import { PokeballIcon } from '../../PokeballIcon';
 import { SectionHeader } from '../../SectionHeader';
 import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
@@ -185,18 +186,7 @@ export const PokemonCatchProbability = React.memo(function PokemonCatchProbabili
           </div>
           <div className="flex flex-col items-end text-right">
             <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-none border border-white/10 border-dashed bg-black/40">
-              <div
-                className={cn(
-                  'h-6 w-6 rounded-none border-2',
-                  effectivePokeball === 'safari'
-                    ? 'border-emerald-500 bg-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.5)]'
-                    : effectivePokeball === 'ultra'
-                      ? 'border-yellow-500 bg-yellow-500/20 shadow-[0_0_10px_rgba(234,179,8,0.5)]'
-                      : effectivePokeball === 'great'
-                        ? 'border-blue-500 bg-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.5)]'
-                        : 'border-red-500 bg-red-500/20 shadow-[0_0_10px_rgba(239,68,68,0.5)]',
-                )}
-              />
+              <PokeballIcon type={effectivePokeball} size="md" glow />
             </div>
             <span className="font-black text-[10px] text-zinc-500 uppercase tracking-widest">
               {effectivePokeball.toUpperCase()} BALL
