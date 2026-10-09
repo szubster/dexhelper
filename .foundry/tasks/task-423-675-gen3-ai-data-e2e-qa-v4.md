@@ -1,13 +1,13 @@
 ---
-id: task-423-670-gen3-ai-data-e2e-qa-v3
+id: task-423-675-gen3-ai-data-e2e-qa-v4
 type: TASK
-title: QA for Gen 3 AI Data Extraction E2E Tests (V3)
-status: CANCELLED
+title: QA for Gen 3 AI Data Extraction E2E Tests (V4)
+status: PENDING
 owner_persona: qa
-created_at: '2026-10-06'
-updated_at: '2026-10-08'
+created_at: '2026-10-09'
+updated_at: '2026-10-09'
 depends_on:
-  - task-423-669-gen3-ai-data-e2e-mapping-tests-impl-v3
+  - task-423-674-gen3-ai-data-e2e-mapping-tests-impl-v4
 jules_session_id: null
 pr_number: null
 parent: story-411-423-gen3-ai-data-extraction-e2e
@@ -18,12 +18,12 @@ tags:
   - e2e
   - qa
 rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
+rejection_reason: ''
 notes: ''
 locks: []
 ---
 
-# QA for Gen 3 AI Data Extraction E2E Tests (V3)
+# QA for Gen 3 AI Data Extraction E2E Tests (V4)
 
 ## Objective
 QA verification for Gen 3 AI Data E2E tests mapping fixes.
