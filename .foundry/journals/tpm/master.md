@@ -285,3 +285,28 @@ Date: 2026-10-09 20:45:35
   - `task-526-564-rng-explainer-ui-impl`
   - `task-527-578-rng-explainer-e2e-coder`
   - `task-527-579-rng-explainer-e2e-qa`
+
+---
+
+# TPM Session Journal
+Date: 2026-10-09 22:51:00
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving strictly operates at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+- **Summary of Archived DAG Tree**: Archived the completed 100% terminal tree rooted at `idea-123-improved-savedata-typing` (14 nodes total):
+  - `idea-123-improved-savedata-typing` (ideas)
+  - `prd-123-122-improved-savedata-typing` (prds)
+  - `epic-122-404-refactor-savedata-typing` (epics)
+  - `story-404-362-refactor-savedata-type` (stories)
+  - `story-404-363-update-parsers` (stories)
+  - `story-404-364-savedata-e2e-verification` (stories)
+  - `task-362-415-refactor-savedata-type-impl` (tasks)
+  - `task-362-416-refactor-savedata-type-qa` (tasks)
+  - `task-363-440-update-parsers-impl` (tasks)
+  - `task-363-441-update-parsers-qa` (tasks)
+  - `task-364-493-savedata-e2e-gen1` (tasks)
+  - `task-364-494-savedata-e2e-gen2` (tasks)
+  - `task-364-495-savedata-e2e-gen3` (tasks)
+  - `task-364-496-savedata-e2e-qa` (tasks)
