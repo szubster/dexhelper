@@ -272,6 +272,8 @@ export interface Gen3BattleFrontierSymbols {
 }
 
 export interface BaseSaveData {
+  /** The daily Mirage Island random value, used to determine if Mirage Island appears. */
+  mirageIslandValue?: number;
   /** A set of Pokémon species IDs that have been caught (O(1) lookup). */
   owned: Set<number>;
   /** A set of Pokémon species IDs that have been encountered. */
@@ -469,8 +471,6 @@ export interface Gen3SaveData extends BaseSaveData {
   gen3MixRecords?: Gen3MixRecord[];
   /** Gen 3 specific: Active Swarm (Mass Outbreak) data. */
   gen3ActiveSwarm?: Gen3ActiveSwarm;
-  /** Gen 3 specific: The 16-bit daily Mirage Island random value. */
-  mirageIslandValue?: number;
   /** Gen 3 specific: Battle Frontier win streaks */
   gen3BattleFrontierWinStreaks?: Gen3BattleFrontierWinStreaks;
   /** Gen 3 specific: Ruby/Sapphire Battle Tower win streaks */
