@@ -9,6 +9,7 @@ updated_at: '2026-10-06'
 depends_on:
   - story-115-526-pathfinder-selection-ui
 jules_session_id: null
+confidence_score: 100
 pr_number: null
 parent: story-115-527-pathfinder-chain-visualization
 tags:
@@ -28,5 +29,5 @@ locks: []
 Define the TypeScript interfaces and types for the Pathfinder Chain Visualization component's props and data structures.
 
 ## Acceptance Criteria
-- [ ] Define the prop types for the visualization component, including the calculated chain data.
-- [ ] Ensure types support rendering intermediate species and passed-down moves.
+- [x] Define the prop types for the visualization component, including the calculated chain data.
+- [x] Ensure types support rendering intermediate species and passed-down moves.
