@@ -395,7 +395,7 @@ export const useStore = create<AppStore>()(
             await saveDB.putSave('last_save_file', state.remoteBuffer);
           } else {
             // Keep local
-            let buffer: Uint8Array;
+            let buffer: Uint8Array<ArrayBuffer>;
             if (state.localBuffer.buffer instanceof ArrayBuffer) {
               buffer = new Uint8Array(
                 state.localBuffer.buffer.slice(
@@ -407,7 +407,7 @@ export const useStore = create<AppStore>()(
               buffer = new Uint8Array(state.localBuffer);
             }
 
-            const data = await parseSaveFile(buffer.buffer as ArrayBuffer, get().manualVersion || undefined);
+            const data = await parseSaveFile(buffer.buffer, get().manualVersion || undefined);
             get().setSaveData(data);
 
             if (data.gameVersion === 'unknown') {
@@ -416,7 +416,7 @@ export const useStore = create<AppStore>()(
               get().setManualVersion(null);
             }
 
-            await r2Client.putSave(state.saveId, buffer as Uint8Array<ArrayBuffer>, state.localMetadata.timestamp);
+            await r2Client.putSave(state.saveId, buffer, state.localMetadata.timestamp);
             await saveDB.putSave('last_save_file', state.localBuffer);
           }
         } catch {

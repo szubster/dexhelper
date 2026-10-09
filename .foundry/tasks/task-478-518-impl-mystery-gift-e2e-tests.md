@@ -2,7 +2,7 @@
 id: task-478-518-impl-mystery-gift-e2e-tests
 type: TASK
 title: Implement Mystery Gift E2E Tests
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-10-07'
@@ -16,10 +16,8 @@ tags:
   - mystery-gift
   - e2e
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

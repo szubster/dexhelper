@@ -32,4 +32,6 @@ Write unit tests to verify Condition data extraction works correctly.
 - See `.foundry/docs/knowledge_base/engine/save_parsing/gen3_condition_stats_offsets.md` for offsets.
 
 ## Acceptance Criteria
-- [ ] Break down story into tasks for writing Condition extraction unit tests.
+- [ ] task-474-668-gen3-condition-stats-tests-coder
+- [ ] task-474-669-gen3-condition-stats-tests-qa
+- [x] Break down story into tasks for writing Condition extraction unit tests.

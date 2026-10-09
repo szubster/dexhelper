@@ -13,7 +13,7 @@ import {
   Trees,
   Waves,
 } from 'lucide-react';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import type { CompactEncounter, CompactEncounterDetail } from '../../../db/schema';
 import { POKE_VERSION_MAP, REVERSE_METHOD_MAP } from '../../../db/schema';
 import { isValidStaticGameVersion, staticEncounters } from '../../../engine/data/shared/staticData';
@@ -40,7 +40,8 @@ interface PokemonLocationsProps {
   loading: boolean;
 }
 
-export function PokemonLocations({
+// ⚡ Bolt: Wrapped PokemonLocations in React.memo to prevent unnecessary re-renders when parent states change without location parameters updating.
+export const PokemonLocations = React.memo(function PokemonLocations({
   pokemonId,
   gameVersion,
   encounters,
@@ -162,9 +163,16 @@ export function PokemonLocations({
       )}
     </div>
   );
-}
+});
 
-function GeospatialNode({ encounter: e, areaName }: { encounter: CompactEncounter; areaName: string }) {
+// ⚡ Bolt: Wrapped GeospatialNode in React.memo to prevent unnecessary re-renders inside the versionEnc map.
+const GeospatialNode = React.memo(function GeospatialNode({
+  encounter: e,
+  areaName,
+}: {
+  encounter: CompactEncounter;
+  areaName: string;
+}) {
   return (
     <TacticalNode variant="primary" className="group relative overflow-hidden">
       {/* Background sweep animation */}
@@ -263,7 +271,7 @@ function GeospatialNode({ encounter: e, areaName }: { encounter: CompactEncounte
       </div>
     </TacticalNode>
   );
-}
+});
 
 function FallbackLocations({
   gameVersion,

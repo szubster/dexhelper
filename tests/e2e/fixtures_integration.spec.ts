@@ -29,4 +29,15 @@ test.describe('Fixture Integration', () => {
         .first(),
     ).toBeVisible();
   });
+
+  test('should load Gen 3 fixture (emerald-vithuang.sav)', async ({ page, loadSave }) => {
+    await clearStorage(page);
+    await loadSave('tests/fixtures/emerald-vithuang.sav');
+    await expect(
+      page
+        .locator('header')
+        .getByText(/UNKNOWN/i)
+        .first(),
+    ).toBeVisible();
+  });
 });
