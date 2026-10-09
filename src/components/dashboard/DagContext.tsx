@@ -18,12 +18,12 @@ import { buildDagGraph } from '../../utils/dag/builder';
 // If you submit an empty PR for a completed task, you MUST check off all Acceptance Criteria checkboxes before submitting.
 
 export interface DagNodeData extends Record<string, unknown> {
-  id: string;
+  id?: string;
   type: string;
   title?: string;
   status: string;
   owner_persona: string;
-  depends_on: string[];
+  depends_on?: string[];
   rejection_count: number;
   confidence_score?: number | null;
   experiment_variants?: string[] | undefined;

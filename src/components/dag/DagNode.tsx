@@ -3,20 +3,11 @@ import { AlertTriangle } from 'lucide-react';
 import React from 'react';
 import { cn } from '../../utils/cn';
 import { CornerCrosshairs } from '../CornerCrosshairs';
-import { useDagContext } from '../dashboard/DagContext';
+import { type DagNodeData, useDagContext } from '../dashboard/DagContext';
 import { TelemetryDecoration } from '../TelemetryDecoration';
 import { PersonaBadge } from './PersonaBadge';
 
-export type DagNodeData = Record<string, unknown> & {
-  type: string;
-  status: string;
-  owner_persona: string;
-  rejection_count: number;
-  confidence_score?: number | null;
-  label?: string;
-  isHighlighted?: boolean;
-  isDimmed?: boolean;
-};
+export type { DagNodeData };
 
 // ⚡ Bolt: Wrapped in React.memo to prevent unnecessary re-renders when parent states or viewports change
 export const DagNode = React.memo(function DagNode({ data }: { data: DagNodeData }) {
