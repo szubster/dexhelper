@@ -65,7 +65,7 @@ export interface PRMetrics {
   closedPRs: number;
 }
 
-export function extractPRMetrics(): PRMetrics | null {
+export function extractPRMetrics(repoRoot?: string): PRMetrics | null {
   try {
     const output = execSync('gh pr list --state all --json state', { encoding: 'utf-8', stdio: ['pipe', 'pipe', 'ignore'] });
     const prs = JSON.parse(output);
@@ -77,6 +77,64 @@ export function extractPRMetrics(): PRMetrics | null {
     };
     return metrics;
   } catch (err) {
+    if (repoRoot && fs.existsSync(path.join(repoRoot, '.foundry'))) {
+      try {
+        const prMap = new Map<number, string>();
+        const foundryDir = path.join(repoRoot, '.foundry');
+
+        function walk(current: string): void {
+          let entries: fs.Dirent[];
+          try {
+            entries = fs.readdirSync(current, { withFileTypes: true });
+          } catch {
+            return;
+          }
+
+          for (const entry of entries) {
+            const fullPath = path.join(current, entry.name);
+            if (entry.isDirectory()) {
+              if (entry.name === 'journals' || entry.name === 'fixtures' || entry.name === 'knowledge_base') continue;
+              walk(fullPath);
+            } else if (entry.isFile() && entry.name.endsWith('.md')) {
+              try {
+                const raw = fs.readFileSync(fullPath, 'utf-8');
+                const parsed = matter(raw);
+                if (parsed.data && parsed.data.pr_number && typeof parsed.data.pr_number === 'number') {
+                  prMap.set(parsed.data.pr_number, parsed.data.status || 'ACTIVE');
+                }
+              } catch {
+                // ignore invalid files
+              }
+            }
+          }
+        }
+
+        walk(foundryDir);
+
+        if (prMap.size > 0) {
+          let open = 0;
+          let merged = 0;
+          let closed = 0;
+          for (const status of prMap.values()) {
+            if (status === 'COMPLETED') {
+              merged++;
+            } else if (status === 'CANCELLED' || status === 'FAILED') {
+              closed++;
+            } else {
+              open++;
+            }
+          }
+          return {
+            totalPRs: prMap.size,
+            openPRs: open,
+            mergedPRs: merged,
+            closedPRs: closed,
+          };
+        }
+      } catch {
+        // ignore fallback errors
+      }
+    }
     console.error("Failed to fetch PR metrics", err);
     return null;
   }

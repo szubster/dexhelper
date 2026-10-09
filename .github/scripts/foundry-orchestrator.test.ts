@@ -2816,6 +2816,61 @@ Target artifact: task-completed
     expect(prdContent).toContain("status: PENDING");
   });
 
+
+  test("Impossible Loop: auto-cancels orphaned READY, ACTIVE, VERIFYING, BLOCKED dependent nodes when dependency permanently fails", () => {
+    // Task 1: Permanently failed dependency
+    createValidTestNode(tmpDir, ".foundry/tasks/task-failed.md", {
+      id: "task-failed",
+      type: "TASK",
+      title: "Failed Task",
+      status: "FAILED",
+      owner_persona: "coder",
+      rejection_count: 3,
+      rejection_reason: "Max rejection count reached",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // Task READY depending on task-failed
+    createValidTestNode(tmpDir, ".foundry/tasks/task-ready.md", {
+      id: "task-ready",
+      type: "TASK",
+      title: "Ready Task",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-failed.md"],
+      jules_session_id: null,
+    });
+
+    // Task ACTIVE depending on task-failed
+    createValidTestNode(tmpDir, ".foundry/tasks/task-active.md", {
+      id: "task-active",
+      type: "TASK",
+      title: "Active Task",
+      status: "ACTIVE",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-failed.md"],
+      jules_session_id: "session-123",
+    });
+
+    main();
+
+    const readyContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-ready.md"), "utf-8");
+    const activeContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-active.md"), "utf-8");
+
+    expect(readyContent).toContain("status: CANCELLED");
+    expect(readyContent).toContain("rejection_reason: 'Cancelled due to permanent failure of dependency: task-failed'");
+
+    expect(activeContent).toContain("status: CANCELLED");
+    expect(activeContent).toContain("rejection_reason: 'Cancelled due to permanent failure of dependency: task-failed'");
+  });
+
   test("Impossible Loop: does not wake up parent if child was cancelled due to permanent failure of dependency", () => {
     // Parent: STORY - PENDING
     createValidTestNode(tmpDir, ".foundry/stories/story-001.md", {
