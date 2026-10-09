@@ -30,5 +30,11 @@ Following the indexing of documents, the orchestrator must formulate search quer
 3. Extract and rank relevant document chunks.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Decompose this story into TASK nodes.
-- [ ] Tech Lead: Ensure a final TASK is dedicated to Integration and E2E Verification.
+- [x] Tech Lead: Decompose this story into TASK nodes.
+- [x] Tech Lead: Ensure a final TASK is dedicated to Integration and E2E Verification.
+
+- [ ] task-559-668-query-formulation-impl
+- [ ] task-559-669-query-formulation-qa
+- [ ] task-559-670-search-extraction-impl
+- [ ] task-559-671-search-extraction-qa
+- [ ] task-559-672-rag-dynamic-querying-integration-e2e
