@@ -22,22 +22,12 @@ test.describe('Fixture Integration', () => {
   test('should load Gen 3 fixture (emerald.sav)', async ({ page, loadSave }) => {
     await clearStorage(page);
     await loadSave('tests/fixtures/emerald.sav');
-    await expect(
-      page
-        .locator('header')
-        .getByText(/UNKNOWN/i)
-        .first(),
-    ).toBeVisible();
+    await expect(page.locator('header').getByText(/DIXIE/i).first()).toBeVisible();
   });
 
   test('should load Gen 3 fixture (emerald-vithuang.sav)', async ({ page, loadSave }) => {
     await clearStorage(page);
     await loadSave('tests/fixtures/emerald-vithuang.sav');
-    await expect(
-      page
-        .locator('header')
-        .getByText(/UNKNOWN/i)
-        .first(),
-    ).toBeVisible();
+    await expect(page.locator('header').getByText(/MAY/i).first()).toBeVisible();
   });
 });
