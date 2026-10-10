@@ -25,7 +25,7 @@ test.describe('Fixture Integration', () => {
     await expect(
       page
         .locator('header')
-        .getByText(/UNKNOWN/i)
+        .getByText(/DIXIE/i)
         .first(),
     ).toBeVisible();
   });
@@ -36,7 +36,7 @@ test.describe('Fixture Integration', () => {
     await expect(
       page
         .locator('header')
-        .getByText(/UNKNOWN/i)
+        .getByText(/MAY/i)
         .first(),
     ).toBeVisible();
   });
