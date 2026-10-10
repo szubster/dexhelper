@@ -47,4 +47,4 @@ Introduce a dedicated **Battle Tower Streak & Tactical Companion** in DexHelper 
 Provides Gen 3 competitive collectors, Ribbon Masters, and Battle Frontier players with actionable insights and prep tools to safely climb the Battle Tower, preserving high win streaks and optimizing party selection.
 
 ## Acceptance Criteria
-- [ ] prd-536-675-gen3-battle-tower-streak-analyzer
+- [ ] Draft PRD for Gen 3 Battle Tower streak analyzer and AI threat predictor

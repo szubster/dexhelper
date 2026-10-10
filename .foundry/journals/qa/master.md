@@ -1251,31 +1251,3 @@ Objective: Verify the implementation of telemetry tracking for cycle detection f
 
 ## Conclusion
 The telemetry metrics implementation for cycle detection is fully complete and functional.
-
----
-
-# QA Journal: SaveDataReader RangeError Verification Boundary
-
-## Pattern Learned
-When verifying error handling boundaries in low-level ArrayBuffer reading utilities (such as `SaveDataReader`), it is crucial to test not only that out-of-bounds `RangeError` exceptions are caught and sanitized, but also that unexpected internal errors (like `TypeError` thrown by faulty mocks or future structural changes) are explicitly passed through unmodified.
-
-Failing to verify passthrough behavior can mask critical internal corruption bugs by inadvertently sanitizing all thrown exceptions into generic boundary warnings.
-
----
-
-# QA Journal Entry - Session 2026-10-07-08-18-13
-
----
-
-## Target Task
-`task-359-440-gen3-trainer-card-parsing-e2e-impl`
-
----
-
-## Details
-During QA verification of `task-359-440-gen3-trainer-card-parsing-e2e-impl`, I observed that the implementation in `tests/e2e/dashboard/trainer-card/gen3_trainer_card_ui.spec.ts` and `src/components/dashboard/trainer-card/Gen3TrainerCardDashboard.tsx` does not test or implement parsing and rendering for `playtime`, `link battles`, or `trades`. These are explicitly required by the acceptance criteria.
-
----
-
-## Action Taken
-The target implementation task `task-359-440-gen3-trainer-card-parsing-e2e-impl` has been marked as `FAILED` to trigger a transient rejection and allow the coder to update the E2E tests and UI component to cover the missing criteria in a subsequent session. The acceptance criteria for both the coder's task and this QA task remain unchecked.
