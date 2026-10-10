@@ -4,11 +4,11 @@ import { aggregateNodeStatistics, extractPRMetrics } from './utils/statistics.ts
 
 export function generateStatistics(repoRoot: string) {
   const nodeStats = aggregateNodeStatistics(repoRoot);
-  const prStats = extractPRMetrics();
+  const prStats = extractPRMetrics(repoRoot);
 
   const data = {
     nodes: nodeStats,
-    prs: prStats || { totalPRs: 0, openPRs: 0, mergedPRs: 0, closedPRs: 0 },
+    prs: prStats,
     timestamp: new Date().toISOString()
   };
 

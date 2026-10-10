@@ -2,10 +2,10 @@
 id: story-574-610-multi-box-search-e2e-verification
 type: STORY
 title: Multi-Box Search E2E Verification
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-09-22'
-updated_at: '2026-09-22'
+updated_at: '2026-10-10'
 depends_on:
   - story-574-609-multi-box-attribute-filters
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - pc-box
   - e2e
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  story-574-608-multi-box-text-search-engine
 notes: ''
 locks: []
 ---

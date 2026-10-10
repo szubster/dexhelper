@@ -5,16 +5,16 @@ title: Investigate Data Generation Scripts Extraction Failure v2
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-06'
-updated_at: '2026-10-08'
+updated_at: '2026-10-09'
 depends_on: []
-jules_session_id: '7825786947938109506'
+jules_session_id: '4535913588279065472'
 pr_number: null
 parent: story-525-639-extract-data-generation-scripts
 tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

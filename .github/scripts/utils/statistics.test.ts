@@ -103,7 +103,57 @@ describe('extractPRMetrics', () => {
     });
   });
 
-  it('should return null and log error if execSync fails', () => {
+  it('should fallback to frontmatter scanning and git log if execSync gh fails and repoRoot is provided', () => {
+    vi.mocked(execSync).mockImplementation((cmd: string) => {
+      if (cmd.startsWith('gh')) {
+        throw new Error('gh command missing');
+      }
+      if (cmd.startsWith('git log')) {
+        return 'Merge pull request #103 from branch\nchore: test commit (#104)\n' as any;
+      }
+      return '' as any;
+    });
+
+    const mockRepoRoot = '/mock-repo';
+    const mockFoundryDir = path.join(mockRepoRoot, '.foundry');
+
+    vi.mocked(fs.existsSync).mockImplementation((p) => {
+      if (p === mockFoundryDir) return true;
+      return false;
+    });
+
+    vi.mocked(fs.readdirSync).mockImplementation((p: any, _options?: any): any => {
+      if (p === mockFoundryDir) {
+        return [
+          { name: 'task1.md', isDirectory: () => false, isFile: () => true },
+          { name: 'task2.md', isDirectory: () => false, isFile: () => true },
+        ] as fs.Dirent[];
+      }
+      return [];
+    });
+
+    vi.mocked(fs.readFileSync).mockImplementation((p: any, _options?: any): any => {
+      const filePath = p as string;
+      if (filePath.endsWith('task1.md')) {
+        return '---\ntype: TASK\nstatus: COMPLETED\npr_number: 101\n---\nBody';
+      }
+      if (filePath.endsWith('task2.md')) {
+        return '---\ntype: TASK\nstatus: ACTIVE\npr_number: 102\n---\nBody';
+      }
+      return '';
+    });
+
+    const metrics = extractPRMetrics(mockRepoRoot);
+
+    expect(metrics).toEqual({
+      totalPRs: 4,
+      openPRs: 1,
+      mergedPRs: 3,
+      closedPRs: 0,
+    });
+  });
+
+  it('should return null and log error if execSync fails without repoRoot', () => {
     const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     vi.mocked(execSync).mockImplementation(() => {
       throw new Error('Command failed');

@@ -2,14 +2,14 @@
 id: task-523-599-artifact-promotion-e2e-logic
 type: TASK
 title: Artifact Promotion E2E Test Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-20'
-updated_at: '2026-09-24'
+updated_at: '2026-10-08'
 depends_on:
   - task-523-598-artifact-promotion-e2e-fixtures
-jules_session_id: null
 confidence_score: 100
+jules_session_id: '16833067807897805109'
 pr_number: null
 parent: story-519-523-artifact-promotion-e2e
 tags: []
