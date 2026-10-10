@@ -2,12 +2,12 @@
 id: task-534-668-orchestrator-idea-reverification-impl
 type: TASK
 title: Orchestrator IDEA Re-Verification Stage Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6620786034838074329'
 parent: story-531-534-idea-reverification-stage
 tags:
   - orchestrator
