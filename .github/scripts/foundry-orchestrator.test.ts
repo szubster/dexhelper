@@ -260,7 +260,7 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(output[0].status).toBe('READY');
   });
 
-  test('Blocking: remains PENDING if a dependency is not COMPLETED', () => {
+  test('Blocking: cancels PENDING node if a dependency is FAILED', () => {
     createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
       id: "idea-001",
       type: "IDEA",
@@ -291,7 +291,7 @@ vi.doMock('node:url', async (importOriginal) => {
     main();
 
     const epicChar = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
-    expect(epicChar).toContain('status: PENDING');
+    expect(epicChar).toContain('status: CANCELLED');
     
     // Output should be empty since nothing is READY
     expect(logSpy).toHaveBeenCalled();
@@ -2814,6 +2814,96 @@ Target artifact: task-completed
     main();
     const prdContent = fs.readFileSync(path.join(tmpDir, ".foundry/prds/prd-001.md"), "utf-8");
     expect(prdContent).toContain("status: PENDING");
+  });
+
+
+  test("Impossible Loop: auto-cancels orphaned READY, ACTIVE, VERIFYING, BLOCKED dependent nodes when dependency permanently fails", () => {
+    // Task 1: Permanently failed dependency
+    createValidTestNode(tmpDir, ".foundry/tasks/task-failed.md", {
+      id: "task-failed",
+      type: "TASK",
+      title: "Failed Task",
+      status: "FAILED",
+      owner_persona: "coder",
+      rejection_count: 3,
+      rejection_reason: "Max rejection count reached",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // Task READY depending on task-failed
+    createValidTestNode(tmpDir, ".foundry/tasks/task-ready.md", {
+      id: "task-ready",
+      type: "TASK",
+      title: "Ready Task",
+      status: "READY",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-failed.md"],
+      jules_session_id: null,
+    });
+
+    // Task ACTIVE depending on task-failed
+    createValidTestNode(tmpDir, ".foundry/tasks/task-active.md", {
+      id: "task-active",
+      type: "TASK",
+      title: "Active Task",
+      status: "ACTIVE",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-failed.md"],
+      jules_session_id: "session-123",
+    });
+
+    main();
+
+    const readyContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-ready.md"), "utf-8");
+    const activeContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-active.md"), "utf-8");
+
+    expect(readyContent).toContain("status: CANCELLED");
+    expect(readyContent).toContain("rejection_reason: 'Cancelled due to permanent failure of dependency: task-failed'");
+
+    expect(activeContent).toContain("status: CANCELLED");
+    expect(activeContent).toContain("rejection_reason: 'Cancelled due to permanent failure of dependency: task-failed'");
+  });
+
+  test("Impossible Loop: auto-cancels orphaned dependent nodes when dependency fails for any reason", () => {
+    // Task 1: Failed task without max rejections
+    createValidTestNode(tmpDir, ".foundry/tasks/task-general-fail.md", {
+      id: "task-general-fail",
+      type: "TASK",
+      title: "General Failed Task",
+      status: "FAILED",
+      owner_persona: "coder",
+      rejection_reason: "Unit test failure",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // Task PENDING depending on task-general-fail
+    createValidTestNode(tmpDir, ".foundry/tasks/task-dep.md", {
+      id: "task-dep",
+      type: "TASK",
+      title: "Dependent Task",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-general-fail.md"],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const depContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-dep.md"), "utf-8");
+    expect(depContent).toContain("status: CANCELLED");
+    expect(depContent).toContain("rejection_reason: 'Cancelled due to permanent failure of dependency: task-general-fail'");
   });
 
   test("Impossible Loop: does not wake up parent if child was cancelled due to permanent failure of dependency", () => {
