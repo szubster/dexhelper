@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { filterArchivalNodes } from './archival-filtering.ts';
+import { filterArchivalNodes, sortDeletionQueue, type DeletionCandidate } from './archival-filtering.ts';
 import { type NodeFrontmatter } from './schema.ts';
 
 function createNode(overrides: Partial<NodeFrontmatter>): NodeFrontmatter {
@@ -58,5 +58,22 @@ describe('filterArchivalNodes', () => {
 
     // High value records should be retained, meaning they are NOT returned in the archival list
     expect(result).toHaveLength(0);
+  });
+});
+
+describe('sortDeletionQueue', () => {
+  it('prioritizes the oldest nodes first based on ageMs', () => {
+    const candidates: DeletionCandidate[] = [
+      { node: createNode({}), ageMs: 100 },
+      { node: createNode({}), ageMs: 500 },
+      { node: createNode({}), ageMs: 300 },
+    ];
+
+    const result = sortDeletionQueue(candidates);
+
+    expect(result).toHaveLength(3);
+    expect(result[0].ageMs).toBe(500);
+    expect(result[1].ageMs).toBe(300);
+    expect(result[2].ageMs).toBe(100);
   });
 });
