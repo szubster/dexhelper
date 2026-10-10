@@ -35,7 +35,10 @@ This story covers the creation of a robust unit testing suite for the `SaveDataR
 - [ ] Write unit tests for bitwise helpers (`readBits`, `readFlag`).
 - [ ] Ensure strict bounds checking assertions are verified via tests.
 - [x] Break down this Story into Tasks for the Tech Lead to assign.
-- [ ] task-532-652-savedatareader-core-tests-coder
-- [ ] task-532-653-savedatareader-bounds-tests-coder
-- [ ] task-532-654-savedatareader-bitwise-tests-coder
-- [ ] task-532-655-savedatareader-tests-qa
+- [x] task-532-652-savedatareader-core-tests-coder
+- [x] task-532-653-savedatareader-bounds-tests-coder
+- [x] task-532-654-savedatareader-bitwise-tests-coder
+- [x] task-532-655-savedatareader-tests-qa
+
+- [ ] research-532-675-savedatareader-qa-crash-investigation
+- [ ] task-532-676-savedatareader-tests-qa-retry
