@@ -132,3 +132,45 @@ During visual inspection of badge components across mobile and desktop viewports
 
 ## Key Changes & Remediation
 * **Whitespace Preservation**: Updated `badgeVariants` in `src/components/TacticalBadge.tsx` to include `whitespace-nowrap`. This prevents badge labels or tactical brackets (`[ ]`) from splitting or wrapping vertically under constrained container widths.
+
+---
+
+# Lens Visual QA Audit Journal — 2025-10-03
+
+## Exploration & Discoveries
+During visual inspection and component class audit across `TacticalBadge` and tactical primitives, we identified potential line wrapping vulnerabilities on `TacticalBadge`:
+* **Vertical Bracket & Label Wrapping**: While `.tactical-badge` in `@utility` defines flex layout, `badgeVariants` lacked `whitespace-nowrap`. Under tight flex container or grid boundaries, badge text labels or tactical brackets (`[ ]`) could wrap onto separate lines.
+
+## Remediation Applied
+* **Text Non-Wrapping**: Added `whitespace-nowrap` directly into `badgeVariants` in `src/components/TacticalBadge.tsx`.
+
+## Verification & Key Learnings
+* Verified `TacticalBadge.test.tsx` passes cleanly.
+* `whitespace-nowrap` on badge variants prevents accidental multi-line text wrapping across narrow viewports and constrained flex containers.
+
+---
+
+# Lens Visual & Performance Audit Journal — 2026-10-06
+
+## Visual & Virtualization Structure Audit
+During live exploratory web page inspection and component structure analysis across routes (`/`, `/storage`, `/assistant`, `/box-analyzer`, `/dag`), we evaluated layout integrity and scrolling behavior across viewports (Mobile Pixel 9 and Desktop FullHD).
+
+### Virtualized Grid Element Measurement Anomalies in `PokedexGrid`
+* **Defect Identified**: `PokedexGrid` previously rendered a single absolute-positioned wrapper div around all virtual rows, while assigning `ref={virtualizer.measureElement}` and `data-index={virtualRow.index}` to every individual card container inside a single nested CSS grid.
+* **Impact**: Registering `measureElement` on multiple card elements per row resulted in conflicting element height measurements for TanStack Virtual and caused vertical row positioning thrashing and potential row overlap during virtualized scrolling.
+* **Remediation**: Refactored `PokedexGrid.tsx` to render each virtual row as its own discrete absolute-positioned element (`transform: translateY(${virtualRow.start}px)`), attaching `ref={virtualizer.measureElement}` and `data-index={virtualRow.index}` directly to the row container. Inside each row, a CSS grid renders the `columns` cards cleanly.
+
+## Key Learnings & Architectural Rules
+1. **Virtual Row Container Integrity**: When virtualizing grid items with TanStack Virtual, `measureElement` MUST be attached to the row container rather than child column items to ensure accurate row height calculations and prevent visual grid overlap or jitter.
+2. **Tactical Aesthetic Adherence**: Verified that all tactical cards, status indicators, monospaced fonts, and dashed borders preserve sharp edges (`rounded-none`) across all viewports in compliance with ADR 008.
+
+---
+
+# Lens Visual QA Observation: TacticalInput EdgeLabel Spacing Constraint
+
+## Insight & Design Constraint
+When `TacticalInput` components utilize the `label` prop, `TacticalInput` renders an absolute-positioned `<EdgeLabel>` positioned at `-top-2 left-4`.
+In tightly-spaced grid layouts or forms where inputs lack top padding on their parent container, the negative top offset (`-top-2`) causes the floating label boundary and ASCII brackets (`[ Label ]`) to overlap directly with the upper border of the input container.
+
+## Rule for Future UI Development
+Whenever `TacticalInput` is used with a `label` prop inside compact grid rows or forms without explicit top margin/padding, ensure `containerClassName="pt-2"` (or equivalent top margin/padding) is provided to ensure clean visual separation between the upper dashed input border and the floating tactical edge label.

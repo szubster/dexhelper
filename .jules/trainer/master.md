@@ -48,3 +48,25 @@ When fixing Assistant Logic related to branching vs linear evolutions, ensure th
 
 # Learnings
 - **Evolution Recommendation Priorities:** When evaluating trade evolutions that require held items (e.g., Seadra -> Kingdra with Dragon Scale, Clamperl -> Gorebyss with DeepSeaScale), if the player already possesses the required item in their inventory or equipped on a Pokémon, the recommendation priority should be boosted to `95` (matching Stone/Use Item evolutions). This ensures immediately actionable trade evolutions are prioritized over level-up evolutions (`90`) or missing-item trade evolutions (`45`).
+
+
+---
+
+# Trainer Session Journal - 2026-10-04
+
+## Trade Evolution Held Item Verification
+- **Context:** Trade evolutions requiring held items (such as Seadra -> Kingdra via Dragon Scale, or Clamperl -> Gorebyss via DeepSeaScale) rely on evaluating whether the player has the item in their bag/PC OR if one of their owned Pokémon/pre-evolutions is holding it.
+- **Verification & Priority:** When a pre-evolution is already holding the required trade evolution item, `generateEvolutionSuggestions` sets the recommendation priority to `95` (matching stone evolution priority) and generates a tailored description (`Your pre-evolution is already holding the [Item]! Trade it to evolve!`). Unit tests in `src/engine/assistant/generators/__tests__/evolutionGenerator.test.ts` verify this high-priority suggestion flow.
+
+---
+
+# Learnings
+
+- **Gen 3 Feebas -> Milotic Evolution:** In Generation 3, Feebas (#349) evolves into Milotic (#350) by maximizing its Beauty condition using Dry Pokéblocks (crafted from Chesto, Wiki, or Pamtre Berries) and leveling it up once. The `evolutionGenerator.ts` module was updated to handle missing evolution details gracefully (`tr` trigger inference) and provide specific offline advice for Feebas -> Milotic evolution in Gen 3.
+
+---
+
+# Learnings
+
+- **Gen 3 Wurmple Evolution Branch Prediction**: In Generation 3, Wurmple (#265) evolution is non-deterministic at runtime unless calculating its 32-bit personality value (`personalityValue`). Specifically, `(personalityValue >>> 16) % 10 < 5` predicts evolution into Silcoon (#266) / Beautifly (#267), whereas `>= 5` predicts Cascoon (#268) / Dustox (#269).
+- **Multi-Instance Branch Evaluation**: When evaluating branch evolutions for species with PID-dependent paths (like Wurmple), if `bestInstance` (e.g. highest level instance) does not match the target evolution branch requested by the user, the assistant logic must search all owned instances for a `targetWurmple` that DOES match the branch before falling back to recommending catching a new instance.

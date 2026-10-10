@@ -2,10 +2,10 @@
 id: task-640-654-qa-relocate-foundry-scripts-replacement
 type: TASK
 title: QA Relocate Foundry Scripts Replacement
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-03'
-updated_at: '2026-10-03'
+updated_at: '2026-10-10'
 depends_on:
   - task-640-653-relocate-foundry-scripts-replacement
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Permanently failed, replaced by v2'
 notes: ''
 locks: []
 ---

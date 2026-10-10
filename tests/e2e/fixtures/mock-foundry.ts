@@ -1,6 +1,6 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { createValidTestNode } from '../../../.github/scripts/foundry-test-utils';
+import { createValidTestNode } from '../../../packages/foundry/foundry-test-utils';
 
 export function createMockFoundry(baseDir: string) {
   const epicsDir = path.join(baseDir, '.foundry', 'epics');

@@ -23,9 +23,12 @@ locks: []
 # Extract game constants to core package
 
 ## Acceptance Criteria
+- [ ] research-638-668-investigate-constants-extraction-retry-failure
+- [ ] task-638-669-extract-constants-to-core-v3
+- [ ] task-638-670-qa-extract-constants-to-core-v3
 - [x] Break down into Tasks
 - [x] task-638-641-extract-constants-to-core
 - [x] task-638-642-extract-constants-tests-qa
-- [ ] research-638-665-investigate-constants-extraction
-- [ ] task-638-666-extract-constants-to-core-retry
-- [ ] task-638-667-extract-constants-tests-qa-retry
+- [x] research-638-665-investigate-constants-extraction
+- [x] task-638-666-extract-constants-to-core-retry
+- [x] task-638-667-extract-constants-tests-qa-retry
