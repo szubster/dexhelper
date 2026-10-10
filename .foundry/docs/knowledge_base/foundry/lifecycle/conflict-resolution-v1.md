@@ -12,6 +12,6 @@ Foundry engine was experiencing merge conflicts because multiple agents (Heartbe
 
 ## Files Impacted
 - `.foundry/docs/schema.md`
-- `.github/scripts/foundry-orchestrator.ts`
-- `.github/scripts/foundry-heartbeat.ts`
+- `packages/foundry/foundry-orchestrator.ts`
+- `packages/foundry/foundry-heartbeat.ts`
 - `.github/workflows/foundry-engine.yml`
