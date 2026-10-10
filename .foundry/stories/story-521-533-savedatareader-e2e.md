@@ -33,4 +33,7 @@ This story is dedicated to the Integration and E2E verification of the `SaveData
 ## Acceptance Criteria
 - [ ] Write integration and E2E tests for `SaveDataReader`.
 - [ ] Verify core engine workflow execution against dummy/stubbed buffer files.
-- [ ] Break down this Story into Tasks for the Tech Lead to assign.
+- [x] Break down this Story into Tasks for the Tech Lead to assign.
+- [ ] task-533-676-savedatareader-integration-tests
+- [ ] task-533-677-savedatareader-e2e-tests
+- [ ] task-533-678-savedatareader-e2e-qa
