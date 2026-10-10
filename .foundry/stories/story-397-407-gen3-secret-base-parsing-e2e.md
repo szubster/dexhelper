@@ -35,6 +35,10 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer Epic, we must perform i
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into actionable TASK nodes (Coder/QA as needed).
-- [ ] task-407-668-e2e-base-location-parsing
-- [ ] task-407-669-e2e-mixed-records-rematch
-- [ ] task-407-670-qa-e2e-secret-base
+- [x] task-407-668-e2e-base-location-parsing
+- [x] task-407-669-e2e-mixed-records-rematch
+- [x] task-407-670-qa-e2e-secret-base
+- [ ] research-407-676-investigate-e2e-failure
+- [ ] task-407-677-e2e-base-location-parsing-v2
+- [ ] task-407-678-e2e-mixed-records-rematch-v2
+- [ ] task-407-679-qa-e2e-secret-base-v2
