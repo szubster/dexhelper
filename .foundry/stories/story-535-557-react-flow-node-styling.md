@@ -2,7 +2,7 @@
 id: story-535-557-react-flow-node-styling
 type: STORY
 title: Dynamic Heatmap Node Styling
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-07'
 updated_at: '2026-10-10'
@@ -15,8 +15,8 @@ tags:
   - orchestrator
   - UI
   - tooling
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

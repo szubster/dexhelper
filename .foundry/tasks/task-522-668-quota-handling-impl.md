@@ -2,7 +2,7 @@
 id: task-522-668-quota-handling-impl
 type: TASK
 title: Implement graceful IndexedDB quota exceeded handling
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-10'
@@ -14,8 +14,8 @@ tags:
   - storage
   - indexeddb
   - history
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

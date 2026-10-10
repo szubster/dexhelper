@@ -2,7 +2,7 @@
 id: epic-346-517-archival-cleanup-core-engine
 type: EPIC
 title: Archival Cleanup Core Engine
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-02'
 updated_at: '2026-10-10'
