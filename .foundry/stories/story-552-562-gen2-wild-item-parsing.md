@@ -2,12 +2,12 @@
 id: story-552-562-gen2-wild-item-parsing
 type: STORY
 title: Gen 2 Wild Encounter and Held Item Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '11567940323214154469'
+jules_session_id: null
 pr_number: null
 parent: epic-521-552-wild-item-data-engine
 tags:
@@ -34,6 +34,10 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks for Gen 2 data extraction.
 - [ ] task-562-578-gen2-wild-item-models-impl
-- [ ] task-562-579-gen2-wild-item-extraction-logic-impl
-- [ ] task-562-580-gen2-wild-item-extraction-tests
-- [ ] task-562-581-gen2-wild-item-extraction-qa
+- [x] task-562-579-gen2-wild-item-extraction-logic-impl
+- [x] task-562-580-gen2-wild-item-extraction-tests
+- [x] task-562-581-gen2-wild-item-extraction-qa
+- [ ] research-562-668-investigate-gen2-wild-encounter-extraction-failure
+- [ ] task-562-669-gen2-wild-item-extraction-logic-retry
+- [ ] task-562-670-gen2-wild-item-extraction-tests-retry
+- [ ] task-562-671-gen2-wild-item-extraction-qa-retry

@@ -5,7 +5,7 @@ title: Pokerus Spread Planner UI
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-09'
-updated_at: '2026-09-16'
+updated_at: '2026-10-10'
 depends_on: []
 jules_session_id: '8199578389853981379'
 pr_number: null

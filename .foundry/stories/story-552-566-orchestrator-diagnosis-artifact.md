@@ -2,12 +2,12 @@
 id: story-552-566-orchestrator-diagnosis-artifact
 type: STORY
 title: Update Orchestrator for BLOCKED Diagnosis Artifact
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '14183938209738174782'
+jules_session_id: null
 pr_number: null
 parent: epic-521-552-automated-graph-healing
 tags:
@@ -28,7 +28,11 @@ Modify the Foundry DAG Orchestrator to detect `BLOCKED` node states caused by ci
 
 ## Acceptance Criteria
 - [x] Break down this Story into Tasks.
-- [ ] task-566-581-blocked-diagnosis-types
-- [ ] task-566-582-orchestrator-diagnosis-logic
-- [ ] task-566-583-orchestrator-diagnosis-tests
-- [ ] task-566-584-qa-blocked-diagnosis
+- [x] task-566-581-blocked-diagnosis-types
+- [x] task-566-582-orchestrator-diagnosis-logic
+- [x] task-566-583-orchestrator-diagnosis-tests
+- [x] task-566-584-qa-blocked-diagnosis
+- [ ] research-566-668-investigate-orchestrator-diagnosis-failure
+- [ ] task-566-669-orchestrator-diagnosis-logic-retry
+- [ ] task-566-670-orchestrator-diagnosis-tests-retry
+- [ ] task-566-671-qa-blocked-diagnosis-retry

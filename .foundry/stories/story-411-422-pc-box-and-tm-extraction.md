@@ -2,10 +2,10 @@
 id: story-411-422-pc-box-and-tm-extraction
 type: STORY
 title: Extract PC Box and TM Inventory data concurrently.
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-11T00:00:00.000Z'
-updated_at: '2026-10-05'
+updated_at: '2026-10-10'
 depends_on:
   - story-411-421-active-party-extraction
 jules_session_id: null
@@ -29,13 +29,13 @@ locks: []
 - [x] task-422-639-tm-inventory-extraction-logic
 - [x] task-422-640-pc-box-tm-extraction-tests
 - [x] task-422-641-pc-box-tm-extraction-qa
-- [ ] Extract PC Box data concurrently.
-- [ ] Extract TM Inventory data concurrently.
+- [x] Extract PC Box data concurrently.
+- [x] Extract TM Inventory data concurrently.
 - [x] task-422-590-pc-box-extraction-logic
 - [x] task-422-591-tm-inventory-extraction-logic
 - [x] task-422-592-pc-box-tm-extraction-tests
 - [x] task-422-593-pc-box-tm-extraction-qa
-- [ ] research-422-658-tm-inventory-extraction-failure-retry
-- [ ] task-422-659-tm-inventory-extraction-logic-retry
-- [ ] task-422-660-pc-box-tm-extraction-tests-retry
-- [ ] task-422-661-pc-box-tm-extraction-qa-retry
+- [x] research-422-658-tm-inventory-extraction-failure-retry
+- [x] task-422-659-tm-inventory-extraction-logic-retry
+- [x] task-422-660-pc-box-tm-extraction-tests-retry
+- [x] task-422-661-pc-box-tm-extraction-qa-retry

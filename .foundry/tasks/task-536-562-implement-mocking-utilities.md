@@ -2,22 +2,23 @@
 id: task-536-562-implement-mocking-utilities
 type: TASK
 title: Implement Central Mocking Utility Functions
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-09-04'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '6024836177891475765'
+jules_session_id: null
 pr_number: null
 parent: story-530-536-mocking-utility-functions
 tags:
   - testing
   - playwright
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # TASK: Implement Central Mocking Utility Functions
@@ -32,7 +33,7 @@ This module will provide utility functions for mocking native browser APIs, spec
 These utilities will be utilized by end-to-end tests to reduce boilerplate and prevent flakiness.
 
 ## Acceptance Criteria
-- [ ] Implement `mock-utils.ts` in `tests/e2e/`.
-- [ ] Ensure it exports a function to mock file system access.
-- [ ] Ensure it exports a function to mock offline state.
-- [ ] Coder self-verifies the implementation by writing or updating tests to use these utilities.
+- [x] Implement `mock-utils.ts` in `tests/e2e/`.
+- [x] Ensure it exports a function to mock file system access.
+- [x] Ensure it exports a function to mock offline state.
+- [x] Coder self-verifies the implementation by writing or updating tests to use these utilities.

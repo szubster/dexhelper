@@ -2,10 +2,10 @@
 id: task-567-587-shoal-cave-e2e-qa
 type: TASK
 title: QA Playwright E2E Tests for Shoal Cave Dashboard
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-16T22:50:17Z'
-updated_at: '2026-09-18'
+updated_at: '2026-10-08'
 depends_on:
   - task-567-586-shoal-cave-e2e-coder
 jules_session_id: null
@@ -19,7 +19,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-567-586-shoal-cave-e2e-coder
 notes: ''
 locks: []
 ---
