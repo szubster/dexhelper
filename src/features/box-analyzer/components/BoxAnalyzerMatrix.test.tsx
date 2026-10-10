@@ -63,3 +63,13 @@ describe('BoxAnalyzerMatrix', () => {
     await expect.element(page.getByText('Dark (70)')).toBeInTheDocument();
   });
 });
+it('highlights the best stats correctly', async () => {
+  await render(<BoxAnalyzerMatrix columns={mockColumns} data={mockData} />);
+
+  // MockData[0] has perfect stats (31), MockData[1] has 0s.
+  // The first row should have the highlighted class for its stats.
+  const hpSpan = page.getByText('31').first();
+  await expect.element(hpSpan).toHaveClass(/text-emerald-400/);
+  await expect.element(hpSpan).toHaveClass(/border-emerald-500/);
+  await expect.element(hpSpan).toHaveClass(/bg-emerald-900\/30/);
+});
