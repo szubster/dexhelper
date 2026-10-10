@@ -2,12 +2,12 @@
 id: task-559-668-query-formulation-impl
 type: TASK
 title: Implement Query Formulation Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15769659242142689465'
 parent: story-534-559-rag-dynamic-querying-retrieval
 tags:
   - query
