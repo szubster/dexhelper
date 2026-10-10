@@ -1230,6 +1230,9 @@ function main(): void {
           info(`Preflight success: Valid target artifacts exist and are completed. Bypassing dispatch for ${node.repoPath}`);
           if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona !== 'curator' && node.frontmatter.owner_persona !== 'auditor') {
             promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
+          } else if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona === 'curator') {
+            // Curator's spawned tasks are done, wake up curator to do final check
+            promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
           } else {
             promoteNodeStatus(node, 'PENDING', 'COMPLETED');
           }
@@ -1243,6 +1246,9 @@ function main(): void {
         if (hasCheckboxes && !hasUncheckedTasks) {
           info(`Leaf node ${node.repoPath} has all acceptance criteria checked. Promoting directly to COMPLETED to prevent reawakening.`);
           if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona !== 'curator' && node.frontmatter.owner_persona !== 'auditor') {
+            promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
+          } else if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona === 'curator') {
+            // Curator's spawned tasks are done, wake up curator to do final check
             promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
           } else {
             promoteNodeStatus(node, 'PENDING', 'COMPLETED');
@@ -1349,10 +1355,13 @@ function main(): void {
 
               info(`Late-Binding Parent Complete: ${node.repoPath} has children and all are COMPLETED. Promoting directly to COMPLETED.`);
               if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona !== 'curator' && node.frontmatter.owner_persona !== 'auditor') {
-                promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
-              } else {
-                promoteNodeStatus(node, 'PENDING', 'COMPLETED');
-              }
+            promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
+          } else if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona === 'curator') {
+            // Curator's spawned tasks are done, wake up curator to do final check
+            promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
+          } else {
+            promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+          }
               // Remove from eligible if it was added
               const idx = eligible.indexOf(node);
               if (idx !== -1) {
@@ -1456,10 +1465,13 @@ function main(): void {
 
         info(`Idempotent check bypassed dispatch for ${node.repoPath} (artifacts already exist).`);
         if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona !== 'curator' && node.frontmatter.owner_persona !== 'auditor') {
-          promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
-        } else {
-          promoteNodeStatus(node, 'PENDING', 'COMPLETED');
-        }
+            promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
+          } else if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona === 'curator') {
+            // Curator's spawned tasks are done, wake up curator to do final check
+            promoteNodeStatus(node, 'PENDING', 'READY', 'curator');
+          } else {
+            promoteNodeStatus(node, 'PENDING', 'COMPLETED');
+          }
 
         const dateStr = todayISO();
         const logDir = require('node:path').join(repoRoot, '.foundry/journals/agile_coach');
