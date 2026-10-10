@@ -34,4 +34,7 @@ Implement centralized state management using Zustand (or React Context if simple
 - Connect the state to a sidebar/topbar control panel.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes.
+- [x] Break down into TASK nodes.
+- [ ] task-563-668-gen3-map-state-store
+- [ ] task-563-669-gen3-map-state-ui
+- [ ] task-563-670-gen3-map-state-qa
