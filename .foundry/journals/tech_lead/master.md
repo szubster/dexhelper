@@ -1317,3 +1317,62 @@ Successfully decomposed the story into three discrete tasks:
 
 ### Learnings / Architectural Notes
 - By breaking this down into separate data logic and UI rendering tasks, we avoid the "Two-Tasks-Max Anti-pattern" and ensure that the state mapping can be independently verified from the visual implementation. The QA task correctly chains off the final UI implementation.
+
+
+---
+
+# Dashboard metrics UI decomposition
+
+I broke down the dashboard metrics UI implementation into 4 separate tasks, satisfying the decomposition rules and avoiding the "Two-Tasks-Max" anti-pattern:
+- `task-644-649-parser-and-builder-confidence`
+- `task-644-650-qa-parser-and-builder-confidence`
+- `task-644-651-context-and-ui-confidence`
+- `task-644-652-qa-context-and-ui-confidence`
+
+This separates the data parser logic from the UI logic.
+
+---
+
+# Session Log: story-521-532-savedatareader-tests
+
+While drafting tasks for `story-521-532-savedatareader-tests`, I noticed that the underlying tests in `src/engine/saveParser/SaveDataReader.test.ts` had already been fully implemented during earlier tasks (such as `task-530-551` and `task-531-634`). I have generated the downstream task nodes regardless so that the DAG can naturally process them and complete this story.
+
+---
+
+# Handling Permanent Child Failures
+
+When `research-639-658-investigate-extract-data-scripts-failure` permanently failed, I followed the Impossible Loop policy by marking it and its dependent tasks (`task-639-659-extract-data-generation-scripts-v2`) as complete `[x]`, and spawned new replacement nodes `research-639-668-investigate-extract-data-scripts-failure-v2` and `task-639-669-extract-data-generation-scripts-v3`.
+
+---
+
+# Journal Entry 2026-10-06-17-39-08
+
+Encountered the Impossible Loop where `task-560-609-tm-hm-compatibility-matching-impl-retry` reached the maximum rejection count and was marked as CANCELLED. As a result, its dependent tasks `task-560-610-tm-hm-compatibility-matching-tests-retry` and `task-560-611-tm-hm-compatibility-matching-qa-retry` were also permanently failed. To resolve this, I have spawned a new `RESEARCH` node (`research-560-668-investigate-tm-hm-compatibility-v3-failure`) to investigate the root cause, along with a new set of replacement `TASK` nodes (`task-560-669-tm-hm-compatibility-matching-impl-v3`, `task-560-670-tm-hm-compatibility-matching-tests-v3`, `task-560-671-tm-hm-compatibility-matching-qa-v3`) that correctly depend on the research being completed. I also checked off the permanently failed tasks in the parent `story-402-560-tm-hm-compatibility-matching` to allow the orchestration to continue cleanly. This ensures that the orchestration does not get permanently blocked due to a deeply nested failure, adhering to the Orchestrator Demotion Compliance Rule.
+
+---
+
+# Tech Lead Journal Entry - 2026-10-06-22-15-00
+
+For story story-568-645-tactical-aesthetics-verification, I broke down the work into four distinct modular tasks: two for implementing the tactical aesthetics tests (base and complex components), and two for QAing the implementations. This approach adheres to the decomposition standards and avoids the two-tasks-max anti-pattern.
+
+---
+
+# Tech Lead Journal Entry - 2026-10-07-02-42-27
+
+Encountered the Impossible Loop protocol for `story-418-517-orchestrator-fallback-mechanisms` due to permanent failure (Max rejection count reached) of `task-517-576-orchestrator-fallback-generic-prompt`. I spawned a new `RESEARCH` node (`research-517-668-investigate-orchestrator-generic-prompt-failure`) to investigate the root cause, and created a replacement retry task (`task-517-669-orchestrator-fallback-generic-prompt-retry`) that depends on it. Both have been linked to the parent story and the failed task has been checked off.
+
+---
+
+# Impossible Loop Handling: Orchestrator Priority Tests
+
+The task `task-551-565-update-orchestrator-priority-tests` reached its maximum rejection count and permanently failed. Its downstream dependency `task-551-566-qa-orchestrator-priority` was also cancelled.
+To handle this impossible loop, a new `RESEARCH` node (`research-551-668-investigate-orchestrator-priority-tests-failure`) has been spawned to investigate the root cause, and replacement `TASK` nodes (`task-551-669` and `task-551-670`) have been created. The permanently failed/cancelled tasks have been checked off in the parent STORY to allow it to gracefully progress once the new nodes complete.
+
+---
+
+# Tech Lead Journal: Generative Tasks Scope Strictness
+
+- When executing generative tasks (such as decomposing a STORY into TASK nodes), the scope of work must strictly be limited to creating and updating `.foundry` markdown files.
+- Modifying unrelated source code files, configuration files (like `knip.json`), or allowing automated fix tools (`pnpm knip --fix`) to commit destructive changes during a generative session is a severe violation of scope and will be rejected in code review.
+- It's imperative to clean up any scratchpad files (like `plan.md` or generation scripts) before requesting code review.
+- Furthermore, never check off the functional Acceptance Criteria of a parent macro node (like a STORY) prematurely during the decomposition phase. Only the appended child tasks (`- [ ] <node_id>`) should be tracked. Checking off the macro criteria early violates orchestrator constraints.

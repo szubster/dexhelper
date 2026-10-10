@@ -99,6 +99,7 @@ export const PokeblockSelectionForm: React.FC = () => {
               max={255}
               value={currentCondition.toString()}
               onChange={(e) => setCurrentCondition(Number(e.target.value))}
+              containerClassName="pt-2"
             />
             <TacticalInput
               label="Current Sheen"
@@ -107,6 +108,7 @@ export const PokeblockSelectionForm: React.FC = () => {
               max={255}
               value={currentSheen.toString()}
               onChange={(e) => setCurrentSheen(Number(e.target.value))}
+              containerClassName="pt-2"
             />
           </div>
 
@@ -118,6 +120,7 @@ export const PokeblockSelectionForm: React.FC = () => {
               max={255}
               value={targetCondition.toString()}
               onChange={(e) => setTargetCondition(Number(e.target.value))}
+              containerClassName="pt-2"
             />
             <TacticalInput
               label="Num Players"
@@ -126,6 +129,7 @@ export const PokeblockSelectionForm: React.FC = () => {
               max={4}
               value={numPlayers.toString()}
               onChange={(e) => setNumPlayers(Number(e.target.value))}
+              containerClassName="pt-2"
             />
           </div>
 

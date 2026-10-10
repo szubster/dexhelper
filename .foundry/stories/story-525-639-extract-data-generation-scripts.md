@@ -2,19 +2,19 @@
 id: story-525-639-extract-data-generation-scripts
 type: STORY
 title: Extract Data Generation Scripts
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-08'
+updated_at: '2026-10-09'
 depends_on: []
-jules_session_id: '13862690674288007115'
+jules_session_id: null
 pr_number: null
 parent: epic-519-525-extract-build-tooling
 tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

@@ -5,9 +5,9 @@ title: Investigate Gen 3 AI Script Mapping E2E Test Failure (Retry)
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-06'
-updated_at: '2026-10-08'
+updated_at: '2026-10-09'
 depends_on: []
-jules_session_id: '1782966411565560180'
+jules_session_id: '12732370451240089722'
 pr_number: null
 parent: story-411-423-gen3-ai-data-extraction-e2e
 tags:
@@ -15,7 +15,7 @@ tags:
   - ai
   - e2e
   - research
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

@@ -2,10 +2,10 @@
 id: epic-520-534-dynamic-rag-context-hydration
 type: EPIC
 title: Implement Dynamic RAG-Based Context Hydration for Agent Prompts
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-10'
+updated_at: '2026-10-10'
 depends_on: []
 jules_session_id: null
 parent: prd-423-520-dynamic-rag-context-hydration

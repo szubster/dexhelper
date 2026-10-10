@@ -2,10 +2,10 @@
 id: story-426-517-binjgb-wasm-wrapper
 type: STORY
 title: Implement binjgb WASM Module Wrapper and React Component
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-09-20'
+updated_at: '2026-10-10'
 depends_on: []
 jules_session_id: null
 pr_number: null

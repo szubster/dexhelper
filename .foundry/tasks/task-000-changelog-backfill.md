@@ -2,12 +2,12 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: ACTIVE
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-10-08'
+updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17445963372301683014'
 locks: []
 pr_number: null
 parent: null
@@ -27,42 +27,45 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `14bc9b60fae74a1f114130391bd9e23b2096145d`
-- **Previous Commit SHA:** `748a61356bbecf42660c6e2c38a8df5265e7507f`
-- **Commit Date:** `2026-04-02`
-- **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
-- **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `patch` (from `0.22.0` -> `0.22.1`)
+- **Commit SHA:** `415739935a20abd5d62bffc08f9adf4ca559fcf6`
+- **Previous Commit SHA:** `2081976b4cb5899ba500f70f7fd6dfc6402a1e2f`
+- **Commit Date:** `2026-04-03`
+- **Classification Reason:** Ad-hoc Foundry system code modification
+- **Recommended Domain:** foundry
+- **Suggested SemVer Bump:** `patch` (from `0.1.3` -> `0.1.4`)
 
 ## Commit Message
 ```text
-🧪 [testing improvement] Add edge case tests for decodeGen12String
+build(deps): Bump actions/upload-artifact from 4 to 7
 
-Added unit tests for `decodeGen12String` in `src/utils/saveParser.test.ts`.
-Scenarios covered:
-- Happy path (normal characters)
-- Unmapped characters (returns "?")
-- Multiple terminators (0x50, 0x00, 0xFF)
-- maxLength constraint
-- Trimming behavior
-- String filling maxLength without terminator
+Bumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4 to 7.
+- [Release notes](https://github.com/actions/upload-artifact/releases)
+- [Commits](https://github.com/actions/upload-artifact/compare/v4...v7)
 
-Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
+---
+updated-dependencies:
+- dependency-name: actions/upload-artifact
+  dependency-version: '7'
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
 ```
 
 ## Modified Files
-- `src/utils/saveParser.test.ts`
+- `.github/workflows/playwright.yml`
 
 ## Diff Summary
 ```text
-14bc9b60f 🧪 [testing improvement] Add edge case tests for decodeGen12String
- src/utils/saveParser.test.ts | 42 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 42 insertions(+)
+415739935 build(deps): Bump actions/upload-artifact from 4 to 7
+ .github/workflows/playwright.yml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 14bc9b60fae74a1f114130391bd9e23b2096145d` (or `git diff 748a61356bbecf42660c6e2c38a8df5265e7507f..14bc9b60fae74a1f114130391bd9e23b2096145d`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show 415739935a20abd5d62bffc08f9adf4ca559fcf6` (or `git diff 2081976b4cb5899ba500f70f7fd6dfc6402a1e2f..415739935a20abd5d62bffc08f9adf4ca559fcf6`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.22.1] - 2026-04-02` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.22.0...0.22.1`](https://github.com/${repo}/compare/748a613...14bc9b6)), and update `README.md` if necessary.
-If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.1.4] - 2026-04-03` in `CHANGELOG-foundry.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.1.3...0.1.4`](https://github.com/${repo}/compare/2081976...4157399)), and update `README.md` if necessary.
+If Keep a Changelog link references exist at the bottom of `CHANGELOG-foundry.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
