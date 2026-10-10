@@ -34,6 +34,9 @@ jobs:
           fi
 
           if [ "$MERGE" = "true" ]; then
+            echo "PR eligible for auto-merge. Waiting for all other checks/actions to complete successfully..."
+            COMMIT_SHA="${{ github.event.pull_request.head.sha }}" CURRENT_RUN_ID="${{ github.run_id }}" GITHUB_REPOSITORY="${{ github.repository }}" node .github/scripts/wait-for-checks.js
+
             gh pr comment "$PR_NUMBER" --body "Automatically merged PR (empty, checkbox-only, or journal updates) to progress DAG." --repo "${{ github.repository }}"
             gh pr merge "$PR_NUMBER" --squash --admin --repo "${{ github.repository }}"
           fi
