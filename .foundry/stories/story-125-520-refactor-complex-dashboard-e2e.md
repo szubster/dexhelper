@@ -38,4 +38,5 @@ Following the Tailwind v4 migration of complex dashboard components and speciali
 2. Assert on visual styles corresponding to \`tactical-panel\`, \`tactical-text\`, and other relevant \`@utility\` classes by checking computed styles or snapshot tests.
 
 ## Acceptance Criteria
+- [ ] task-520-675-refactor-complex-dashboard-e2e-impl
 - [ ] E2E tests explicitly verifying the structural rendering and style persistence of dashboard and tracker components are implemented and passing.
