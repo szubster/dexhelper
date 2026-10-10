@@ -37,6 +37,9 @@ Ensure that the newly added save fixtures are correctly parsed and loaded by our
 - [ ] task-472-658-implement-integration-tests
 - [x] task-472-659-implement-e2e-tests
 - [x] task-472-660-qa-tests-verification
-- [ ] research-472-668-investigate-e2e-tests-failure
-- [ ] task-472-669-implement-e2e-tests-retry
-- [ ] task-472-670-qa-tests-verification-retry
+- [x] research-472-668-investigate-e2e-tests-failure
+- [x] task-472-669-implement-e2e-tests-retry
+- [x] task-472-670-qa-tests-verification-retry
+- [ ] research-472-675-investigate-e2e-tests-failure-v2
+- [ ] task-472-676-implement-e2e-tests-retry-2
+- [ ] task-472-677-qa-tests-verification-retry-2
