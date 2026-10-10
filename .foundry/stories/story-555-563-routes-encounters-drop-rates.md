@@ -32,4 +32,8 @@ Once an item is selected, we need to display the recommended routes, encounter t
 - Ensure styling adheres to the tactical hardware aesthetic.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+- [ ] task-563-667-routes-encounters-data-fetching-impl
+- [ ] task-563-668-routes-encounters-ui-components-impl
+- [ ] task-563-669-routes-encounters-tests-impl
+- [ ] task-563-670-routes-encounters-qa
