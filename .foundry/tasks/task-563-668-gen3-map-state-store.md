@@ -2,12 +2,12 @@
 id: task-563-668-gen3-map-state-store
 type: TASK
 title: Implement Gen 3 Map State Store
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10103875507893175440'
 pr_number: null
 parent: story-552-563-gen3-map-state-management
 tags:
