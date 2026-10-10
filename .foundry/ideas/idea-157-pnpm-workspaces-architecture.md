@@ -2,12 +2,12 @@
 id: idea-157-pnpm-workspaces-architecture
 type: IDEA
 title: Step-by-Step Monorepo Architectural Migration to pnpm Workspaces
-status: READY
+status: ACTIVE
 owner_persona: curator
 created_at: '2026-08-19'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7565404314246404041'
 pr_number: null
 parent: null
 tags:
