@@ -23,3 +23,10 @@ locks: []
 # Investigate Data Generation Scripts Extraction Failure v2
 
 Investigate why `research-639-658-investigate-extract-data-scripts-failure` failed to investigate why `task-639-641-extract-data-generation-scripts` failed to extract data generation scripts to `@dexhelper/pokedata-extractor`.
+
+## Findings
+
+The permanent failure of `task-639-641-extract-data-generation-scripts` and `research-639-658-investigate-extract-data-scripts-failure` was a false permanent failure caused by repeated `[ACKNOWLEDGED] Session terminated with state: COMPLETED` agent session crashes. The agent crashed and the orchestrator hit the rejection limit. This is a system-level agent session crash, rather than an actual QA rejection.
+
+## Acceptance Criteria
+- [x] Investigate failure
