@@ -1,50 +1,148 @@
-# Dexhelper
+actionlint
+==========
+[![CI Status][ci-badge]][ci]
+[![API Document][apidoc-badge]][apidoc]
 
-Dexhelper is a React-based web application designed as a Pokédex helper, likely for older generations of Pokémon games (Gen 1 and Gen 2). It includes features for parsing game saves, providing assistance for catching Pokémon, and viewing Pokémon details.
+[actionlint][repo] is a static checker for GitHub Actions workflow files. [Try it online!][playground]
 
-## Prerequisites
+Features:
 
-- Node.js >=24.0.0
-- pnpm >=11.21.0
+- **Syntax check for workflow files** to check unexpected or missing keys following [workflow syntax][syntax-doc]
+- **Strong type check for `${{ }}` expressions** to catch several semantic errors like access to not existing property,
+  type mismatches, ...
+- **Actions usage check** to check that inputs at `with:` and outputs in `steps.{id}.outputs` are correct
+- **Reusable workflow check** to check inputs/outputs/secrets of reusable workflows and workflow calls
+- **[shellcheck][] and [pyflakes][] integrations** for scripts at `run:`
+- **Security checks**; [script injection][script-injection-doc] by untrusted inputs, hard-coded credentials
+- **Other several useful checks**; [glob syntax][filter-pattern-doc] validation, dependencies check for `needs:`,
+  runner label validation, cron syntax validation, ...
 
-## Getting Started
+See the [full list][checks] of checks done by actionlint.
 
-1. Install dependencies:
-   ```bash
-   pnpm install
-   ```
+<img src="https://github.com/rhysd/ss/blob/master/actionlint/main.gif?raw=true" alt="actionlint reports 7 errors" width="806" height="492"/>
 
-2. Start the development server:
-   ```bash
-   pnpm dev
-   ```
+**Example of broken workflow:**
 
-## Development and Testing
+```yaml
+on:
+  push:
+    branch: main
+    tags:
+      - 'v\d+'
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [macos-latest, linux-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: echo "Checking commit '${{ github.event.head_commit.message }}'"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node_version: 18.x
+      - uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ matrix.platform }}-node-${{ hashFiles('**/package-lock.json') }}
+        if: ${{ github.repository.permissions.admin == true }}
+      - run: npm install && npm test
+```
 
-- Run unit tests: `pnpm test`
-- Run Playwright E2E tests: `pnpm test:e2e`
-- Run Playwright component tests: `pnpm test:ct`
-- Run Playwright tests with UI: `pnpm test:e2e:ui`
-- Run linting and type checking: `pnpm lint`
-- Build the project: `pnpm build`
-# Dependency Cruiser Configuration
+**actionlint reports 7 errors:**
 
-We use `dependency-cruiser` to enforce architectural boundaries and clean dependency management across our monorepo.
+```
+test.yaml:3:5: unexpected key "branch" for "push" section. expected one of "branches", "branches-ignore", "paths", "paths-ignore", "tags", "tags-ignore", "types", "workflows" [syntax-check]
+  |
+3 |     branch: main
+  |     ^~~~~~~
+test.yaml:5:11: character '\' is invalid for branch and tag names. only special characters [, ?, +, *, \, ! can be escaped with \. see `man git-check-ref-format` for more details. note that regular expression is unavailable. note: filter pattern syntax is explained at https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet [glob]
+  |
+5 |       - 'v\d+'
+  |           ^~~~
+test.yaml:10:28: label "linux-latest" is unknown. available labels are "windows-latest", "windows-latest-8-cores", "windows-2025", "windows-2022", "windows-2019", "ubuntu-latest", "ubuntu-latest-4-cores", "ubuntu-latest-8-cores", "ubuntu-latest-16-cores", "ubuntu-24.04", "ubuntu-22.04", "ubuntu-20.04", "macos-latest", "macos-latest-xl", "macos-latest-xlarge", "macos-latest-large", "macos-15-xlarge", "macos-15-large", "macos-15", "macos-14-xl", "macos-14-xlarge", "macos-14-large", "macos-14", "macos-13-xl", "macos-13-xlarge", "macos-13-large", "macos-13", "self-hosted", "x64", "arm", "arm64", "linux", "macos", "windows". if it is a custom label for self-hosted runner, set list of labels in actionlint.yaml config file [runner-label]
+   |
+10 |         os: [macos-latest, linux-latest]
+   |                            ^~~~~~~~~~~~~
+test.yaml:13:41: "github.event.head_commit.message" is potentially untrusted. avoid using it directly in inline scripts. instead, pass it through an environment variable. see https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions for more details [expression]
+   |
+13 |       - run: echo "Checking commit '${{ github.event.head_commit.message }}'"
+   |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.yaml:17:11: input "node_version" is not defined in action "actions/setup-node@v4". available inputs are "always-auth", "architecture", "cache", "cache-dependency-path", "check-latest", "node-version", "node-version-file", "registry-url", "scope", "token" [action]
+   |
+17 |           node_version: 18.x
+   |           ^~~~~~~~~~~~~
+test.yaml:21:20: property "platform" is not defined in object type {os: string} [expression]
+   |
+21 |           key: ${{ matrix.platform }}-node-${{ hashFiles('**/package-lock.json') }}
+   |                    ^~~~~~~~~~~~~~~
+test.yaml:22:17: receiver of object dereference "permissions" must be type of object but got "string" [expression]
+   |
+22 |         if: ${{ github.repository.permissions.admin == true }}
+   |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
 
-## Rules
+## Quick start
 
-The following rules are currently enforced in `.dependency-cruiser.js`:
+Install `actionlint` command by downloading [the released binary][releases] or by Homebrew or by `go install`. See
+[the installation document][install] for more details like how to manage the command with several package managers
+or run via Docker container.
 
-- `no-circular`: Warns on circular dependencies (e.g. A imports B, B imports A). These should be refactored to avoid memory leaks and maintain single responsibility.
-- `not-to-unresolvable`: Errors when importing a module that cannot be resolved.
-- `no-orphans`: Provides info about modules that are not used by any other module (ignoring common config files).
-- `not-to-dev-dep`: Errors if production code (`src/*`) depends on a devDependency.
-- `cross-package-boundary`: Errors if a package imports another package internally without going through its designated public API surface.
+```sh
+go install github.com/rhysd/actionlint/cmd/actionlint@latest
+```
 
-## Running
+Basically all you need to do is run the `actionlint` command in your repository. actionlint automatically detects workflows and
+checks errors. actionlint focuses on finding out mistakes. It tries to catch errors as much as possible and make false positives
+as minimal as possible.
 
-Run `pnpm lint:deps` to check dependencies manually.
+```sh
+actionlint
+```
 
-## Exceptions
+Another option to try actionlint is [the online playground][playground]. Your browser can run actionlint through WebAssembly.
 
-Currently, no exceptions are configured. If you find a legitimate case where a rule needs to be bypassed, modify `.dependency-cruiser.js` and document the rationale here.
+See [the usage document][usage] for more details.
+
+## Documents
+
+- [Checks][checks]: Full list of all checks done by actionlint with example inputs, outputs, and playground links.
+- [Installation][install]: Installation instructions. Prebuilt binaries, a Docker image, building from source, a download script
+  (for CI), supports by several package managers are available.
+- [Usage][usage]: How to use `actionlint` command locally or on GitHub Actions, the online playground, an official Docker image,
+  and integrations with reviewdog, Problem Matchers, super-linter, pre-commit, VS Code.
+- [Configuration][config]: How to configure actionlint behavior. Currently, the labels of self-hosted runners, the configuration
+  variables, and ignore patterns of errors for each file paths can be set.
+- [Go API][api]: How to use actionlint as Go library.
+- [References][refs]: Links to resources.
+
+## Bug reporting
+
+When you see some bugs or false positives, it is helpful to [file a new issue][issue-form] with a minimal example
+of input. Giving me some feedbacks like feature requests or ideas of additional checks is also welcome.
+
+See the [contribution guide](./CONTRIBUTING.md) for more details.
+
+## License
+
+actionlint is distributed under [the MIT license](./LICENSE.txt).
+
+[ci-badge]: https://github.com/rhysd/actionlint/actions/workflows/ci.yaml/badge.svg
+[ci]: https://github.com/rhysd/actionlint/actions/workflows/ci.yaml
+[apidoc-badge]: https://pkg.go.dev/badge/github.com/rhysd/actionlint.svg
+[apidoc]: https://pkg.go.dev/github.com/rhysd/actionlint
+[repo]: https://github.com/rhysd/actionlint
+[playground]: https://rhysd.github.io/actionlint/
+[shellcheck]: https://github.com/koalaman/shellcheck
+[pyflakes]: https://github.com/PyCQA/pyflakes
+[syntax-doc]: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
+[filter-pattern-doc]: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
+[script-injection-doc]: https://docs.github.com/en/actions/learn-github-actions/security-hardening-for-github-actions#understanding-the-risk-of-script-injections
+[releases]: https://github.com/rhysd/actionlint/releases
+[checks]: https://github.com/rhysd/actionlint/blob/v1.7.7/docs/checks.md
+[install]: https://github.com/rhysd/actionlint/blob/v1.7.7/docs/install.md
+[usage]: https://github.com/rhysd/actionlint/blob/v1.7.7/docs/usage.md
+[config]: https://github.com/rhysd/actionlint/blob/v1.7.7/docs/config.md
+[api]: https://github.com/rhysd/actionlint/blob/v1.7.7/docs/api.md
+[refs]: https://github.com/rhysd/actionlint/blob/v1.7.7/docs/reference.md
+[issue-form]: https://github.com/rhysd/actionlint/issues/new
