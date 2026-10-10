@@ -2,12 +2,12 @@
 id: task-478-667-kurt-apricorn-types
 type: TASK
 title: Kurt Apricorn Parsing Types
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11106170341399817624'
 pr_number: null
 parent: story-404-478-kurt-apricorn-parsing-logic
 tags:
