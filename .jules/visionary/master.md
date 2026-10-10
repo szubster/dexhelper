@@ -430,3 +430,18 @@
 ## Critical Learnings & Strategic Insights
 - **Rationale & Concept**: In Gen 3, egg IV inheritance picks 3 IVs randomly from the two Daycare parents, making high-IV breeding opaque and heavily dependent on combinatorics. Surfacing the exact inheritance probabilities and scanning PC Boxes for optimal breeding pairs transforms DexHelper into a powerful collector and competitive utility.
 - **Strategic Balance**: In the preceding sessions, IDEA-532 (`idea-532-e2e-dependency-validator-lint`) was proposed for the internal Foundry Orchestrator infrastructure. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a high-value, mechanics-surfacing product feature for DexHelper.
+
+---
+
+# Visionary Journal Entry
+
+- **Timestamp / Session:** 2026-10-10-03-24-00
+- **Domain:** Main Project (DexHelper)
+- **Proposed Idea:** Gen 3 Battle Tower Win Streak & Opponent AI Predictor (`idea-536-675-gen3-battle-tower-streak-analyzer`)
+- **Rationale & Concept:**
+  In Generation 3 (RS/E/FRLG), the Battle Tower is a major post-game landmark for Ribbon Masters and competitive collectors. While save files contain streak memory and records, players lack visibility into active streak metrics, milestone symbol requirements, and opponent sets/threats.
+  This idea introduces save extraction for Battle Tower streaks alongside a tactical threat matrix UI to help players prepare party strategies against Battle Tower AI rosters.
+
+- **50/50 Domain Balance:**
+  Previous ideas in `.foundry/ideas/` addressed internal orchestration (e.g., `idea-535-false-permanent-failure-detection` for Foundry).
+  This session proposes a product feature directly targeting DexHelper end users and Gen 3 save file parsing, maintaining the strategic balance between product capabilities and developer factory tooling.
