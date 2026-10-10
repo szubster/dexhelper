@@ -2,12 +2,12 @@
 id: research-478-668-investigate-locking-failure
 type: RESEARCH
 title: Investigate lock aggregation failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-06'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3290981746159379046'
 pr_number: null
 parent: story-412-478-implement-resolve-phase-locking
 tags:
