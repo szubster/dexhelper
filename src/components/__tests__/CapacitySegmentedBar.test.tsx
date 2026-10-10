@@ -7,7 +7,7 @@ describe('CapacitySegmentedBar', () => {
   it('renders correctly with telemetry tag and values', async () => {
     await render(<CapacitySegmentedBar current={12} max={30} />);
 
-    const sysCap = page.getByText('[SYS.CAP]');
+    const sysCap = page.getByText(/SYS\.CAP/);
     await expect.element(sysCap).toBeInTheDocument();
 
     const textValue = page.getByText('12/30');
