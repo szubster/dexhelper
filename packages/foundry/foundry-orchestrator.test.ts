@@ -50,7 +50,7 @@ vi.doMock('node:url', async (importOriginal) => {
   const actual = await importOriginal() as Record<string, any>;
   return {
     ...actual,
-    fileURLToPath: () => require('path').join(tmpDir, '.github/scripts/file.ts')
+    fileURLToPath: () => require('path').join(tmpDir, 'packages/foundry/file.ts')
   };
 });
   let foundryDir: string;
@@ -73,7 +73,7 @@ vi.doMock('node:url', async (importOriginal) => {
       const actual = await importOriginal() as Record<string, any>;
       return {
         ...actual,
-        fileURLToPath: () => require('path').join(process.cwd(), '.github/scripts/file.ts')
+        fileURLToPath: () => require('path').join(process.cwd(), 'packages/foundry/file.ts')
       };
     });
 

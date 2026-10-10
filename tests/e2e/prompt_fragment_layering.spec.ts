@@ -2,8 +2,8 @@ import * as fs from 'node:fs';
 import * as os from 'node:os';
 import * as path from 'node:path';
 import { expect, test } from '@playwright/test';
-import { composePromptFragments } from '../../.github/scripts/fragments.ts';
-import { parseMarkdownFragment } from '../../.github/scripts/schema.ts';
+import { composePromptFragments } from '../../packages/foundry/fragments.ts';
+import { parseMarkdownFragment } from '../../packages/foundry/schema.ts';
 
 test.describe('Prompt Fragment Layering E2E', () => {
   let tmpDir: string;

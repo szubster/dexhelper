@@ -29,7 +29,7 @@ locks: []
 Move `.github/scripts/` to `packages/foundry/` as directed in the story, but ensure the findings from `research-640-668-investigate-relocate-scripts-replacement-failure` are implemented to avoid the previous failure.
 
 ## Acceptance Criteria
-- [ ] Move `.github/scripts/` to `packages/foundry/`
-- [ ] Update `package.json` name to `@dexhelper/foundry`
-- [ ] Update repository references to the new paths
-- [ ] Tests and builds still pass
+- [x] Move `.github/scripts/` to `packages/foundry/`
+- [x] Update `package.json` name to `@dexhelper/foundry`
+- [x] Update repository references to the new paths
+- [x] Tests and builds still pass

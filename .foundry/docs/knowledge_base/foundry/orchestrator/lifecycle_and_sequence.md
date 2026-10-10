@@ -197,4 +197,4 @@ flowchart TD
 
 ## 7. Audit Conclusion & Verification Summary
 
-All 203 unit and integration tests across `.github/scripts/` pass cleanly. The Foundry Orchestrator logic is verified to be sound, safe, idempotent, and dead-lock free.
+All 203 unit and integration tests across `packages/foundry/` pass cleanly. The Foundry Orchestrator logic is verified to be sound, safe, idempotent, and dead-lock free.

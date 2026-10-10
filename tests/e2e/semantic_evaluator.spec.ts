@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { evaluateSemanticCondition } from '../../.github/scripts/semantic/evaluator';
+import { evaluateSemanticCondition } from '../../packages/foundry/semantic/evaluator';
 
 test.describe('Semantic Evaluator API Key Rules', () => {
   // According to .foundry/docs/knowledge_base/testing/semantic_evaluator_api.md
