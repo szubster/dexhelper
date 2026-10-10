@@ -29,3 +29,7 @@ locks: []
 ## Acceptance Criteria
 - [ ] Write integration tests for save data extraction.
 - [ ] Write E2E verification tests for save data extraction.
+- [ ] task-423-676-save-data-extraction-integration-tests
+- [ ] task-423-677-save-data-extraction-integration-qa
+- [ ] task-423-678-save-data-extraction-e2e-tests
+- [ ] task-423-679-save-data-extraction-e2e-qa
