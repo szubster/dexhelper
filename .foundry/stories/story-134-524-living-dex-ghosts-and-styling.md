@@ -28,5 +28,9 @@ locks: []
 To complete the visual requirements of the Living Dex Grid, we must visually highlight "ghosts" (missing slots) and adhere to the tactical hardware/snooping aesthetic mandated by ADR 008.
 
 ## Acceptance Criteria
-- [ ] Visually highlight missing Pokémon slots as "ghosts".
-- [ ] Implement sharp edges (rounded-none), dashed borders, and monospaced telemetry fonts (font-mono) according to ADR 008.
+- [x] Visually highlight missing Pokémon slots as "ghosts".
+- [x] Implement sharp edges (rounded-none), dashed borders, and monospaced telemetry fonts (font-mono) according to ADR 008.
+- [ ] task-524-676-living-dex-ghosts-types
+- [ ] task-524-677-living-dex-ghosts-styling-ui
+- [ ] task-524-678-living-dex-ghosts-styling-tests
+- [ ] task-524-679-living-dex-ghosts-styling-qa
