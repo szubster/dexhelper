@@ -2,10 +2,10 @@
 id: task-563-670-gen3-wild-item-data-parsing-tests-retry
 type: TASK
 title: Write tests for Gen 3 Wild Encounter and Held Item Parsing Logic (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - task-563-669-gen3-wild-item-data-parsing-logic-retry
 jules_session_id: null

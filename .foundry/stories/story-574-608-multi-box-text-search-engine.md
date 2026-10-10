@@ -2,7 +2,7 @@
 id: story-574-608-multi-box-text-search-engine
 type: STORY
 title: Multi-Box Text Search Engine
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-22'
 updated_at: '2026-10-10'

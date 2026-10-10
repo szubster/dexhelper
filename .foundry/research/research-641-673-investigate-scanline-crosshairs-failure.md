@@ -2,10 +2,10 @@
 id: research-641-673-investigate-scanline-crosshairs-failure
 type: RESEARCH
 title: Investigate Scanline and Corner Crosshairs Migration Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-09'
-updated_at: '2026-10-09'
+updated_at: '2026-10-10'
 depends_on: []
 jules_session_id: null
 parent: story-527-641-migrate-decorations
@@ -14,7 +14,7 @@ tags:
   - components
   - research
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 notes: ''
 locks: []
 ---

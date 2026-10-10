@@ -2,7 +2,7 @@
 id: story-412-478-implement-resolve-phase-locking
 type: STORY
 title: Implement RESOLVE phase locking logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-10-10'
