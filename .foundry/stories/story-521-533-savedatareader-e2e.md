@@ -2,13 +2,13 @@
 id: story-521-533-savedatareader-e2e
 type: STORY
 title: Core SaveDataReader E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-10-10'
 depends_on:
   - story-521-532-savedatareader-tests
-jules_session_id: null
+jules_session_id: '18132104649760829401'
 pr_number: null
 parent: epic-158-521-core-dataview-wrapper
 tags:
