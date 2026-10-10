@@ -2,7 +2,7 @@
 id: task-532-655-savedatareader-tests-qa
 type: TASK
 title: QA SaveDataReader Unit Tests
-status: FAILED
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-03'
 updated_at: '2026-10-10'
@@ -16,7 +16,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND (Agent Crash)'
 notes: ''
 locks: []
 priority: 50
