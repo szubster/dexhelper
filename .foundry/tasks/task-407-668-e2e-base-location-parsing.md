@@ -2,12 +2,12 @@
 id: task-407-668-e2e-base-location-parsing
 type: TASK
 title: E2E Tests for Base Location Parsing
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-04'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7001224927732080710'
 parent: story-397-407-gen3-secret-base-parsing-e2e
 tags:
   - e2e
