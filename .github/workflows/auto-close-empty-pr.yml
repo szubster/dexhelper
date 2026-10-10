@@ -35,42 +35,7 @@ jobs:
 
           if [ "$MERGE" = "true" ]; then
             echo "PR eligible for auto-merge. Waiting for all other checks/actions to complete successfully..."
-            COMMIT_SHA="${{ github.event.pull_request.head.sha }}"
-
-            while true; do
-              CHECK_RUNS_JSON=$(gh api "repos/${{ github.repository }}/commits/${COMMIT_SHA}/check-runs" --paginate)
-
-              PENDING_COUNT=$(echo "$CHECK_RUNS_JSON" | CURRENT_RUN_ID="${{ github.run_id }}" node -e '
-                const fs = require("fs");
-                const data = JSON.parse(fs.readFileSync(0, "utf-8"));
-                const currentRunId = process.env.CURRENT_RUN_ID;
-                const runs = data.check_runs || [];
-                const pending = runs.filter(r => String(r.id) !== currentRunId && r.status !== "completed");
-                console.log(pending.length);
-              ')
-
-              FAILED_COUNT=$(echo "$CHECK_RUNS_JSON" | CURRENT_RUN_ID="${{ github.run_id }}" node -e '
-                const fs = require("fs");
-                const data = JSON.parse(fs.readFileSync(0, "utf-8"));
-                const currentRunId = process.env.CURRENT_RUN_ID;
-                const runs = data.check_runs || [];
-                const failed = runs.filter(r => String(r.id) !== currentRunId && r.status === "completed" && !["success", "skipped", "neutral"].includes(r.conclusion));
-                console.log(failed.length);
-              ')
-
-              if [ "$FAILED_COUNT" -gt 0 ]; then
-                echo "One or more checks failed. Aborting auto-merge."
-                exit 1
-              fi
-
-              if [ "$PENDING_COUNT" -eq 0 ]; then
-                echo "All other checks have completed successfully."
-                break
-              fi
-
-              echo "Waiting for $PENDING_COUNT check(s) to complete..."
-              sleep 15
-            done
+            COMMIT_SHA="${{ github.event.pull_request.head.sha }}" CURRENT_RUN_ID="${{ github.run_id }}" GITHUB_REPOSITORY="${{ github.repository }}" node .github/scripts/wait-for-checks.js
 
             gh pr comment "$PR_NUMBER" --body "Automatically merged PR (empty, checkbox-only, or journal updates) to progress DAG." --repo "${{ github.repository }}"
             gh pr merge "$PR_NUMBER" --squash --admin --repo "${{ github.repository }}"
