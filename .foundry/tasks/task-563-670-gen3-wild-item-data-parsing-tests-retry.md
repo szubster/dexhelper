@@ -2,7 +2,7 @@
 id: task-563-670-gen3-wild-item-data-parsing-tests-retry
 type: TASK
 title: Write tests for Gen 3 Wild Encounter and Held Item Parsing Logic (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-10'
@@ -16,7 +16,9 @@ tags:
   - dexhelper
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-563-668-investigate-wild-item-parsing-failure
 notes: ''
 locks: []
 ---

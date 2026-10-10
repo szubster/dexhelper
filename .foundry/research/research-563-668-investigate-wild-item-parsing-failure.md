@@ -2,12 +2,12 @@
 id: research-563-668-investigate-wild-item-parsing-failure
 type: RESEARCH
 title: Investigate Gen 3 Wild Encounter and Held Item Parsing Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-07'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '4650268963951952873'
+jules_session_id: null
 pr_number: null
 parent: story-552-563-gen3-wild-item-parsing
 tags:
@@ -15,7 +15,9 @@ tags:
   - dexhelper
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 priority: 50

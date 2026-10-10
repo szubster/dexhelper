@@ -8,7 +8,7 @@ created_at: '2026-08-26'
 updated_at: '2026-10-10'
 depends_on:
   - story-345-477-gen3-mystery-gift-event-flags
-jules_session_id: '1688082053345223261'
+jules_session_id: null
 pr_number: null
 parent: epic-121-345-gen3-mystery-gift-data-extraction
 tags:

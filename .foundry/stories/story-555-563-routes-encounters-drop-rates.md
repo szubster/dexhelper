@@ -2,7 +2,7 @@
 id: story-555-563-routes-encounters-drop-rates
 type: STORY
 title: 'Display Routes, Encounters, and Drop Rates'
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-12'
 updated_at: '2026-10-10'

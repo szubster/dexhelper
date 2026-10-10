@@ -2,12 +2,12 @@
 id: research-640-668-investigate-relocate-scripts-replacement-failure
 type: RESEARCH
 title: Investigate Relocate Scripts Replacement Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-07'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '8614082746617569432'
+jules_session_id: null
 pr_number: null
 parent: story-525-640-relocate-foundry-scripts
 tags:
@@ -16,7 +16,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

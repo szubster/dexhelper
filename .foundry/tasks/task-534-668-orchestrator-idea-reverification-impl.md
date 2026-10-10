@@ -2,7 +2,7 @@
 id: task-534-668-orchestrator-idea-reverification-impl
 type: TASK
 title: Orchestrator IDEA Re-Verification Stage Implementation
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-10'
@@ -12,8 +12,8 @@ parent: story-531-534-idea-reverification-stage
 tags:
   - orchestrator
   - curator
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---

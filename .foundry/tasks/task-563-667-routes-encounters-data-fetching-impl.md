@@ -2,12 +2,12 @@
 id: task-563-667-routes-encounters-data-fetching-impl
 type: TASK
 title: 'Routes, Encounters, and Drop Rates Data Fetching'
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '16630096520545188614'
+jules_session_id: null
 pr_number: null
 parent: story-555-563-routes-encounters-drop-rates
 tags:
@@ -15,7 +15,9 @@ tags:
   - data
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

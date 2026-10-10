@@ -1,11 +1,11 @@
 ---
 id: task-563-669-routes-encounters-tests-impl
 type: TASK
-title: Routes, Encounters, and Drop Rates Tests
-status: PENDING
+title: 'Routes, Encounters, and Drop Rates Tests'
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - task-563-668-routes-encounters-ui-components-impl
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-563-667-routes-encounters-data-fetching-impl
 notes: ''
 locks: []
 ---
