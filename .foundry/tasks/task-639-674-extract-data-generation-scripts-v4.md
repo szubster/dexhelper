@@ -1,13 +1,13 @@
 ---
-id: task-639-669-extract-data-generation-scripts-v3
+id: task-639-674-extract-data-generation-scripts-v4
 type: TASK
-title: Extract Data Generation Scripts to Workspace Package v3
-status: CANCELLED
+title: Extract Data Generation Scripts to Workspace Package v4
+status: PENDING
 owner_persona: coder
-created_at: '2026-10-06'
-updated_at: '2026-10-06'
+created_at: '2026-10-08'
+updated_at: '2026-10-08'
 depends_on:
-  - research-639-668-investigate-extract-data-scripts-failure-v2
+  - research-639-673-investigate-extract-data-scripts-failure-v3
 jules_session_id: null
 pr_number: null
 parent: story-525-639-extract-data-generation-scripts
@@ -16,12 +16,12 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
+rejection_reason: ''
 notes: ''
 locks: []
 ---
 
-# Extract Data Generation Scripts to Workspace Package v3
+# Extract Data Generation Scripts to Workspace Package v4
 
 Extract data generation scripts (`scripts/generate-pokedata.ts`, `scripts/generateMapLocations.ts`, `scripts/gen3-fetch-locations.ts`, `scripts/sync-pokedata.sh`, `scripts/README.md` and `scripts/data/`) into `@dexhelper/pokedata-extractor`.
 
