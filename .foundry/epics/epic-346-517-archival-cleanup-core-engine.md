@@ -5,7 +5,7 @@ title: Archival Cleanup Core Engine
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-09'
+updated_at: '2026-10-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Archival Cleanup Core Engine

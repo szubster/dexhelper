@@ -2,12 +2,12 @@
 id: task-474-668-gen3-condition-stats-tests-coder
 type: TASK
 title: Write Unit Tests for Gen 3 Condition Stats Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18028724116832521346'
 pr_number: null
 parent: story-134-474-gen3-condition-stats-extraction-tests
 tags:

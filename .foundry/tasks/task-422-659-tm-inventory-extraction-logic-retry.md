@@ -2,7 +2,7 @@
 id: task-422-659-tm-inventory-extraction-logic-retry
 type: TASK
 title: Implement TM Inventory data extraction logic
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-03T13:51:00.000Z'
 updated_at: '2026-10-09'
@@ -16,8 +16,8 @@ tags:
   - gen2
   - gen3
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

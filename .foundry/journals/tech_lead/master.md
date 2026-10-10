@@ -1348,3 +1348,49 @@ When `research-639-658-investigate-extract-data-scripts-failure` permanently fai
 # Journal Entry 2026-10-06-17-39-08
 
 Encountered the Impossible Loop where `task-560-609-tm-hm-compatibility-matching-impl-retry` reached the maximum rejection count and was marked as CANCELLED. As a result, its dependent tasks `task-560-610-tm-hm-compatibility-matching-tests-retry` and `task-560-611-tm-hm-compatibility-matching-qa-retry` were also permanently failed. To resolve this, I have spawned a new `RESEARCH` node (`research-560-668-investigate-tm-hm-compatibility-v3-failure`) to investigate the root cause, along with a new set of replacement `TASK` nodes (`task-560-669-tm-hm-compatibility-matching-impl-v3`, `task-560-670-tm-hm-compatibility-matching-tests-v3`, `task-560-671-tm-hm-compatibility-matching-qa-v3`) that correctly depend on the research being completed. I also checked off the permanently failed tasks in the parent `story-402-560-tm-hm-compatibility-matching` to allow the orchestration to continue cleanly. This ensures that the orchestration does not get permanently blocked due to a deeply nested failure, adhering to the Orchestrator Demotion Compliance Rule.
+
+---
+
+# Tech Lead Journal Entry - 2026-10-06-22-15-00
+
+For story story-568-645-tactical-aesthetics-verification, I broke down the work into four distinct modular tasks: two for implementing the tactical aesthetics tests (base and complex components), and two for QAing the implementations. This approach adheres to the decomposition standards and avoids the two-tasks-max anti-pattern.
+
+---
+
+# Tech Lead Journal Entry - 2026-10-07-02-42-27
+
+Encountered the Impossible Loop protocol for `story-418-517-orchestrator-fallback-mechanisms` due to permanent failure (Max rejection count reached) of `task-517-576-orchestrator-fallback-generic-prompt`. I spawned a new `RESEARCH` node (`research-517-668-investigate-orchestrator-generic-prompt-failure`) to investigate the root cause, and created a replacement retry task (`task-517-669-orchestrator-fallback-generic-prompt-retry`) that depends on it. Both have been linked to the parent story and the failed task has been checked off.
+
+---
+
+# Impossible Loop Handling: Orchestrator Priority Tests
+
+The task `task-551-565-update-orchestrator-priority-tests` reached its maximum rejection count and permanently failed. Its downstream dependency `task-551-566-qa-orchestrator-priority` was also cancelled.
+To handle this impossible loop, a new `RESEARCH` node (`research-551-668-investigate-orchestrator-priority-tests-failure`) has been spawned to investigate the root cause, and replacement `TASK` nodes (`task-551-669` and `task-551-670`) have been created. The permanently failed/cancelled tasks have been checked off in the parent STORY to allow it to gracefully progress once the new nodes complete.
+
+---
+
+# Tech Lead Journal: Generative Tasks Scope Strictness
+
+- When executing generative tasks (such as decomposing a STORY into TASK nodes), the scope of work must strictly be limited to creating and updating `.foundry` markdown files.
+- Modifying unrelated source code files, configuration files (like `knip.json`), or allowing automated fix tools (`pnpm knip --fix`) to commit destructive changes during a generative session is a severe violation of scope and will be rejected in code review.
+- It's imperative to clean up any scratchpad files (like `plan.md` or generation scripts) before requesting code review.
+- Furthermore, never check off the functional Acceptance Criteria of a parent macro node (like a STORY) prematurely during the decomposition phase. Only the appended child tasks (`- [ ] <node_id>`) should be tracked. Checking off the macro criteria early violates orchestrator constraints.
+
+---
+
+# 2026-10-08-00-39-29
+
+## Permanent failure of task-472-659-implement-e2e-tests
+
+The task task-472-659-implement-e2e-tests permanently failed during E2E testing implementation. Following the "Impossible Loop" protocol, a RESEARCH task (research-472-668-investigate-e2e-tests-failure) was created to investigate the root cause, along with retry tasks for the implementation and QA verification. The original failed and downstream pending tasks were checked off in the STORY to allow it to await the new nodes.
+
+---
+
+# Tech Lead Journal: 2026-10-08 15:07:49
+
+## Impossible Loop Execution: task-608-619
+
+The task `task-608-619-multi-box-text-search-engine-e2e` reached its maximum rejection count and failed permanently. In accordance with the Impossible Loop protocol, I have spawned a research node (`research-608-673-investigate-text-search-e2e-failure`) to investigate the root cause of the E2E failures, and created a replacement task (`task-608-674-multi-box-text-search-engine-e2e-retry`) that depends on the research node.
+
+The permanently failed child task `task-608-619` has been checked off in the parent story `story-574-608-multi-box-text-search-engine`, and the new nodes have been appended to the acceptance criteria to prevent premature verification.

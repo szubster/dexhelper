@@ -120,7 +120,11 @@ export const StorageCard = React.memo(
                   LV.{p.level.toString().padStart(3, '0')}
                 </span>
                 {p.otName && (
-                  <span className="truncate font-mono text-[8px] text-zinc-600 sm:text-[10px]">[{p.otName}]</span>
+                  <span className="truncate font-mono text-[8px] text-zinc-600 sm:text-[10px]">
+                    <span aria-hidden="true">[</span>
+                    {p.otName}
+                    <span aria-hidden="true">]</span>
+                  </span>
                 )}
               </div>
               <h3 className="truncate font-bold font-mono text-sm text-white uppercase tracking-tight sm:text-base">
@@ -135,7 +139,7 @@ export const StorageCard = React.memo(
                     variant="emerald"
                     className="rounded-none px-1.5 py-0.5 font-mono text-[8px] leading-none sm:text-[10px]"
                   >
-                    [ READY ]
+                    <span aria-hidden="true">[ </span>READY<span aria-hidden="true"> ]</span>
                   </TacticalBadge>
                 ) : (
                   <TacticalBadge
@@ -143,7 +147,7 @@ export const StorageCard = React.memo(
                     className="rounded-none px-1.5 py-0.5 font-mono text-[8px] leading-none sm:text-[10px]"
                     title={timeCapsuleValidation.reason}
                   >
-                    [ ERR ]
+                    <span aria-hidden="true">[ </span>ERR<span aria-hidden="true"> ]</span>
                   </TacticalBadge>
                 )}
               </div>
@@ -377,7 +381,7 @@ export const StorageGrid = React.memo(function StorageGrid({
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
                   <TacticalPanel className="col-span-full flex min-h-[60px] flex-col items-center justify-center p-2 text-center transition-all duration-300 hover:border-zinc-700/50">
                     <span className="font-black font-mono text-[10px] text-zinc-600 uppercase tracking-[0.3em]">
-                      [ EMPTY ]
+                      <span aria-hidden="true">[ </span>EMPTY<span aria-hidden="true"> ]</span>
                     </span>
                   </TacticalPanel>
                 </div>
