@@ -1251,3 +1251,12 @@ Objective: Verify the implementation of telemetry tracking for cycle detection f
 
 ## Conclusion
 The telemetry metrics implementation for cycle detection is fully complete and functional.
+
+---
+
+# QA Journal: SaveDataReader RangeError Verification Boundary
+
+## Pattern Learned
+When verifying error handling boundaries in low-level ArrayBuffer reading utilities (such as `SaveDataReader`), it is crucial to test not only that out-of-bounds `RangeError` exceptions are caught and sanitized, but also that unexpected internal errors (like `TypeError` thrown by faulty mocks or future structural changes) are explicitly passed through unmodified.
+
+Failing to verify passthrough behavior can mask critical internal corruption bugs by inadvertently sanitizing all thrown exceptions into generic boundary warnings.

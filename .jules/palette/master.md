@@ -118,12 +118,6 @@ Learned that the e2e test takes a long time and times out, skipping per memory.
 
 ---
 
-## Accessibility & Decorative Telemetry Brackets
-- Wrapping decorative status brackets `[` and `]` in `<span aria-hidden="true">` inside status display components (such as `EmptyState`) prevents screen readers from redundantly announcing literal bracket characters while preserving the tactical ASCII hardware aesthetic visually.
-
-
----
-
 # Palette Journal Entry - NavigationTab Decorative Brackets A11y
 
 ## Date
@@ -179,14 +173,11 @@ Wrapped the decorative telemetry brackets (`[` and `]`) in `<NavigationTab />` w
 
 ---
 
-# Palette Journal Entry - PokemonStatusBadge Decorative Brackets A11y
-
-## Date
-2026-10-06
+# Palette Journal Entry - Telemetry & Status Badge Decorative Brackets A11y
 
 ## Micro-UX / Accessibility Improvement
-Wrapped decorative telemetry brackets (`[` and `]`) in `PokemonStatusBadge.tsx` with `<span aria-hidden="true">`.
+Wrapped decorative telemetry ASCII brackets (`[` and `]`) in `PokemonStatusBadge.tsx`, `StorageGrid.tsx`, and `EmptyState.tsx` with `<span aria-hidden="true">`.
 
 ## Key Learnings
-- **Screen Reader Noise Reduction**: Status badges (`PokemonStatusBadge`) that render ASCII bracketed labels (e.g., `[ SECURED ]`, `[ DEX_ONLY ]`, `[ SEEN ]`, `[ UNKNOWN ]`) should wrap decorative bracket characters in `<span aria-hidden="true">`.
-- This prevents assistive technologies from repetitively announcing "left bracket" and "right bracket" across card grids in the Pokedex, while preserving the tactical hardware aesthetic.
+- **Screen Reader Noise Reduction & Decorative Brackets**: UI components and status display elements (`PokemonStatusBadge`, `StorageGrid`, `EmptyState`) that render bracketed labels or OT names (e.g., `[ SECURED ]`, `[ DEX_ONLY ]`, `[ READY ]`, `[ EMPTY ]`, `[RED]`) should isolate decorative bracket characters in `<span aria-hidden="true">`.
+- This prevents assistive technologies from repetitively voicing "left bracket" and "right bracket" across card grids in Pokedex and Storage views while preserving the tactical hardware visual aesthetic.
