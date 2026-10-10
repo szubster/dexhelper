@@ -27,9 +27,12 @@ Migrate decorative overlays and visual elements (ScanlineOverlay, CornerCrosshai
 
 ## Acceptance Criteria
 - [x] Break this story down into tasks for migrating decorations.
-- [ ] task-641-658-migrate-scanline-crosshairs
+- [x] task-641-658-migrate-scanline-crosshairs
 - [x] task-641-659-migrate-hexstream-telemetry
 - [x] task-641-660-qa-migrate-decorations
 - [ ] research-641-668-investigate-hexstream-telemetry-failure
 - [ ] task-641-669-migrate-hexstream-telemetry-retry
-- [ ] task-641-670-qa-migrate-decorations-retry
+- [x] task-641-670-qa-migrate-decorations-retry
+- [ ] research-641-673-investigate-scanline-crosshairs-failure
+- [ ] task-641-674-migrate-scanline-crosshairs-retry
+- [ ] task-641-675-qa-migrate-decorations-retry-v2
