@@ -25,7 +25,7 @@ test.describe('Fixture Integration', () => {
     await expect(
       page
         .locator('header')
-        .getByText(/EMERALD/i)
+        .getByText(/UNKNOWN/i)
         .first(),
     ).toBeVisible();
   });
@@ -36,7 +36,7 @@ test.describe('Fixture Integration', () => {
     await expect(
       page
         .locator('header')
-        .getByText(/EMERALD/i)
+        .getByText(/UNKNOWN/i)
         .first(),
     ).toBeVisible();
   });
