@@ -31,5 +31,7 @@ Extract data generation scripts into `@dexhelper/pokedata-extractor`.
 - [x] task-639-659-extract-data-generation-scripts-v2
 - [x] research-639-668-investigate-extract-data-scripts-failure-v2
 - [x] task-639-669-extract-data-generation-scripts-v3
-- [ ] research-639-673-investigate-extract-data-scripts-failure-v3
-- [ ] task-639-674-extract-data-generation-scripts-v4
+- [x] research-639-673-investigate-extract-data-scripts-failure-v3
+- [x] task-639-674-extract-data-generation-scripts-v4
+- [ ] research-639-676-investigate-extract-data-scripts-failure-v4
+- [ ] task-639-677-extract-data-generation-scripts-v5
