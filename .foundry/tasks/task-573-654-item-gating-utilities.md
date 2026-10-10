@@ -2,13 +2,13 @@
 id: task-573-654-item-gating-utilities
 type: TASK
 title: Item Gating Evaluation Utilities
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-16T05:45:31Z'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - task-573-653-item-gating-constants
-jules_session_id: '18389833498869505208'
+jules_session_id: null
 pr_number: null
 parent: story-407-573-item-gating-data-mapping
 tags:

@@ -2,10 +2,10 @@
 id: task-566-671-qa-blocked-diagnosis-retry
 type: TASK
 title: QA Verification for Orchestrator BLOCKED Diagnosis (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-07T21:10:47.156Z'
-updated_at: '2026-10-07T21:10:47.156Z'
+updated_at: '2026-10-10'
 depends_on:
   - task-566-670-orchestrator-diagnosis-tests-retry
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-566-668-investigate-orchestrator-diagnosis-failure
 notes: ''
 locks: []
 ---

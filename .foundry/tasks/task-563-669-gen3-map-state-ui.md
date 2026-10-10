@@ -2,10 +2,10 @@
 id: task-563-669-gen3-map-state-ui
 type: TASK
 title: Connect Gen 3 Map State to UI
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - task-563-668-gen3-map-state-store
 jules_session_id: null

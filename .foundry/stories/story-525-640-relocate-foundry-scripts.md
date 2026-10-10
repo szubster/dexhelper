@@ -2,12 +2,12 @@
 id: story-525-640-relocate-foundry-scripts
 type: STORY
 title: Relocate Foundry Scripts
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '13966617761237732526'
+jules_session_id: null
 pr_number: null
 parent: epic-519-525-extract-build-tooling
 tags:

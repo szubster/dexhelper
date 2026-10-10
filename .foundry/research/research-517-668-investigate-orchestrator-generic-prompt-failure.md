@@ -2,7 +2,7 @@
 id: research-517-668-investigate-orchestrator-generic-prompt-failure
 type: RESEARCH
 title: Investigate Orchestrator Generic Prompt Fallback Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-07'
 updated_at: '2026-10-10'
@@ -16,10 +16,8 @@ tags:
   - fallback
   - debugging
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 experiment_variants: []
 locks: []

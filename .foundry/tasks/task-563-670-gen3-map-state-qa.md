@@ -2,10 +2,10 @@
 id: task-563-670-gen3-map-state-qa
 type: TASK
 title: QA Verification for Gen 3 Map State
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - task-563-669-gen3-map-state-ui
 jules_session_id: null
