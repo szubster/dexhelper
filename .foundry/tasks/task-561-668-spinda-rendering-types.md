@@ -20,6 +20,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Spinda Component Types & Interfaces
@@ -33,6 +34,6 @@ Define the strictly typed data models and React props interfaces required for th
 - Ensure the types are exported and placed in the appropriate types directory for UI components or Spinda feature.
 
 ## Acceptance Criteria
-- [ ] TypeScript interfaces for spot coordinates are created.
-- [ ] Component props interface is strictly typed.
-- [ ] Types are correctly exported for use in the UI component.
+- [x] TypeScript interfaces for spot coordinates are created.
+- [x] Component props interface is strictly typed.
+- [x] Types are correctly exported for use in the UI component.
