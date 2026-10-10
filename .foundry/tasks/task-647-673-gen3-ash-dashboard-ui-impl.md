@@ -1,38 +1,36 @@
 ---
-id: story-269-647-gen3-ash-dashboard-ui
-type: STORY
-title: 'Story: Gen 3 Volcanic Ash Tracker Dashboard UI Implementation'
-status: ACTIVE
-owner_persona: tech_lead
+id: task-647-673-gen3-ash-dashboard-ui-impl
+type: TASK
+title: 'Task: Implement Gen 3 Volcanic Ash Tracker Dashboard UI'
+status: READY
+owner_persona: coder
 created_at: '2026-10-03T19:33:53.000Z'
-updated_at: '2026-10-09'
+updated_at: '2026-10-03T19:33:53.000Z'
 depends_on: []
-jules_session_id: '18432456221282246213'
+jules_session_id: null
 pr_number: null
-parent: epic-054-269-gen3-ash-dashboard
+parent: story-269-647-gen3-ash-dashboard-ui
 tags:
   - ui
   - gen3
   - ash
+  - react
 research_references: []
+rejection_count: 0
 rejection_reason: ''
 locks: []
 ---
 
-# Story: Gen 3 Volcanic Ash Tracker Dashboard UI Implementation
+# Task: Implement Gen 3 Volcanic Ash Tracker Dashboard UI
 
 ## Description
 Implement the Gen 3 Volcanic Ash Tracker Dashboard UI within DexHelper. The dashboard should use the extracted save file data and display the player's Volcanic Ash count.
 
-## Architectural Constraints
+## Constraints
 - MUST utilize Tailwind v4 `@utility` classes (e.g., `tactical-panel`), sharp edges (`rounded-none`), dashed borders (`border-dashed`), and monospaced telemetry fonts (`font-mono`) per ADR 024.
 - Must use existing layout patterns and Zustand state management.
 - No PokeAPI dependency.
 
 ## Acceptance Criteria
 - [ ] Implement the UI components for the Ash Tracker.
-- [ ] Write integration E2E tests for the new UI.
-- [x] Break down this Story into TASK nodes for coder and qa.
-- [ ] task-647-673-gen3-ash-dashboard-ui-impl
-- [ ] task-647-674-gen3-ash-dashboard-e2e
-- [ ] task-647-675-gen3-ash-dashboard-qa
+- [ ] Write `vitest-browser-react` unit tests and interaction tests for the new component.
