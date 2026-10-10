@@ -12,6 +12,12 @@ import {
   ITEM_INDEX_OFFSET,
   ITEM_MYSTIC_TICKET,
   ITEM_OLD_SEA_MAP,
+  ITEMS_POCKET_OFFSET_EMERALD,
+  ITEMS_POCKET_OFFSET_FRLG,
+  ITEMS_POCKET_OFFSET_RS,
+  ITEMS_POCKET_SIZE_EMERALD,
+  ITEMS_POCKET_SIZE_FRLG,
+  ITEMS_POCKET_SIZE_RS,
   KEY_ITEM_POCKET_OFFSET_EMERALD,
   KEY_ITEM_POCKET_OFFSET_FRLG,
   KEY_ITEM_POCKET_OFFSET_RS,
@@ -64,6 +70,57 @@ export function parseGen3EventItems(
     }
 
     return hasEventItem;
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
+    }
+    throw error;
+  }
+}
+
+export function parseGen3Inventory(
+  view: DataView,
+  saveBlock1Offset: number,
+  gameVersion: GameVersion,
+  securityKey: number,
+): { id: number; quantity: number }[] {
+  let offset = saveBlock1Offset;
+  let size = 0;
+
+  if (gameVersion === 'emerald') {
+    offset += ITEMS_POCKET_OFFSET_EMERALD;
+    size = ITEMS_POCKET_SIZE_EMERALD;
+  } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
+    offset += ITEMS_POCKET_OFFSET_FRLG;
+    size = ITEMS_POCKET_SIZE_FRLG;
+  } else {
+    offset += ITEMS_POCKET_OFFSET_RS;
+    size = ITEMS_POCKET_SIZE_RS;
+  }
+
+  try {
+    const inventory: { id: number; quantity: number }[] = [];
+    const numItems = size / ITEM_ENTRY_SIZE;
+
+    // In Gen 3, item quantity is masked with the lower 16 bits of the security key
+    const mask = securityKey & LOWER_16_BIT_MASK;
+
+    for (let i = 0; i < numItems; i++) {
+      const itemOffset = offset + i * ITEM_ENTRY_SIZE;
+      const itemId = view.getUint16(itemOffset + ITEM_INDEX_OFFSET, true);
+      const maskedQuantity = view.getUint16(itemOffset + ITEM_QUANTITY_OFFSET, true);
+
+      // 0 indicates an empty slot
+      if (itemId === 0) continue;
+
+      const quantity = maskedQuantity ^ mask;
+
+      if (quantity > 0) {
+        inventory.push({ id: itemId, quantity });
+      }
+    }
+
+    return inventory;
   } catch (error) {
     if (error instanceof RangeError) {
       throw new Error('The save file is corrupted or incomplete.');

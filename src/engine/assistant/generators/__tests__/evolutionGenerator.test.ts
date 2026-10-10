@@ -363,6 +363,44 @@ describe('evolutionGenerator', () => {
       expect(suggestions2[0]?.description).toContain('Take the');
     });
 
+    it('generates priority 95 item evolution suggestions for Gen 3 saves when stone is present in saveData.inventory', async () => {
+      const apiData: AssistantApiData = {
+        pokemonMetadata: {
+          134: {
+            id: 134, // Vaporeon
+            efrm: [133],
+            det: [{ tr: EVO_TRIGGER.USE_ITEM, item: 34 }], // Gen 3 Water Stone (itemId 34)
+          },
+        },
+      } as unknown as AssistantApiData;
+
+      const instancesBySpecies = new Map<number, PokemonInstance[]>([
+        [133, [{ speciesId: 133, level: 15 } as PokemonInstance]],
+      ]);
+
+      const saveDataWithWaterStone: SaveData = {
+        ...mockSaveData,
+        generation: 3,
+        inventory: [{ id: 34, quantity: 1 }], // Water Stone in Gen 3 bag
+      } as unknown as SaveData;
+
+      const suggestions: Suggestion[] = [];
+      await generateEvolutionSuggestions(
+        [134],
+        saveDataWithWaterStone,
+        apiData,
+        instancesBySpecies,
+        suggestions,
+        'emerald',
+        new Set([134]),
+      );
+
+      expect(suggestions).toHaveLength(1);
+      expect(suggestions[0]?.id).toBe('evo-item-134-34');
+      expect(suggestions[0]?.priority).toBe(95);
+      expect(suggestions[0]?.title).toBe('Ready to Evolve: #134!');
+    });
+
     it('generates trade evolution suggestions (simple vs held item)', async () => {
       const apiData: AssistantApiData = {
         pokemonMetadata: {
