@@ -2,12 +2,12 @@
 id: research-472-668-investigate-e2e-tests-failure
 type: RESEARCH
 title: Investigate E2E Tests Failure for New Fixtures
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-08'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14701524158982901738'
 pr_number: null
 parent: story-428-472-e2e-verification
 tags:
