@@ -2,13 +2,13 @@
 id: story-531-534-idea-reverification-stage
 type: STORY
 title: IDEA Re-Verification Stage Implementation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-04'
 updated_at: '2026-10-10'
 depends_on:
   - story-531-533-orchestrator-trigger-logic-updates
-jules_session_id: null
+jules_session_id: '8751001442717337311'
 parent: epic-518-531-orchestrator-curator-loop
 tags:
   - orchestrator
