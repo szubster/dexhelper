@@ -310,3 +310,41 @@ Date: 2026-10-09 22:51:00
   - `task-364-494-savedata-e2e-gen2` (tasks)
   - `task-364-495-savedata-e2e-gen3` (tasks)
   - `task-364-496-savedata-e2e-qa` (tasks)
+
+---
+
+# TPM Session Journal
+Date: 2026-10-10 01:50:40
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving strictly operates at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+- **Summary of Archived DAG Tree**: Archived the completed 100% terminal tree rooted at `idea-145-component-variants-theming-consolidation` (3 nodes total):
+  - `idea-145-component-variants-theming-consolidation` (ideas)
+  - `research-145-001-component-variant-libraries` (research)
+  - `research-145-002-component-theming-mechanisms` (research)
+
+---
+
+# TPM Session Journal
+Date: 2026-10-10 03:38:21
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving strictly operates at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`. A completed node cannot be archived if any descendant or parent in its hierarchy is in an active or incomplete state (e.g. READY, PENDING, ACTIVE, VERIFYING, BLOCKED, DRAFT).
+- **Node Linkage Preservation**: Moving node files to `.foundry/archive/` preserves historical reference while keeping active directory context windows slim. Internal `depends_on` and `parent` YAML frontmatter fields strictly remain node IDs without paths or extensions to avoid DAG orchestrator circular dependency resolution failures.
+
+### Summary of Archived DAG Tree
+- Successfully archived the completed 100% terminal tree rooted at `idea-101-pc-box-organization-assistant` (10 nodes total):
+  - `idea-101-pc-box-organization-assistant` (ideas)
+  - `prd-101-106-pc-box-organization-assistant` (prds)
+  - `epic-106-136-pc-box-sorting-algorithms` (epics)
+  - `story-136-361-sorting-algorithms-e2e` (stories)
+  - `task-361-407-sorting-algorithms-e2e-impl` (tasks)
+  - `task-361-408-sorting-algorithms-e2e-qa` (tasks)
+  - `task-361-495-sorting-algorithms-e2e-impl-retry` (tasks)
+  - `task-361-496-sorting-algorithms-e2e-qa-retry` (tasks)
+  - `research-407-468-sorting-ui-implementation` (research)
+  - `research-361-494-sorting-algorithms-e2e-root-cause` (research)

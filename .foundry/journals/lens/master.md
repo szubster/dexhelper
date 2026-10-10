@@ -163,3 +163,14 @@ During live exploratory web page inspection and component structure analysis acr
 ## Key Learnings & Architectural Rules
 1. **Virtual Row Container Integrity**: When virtualizing grid items with TanStack Virtual, `measureElement` MUST be attached to the row container rather than child column items to ensure accurate row height calculations and prevent visual grid overlap or jitter.
 2. **Tactical Aesthetic Adherence**: Verified that all tactical cards, status indicators, monospaced fonts, and dashed borders preserve sharp edges (`rounded-none`) across all viewports in compliance with ADR 008.
+
+---
+
+# Lens Visual QA Observation: TacticalInput EdgeLabel Spacing Constraint
+
+## Insight & Design Constraint
+When `TacticalInput` components utilize the `label` prop, `TacticalInput` renders an absolute-positioned `<EdgeLabel>` positioned at `-top-2 left-4`.
+In tightly-spaced grid layouts or forms where inputs lack top padding on their parent container, the negative top offset (`-top-2`) causes the floating label boundary and ASCII brackets (`[ Label ]`) to overlap directly with the upper border of the input container.
+
+## Rule for Future UI Development
+Whenever `TacticalInput` is used with a `label` prop inside compact grid rows or forms without explicit top margin/padding, ensure `containerClassName="pt-2"` (or equivalent top margin/padding) is provided to ensure clean visual separation between the upper dashed input border and the floating tactical edge label.
