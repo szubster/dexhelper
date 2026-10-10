@@ -11,6 +11,7 @@ jules_session_id: '9991163111111804390'
 parent: story-517-551-implement-deletion-chunking
 rejection_reason: ''
 locks: []
+confidence_score: 100
 ---
 
 # Deletion Queue Types and Sorting
@@ -19,5 +20,5 @@ locks: []
 Implement the types and sorting logic to prioritize the oldest files in the deletion queue.
 
 ## Acceptance Criteria
-- [ ] Define any necessary types for nodes eligible for deletion.
-- [ ] Implement sorting logic that prioritizes the oldest nodes based on timestamp or age metrics.
+- [x] Define any necessary types for nodes eligible for deletion.
+- [x] Implement sorting logic that prioritizes the oldest nodes based on timestamp or age metrics.

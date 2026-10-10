@@ -1,5 +1,19 @@
 import { type NodeFrontmatter } from './schema.ts';
 
+export interface DeletionCandidate {
+  node: NodeFrontmatter;
+  ageMs: number;
+}
+
+/**
+ * Sorts deletion candidates to prioritize the oldest files.
+ * @param candidates - Array of nodes eligible for deletion with their calculated age.
+ * @returns A new array sorted with the oldest files first.
+ */
+export function sortDeletionQueue(candidates: DeletionCandidate[]): DeletionCandidate[] {
+  return [...candidates].sort((a, b) => b.ageMs - a.ageMs);
+}
+
 /**
  * Parses node age from file frontmatter and filters nodes based on age and type.
  *
