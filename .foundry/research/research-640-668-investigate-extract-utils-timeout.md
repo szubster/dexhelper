@@ -27,5 +27,13 @@ locks: []
 The task `task-640-659-extract-utils-to-core` failed permanently after reaching its max rejection count. We need to investigate why this occurred before attempting further extraction.
 
 ## Acceptance Criteria
-- [ ] Determine the root cause of the timeout/failure during the utils extraction task.
-- [ ] Provide actionable recommendations for the replacement task to avoid failing again.
+- [x] Determine the root cause of the timeout/failure during the utils extraction task.
+- [x] Provide actionable recommendations for the replacement task to avoid failing again.
+
+## Findings
+
+The root cause of the timeout is a false permanent failure. The task `task-640-659-extract-utils-to-core` repeatedly failed with `[ACKNOWLEDGED] Session terminated with state: COMPLETED` which indicates a system-level crash or failure to explicitly invoke the `submit` tool to open a Pull Request. This falsely incremented the rejection count until it hit the maximum limit.
+
+## Recommendations
+
+1. Ensure the replacement task explicitly instructs the assigned coder to always use the `submit` tool to finalize their work and open a PR, even if no file changes were made (Empty PR Policy).
