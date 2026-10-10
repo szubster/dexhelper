@@ -2,12 +2,12 @@
 id: research-608-673-investigate-text-search-e2e-failure
 type: RESEARCH
 title: Investigate Multi-Box Text Search Engine E2E Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-08'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5129870867554888034'
 pr_number: null
 parent: story-574-608-multi-box-text-search-engine
 tags:
