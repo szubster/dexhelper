@@ -15,6 +15,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 locks: []
+confidence_score: 100
 ---
 
 # Task: Implement Query Formulation Logic
@@ -28,5 +29,5 @@ The orchestrator must formulate search queries using the assigned node's frontma
 - Write unit tests.
 
 ## Acceptance Criteria
-- [ ] Implement query formulation function.
-- [ ] Write unit tests for query formulation.
+- [x] Implement query formulation function.
+- [x] Write unit tests for query formulation.
