@@ -63,3 +63,10 @@ When fixing Assistant Logic related to branching vs linear evolutions, ensure th
 # Learnings
 
 - **Gen 3 Feebas -> Milotic Evolution:** In Generation 3, Feebas (#349) evolves into Milotic (#350) by maximizing its Beauty condition using Dry Pokéblocks (crafted from Chesto, Wiki, or Pamtre Berries) and leveling it up once. The `evolutionGenerator.ts` module was updated to handle missing evolution details gracefully (`tr` trigger inference) and provide specific offline advice for Feebas -> Milotic evolution in Gen 3.
+
+---
+
+# Learnings
+
+- **Gen 3 Wurmple Evolution Branch Prediction**: In Generation 3, Wurmple (#265) evolution is non-deterministic at runtime unless calculating its 32-bit personality value (`personalityValue`). Specifically, `(personalityValue >>> 16) % 10 < 5` predicts evolution into Silcoon (#266) / Beautifly (#267), whereas `>= 5` predicts Cascoon (#268) / Dustox (#269).
+- **Multi-Instance Branch Evaluation**: When evaluating branch evolutions for species with PID-dependent paths (like Wurmple), if `bestInstance` (e.g. highest level instance) does not match the target evolution branch requested by the user, the assistant logic must search all owned instances for a `targetWurmple` that DOES match the branch before falling back to recommending catching a new instance.
