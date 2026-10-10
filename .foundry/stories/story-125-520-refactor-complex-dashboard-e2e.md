@@ -2,13 +2,13 @@
 id: story-125-520-refactor-complex-dashboard-e2e
 type: STORY
 title: E2E Verification for Complex Dashboard Components Migration
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03T13:29:59.885Z'
 updated_at: '2026-10-10'
 depends_on:
   - story-125-519-refactor-complex-dashboard
-jules_session_id: null
+jules_session_id: '5499128375442155456'
 pr_number: null
 parent: epic-071-125-migrate-complex-app-components-v2
 tags:
