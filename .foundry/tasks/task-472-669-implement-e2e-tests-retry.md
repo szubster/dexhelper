@@ -2,10 +2,10 @@
 id: task-472-669-implement-e2e-tests-retry
 type: TASK
 title: Implement E2E Tests for New Save Fixtures (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-08'
-updated_at: '2026-10-08'
+updated_at: '2026-10-10'
 depends_on:
   - research-472-668-investigate-e2e-tests-failure
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-472-668-investigate-e2e-tests-failure
 notes: ''
 locks: []
 ---

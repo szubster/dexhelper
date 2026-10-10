@@ -2,10 +2,10 @@
 id: task-478-671-resolve-phase-locking-qa-retry
 type: TASK
 title: QA Verification for RESOLVE phase locking logic (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-10'
 depends_on:
   - task-478-670-evaluate-locks-for-pending-nodes-retry
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-478-668-investigate-locking-failure
 notes: ''
 locks: []
 ---

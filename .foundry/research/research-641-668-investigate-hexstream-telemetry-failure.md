@@ -2,19 +2,19 @@
 id: research-641-668-investigate-hexstream-telemetry-failure
 type: RESEARCH
 title: Investigate HexStream and Telemetry Migration Failure
-status: FAILED
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-06'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6416045953744787187'
 parent: story-527-641-migrate-decorations
 tags:
   - react
   - components
   - research
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

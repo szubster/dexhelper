@@ -2,7 +2,7 @@
 id: task-517-530-binjgb-emulator-ui-impl
 type: TASK
 title: Implement binjgb Emulator UI Component
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-02'
 updated_at: '2026-10-10'
@@ -17,8 +17,8 @@ tags:
   - gen1
   - gen2
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---

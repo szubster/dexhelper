@@ -2,10 +2,10 @@
 id: story-131-475-gen3-decryption-mapping-e2e
 type: STORY
 title: Gen 3 Decryption and Mapping E2E
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-09-21'
+updated_at: '2026-10-10'
 depends_on:
   - story-131-474-gen3-substructure-mapping
 jules_session_id: '3628547113889724780'
@@ -32,6 +32,6 @@ Ensure that the Gen 3 data decryption and substructure mapping logic is thorough
 - Write E2E tests parsing full Gen 3 save files to ensure accurate data extraction of the core Pokemon blocks.
 
 ## Acceptance Criteria
-- [ ] Write E2E tests verifying Gen 3 save decryption and mapping logic.
-- [ ] All tests must pass successfully.
-- [ ] task-475-598-gen3-decryption-mapping-e2e-impl
+- [x] Write E2E tests verifying Gen 3 save decryption and mapping logic.
+- [x] All tests must pass successfully.
+- [x] task-475-598-gen3-decryption-mapping-e2e-impl

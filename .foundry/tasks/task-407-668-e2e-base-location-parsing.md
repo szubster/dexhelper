@@ -2,19 +2,19 @@
 id: task-407-668-e2e-base-location-parsing
 type: TASK
 title: E2E Tests for Base Location Parsing
-status: FAILED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-04'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18008535296052301156'
 parent: story-397-407-gen3-secret-base-parsing-e2e
 tags:
   - e2e
   - gen3
   - secret-base
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 ---
 

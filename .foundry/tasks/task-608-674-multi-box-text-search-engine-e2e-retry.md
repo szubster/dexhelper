@@ -2,7 +2,7 @@
 id: task-608-674-multi-box-text-search-engine-e2e-retry
 type: TASK
 title: Multi-Box Text Search Engine E2E (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-08'
 updated_at: '2026-10-10'
@@ -19,7 +19,9 @@ tags:
   - pc-box
   - e2e
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-608-673-investigate-text-search-e2e-failure
 notes: Replaces task-608-619 after investigation
 locks: []
 ---

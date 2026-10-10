@@ -6,7 +6,7 @@
 - **Duplication Avoidance**: Always normalize whitespace when checking if a session's text already exists in the `master.md` file before appending it. A previous bug blindly appended duplicates because it didn't check effectively.
 - **Log Purging Danger**: Broad string-matching for purge operations (e.g., searching for any line with "Artifact Anomaly") is destructive and inadvertently deletes architectural policies or core rules. Log purging must be extremely precise (e.g., exact line equality for "- Artifact Anomaly") to distinguish between a transient status log and a documented rule.
 - **Flattening Structures**: It's more efficient for context window sizes if all journals are maintained as top-level `.md` files instead of nested subdirectories containing `.md` files. This required merging existing `master.md` and scattered session files into single top-level files (e.g., `.jules/sentinel.md`) and removing the legacy directories.
-- **Automated Aggregation Execution**: Running `.github/scripts/aggregate-journals.ts` regularly keeps persona journal directories clean by consolidating individual session files into `master.md` logs, preventing file count sprawl while preserving historic learnings.
+- **Automated Aggregation Execution**: Running `packages/foundry/aggregate-journals.ts` regularly keeps persona journal directories clean by consolidating individual session files into `master.md` logs, preventing file count sprawl while preserving historic learnings.
 
 ---
 
@@ -15,7 +15,7 @@
 ---
 
 ## Actions Taken
-- Executed `node --experimental-strip-types .github/scripts/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
+- Executed `node --experimental-strip-types packages/foundry/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
 - Consolidated entries for `agile_coach`, `lens`, `tpm`, `bolt`, `canvas`, `mason`, `oak`, `palette`, and `sentinel`, safely unlinking transient session markdown files upon aggregation.
 - Verified knowledge hygiene across `.serena/memories/` (symlinked to `.foundry/docs/knowledge_base/`) and confirmed no transient logs or obsolete entries remained.
 - Validated workspace health via `pnpm lint` and `pnpm test`.
@@ -33,7 +33,7 @@
 ---
 
 ## Actions Taken
-- Executed `node --experimental-strip-types .github/scripts/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
+- Executed `node --experimental-strip-types packages/foundry/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
 - Curated and synthesized all `master.md` files across `.foundry/journals/` and `.jules/` to purge transient status logs (raw session IDs, task completion lists, empty PR submission logs) and deduplicate repeated entries.
 - Confirmed no legacy `.Jules/` (uppercase) directory or stale unlinked files exist.
 - Verified workspace health using `pnpm lint` and `pnpm test`.
@@ -52,7 +52,7 @@
 ---
 
 ## Actions Taken
-- Executed `node --experimental-strip-types .github/scripts/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
+- Executed `node --experimental-strip-types packages/foundry/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
 - Consolidated entries for `agile_coach`, `coder`, `lens`, `qa`, `researcher`, `canvas`, `nurse`, `oak`, `palette`, `sculptor`, `strategist`, and `trainer`, safely unlinking transient session files upon aggregation.
 - Cleaned up unparsed `$(date)` placeholders and redundant session headers in `.jules/trainer/master.md`.
 - Verified no legacy `.Jules/` (uppercase) directory exists and confirmed `.serena/memories/` symlink validity.
@@ -71,7 +71,7 @@
 ---
 
 ## Actions Taken
-- Ran `.github/scripts/aggregate-journals.ts` to consolidate scattered session files into `master.md` journals across `.foundry/journals/` and `.jules/`.
+- Ran `packages/foundry/aggregate-journals.ts` to consolidate scattered session files into `master.md` journals across `.foundry/journals/` and `.jules/`.
 - Curated master journals across all personas to purge transient status logs (raw session IDs, "Checked off...", "Submitted empty PR...") and deduplicate repeated entries.
 - Verified workspace health using `pnpm lint` and `pnpm test`.
 

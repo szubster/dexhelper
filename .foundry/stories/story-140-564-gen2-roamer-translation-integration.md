@@ -36,4 +36,7 @@ Verify the Gen 2 roamer map translation end-to-end within the roamer tracking da
 ## Acceptance Criteria
 - [ ] The tracking dashboard correctly displays translated route names for roamers.
 - [ ] E2E tests successfully verify the rendering of these locations.
-- [ ] Tech Lead: Break down into executable Tasks.
+- [x] Tech Lead: Break down into executable Tasks.
+- [ ] task-564-668-gen2-roamer-ui-impl
+- [ ] task-564-669-gen2-roamer-e2e-tests
+- [ ] task-564-670-gen2-roamer-qa
