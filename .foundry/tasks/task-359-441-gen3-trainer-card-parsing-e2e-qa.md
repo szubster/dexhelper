@@ -2,13 +2,13 @@
 id: task-359-441-gen3-trainer-card-parsing-e2e-qa
 type: TASK
 title: Gen 3 Trainer Card E2E QA
-status: ACTIVE
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-08-05'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - task-359-440-gen3-trainer-card-parsing-e2e-impl
-jules_session_id: '10515833394925455095'
+jules_session_id: null
 pr_number: null
 parent: story-400-359-gen3-trainer-card-parsing-e2e
 tags:
@@ -17,10 +17,12 @@ tags:
   - gen3
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-359-440-gen3-trainer-card-parsing-e2e-impl
 notes: ''
-confidence_score: 100
 locks: []
+confidence_score: 100
 ---
 
 # Task: Gen 3 Trainer Card E2E QA

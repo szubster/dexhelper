@@ -2,13 +2,13 @@
 id: task-517-530-binjgb-emulator-ui-impl
 type: TASK
 title: Implement binjgb Emulator UI Component
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-02'
-updated_at: '2026-10-09'
+updated_at: '2026-10-10'
 depends_on:
   - task-517-529-binjgb-react-context-impl
-jules_session_id: '14307564307520316173'
+jules_session_id: null
 pr_number: null
 parent: story-426-517-binjgb-wasm-wrapper
 tags:
@@ -18,7 +18,7 @@ tags:
   - gen2
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---

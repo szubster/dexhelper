@@ -2,10 +2,10 @@
 id: task-478-668-kurt-apricorn-core-logic
 type: TASK
 title: Kurt Apricorn Core Parsing Logic
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-09'
+updated_at: '2026-10-10'
 depends_on:
   - task-478-667-kurt-apricorn-types
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - gen2
   - items
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-478-667-kurt-apricorn-types
 notes: ''
 locks: []
 ---

@@ -2,18 +2,18 @@
 id: task-534-668-orchestrator-idea-reverification-impl
 type: TASK
 title: Orchestrator IDEA Re-Verification Stage Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-09'
+updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '5613425615761349334'
+jules_session_id: null
 parent: story-531-534-idea-reverification-stage
 tags:
   - orchestrator
   - curator
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---

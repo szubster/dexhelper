@@ -2,13 +2,13 @@
 id: story-346-561-spinda-pattern-rendering-component
 type: STORY
 title: Spinda Pattern Rendering Component
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-09'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - story-346-560-spinda-spot-coordinate-algorithm
-jules_session_id: '5948565749529724006'
+jules_session_id: null
 pr_number: null
 parent: epic-335-346-spinda-pattern-rendering-engine
 tags:
@@ -18,7 +18,7 @@ tags:
   - rendering
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---

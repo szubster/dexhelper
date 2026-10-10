@@ -2,10 +2,10 @@
 id: epic-519-525-extract-build-tooling
 type: EPIC
 title: Phase 2 - Extract Build Tooling & Data Pipelines
-status: FAILED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-03'
-updated_at: '2026-10-09'
+updated_at: '2026-10-10'
 depends_on:
   - epic-519-524-workspace-infrastructure
 jules_session_id: null
@@ -15,10 +15,8 @@ tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

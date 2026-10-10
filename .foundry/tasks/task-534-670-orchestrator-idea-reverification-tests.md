@@ -2,10 +2,10 @@
 id: task-534-670-orchestrator-idea-reverification-tests
 type: TASK
 title: Orchestrator IDEA Re-Verification Stage Tests
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - task-534-668-orchestrator-idea-reverification-impl
 jules_session_id: null
@@ -14,7 +14,9 @@ tags:
   - orchestrator
   - curator
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-534-668-orchestrator-idea-reverification-impl
 notes: ''
 locks: []
 ---

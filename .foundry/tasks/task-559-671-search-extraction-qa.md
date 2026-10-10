@@ -2,10 +2,10 @@
 id: task-559-671-search-extraction-qa
 type: TASK
 title: QA Search and Extraction Logic
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - task-559-670-search-extraction-impl
 jules_session_id: null

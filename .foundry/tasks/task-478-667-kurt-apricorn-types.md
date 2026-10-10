@@ -2,19 +2,19 @@
 id: task-478-667-kurt-apricorn-types
 type: TASK
 title: Kurt Apricorn Parsing Types
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-09'
+updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '5329066003083063763'
+jules_session_id: null
 pr_number: null
 parent: story-404-478-kurt-apricorn-parsing-logic
 tags:
   - gen2
   - types
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---

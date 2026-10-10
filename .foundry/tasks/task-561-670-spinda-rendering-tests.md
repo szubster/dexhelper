@@ -2,10 +2,10 @@
 id: task-561-670-spinda-rendering-tests
 type: TASK
 title: Spinda Component Unit Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - task-561-669-spinda-rendering-ui
 jules_session_id: null

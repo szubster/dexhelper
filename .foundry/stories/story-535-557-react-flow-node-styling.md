@@ -2,13 +2,13 @@
 id: story-535-557-react-flow-node-styling
 type: STORY
 title: Dynamic Heatmap Node Styling
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - story-535-556-heatmap-toggle-ui
-jules_session_id: '17971092810634446945'
+jules_session_id: null
 parent: epic-518-535-heatmap-ui-components
 tags:
   - foundry
@@ -16,7 +16,7 @@ tags:
   - UI
   - tooling
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---

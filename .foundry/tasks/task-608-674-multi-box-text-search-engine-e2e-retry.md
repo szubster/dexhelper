@@ -2,10 +2,10 @@
 id: task-608-674-multi-box-text-search-engine-e2e-retry
 type: TASK
 title: Multi-Box Text Search Engine E2E (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-08'
-updated_at: '2026-10-08'
+updated_at: '2026-10-10'
 depends_on:
   - task-608-617-multi-box-text-search-engine-impl
   - research-608-673-investigate-text-search-e2e-failure
@@ -20,7 +20,7 @@ tags:
   - e2e
 rejection_count: 0
 rejection_reason: ''
-notes: 'Replaces task-608-619 after investigation'
+notes: Replaces task-608-619 after investigation
 locks: []
 ---
 
