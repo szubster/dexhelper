@@ -34,4 +34,8 @@ This story focuses on the visual representation of the Gen 3 E-Reader and Myster
 - Provide visual feedback for whether an event was successfully verified in the save file.
 
 ## Acceptance Criteria
-- [ ] Create TASK nodes for the dashboard UI implementation and corresponding unit tests.
+- [x] Create TASK nodes for the dashboard UI implementation and corresponding unit tests.
+- [ ] task-498-676-gen3-e-reader-ui-presentation
+- [ ] task-498-677-gen3-e-reader-ui-integration
+- [ ] task-498-678-gen3-e-reader-ui-tests
+- [ ] task-498-679-gen3-e-reader-ui-qa
