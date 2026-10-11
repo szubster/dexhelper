@@ -2,12 +2,12 @@
 id: research-537-659-investigate-runtime-api-failure
 type: RESEARCH
 title: Investigate Runtime API Failure for Gen 3 Berry Data
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-05'
-updated_at: '2026-10-05'
+updated_at: '2026-10-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2680694762582556633'
 pr_number: null
 parent: story-513-537-gen3-berry-serialization-and-api
 rejection_count: 0

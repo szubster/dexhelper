@@ -1990,7 +1990,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       pcDetails,
       gameVersion: _forcedVersion || 'ruby',
       badges: narrative.badges,
-      trainerName: decodeGen3String(view, section2Offset + 0x00, 7),
+      trainerName: decodeGen3String(view, section0Offset + 0x00, 7),
       trainerId,
       secretId,
       currentMapId: 0,
