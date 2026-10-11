@@ -88,3 +88,22 @@ It tightens type safety for data loaded from IndexedDB, a common source of impli
 **Outcome:** Updated `extractBugCatchingContestData` parameter type from `ArrayBuffer` to `DataView | ArrayBuffer`, and refactored `parseGen2` to evaluate the extractor once.
 **Why:** `DataView.prototype.buffer` is typed as `ArrayBufferLike` (`ArrayBuffer | SharedArrayBuffer`), forcing callers like `parseGen2` to use `as ArrayBuffer` casts. Furthermore, `parseGen2` evaluated `extractBugCatchingContestData` twice in a conditional spread object, requiring an unsafe `as BugCatchingContestData` cast.
 **Learn:** When an extraction utility takes binary save data, typing its parameter as `DataView | ArrayBuffer` allows direct passage of `DataView` instances without casting `view.buffer`. Evaluating the optional result once into a local variable (`const contestData = extract(...)`) allows TypeScript's conditional object spread (`...(contestData ? { contestData } : {})`) to naturally narrow `contestData` to its truthy type without `as` assertions.
+
+---
+
+# Nurse Joy Journal Entry
+
+- **Issue:** Unsafe `color as PokeblockColor` type assertion in `src/engine/saveParser/gen3/pokeblock/parser.ts`.
+- **Solution:** Created an explicit `isPokeblockColor(color: number): color is PokeblockColor` type guard in `src/engine/saveParser/gen3/pokeblock/types.ts` that checks if `color` is an integer in the range `1..14` (Red to Gold), filtering out `0` (None) and out-of-range values. Replaced the `as PokeblockColor` cast in `parseGen3Pokeblocks` with the type guard.
+- **Learn:** Raw byte data read from binary structures like `DataView.getUint8()` should be narrowed using integer-range type guards (`Number.isInteger(val) && val >= Min && val <= Max`) instead of `as Enum` casts to ensure compile-time and runtime safety against corrupted or unexpected save data.
+
+---
+
+# Nurse Joy Journal Entry
+
+- **Issue:** Unnecessary `as` type assertions when indexing arrays/objects under TypeScript strict mode (`noUncheckedIndexedAccess: true`), specifically `NATURES[index] as Nature` in `nature.ts`, `TYPES[typeIndex] as string` in `parsers/gen3.ts`, and `(gen2MapLocations as Record<...>)` in `translator.ts`.
+- **Solution:**
+  1. Replaced `NATURES[index] as Nature` with `NATURES[index] ?? 'hardy'`, safely eliminating the assertion while preserving runtime behavior.
+  2. Marked `TYPES` as `as const` and replaced `TYPES[typeIndex] as string` with `TYPES[typeIndex] ?? 'Dark'`, tightening the return type to the string literal union of move types.
+  3. Replaced inline `as Record<...>` cast with a typed constant declaration `const locations: Record<string, Record<string, string>> = gen2MapLocations;`.
+- **Learn:** When strict `noUncheckedIndexedAccess` is enabled, array and object indexing evaluates to `T | undefined`. Rather than bypassing compiler checks with `as T` or `as string` assertions, use nullish coalescing (`array[index] ?? fallback`) or typed module bindings (`const obj: Record<...> = importedJson`) to achieve safe narrowing without casting.

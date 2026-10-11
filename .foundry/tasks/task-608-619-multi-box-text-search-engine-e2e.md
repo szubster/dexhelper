@@ -5,7 +5,7 @@ title: Multi-Box Text Search Engine E2E
 status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-10-06'
+updated_at: '2026-10-10'
 depends_on:
   - task-608-617-multi-box-text-search-engine-impl
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - pc-box
   - e2e
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
