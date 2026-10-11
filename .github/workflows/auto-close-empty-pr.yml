@@ -25,7 +25,7 @@ jobs:
             MERGE=true
           else
             echo "Non-empty PR. Analyzing diff for checkbox-only or journal changes..."
-            if gh pr diff "$PR_NUMBER" --repo "${{ github.repository }}" | node .github/scripts/analyze-diff.js; then
+            if gh pr diff "$PR_NUMBER" --repo "${{ github.repository }}" | node packages/foundry/analyze-diff.js; then
               echo "Checkbox-only or journal changes detected."
               MERGE=true
             else
@@ -34,6 +34,9 @@ jobs:
           fi
 
           if [ "$MERGE" = "true" ]; then
+            echo "PR eligible for auto-merge. Waiting for all other checks/actions to complete successfully..."
+            COMMIT_SHA="${{ github.event.pull_request.head.sha }}" CURRENT_RUN_ID="${{ github.run_id }}" GITHUB_REPOSITORY="${{ github.repository }}" node .github/scripts/wait-for-checks.js
+
             gh pr comment "$PR_NUMBER" --body "Automatically merged PR (empty, checkbox-only, or journal updates) to progress DAG." --repo "${{ github.repository }}"
             gh pr merge "$PR_NUMBER" --squash --admin --repo "${{ github.repository }}"
           fi
