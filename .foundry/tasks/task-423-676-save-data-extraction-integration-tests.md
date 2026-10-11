@@ -19,8 +19,9 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 # Write Integration Tests for Save Data Extraction
 
 ## Acceptance Criteria
-- [ ] Write integration tests for save data extraction.
+- [x] Write integration tests for save data extraction.
