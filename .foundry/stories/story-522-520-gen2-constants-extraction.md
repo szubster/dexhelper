@@ -2,10 +2,10 @@
 id: story-522-520-gen2-constants-extraction
 type: STORY
 title: Extract Gen 2 Parser Constants
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-04'
+updated_at: '2026-10-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -26,6 +26,6 @@ Per ADR 028, inline magic numbers for memory offsets, lengths, and bit locations
 
 ## Acceptance Criteria
 - [x] Decompose this Story into actionable Tasks to extract inline constants into a reusable module-level file.
-- [ ] task-520-549-define-gen2-constants-impl
-- [ ] task-520-550-refactor-gen2-parser-impl
-- [ ] task-520-551-gen2-constants-qa
+- [x] task-520-549-define-gen2-constants-impl
+- [x] task-520-550-refactor-gen2-parser-impl
+- [x] task-520-551-gen2-constants-qa

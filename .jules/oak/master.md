@@ -76,3 +76,12 @@ Fixed missing FireRed exclusives (LeafGreen exclusives) list.
   - Audited Gen 2 version exclusive listings in `src/engine/exclusives/gen2Exclusives.ts` against committed PokeAPI encounter data in `data/db/encounters.jsonl`.
   - Confirmed that Gold exclusives (missing in Silver: Delibird, Skarmory, Phanpy, Donphan), Silver exclusives (missing in Gold: Gligar, Teddiursa, Ursaring, Mantine), and Crystal exclusives (missing in Crystal: Mareep, Flaaffy, Ampharos, Girafarig, Remoraid, Octillery, Mankey, Primeape, Vulpix, Ninetales) perfectly match the wild encounter distributions in `data/db/encounters.jsonl`.
   - Added unit test assertions in `src/engine/exclusives/__tests__/gen2Exclusives.test.ts` to ensure these version exclusive unobtainable locks remain enforced.
+
+---
+
+# Data Integrity Audit - Professor Oak
+
+## Learnings
+* Cross-referenced Pokémon data across Gen 1, Gen 2, and Gen 3 version exclusive lists (`src/engine/exclusives/`), encounter mappings (`data/db/encounters.jsonl`), and data generation script schemas (`scripts/generate-pokedata.ts`).
+* All version exclusive mappings and wild encounter mappings across Gens 1, 2, and 3 match PokeAPI canonical definitions and decompiled ROM entries.
+* Confirmed that no data integrity discrepancies exist in this audit run.

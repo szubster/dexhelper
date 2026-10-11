@@ -290,3 +290,61 @@ Analyzed session 2897712216952814014 and discovered a QA agent asking the user w
 ### 3. Proactive Node Generation: idea-533
 - Analyzed QA rejections in `.foundry/journals/qa/master.md` regarding unextracted magic constants in save parser implementations (`src/engine/saveParser/`).
 - Created `idea-533-save-parser-constant-extraction-linter` assigned to `product_manager` to propose an automated linter check, shifting left adherence to Section 13 and ADR 028 before QA dispatch.
+
+---
+
+# Agile Coach Journal Entry - 2026-10-03
+
+## Session Analysis & Systemic Process Improvements
+
+### 1. QA Journal Friction Analysis (Tactical Primitives Compliance)
+- **Observation**: Analyzed QA session logs (`.foundry/journals/qa/2026-10-02T01-18-34-640Z.md`) where QA rejected `task-521-618-box-analyzer-matrix-component` due to the component using raw inline Tailwind utility classes (`rounded-none`, `border-dashed`, `font-mono`) instead of the defined `@utility` primitives in `src/index.css` (e.g., `tactical-panel`, `tactical-text`).
+- **Impact**: Repeating raw inline styling classes leads to fragmented design consistency, breaks component-level design system updates, and causes transient rejection loops in QA.
+
+### 2. Core Policy Enhancement
+- **Action**: Updated `.foundry/docs/knowledge_base/agents/core_policies.md` under `UI Aesthetic Constraints (ADR 008)` to explicitly mandate that UI implementation tasks must favor defined `@utility` tactical primitives (`tactical-panel`, `tactical-text`, `tactical-button`, etc.) from `src/index.css` over duplicated raw inline Tailwind classes.
+
+### 3. Proactive Node Spawning (idea-534)
+- **Action**: Autonomously created `.foundry/ideas/idea-534-tactical-utility-usage-linter.md` assigned to `product_manager`. The node proposes an automated Biome/ESLint or style linter check to catch raw inline Tailwind aesthetic classes where `@utility` tactical primitives exist, shifting left compliance checks before QA dispatch.
+
+---
+
+# Agile Coach Journal Entry - 2026-10-04
+
+## Proactive System Analysis & Process Improvements
+
+### 1. Analysis of Recent Persona Journals & Session Transcripts
+- **False Permanent Failures (`NOT_FOUND` Session Crashes)**:
+  - Investigated Researcher journal entries (`2026-10-03T13-06-10-576Z.md`) and git history regarding tasks reaching max rejection threshold.
+  - Discovered that tasks are frequently auto-cancelled due to system-level `NOT_FOUND` session crashes rather than actual QA/Auditor domain rejections.
+  - **Action Taken**: Autonomously created new IDEA node `.foundry/ideas/idea-535-false-permanent-failure-detection.md` assigned to `product_manager` to introduce orchestrator handling that separates infrastructure session crashes from domain rejections.
+
+- **Playwright / Try-Catch ESLint Rules (`no-unused-vars`)**:
+  - Reviewed Coder journal entries (`2026-10-03-03-00-09.md`) regarding `no-unused-vars` lint errors when catching errors in try-catch blocks during Playwright / IndexedDB tests.
+  - Noted the best practice: completely omit the catch binding parameter (`try { ... } catch { ... }`) rather than using underscore variables (`catch (_e)`).
+
+- **DRY Persona Prompt Audit**:
+  - Audited `.github/agents/*.md` and verified clean separation of concerns. Universal policies are properly imported dynamically from `.foundry/docs/knowledge_base/agents/core_policies.md` without prompt bloat or redundancy.
+
+### 2. Workspace & Verification Status
+- Executed full lint and test suites (`pnpm lint && pnpm test`). All 359 test files and 2,369 tests passed cleanly with 0 lint errors.
+
+---
+
+# Agile Coach Journal Entry - 2026-10-05
+
+## Meta-Agent Daily Cycle Analysis & Organizational Alignment
+
+### 1. Journal & Rejection Scan
+- Reviewed past journals in `.foundry/journals/agile_coach/master.md` and `.foundry/journals/agile_coach/2026-10-04-05-32-46.md`.
+- Analyzed cross-persona journals (`coder`, `qa`, `researcher`, `tech_lead`) to assess system alignment and operational friction.
+- Verified that universal policies defined in `.foundry/docs/knowledge_base/agents/core_policies.md` continue to be properly auto-appended to persona prompts during dispatch.
+
+### 2. Analysis & Systemic Insights
+- **False Permanent Failure Distinction (`idea-535`)**: Evaluated findings from recent researcher journals (`2026-10-03T13-06-10-576Z.md`) regarding tasks auto-cancelling due to system-level `NOT_FOUND` session crashes rather than QA rejections. Confirmed `idea-535-false-permanent-failure-detection` is ACTIVE in `.foundry/ideas/` for `product_manager` prioritization.
+- **Tactical Primitives Compliance (`idea-534`)**: Verified that `.foundry/ideas/idea-534-tactical-utility-usage-linter.md` captures QA friction around raw Tailwind classes vs `@utility` tactical primitives in `src/index.css`.
+- **DRY Persona Architecture**: Audited persona prompt definitions in `.github/agents/` and confirmed prompt compilation layering remains clean and lean without instruction duplication.
+
+### 3. Recommendations & Next Steps
+- Continue tracking `idea-535` and `idea-534` through the PM pipeline.
+- Maintain workspace health and policy enforcement across all active nodes.

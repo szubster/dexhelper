@@ -1,5 +1,5 @@
 import { Target } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import type { PokeballType } from '../../../store';
 import { cn } from '../../../utils/cn';
 import { PanelWatermark } from '../../PanelWatermark';
@@ -23,7 +23,11 @@ type StatusType = (typeof STATUS_OPTIONS)[number]['id'];
 // ⚡ Bolt: Hoisted static HP segments array to avoid array allocations on every component render
 const HP_SEGMENTS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-export function PokemonCatchProbability({ catchRate, effectivePokeball }: PokemonCatchProbabilityProps) {
+// ⚡ Bolt: Wrapped PokemonCatchProbability in React.memo to prevent unnecessary re-renders when parent states change without catch parameters updating.
+export const PokemonCatchProbability = React.memo(function PokemonCatchProbability({
+  catchRate,
+  effectivePokeball,
+}: PokemonCatchProbabilityProps) {
   const [hpPercent, setHpPercent] = useState<number>(100);
   const [status, setStatus] = useState<StatusType>('none');
   const [isCalculating, setIsCalculating] = useState(false);
@@ -202,4 +206,4 @@ export function PokemonCatchProbability({ catchRate, effectivePokeball }: Pokemo
       </div>
     </TacticalPanel>
   );
-}
+});
