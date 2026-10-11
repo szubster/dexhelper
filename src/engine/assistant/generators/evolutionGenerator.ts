@@ -98,7 +98,7 @@ export async function generateEvolutionSuggestions(
     if (!details || details.length === 0) continue;
 
     for (const detail of details) {
-      const tr = detail.tr;
+      const tr = detail.tr ?? (detail.ml || detail.mh || detail.time ? EVO_TRIGGER.LEVEL_UP : undefined);
       const min_l = detail.ml;
       const min_h = detail.mh;
       const item = detail.item;
@@ -138,6 +138,66 @@ export async function generateEvolutionSuggestions(
       const preEvoLabel = bestInstance.storageLocation?.toLowerCase().includes('daycare')
         ? 'pre-evolution (in Daycare)'
         : 'pre-evolution';
+
+      // Feebas -> Milotic special case (Gen 3 Beauty condition)
+      if (closestOwnedParentId === 349 && targetId === 350 && saveData.generation === 3) {
+        suggestions.push({
+          id: `evo-beauty-${targetId}`,
+          category: 'Evolve',
+          title: isIntermediate ? pathTitlePrefix : `Beauty Evolution: #${targetId}`,
+          description: `Feed your ${preEvoLabel} Dry Pokéblocks (made from Chesto, Wiki, or Pamtre Berries) to maximize its Beauty stat, then level it up!`,
+          pokemonId: targetId,
+          priority: 80,
+        });
+        break;
+      }
+
+      // Wurmple (#265) evolution prediction in Gen 3 using Personality Value (personalityValue)
+      // If (personalityValue >> 16) % 10 < 5 -> Silcoon (#266) -> Beautifly (#267)
+      // If >= 5 -> Cascoon (#268) -> Dustox (#269)
+      if (closestOwnedParentId === 265 && saveData.generation === 3) {
+        const pv = bestInstance.personalityValue;
+        if (pv !== undefined) {
+          const val = (pv >>> 16) % 10;
+          const predictedBranch = val < 5 ? 'Silcoon (#266) / Beautifly (#267)' : 'Cascoon (#268) / Dustox (#269)';
+          const targetInBranch = val < 5 ? targetId === 266 || targetId === 267 : targetId === 268 || targetId === 269;
+
+          const targetWurmple = targetInBranch
+            ? bestInstance
+            : ownedInstances.find((inst) => {
+                if (inst.personalityValue === undefined) return false;
+                const pVal = (inst.personalityValue >>> 16) % 10;
+                return val < 5 ? pVal >= 5 : pVal < 5;
+              });
+
+          if (!targetWurmple) {
+            suggestions.push({
+              id: `evo-wurmple-branch-${targetId}`,
+              category: 'Evolve',
+              title: isIntermediate ? pathTitlePrefix : `Personality Branch: #${targetId}`,
+              description: `Your owned Wurmple (#265) has a personality value predicted to evolve into ${predictedBranch}. Catch another Wurmple to get #${targetId}!`,
+              pokemonId: targetId,
+              priority: 60,
+            });
+            break;
+          }
+
+          const targetBranchName =
+            targetId === 266 || targetId === 267
+              ? 'Silcoon (#266) / Beautifly (#267)'
+              : 'Cascoon (#268) / Dustox (#269)';
+
+          suggestions.push({
+            id: `evo-wurmple-match-${targetId}`,
+            category: 'Evolve',
+            title: isIntermediate ? pathTitlePrefix : `Predicted Evolution: #${targetId}`,
+            description: `Your owned Wurmple (#265) is predicted to evolve into ${targetBranchName}! Level it up to Lv. 7 to evolve${evolveTargetText}.`,
+            pokemonId: targetId,
+            priority: targetWurmple.level >= 7 ? 90 : 80,
+          });
+          break;
+        }
+      }
 
       if (tr === EVO_TRIGGER.LEVEL_UP) {
         if (min_l) {

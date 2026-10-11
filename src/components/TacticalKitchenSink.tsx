@@ -1,5 +1,6 @@
 import type React from 'react';
 import { useState } from 'react';
+import { SubDataPoint } from './SubDataPoint';
 import { TacticalBadge } from './TacticalBadge';
 import { TacticalButton } from './TacticalButton';
 import { TacticalCard } from './TacticalCard';
@@ -127,6 +128,14 @@ export const TacticalKitchenSink: React.FC = () => {
           </div>
         </TacticalPanel>
       </TacticalModal>
+
+      {/* SubDataPoint Showcase */}
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4" id="subdatapoint-showcase">
+        <SubDataPoint label="OT_ID" value="ASH / 12345" />
+        <SubDataPoint label="HELD_ITEM" value="SOOTHE BELL" />
+        <SubDataPoint label="SYNC_RATE" value="255 PT" />
+        <SubDataPoint label="STATUS" value="ACTIVE_LINK" />
+      </div>
     </div>
   );
 };

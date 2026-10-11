@@ -41,4 +41,22 @@ describe('SubDataPoint', () => {
     await expect.element(customLabel).toBeInTheDocument();
     await expect.element(customValue).toBeInTheDocument();
   });
+
+  it('renders hardware accents, dashed borders, and status LED indicator', async () => {
+    expect.hasAssertions();
+    const { container } = await render(<SubDataPoint label="HELD_ITEM" value="SOOTHE BELL" />);
+
+    // Container has border-dashed and hardware group classes
+    const card = container.firstElementChild as HTMLElement;
+    expect(card.className).toContain('border-dashed');
+    expect(card.className).toContain('group');
+
+    // Hardware corner ticks (4 elements)
+    const ticks = container.querySelectorAll('.border-zinc-700\\/80');
+    expect(ticks.length).toBeGreaterThanOrEqual(4);
+
+    // Status LED indicator dot
+    const statusLed = container.querySelector('.rounded-full.bg-zinc-700\\/80');
+    expect(statusLed).toBeInTheDocument();
+  });
 });

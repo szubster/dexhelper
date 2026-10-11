@@ -250,3 +250,6 @@ export const GEN2_ENTEI_SPECIES_ID = 244;
 export const GEN2_SUICUNE_SPECIES_ID = 245;
 export const GEN2_MONEY_BYTE_SHIFT_16 = 16;
 export const GEN2_MONEY_BYTE_SHIFT_8 = 8;
+export const GEN2_HOF_POKEMON_NICKNAME_LENGTH = 10;
+export const DECIMAL_RADIX = 10;
+export const MOM_SAVING_MONEY_ACTIVE_BIT = 7;

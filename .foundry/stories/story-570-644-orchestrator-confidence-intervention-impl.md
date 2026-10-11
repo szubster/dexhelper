@@ -2,10 +2,10 @@
 id: story-570-644-orchestrator-confidence-intervention-impl
 type: STORY
 title: Implement Orchestrator Interventions for Confidence Metrics
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-01T15:03:21Z'
-updated_at: '2026-10-05'
+updated_at: '2026-10-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,5 +34,5 @@ Based on PRD-521 and EPIC 570, the orchestrator needs to react to nodes reportin
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-644-649-orchestrator-confidence-intervention-impl
-- [ ] task-644-650-orchestrator-confidence-intervention-qa
+- [x] task-644-649-orchestrator-confidence-intervention-impl
+- [x] task-644-650-orchestrator-confidence-intervention-qa

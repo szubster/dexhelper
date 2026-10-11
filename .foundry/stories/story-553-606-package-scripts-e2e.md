@@ -2,10 +2,10 @@
 id: story-553-606-package-scripts-e2e
 type: STORY
 title: 'E2E Verification of lint:foundry package script'
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-22T02:56:19.837Z'
-updated_at: '2026-09-22'
+updated_at: '2026-10-08'
 depends_on:
   - story-553-605-package-scripts
 jules_session_id: null

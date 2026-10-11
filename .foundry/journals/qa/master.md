@@ -505,7 +505,6 @@ task-342-370-feebas-coordinates-qa
 ---
 
 ## Action
-Checked off acceptance criteria and preparing empty PR.
 
 ---
 
@@ -622,7 +621,6 @@ Rejected task `task-295-338-gen3-static-encounters-ui-impl` because the implemen
 
 # QA Session: 14863696901989894627
 
-Target task `task-286-314-filter-swarm-item-calls-impl` has been cancelled due to max rejections. Following ADR 007 and ADR 009, I am checking off the acceptance criteria checkboxes in QA task `task-286-315-filter-swarm-item-calls-qa` and submitting an Empty PR to allow the node to gracefully exit the DAG.
 
 ---
 
@@ -665,7 +663,6 @@ Verified task-362-407-gen3-trade-extraction-impl. Extracted `npcTradeFlags` succ
 - **Specific Instance:** In `task-404-408-gen3-secret-base-parser-impl`, the implementation hardcoded `0` to check for empty secret bases (`if (secretBaseId === 0)`) and in the bitwise flag check (`(flags & BATTLED_OWNER_TODAY_MASK) !== 0`), instead of defining and using module-level constants for these values.
 - **Action Required:** Ensure coders are explicitly reminded of Section 13 constraints, particularly regarding implicit/magic numbers like `0` in conditional statements.
 
-Session 16585296348294548606: Verified task-401-410-gen2-dv-extraction-qa. Submitted empty PR satisfying ADR 007 checkboxes. If Vitest or a similar test command fails with a 'JavaScript heap out of memory' error, increase the Node.js memory allocation by prepending NODE_OPTIONS="--max-old-space-size=4096" to your test command.
 
 ---
 
@@ -951,7 +948,6 @@ The implementation of the egg move missing link calculation in `src/engine/assis
 Tests cover the scenarios for `absent` and `missing_male` missing links in breeding chains correctly.
 No regressions were detected during testing (`pnpm test`, `pnpm test:e2e`).
 
-Checked off acceptance criteria in the task markdown file.
 
 ---
 
@@ -1227,3 +1223,59 @@ During QA verification of `task-521-618-box-analyzer-matrix-component`, I observ
 
 ## Action Taken
 The target implementation task `task-521-618-box-analyzer-matrix-component` has been marked as `FAILED` to trigger a transient rejection and allow the coder to update the component to use the proper `tactical-*` utilities in a subsequent session. The acceptance criteria for both the coder's task and this QA task remain unchecked. The QA task was appended with a QA rejection note detailing the reason.
+
+---
+
+# QA Verification: Gen 2 Shiny Breeding E2E Tests
+
+Successfully verified the Playwright E2E tests for the Gen 2 Shiny Breeding engine. The tests adequately cover the DV overlap constraint UI workflows and shiny odds computation rendering.
+
+- Tests located in `tests/e2e/dashboard/breeding/` and `tests/e2e/gen2_breeding.spec.ts` were executed locally and passed successfully.
+- Validated correct rendering of shiny odds.
+- Validated correct rendering of DV overlap constraint state (`NO SHINY CARRIER BREEDING PAIRS AVAILABLE`).
+
+---
+
+# QA Journal Entry - Telemetry Metrics Implementation
+
+## Context
+Task: `task-560-569-qa-telemetry-metrics`
+Objective: Verify the implementation of telemetry tracking for cycle detection failures in the Foundry Orchestrator.
+
+## Observations
+- `trackCycleDetectionFailure` is correctly implemented in `.github/scripts/dag-utils.ts` and logs to `.foundry/telemetry/cycle-detection.log` using a non-blocking `fs.promises.appendFile` with `.catch` to prevent blocking the orchestrator on filesystem failures.
+- Phase 3.9 in `.github/scripts/foundry-orchestrator.ts` correctly calls `trackCycleDetectionFailure(cyclePath)` when a cycle is detected.
+- Phase 3.10 in `.github/scripts/foundry-orchestrator.ts` correctly calls `trackCycleDetectionFailure([node.repoPath, child.repoPath])` when a hierarchical deadlock is detected.
+- Telemetry logs correctly output timestamped JSON entries with the detected cycle nodes, and graceful failure behavior is verified via tests.
+- All tests pass successfully (both for dag-utils and foundry-orchestrator).
+
+## Conclusion
+The telemetry metrics implementation for cycle detection is fully complete and functional.
+
+---
+
+# QA Journal: SaveDataReader RangeError Verification Boundary
+
+## Pattern Learned
+When verifying error handling boundaries in low-level ArrayBuffer reading utilities (such as `SaveDataReader`), it is crucial to test not only that out-of-bounds `RangeError` exceptions are caught and sanitized, but also that unexpected internal errors (like `TypeError` thrown by faulty mocks or future structural changes) are explicitly passed through unmodified.
+
+Failing to verify passthrough behavior can mask critical internal corruption bugs by inadvertently sanitizing all thrown exceptions into generic boundary warnings.
+
+---
+
+# QA Journal Entry - Session 2026-10-07-08-18-13
+
+---
+
+## Target Task
+`task-359-440-gen3-trainer-card-parsing-e2e-impl`
+
+---
+
+## Details
+During QA verification of `task-359-440-gen3-trainer-card-parsing-e2e-impl`, I observed that the implementation in `tests/e2e/dashboard/trainer-card/gen3_trainer_card_ui.spec.ts` and `src/components/dashboard/trainer-card/Gen3TrainerCardDashboard.tsx` does not test or implement parsing and rendering for `playtime`, `link battles`, or `trades`. These are explicitly required by the acceptance criteria.
+
+---
+
+## Action Taken
+The target implementation task `task-359-440-gen3-trainer-card-parsing-e2e-impl` has been marked as `FAILED` to trigger a transient rejection and allow the coder to update the E2E tests and UI component to cover the missing criteria in a subsequent session. The acceptance criteria for both the coder's task and this QA task remain unchecked.
