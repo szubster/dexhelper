@@ -29,5 +29,9 @@ locks: []
 Following the core refactoring, this story addresses the refactoring of Gen 3 submodule save parsers (e.g., Feebas, Nature, Static Encounters) to comply with ADR 028. All inline magic numbers for memory offsets, lengths, bit locations, and shifts must be replaced with explicitly defined module-level constants. Relative offsets must be used instead of hardcoded absolute offsets.
 
 ## Acceptance Criteria
-- [ ] Decompose this Story into actionable Task nodes for the Gen 3 submodule parser refactoring.
-- [ ] Ensure Tasks address defining module-level constants and implementing relative offsets for all relevant submodules.
+- [x] Decompose this Story into actionable Task nodes for the Gen 3 submodule parser refactoring.
+- [x] Ensure Tasks address defining module-level constants and implementing relative offsets for all relevant submodules.
+- [ ] task-521-676-gen3-submodules-constants-impl
+- [ ] task-521-677-gen3-submodules-logic-impl
+- [ ] task-521-678-gen3-submodules-tests-impl
+- [ ] task-521-679-gen3-submodules-qa
