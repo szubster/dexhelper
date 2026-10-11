@@ -17,10 +17,12 @@ export function PokerusSpreadPlanner({ initialParty, className }: PokerusSpreadP
         Pokérus Spread Planner
       </h2>
 
-      <div className="mb-4 flex items-center justify-between border border-yellow-500/50 border-dashed bg-yellow-500/10 px-2 py-1 text-xs text-yellow-400">
-        <span>[WARNING]</span>
-        <span>Clock approaching midnight. Curing possible.</span>
-      </div>
+      {party.some((p) => p?.pokerus && p.pokerus.daysRemaining > 0) && (
+        <div className="mb-4 flex items-center justify-between border border-yellow-500/50 border-dashed bg-yellow-500/10 px-2 py-1 text-xs text-yellow-400">
+          <span>[WARNING]</span>
+          <span>Clock approaching midnight. Curing possible.</span>
+        </div>
+      )}
 
       <div className="flex flex-col gap-2">
         {party.map((pokemon, index) => {
