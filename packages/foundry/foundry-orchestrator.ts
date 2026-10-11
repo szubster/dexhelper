@@ -1409,7 +1409,7 @@ function main(): void {
       if (hasUncheckedTasks) {
         info(`Idempotent check: Artifacts for ${node.repoPath} exist. Auto-checking non-node tasks...`);
         const updatedBody = node.body.replace(/(## Acceptance Criteria\s*[\s\S]*?)(?:\n## |$)/, (match) => {
-          return match.replace(/^(\s*-\s*\[)\s(\]\s(?:(?!(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+).)*)$/gm, '$1x$2');
+          return match.replace(/^(\s*-\s*\[)\s(\]\s+(?!(?:(?:\[[^\]]*\]\([^)]*\))|(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+)\s*$).*)$/gm, '$1x$2');
         });
 
         if (updatedBody !== node.body) {
