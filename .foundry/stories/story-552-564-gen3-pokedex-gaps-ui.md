@@ -5,7 +5,7 @@ title: Gen 3 Pokédex Gaps UI
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-16'
+updated_at: '2026-10-11'
 depends_on: []
 jules_session_id: null
 pr_number: null

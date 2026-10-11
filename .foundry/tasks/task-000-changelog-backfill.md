@@ -5,9 +5,9 @@ title: Changelog Backfill Commit Evaluation
 status: ACTIVE
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-10-09'
+updated_at: '2026-10-11'
 depends_on: []
-jules_session_id: '14516333285370710377'
+jules_session_id: '993759681923428149'
 locks: []
 pr_number: null
 parent: null
@@ -27,46 +27,47 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `2081976b4cb5899ba500f70f7fd6dfc6402a1e2f`
-- **Previous Commit SHA:** `2a7bab11cad0f8df11b84625d2327aaee6d8c57c`
+- **Commit SHA:** `5dfb95e04548639734fdc9b9e48a683a48b422a9`
+- **Previous Commit SHA:** `9fca8ef72fccabc6a4dfb44e2a92f16402b2809a`
 - **Commit Date:** `2026-04-03`
-- **Classification Reason:** Ad-hoc Foundry system code modification
-- **Recommended Domain:** foundry
-- **Suggested SemVer Bump:** `patch` (from `0.1.2` -> `0.1.3`)
+- **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
+- **Recommended Domain:** dexhelper
+- **Suggested SemVer Bump:** `patch` (from `0.23.1` -> `0.23.2`)
 
 ## Commit Message
 ```text
-build(deps): Bump actions/checkout from 4 to 6
-
-Bumps [actions/checkout](https://github.com/actions/checkout) from 4 to 6.
-- [Release notes](https://github.com/actions/checkout/releases)
-- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
-- [Commits](https://github.com/actions/checkout/compare/v4...v6)
-
----
-updated-dependencies:
-- dependency-name: actions/checkout
-  dependency-version: '6'
-  dependency-type: direct:production
-  update-type: version-update:semver-major
-...
-
-Signed-off-by: dependabot[bot] <support@github.com>
+refactor: decompose PokemonDetails and AssistantPanel into sub-components
 ```
 
 ## Modified Files
-- `.github/workflows/playwright.yml`
+- `src/components/AssistantPanel.tsx`
+- `src/components/PokemonDetails.tsx`
+- `src/components/assistant/AssistantDebugView.tsx`
+- `src/components/assistant/AssistantSuggestionCard.tsx`
+- `src/components/pokemon/details/PokemonCatchProbability.tsx`
+- `src/components/pokemon/details/PokemonCaughtDetails.tsx`
+- `src/components/pokemon/details/PokemonEvolutions.tsx`
+- `src/components/pokemon/details/PokemonLocations.tsx`
+- `src/components/pokemon/details/PokemonStats.tsx`
 
 ## Diff Summary
 ```text
-2081976b4 build(deps): Bump actions/checkout from 4 to 6
- .github/workflows/playwright.yml | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+5dfb95e04 refactor: decompose PokemonDetails and AssistantPanel into sub-components
+ src/components/AssistantPanel.tsx                  | 232 +----------
+ src/components/PokemonDetails.tsx                  | 451 ++-------------------
+ src/components/assistant/AssistantDebugView.tsx    |  52 +++
+ .../assistant/AssistantSuggestionCard.tsx          | 207 ++++++++++
+ .../pokemon/details/PokemonCatchProbability.tsx    | 113 ++++++
+ .../pokemon/details/PokemonCaughtDetails.tsx       | 112 +++++
+ .../pokemon/details/PokemonEvolutions.tsx          | 134 ++++++
+ .../pokemon/details/PokemonLocations.tsx           | 116 ++++++
+ src/components/pokemon/details/PokemonStats.tsx    |  62 +++
+ 9 files changed, 837 insertions(+), 642 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 2081976b4cb5899ba500f70f7fd6dfc6402a1e2f` (or `git diff 2a7bab11cad0f8df11b84625d2327aaee6d8c57c..2081976b4cb5899ba500f70f7fd6dfc6402a1e2f`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show 5dfb95e04548639734fdc9b9e48a683a48b422a9` (or `git diff 9fca8ef72fccabc6a4dfb44e2a92f16402b2809a..5dfb95e04548639734fdc9b9e48a683a48b422a9`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.1.3] - 2026-04-03` in `CHANGELOG-foundry.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.1.2...0.1.3`](https://github.com/${repo}/compare/2a7bab1...2081976)), and update `README.md` if necessary.
-If Keep a Changelog link references exist at the bottom of `CHANGELOG-foundry.md`, update/add link reference comparing the previous commit/release to current commit/release.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.23.2] - 2026-04-03` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.23.1...0.23.2`](https://github.com/${repo}/compare/9fca8ef...5dfb95e)), and update `README.md` if necessary.
+If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.

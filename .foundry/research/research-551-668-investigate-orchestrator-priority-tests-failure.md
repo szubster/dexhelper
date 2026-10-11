@@ -5,12 +5,13 @@ title: Investigate Orchestrator Priority Tests Failure
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-07'
-updated_at: '2026-10-09'
+updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '15700541337024794545'
+jules_session_id: '6101800602683325288'
 parent: story-540-551-priority-engine-dispatch
 rejection_reason: ''
 locks: []
+rejection_count: 1
 ---
 
 # Investigate Orchestrator Priority Tests Failure
