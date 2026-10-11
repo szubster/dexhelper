@@ -26,4 +26,7 @@ rejection_reason: ''
 Per ADR 028, inline magic numbers must be replaced. This story focuses on updating the actual parser logic to import and use the new extracted constants.
 
 ## Acceptance Criteria
-- [ ] Decompose this Story into actionable Tasks to refactor Gen 2 parsers.
+- [x] Decompose this Story into actionable Tasks to refactor Gen 2 parsers.
+- [ ] task-521-676-gen2-constants
+- [ ] task-521-677-gen2-parser-refactor
+- [ ] task-521-678-gen2-parser-qa
