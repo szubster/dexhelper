@@ -5,10 +5,10 @@ title: Implement Gen 3 Pokédex Gaps UI
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-10-08'
+updated_at: '2026-10-11'
 depends_on:
   - story-552-563-gen3-pokedex-version-exclusive-mapping
-jules_session_id: '7763390965597802832'
+jules_session_id: '11836834313502169115'
 pr_number: null
 parent: story-552-564-gen3-pokedex-gaps-ui
 tags:
@@ -19,6 +19,7 @@ tags:
 research_references: []
 rejection_reason: ''
 locks: []
+rejection_count: 1
 ---
 
 # Implement Gen 3 Pokédex Gaps UI

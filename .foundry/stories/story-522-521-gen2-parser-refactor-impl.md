@@ -2,10 +2,10 @@
 id: story-522-521-gen2-parser-refactor-impl
 type: STORY
 title: Update Gen 2 Parsers for ADR 028
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-10-08'
 depends_on:
   - story-522-520-gen2-constants-extraction
 jules_session_id: null
@@ -16,6 +16,8 @@ tags:
   - save-parsing
   - offset-mapping
   - gen2
+locks: []
+rejection_reason: ''
 ---
 
 # STORY: Update Gen 2 Parsers for ADR 028

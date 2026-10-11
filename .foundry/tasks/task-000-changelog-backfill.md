@@ -5,9 +5,9 @@ title: Changelog Backfill Commit Evaluation
 status: ACTIVE
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '3335064858944344634'
+jules_session_id: '4720891717030467756'
 locks: []
 pr_number: null
 parent: null
@@ -27,53 +27,58 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `748a61356bbecf42660c6e2c38a8df5265e7507f`
-- **Previous Commit SHA:** `8bb4419a8419c389c6b36cead2ef6d0b59ed7a53`
-- **Commit Date:** `2026-04-02`
+- **Commit SHA:** `9fca8ef72fccabc6a4dfb44e2a92f16402b2809a`
+- **Previous Commit SHA:** `1336859d026c3a33f000009eaf9389ab6d0e5640`
+- **Commit Date:** `2026-04-03`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.21.10` -> `0.22.0`)
+- **Suggested SemVer Bump:** `patch` (from `0.23.0` -> `0.23.1`)
 
 ## Commit Message
 ```text
-feat: integrate Playwright component testing and update Vitest configuration
+refactor: remove re-export shims, use engine imports directly
+
+- Migrated all imports from utils/ shims to engine/ modules
+- Deleted 5 re-export shim files (saveParser, assistantData, mapGraphGen1, versionExclusives, legacyNameMap)
+- Moved ROD_IDS usage from assistantData to generationConfig.rodIds
+- 0 TypeScript errors, 33/33 tests pass
 ```
 
 ## Modified Files
-- `.github/workflows/playwright.yml`
-- `.gitignore`
-- `package-lock.json`
-- `package.json`
-- `playwright-ct.config.ts`
-- `playwright.config.ts`
-- `playwright/index.html`
-- `playwright/index.tsx`
-- `src/components/VersionModal.spec.tsx`
-- `src/test/setup.ts`
-- `tests/e2e/home.spec.ts`
-- `vite.config.ts`
+- `src/components/AppLayout.tsx`
+- `src/components/AssistantPanel.tsx`
+- `src/components/PokemonDetails.tsx`
+- `src/hooks/useAssistant.test.ts`
+- `src/hooks/useAssistant.ts`
+- `src/store.ts`
+- `src/utils/assistantData.ts`
+- `src/utils/legacyNameMap.ts`
+- `src/utils/mapGraphGen1.ts`
+- `src/utils/saveParser.test.ts`
+- `src/utils/saveParser.ts`
+- `src/utils/versionExclusives.ts`
 
 ## Diff Summary
 ```text
-748a61356 feat: integrate Playwright component testing and update Vitest configuration
- .github/workflows/playwright.yml     |   51 +
- .gitignore                           |    6 +
- package-lock.json                    | 2098 ++++++++++++++++++++--------------
- package.json                         |   11 +-
- playwright-ct.config.ts              |   38 +
- playwright.config.ts                 |   35 +
- playwright/index.html                |   12 +
- playwright/index.tsx                 |    2 +
- src/components/VersionModal.spec.tsx |   21 +
- src/test/setup.ts                    |    1 -
- tests/e2e/home.spec.ts               |   15 +
- vite.config.ts                       |    3 +-
- 12 files changed, 1454 insertions(+), 839 deletions(-)
+9fca8ef72 refactor: remove re-export shims, use engine imports directly
+ src/components/AppLayout.tsx      |  2 +-
+ src/components/AssistantPanel.tsx | 18 ++++++++++--------
+ src/components/PokemonDetails.tsx |  4 ++--
+ src/hooks/useAssistant.test.ts    |  2 +-
+ src/hooks/useAssistant.ts         |  8 ++++----
+ src/store.ts                      |  4 ++--
+ src/utils/assistantData.ts        |  8 --------
+ src/utils/legacyNameMap.ts        |  2 --
+ src/utils/mapGraphGen1.ts         |  3 ---
+ src/utils/saveParser.test.ts      |  2 +-
+ src/utils/saveParser.ts           |  3 ---
+ src/utils/versionExclusives.ts    |  2 --
+ 12 files changed, 21 insertions(+), 37 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 748a61356bbecf42660c6e2c38a8df5265e7507f` (or `git diff 8bb4419a8419c389c6b36cead2ef6d0b59ed7a53..748a61356bbecf42660c6e2c38a8df5265e7507f`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show 9fca8ef72fccabc6a4dfb44e2a92f16402b2809a` (or `git diff 1336859d026c3a33f000009eaf9389ab6d0e5640..9fca8ef72fccabc6a4dfb44e2a92f16402b2809a`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.22.0] - 2026-04-02` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.10...0.22.0`](https://github.com/${repo}/compare/8bb4419...748a613)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.23.1] - 2026-04-03` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.23.0...0.23.1`](https://github.com/${repo}/compare/1336859...9fca8ef)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.

@@ -298,7 +298,7 @@
 
 # Visionary Journal
 
-* **System Pattern Observation**: I originally proposed an idea for a DAG Dry-Run Simulator, but the maintainer pointed out that the orchestrator already supports a `--dry-run` flag which is run in CI. This is a critical lesson: always thoroughly check existing scripts and CI workflows (`.github/workflows/ci.yml`, `.github/scripts/`) before proposing "new" Foundry tools to avoid redundancy.
+* **System Pattern Observation**: I originally proposed an idea for a DAG Dry-Run Simulator, but the maintainer pointed out that the orchestrator already supports a `--dry-run` flag which is run in CI. This is a critical lesson: always thoroughly check existing scripts and CI workflows (`.github/workflows/ci.yml`, `packages/foundry/`) before proposing "new" Foundry tools to avoid redundancy.
 * **Idea Generation Strategy**: Pivot back to the main project (DexHelper). There is currently no unified visualization for Gen 3 roamer locations, berry patches, and player location on the Hoenn map. I will propose an Interactive Map UI.
 
 <!-- Merged from 2026-09-06-03-36-22.md -->
