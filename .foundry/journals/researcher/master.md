@@ -475,3 +475,62 @@ Upon inspecting the repository state and the Coder's journal, the following issu
 - Create a new Playwright test file (e.g., `tests/e2e/gen3_match_call_save_extraction.spec.ts`).
 - The test must use `initializeWithSave` (using `tests/fixtures/emerald.sav`).
 - Verify the extraction by asserting that the application UI renders the resulting Assistant suggestion: `Match Call Rematches`.
+
+---
+
+# 2026-10-03 Session
+
+Investigated the failure of `task-640-641-relocate-foundry-scripts` and discovered it was a false permanent failure caused by repeated `Session terminated with state: COMPLETED` agent session crashes rather than QA rejections, likely due to submitting empty PRs without checking off completion boxes. Node `research-640-652-investigate-relocate-scripts-failure` was updated with these findings.
+
+---
+
+# False Permanent Failure from NOT_FOUND Agent Crashes
+
+## Context
+When investigating the permanent failure (`Max rejection count reached`) of `research-517-518-locate-authentic-mystery-gift-saves`, I found that the node had not been repeatedly rejected by a QA or auditor persona for incorrect implementation.
+
+## Learnings
+Instead, the git history showed its prior rejection reasons were `[ACKNOWLEDGED] Session terminated with state: NOT_FOUND`. This means the task was dispatched by the orchestrator but the agent session crashed entirely, failed to initialize, or hit a 404/NOT_FOUND state (perhaps missing dependencies or files).
+
+Because the orchestrator's Phase 3.0 logic increments the `rejection_count` for these system-level crashes just like it does for standard task rejections, the node eventually hit the `MAX_REJECTION_THRESHOLD` (3) and was auto-cancelled with the generic `Max rejection count reached` message, obscuring the true root cause.
+
+When encountering `Max rejection count reached`, always review the Git commit history of the node to see if the underlying failures were `NOT_FOUND` session crashes rather than actual implementation rejections.
+
+---
+
+# Cloning Logic False Permanent Failure
+The permanent failure of `task-478-507-orchestrator-cloning-logic` and its retries was a false permanent failure caused by system-level issues (like triggering `AWAITING_USER_FEEDBACK` or empty PRs with unchecked boxes), not actual implementation failures. This required investigating git history and orchestrator logs to identify that no actual code changes were ever attempted before the max rejection count was reached.
+
+---
+
+# Investigation of False Permanent Failures in TM Extraction Pipeline
+
+When an implementation task is cancelled because its `RESEARCH` dependency reached maximum rejection count, the underlying cause is often an Autonomous No-Ask Policy violation or session crash/timeout without proper submission, rather than a genuine QA failure. I have documented this pattern in `research-422-658-tm-inventory-extraction-failure-retry.md` to unblock `story-411-422`.
+
+---
+
+# Session 2026-10-06-04-23-52
+
+I investigated the root cause of the QA failure for the idempotent orchestrator bypass (`task-512-518-qa-idempotent-bypass`). The issue is caused by the regex used in Phase 4.5 of `.github/scripts/foundry-orchestrator.ts` (`/^(\s*-\s*\[)\s(\]\s(?:(?!(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+).)*)$/gm`). The regex searches for checkboxes that do not contain a node ID format. However, the last acceptance criteria in the QA task is `- [ ] Ensure that \`story-018-513-orchestrator-test-updates\` is completed or that unit tests appropriately cover the change.`. Because the text contains `story-018-513-orchestrator-test-updates`, which matches the node ID regex, the regex incorrectly skips checking off this checkbox. As a result, the orchestrator thinks there are still unchecked tasks and fails to bypass dispatch. The solution is to refine the regex or bypass logic so that inline mentions of node IDs inside markdown backticks or in general plain-text task descriptions do not prevent the auto-checking behavior.
+
+---
+
+# Investigation: task-638-641-extract-constants-to-core Failure
+
+## Root Cause
+The task `task-638-641-extract-constants-to-core` failed because of TS2308 duplicate export errors. Several files across different `src/engine/` namespaces export constants with the exact same identifier, but these identifiers often have completely different values depending on the game generation or parser context. When these files were moved and blindly exported from a single `@dexhelper/core` entry point, the names clashed, causing compilation failures.
+
+## Identified Duplicates
+- **Identical Values (Safe to deduplicate):** `MOVE_ROCK_SMASH`, `MOVE_SURF`, `RSE_SYSTEM_FLAGS_START`, `FRLG_SYS_FLAGS_START`, `BITS_PER_BYTE`, `RSE_FLAGS_OFFSET_E`, `RSE_FLAGS_OFFSET_RS`, `FRLG_FLAGS_OFFSET`, `SUBSTRUCTURE_SIZE`, `FLAG_BYTE_SHIFT`, `FLAG_BIT_MASK`, `BIT_MASK`, `ITEM_INDEX_OFFSET`, `ITEM_ENTRY_SIZE`, `LOWER_16_BIT_MASK`.
+- **Conflicting Values (Unsafe, domain-specific):** `TRAINER_NAME_OFFSET`, `TRAINER_ID_OFFSET`, `ITEM_QUANTITY_OFFSET`.
+
+## Proposed Extraction Strategy
+1. **Namespacing Exports:** Do not use a flat export structure for `@dexhelper/core`'s entry point. Instead, preserve generation-specific and domain-specific namespaces. The entry point (`packages/core/src/index.ts`) should export them as: `export * as Gen1Constants from './constants/gen1';`, `export * as Gen2Constants from './constants/gen2';`, etc.
+2. **Common Deduplication:** Create a `packages/core/src/constants/common.ts` file for constants that share both identifier and value across all files (e.g., `BITS_PER_BYTE`). Export these normally.
+3. **Refactor Imports:** Update all imports in the `src/` codebase to use the new namespaces from `@dexhelper/core` (e.g., `Gen1Constants.ITEM_QUANTITY_OFFSET`).
+
+---
+
+# 2026-10-09 Session
+
+Investigated the failure of `task-639-641-extract-data-generation-scripts` and discovered it was a false permanent failure caused by repeated `[ACKNOWLEDGED] Session terminated with state: COMPLETED` agent session crashes rather than actual QA rejections.

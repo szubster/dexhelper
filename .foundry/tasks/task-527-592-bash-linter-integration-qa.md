@@ -2,13 +2,13 @@
 id: task-527-592-bash-linter-integration-qa
 type: TASK
 title: Integrate Bash Linter into Execution Pathway (QA)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-17T18:34:05Z'
-updated_at: '2026-09-22'
+updated_at: '2026-10-08'
 depends_on:
   - task-527-591-bash-linter-integration-tests
-jules_session_id: null
+jules_session_id: '6042184403394206590'
 pr_number: null
 parent: story-421-527-bash-static-analysis-linter-integration
 tags:

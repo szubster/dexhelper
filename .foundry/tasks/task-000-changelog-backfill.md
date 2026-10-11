@@ -5,9 +5,9 @@ title: Changelog Backfill Commit Evaluation
 status: ACTIVE
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-10-07'
+updated_at: '2026-10-11'
 depends_on: []
-jules_session_id: '3335064858944344634'
+jules_session_id: '993759681923428149'
 locks: []
 pr_number: null
 parent: null
@@ -27,53 +27,47 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `748a61356bbecf42660c6e2c38a8df5265e7507f`
-- **Previous Commit SHA:** `8bb4419a8419c389c6b36cead2ef6d0b59ed7a53`
-- **Commit Date:** `2026-04-02`
+- **Commit SHA:** `5dfb95e04548639734fdc9b9e48a683a48b422a9`
+- **Previous Commit SHA:** `9fca8ef72fccabc6a4dfb44e2a92f16402b2809a`
+- **Commit Date:** `2026-04-03`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `minor` (from `0.21.10` -> `0.22.0`)
+- **Suggested SemVer Bump:** `patch` (from `0.23.1` -> `0.23.2`)
 
 ## Commit Message
 ```text
-feat: integrate Playwright component testing and update Vitest configuration
+refactor: decompose PokemonDetails and AssistantPanel into sub-components
 ```
 
 ## Modified Files
-- `.github/workflows/playwright.yml`
-- `.gitignore`
-- `package-lock.json`
-- `package.json`
-- `playwright-ct.config.ts`
-- `playwright.config.ts`
-- `playwright/index.html`
-- `playwright/index.tsx`
-- `src/components/VersionModal.spec.tsx`
-- `src/test/setup.ts`
-- `tests/e2e/home.spec.ts`
-- `vite.config.ts`
+- `src/components/AssistantPanel.tsx`
+- `src/components/PokemonDetails.tsx`
+- `src/components/assistant/AssistantDebugView.tsx`
+- `src/components/assistant/AssistantSuggestionCard.tsx`
+- `src/components/pokemon/details/PokemonCatchProbability.tsx`
+- `src/components/pokemon/details/PokemonCaughtDetails.tsx`
+- `src/components/pokemon/details/PokemonEvolutions.tsx`
+- `src/components/pokemon/details/PokemonLocations.tsx`
+- `src/components/pokemon/details/PokemonStats.tsx`
 
 ## Diff Summary
 ```text
-748a61356 feat: integrate Playwright component testing and update Vitest configuration
- .github/workflows/playwright.yml     |   51 +
- .gitignore                           |    6 +
- package-lock.json                    | 2098 ++++++++++++++++++++--------------
- package.json                         |   11 +-
- playwright-ct.config.ts              |   38 +
- playwright.config.ts                 |   35 +
- playwright/index.html                |   12 +
- playwright/index.tsx                 |    2 +
- src/components/VersionModal.spec.tsx |   21 +
- src/test/setup.ts                    |    1 -
- tests/e2e/home.spec.ts               |   15 +
- vite.config.ts                       |    3 +-
- 12 files changed, 1454 insertions(+), 839 deletions(-)
+5dfb95e04 refactor: decompose PokemonDetails and AssistantPanel into sub-components
+ src/components/AssistantPanel.tsx                  | 232 +----------
+ src/components/PokemonDetails.tsx                  | 451 ++-------------------
+ src/components/assistant/AssistantDebugView.tsx    |  52 +++
+ .../assistant/AssistantSuggestionCard.tsx          | 207 ++++++++++
+ .../pokemon/details/PokemonCatchProbability.tsx    | 113 ++++++
+ .../pokemon/details/PokemonCaughtDetails.tsx       | 112 +++++
+ .../pokemon/details/PokemonEvolutions.tsx          | 134 ++++++
+ .../pokemon/details/PokemonLocations.tsx           | 116 ++++++
+ src/components/pokemon/details/PokemonStats.tsx    |  62 +++
+ 9 files changed, 837 insertions(+), 642 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 748a61356bbecf42660c6e2c38a8df5265e7507f` (or `git diff 8bb4419a8419c389c6b36cead2ef6d0b59ed7a53..748a61356bbecf42660c6e2c38a8df5265e7507f`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show 5dfb95e04548639734fdc9b9e48a683a48b422a9` (or `git diff 9fca8ef72fccabc6a4dfb44e2a92f16402b2809a..5dfb95e04548639734fdc9b9e48a683a48b422a9`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.22.0] - 2026-04-02` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.21.10...0.22.0`](https://github.com/${repo}/compare/8bb4419...748a613)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.23.2] - 2026-04-03` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.23.1...0.23.2`](https://github.com/${repo}/compare/9fca8ef...5dfb95e)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
