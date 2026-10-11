@@ -33,4 +33,7 @@ Verify the Gen 3 Move Tutor compatibility cross-referencing logic integrates cor
 - Verify integration with the `PokeData` MsgPack architecture.
 
 ## Acceptance Criteria
-- [ ] Integration and E2E verification tasks are created.
+- [x] Integration and E2E verification tasks are created.
+- [ ] task-523-676-gen3-move-tutor-e2e-fixtures
+- [ ] task-523-677-gen3-move-tutor-e2e-tests
+- [ ] task-523-678-gen3-move-tutor-e2e-qa
