@@ -2,7 +2,7 @@
 id: research-641-673-investigate-scanline-crosshairs-failure
 type: RESEARCH
 title: Investigate Scanline and Corner Crosshairs Migration Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-09'
 updated_at: '2026-10-11'
@@ -13,10 +13,8 @@ tags:
   - react
   - components
   - research
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
