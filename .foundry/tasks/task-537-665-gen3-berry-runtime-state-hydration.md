@@ -2,10 +2,10 @@
 id: task-537-665-gen3-berry-runtime-state-hydration
 type: TASK
 title: Hydrate Gen 3 Berry Data into Runtime State
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-05'
-updated_at: '2026-10-08'
+updated_at: '2026-10-11'
 depends_on:
   - research-537-659-investigate-runtime-api-failure
 jules_session_id: null

@@ -2,7 +2,7 @@
 id: research-562-668-investigate-gen2-wild-encounter-extraction-failure
 type: RESEARCH
 title: Investigate Gen 2 Wild Encounter Extraction Logic Failure
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-07'
 updated_at: '2026-10-11'
@@ -15,8 +15,8 @@ tags:
   - dexhelper
   - investigation
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 priority: 50

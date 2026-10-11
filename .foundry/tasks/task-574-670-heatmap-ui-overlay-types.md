@@ -2,7 +2,7 @@
 id: task-574-670-heatmap-ui-overlay-types
 type: TASK
 title: Define Heatmap UI Overlay Types
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-11T00:00:00Z'
 updated_at: '2026-10-11'
