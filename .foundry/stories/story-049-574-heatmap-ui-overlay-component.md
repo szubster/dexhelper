@@ -31,5 +31,9 @@ With the heatmap data processing layer implemented, we now need to create the UI
 Implement the React components and styling required to overlay the heatmap data onto the map graph, adhering to the tactical hardware aesthetic.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks for implementing the UI overlay components.
+- [x] Break down into Tasks for implementing the UI overlay components.
 - [ ] Complete child tasks for the UI overlay.
+- [ ] task-574-670-heatmap-ui-overlay-types
+- [ ] task-574-671-heatmap-ui-overlay-impl
+- [ ] task-574-672-heatmap-ui-overlay-tests
+- [ ] task-574-673-heatmap-ui-overlay-qa
