@@ -29,4 +29,5 @@ We need to ensure the Gen 3 Ribbon data extraction integrates correctly into the
 E2E Verification for Gen 3 Ribbon Extraction.
 
 ## Acceptance Criteria
-- [ ] Break down story into tasks for E2E Verification.
+- [x] Break down story into tasks for E2E Verification.
+- [ ] task-476-676-write-gen3-ribbon-e2e-tests
