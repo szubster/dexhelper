@@ -9,6 +9,7 @@ updated_at: '2026-10-08'
 depends_on:
   - task-560-583-gen3-berry-pouch-parsing-impl
   - task-560-584-gen3-pokemon-condition-parsing-impl
+confidence_score: 100
 jules_session_id: '8254832749948271276'
 pr_number: null
 parent: story-540-560-gen3-berry-pouch-and-pokemon-parsing
@@ -32,6 +33,6 @@ With the implementation of the backend save parsing logic for the Gen 3 berry po
 Implement unit tests that cover normal parsing and edge cases (e.g., empty inventories, various natures, invalid save states) for the newly implemented parsing logic.
 
 ## Acceptance Criteria
-- [ ] Implement unit tests covering the Gen 3 berry pouch parsing logic.
-- [ ] Implement unit tests covering the Gen 3 Pokémon condition and Nature parsing logic.
-- [ ] Test the handling of edge cases (such as maxed stats or empty inventories).
+- [x] Implement unit tests covering the Gen 3 berry pouch parsing logic.
+- [x] Implement unit tests covering the Gen 3 Pokémon condition and Nature parsing logic.
+- [x] Test the handling of edge cases (such as maxed stats or empty inventories).
