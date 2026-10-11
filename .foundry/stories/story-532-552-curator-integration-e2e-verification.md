@@ -33,5 +33,9 @@ Perform full end-to-end integration and verification of the historical backtrack
 - Verify that the curator can spawn correct remediation nodes during simulated regressions.
 
 ## Acceptance Criteria
-- [ ] Create tasks to write and execute integration tests
+- [x] Create tasks to write and execute integration tests
 - [ ] Ensure all E2E verification steps pass
+- [ ] task-552-680-curator-e2e-matrix-tests
+- [ ] task-552-681-curator-e2e-domain-overlap-tests
+- [ ] task-552-682-curator-e2e-remediation-tests
+- [ ] task-552-683-qa-curator-e2e
