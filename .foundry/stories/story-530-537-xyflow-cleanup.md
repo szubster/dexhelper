@@ -2,13 +2,13 @@
 id: story-530-537-xyflow-cleanup
 type: STORY
 title: Remove xyflow dependencies and cleanup Vite config
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-10-01'
+updated_at: '2026-10-11'
 depends_on:
   - story-530-536-dagtree-ui-logic
-jules_session_id: null
+jules_session_id: '3587321921915913441'
 pr_number: null
 parent: epic-516-530-replace-xyflow-core
 tags:
