@@ -9,6 +9,7 @@ updated_at: '2026-10-08'
 depends_on:
   - task-566-581-shoal-tide-display
   - task-566-582-shoal-item-tracker
+confidence_score: 100
 jules_session_id: '13266189302117284793'
 pr_number: null
 parent: story-412-566-shoal-cave-ui-components
@@ -33,6 +34,6 @@ Implement the `ShoalCaveDashboard` layout component that integrates the `TideDis
 - The UI MUST follow the tactical hardware aesthetic constraints (`rounded-none`, `border-dashed`, monospaced telemetry fonts) outlined in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Create `ShoalCaveDashboard.tsx` component.
-- [ ] Integrate `TideDisplay` and `ShoalItemTracker`.
-- [ ] Write Vitest browser tests for the layout.
+- [x] Create `ShoalCaveDashboard.tsx` component.
+- [x] Integrate `TideDisplay` and `ShoalItemTracker`.
+- [x] Write Vitest browser tests for the layout.
