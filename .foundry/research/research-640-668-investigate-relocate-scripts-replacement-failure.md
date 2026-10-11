@@ -2,10 +2,10 @@
 id: research-640-668-investigate-relocate-scripts-replacement-failure
 type: RESEARCH
 title: Investigate Relocate Scripts Replacement Failure
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-07'
-updated_at: '2026-10-10'
+updated_at: '2026-10-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - monorepo
   - pnpm
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---

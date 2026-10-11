@@ -2,12 +2,12 @@
 id: research-562-668-investigate-gen2-wild-encounter-extraction-failure
 type: RESEARCH
 title: Investigate Gen 2 Wild Encounter Extraction Logic Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-07'
-updated_at: '2026-10-10'
+updated_at: '2026-10-11'
 depends_on: []
-jules_session_id: '3030798473032779951'
+jules_session_id: null
 pr_number: null
 parent: story-552-562-gen2-wild-item-parsing
 tags:
@@ -16,7 +16,9 @@ tags:
   - investigation
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 priority: 50

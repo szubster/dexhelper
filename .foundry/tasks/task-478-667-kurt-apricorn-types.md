@@ -2,10 +2,10 @@
 id: task-478-667-kurt-apricorn-types
 type: TASK
 title: Kurt Apricorn Parsing Types
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-10'
+updated_at: '2026-10-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,10 +13,8 @@ parent: story-404-478-kurt-apricorn-parsing-logic
 tags:
   - gen2
   - types
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---
