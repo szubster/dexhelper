@@ -29,4 +29,6 @@ locks: []
 Write and execute end-to-end tests to verify the integration of the Gen 2 dynamic checklist UI with the underlying event flag parser.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into Tasks to implement and execute the E2E verification suite.
+- [x] Tech Lead: Break this Story down into Tasks to implement and execute the E2E verification suite.
+- [ ] task-523-676-gen2-checklist-e2e-impl
+- [ ] task-523-677-gen2-checklist-e2e-qa
