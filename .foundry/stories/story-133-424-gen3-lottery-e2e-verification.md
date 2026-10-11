@@ -31,4 +31,5 @@ Ensure end-to-end integration of the Lottery Matching Logic Module.
 - Verify that the lottery extraction and matching logic work together correctly in the fully integrated environment.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-424-676-gen3-lottery-e2e-tests
