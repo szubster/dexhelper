@@ -2,6 +2,7 @@ import { execSync } from "node:child_process";
 
 const commitSha = process.env.COMMIT_SHA;
 const currentRunId = process.env.CURRENT_RUN_ID;
+const jobName = process.env.JOB_NAME;
 const repo = process.env.GITHUB_REPOSITORY;
 
 if (!commitSha || !currentRunId || !repo) {
@@ -32,12 +33,17 @@ while (true) {
   }
 
   const runs = data.check_runs || [];
+  const isCurrentRun = (r) =>
+    String(r.id) === currentRunId ||
+    String(r.run_id) === currentRunId ||
+    (jobName && r.name === jobName);
+
   const pending = runs.filter(
-    (r) => String(r.id) !== currentRunId && r.status !== "completed"
+    (r) => !isCurrentRun(r) && r.status !== "completed"
   );
   const failed = runs.filter(
     (r) =>
-      String(r.id) !== currentRunId &&
+      !isCurrentRun(r) &&
       r.status === "completed" &&
       !["success", "skipped", "neutral"].includes(r.conclusion)
   );
