@@ -4,7 +4,7 @@ The Foundry Engine automates the lifecycle of Foundry nodes (`IDEA`, `PRD`, `EPI
 
 ## Key Components
 
-### 1. Orchestrator (`.github/scripts/foundry-orchestrator.ts`)
+### 1. Orchestrator (`packages/foundry/foundry-orchestrator.ts`)
 * **Directory Discovery & Parsing**: Recursively walks `.foundry/` (excluding `journals/`, `fixtures/`, `archive/`, and non-ADR docs) and validates YAML frontmatter via Zod schemas.
 * **DAG Map Construction**: Builds parent-child and dependency lookups using explicit `parent` frontmatter, `depends_on` arrays, markdown body links, and raw ID references.
 * **Late-Binding Engine**: Keeps macro parent nodes (`IDEA`, `PRD`, `EPIC`, `STORY`) in a `PENDING` wait state while child tasks execute. Auto-checks completed child checkboxes in parent bodies and auto-remediates remaining acceptance criteria once all descendants reach `COMPLETED` or `CANCELLED`.
@@ -12,7 +12,7 @@ The Foundry Engine automates the lifecycle of Foundry nodes (`IDEA`, `PRD`, `EPI
 * **Preflight & Idempotent Generation**: Bypasses dispatch for nodes whose target artifacts already exist and are fully completed.
 * **Critical Path Weighting & Matrix Output**: Calculates reverse-dependency depth (the number of downstream nodes unblocked by completing a node) and outputs a JSON matrix sorted by weight (descending) and creation date (ascending).
 
-### 2. Heartbeat Monitor (`.github/scripts/foundry-heartbeat.ts`)
+### 2. Heartbeat Monitor (`packages/foundry/foundry-heartbeat.ts`)
 * **Active Session Monitoring**: Periodically scans `ACTIVE` nodes to track Jules session states and associated GitHub PRs.
 * **Multi-Layer PR Discovery**: Identifies PRs via:
   1. **Jules Session API**: Direct lookup of session output PR URLs.
@@ -24,7 +24,7 @@ The Foundry Engine automates the lifecycle of Foundry nodes (`IDEA`, `PRD`, `EPI
 * **Zombie & Failure Handling**: Transitions `ACTIVE` nodes without a PR or active session to `READY` (system failure) or `FAILED` (missing session ID or `NOT_FOUND`). Resurrects retryable `FAILED` nodes (`rejection_count < 3`) to `READY`.
 * **Remote Branch Cleanup**: Automatically deletes remote git branches associated with `FAILED` or `CANCELLED` sessions that are not linked to open PRs or active nodes.
 
-### 3. State Transition Script (`.github/scripts/foundry-active.ts`)
+### 3. State Transition Script (`packages/foundry/foundry-active.ts`)
 * **READY → ACTIVE Handoff**: Executed after spawning a Jules session to mutate status to `ACTIVE` and set `jules_session_id`.
 * **Strict "Dumb" Diff Verification**: Ensures ONLY `status`, `jules_session_id`, `updated_at`, and `rejection_reason` frontmatter fields were altered, rejecting any unauthorized edits to the markdown body.
 

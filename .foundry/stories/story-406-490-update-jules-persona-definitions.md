@@ -2,12 +2,12 @@
 id: story-406-490-update-jules-persona-definitions
 type: STORY
 title: Update Jules Persona Definitions to Narrative Skins
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-01'
+updated_at: '2026-10-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12769646234214992587'
 pr_number: null
 parent: epic-339-406-jules-agent-skins
 tags:

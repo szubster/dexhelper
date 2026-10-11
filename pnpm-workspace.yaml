@@ -3,7 +3,7 @@ packages:
   - "apps/*"
   - "packages/*"
   - "tools/*"
-  - ".github/scripts"
+  - "packages/foundry"
 
 minimumReleaseAgeExclude:
   - "@oxlint-tsgolint/*"

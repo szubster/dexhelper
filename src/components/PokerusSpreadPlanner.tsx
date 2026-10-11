@@ -12,12 +12,7 @@ export function PokerusSpreadPlanner({ initialParty, className }: PokerusSpreadP
   const { party, swapSlots, atRiskIndices } = usePokerusSpreadPlanner(initialParty);
 
   return (
-    <div
-      className={cn(
-        'flex flex-col gap-2 border border-zinc-800 border-dashed bg-zinc-950 p-4 font-mono text-zinc-300',
-        className,
-      )}
-    >
+    <div className={cn('tactical-panel flex flex-col gap-2 p-4', className)}>
       <h2 className="mb-2 border-zinc-800 border-b border-dashed pb-2 font-bold text-sm uppercase">
         Pokérus Spread Planner
       </h2>
@@ -53,13 +48,15 @@ export function PokerusSpreadPlanner({ initialParty, className }: PokerusSpreadP
               </div>
 
               <div className="flex items-center gap-2">
-                {isAtRisk && <span className="text-[10px] text-pink-400 uppercase">[AT RISK]</span>}
-                {hasPokerus && pokemon.pokerus && <PokerusBadge strain={pokemon.pokerus.strain} />}
+                {isAtRisk && <span className="tactical-text text-[10px] text-pink-400">[AT RISK]</span>}
+                {hasPokerus && pokemon.pokerus && (
+                  <PokerusBadge strain={pokemon.pokerus.strain} daysRemaining={pokemon.pokerus.daysRemaining} />
+                )}
                 {pokemon && index > 0 && (
                   <button
                     type="button"
                     onClick={() => swapSlots(index, index - 1)}
-                    className="ml-2 border border-zinc-700 border-dashed px-1 text-xs hover:bg-zinc-800"
+                    className="tactical-icon-button !p-1 ml-2 text-xs"
                     title="Move up"
                   >
                     ↑
@@ -69,7 +66,7 @@ export function PokerusSpreadPlanner({ initialParty, className }: PokerusSpreadP
                   <button
                     type="button"
                     onClick={() => swapSlots(index, index + 1)}
-                    className="ml-1 border border-zinc-700 border-dashed px-1 text-xs hover:bg-zinc-800"
+                    className="tactical-icon-button !p-1 ml-1 text-xs"
                     title="Move down"
                   >
                     ↓
