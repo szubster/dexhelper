@@ -2,12 +2,12 @@
 id: story-538-547-tanstack-query-and-vitest
 type: STORY
 title: TanStack Query and Vitest Browser Mode Refactoring
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-30'
+updated_at: '2026-10-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15768538495269730875'
 pr_number: null
 parent: epic-518-538-frontend-refactoring
 tags:
