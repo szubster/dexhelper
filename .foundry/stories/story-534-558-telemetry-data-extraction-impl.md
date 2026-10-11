@@ -20,6 +20,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Implement Telemetry Data Extraction
@@ -28,4 +29,8 @@ locks: []
 Implement the extraction and structuring of node telemetry data (rejection counts and wait times) to power the DAG Health Heatmap visualization.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks
+- [x] Tech Lead: Break down into Tasks
+- [ ] task-558-680-telemetry-extraction-logic
+- [ ] task-558-681-telemetry-generator-update
+- [ ] task-558-682-telemetry-extraction-tests
+- [ ] task-558-683-telemetry-extraction-qa
