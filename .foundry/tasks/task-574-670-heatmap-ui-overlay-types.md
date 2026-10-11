@@ -19,6 +19,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Task: Define Heatmap UI Overlay Types
@@ -30,5 +31,5 @@ As part of implementing the heatmap UI overlay component, we need to define the 
 Define component prop types, overlay color scheme interfaces, and display configuration types for the Heatmap UI Overlay Component based on constraints in `.foundry/stories/story-049-574-heatmap-ui-overlay-component.md`.
 
 ## Acceptance Criteria
-- [ ] Define prop types and options interfaces for Heatmap UI Overlay components.
-- [ ] Export all defined types from the appropriate UI/component module.
+- [x] Define prop types and options interfaces for Heatmap UI Overlay components.
+- [x] Export all defined types from the appropriate UI/component module.
