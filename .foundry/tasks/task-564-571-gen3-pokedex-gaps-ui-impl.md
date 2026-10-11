@@ -2,7 +2,7 @@
 id: task-564-571-gen3-pokedex-gaps-ui-impl
 type: TASK
 title: Implement Gen 3 Pokédex Gaps UI
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-13'
 updated_at: '2026-10-11'
@@ -17,10 +17,8 @@ tags:
   - pokedex
   - ui
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 locks: []
 ---
 
