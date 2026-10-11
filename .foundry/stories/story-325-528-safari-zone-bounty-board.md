@@ -28,4 +28,7 @@ locks: []
 Implement the "bounty board" side panel that displays uncaught rare encounters in the Safari Zone. Apply tactical UI CSS utilities as defined in ADR 024.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-528-676-safari-zone-bounty-board-data
+- [ ] task-528-677-safari-zone-bounty-board-ui
+- [ ] task-528-678-safari-zone-bounty-board-e2e
