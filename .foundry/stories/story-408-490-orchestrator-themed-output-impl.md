@@ -33,5 +33,8 @@ Modify the Foundry Orchestrator script (.github/scripts/foundry-orchestrator.ts)
 ## Acceptance Criteria
 - [x] Tech Lead: Generate TASK node(s) for the implementation of themed outputs.
 - [ ] task-490-549-orchestrator-console-theme-impl
-- [ ] task-490-550-orchestrator-badge-injection-impl
-- [ ] task-490-551-orchestrator-theme-qa
+- [x] task-490-550-orchestrator-badge-injection-impl
+- [x] task-490-551-orchestrator-theme-qa
+- [ ] research-490-676-investigate-badge-injection-failure
+- [ ] task-490-677-orchestrator-badge-injection-impl-v2
+- [ ] task-490-678-orchestrator-theme-qa-v2
