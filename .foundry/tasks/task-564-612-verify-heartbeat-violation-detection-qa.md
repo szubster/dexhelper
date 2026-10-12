@@ -2,13 +2,13 @@
 id: task-564-612-verify-heartbeat-violation-detection-qa
 type: TASK
 title: Verify Heartbeat Violation Detection QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-08'
-updated_at: '2026-09-25'
+updated_at: '2026-10-12'
 depends_on:
   - task-564-611-verify-heartbeat-violation-detection-coder
-jules_session_id: null
+jules_session_id: '16051726651858930961'
 pr_number: null
 parent: story-563-564-verify-heartbeat-violation-detection
 tags:
