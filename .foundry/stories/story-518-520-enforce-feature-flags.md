@@ -2,10 +2,10 @@
 id: story-518-520-enforce-feature-flags
 type: STORY
 title: Enforce Feature Flags for Experimental Code
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,5 +28,5 @@ Implement a robust feature flag system for DexHelper. This system will allow cod
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [x] task-520-550-feature-flags-logic-impl
-- [ ] task-520-551-feature-flags-ui-impl
-- [ ] task-520-552-feature-flags-qa
+- [x] task-520-551-feature-flags-ui-impl
+- [x] task-520-552-feature-flags-qa

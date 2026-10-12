@@ -2,10 +2,10 @@
 id: story-407-523-gen3-move-tutor-integration-e2e
 type: STORY
 title: Gen 3 Move Tutor Compatibility Integration and E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-10-07'
+updated_at: '2026-10-12'
 depends_on:
   - story-407-522-gen3-move-tutor-cross-referencing
 jules_session_id: null
@@ -33,4 +33,7 @@ Verify the Gen 3 Move Tutor compatibility cross-referencing logic integrates cor
 - Verify integration with the `PokeData` MsgPack architecture.
 
 ## Acceptance Criteria
-- [ ] Integration and E2E verification tasks are created.
+- [x] Integration and E2E verification tasks are created.
+- [ ] task-523-676-gen3-move-tutor-e2e-fixtures
+- [ ] task-523-677-gen3-move-tutor-e2e-tests
+- [ ] task-523-678-gen3-move-tutor-e2e-qa
