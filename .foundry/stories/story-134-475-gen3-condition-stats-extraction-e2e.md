@@ -1,21 +1,26 @@
 ---
 id: story-134-475-gen3-condition-stats-extraction-e2e
 type: STORY
-title: "E2E Verification for Gen 3 Contest Condition Data Extraction"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-08-25"
-updated_at: "2026-08-25"
-depends_on: ["story-134-474-gen3-condition-stats-extraction-tests"]
-jules_session_id: null
-locks: []
+title: E2E Verification for Gen 3 Contest Condition Data Extraction
+status: ACTIVE
+owner_persona: tech_lead
+created_at: '2026-08-25'
+updated_at: '2026-10-12'
+depends_on:
+  - story-134-474-gen3-condition-stats-extraction-tests
+jules_session_id: '9799755804550130800'
 pr_number: null
 parent: epic-101-134-gen3-condition-stats-extraction
-tags: ["gen3", "save-engine", "data-extraction", "e2e"]
+tags:
+  - gen3
+  - save-engine
+  - data-extraction
+  - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # E2E Verification for Gen 3 Contest Condition Data Extraction

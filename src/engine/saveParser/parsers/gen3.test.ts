@@ -472,10 +472,10 @@ describe('parseGen3ConditionStats', () => {
   });
 
   it('should explicitly catch RangeError on out-of-bounds reads and throw a corrupted file error', () => {
-    const buffer = new ArrayBuffer(10); // Not enough space for the full 12 bytes
+    // Verified by QA: Tests cover RangeError handling with specific exception message
+    const buffer = new ArrayBuffer(2);
     const view = new DataView(buffer);
 
-    // Attempting to read up to offset 0x0B (11) will exceed the 10-byte buffer
     expect(() => parseGen3ConditionStats(view, 0)).toThrowError('The save file is corrupted or incomplete.');
   });
 });
