@@ -18,6 +18,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 # TASK: Verify Heartbeat Violation Detection QA
 
@@ -25,4 +26,4 @@ locks: []
 Verify the work done by the coder task to confirm the test suite checks the No-Ask policy correctly.
 
 ## Acceptance Criteria
-- [ ] The functionality is verified.
+- [x] The functionality is verified.
