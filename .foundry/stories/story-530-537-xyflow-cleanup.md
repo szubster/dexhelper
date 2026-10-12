@@ -32,7 +32,8 @@ Remove the `@xyflow/react`, `dagre`, and associated chunking configurations from
 3. Clean up any related application logic or store data specifically used for xyflow.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks to cleanup dependencies and config.
+- [x] Break down into Tasks to cleanup dependencies and config.
 - [ ] `@xyflow/react` and `dagre` removed from `package.json`.
 - [ ] `vite.config.ts` cleanup applied.
 - [ ] Stale data logic removed from the DAG store.
+- [ ] task-537-680-remove-xyflow-deps
