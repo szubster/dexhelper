@@ -20,6 +20,7 @@ rejection_reason: ''
 notes: ''
 locks: []
 priority: 50
+confidence_score: 100
 ---
 
 # Task: QA E2E Tests for Item Selection and Route Display
@@ -33,4 +34,4 @@ This task is to QA the e2e testing requirements defined in its parent story.
 - Verify that tests correctly handle mobile layouts (`isMobile`).
 
 ## Acceptance Criteria
-- [ ] qa: Verify the e2e tests.
+- [x] qa: Verify the e2e tests.
