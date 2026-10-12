@@ -33,4 +33,7 @@ This story is part of `epic-117-335-migrate-task-reminders`. The objective is to
 - Commit the cleaned files.
 
 ## 3. Acceptance Criteria
+- [x] Break down into Tasks
+- [ ] task-564-680-execute-migration
+- [ ] task-564-681-qa-execute-migration
 - [ ] Active, pending, and ready TASK nodes are cleaned up and no longer contain `### REMINDER FOR CODER` or `### REMINDER FOR QA` blocks.
