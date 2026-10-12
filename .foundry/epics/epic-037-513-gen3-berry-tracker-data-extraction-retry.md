@@ -2,10 +2,10 @@
 id: epic-037-513-gen3-berry-tracker-data-extraction-retry
 type: EPIC
 title: Gen 3 Berry Tracker Data Extraction (Retry)
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-01'
-updated_at: '2026-09-07'
+updated_at: '2026-10-12'
 depends_on:
   - research-037-512-investigate-gen3-berry-extraction-failure
 jules_session_id: '2207205937950131080'
