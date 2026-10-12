@@ -2,13 +2,13 @@
 id: story-418-518-orchestrator-integration-e2e
 type: STORY
 title: Orchestrator Integration E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-02'
 updated_at: '2026-10-12'
 depends_on:
   - story-418-517-orchestrator-fallback-mechanisms
-jules_session_id: null
+jules_session_id: '17592586293509545871'
 pr_number: null
 parent: epic-343-418-orchestrator-integration
 tags:
