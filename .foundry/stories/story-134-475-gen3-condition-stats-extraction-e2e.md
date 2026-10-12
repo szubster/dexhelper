@@ -32,4 +32,6 @@ Implement E2E testing to verify the end-to-end integration of the Gen 3 Conditio
 - Ensures full stack functions correctly.
 
 ## Acceptance Criteria
-- [ ] Break down story into tasks for writing E2E tests for Condition data extraction.
+- [x] Break down story into tasks for writing E2E tests for Condition data extraction.
+- [ ] task-475-680-gen3-condition-stats-extraction-e2e-tests
+- [ ] task-475-681-gen3-condition-stats-extraction-e2e-qa
