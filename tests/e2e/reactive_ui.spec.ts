@@ -13,15 +13,15 @@ test.describe('Reactive UI E2E Verification', () => {
     // Actually the components consume useParsedSaveData which prioritizes emulatorSaveData
     // Let's modify the app store saveData so it displays REACTIVE_TEST
     await page.evaluate(() => {
-      // @ts-ignore
+      // @ts-expect-error
       const store = window.__store();
-      if (store && store.saveData) {
+      if (store?.saveData) {
         store.setSaveData({
           ...store.saveData,
           trainer: {
             ...store.saveData.trainer,
-            name: 'REACTIVE_TEST'
-          }
+            name: 'REACTIVE_TEST',
+          },
         });
       }
     });
