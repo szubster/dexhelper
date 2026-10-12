@@ -2,13 +2,13 @@
 id: task-562-577-item-selection-route-e2e-qa
 type: TASK
 title: QA E2E Tests for Item Selection and Route Display
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-14'
-updated_at: '2026-09-24'
+updated_at: '2026-10-12'
 depends_on:
   - task-562-576-item-selection-route-e2e-impl
-jules_session_id: null
+jules_session_id: '16135348526640682037'
 pr_number: null
 parent: story-556-562-e2e-tests-item-selection-route-display
 tags:
