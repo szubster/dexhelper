@@ -2,13 +2,13 @@
 id: task-523-600-artifact-promotion-e2e-qa
 type: TASK
 title: Artifact Promotion E2E QA Verification
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-20'
-updated_at: '2026-10-10'
+updated_at: '2026-10-12'
 depends_on:
   - task-523-599-artifact-promotion-e2e-logic
-jules_session_id: null
+jules_session_id: '18446685446740297190'
 pr_number: null
 parent: story-519-523-artifact-promotion-e2e
 tags: []
