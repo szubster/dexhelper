@@ -4,6 +4,7 @@ import { render } from 'vitest-browser-react';
 import { useStore } from '../../store';
 import { MultiBoxSearchInput } from './MultiBoxSearchInput';
 
+// biome-ignore lint/suspicious/noExplicitAny: Required for vitest mocks
 vi.mock('../../store', () => ({
   useStore: vi.fn<(selector: unknown) => unknown>(),
 }));
@@ -42,11 +43,15 @@ describe('MultiBoxSearchInput', () => {
   });
 
   it('clears input correctly when clear button is pressed', async () => {
-    const setSearchTermMock = vi.fn<(v: string) => void>();
+    let internalSearchTerm = 'Pikachu';
+    const setSearchTermMock = vi.fn<(v: string) => void>((v) => {
+      internalSearchTerm = v;
+    });
+
     // biome-ignore lint/suspicious/noExplicitAny: Required for vitest mocks
     (useStore as any).mockImplementation((selector: any) => {
       const mockState = {
-        searchTerm: 'Pikachu',
+        searchTerm: internalSearchTerm,
         setSearchTerm: setSearchTermMock,
       };
       return selector(mockState);
@@ -55,18 +60,24 @@ describe('MultiBoxSearchInput', () => {
     await render(<MultiBoxSearchInput />);
     const input = page.getByTestId('multi-box-search-input');
     await expect.element(input).toHaveValue('Pikachu');
+
     const clearButton = page.getByTitle('Clear input');
     await clearButton.click();
+
     await expect.element(input).toHaveValue('');
     expect(setSearchTermMock).toHaveBeenCalledWith('');
   });
 
   it('clears input correctly when escape key is pressed', async () => {
-    const setSearchTermMock = vi.fn<(v: string) => void>();
+    let internalSearchTerm = 'Pikachu';
+    const setSearchTermMock = vi.fn<(v: string) => void>((v) => {
+      internalSearchTerm = v;
+    });
+
     // biome-ignore lint/suspicious/noExplicitAny: Required for vitest mocks
     (useStore as any).mockImplementation((selector: any) => {
       const mockState = {
-        searchTerm: 'Pikachu',
+        searchTerm: internalSearchTerm,
         setSearchTerm: setSearchTermMock,
       };
       return selector(mockState);
