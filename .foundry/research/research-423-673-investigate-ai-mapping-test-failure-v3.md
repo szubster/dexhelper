@@ -2,12 +2,12 @@
 id: research-423-673-investigate-ai-mapping-test-failure-v3
 type: RESEARCH
 title: Investigate Gen 3 AI Script Mapping E2E Test Failure (V3)
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-09'
 updated_at: '2026-10-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12323855362307933912'
 pr_number: null
 parent: story-411-423-gen3-ai-data-extraction-e2e
 tags:
