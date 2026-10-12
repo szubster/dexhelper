@@ -29,6 +29,9 @@ From PRD `prd-117-337-split-bundles-and-data`: Implement generation-based splitt
 - Update UI rendering logic to load these components via `React.lazy`.
 
 ## Acceptance Criteria
-- [ ] Story for refactoring UI components to support lazy loading
-- [ ] Story for updating specific generation views
-- [ ] Story dedicated exclusively to Integration and E2E Verification
+- [x] Story for refactoring UI components to support lazy loading
+- [ ] story-402-649-refactor-ui-lazy-loading
+- [x] Story for updating specific generation views
+- [ ] story-402-650-update-generation-views
+- [x] Story dedicated exclusively to Integration and E2E Verification
+- [ ] story-402-651-integration-e2e-verification
