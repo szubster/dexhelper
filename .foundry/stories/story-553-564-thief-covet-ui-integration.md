@@ -32,4 +32,9 @@ With the engine logic in place to find Pokemon with item-stealing moves, we need
 - Adhere to the tactical hardware aesthetic.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks.
+- [x] tech_lead: Break down this Story into Tasks.
+- [ ] task-564-680-thief-covet-ui-integration-components
+- [ ] task-564-681-thief-covet-ui-integration-tests
+- [ ] task-564-682-qa-thief-covet-ui-integration
+- [ ] task-564-683-thief-covet-e2e-tests
+- [ ] task-564-684-qa-thief-covet-e2e-tests
