@@ -2,13 +2,13 @@
 id: task-560-586-gen3-berry-pokemon-parsing-qa
 type: TASK
 title: QA Gen 3 Berry and Pokémon Parsing Logic
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-16T19:34:42Z'
-updated_at: '2026-10-11'
+updated_at: '2026-10-12'
 depends_on:
   - task-560-585-gen3-berry-pokemon-parsing-tests
-jules_session_id: null
+jules_session_id: '9641434571451797352'
 pr_number: null
 parent: story-540-560-gen3-berry-pouch-and-pokemon-parsing
 tags:
