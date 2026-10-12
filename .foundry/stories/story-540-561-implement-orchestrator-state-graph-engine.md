@@ -31,3 +31,7 @@ This story covers the implementation of the new Foundry orchestrator engine, int
 - [ ] Implement Node lifecycle state machine.
 - [ ] Implement DAG topology, operations, and sorting logic.
 - [ ] Implement new orchestrator engine abstraction.
+- [ ] task-561-680-orchestrator-dag-graphology-impl
+- [ ] task-561-681-orchestrator-state-machine-impl
+- [ ] task-561-682-orchestrator-engine-tests
+- [ ] task-561-683-orchestrator-engine-qa
