@@ -4,6 +4,7 @@
 | --- | --- | --- | --- | --- |
 | [adr-586-584-failure-tracking-architecture](.foundry/docs/adrs/adr-586-584-failure-tracking-architecture.md) | ADR | Technical Architecture for Failure Tracking | architect | [13375914325660456299](https://jules.google.com/session/13375914325660456299) |
 | [epic-037-513-gen3-berry-tracker-data-extraction-retry](.foundry/epics/epic-037-513-gen3-berry-tracker-data-extraction-retry.md) | EPIC | Gen 3 Berry Tracker Data Extraction (Retry) | story_owner | [13865760011377358391](https://jules.google.com/session/13865760011377358391) |
+| [epic-044-398-gen3-roamer-iv-glitch-v5](.foundry/epics/epic-044-398-gen3-roamer-iv-glitch-v5.md) | EPIC | Gen 3 Roamer IV Glitch Detection v5 | story_owner | [3107353275929594401](https://jules.google.com/session/3107353275929594401) |
 | [epic-047-081-gen3-tv-swarm-data-extraction](.foundry/epics/epic-047-081-gen3-tv-swarm-data-extraction.md) | EPIC | Gen 3 TV Broadcast and Swarm Tracker Data Extraction | story_owner | [15013906640762894659](https://jules.google.com/session/15013906640762894659) |
 | [epic-053-105-daycare-save-parsing](.foundry/epics/epic-053-105-daycare-save-parsing.md) | EPIC | Daycare Core Data Extraction Engine | story_owner | [4745700693120463347](https://jules.google.com/session/4745700693120463347) |
 | [epic-566-580-e2e-test-migration](.foundry/epics/epic-566-580-e2e-test-migration.md) | EPIC | E2E Test Migration to COM Pattern | story_owner | [4099276891458752926](https://jules.google.com/session/4099276891458752926) |
