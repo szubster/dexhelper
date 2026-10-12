@@ -24,6 +24,10 @@ This story covers the implementation of an automated validation step during the 
 - [ ] Add logic to analyze the number and nature of TASK nodes generated for a STORY
 - [ ] Implement a heuristic to flag potential "Two-Tasks-Max" anti-pattern instances in complex stories
 - [ ] Log warnings or reject PRs that violate modular breakdown constraints
-- [ ] task-563-578-complexity-validation-tests
-- [ ] task-563-579-implement-complexity-validation
-- [ ] task-563-580-qa-complexity-validation
+- [x] task-563-578-complexity-validation-tests
+- [x] task-563-579-implement-complexity-validation
+- [x] task-563-580-qa-complexity-validation
+- [ ] research-563-674-investigate-story-task-breakdown-failure
+- [ ] task-563-675-complexity-validation-tests-retry
+- [ ] task-563-676-implement-complexity-validation-retry
+- [ ] task-563-677-qa-complexity-validation-retry
