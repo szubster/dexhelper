@@ -17,7 +17,7 @@ test.describe('Statistics Generation', () => {
     if (fs.existsSync(jsonPath)) fs.unlinkSync(jsonPath);
     if (fs.existsSync(mdPath)) fs.unlinkSync(mdPath);
 
-    const scriptPath = path.join(repoRoot, '.github/scripts/generate-statistics.ts');
+    const scriptPath = path.join(repoRoot, 'packages/foundry/generate-statistics.ts');
 
     execSync(`npx tsx ${scriptPath}`, {
       cwd: repoRoot,
