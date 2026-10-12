@@ -29,4 +29,6 @@ locks: []
 This story is dedicated to the end-to-end integration and verification of the Gen 2 Bug-Catching Contest save data extraction features.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-523-680-gen2-bug-catching-contest-e2e-impl
+- [ ] task-523-681-gen2-bug-catching-contest-e2e-qa
