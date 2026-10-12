@@ -2,13 +2,13 @@
 id: story-078-559-battle-frontier-data-e2e-verification
 type: STORY
 title: Battle Frontier Data E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-08'
-updated_at: '2026-10-03'
+updated_at: '2026-10-12'
 depends_on:
   - story-078-558-rs-battle-tower-data-parsing
-jules_session_id: null
+jules_session_id: '17324468410518338285'
 pr_number: null
 parent: epic-046-078-gen3-battle-frontier-data-extraction
 tags:

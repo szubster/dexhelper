@@ -1,5 +1,0 @@
-# Nurse Joy Journal Entry - 2026-10-06-03-36-19
-
-- **Issue:** Unsafe `cursor.primaryKey as string` assertions in IndexedDB history storage (`src/engine/storage/historyDb.ts`) and unnecessary type casts in Zustand store (`src/store.ts`).
-- **Solution:** Replaced `cursor.primaryKey as string` with explicit runtime type narrowing (`typeof cursor.primaryKey === 'string' ? cursor.primaryKey : String(cursor.primaryKey)`). Explicitly typed `buffer: Uint8Array<ArrayBuffer>` on declaration in `src/store.ts` to satisfy `r2Client.putSave(..., data: Uint8Array<ArrayBuffer>)` without requiring `as ArrayBuffer` or `as Uint8Array<ArrayBuffer>` casts.
-- **Learn:** Typing `Uint8Array` as `Uint8Array<ArrayBuffer>` on declaration satisfies `fetch` `BodyInit` requirements natively without requiring downstream type assertions.

@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.23.2] - 2026-04-03
+### Changed
+- Decompose `PokemonDetails` and `AssistantPanel` into smaller, focused sub-components (`AssistantDebugView`, `AssistantSuggestionCard`, `PokemonCatchProbability`, etc.) to improve modularity and maintainability.
+
+## [0.23.1] - 2026-04-03
+### Changed
+- Refactored module imports to directly consume `engine/` modules, removing legacy `utils/` shims.
+- Migrated `ROD_IDS` usage from static assistant data to dynamic generation configuration.
+
+## [0.23.0] - 2026-04-03
+### Added
+- Implement global Zustand store for centralized application state.
+- Engine isolation for game rules mapping and Assistant strategies.
+- Implement extensive save parsing enhancements for Gen 1 and Yellow.
+- Enhance TypeScript strict typing across data utilities and stores.
+
 ## [0.22.0] - 2026-04-02
 ### Added
 - Integrated Playwright component testing and E2E testing framework.
@@ -194,3 +210,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.21.10]: https://github.com/szubster/dexhelper/compare/6a17b750adfcafcb7aec032ee3e97fa58eedfb31...dce451f55b6e6e31e1e2f7b4bf09ff3c949ad8f3
 
 [0.22.0]: https://github.com/szubster/dexhelper/compare/8bb4419a8419c389c6b36cead2ef6d0b59ed7a53...748a61356bbecf42660c6e2c38a8df5265e7507f
+
+[0.23.0]: https://github.com/szubster/dexhelper/compare/415739935a20abd5d62bffc08f9adf4ca559fcf6...1336859d026c3a33f000009eaf9389ab6d0e5640
+[0.23.1]: https://github.com/szubster/dexhelper/compare/1336859d026c3a33f000009eaf9389ab6d0e5640...9fca8ef72fccabc6a4dfb44e2a92f16402b2809a
+[0.23.2]: https://github.com/szubster/dexhelper/compare/9fca8ef72fccabc6a4dfb44e2a92f16402b2809a...5dfb95e04548639734fdc9b9e48a683a48b422a9

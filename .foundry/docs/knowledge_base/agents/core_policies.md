@@ -64,7 +64,7 @@ When creating implementation tasks for UI components, explicit integration steps
 System failures, node state transitions (e.g. from FAILED to READY), and "is now COMPLETED" status log entries in Foundry journals add zero value to future runs and unnecessarily expand the context window. Such logs belong in orchestrator execution logs or PR history, not long-term agent journals.
 
 ## Prompt Compilation Architecture & Fragment Layering
-The Foundry Orchestrator (`.github/scripts/foundry-orchestrator.ts`) dynamically compiles agent prompts at dispatch time using a 3-tier layered composition:
+The Foundry Orchestrator (`packages/foundry/foundry-orchestrator.ts`) dynamically compiles agent prompts at dispatch time using a 3-tier layered composition:
 1. **Base Persona Prompt**: Loaded from `.github/agents/<persona>.md` (or `.github/agents/generic/<persona>.md`).
 2. **Specific Context Layers**: Loaded from `.github/agents/specific/<tag|layer>.md` based on tags/layers specified in the node frontmatter (e.g., `typescript`, `react`, `dexhelper`).
 3. **Core System Policies**: Loaded from `.foundry/docs/knowledge_base/agents/core_policies.md` and appended to every compiled prompt.
@@ -187,7 +187,7 @@ When writing utility scripts or tools that process `.foundry` markdown files, me
 Before marking a task as COMPLETED or approving it, you MUST run `pnpm lint && pnpm test` to ensure project health and that no regressions are introduced.
 **Prohibited Testing Libraries:** Do NOT use `@testing-library/react` or `@testing-library/*`. Use `vitest-browser-react` for browser component testing and `@playwright/test` for E2E testing.
 To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.
-When modifying or verifying central systems like the DAG Orchestrator (`.github/scripts/foundry-orchestrator.ts`), you MUST also explicitly run its test suite (`cd .github/scripts && pnpm install && npx vitest`) and verify that no test functionality is broken.
+When modifying or verifying central systems like the DAG Orchestrator (`packages/foundry/foundry-orchestrator.ts`), you MUST also explicitly run its test suite (`cd packages/foundry && pnpm install && npx vitest`) and verify that no test functionality is broken.
 
 ## Task Drafting & Verification Protocols
 - **Intelligent Verification Protocol**: Tech Leads must intelligently decide when a STORY requires a separate QA verification task. If a story involves complex logic or risk, create a matching TASK for the `qa` persona to verify the `coder`'s work. If simple/low-risk, designate the `coder` to self-verify. While generally QA tasks verify implementations, the coder is always responsible for writing tests. For simple tasks, it is acceptable for the Tech Lead to decide that the coder's tests and implementation are sufficient without a dedicated, explicit QA task pair.
