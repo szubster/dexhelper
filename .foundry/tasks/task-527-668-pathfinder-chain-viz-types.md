@@ -2,13 +2,13 @@
 id: task-527-668-pathfinder-chain-viz-types
 type: TASK
 title: Pathfinder Chain Visualization UI Types & Data Models
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-09'
 depends_on:
   - story-115-526-pathfinder-selection-ui
-jules_session_id: null
+jules_session_id: '8145598624598077080'
 pr_number: null
 parent: story-115-527-pathfinder-chain-visualization
 tags:
