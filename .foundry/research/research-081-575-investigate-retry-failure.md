@@ -2,12 +2,12 @@
 id: research-081-575-investigate-retry-failure
 type: RESEARCH
 title: Investigate Enum Optimizations Retry Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-09-15T23:53:19Z'
-updated_at: '2026-09-20'
+updated_at: '2026-10-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8440268688734751216'
 parent: story-042-081-preserve-enum-optimizations
 rejection_count: 2
 rejection_reason: ''
