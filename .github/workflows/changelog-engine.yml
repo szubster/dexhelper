@@ -49,7 +49,7 @@ jobs:
 
       - name: Run Changelog Engine Script
         run: |
-          node --strip-types .github/scripts/changelog-engine.ts
+          node --strip-types packages/foundry/changelog-engine.ts
 
       - name: Commit Backfill Task Updates
         run: |
