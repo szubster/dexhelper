@@ -12,6 +12,7 @@ jules_session_id: '17504495769652038418'
 parent: story-313-562-gen2-room-decoration-state-logic
 rejection_reason: ''
 locks: []
+confidence_score: 100
 ---
 
 # Task: Gen 2 Room Decoration Logic QA
@@ -25,6 +26,6 @@ Verify the overall implementation of the `useGen2RoomDecorations` hook, types, a
 - Ensure that the unit tests cover the expected functionality.
 
 ## Acceptance Criteria
-- [ ] `useGen2RoomDecorations` logic verified.
-- [ ] TypeScript types verified.
-- [ ] Unit tests for the hook pass and cover requirements.
+- [x] `useGen2RoomDecorations` logic verified.
+- [x] TypeScript types verified.
+- [x] Unit tests for the hook pass and cover requirements.
