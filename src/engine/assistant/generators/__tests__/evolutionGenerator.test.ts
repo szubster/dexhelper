@@ -585,5 +585,66 @@ describe('evolutionGenerator', () => {
       expect(suggestions[0]?.description).toContain('Dry Pokéblocks');
       expect(suggestions[0]?.priority).toBe(80);
     });
+
+    it('predicts Wurmple branch based on personalityValue in Gen 3', async () => {
+      const apiData: AssistantApiData = {
+        pokemonMetadata: {
+          266: { id: 266, efrm: [265], det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 7 }] }, // Silcoon
+          268: { id: 268, efrm: [265], det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 7 }] }, // Cascoon
+        },
+      } as unknown as AssistantApiData;
+
+      // PV where (pv >> 16) % 10 < 5 -> Silcoon
+      const silcoonWurmple = { speciesId: 265, level: 5, personalityValue: 0x00020000 } as PokemonInstance; // (2) % 10 = 2 < 5
+      const suggestions1: Suggestion[] = [];
+
+      await generateEvolutionSuggestions(
+        [266],
+        mockSaveData,
+        apiData,
+        new Map([[265, [silcoonWurmple]]]),
+        suggestions1,
+        'emerald',
+        new Set([266]),
+      );
+
+      expect(suggestions1).toHaveLength(1);
+      expect(suggestions1[0]?.id).toBe('evo-wurmple-match-266');
+      expect(suggestions1[0]?.description).toContain('Silcoon (#266) / Beautifly (#267)');
+
+      // Asking for Cascoon (#268) when Wurmple predicts Silcoon
+      const suggestions2: Suggestion[] = [];
+      await generateEvolutionSuggestions(
+        [268],
+        mockSaveData,
+        apiData,
+        new Map([[265, [silcoonWurmple]]]),
+        suggestions2,
+        'emerald',
+        new Set([268]),
+      );
+
+      expect(suggestions2).toHaveLength(1);
+      expect(suggestions2[0]?.id).toBe('evo-wurmple-branch-268');
+      expect(suggestions2[0]?.description).toContain('Catch another Wurmple');
+
+      // Multiple Wurmples owned: one predicts Silcoon, one predicts Cascoon
+      const cascoonWurmple = { speciesId: 265, level: 6, personalityValue: 0x00050000 } as PokemonInstance; // (5) % 10 = 5 >= 5 -> Cascoon
+      const suggestions3: Suggestion[] = [];
+
+      await generateEvolutionSuggestions(
+        [268],
+        mockSaveData,
+        apiData,
+        new Map([[265, [silcoonWurmple, cascoonWurmple]]]),
+        suggestions3,
+        'emerald',
+        new Set([268]),
+      );
+
+      expect(suggestions3).toHaveLength(1);
+      expect(suggestions3[0]?.id).toBe('evo-wurmple-match-268');
+      expect(suggestions3[0]?.description).toContain('Cascoon (#268) / Dustox (#269)');
+    });
   });
 });

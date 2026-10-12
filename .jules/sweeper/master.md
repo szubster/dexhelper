@@ -1,5 +1,5 @@
 ## Learnings
-* **Leftover knip config**: Obsolete file references (like `.github/scripts/schema.ts`) and dependencies (like `zod`) left in `knip.json` `ignore` or `ignoreDependencies` blocks will cause `knip` to flag errors if they do not exist or are correctly imported. Removing them safely resolves the warnings.
+* **Leftover knip config**: Obsolete file references (like `packages/foundry/schema.ts`) and dependencies (like `zod`) left in `knip.json` `ignore` or `ignoreDependencies` blocks will cause `knip` to flag errors if they do not exist or are correctly imported. Removing them safely resolves the warnings.
 * **Implicit File Dependencies (`test-setup.ts`)**: Knip may flag test setup files as unused because they are implicitly loaded by test runners rather than explicitly imported. Do not delete them without checking test-suite context; instead, adjust the knip configuration safely.
 
 ---
@@ -7,7 +7,7 @@
 ---
 
 ## Learnings
-* **Leftover knip config**: `.github/scripts/schema.ts` was still listed in `ignore` in `knip.json` even though it is actively used and correctly imported. Removing it from `knip.json` safely resolves the warning and ensures it correctly gets type-checked and tracked by knip.
+* **Leftover knip config**: `packages/foundry/schema.ts` was still listed in `ignore` in `knip.json` even though it is actively used and correctly imported. Removing it from `knip.json` safely resolves the warning and ensures it correctly gets type-checked and tracked by knip.
 
 ---
 
@@ -37,4 +37,4 @@ Always verify dead code with tools like `knip` and `grep` before deletion. When 
 ---
 
 ## Learnings
-* **Knip False Positives**: Tools like `knip` may incorrectly flag standalone CLI scripts (e.g., in `.github/scripts/`) as unused since they are not imported by other TypeScript modules. Always verify if a script is executed autonomously by agents or workflows (e.g., via `grep`) before assuming it is dead code and removing it.
+* **Knip False Positives**: Tools like `knip` may incorrectly flag standalone CLI scripts (e.g., in `packages/foundry/`) as unused since they are not imported by other TypeScript modules. Always verify if a script is executed autonomously by agents or workflows (e.g., via `grep`) before assuming it is dead code and removing it.

@@ -2,10 +2,10 @@
 id: story-536-543-integration-e2e-verification
 type: STORY
 title: Integration and E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-10-12'
 depends_on:
   - story-536-540-benchmarking-ts7-toolchains
   - story-536-541-benchmarking-node-native-execution
