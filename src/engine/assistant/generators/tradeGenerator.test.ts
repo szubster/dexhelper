@@ -199,6 +199,37 @@ describe('tradeGenerator', () => {
     expect(jynxSugg?.description).toContain('You have #60! Evolve it to #61');
   });
 
+  it('should generate priority 75 suggestion for multi-stage grandparent pre-evolution for an NPC trade', () => {
+    const saveData = {
+      generation: 1,
+      badges: 8,
+      eventFlags: new Uint8Array(300),
+      npcTradeFlags: { 6: false }, // receive Jynx 124 for Poliwhirl 61
+    } as unknown as SaveData;
+    const suggestions: import('../strategies/types').Suggestion[] = [];
+
+    generateGiftAndTradeSuggestions(
+      [124],
+      saveData,
+      'red',
+      new Set([60]), // Own Poliwag (#60)
+      {
+        pokemonMetadata: {
+          61: { efrm: [60] }, // Poliwhirl ancestors: [60] (Poliwag)
+          124: { efrm: [] },
+        },
+      } as unknown as import('../suggestionEngineTypes').AssistantApiData,
+      new Map([[60, [{} as PokemonInstance]]]),
+      suggestions,
+      new Set([124]),
+    );
+
+    const jynxSugg = suggestions.find((s) => s.pokemonId === 124);
+    expect(jynxSugg).toBeDefined();
+    expect(jynxSugg?.priority).toBe(75);
+    expect(jynxSugg?.description).toContain('You have #60! Evolve it to #61');
+  });
+
   it('should generate priority 70 suggestion to breed an owned post-evolution for an NPC trade', () => {
     const saveData = {
       generation: 3,

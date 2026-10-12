@@ -264,3 +264,56 @@ describe('validate-foundry-schema - confidence_score formatting', () => {
         expect(errorOutput).toContain('Error: Invalid confidence_score');
     });
 });
+
+describe('validate-foundry-schema - owner_persona validation', () => {
+    const tempIdeasDir = join(tempFoundryDir, 'ideas');
+
+    beforeAll(() => {
+        if (!existsSync(tempIdeasDir)) {
+            mkdirSync(tempIdeasDir, { recursive: true });
+        }
+    });
+
+    afterAll(() => {
+        if (existsSync(tempFoundryDir)) {
+            rmSync(tempFoundryDir, { recursive: true, force: true });
+        }
+    });
+
+    const runValidation = (filePath: string) => {
+        return execSync(`node --experimental-strip-types scripts/validate-foundry-schema.ts ${filePath}`, { encoding: 'utf-8' });
+    };
+
+    it('should pass for IDEA node owned by curator persona', () => {
+        expect.hasAssertions();
+        const id = 'idea-999-curator-test';
+        const filePath = join(tempIdeasDir, `${id}.md`);
+        const ideaFrontmatter = `---
+id: ${id}
+type: IDEA
+title: Test Curator Idea
+status: READY
+owner_persona: curator
+created_at: '2026-09-12'
+updated_at: '2026-09-20'
+depends_on: []
+jules_session_id: null
+rejection_reason: ''
+---
+# Test Curator Idea
+- [ ] AC 1
+`;
+        writeFileSync(filePath, ideaFrontmatter);
+
+        let output = '';
+        let error: Error | null = null;
+        try {
+            output = runValidation(filePath);
+        } catch (e: any) {
+            error = e;
+        }
+
+        expect(error).toBeNull();
+        expect(output).toContain('All Foundry nodes passed schema validation.');
+    });
+});

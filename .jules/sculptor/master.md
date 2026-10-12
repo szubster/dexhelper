@@ -200,3 +200,33 @@ Improve AI readability by extracting Gen 3 roamer offsets into a centralized con
 ## Critical Learnings
 * **Inline numerical literals obscure domain boundaries:** Using raw magic numbers (`151`, `251`, `386` for Pokédex species limits or `165` for Gen 1 move limits) across utility functions, configs, and health verification scanners obscures generation boundaries for AI models.
 * **Top-level domain constants establish self-documenting code:** Extracting species and move bounds (`GEN1_MAX_SPECIES_ID`, `GEN2_MAX_SPECIES_ID`, `GEN3_MAX_SPECIES_ID`, `GEN1_MAX_MOVE_ID`) to `src/utils/species.ts` and `src/engine/moves/gen2Moves.ts` allows LLMs and AI developers to immediately grasp boundary requirements and prevent accidental logic drift across disparate modules.
+
+---
+
+## Refactoring Goal
+Improve AI readability by extracting Generation 1 checksum memory offsets and constants into top-level exported constants.
+
+---
+
+## Actions Taken
+- Extracted constants `GEN1_MIN_SAVE_SIZE = 0x3524`, `GEN1_CHECKSUM_INITIAL_VALUE = 0xff`, `GEN1_CHECKSUM_DATA_START = 0x2598`, `GEN1_CHECKSUM_DATA_END = 0x3522`, `GEN1_CHECKSUM_STORED_OFFSET = 0x3523`, and `GEN1_CHECKSUM_MASK = 0xff` in `src/engine/healthScanner/gen1.ts`.
+- Replaced inline magic hex/decimal literals in `validateGen1Checksum` with these constants.
+
+---
+
+## Critical Learnings
+* **Top-level constants establish self-documenting checksum verification:** Extracting raw memory offsets and calculation bounds for save file health scanners allows AI models to immediately infer the memory range and algorithm bounds without needing to decipher inline hex arithmetic.
+
+---
+
+## Refactoring Goal
+Improve AI readability by extracting magic numbers for Generation 2 and Generation 3 gender threshold calculations as well as health scanner DV boundary assertions into named module-level constants.
+
+## Actions Taken
+- Extracted 16 gender rate and threshold constants (`GENDER_RATE_GENDERLESS`, `GENDER_RATE_ALWAYS_MALE`, `GENDER_RATE_ALWAYS_FEMALE`, `GENDER_RATE_FEMALE_ONE_EIGHTH`, `GEN2_FEMALE_THRESHOLD_ONE_EIGHTH`, `GEN3_FEMALE_THRESHOLD_ONE_EIGHTH`, `GEN3_PERSONALITY_GENDER_MASK`, etc.) into `src/utils/gender.ts`.
+- Updated `calculateGen2Gender` and `calculateGen3Gender` in `src/utils/gender.ts` to consume these constants instead of inline numeric literals.
+- Extracted `MIN_DV_VALUE = 0` and `MAX_DV_VALUE = 15` in `src/engine/healthScanner/boundsVerifier.ts` and updated stat DV checks to use them.
+
+## Critical Learnings
+- **Inline Gender Ratios & Bitmasks Obfuscate Domain Logic:** Using inline values like `-1`, `0`, `8`, `1`, `3`, `7`, `11`, `31`, `63`, `127`, `191`, and `0xff` in gender calculation routines makes it difficult for LLMs to infer the underlying rules without domain context.
+- **Explicit Top-Level Constants Establish Intent:** Converting these values to clearly-named constants (e.g., `GEN2_FEMALE_THRESHOLD_HALF`, `GEN3_PERSONALITY_GENDER_MASK`) allows AI models to immediately comprehend the purpose and boundaries of gender calculation and DV validation logic without needing to reverse-engineer magic numbers.

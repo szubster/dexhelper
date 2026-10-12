@@ -2,13 +2,13 @@
 id: task-564-571-gen3-pokedex-gaps-ui-impl
 type: TASK
 title: Implement Gen 3 Pokédex Gaps UI
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-10-08'
+updated_at: '2026-10-12'
 depends_on:
   - story-552-563-gen3-pokedex-version-exclusive-mapping
-jules_session_id: '7763390965597802832'
+jules_session_id: null
 pr_number: null
 parent: story-552-564-gen3-pokedex-gaps-ui
 tags:
@@ -17,7 +17,8 @@ tags:
   - pokedex
   - ui
 research_references: []
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: Max rejection count reached
 locks: []
 ---
 
