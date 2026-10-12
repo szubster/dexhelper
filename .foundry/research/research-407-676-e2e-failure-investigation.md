@@ -2,12 +2,12 @@
 id: research-407-676-e2e-failure-investigation
 type: RESEARCH
 title: Investigate Autonomous No-Ask Policy Violation in E2E Tasks
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6908666620103141999'
 parent: story-397-407-gen3-secret-base-parsing-e2e
 tags:
   - research
