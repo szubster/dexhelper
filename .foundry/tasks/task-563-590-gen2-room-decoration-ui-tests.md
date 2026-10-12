@@ -2,14 +2,14 @@
 id: task-563-590-gen2-room-decoration-ui-tests
 type: TASK
 title: Gen 2 Room Decoration UI Components Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-17T15:30:26Z'
-updated_at: '2026-10-08'
+updated_at: '2026-10-12'
 depends_on:
   - task-563-589-gen2-room-decoration-ui-impl
 confidence_score: 100
-jules_session_id: '16447412015611312687'
+jules_session_id: null
 parent: story-313-563-gen2-room-decoration-ui-components
 rejection_reason: ''
 locks: []
