@@ -2,10 +2,10 @@
 id: epic-053-105-daycare-save-parsing
 type: EPIC
 title: Daycare Core Data Extraction Engine
-status: PENDING
+status: FAILED
 owner_persona: story_owner
 created_at: '2026-06-22'
-updated_at: '2026-06-29'
+updated_at: '2026-10-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,9 @@ tags:
   - breeding
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Merged with unfulfilled acceptance criteria: Missing E2E/integration story'
 notes: ''
+locks: []
 ---
 
 # Epic: Daycare Core Data Extraction Engine
@@ -35,5 +36,5 @@ Implement offline save parsing to extract real-time Daycare data.
 
 ## Acceptance Criteria
 - [x] Break down into Stories.
-- [ ] .foundry/archive/stories/story-105-240-daycare-gen2-parsing.md
-- [ ] .foundry/stories/story-105-241-daycare-gen3-parsing.md
+- [x] .foundry/archive/stories/story-105-240-daycare-gen2-parsing.md
+- [x] .foundry/stories/story-105-241-daycare-gen3-parsing.md

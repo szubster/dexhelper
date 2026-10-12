@@ -2,10 +2,10 @@
 id: task-564-571-gen3-pokedex-gaps-ui-impl
 type: TASK
 title: Implement Gen 3 Pokédex Gaps UI
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-10-11'
+updated_at: '2026-10-12'
 depends_on:
   - story-552-563-gen3-pokedex-version-exclusive-mapping
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - pokedex
   - ui
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 locks: []
 ---
 

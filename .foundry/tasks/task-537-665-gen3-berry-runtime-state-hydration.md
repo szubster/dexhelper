@@ -2,17 +2,19 @@
 id: task-537-665-gen3-berry-runtime-state-hydration
 type: TASK
 title: Hydrate Gen 3 Berry Data into Runtime State
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-05'
-updated_at: '2026-10-11'
+updated_at: '2026-10-12'
 depends_on:
   - research-537-659-investigate-runtime-api-failure
-jules_session_id: '17693092814336174925'
+jules_session_id: null
 pr_number: null
 parent: story-513-537-gen3-berry-serialization-and-api
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

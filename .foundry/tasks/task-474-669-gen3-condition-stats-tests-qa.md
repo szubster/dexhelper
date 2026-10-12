@@ -2,13 +2,13 @@
 id: task-474-669-gen3-condition-stats-tests-qa
 type: TASK
 title: QA Verify Gen 3 Condition Stats Unit Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-06'
-updated_at: '2026-10-11'
+updated_at: '2026-10-12'
 depends_on:
   - task-474-668-gen3-condition-stats-tests-coder
-jules_session_id: '10533577238514448073'
+jules_session_id: null
 pr_number: null
 parent: story-134-474-gen3-condition-stats-extraction-tests
 tags:
