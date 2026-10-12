@@ -18,6 +18,7 @@ rejection_reason: ''
 notes: ''
 locks: []
 priority: 50
+confidence_score: 100
 ---
 
 # Artifact Promotion E2E QA Verification
@@ -26,5 +27,5 @@ priority: 50
 Verify the Playwright end-to-end tests for the artifact promotion workflow.
 
 ## Acceptance Criteria
-- [ ] Verify that all E2E tests run successfully.
-- [ ] Confirm that tests comprehensively cover banner removal, frontmatter updates, and feature flag resolution.
+- [x] Verify that all E2E tests run successfully.
+- [x] Confirm that tests comprehensively cover banner removal, frontmatter updates, and feature flag resolution.
