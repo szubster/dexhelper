@@ -29,3 +29,6 @@ locks: []
 ## Acceptance Criteria
 - [ ] Implement frontmatter field validation logic.
 - [ ] Implement enum strictness validation logic.
+- [ ] task-564-680-implement-frontmatter-parsing
+- [ ] task-564-681-implement-enum-strictness-validation
+- [ ] task-564-682-qa-schema-frontmatter-validation
