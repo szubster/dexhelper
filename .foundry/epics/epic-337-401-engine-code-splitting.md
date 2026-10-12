@@ -29,6 +29,9 @@ From PRD `prd-117-337-split-bundles-and-data`: Implement generation-based splitt
 - Move generation-specific Assistant Strategies behind dynamic imports.
 
 ## Acceptance Criteria
-- [ ] Story for dynamic importing save parsers
-- [ ] Story for dynamic importing assistant strategies
-- [ ] Story dedicated exclusively to Integration and E2E Verification
+- [x] Story for dynamic importing save parsers
+- [x] Story for dynamic importing assistant strategies
+- [x] Story dedicated exclusively to Integration and E2E Verification
+- [ ] story-401-649-dynamic-import-save-parsers
+- [ ] story-401-650-dynamic-import-assistant-strategies
+- [ ] story-401-651-engine-code-splitting-e2e
