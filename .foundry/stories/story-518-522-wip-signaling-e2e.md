@@ -30,4 +30,6 @@ locks: []
 This story is dedicated exclusively to the integration and end-to-end verification of the WIP code signaling system. Ensure that experimental code is appropriately walled off or flagged and functions correctly when tested against these constraints.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-522-680-wip-signaling-e2e-tests
+- [ ] task-522-681-wip-signaling-e2e-tests-qa
