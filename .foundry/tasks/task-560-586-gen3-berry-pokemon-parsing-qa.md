@@ -20,6 +20,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # QA Gen 3 Berry and Pokémon Parsing Logic
@@ -31,7 +32,7 @@ The parsing logic for the Gen 3 berry pouch and Pokémon condition stats/Nature 
 Verify the implementation of the berry pouch and Pokémon condition extraction functions, ensuring adherence to the save file parsing rules defined in the schema.
 
 ## Acceptance Criteria
-- [ ] Verify the backend save parsing logic accurately reads the Gen 3 berry pouch inventory and a Pokémon's current condition stats and Nature.
-- [ ] Verify that tests cover edge cases.
-- [ ] Verify adherence to the PokeData Property Naming Schema.
-- [ ] Verify that section offsets are utilized to support the A/B bank flash memory architecture as defined in the architectural guidelines.
+- [x] Verify the backend save parsing logic accurately reads the Gen 3 berry pouch inventory and a Pokémon's current condition stats and Nature.
+- [x] Verify that tests cover edge cases.
+- [x] Verify adherence to the PokeData Property Naming Schema.
+- [x] Verify that section offsets are utilized to support the A/B bank flash memory architecture as defined in the architectural guidelines.
