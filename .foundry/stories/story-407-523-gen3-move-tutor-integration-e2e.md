@@ -2,7 +2,7 @@
 id: story-407-523-gen3-move-tutor-integration-e2e
 type: STORY
 title: Gen 3 Move Tutor Compatibility Integration and E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-02'
 updated_at: '2026-10-12'

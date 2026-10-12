@@ -2,10 +2,10 @@
 id: task-559-681-trick-house-ui-state
 type: TASK
 title: Trick House UI State Integration
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-19'
+updated_at: '2026-10-12'
 depends_on:
   - task-559-680-trick-house-ui-component
 jules_session_id: null

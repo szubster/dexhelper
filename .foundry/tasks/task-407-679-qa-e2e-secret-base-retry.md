@@ -2,10 +2,10 @@
 id: task-407-679-qa-e2e-secret-base-retry
 type: TASK
 title: QA Verification for E2E Tests of Gen 3 Secret Base (Retry)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-12'
 depends_on:
   - task-407-677-e2e-base-location-parsing-retry
   - task-407-678-e2e-mixed-records-rematch-retry

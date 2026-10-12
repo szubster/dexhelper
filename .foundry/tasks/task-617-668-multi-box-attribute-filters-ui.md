@@ -2,12 +2,12 @@
 id: task-617-668-multi-box-attribute-filters-ui
 type: TASK
 title: Multi-Box Attribute Filters UI Components
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-23'
 updated_at: '2026-10-12'
 depends_on: []
-jules_session_id: '8135331897702842407'
+jules_session_id: null
 pr_number: null
 parent: story-576-617-multi-box-search-ui-components
 tags:
@@ -17,7 +17,9 @@ tags:
   - pc-box
   - react
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 priority: 50
