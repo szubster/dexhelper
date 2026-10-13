@@ -2,7 +2,7 @@
 id: epic-565-570-agent-confidence-metrics-orchestrator
 type: EPIC
 title: Implement Orchestrator Interventions for Confidence Metrics
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-09-17T01:15:33Z'
 updated_at: '2026-10-02'

@@ -2,7 +2,7 @@
 id: idea-521-agent-confidence-metrics-dashboard
 type: IDEA
 title: Agent Confidence Metrics Dashboard
-status: PENDING
+status: CANCELLED
 owner_persona: product_manager
 created_at: '2026-09-08'
 updated_at: '2026-09-16'

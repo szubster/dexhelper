@@ -14,47 +14,6 @@ index 1234567..89abcdef 100644
     expect(analyzeDiff(diff)).toBe(true);
   });
 
-  it('returns true for additions of confidence_score in non-journal files', () => {
-    const diff = `diff --git a/.foundry/tasks/task-123.md b/.foundry/tasks/task-123.md
-index 1234567..89abcdef 100644
---- a/.foundry/tasks/task-123.md
-+++ b/.foundry/tasks/task-123.md
-@@ -5,2 +5,3 @@
- rejection_reason: ''
-+confidence_score: 100
- ---
-`;
-    expect(analyzeDiff(diff)).toBe(true);
-  });
-
-  it('returns true for updates to confidence_score in non-journal files', () => {
-    const diff = `diff --git a/.foundry/tasks/task-123.md b/.foundry/tasks/task-123.md
-index 1234567..89abcdef 100644
---- a/.foundry/tasks/task-123.md
-+++ b/.foundry/tasks/task-123.md
-@@ -5,3 +5,3 @@
- rejection_reason: ''
--confidence_score: 80
-+confidence_score: 100
- ---
-`;
-    expect(analyzeDiff(diff)).toBe(true);
-  });
-
-  it('returns true for combined confidence_score addition and checkbox check', () => {
-    const diff = `diff --git a/.foundry/tasks/task-123.md b/.foundry/tasks/task-123.md
-index 1234567..89abcdef 100644
---- a/.foundry/tasks/task-123.md
-+++ b/.foundry/tasks/task-123.md
-@@ -5,5 +5,6 @@
- rejection_reason: ''
-+confidence_score: 100
- ---
--- [ ] Completed work
-+- [x] Completed work
-`;
-    expect(analyzeDiff(diff)).toBe(true);
-  });
 
   it('returns true for updates to journal files', () => {
     const diff = `diff --git a/.foundry/journals/coder/master.md b/.foundry/journals/coder/master.md
@@ -83,18 +42,6 @@ index 1234567..89abcdef 100644
     expect(analyzeDiff(diff)).toBe(false);
   });
 
-  it('returns false for invalid confidence_score syntax', () => {
-    const diff = `diff --git a/.foundry/tasks/task-123.md b/.foundry/tasks/task-123.md
-index 1234567..89abcdef 100644
---- a/.foundry/tasks/task-123.md
-+++ b/.foundry/tasks/task-123.md
-@@ -5,2 +5,3 @@
- rejection_reason: ''
-+confidence_score: invalid_number
- ---
-`;
-    expect(analyzeDiff(diff)).toBe(false);
-  });
 
   it('returns false when non-journal file is created', () => {
     const diff = `diff --git a/src/index.ts b/src/index.ts

@@ -2,7 +2,7 @@
 id: prd-521-565-agent-confidence-metrics-dashboard
 type: PRD
 title: PRD for Agent Confidence Metrics Dashboard
-status: PENDING
+status: CANCELLED
 owner_persona: epic_planner
 created_at: '2026-09-14'
 updated_at: '2026-09-19'

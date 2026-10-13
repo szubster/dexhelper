@@ -2,7 +2,7 @@
 id: task-645-673-orchestrator-confidence-intervention-e2e-impl
 type: TASK
 title: Implement Confidence Metrics Intervention E2E
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-08T12:00:00Z'
 updated_at: '2026-10-08T12:00:00Z'

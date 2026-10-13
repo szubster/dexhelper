@@ -2,7 +2,7 @@
 id: story-570-645-orchestrator-confidence-intervention-e2e
 type: STORY
 title: Confidence Metrics Intervention E2E Verification
-status: ACTIVE
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-10-01T15:03:21Z'
 updated_at: '2026-10-08'

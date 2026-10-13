@@ -70,7 +70,6 @@ export const NodeFrontmatterSchema = z.object({
   experiment_variants: z.array(z.string()).optional(),
   locks: z.array(z.string()).default([]),
   priority: z.number().int().optional(),
-  confidence_score: z.number().int().min(0).max(100).nullable().optional(),
 });
 
 export type NodeFrontmatter = z.infer<typeof NodeFrontmatterSchema>;
