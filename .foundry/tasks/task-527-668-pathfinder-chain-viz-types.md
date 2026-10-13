@@ -28,5 +28,5 @@ locks: []
 Define the TypeScript interfaces and types for the Pathfinder Chain Visualization component's props and data structures.
 
 ## Acceptance Criteria
-- [ ] Define the prop types for the visualization component, including the calculated chain data.
-- [ ] Ensure types support rendering intermediate species and passed-down moves.
+- [x] Define the prop types for the visualization component, including the calculated chain data.
+- [x] Ensure types support rendering intermediate species and passed-down moves.
