@@ -86,5 +86,5 @@ When migrating to `apps/web` or nested workspace packages:
 
 ## Acceptance Criteria
 - [x] Product Manager: Convert this IDEA into a PRD detailing the incremental migration phases, workspace boundaries, and Cloudflare Pages configuration instructions.
-- [x] prd-157-519-pnpm-workspaces-architecture
+- [x] [prd-157-519-pnpm-workspaces-architecture]
 - [x] Tech Lead: Break down the architectural refactoring into isolated TASK nodes per phase.
