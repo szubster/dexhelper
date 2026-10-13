@@ -29,5 +29,7 @@ locks: []
 To finalize the refactoring of Gen 1 parsers for ADR 028, we must ensure that the application's tests still pass and that no regressions were introduced during the refactoring process. This STORY is dedicated exclusively to Integration and E2E Verification of the Gen 1 save parsing logic.
 
 ## Acceptance Criteria
-- [ ] Decompose this Story into actionable Task nodes for verifying the Gen 1 save parser integration.
+- [x] Decompose this Story into actionable Task nodes for verifying the Gen 1 save parser integration.
 - [ ] Ensure E2E tests for Gen 1 save parsing pass successfully.
+- [ ] task-521-683-gen1-parser-integration-e2e-impl
+- [ ] task-521-684-gen1-parser-integration-e2e-qa
