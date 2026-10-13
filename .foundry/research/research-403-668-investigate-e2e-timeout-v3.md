@@ -32,5 +32,18 @@ The task `task-403-535-playwright-e2e-retry-impl-v2` failed permanently. We need
 - Document the findings and ensure they are clearly communicated.
 
 ## Acceptance Criteria
-- [ ] Investigate the root cause of the failure of `task-403-535-playwright-e2e-retry-impl-v2`.
-- [ ] Document findings and recommendations in the researcher journal and node body.
+- [x] Investigate the root cause of the failure of `task-403-535-playwright-e2e-retry-impl-v2`.
+- [x] Document findings and recommendations in the researcher journal and node body.
+
+## Findings and Recommendations
+
+### Root Cause Analysis
+The failed task `task-403-535-playwright-e2e-retry-impl-v2` still had the acceptance criterion `- [ ] Tests execute successfully via \`xvfb-run -a pnpm test:e2e\``. This command executes the full E2E suite which takes longer than the 400-second session timeout, directly causing the permanent failure again. The retry task incorrectly copied the original task`s acceptance criteria instead of updating it to target specific test files as recommended by `research-403-534-investigate-playwright-timeout`.
+
+### Recommendations
+When generating or updating retry tasks, personas must actively modify the acceptance criteria to remove full-suite test commands (`xvfb-run -a pnpm test:e2e`) and replace them with targeted file execution (e.g., `xvfb-run -a pnpm test:e2e tests/e2e/<file>.spec.ts`).
+
+
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
