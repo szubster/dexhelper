@@ -1,3 +1,4 @@
+import React, { useMemo } from 'react';
 import type { PokemonInstance } from '../engine/saveParser/parsers/common';
 import { usePokerusSpreadPlanner } from '../hooks/usePokerusSpreadPlanner';
 import { cn } from '../utils/cn';
@@ -8,8 +9,11 @@ interface PokerusSpreadPlannerProps {
   className?: string;
 }
 
-export function PokerusSpreadPlanner({ initialParty, className }: PokerusSpreadPlannerProps) {
+// ⚡ Bolt: Wrapped in React.memo and pre-built atRiskSet to convert atRiskIndices.includes scans to O(1) Set lookups.
+function PokerusSpreadPlannerComponent({ initialParty, className }: PokerusSpreadPlannerProps) {
   const { party, swapSlots, atRiskIndices } = usePokerusSpreadPlanner(initialParty);
+
+  const atRiskSet = useMemo(() => new Set(atRiskIndices), [atRiskIndices]);
 
   return (
     <div className={cn('tactical-panel flex flex-col gap-2 p-4', className)}>
@@ -17,14 +21,16 @@ export function PokerusSpreadPlanner({ initialParty, className }: PokerusSpreadP
         Pokérus Spread Planner
       </h2>
 
-      <div className="mb-4 flex items-center justify-between border border-yellow-500/50 border-dashed bg-yellow-500/10 px-2 py-1 text-xs text-yellow-400">
-        <span>[WARNING]</span>
-        <span>Clock approaching midnight. Curing possible.</span>
-      </div>
+      {party.some((p) => p?.pokerus && p.pokerus.daysRemaining > 0) && (
+        <div className="mb-4 flex items-center justify-between border border-yellow-500/50 border-dashed bg-yellow-500/10 px-2 py-1 text-xs text-yellow-400">
+          <span>[WARNING]</span>
+          <span>Clock approaching midnight. Curing possible.</span>
+        </div>
+      )}
 
       <div className="flex flex-col gap-2">
         {party.map((pokemon, index) => {
-          const isAtRisk = atRiskIndices.includes(index);
+          const isAtRisk = atRiskSet.has(index);
           const hasPokerus = pokemon?.pokerus !== undefined;
           const isContagious = pokemon?.pokerus && pokemon.pokerus.daysRemaining > 0;
           const isCured = pokemon?.pokerus && pokemon.pokerus.daysRemaining === 0;
@@ -80,3 +86,5 @@ export function PokerusSpreadPlanner({ initialParty, className }: PokerusSpreadP
     </div>
   );
 }
+
+export const PokerusSpreadPlanner = React.memo(PokerusSpreadPlannerComponent);

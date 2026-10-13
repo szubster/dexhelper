@@ -5,9 +5,9 @@ title: Extract Data Generation Scripts
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-09'
+updated_at: '2026-10-11'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2351933059847749452'
 pr_number: null
 parent: epic-519-525-extract-build-tooling
 tags:

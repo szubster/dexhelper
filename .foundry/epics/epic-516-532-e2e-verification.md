@@ -1,11 +1,11 @@
 ---
 id: epic-516-532-e2e-verification
 type: EPIC
-title: "E2E Verification of Scheduled Agents Issue Flow"
-status: PENDING
+title: E2E Verification of Scheduled Agents Issue Flow
+status: READY
 owner_persona: story_owner
-created_at: "2026-09-07"
-updated_at: "2026-09-07"
+created_at: '2026-09-07'
+updated_at: '2026-10-13'
 depends_on:
   - epic-516-531-modify-scheduled-workflows
 jules_session_id: null
@@ -19,8 +19,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # E2E Verification of Scheduled Agents Issue Flow

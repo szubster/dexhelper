@@ -2,10 +2,10 @@
 id: story-555-564-lint-schema-frontmatter-validation
 type: STORY
 title: Schema Linter Frontmatter Validation
-status: READY
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-01'
+updated_at: '2026-10-13'
 depends_on:
   - story-555-563-lint-schema-file-iteration
 jules_session_id: null
@@ -14,7 +14,7 @@ tags:
   - foundry
   - linting
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---
@@ -29,3 +29,6 @@ locks: []
 ## Acceptance Criteria
 - [ ] Implement frontmatter field validation logic.
 - [ ] Implement enum strictness validation logic.
+- [ ] task-564-680-implement-frontmatter-parsing
+- [ ] task-564-681-implement-enum-strictness-validation
+- [ ] task-564-682-qa-schema-frontmatter-validation
