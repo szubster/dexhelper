@@ -37,4 +37,7 @@ Migrate existing `tests/e2e/*.spec.ts` files to utilize the newly created custom
 ## Acceptance Criteria
 - [ ] Existing E2E tests are migrated to use the COM pattern.
 - [ ] Tests pass reliably in the CI environment.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-580-673-migrate-settings-e2e-tests
+- [ ] story-580-674-migrate-pokedex-e2e-tests
+- [ ] story-580-675-com-migration-e2e-verification

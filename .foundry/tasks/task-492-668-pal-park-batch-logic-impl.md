@@ -34,4 +34,4 @@ Implement logic to chunk a list of valid flagged Pokémon into batches of 6 and 
 - Ensure no magic numbers are used (e.g., array capacities must use constants).
 
 ## Acceptance Criteria
-- [ ] Implement batching and location mapping logic.
+- [x] Implement batching and location mapping logic.
