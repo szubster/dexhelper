@@ -2,13 +2,13 @@
 id: task-563-596-gen3-pokeblock-optimizer-qa
 type: TASK
 title: QA Gen 3 Pokéblock Optimizer UI
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-19'
-updated_at: '2026-10-12'
+updated_at: '2026-10-13'
 depends_on:
   - task-563-595-gen3-pokeblock-optimizer-tests
-jules_session_id: null
+jules_session_id: '1431031675671080582'
 pr_number: null
 parent: story-540-563-gen3-pokeblock-optimizer-ui
 tags:
