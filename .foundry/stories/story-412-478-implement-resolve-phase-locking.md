@@ -37,7 +37,11 @@ Implement lock aggregation and evaluation in the RESOLVE phase of the orchestrat
 - [x] task-478-528-aggregate-active-locks
 - [x] task-478-529-evaluate-locks-for-pending-nodes
 - [x] task-478-530-resolve-phase-locking-qa
-- [ ] research-478-668-investigate-locking-failure
-- [ ] task-478-669-aggregate-active-locks-retry
-- [ ] task-478-670-evaluate-locks-for-pending-nodes-retry
-- [ ] task-478-671-resolve-phase-locking-qa-retry
+- [x] research-478-668-investigate-locking-failure
+- [x] task-478-669-aggregate-active-locks-retry
+- [x] task-478-670-evaluate-locks-for-pending-nodes-retry
+- [x] task-478-671-resolve-phase-locking-qa-retry
+- [ ] research-478-676-investigate-locking-failure-retry
+- [ ] task-478-677-aggregate-active-locks-retry-2
+- [ ] task-478-678-evaluate-locks-for-pending-nodes-retry-2
+- [ ] task-478-679-resolve-phase-locking-qa-retry-2
