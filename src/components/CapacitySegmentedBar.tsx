@@ -41,7 +41,9 @@ export const CapacitySegmentedBar = React.memo(function CapacitySegmentedBar({
   return (
     <div className="relative inline-flex items-center gap-2.5 rounded-none border border-zinc-800/80 border-dashed bg-zinc-950/90 px-2 py-1 font-mono text-[9px] shadow-[inset_0_0_10px_rgba(0,0,0,0.8)]">
       {/* Telemetry Tag */}
-      <span className="select-none font-bold text-zinc-500 uppercase tracking-wider">[SYS.CAP]</span>
+      <span className="select-none font-bold text-zinc-500 uppercase tracking-wider">
+        <span aria-hidden="true">[</span>SYS.CAP<span aria-hidden="true">]</span>
+      </span>
 
       {/* Cased Bar Track */}
       <div className="flex h-2.5 w-24 items-center gap-0.5 border border-zinc-800 bg-black p-[2px] shadow-inner sm:w-32">

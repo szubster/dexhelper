@@ -2,12 +2,12 @@
 id: story-269-647-gen3-ash-dashboard-ui
 type: STORY
 title: 'Story: Gen 3 Volcanic Ash Tracker Dashboard UI Implementation'
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-10-03T19:33:53.000Z'
-updated_at: '2026-10-09'
+updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: '18432456221282246213'
+jules_session_id: null
 pr_number: null
 parent: epic-054-269-gen3-ash-dashboard
 tags:
@@ -15,7 +15,7 @@ tags:
   - gen3
   - ash
 research_references: []
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 locks: []
 ---
 
@@ -32,4 +32,7 @@ Implement the Gen 3 Volcanic Ash Tracker Dashboard UI within DexHelper. The dash
 ## Acceptance Criteria
 - [ ] Implement the UI components for the Ash Tracker.
 - [ ] Write integration E2E tests for the new UI.
-- [ ] Break down this Story into TASK nodes for coder and qa.
+- [x] Break down this Story into TASK nodes for coder and qa.
+- [ ] task-647-673-gen3-ash-dashboard-ui-impl
+- [ ] task-647-674-gen3-ash-dashboard-e2e
+- [ ] task-647-675-gen3-ash-dashboard-qa
