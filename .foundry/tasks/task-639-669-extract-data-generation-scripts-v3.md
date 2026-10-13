@@ -2,7 +2,7 @@
 id: task-639-669-extract-data-generation-scripts-v3
 type: TASK
 title: Extract Data Generation Scripts to Workspace Package v3
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-06'
 updated_at: '2026-10-06'
@@ -16,7 +16,7 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
 notes: ''
 locks: []
 ---

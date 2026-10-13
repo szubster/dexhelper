@@ -2,10 +2,10 @@
 id: story-517-552-archival-cleanup-core-e2e
 type: STORY
 title: Archival Cleanup Core E2E Verification
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-09-06'
-updated_at: '2026-09-09'
+updated_at: '2026-10-10'
 depends_on:
   - story-517-550-implement-node-age-filtering
   - story-517-551-implement-deletion-chunking
@@ -13,7 +13,9 @@ jules_session_id: null
 parent: epic-346-517-archival-cleanup-core-engine
 tags:
   - e2e
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  story-517-551-implement-deletion-chunking
 locks: []
 ---
 

@@ -29,6 +29,6 @@ locks: []
 Verify the E2E tests for Gen 3 Pokéblock extraction implemented by the coder.
 
 ## Acceptance Criteria
-- [ ] Verify that `tests/e2e/gen3_pokeblocks.spec.ts` executes successfully.
-- [ ] Verify that the E2E tests correctly validate the parsing logic for Emerald and Ruby/Sapphire.
-- [ ] Verify that the tests ensure FireRed/LeafGreen gracefully handles missing Pokéblock data.
+- [x] Verify that `tests/e2e/gen3_pokeblocks.spec.ts` executes successfully.
+- [x] Verify that the E2E tests correctly validate the parsing logic for Emerald and Ruby/Sapphire.
+- [x] Verify that the tests ensure FireRed/LeafGreen gracefully handles missing Pokéblock data.
