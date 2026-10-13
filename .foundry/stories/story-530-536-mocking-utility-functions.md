@@ -2,7 +2,7 @@
 id: story-530-536-mocking-utility-functions
 type: STORY
 title: Implement Central Mocking Utility Functions
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04'
 updated_at: '2026-10-10'

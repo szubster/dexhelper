@@ -4,7 +4,7 @@ import * as os from 'node:os';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { expect, test } from '@playwright/test';
-import { createValidTestNode } from '../../.github/scripts/foundry-test-utils';
+import { createValidTestNode } from '../../packages/foundry/foundry-test-utils';
 import { createMockFoundry } from './fixtures/mock-foundry';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -29,7 +29,7 @@ test.describe('Artifact Promotion Workflow E2E', () => {
     fs.writeFileSync(mockFilePath, wipContent, 'utf-8');
 
     // Execute banner removal utility synchronously
-    const bannerUtilPath = path.resolve(__dirname, '../../.github/scripts/utils/banner.ts');
+    const bannerUtilPath = path.resolve(__dirname, '../../packages/foundry/utils/banner.ts');
     execSync(`node --experimental-strip-types -e "
             import fs from 'node:fs';
             import { removeWipBanner } from '${bannerUtilPath}';
@@ -47,7 +47,7 @@ test.describe('Artifact Promotion Workflow E2E', () => {
       status: 'DRAFT',
     });
 
-    const promoteScriptPath = path.resolve(__dirname, '../../.github/scripts/promote-frontmatter.ts');
+    const promoteScriptPath = path.resolve(__dirname, '../../packages/foundry/promote-frontmatter.ts');
     execSync(`node --experimental-strip-types ${promoteScriptPath} ${nodePath} STABLE`);
 
     const nodeContent = fs.readFileSync(nodePath, 'utf-8');
