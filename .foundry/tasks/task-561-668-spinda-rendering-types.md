@@ -2,7 +2,7 @@
 id: task-561-668-spinda-rendering-types
 type: TASK
 title: Spinda Component Types & Interfaces
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-13'
@@ -16,8 +16,8 @@ tags:
   - ui
   - types
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

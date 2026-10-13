@@ -1,20 +1,17 @@
 ---
 id: task-527-675-drive-webhook-qa
 type: TASK
-title: "Drive Webhook Logic QA"
-status: READY
-owner_persona: "qa"
-created_at: "2026-10-09"
-updated_at: "2026-10-09"
+title: Drive Webhook Logic QA
+status: PENDING
+owner_persona: qa
+created_at: '2026-10-09'
+updated_at: '2026-10-13'
 depends_on:
   - task-527-673-webhook-registration-impl
   - task-527-674-webhook-renewal-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-402-527-drive-webhook-registration
-priority: 50
-confidence_score: null
 tags:
   - task
   - backend
@@ -23,8 +20,10 @@ tags:
 research_references:
   - adr-336-033-server-side-drive-sync
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Drive Webhook Logic QA

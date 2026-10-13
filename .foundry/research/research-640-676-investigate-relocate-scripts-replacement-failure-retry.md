@@ -2,12 +2,12 @@
 id: research-640-676-investigate-relocate-scripts-replacement-failure-retry
 type: RESEARCH
 title: Investigate Relocate Scripts Replacement Failure Retry
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-10'
 updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: '3465366973462254762'
+jules_session_id: null
 pr_number: null
 parent: story-525-640-relocate-foundry-scripts
 tags:
@@ -15,7 +15,9 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

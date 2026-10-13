@@ -2,7 +2,7 @@
 id: task-474-605-gen3-fame-checker-e2e-qa
 type: TASK
 title: Gen 3 Fame Checker Save Parsing E2E QA
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-09-21'
 updated_at: '2026-10-13'
@@ -20,8 +20,8 @@ tags:
   - e2e
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

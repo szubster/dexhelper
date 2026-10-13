@@ -2,10 +2,10 @@
 id: story-580-675-com-migration-e2e-verification
 type: STORY
 title: COM Migration E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-09'
-updated_at: '2026-10-09'
+updated_at: '2026-10-13'
 depends_on:
   - story-580-673-migrate-settings-e2e-tests
   - story-580-674-migrate-pokedex-e2e-tests

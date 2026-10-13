@@ -2,10 +2,10 @@
 id: task-472-676-implement-e2e-tests-retry-2
 type: TASK
 title: Implement E2E Tests for New Save Fixtures (Retry 2)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-13'
 depends_on:
   - research-472-675-investigate-e2e-tests-failure-v2
 jules_session_id: null

@@ -2,7 +2,7 @@
 id: task-639-679-migrate-primitives-qa-v3
 type: TASK
 title: QA for Tactical Primitives Migration (v3)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-10'
 updated_at: '2026-10-13'
@@ -17,7 +17,9 @@ tags:
   - react
   - components
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-639-675-investigate-primitives-migration-failures-v2
 notes: ''
 locks: []
 ---

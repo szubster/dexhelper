@@ -2,7 +2,7 @@
 id: epic-101-134-gen3-condition-stats-extraction
 type: EPIC
 title: Gen 3 Contest Condition Data Extraction
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-02'
 updated_at: '2026-10-13'

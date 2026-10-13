@@ -2,7 +2,7 @@
 id: task-561-615-pokerus-e2e-uninfected-cured
 type: TASK
 title: Pokerus UI Badges E2E - Uninfected and Cured States
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-23'
 updated_at: '2026-10-13'
@@ -16,8 +16,8 @@ tags:
   - pokerus
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

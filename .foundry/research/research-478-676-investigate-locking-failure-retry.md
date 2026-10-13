@@ -2,12 +2,12 @@
 id: research-478-676-investigate-locking-failure-retry
 type: RESEARCH
 title: Investigate lock aggregation failure (Retry)
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-10'
 updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: '679744317601617472'
+jules_session_id: null
 pr_number: null
 parent: story-412-478-implement-resolve-phase-locking
 tags:
@@ -15,7 +15,9 @@ tags:
   - research
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 ---

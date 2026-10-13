@@ -2,7 +2,7 @@
 id: task-574-659-archival-file-move-automation-qa
 type: TASK
 title: Archival File Move Automation QA
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-10-03T19:01:53.934Z'
 updated_at: '2026-10-13'
@@ -16,8 +16,8 @@ tags:
   - foundry
   - infrastructure
   - orchestrator
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

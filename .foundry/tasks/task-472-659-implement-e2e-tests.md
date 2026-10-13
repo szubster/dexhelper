@@ -2,7 +2,7 @@
 id: task-472-659-implement-e2e-tests
 type: TASK
 title: Implement E2E Tests for New Save Fixtures
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-04'
 updated_at: '2026-10-13'
@@ -15,8 +15,8 @@ tags:
   - e2e
   - fixtures
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

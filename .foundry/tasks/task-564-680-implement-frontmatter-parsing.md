@@ -1,20 +1,20 @@
 ---
 id: task-564-680-implement-frontmatter-parsing
 type: TASK
-title: "Implement Frontmatter Parsing & Required Fields"
-status: PENDING
+title: Implement Frontmatter Parsing & Required Fields
+status: READY
 owner_persona: coder
-created_at: "2026-10-12"
-updated_at: "2026-10-12"
+created_at: '2026-10-12'
+updated_at: '2026-10-13'
 depends_on: []
 jules_session_id: null
 parent: story-555-564-lint-schema-frontmatter-validation
-confidence_score: null
 tags:
   - linting
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Implement Frontmatter Parsing & Required Fields

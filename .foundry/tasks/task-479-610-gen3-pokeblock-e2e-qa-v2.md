@@ -2,7 +2,7 @@
 id: task-479-610-gen3-pokeblock-e2e-qa-v2
 type: TASK
 title: Verify Gen 3 Pokéblock E2E Tests (v2)
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-09-21'
 updated_at: '2026-10-13'
@@ -17,8 +17,8 @@ tags:
   - e2e
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

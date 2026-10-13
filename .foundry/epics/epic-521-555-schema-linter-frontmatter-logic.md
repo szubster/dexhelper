@@ -2,7 +2,7 @@
 id: epic-521-555-schema-linter-frontmatter-logic
 type: EPIC
 title: 'Schema Linter: Frontmatter & Directory Iteration'
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-24'
 updated_at: '2026-10-13'

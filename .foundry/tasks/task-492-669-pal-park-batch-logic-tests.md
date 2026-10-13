@@ -2,10 +2,10 @@
 id: task-492-669-pal-park-batch-logic-tests
 type: TASK
 title: Pal Park Batch Logic Unit Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-13'
 depends_on:
   - task-492-668-pal-park-batch-logic-impl
 jules_session_id: null

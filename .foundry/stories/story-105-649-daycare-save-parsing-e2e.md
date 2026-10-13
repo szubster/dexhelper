@@ -2,7 +2,7 @@
 id: story-105-649-daycare-save-parsing-e2e
 type: STORY
 title: Daycare Save Parsing E2E Verification
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-12'
 updated_at: '2026-10-13'
@@ -16,8 +16,8 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] ACTIVE node missing or malformed session ID'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

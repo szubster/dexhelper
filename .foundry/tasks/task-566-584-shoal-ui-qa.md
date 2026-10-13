@@ -2,7 +2,7 @@
 id: task-566-584-shoal-ui-qa
 type: TASK
 title: QA - Shoal Cave UI Dashboard Components
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-09-16T11:22:41Z'
 updated_at: '2026-10-13'
@@ -17,8 +17,8 @@ tags:
   - shoal-cave
   - qa
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

@@ -2,7 +2,7 @@
 id: research-560-668-investigate-tm-hm-compatibility-v3-failure
 type: RESEARCH
 title: Investigate TM/HM Compatibility Matching Failure V3
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-06'
 updated_at: '2026-10-13'
@@ -15,8 +15,8 @@ tags:
   - logic
   - investigation
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

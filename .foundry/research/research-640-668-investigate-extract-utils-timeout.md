@@ -2,12 +2,12 @@
 id: research-640-668-investigate-extract-utils-timeout
 type: RESEARCH
 title: Investigate timeout during utils extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-07'
-updated_at: '2026-10-10'
+updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: '1245164598816561868'
+jules_session_id: null
 pr_number: null
 parent: story-526-640-extract-domain-logic
 tags:
