@@ -2,12 +2,12 @@
 id: idea-536-playwright-browsers-preinstall-guard
 type: IDEA
 title: Playwright Browser Pre-Install Guard and Fallback in Test Pipeline
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-10-09'
-updated_at: '2026-10-09'
+updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16082080627747318419'
 pr_number: null
 parent: null
 tags:
