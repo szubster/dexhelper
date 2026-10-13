@@ -32,4 +32,7 @@ This Epic implements Phase 3.0 of Orchestrator Rejection Processing to parse ter
 - Update resurrection logic to differentiate handling and limits for system vs. domain failures.
 
 ## Acceptance Criteria
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [ ] story-581-673-orchestrator-termination-state-parsing
+- [ ] story-581-674-orchestrator-resurrection-logic
+- [ ] story-581-675-orchestrator-rejection-processing-e2e
