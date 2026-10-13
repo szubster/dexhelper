@@ -18,7 +18,7 @@ export function TideDisplay({ tide, hoursUntilNextTide, minutesUntilNextTide, cl
   return (
     <TacticalPanel className={cn('p-4', className)}>
       <TacticalHeaderDivider className="mb-4">
-        <h3 className="font-black font-mono text-xs text-zinc-400 uppercase tracking-widest">Shoal Cave Tide Status</h3>
+        <h3 className="tactical-text font-black text-xs text-zinc-400">Shoal Cave Tide Status</h3>
         <div className="relative h-4 w-4">
           <TacticalLed variant={isHighTide ? 'primary' : 'blue'} pipe={false} position="top-1/2" />
         </div>
