@@ -1,9 +1,10 @@
 import * as fs from 'node:fs';
-import * as path from "node:path";
-import { fileURLToPath } from "node:url";
+import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 import { expect, test } from '@playwright/test';
 import {
   appendSummaryToEpic,
@@ -11,7 +12,7 @@ import {
   generateChangelogAndLearnings,
   getChildNodesForEpic,
   getCompletedEpics,
-} from '../../.github/scripts/tpm-distillation';
+} from '../../packages/foundry/tpm-distillation';
 import { createMockFoundry } from './fixtures/mock-foundry';
 
 test.describe('TPM Distillation', () => {
