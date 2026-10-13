@@ -2,7 +2,7 @@
 id: task-557-582-orchestrator-link-resolution-e2e-impl
 type: TASK
 title: Orchestrator Link Resolution E2E Tests Implementation
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-15T20:14:57Z'
 updated_at: '2026-10-09'
@@ -11,8 +11,8 @@ depends_on:
 jules_session_id: null
 pr_number: null
 parent: story-551-557-integration-e2e-verification
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
