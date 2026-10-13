@@ -2,10 +2,10 @@
 id: epic-031-036-progression-tracking
 type: EPIC
 title: Progression Tracking & Multiple Saves
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-20'
-updated_at: '2026-08-30'
+updated_at: '2026-10-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,6 +16,7 @@ tags:
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Epic: Progression Tracking & Multiple Saves
 
@@ -33,4 +34,4 @@ As part of Phase 2 of the Cloudflare Sync backend, we need to support storing an
 - [x] story-036-255-progression-save-model
 - [x] story-036-256-progression-sync-logic
 - [x] story-036-257-concurrent-game-management
-- [ ] story-036-490-progression-e2e-verification
+- [x] story-036-490-progression-e2e-verification
