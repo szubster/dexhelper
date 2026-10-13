@@ -186,7 +186,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-136-gen3-ai-move-predictor` | Gen 3 Trainer AI Move Predictor | gen3, nuzlocke, ai |  | PENDING |
 | `idea-136-in-game-mail-archiver` | Gen 1-3 In-Game Mail Archiver | feature, mail, collector |  | BLOCKED |
 | `idea-136-split-bundles-and-data` | Split bundles and data by game generation | performance, architecture, bundles, database |  | PENDING |
-| `idea-137-builtin-emulator` | Built-in Emulator Integration | emulator, research, core |  | PENDING |
+| `idea-137-builtin-emulator` | Built-in Emulator Integration | emulator, research, core | Parent: `idea-061-emulator-auto-sync` | PENDING |
 | `idea-137-decouple-persona-prompts` | Decouple Persona Prompts and Support Composite Multi-Layered Prompts | foundry, orchestrator, architecture |  | PENDING |
 | `idea-137-external-source-links` | Add Links to External Sources | general, documentation, ui |  | BLOCKED |
 | `idea-138-realtime-memory-sync-extraction` | Real-Time WebAssembly Memory Sync and Extraction | emulator, save-engine, architecture |  | PENDING |

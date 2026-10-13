@@ -38,3 +38,5 @@ This upgrades DexHelper from a static post-save analyzer into an interactive, li
 ## Acceptance Criteria
 - [x] Product Manager: Draft a comprehensive PRD outlining the web-emulator integration flow, UI/UX layouts, and the reactive instruction schema.
 - [x] prd-137-343-built-in-emulator
+
+- [ ] research-137-677-emulator-auto-sync-integration
