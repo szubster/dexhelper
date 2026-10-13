@@ -1,13 +1,13 @@
 ---
 id: epic-586-582-yaml-schema-counters
 type: EPIC
-title: "Update Schema and Validation Logic for New YAML Counters"
-status: READY
+title: Update Schema and Validation Logic for New YAML Counters
+status: ACTIVE
 owner_persona: story_owner
-created_at: "2026-10-08"
-updated_at: "2026-10-08"
+created_at: '2026-10-08'
+updated_at: '2026-10-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7587249326560552860'
 pr_number: null
 parent: prd-535-586-false-permanent-failure-detection
 priority: 80
@@ -15,8 +15,8 @@ confidence_score: null
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Update Schema and Validation Logic for New YAML Counters

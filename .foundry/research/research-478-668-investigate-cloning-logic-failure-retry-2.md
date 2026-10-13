@@ -2,12 +2,12 @@
 id: research-478-668-investigate-cloning-logic-failure-retry-2
 type: RESEARCH
 title: Investigate DAG Node Cloning Logic Failure (Retry 2)
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5393659456599318406'
 pr_number: null
 parent: story-412-478-node-cloning-logic
 tags:

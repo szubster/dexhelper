@@ -2,10 +2,10 @@
 id: task-527-670-pathfinder-chain-viz-tests
 type: TASK
 title: Pathfinder Chain Visualization UI Unit Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-09'
 depends_on:
   - task-527-669-pathfinder-chain-viz-ui
 jules_session_id: null
