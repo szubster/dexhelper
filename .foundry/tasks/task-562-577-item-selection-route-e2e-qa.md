@@ -2,10 +2,10 @@
 id: task-562-577-item-selection-route-e2e-qa
 type: TASK
 title: QA E2E Tests for Item Selection and Route Display
-status: COMPLETED
+status: READY
 owner_persona: qa
 created_at: '2026-09-14'
-updated_at: '2026-10-12'
+updated_at: '2026-09-24'
 depends_on:
   - task-562-576-item-selection-route-e2e-impl
 jules_session_id: null
@@ -20,7 +20,6 @@ rejection_reason: ''
 notes: ''
 locks: []
 priority: 50
-confidence_score: 100
 ---
 
 # Task: QA E2E Tests for Item Selection and Route Display
@@ -34,4 +33,4 @@ This task is to QA the e2e testing requirements defined in its parent story.
 - Verify that tests correctly handle mobile layouts (`isMobile`).
 
 ## Acceptance Criteria
-- [x] qa: Verify the e2e tests.
+- [ ] qa: Verify the e2e tests.

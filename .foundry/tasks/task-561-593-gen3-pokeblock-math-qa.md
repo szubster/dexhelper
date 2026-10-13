@@ -2,15 +2,16 @@
 id: task-561-593-gen3-pokeblock-math-qa
 type: TASK
 title: QA Verification for Gen 3 Pokéblock Math
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-18'
-updated_at: '2026-10-13'
+updated_at: '2026-09-18'
 depends_on:
   - task-561-592-gen3-pokeblock-feeding-math
-jules_session_id: '9135791245231878384'
+jules_session_id: null
 pr_number: null
 parent: story-540-561-gen3-pokeblock-math-formulas
+priority: 50
 tags:
   - dexhelper
   - gen3
@@ -18,10 +19,9 @@ tags:
   - math
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-notes: ''
+rejection_reason: ""
+notes: ""
 locks: []
-priority: 50
 ---
 
 # QA Verification for Gen 3 Pokéblock Math

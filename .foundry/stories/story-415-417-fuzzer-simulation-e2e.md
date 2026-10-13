@@ -2,10 +2,10 @@
 id: story-415-417-fuzzer-simulation-e2e
 type: STORY
 title: Orchestrator Fuzzer - Simulation E2E & Integration
-status: COMPLETED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-12'
-updated_at: '2026-10-11'
+updated_at: '2026-09-25'
 depends_on:
   - story-415-416-fuzzer-state-simulation
 jules_session_id: null
@@ -36,7 +36,7 @@ Verify the end-to-end functionality of DAG generation and state simulation withi
 3. Validate that generated tests properly resolve to either complete success or complete failure, asserting on deadlock detection.
 
 ## Acceptance Criteria
-- [x] task-417-521-fuzzer-simulation-harness-impl
-- [x] task-417-522-fuzzer-simulation-tests-impl
-- [x] task-417-523-fuzzer-simulation-qa
+- [ ] task-417-521-fuzzer-simulation-harness-impl
+- [ ] task-417-522-fuzzer-simulation-tests-impl
+- [ ] task-417-523-fuzzer-simulation-qa
 - [x] Break down into Tasks.

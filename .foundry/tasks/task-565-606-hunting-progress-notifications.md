@@ -2,13 +2,13 @@
 id: task-565-606-hunting-progress-notifications
 type: TASK
 title: Hunting Progress Notifications
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-08-15'
-updated_at: '2026-10-10'
+updated_at: '2026-10-07'
 depends_on:
   - task-565-605-hunting-progress-detection-logic
-jules_session_id: null
+jules_session_id: '10254269724373625535'
 pr_number: null
 parent: story-554-565-progress-tracker-state
 tags:
@@ -17,7 +17,6 @@ tags:
 research_references: []
 rejection_count: 2
 rejection_reason: ''
-confidence_score: 100
 notes: ''
 locks: []
 ---
@@ -33,5 +32,5 @@ UI notifications must trigger on success.
 - Write component/hook tests for the notification trigger.
 
 ## Acceptance Criteria
-- [x] Implement the notification trigger.
-- [x] Write unit tests for the notification behavior.
+- [ ] Implement the notification trigger.
+- [ ] Write unit tests for the notification behavior.

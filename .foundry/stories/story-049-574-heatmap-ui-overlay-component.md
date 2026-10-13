@@ -2,13 +2,13 @@
 id: story-049-574-heatmap-ui-overlay-component
 type: STORY
 title: Heatmap UI Overlay Component
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-16T06:24:34Z'
-updated_at: '2026-10-11'
+updated_at: '2026-10-08'
 depends_on:
   - story-049-573-heatmap-data-processing-layer
-jules_session_id: '14958454030772780477'
+jules_session_id: '16173751105517313263'
 pr_number: null
 parent: epic-035-049-smart-radar-heatmap-generation
 tags:
@@ -31,9 +31,5 @@ With the heatmap data processing layer implemented, we now need to create the UI
 Implement the React components and styling required to overlay the heatmap data onto the map graph, adhering to the tactical hardware aesthetic.
 
 ## Acceptance Criteria
-- [x] Break down into Tasks for implementing the UI overlay components.
+- [ ] Break down into Tasks for implementing the UI overlay components.
 - [ ] Complete child tasks for the UI overlay.
-- [ ] task-574-670-heatmap-ui-overlay-types
-- [ ] task-574-671-heatmap-ui-overlay-impl
-- [ ] task-574-672-heatmap-ui-overlay-tests
-- [ ] task-574-673-heatmap-ui-overlay-qa

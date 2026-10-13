@@ -2,15 +2,15 @@
 id: story-313-562-gen2-room-decoration-state-logic
 type: STORY
 title: Gen 2 Room Decoration State Logic
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-10-12'
+updated_at: '2026-09-17'
 depends_on: []
 jules_session_id: null
 parent: epic-112-313-gen2-room-decoration-viewer-ui
-rejection_reason: ''
 locks: []
+rejection_reason: ''
 ---
 
 # Story: Gen 2 Room Decoration State Logic
@@ -25,7 +25,7 @@ Implement the React state logic and hooks to expose the parsed Gen 2 room decora
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [x] task-562-578-gen2-room-decoration-types
-- [x] task-562-579-gen2-room-decoration-hook
-- [x] task-562-580-gen2-room-decoration-hook-tests
-- [x] task-562-581-gen2-room-decoration-logic-qa
+- [ ] task-562-578-gen2-room-decoration-types
+- [ ] task-562-579-gen2-room-decoration-hook
+- [ ] task-562-580-gen2-room-decoration-hook-tests
+- [ ] task-562-581-gen2-room-decoration-logic-qa

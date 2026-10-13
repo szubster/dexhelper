@@ -5,17 +5,17 @@ title: QA Idempotent Orchestrator Bypass Retry
 status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-24'
-updated_at: '2026-10-11'
+updated_at: '2026-10-09'
 depends_on:
   - research-512-617-investigate-idempotent-bypass-qa-failure
-jules_session_id: '14154459795294051644'
+jules_session_id: '3976281324672536779'
 pr_number: null
 parent: story-018-512-idempotent-orchestrator-bypass
 tags:
   - orchestrator
   - typescript
 research_references: []
-rejection_count: 1
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []

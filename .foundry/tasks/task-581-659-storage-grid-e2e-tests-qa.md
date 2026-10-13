@@ -2,13 +2,12 @@
 id: task-581-659-storage-grid-e2e-tests-qa
 type: TASK
 title: Verify E2E Tests for Virtualized StorageGrid
-status: COMPLETED
+status: READY
 owner_persona: qa
 created_at: '2026-10-03T19:01:37Z'
-updated_at: '2026-10-09'
+updated_at: '2026-10-08'
 depends_on:
   - task-581-658-storage-grid-e2e-tests-coder
-confidence_score: 100
 jules_session_id: null
 pr_number: null
 parent: story-566-581-storage-grid-virtualization-e2e
@@ -36,6 +35,6 @@ The `StorageGrid` component has been virtualized, and the coder has implemented 
 4. Run the full test suite (`pnpm lint`, `pnpm test`, and `xvfb-run -a pnpm test:e2e`) to ensure no regressions and that the new E2E tests pass reliably.
 
 ## Acceptance Criteria
-- [x] Verify the E2E tests correctly cover standard rendering, interaction, and scrolling.
-- [x] Verify the E2E tests correctly cover responsive column layout adjustments.
-- [x] Ensure all tests pass.
+- [ ] Verify the E2E tests correctly cover standard rendering, interaction, and scrolling.
+- [ ] Verify the E2E tests correctly cover responsive column layout adjustments.
+- [ ] Ensure all tests pass.

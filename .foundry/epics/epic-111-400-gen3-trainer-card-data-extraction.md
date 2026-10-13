@@ -2,10 +2,10 @@
 id: epic-111-400-gen3-trainer-card-data-extraction
 type: EPIC
 title: Epic - Gen 3 Trainer Card Data Extraction
-status: COMPLETED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-10-12'
+updated_at: '2026-08-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,7 +19,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Epic: Gen 3 Trainer Card Data Extraction
@@ -28,12 +27,12 @@ locks: []
 Parse the Emerald save file to determine the status of the goals required for Trainer Card upgrades.
 
 ## Acceptance Criteria
-- [x] Parse Hall of Fame flag.
-- [x] Parse Hoenn Pokédex catch count (must be exactly 202).
-- [x] Parse National Pokédex catch count (must be exactly 386).
-- [x] Parse Contest Master Rank flags (Cool, Beauty, Cute, Smart, Tough).
-- [x] Parse Battle Frontier Gold Symbols flags.
-- [x] Verify the implementation's exact alignment with the documentation schemas (e.g., Section 14 of .foundry/docs/schema.md) before marking tasks complete.
+- [ ] Parse Hall of Fame flag.
+- [ ] Parse Hoenn Pokédex catch count (must be exactly 202).
+- [ ] Parse National Pokédex catch count (must be exactly 386).
+- [ ] Parse Contest Master Rank flags (Cool, Beauty, Cute, Smart, Tough).
+- [ ] Parse Battle Frontier Gold Symbols flags.
+- [ ] Verify the implementation's exact alignment with the documentation schemas (e.g., Section 14 of .foundry/docs/schema.md) before marking tasks complete.
 - [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
-- [x] story-400-358-gen3-trainer-card-parsing-core
-- [x] story-400-359-gen3-trainer-card-parsing-e2e
+- [ ] story-400-358-gen3-trainer-card-parsing-core
+- [ ] story-400-359-gen3-trainer-card-parsing-e2e

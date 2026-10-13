@@ -74,6 +74,41 @@ test('DagProvider provides maxRejectionThreshold and handles data loading correc
   await expect.element(page.getByTestId('show-heatmap')).toHaveTextContent('true');
 });
 
+test('DagProvider correctly maps confidence_score from node data', async () => {
+  globalThis.fetch = vi.fn<typeof fetch>().mockResolvedValue({
+    ok: true,
+    json: async () => [
+      {
+        filePath: 'node-3.md',
+        data: {
+          id: 'node-3',
+          type: 'TASK',
+          status: 'COMPLETED',
+          owner_persona: 'coder',
+          label: 'node',
+          title: 'Node 3',
+          rejection_count: 0,
+          depends_on: [],
+          confidence_score: 95,
+        },
+      },
+    ],
+  } as unknown as Response);
+
+  const TestConfidenceComponent = () => {
+    const { nodes } = useDagContext();
+    return <div>{nodes.length > 0 && <div data-testid="node-confidence">{nodes[0]?.data.confidence_score}</div>}</div>;
+  };
+
+  await render(
+    <DagProvider>
+      <TestConfidenceComponent />
+    </DagProvider>,
+  );
+
+  await expect.element(page.getByTestId('node-confidence')).toHaveTextContent('95');
+});
+
 test('DagProvider handles load error gracefully', async () => {
   const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 

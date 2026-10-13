@@ -2,10 +2,10 @@
 id: task-422-661-pc-box-tm-extraction-qa-retry
 type: TASK
 title: QA verification for PC Box and TM Inventory extraction logic
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-03T13:51:00.000Z'
-updated_at: '2026-10-09'
+updated_at: '2026-10-03'
 depends_on:
   - task-422-660-pc-box-tm-extraction-tests-retry
 jules_session_id: null
@@ -15,9 +15,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-422-659-tm-inventory-extraction-logic-retry
+rejection_reason: ''
 notes: ''
 locks: []
 ---

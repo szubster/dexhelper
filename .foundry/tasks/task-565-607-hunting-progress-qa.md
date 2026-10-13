@@ -2,13 +2,13 @@
 id: task-565-607-hunting-progress-qa
 type: TASK
 title: Hunting Progress QA
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-08-15'
-updated_at: '2026-10-11'
+updated_at: '2026-09-21'
 depends_on:
   - task-565-606-hunting-progress-notifications
-jules_session_id: '3486173123400765323'
+jules_session_id: null
 pr_number: null
 parent: story-554-565-progress-tracker-state
 tags:

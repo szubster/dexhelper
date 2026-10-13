@@ -2,7 +2,7 @@
 id: task-403-670-playwright-e2e-retry-qa-v3
 type: TASK
 title: QA Verification for Playwright E2E Tests V3
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-06'
 updated_at: '2026-10-06'
@@ -19,7 +19,7 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
+rejection_reason: ''
 notes: ''
 locks: []
 ---

@@ -2,10 +2,10 @@
 id: story-519-523-artifact-promotion-e2e
 type: STORY
 title: Artifact Promotion Workflow E2E Verification
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-12'
+updated_at: '2026-09-20'
 depends_on:
   - story-519-520-automate-banner-removal
   - story-519-521-update-frontmatter-promotion
@@ -29,8 +29,8 @@ locks: []
 Implement End-to-End verification tests for the full WIP artifact promotion workflow.
 
 ## Acceptance Criteria
-- [x] Implement tests verifying banner removal, frontmatter updates, and feature flag resolution work synchronously.
+- [ ] Implement tests verifying banner removal, frontmatter updates, and feature flag resolution work synchronously.
 - [x] Break down into Tasks.
-- [x] task-523-598-artifact-promotion-e2e-fixtures
-- [x] task-523-599-artifact-promotion-e2e-logic
-- [x] task-523-600-artifact-promotion-e2e-qa
+- [ ] task-523-598-artifact-promotion-e2e-fixtures
+- [ ] task-523-599-artifact-promotion-e2e-logic
+- [ ] task-523-600-artifact-promotion-e2e-qa

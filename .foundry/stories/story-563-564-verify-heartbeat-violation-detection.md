@@ -2,10 +2,10 @@
 id: story-563-564-verify-heartbeat-violation-detection
 type: STORY
 title: Verify Heartbeat Violation Detection
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-08'
-updated_at: '2026-10-12'
+updated_at: '2026-09-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -26,7 +26,7 @@ locks: []
 Verify that the orchestrator heartbeat correctly detects and flags Jules sessions that enter the \`AWAITING_USER_FEEDBACK\` state, ensuring the Autonomous No-Ask Policy is strictly enforced.
 
 ## Acceptance Criteria
-- [x] The heartbeat correctly identifies \`AWAITING_USER_FEEDBACK\` as a violation.
-- [x] Nodes with sessions in this state are transitioned to \`FAILED\`.
-- [x] task-564-611-verify-heartbeat-violation-detection-coder
-- [x] task-564-612-verify-heartbeat-violation-detection-qa
+- [ ] The heartbeat correctly identifies \`AWAITING_USER_FEEDBACK\` as a violation.
+- [ ] Nodes with sessions in this state are transitioned to \`FAILED\`.
+- [ ] task-564-611-verify-heartbeat-violation-detection-coder
+- [ ] task-564-612-verify-heartbeat-violation-detection-qa

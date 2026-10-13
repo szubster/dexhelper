@@ -50,6 +50,68 @@ test('DagNode renders all required fields', async () => {
   await expect.element(page.getByTestId('persona-icon-coder')).toBeInTheDocument();
 });
 
+test('DagNode renders confidence_score when present', async () => {
+  const data = {
+    id: 'test-task-001',
+    label: 'test-task-001',
+    type: 'TASK',
+    status: 'ACTIVE',
+    owner_persona: 'coder',
+    confidence_score: 85,
+  };
+
+  const nodes = [
+    {
+      id: 'test-task-001',
+      type: 'custom',
+      data,
+      position: { x: 0, y: 0 },
+    },
+  ];
+
+  await render(
+    <div style={{ width: '500px', height: '500px' }}>
+      <ReactFlow nodes={nodes} nodeTypes={nodeTypes} />
+    </div>,
+  );
+
+  await expect.element(page.getByText('CONF: 85%')).toBeInTheDocument();
+  await expect.element(page.getByText('CONF: 85%')).toHaveClass('text-amber-500');
+});
+
+test('DagNode applies correct color based on confidence score', async () => {
+  const nodes = [
+    {
+      id: 'low',
+      type: 'custom',
+      data: { id: 'low', type: 'TASK', status: 'ACTIVE', owner_persona: 'coder', confidence_score: 50 },
+      position: { x: 0, y: 0 },
+    },
+    {
+      id: 'med',
+      type: 'custom',
+      data: { id: 'med', type: 'TASK', status: 'ACTIVE', owner_persona: 'coder', confidence_score: 75 },
+      position: { x: 0, y: 100 },
+    },
+    {
+      id: 'high',
+      type: 'custom',
+      data: { id: 'high', type: 'TASK', status: 'ACTIVE', owner_persona: 'coder', confidence_score: 95 },
+      position: { x: 0, y: 200 },
+    },
+  ];
+
+  await render(
+    <div style={{ width: '500px', height: '500px' }}>
+      <ReactFlow nodes={nodes} nodeTypes={nodeTypes} />
+    </div>,
+  );
+
+  await expect.element(page.getByText('CONF: 50%')).toHaveClass('text-red-500');
+  await expect.element(page.getByText('CONF: 75%')).toHaveClass('text-amber-500');
+  await expect.element(page.getByText('CONF: 95%')).toHaveClass('text-emerald-500');
+});
+
 test('DagNode adheres to tactical aesthetic classes', async () => {
   const data = {
     id: 'test-task-001',

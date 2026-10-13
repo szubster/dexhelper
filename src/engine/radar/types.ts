@@ -32,9 +32,3 @@ export interface LogicalRequirement {
 }
 
 export type GatingRequirement = ItemRequirement | HMRequirement | BikeRequirement | LogicalRequirement;
-
-export interface GatingContext {
-  hasItem(itemId: string): boolean;
-  hasHM(hmId: string): boolean;
-  hasBike(bikeType: 'mach' | 'acro' | 'any'): boolean;
-}

@@ -2,15 +2,14 @@
 id: task-537-539-acceptance-criteria-e2e-qa
 type: TASK
 title: QA E2E Tests for Acceptance Criteria Rules
-status: COMPLETED
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-17T22:02:02Z'
-updated_at: '2026-10-12'
+updated_at: '2026-10-08'
 depends_on:
   - task-537-538-acceptance-criteria-adr007-coder
   - task-537-540-acceptance-criteria-empty-pr-coder
-confidence_score: 100
-jules_session_id: null
+jules_session_id: '14395109703897356116'
 pr_number: null
 parent: story-534-537-acceptance-criteria-integration-e2e
 tags:
@@ -36,5 +35,5 @@ The Coder has implemented E2E tests to verify the new Acceptance Criteria archit
 - Run the test suite to confirm everything passes locally.
 
 ## Acceptance Criteria
-- [x] Review implementation code.
-- [x] Verify test suite passes successfully.
+- [ ] Review implementation code.
+- [ ] Verify test suite passes successfully.

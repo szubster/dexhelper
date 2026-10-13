@@ -2,7 +2,6 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { FeatureFlagProvider } from './contexts/FeatureFlagContext';
 import { Gen3RTCProvider } from './contexts/Gen3RTCContext';
 import { TimeOverrideProvider } from './contexts/TimeOverrideContext';
 import { pokeDB } from './db/PokeDB';
@@ -53,14 +52,12 @@ if (!rootElement) throw new Error('Root element not found');
 
 createRoot(rootElement).render(
   <StrictMode>
-    <FeatureFlagProvider>
-      <QueryClientProvider client={queryClient}>
-        <Gen3RTCProvider>
-          <TimeOverrideProvider>
-            <RouterProvider router={router} />
-          </TimeOverrideProvider>
-        </Gen3RTCProvider>
-      </QueryClientProvider>
-    </FeatureFlagProvider>
+    <QueryClientProvider client={queryClient}>
+      <Gen3RTCProvider>
+        <TimeOverrideProvider>
+          <RouterProvider router={router} />
+        </TimeOverrideProvider>
+      </Gen3RTCProvider>
+    </QueryClientProvider>
   </StrictMode>,
 );

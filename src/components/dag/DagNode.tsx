@@ -12,6 +12,7 @@ export type DagNodeData = Record<string, unknown> & {
   status: string;
   owner_persona: string;
   rejection_count: number;
+  confidence_score?: number | null;
   label?: string;
   isHighlighted?: boolean;
   isDimmed?: boolean;
@@ -97,6 +98,20 @@ export const DagNode = React.memo(function DagNode({ data }: { data: DagNodeData
       <div className="mt-1 flex flex-col gap-1">
         <div className="flex items-center justify-between gap-2">
           <PersonaBadge persona={data.owner_persona} className="mr-auto" />
+          {data.confidence_score !== undefined && data.confidence_score !== null && (
+            <div
+              className={cn(
+                'mr-2 ml-auto font-bold font-mono text-[10px]',
+                data.confidence_score < 70
+                  ? 'text-red-500'
+                  : data.confidence_score < 90
+                    ? 'text-amber-500'
+                    : 'text-emerald-500',
+              )}
+            >
+              CONF: {data.confidence_score}%
+            </div>
+          )}
           <span className={cn('font-bold text-[10px] uppercase tracking-widest', statusColor)}>{data.status}</span>
         </div>
 

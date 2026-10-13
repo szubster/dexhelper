@@ -2,12 +2,12 @@
 id: story-408-490-orchestrator-themed-output-impl
 type: STORY
 title: Orchestrator Themed Output Implementation
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-29'
-updated_at: '2026-10-11'
+updated_at: '2026-09-23'
 depends_on: []
-jules_session_id: '1830220793751656194'
+jules_session_id: null
 pr_number: null
 parent: epic-339-408-orchestrator-themed-output
 tags:

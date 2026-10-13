@@ -2,14 +2,14 @@
 id: epic-044-398-gen3-roamer-iv-glitch-v5
 type: EPIC
 title: Gen 3 Roamer IV Glitch Detection v5
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-10-12'
+updated_at: '2026-10-01'
 depends_on:
   - epic-044-397-gen3-roamer-core-extraction-v5
   - research-044-396-gen3-roamer-tracker-failure
-jules_session_id: '3107353275929594401'
+jules_session_id: null
 pr_number: null
 parent: prd-071-044-gen3-roamer-tracker
 tags:

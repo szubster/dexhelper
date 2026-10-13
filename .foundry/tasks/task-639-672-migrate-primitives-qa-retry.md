@@ -2,10 +2,10 @@
 id: task-639-672-migrate-primitives-qa-retry
 type: TASK
 title: QA for Tactical Primitives Migration (Retry)
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-06'
-updated_at: '2026-10-10'
+updated_at: '2026-10-06'
 depends_on:
   - task-639-669-migrate-buttons-impl-retry
   - task-639-670-migrate-badges-impl-retry
@@ -17,9 +17,7 @@ tags:
   - react
   - components
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  research-639-668-investigate-primitives-migration-failures
+rejection_reason: ''
 notes: ''
 locks: []
 ---

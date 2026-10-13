@@ -2,15 +2,14 @@
 id: task-566-583-shoal-dashboard-layout
 type: TASK
 title: Implement Shoal Cave Dashboard Layout
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-16T11:22:20Z'
-updated_at: '2026-10-11'
+updated_at: '2026-10-08'
 depends_on:
   - task-566-581-shoal-tide-display
   - task-566-582-shoal-item-tracker
-confidence_score: 100
-jules_session_id: null
+jules_session_id: '13266189302117284793'
 pr_number: null
 parent: story-412-566-shoal-cave-ui-components
 tags:
@@ -34,6 +33,6 @@ Implement the `ShoalCaveDashboard` layout component that integrates the `TideDis
 - The UI MUST follow the tactical hardware aesthetic constraints (`rounded-none`, `border-dashed`, monospaced telemetry fonts) outlined in ADR 008.
 
 ## Acceptance Criteria
-- [x] Create `ShoalCaveDashboard.tsx` component.
-- [x] Integrate `TideDisplay` and `ShoalItemTracker`.
-- [x] Write Vitest browser tests for the layout.
+- [ ] Create `ShoalCaveDashboard.tsx` component.
+- [ ] Integrate `TideDisplay` and `ShoalItemTracker`.
+- [ ] Write Vitest browser tests for the layout.

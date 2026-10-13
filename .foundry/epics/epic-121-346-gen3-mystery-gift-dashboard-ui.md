@@ -1,11 +1,11 @@
 ---
 id: epic-121-346-gen3-mystery-gift-dashboard-ui
 type: EPIC
-title: Gen 3 Mystery Gift Dashboard UI
-status: READY
-owner_persona: story_owner
-created_at: '2026-07-25'
-updated_at: '2026-10-11'
+title: "Gen 3 Mystery Gift Dashboard UI"
+status: PENDING
+owner_persona: "story_owner"
+created_at: "2026-07-25"
+updated_at: "2026-07-25"
 depends_on:
   - epic-121-345-gen3-mystery-gift-data-extraction
 jules_session_id: null
@@ -17,9 +17,8 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-notes: ''
-locks: []
+rejection_reason: ""
+notes: ""
 ---
 
 # Gen 3 Mystery Gift Dashboard UI

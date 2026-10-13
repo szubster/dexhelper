@@ -2,10 +2,10 @@
 id: prd-080-098-gen3-pokerus-extraction
 type: PRD
 title: Gen 3 Pokerus Logic Extraction
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-10-10'
+updated_at: '2026-07-01'
 depends_on:
   - prd-080-097-gen3-data-parsing-infrastructure
 jules_session_id: null
@@ -20,7 +20,6 @@ research_references:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # PRD: Gen 3 Pokerus Logic Extraction

@@ -2,16 +2,16 @@
 id: task-563-591-gen2-room-decoration-ui-qa
 type: TASK
 title: Gen 2 Room Decoration UI Components QA
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-17T15:30:42Z'
-updated_at: '2026-10-12'
+updated_at: '2026-09-17T15:30:42Z'
 depends_on:
   - task-563-590-gen2-room-decoration-ui-tests
-jules_session_id: '7594986676818624086'
 parent: story-313-563-gen2-room-decoration-ui-components
-rejection_reason: ''
 locks: []
+jules_session_id: null
+rejection_reason: ''
 ---
 
 # Task: Gen 2 Room Decoration UI Components QA

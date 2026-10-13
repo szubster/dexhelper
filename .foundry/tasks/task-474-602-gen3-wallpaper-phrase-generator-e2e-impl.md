@@ -8,7 +8,6 @@ created_at: '2026-09-20'
 updated_at: '2026-10-08'
 depends_on: []
 parent: story-335-474-gen3-wallpaper-phrase-generator-e2e
-confidence_score: 100
 jules_session_id: '14703227376968332469'
 tags:
   - gen3
@@ -34,5 +33,5 @@ The core generator is built. We need to verify it via an E2E test file in `tests
 - Run tests to confirm it works correctly in the integration environment.
 
 ## Acceptance Criteria
-- [x] Implement E2E test file in `tests/e2e/` for the phrase generator.
-- [x] Tests must pass and verify correct phrase generation for a sample `trainerId`.
+- [ ] Implement E2E test file in `tests/e2e/` for the phrase generator.
+- [ ] Tests must pass and verify correct phrase generation for a sample `trainerId`.

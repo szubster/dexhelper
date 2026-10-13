@@ -2,13 +2,13 @@
 id: story-115-527-pathfinder-chain-visualization
 type: STORY
 title: Pathfinder Chain Visualization UI
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-30'
-updated_at: '2026-10-09'
+updated_at: '2026-10-06'
 depends_on:
   - story-115-526-pathfinder-selection-ui
-jules_session_id: null
+jules_session_id: '18294323840964176224'
 pr_number: null
 parent: epic-055-115-egg-move-pathfinder-ui
 tags:
@@ -30,8 +30,4 @@ Develop the visualization component for the calculated breeding chains in the Sm
 - [ ] Render the calculated breeding chain(s) visually.
 - [ ] Display the required intermediate species and the passed-down move at each step.
 - [ ] Adhere to the tactical hardware aesthetic (ADR 008, 024).
-- [x] Tech Lead: Break down into actionable TASKs.
-- [ ] task-527-668-pathfinder-chain-viz-types
-- [ ] task-527-669-pathfinder-chain-viz-ui
-- [ ] task-527-670-pathfinder-chain-viz-tests
-- [ ] task-527-671-pathfinder-chain-viz-qa
+- [ ] Tech Lead: Break down into actionable TASKs.

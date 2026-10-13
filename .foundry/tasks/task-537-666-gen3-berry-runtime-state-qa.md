@@ -2,19 +2,17 @@
 id: task-537-666-gen3-berry-runtime-state-qa
 type: TASK
 title: QA Gen 3 Berry Runtime State Hydration
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-05'
-updated_at: '2026-10-12'
+updated_at: '2026-10-08'
 depends_on:
   - task-537-665-gen3-berry-runtime-state-hydration
 jules_session_id: null
 pr_number: null
 parent: story-513-537-gen3-berry-serialization-and-api
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-537-665-gen3-berry-runtime-state-hydration
+rejection_reason: ''
 notes: ''
 locks: []
 ---

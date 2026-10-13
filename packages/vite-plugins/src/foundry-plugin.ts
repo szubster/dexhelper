@@ -35,14 +35,7 @@ export function foundryPlugin(): Plugin {
         if (!file.endsWith('.md')) continue;
 
         const filePath = path.join(fullPath, file);
-        if (!fs.existsSync(filePath)) continue;
-
-        let content: string;
-        try {
-          content = fs.readFileSync(filePath, 'utf-8');
-        } catch {
-          continue; // File might have been deleted right after readdirSync
-        }
+        const content = fs.readFileSync(filePath, 'utf-8');
 
         try {
           const parsed = matter(content);

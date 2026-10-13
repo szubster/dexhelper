@@ -2,13 +2,13 @@
 id: story-553-563-gen3-missed-items-ui
 type: STORY
 title: Gen 3 Missed Items Dashboard UI
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-10-12'
+updated_at: '2026-10-02'
 depends_on:
   - story-553-562-gen3-missed-items-parsing
-jules_session_id: '13113173841465825684'
+jules_session_id: null
 pr_number: null
 parent: epic-520-553-gen3-missed-milestones-tracker
 tags:

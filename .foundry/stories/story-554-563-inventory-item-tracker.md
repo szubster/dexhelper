@@ -2,12 +2,12 @@
 id: story-554-563-inventory-item-tracker
 type: STORY
 title: Wild Item Inventory Tracker
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-15'
-updated_at: '2026-10-12'
+updated_at: '2026-09-24'
 depends_on: []
-jules_session_id: '9767214025585568132'
+jules_session_id: null
 pr_number: null
 parent: epic-521-554-hunting-progress-tracker
 tags:

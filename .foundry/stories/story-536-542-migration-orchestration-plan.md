@@ -2,10 +2,10 @@
 id: story-536-542-migration-orchestration-plan
 type: STORY
 title: Define Migration Orchestration Plan
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-10-11'
+updated_at: '2026-09-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -25,6 +25,6 @@ This story entails the creation of a comprehensive migration orchestration plan 
 
 ## Acceptance Criteria
 - [x] Decompose into implementation tasks for creating the migration orchestration plan.
-- [x] task-542-549-analyze-benchmark-results-coder
-- [x] task-542-550-draft-migration-plan-coder
-- [x] task-542-551-review-migration-plan-qa
+- [ ] task-542-549-analyze-benchmark-results-coder
+- [ ] task-542-550-draft-migration-plan-coder
+- [ ] task-542-551-review-migration-plan-qa

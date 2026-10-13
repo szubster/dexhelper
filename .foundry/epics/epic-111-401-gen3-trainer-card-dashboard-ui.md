@@ -2,10 +2,10 @@
 id: epic-111-401-gen3-trainer-card-dashboard-ui
 type: EPIC
 title: Epic - Gen 3 Trainer Card Dashboard UI
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-10-13'
+updated_at: '2026-08-04'
 depends_on:
   - epic-111-400-gen3-trainer-card-data-extraction
 jules_session_id: null
@@ -20,7 +20,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Epic: Gen 3 Trainer Card Dashboard UI

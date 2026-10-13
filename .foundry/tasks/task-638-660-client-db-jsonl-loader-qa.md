@@ -2,13 +2,12 @@
 id: task-638-660-client-db-jsonl-loader-qa
 type: TASK
 title: QA - Client Data Loading Integration
-status: COMPLETED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-03'
-updated_at: '2026-10-12'
+updated_at: '2026-10-03'
 depends_on:
   - task-638-659-client-db-jsonl-loader-dataloader-impl
-confidence_score: 100
 jules_session_id: null
 pr_number: null
 parent: story-088-638-client-db-jsonl-loader
@@ -28,5 +27,5 @@ locks: []
 A coder has implemented bulk loading functionality and DataLoader integration for \`items\` and \`moves\`. This needs to be thoroughly verified.
 
 ## Acceptance Criteria
-- [x] Verify that \`DexDataLoader\` exposes \`items\` and \`moves\`.
-- [x] Ensure unit tests have been written for the new bulk fetch methods in \`src/db/__tests__/PokeDB.test.ts\` by the coder.
+- [ ] Verify that \`DexDataLoader\` exposes \`items\` and \`moves\`.
+- [ ] Ensure unit tests have been written for the new bulk fetch methods in \`src/db/__tests__/PokeDB.test.ts\` by the coder.

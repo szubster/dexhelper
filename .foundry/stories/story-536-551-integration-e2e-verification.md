@@ -2,13 +2,13 @@
 id: story-536-551-integration-e2e-verification
 type: STORY
 title: E2E and Integration Testing for Gen3 Heuristic
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-10-13'
+updated_at: '2026-09-18'
 depends_on:
   - story-536-550-remove-mock-and-fix-heuristic
-jules_session_id: '14534191392819798487'
+jules_session_id: null
 parent: epic-520-536-remove-gen3save-mock
 tags:
   - e2e

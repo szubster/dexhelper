@@ -62,9 +62,8 @@ function validateSchema() {
   const validTypes = ['IDEA', 'PRD', 'EPIC', 'STORY', 'TASK', 'RESEARCH', 'ADR'];
   const validStatuses = ['PENDING', 'READY', 'ACTIVE', 'VERIFYING', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
   const validPersonas = [
-    'product_manager', 'epic_planner', 'story_owner', 'architect', 'architect_visionary',
-    'tech_lead', 'coder', 'qa', 'human', 'tpm', 'agile_coach', 'mechanic', 'researcher', 'auditor',
-    'palette', 'canvas', 'changelogger', 'lens', 'librarian', 'curator'
+    'product_manager', 'epic_planner', 'story_owner', 'architect',
+    'tech_lead', 'coder', 'qa', 'human', 'tpm', 'agile_coach', 'researcher', 'auditor', 'palette', 'canvas', 'changelogger'
   ];
 
   const validMappings: Record<string, string[]> = {
@@ -128,16 +127,7 @@ function validateSchema() {
     }
 
     // 2.5 Validate persona mapping
-    if (
-      type &&
-      owner_persona &&
-      owner_persona !== 'human' &&
-      owner_persona !== 'tpm' &&
-      owner_persona !== 'agile_coach' &&
-      owner_persona !== 'mechanic' &&
-      owner_persona !== 'auditor' &&
-      owner_persona !== 'curator'
-    ) {
+    if (type && owner_persona && owner_persona !== 'human' && owner_persona !== 'tpm' && owner_persona !== 'agile_coach' && owner_persona !== 'auditor') {
       const allowedPersonas = validMappings[type as string] || [];
       if (!allowedPersonas.includes(owner_persona)) {
         console.error(`Error: Invalid mapping: ${type} node '${file}' cannot be owned by '${owner_persona}'`);
@@ -230,6 +220,14 @@ function validateSchema() {
       }
     });
 
+    // 2.95 Validate confidence_score
+    if ('confidence_score' in data && data['confidence_score'] !== null) {
+      const score = data['confidence_score'];
+      if (typeof score !== 'number' || !Number.isInteger(score) || score < 0 || score > 100) {
+        console.error(`Error: Invalid confidence_score '${score}' in file ${file}. Must be an integer between 0 and 100.`);
+        hasError = true;
+      }
+    }
 
     // 2.9 Validate filename matches ID (except ADRs which have inconsistent naming)
     if (id && type !== 'ADR') {

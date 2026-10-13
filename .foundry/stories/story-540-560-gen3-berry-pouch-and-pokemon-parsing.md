@@ -2,10 +2,10 @@
 id: story-540-560-gen3-berry-pouch-and-pokemon-parsing
 type: STORY
 title: Gen 3 Berry Pouch and Pokémon Parsing Logic
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-10-12'
+updated_at: '2026-09-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,9 +30,9 @@ To build the Pokéblock Recipe Optimizer, we first need to extract the current s
 Implement backend save parsing logic to accurately read the Gen 3 berry pouch inventory and extract a Pokémon's current condition stats and Nature.
 
 ## Acceptance Criteria
-- [x] Implement backend save parsing logic to accurately read the Gen 3 berry pouch inventory.
-- [x] Implement backend save parsing logic to accurately read a Pokémon's current condition stats and Nature.
-- [x] task-560-583-gen3-berry-pouch-parsing-impl
-- [x] task-560-584-gen3-pokemon-condition-parsing-impl
-- [x] task-560-585-gen3-berry-pokemon-parsing-tests
-- [x] task-560-586-gen3-berry-pokemon-parsing-qa
+- [ ] Implement backend save parsing logic to accurately read the Gen 3 berry pouch inventory.
+- [ ] Implement backend save parsing logic to accurately read a Pokémon's current condition stats and Nature.
+- [ ] task-560-583-gen3-berry-pouch-parsing-impl
+- [ ] task-560-584-gen3-pokemon-condition-parsing-impl
+- [ ] task-560-585-gen3-berry-pokemon-parsing-tests
+- [ ] task-560-586-gen3-berry-pokemon-parsing-qa

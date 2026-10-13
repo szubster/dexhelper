@@ -2,10 +2,10 @@
 id: story-540-559-trick-house-ui
 type: STORY
 title: Trick House Dashboard UI
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-10-12'
+updated_at: '2026-09-19'
 depends_on:
   - story-540-558-trick-house-save-parsing
 jules_session_id: null
@@ -34,7 +34,4 @@ As part of the Gen 3 Trick House Tracker Dashboard, we need a visual interface t
 - Adhere strictly to UI aesthetic constraints (tactical hardware, sharp edges `rounded-none`, monospaced fonts, dashed borders).
 
 ## Acceptance Criteria
-- [x] Tech Lead: Break down into implementation TASK nodes (e.g., UI component, state integration).
-- [ ] task-559-680-trick-house-ui-component
-- [ ] task-559-681-trick-house-ui-state
-- [ ] task-559-682-trick-house-ui-qa
+- [ ] Tech Lead: Break down into implementation TASK nodes (e.g., UI component, state integration).

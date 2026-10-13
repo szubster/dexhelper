@@ -2,15 +2,14 @@
 id: task-561-592-gen3-pokeblock-feeding-math
 type: TASK
 title: Implement Gen 3 Pokéblock Feeding Condition Math
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-18'
-updated_at: '2026-10-12'
+updated_at: '2026-10-08'
 depends_on:
   - task-561-590-gen3-nature-modifiers-constants
   - task-561-591-gen3-pokeblock-blending-math
-confidence_score: 100
-jules_session_id: null
+jules_session_id: '438242298937528758'
 pr_number: null
 parent: story-540-561-gen3-pokeblock-math-formulas
 tags:
@@ -38,5 +37,5 @@ When a Pokémon is fed a Pokéblock, its contest condition stats increase based 
 - Write unit tests to verify condition stat calculations for various Natures and Pokéblock combinations.
 
 ## Acceptance Criteria
-- [x] Implement condition gain math functions.
-- [x] Write unit tests for feeding calculations and Nature modifiers.
+- [ ] Implement condition gain math functions.
+- [ ] Write unit tests for feeding calculations and Nature modifiers.

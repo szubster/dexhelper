@@ -2,10 +2,10 @@
 id: epic-047-082-gen3-tv-swarm-dashboard-ui
 type: EPIC
 title: Gen 3 TV Broadcast and Swarm Dashboard UI
-status: CANCELLED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-12'
-updated_at: '2026-10-12'
+updated_at: '2026-06-12'
 depends_on:
   - epic-047-081-gen3-tv-swarm-data-extraction
 jules_session_id: null
@@ -18,11 +18,8 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  epic-047-081-gen3-tv-swarm-data-extraction
+rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Epic: Gen 3 TV Broadcast and Swarm Dashboard UI

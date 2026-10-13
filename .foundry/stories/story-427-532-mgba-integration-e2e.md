@@ -2,10 +2,10 @@
 id: story-427-532-mgba-integration-e2e
 type: STORY
 title: E2E and Integration Verification for mGBA Integration
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-17'
-updated_at: '2026-10-13'
+updated_at: '2026-08-17'
 depends_on:
   - story-427-531-mgba-memory-sync
 jules_session_id: null

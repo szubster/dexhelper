@@ -1,13 +1,12 @@
 ---
 id: story-535-558-heatmap-node-tooltip
 type: STORY
-title: Heatmap Node Hover Tooltip
-status: CANCELLED
-owner_persona: tech_lead
-created_at: '2026-09-07'
-updated_at: '2026-10-10'
-depends_on:
-  - story-535-557-react-flow-node-styling
+title: "Heatmap Node Hover Tooltip"
+status: PENDING
+owner_persona: "tech_lead"
+created_at: "2026-09-07"
+updated_at: "2026-09-07"
+depends_on: ['story-535-557-react-flow-node-styling']
 jules_session_id: null
 parent: epic-518-535-heatmap-ui-components
 tags:
@@ -16,11 +15,8 @@ tags:
   - UI
   - tooling
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  story-535-557-react-flow-node-styling
-notes: ''
-locks: []
+rejection_reason: ""
+notes: ""
 ---
 
 # Heatmap Node Hover Tooltip

@@ -2,13 +2,13 @@
 id: story-552-563-gen3-map-state-management
 type: STORY
 title: Gen 3 Map Centralized State Management
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-07'
 depends_on:
   - story-552-562-gen3-map-core-layout
-jules_session_id: null
+jules_session_id: '7115312183473824257'
 pr_number: null
 parent: epic-424-552-gen3-map-core-ui
 tags:
@@ -34,7 +34,4 @@ Implement centralized state management using Zustand (or React Context if simple
 - Connect the state to a sidebar/topbar control panel.
 
 ## Acceptance Criteria
-- [x] Break down into TASK nodes.
-- [ ] task-563-668-gen3-map-state-store
-- [ ] task-563-669-gen3-map-state-ui
-- [ ] task-563-670-gen3-map-state-qa
+- [ ] Break down into TASK nodes.

@@ -2,10 +2,10 @@
 id: story-082-147-gen3-broadcast-schedule-view-ui
 type: STORY
 title: Implement Gen 3 Broadcast Schedule View UI
-status: CANCELLED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-19'
-updated_at: '2026-10-12'
+updated_at: '2026-06-19'
 depends_on:
   - story-082-145-gen3-tv-swarm-dashboard-scaffold
 jules_session_id: null
@@ -18,9 +18,8 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: Cancelled due to cascading cancellation from parent
+rejection_reason: ''
 notes: ''
-locks: []
 ---
 # Story: Implement Gen 3 Broadcast Schedule View UI
 

@@ -5,10 +5,10 @@ title: Gen 3 Berry Tracker Data Extraction (Retry)
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-01'
-updated_at: '2026-10-12'
+updated_at: '2026-09-07'
 depends_on:
   - research-037-512-investigate-gen3-berry-extraction-failure
-jules_session_id: null
+jules_session_id: '2207205937950131080'
 pr_number: null
 parent: prd-067-037-gen3-berry-tracker
 tags:

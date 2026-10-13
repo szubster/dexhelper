@@ -2,14 +2,13 @@
 id: task-279-583-gen3-ignore-emulator-trailing-bytes-qa-v2
 type: TASK
 title: QA Gen 3 Graceful Ignorance of Emulator Trailing Bytes (V2)
-status: COMPLETED
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-16T11:12:37Z'
-updated_at: '2026-10-11'
+updated_at: '2026-10-08'
 depends_on:
   - task-279-582-gen3-ignore-emulator-trailing-bytes-impl-v2
-confidence_score: 100
-jules_session_id: null
+jules_session_id: '5930668504928625776'
 pr_number: null
 parent: story-081-279-gen3-ignore-emulator-trailing-bytes
 tags:
@@ -31,4 +30,4 @@ QA verify the logic implemented in `task-279-582-gen3-ignore-emulator-trailing-b
 1. Perform QA.
 
 ## Acceptance Criteria
-- [x] QA complete.
+- [ ] QA complete.

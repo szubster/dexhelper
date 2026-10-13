@@ -2,24 +2,21 @@
 id: story-513-538-gen3-berry-tracker-integration-e2e
 type: STORY
 title: Gen 3 Berry Tracker Integration and E2E Verification
-status: CANCELLED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-10-12'
+updated_at: '2026-09-04'
 depends_on:
   - story-513-537-gen3-berry-serialization-and-api
+parent: epic-037-513-gen3-berry-tracker-data-extraction-retry
 jules_session_id: null
 pr_number: null
-parent: epic-037-513-gen3-berry-tracker-data-extraction-retry
+rejection_count: 0
+rejection_reason: ""
 tags:
   - gen3
   - integration
   - e2e
-rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  story-513-537-gen3-berry-serialization-and-api
-locks: []
 ---
 
 # Story: Gen 3 Berry Tracker Integration and E2E Verification

@@ -2,10 +2,10 @@
 id: epic-097-131-gen3-data-decryption-mapping
 type: EPIC
 title: Gen 3 Data Decryption and Mapping
-status: COMPLETED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-01'
-updated_at: '2026-10-10'
+updated_at: '2026-08-25'
 depends_on:
   - epic-097-130-gen3-data-structure-extraction
 jules_session_id: null
@@ -19,7 +19,6 @@ research_references:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Gen 3 Data Decryption and Mapping
@@ -34,6 +33,6 @@ Implement decryption and mapping logic for the 48-byte encrypted Data block extr
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [x] story-131-473-gen3-data-decryption-engine
-- [x] story-131-474-gen3-substructure-mapping
-- [x] story-131-475-gen3-decryption-mapping-e2e
+- [ ] story-131-473-gen3-data-decryption-engine
+- [ ] story-131-474-gen3-substructure-mapping
+- [ ] story-131-475-gen3-decryption-mapping-e2e

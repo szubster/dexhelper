@@ -5,10 +5,10 @@ title: Kurt Apricorn Parsing Logic
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-10'
+updated_at: '2026-10-07'
 depends_on:
   - story-404-477-kurt-apricorn-offset-and-constants
-jules_session_id: '9923357002698927917'
+jules_session_id: '7652295494748854738'
 pr_number: null
 parent: epic-338-404-kurt-apricorn-data-engine
 tags:
@@ -31,8 +31,4 @@ With the memory offsets and constants defined, this story implements the actual 
 - Throw a RangeError for any out-of-bounds reads.
 
 ## Acceptance Criteria
-- [x] tech_lead: Break this STORY down into actionable TASK nodes.
-- [ ] task-478-667-kurt-apricorn-types
-- [ ] task-478-668-kurt-apricorn-core-logic
-- [ ] task-478-669-kurt-apricorn-unit-tests
-- [ ] task-478-670-kurt-apricorn-qa
+- [ ] tech_lead: Break this STORY down into actionable TASK nodes.

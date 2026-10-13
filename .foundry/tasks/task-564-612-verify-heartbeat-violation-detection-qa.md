@@ -2,10 +2,10 @@
 id: task-564-612-verify-heartbeat-violation-detection-qa
 type: TASK
 title: Verify Heartbeat Violation Detection QA
-status: COMPLETED
+status: READY
 owner_persona: qa
 created_at: '2026-09-08'
-updated_at: '2026-10-12'
+updated_at: '2026-09-25'
 depends_on:
   - task-564-611-verify-heartbeat-violation-detection-coder
 jules_session_id: null
@@ -18,7 +18,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
-confidence_score: 100
 ---
 # TASK: Verify Heartbeat Violation Detection QA
 
@@ -26,4 +25,4 @@ confidence_score: 100
 Verify the work done by the coder task to confirm the test suite checks the No-Ask policy correctly.
 
 ## Acceptance Criteria
-- [x] The functionality is verified.
+- [ ] The functionality is verified.

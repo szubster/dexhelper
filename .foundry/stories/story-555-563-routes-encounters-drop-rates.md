@@ -5,10 +5,10 @@ title: 'Display Routes, Encounters, and Drop Rates'
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-07'
 depends_on:
   - story-555-562-wild-item-selection-ui
-jules_session_id: '16737342756498904530'
+jules_session_id: '1771983362692322216'
 pr_number: null
 parent: epic-521-555-wild-item-hunting-ui
 tags:
@@ -32,8 +32,4 @@ Once an item is selected, we need to display the recommended routes, encounter t
 - Ensure styling adheres to the tactical hardware aesthetic.
 
 ## Acceptance Criteria
-- [x] tech_lead: Break down this Story into Tasks.
-- [ ] task-563-667-routes-encounters-data-fetching-impl
-- [ ] task-563-668-routes-encounters-ui-components-impl
-- [ ] task-563-669-routes-encounters-tests-impl
-- [ ] task-563-670-routes-encounters-qa
+- [ ] tech_lead: Break down this Story into Tasks.

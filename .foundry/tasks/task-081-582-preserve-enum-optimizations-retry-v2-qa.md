@@ -2,18 +2,16 @@
 id: task-081-582-preserve-enum-optimizations-retry-v2-qa
 type: TASK
 title: QA Preserve Enum Optimizations (Retry v2)
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-15T23:54:49Z'
-updated_at: '2026-10-12'
+updated_at: '2026-09-18'
 depends_on:
   - task-081-581-preserve-enum-optimizations-retry-v2-impl
 jules_session_id: null
 parent: story-042-081-preserve-enum-optimizations
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  research-081-575-investigate-retry-failure
+rejection_reason: ''
 notes: Replacement for orphaned task-081-145.
 locks: []
 ---

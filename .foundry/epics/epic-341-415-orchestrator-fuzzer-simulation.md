@@ -2,10 +2,10 @@
 id: epic-341-415-orchestrator-fuzzer-simulation
 type: EPIC
 title: Orchestrator State Machine Fuzzing - DAG & State Simulation
-status: COMPLETED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-12'
-updated_at: '2026-10-12'
+updated_at: '2026-08-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,7 +19,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # Orchestrator State Machine Fuzzing - DAG & State Simulation
@@ -35,6 +34,6 @@ Implement logic within the fuzzing framework to generate randomized DAG graphs a
 
 ## Acceptance Criteria
 - [x] Break down into Stories.
-- [x] story-415-415-fuzzer-dag-generation
-- [x] story-415-416-fuzzer-state-simulation
-- [x] story-415-417-fuzzer-simulation-e2e
+- [ ] story-415-415-fuzzer-dag-generation
+- [ ] story-415-416-fuzzer-state-simulation
+- [ ] story-415-417-fuzzer-simulation-e2e

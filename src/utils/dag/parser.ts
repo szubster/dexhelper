@@ -8,6 +8,7 @@ export interface FoundryNodeData {
   depends_on: string[];
   rejection_count: number;
   experiment_variants?: string[] | undefined;
+  confidence_score?: number | null;
 }
 
 export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
@@ -40,6 +41,12 @@ export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
 
     if (Array.isArray(data['experiment_variants'])) {
       result.experiment_variants = data['experiment_variants'];
+    }
+
+    if (typeof data['confidence_score'] === 'number') {
+      result.confidence_score = data['confidence_score'];
+    } else if (data['confidence_score'] === null) {
+      result.confidence_score = null;
     }
 
     return result;

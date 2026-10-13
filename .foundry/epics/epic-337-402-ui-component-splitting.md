@@ -2,13 +2,13 @@
 id: epic-337-402-ui-component-splitting
 type: EPIC
 title: UI Component Splitting by Game Generation
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-05'
-updated_at: '2026-10-12'
+updated_at: '2026-10-05'
 depends_on:
   - epic-337-400-data-splitting
-jules_session_id: '8313081356306163637'
+jules_session_id: null
 pr_number: null
 parent: prd-117-337-split-bundles-and-data
 tags:

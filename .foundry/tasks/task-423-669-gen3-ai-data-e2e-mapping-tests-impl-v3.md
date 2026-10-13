@@ -2,7 +2,7 @@
 id: task-423-669-gen3-ai-data-e2e-mapping-tests-impl-v3
 type: TASK
 title: Write Playwright E2E Tests for Gen 3 AI Script Mapping (V3)
-status: CANCELLED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-06'
 updated_at: '2026-10-08'
@@ -17,7 +17,7 @@ tags:
   - save-engine
   - e2e
 rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
+rejection_reason: ''
 notes: ''
 locks: []
 ---

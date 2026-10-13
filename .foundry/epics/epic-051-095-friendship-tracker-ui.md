@@ -2,23 +2,19 @@
 id: epic-051-095-friendship-tracker-ui
 type: EPIC
 title: Friendship Tracker UI & Actionable Insights
-status: READY
+status: PENDING
 owner_persona: story_owner
-created_at: '2026-06-16'
-updated_at: '2026-10-10'
+created_at: "2026-06-16"
+updated_at: "2026-06-16"
 depends_on:
   - epic-051-094-friendship-data-extraction
 jules_session_id: null
 pr_number: null
 parent: prd-081-051-friendship-evolution-tracker
-tags:
-  - ui
-  - frontend
-  - companion-app
+tags: ["ui", "frontend", "companion-app"]
 rejection_count: 0
-rejection_reason: ''
-notes: ''
-locks: []
+rejection_reason: ""
+notes: ""
 ---
 
 # Friendship Tracker UI & Actionable Insights

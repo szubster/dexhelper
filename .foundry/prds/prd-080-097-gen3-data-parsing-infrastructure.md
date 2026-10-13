@@ -2,10 +2,10 @@
 id: prd-080-097-gen3-data-parsing-infrastructure
 type: PRD
 title: Gen 3 Pokemon Data Parsing Infrastructure
-status: COMPLETED
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-10-10'
+updated_at: '2026-07-04'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,7 +18,6 @@ research_references:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # PRD: Gen 3 Pokemon Data Parsing Infrastructure
@@ -33,5 +32,5 @@ Implement the core infrastructure to parse and decrypt the 100-byte Gen 3 Pokém
 4. Support all Gen 3 games (Ruby, Sapphire, Emerald, FireRed, LeafGreen).
 
 ## Acceptance Criteria
-- [x] epic-097-130-gen3-data-structure-extraction
-- [x] epic-097-131-gen3-data-decryption-mapping
+- [ ] epic-097-130-gen3-data-structure-extraction
+- [ ] epic-097-131-gen3-data-decryption-mapping

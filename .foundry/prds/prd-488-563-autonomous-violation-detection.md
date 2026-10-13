@@ -2,10 +2,10 @@
 id: prd-488-563-autonomous-violation-detection
 type: PRD
 title: Automated Detection of Autonomous Execution Violations
-status: COMPLETED
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-08'
-updated_at: '2026-10-12'
+updated_at: '2026-09-12'
 depends_on:
   - research-488-562-autonomous-violation-detection
 jules_session_id: null
@@ -22,4 +22,4 @@ locks: []
 Design a system to enforce the Autonomous No-Ask Policy, utilizing the findings from the research phase to detect and reject non-autonomous sessions.
 
 ## Acceptance Criteria
-- [x] epic-563-564-implement-heartbeat-violation-detection
+- [ ] epic-563-564-implement-heartbeat-violation-detection

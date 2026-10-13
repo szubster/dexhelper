@@ -2,10 +2,10 @@
 id: task-517-531-binjgb-emulator-qa
 type: TASK
 title: QA Verification for binjgb Emulator Integration
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-02'
-updated_at: '2026-10-10'
+updated_at: '2026-09-02'
 depends_on:
   - task-517-530-binjgb-emulator-ui-impl
 jules_session_id: null
@@ -19,11 +19,8 @@ tags:
   - gen2
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-517-530-binjgb-emulator-ui-impl
+rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # QA Verification for binjgb Emulator Integration

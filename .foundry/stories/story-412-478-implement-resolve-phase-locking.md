@@ -5,10 +5,10 @@ title: Implement RESOLVE phase locking logic
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-10'
+updated_at: '2026-10-06'
 depends_on:
   - story-412-477-parse-locks-orchestrator
-jules_session_id: '5718769143266262632'
+jules_session_id: '15130458912631532066'
 pr_number: null
 parent: epic-340-412-orchestrator-resource-locking
 tags:
@@ -34,14 +34,6 @@ Implement lock aggregation and evaluation in the RESOLVE phase of the orchestrat
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [x] task-478-528-aggregate-active-locks
-- [x] task-478-529-evaluate-locks-for-pending-nodes
-- [x] task-478-530-resolve-phase-locking-qa
-- [x] research-478-668-investigate-locking-failure
-- [x] task-478-669-aggregate-active-locks-retry
-- [x] task-478-670-evaluate-locks-for-pending-nodes-retry
-- [x] task-478-671-resolve-phase-locking-qa-retry
-- [ ] research-478-676-investigate-locking-failure-retry
-- [ ] task-478-677-aggregate-active-locks-retry-2
-- [ ] task-478-678-evaluate-locks-for-pending-nodes-retry-2
-- [ ] task-478-679-resolve-phase-locking-qa-retry-2
+- [ ] task-478-528-aggregate-active-locks
+- [ ] task-478-529-evaluate-locks-for-pending-nodes
+- [ ] task-478-530-resolve-phase-locking-qa

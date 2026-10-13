@@ -2,10 +2,10 @@
 id: prd-137-343-built-in-emulator
 type: PRD
 title: Built-in Emulator Integration
-status: COMPLETED
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-13'
-updated_at: '2026-10-12'
+updated_at: '2026-08-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,7 +17,6 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # PRD: Built-in Emulator Integration (No ROMs Included)
@@ -35,6 +34,6 @@ To address this, we want to embed a high-performance, open-source Game Boy (GB/G
 
 ## Acceptance Criteria
 - [x] Epic Planner: Break down this PRD into EPIC nodes that address emulator integration, memory reading, and reactive UI updates.
-- [x] epic-343-423-wasm-emulator-integration
-- [x] epic-343-424-live-memory-reading
-- [x] epic-343-425-reactive-ui-updates
+- [ ] epic-343-423-wasm-emulator-integration
+- [ ] epic-343-424-live-memory-reading
+- [ ] epic-343-425-reactive-ui-updates
