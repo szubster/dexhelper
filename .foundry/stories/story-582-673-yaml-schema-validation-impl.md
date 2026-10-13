@@ -30,4 +30,7 @@ As part of EPIC `epic-586-582-yaml-schema-counters`, we need to track infrastruc
 - Implement validation logic to ensure `system_failure_count` is correctly typed (integer) and handled.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-673-683-schema-system-failure-count
+- [ ] task-673-684-schema-system-failure-count-tests
+- [ ] task-673-685-schema-system-failure-count-qa
