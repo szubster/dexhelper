@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [adr-586-584-failure-tracking-architecture](.foundry/docs/adrs/adr-586-584-failure-tracking-architecture.md) | ADR | Technical Architecture for Failure Tracking | architect | [8114312741775462745](https://jules.google.com/session/8114312741775462745) |
 | [epic-044-398-gen3-roamer-iv-glitch-v5](.foundry/epics/epic-044-398-gen3-roamer-iv-glitch-v5.md) | EPIC | Gen 3 Roamer IV Glitch Detection v5 | story_owner | [3107353275929594401](https://jules.google.com/session/3107353275929594401) |
 | [epic-337-401-engine-code-splitting](.foundry/epics/epic-337-401-engine-code-splitting.md) | EPIC | Engine Code Splitting by Game Generation | story_owner | [18293930511574936321](https://jules.google.com/session/18293930511574936321) |
 | [epic-337-402-ui-component-splitting](.foundry/epics/epic-337-402-ui-component-splitting.md) | EPIC | UI Component Splitting by Game Generation | story_owner | [8313081356306163637](https://jules.google.com/session/8313081356306163637) |
