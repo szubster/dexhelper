@@ -2,10 +2,10 @@
 id: epic-563-564-implement-heartbeat-violation-detection
 type: EPIC
 title: Implement Heartbeat Detection for Autonomous Violations
-status: PENDING
+status: COMPLETED
 owner_persona: auditor
 created_at: '2026-09-08'
-updated_at: '2026-09-19'
+updated_at: '2026-10-12'
 depends_on: []
 jules_session_id: null
 pr_number: null

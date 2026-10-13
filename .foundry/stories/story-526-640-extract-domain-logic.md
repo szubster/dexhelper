@@ -2,12 +2,12 @@
 id: story-526-640-extract-domain-logic
 type: STORY
 title: Extract pure JS/TS domain logic to core package
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '333093218560137297'
+jules_session_id: null
 pr_number: null
 parent: epic-519-526-extract-core-domain
 tags:
@@ -32,10 +32,17 @@ locks: []
 - [x] task-640-646-extract-core-domain-logic-replacement
 - [x] task-640-647-update-app-imports-replacement
 - [x] task-640-648-qa-core-domain-extraction-replacement
-- [ ] research-640-658-investigate-extract-core-domain-timeout-v2
-- [ ] task-640-659-extract-utils-to-core
-- [ ] task-640-660-update-app-imports-utils
-- [ ] task-640-661-qa-extract-utils
-- [ ] task-640-662-extract-engine-data-to-core
-- [ ] task-640-663-update-app-imports-engine-data
-- [ ] task-640-664-qa-extract-engine-data
+- [x] research-640-658-investigate-extract-core-domain-timeout-v2
+- [x] task-640-659-extract-utils-to-core
+- [x] task-640-660-update-app-imports-utils
+- [x] task-640-661-qa-extract-utils
+- [x] task-640-662-extract-engine-data-to-core
+- [x] task-640-663-update-app-imports-engine-data
+- [x] task-640-664-qa-extract-engine-data
+- [ ] research-640-668-investigate-extract-utils-timeout
+- [ ] task-640-669-extract-utils-to-core-retry
+- [ ] task-640-670-update-app-imports-utils-retry
+- [ ] task-640-671-qa-extract-utils-retry
+- [ ] task-640-672-extract-engine-data-to-core-retry
+- [ ] task-640-673-update-app-imports-engine-data-retry
+- [ ] task-640-674-qa-extract-engine-data-retry

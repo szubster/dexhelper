@@ -25,7 +25,7 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
       </div>
 
       <TacticalPanel variant="default" className="space-y-4 rounded-none border-dashed p-6 shadow-inner">
-        <div className="grid grid-cols-2 gap-4 text-center md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 text-center sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           <DiagnosticCard
             label="MAP.LOC"
             value={saveData.currentMapName}

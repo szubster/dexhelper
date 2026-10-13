@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Gen1SafariZone } from '../../engine/data/gen1/safariZone';
 import { HoennSafariZone, KantoSafariZoneGen3 } from '../../engine/data/gen3/safariZone';
 import type { SafariArea } from '../../engine/data/shared/safariZoneTypes';
@@ -12,7 +12,8 @@ interface Props {
   selection?: ReturnType<typeof useSafariZoneSelection>;
 }
 
-export function SafariTargetSelection({ selection }: Props) {
+// ⚡ Bolt: Wrapped in React.memo and pre-built pokemonMap to replace linear pokemonList.find scans (O(N * M) -> O(N)) and prevent unnecessary re-renders.
+function SafariTargetSelectionComponent({ selection }: Props) {
   // Use provided selection or create one if not provided (useful for isolation/testing)
   const defaultSelection = useSafariZoneSelection();
   const activeSelection = selection || defaultSelection;
@@ -20,6 +21,8 @@ export function SafariTargetSelection({ selection }: Props) {
   const { version, setVersion, targetPokemon, setTargetPokemon } = activeSelection;
 
   const { data: pokemonList } = useSuspenseQuery(pokemonListQueryOptions);
+
+  const pokemonMap = useMemo(() => new Map(pokemonList.map((p) => [p.id, p])), [pokemonList]);
 
   // Get all unique pokemon available in the current version's Safari Zone
   const availablePokemonInSafari = useMemo(() => {
@@ -46,14 +49,14 @@ export function SafariTargetSelection({ selection }: Props) {
     // Map IDs to names and sort alphabetically
     return Array.from(uniquePokemonIds)
       .map((id) => {
-        const pokemon = pokemonList.find((p) => p.id === id);
+        const pokemon = pokemonMap.get(id);
         return {
           id,
           name: pokemon ? pokemon.name : `Pokémon #${id}`,
         };
       })
       .sort((a, b) => a.name.localeCompare(b.name));
-  }, [version, pokemonList]);
+  }, [version, pokemonMap]);
 
   return (
     <TacticalPanel className="mb-6 flex flex-col gap-4 p-4 md:flex-row" variant="default">
@@ -105,3 +108,5 @@ export function SafariTargetSelection({ selection }: Props) {
     </TacticalPanel>
   );
 }
+
+export const SafariTargetSelection = React.memo(SafariTargetSelectionComponent);
