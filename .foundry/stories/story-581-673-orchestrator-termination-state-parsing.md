@@ -32,3 +32,8 @@ This Story focuses on modifying the Orchestrator's rejection processing to parse
 - Update tracking to accurately classify failures.
 
 ## Acceptance Criteria
+
+
+- [ ] task-673-683-parse-termination-states-logic
+- [ ] task-673-685-parse-termination-states-coder-tests
+- [ ] task-673-686-parse-termination-states-qa
