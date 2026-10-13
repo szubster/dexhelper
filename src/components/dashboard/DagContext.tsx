@@ -1,13 +1,3 @@
-import {
-  type Edge,
-  type Node,
-  type OnEdgesChange,
-  type OnNodesChange,
-  Position,
-  useEdgesState,
-  useNodesState,
-} from '@xyflow/react';
-import dagre from 'dagre';
 import { createContext, type ReactNode, useContext, useEffect, useMemo, useState, useTransition } from 'react';
 import { MAX_REJECTION_THRESHOLD } from '../../utils/constants';
 import type { ParsedNode } from '../../utils/dag/builder';
@@ -32,10 +22,11 @@ export interface DagNodeData extends Record<string, unknown> {
   isDimmed?: boolean;
 }
 
-export type DagNode = Node<DagNodeData>;
-export type DagEdge = Edge;
+// Temporary types to replace Node/Edge from xyflow
+export type DagNode = { id: string; data: DagNodeData; [key: string]: unknown };
+export type DagEdge = { id: string; source: string; target: string; [key: string]: unknown };
 
-export type ViewMode = 'graph' | 'board';
+export type ViewMode = 'board';
 
 export interface DagContextState {
   nodes: DagNode[];
@@ -47,10 +38,6 @@ export interface DagContextState {
   setActiveView: (view: React.SetStateAction<ViewMode>) => void;
   showHeatmap: boolean;
   setShowHeatmap: (show: React.SetStateAction<boolean>) => void;
-  setNodes: (nodes: React.SetStateAction<DagNode[]>) => void;
-  setEdges: (edges: React.SetStateAction<DagEdge[]>) => void;
-  onNodesChange: OnNodesChange<DagNode>;
-  onEdgesChange: OnEdgesChange<DagEdge>;
   setIsLoading: (isLoading: React.SetStateAction<boolean>) => void;
 }
 
@@ -77,49 +64,12 @@ export function usePermanentlyFailedNodes() {
   );
 }
 
-const dagreGraph = new dagre.graphlib.Graph();
-dagreGraph.setDefaultEdgeLabel(() => ({}));
-
-const nodeWidth = 300;
-const nodeHeight = 100;
-
-// Uses Dagre to automatically layout the graph top-to-bottom
-function getLayoutedElements(nodes: DagNode[], edges: DagEdge[], direction = 'TB') {
-  dagreGraph.setGraph({ rankdir: direction, ranksep: 150, nodesep: 150 });
-
-  nodes.forEach((node) => {
-    dagreGraph.setNode(node.id, { width: nodeWidth, height: nodeHeight });
-  });
-
-  edges.forEach((edge) => {
-    dagreGraph.setEdge(edge.source, edge.target);
-  });
-
-  dagre.layout(dagreGraph);
-
-  const newNodes = nodes.map((node) => {
-    const nodeWithPosition = dagreGraph.node(node.id);
-    const newNode = {
-      ...node,
-      targetPosition: Position.Top,
-      sourcePosition: Position.Bottom,
-      position: {
-        x: nodeWithPosition.x - nodeWidth / 2,
-        y: nodeWithPosition.y - nodeHeight / 2,
-      },
-    };
-    return newNode;
-  });
-
-  return { nodes: newNodes, edges };
-}
-
 export function DagProvider({ children }: { children: ReactNode }) {
-  const [nodes, setNodes, onNodesChange] = useNodesState<DagNode>([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState<DagEdge>([]);
+  const [nodes, setNodes] = useState<DagNode[]>([]);
+  const [edges, setEdges] = useState<DagEdge[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isPending, startTransition] = useTransition();
-  const [activeView, setActiveView] = useState<ViewMode>('graph');
+  const [activeView, setActiveView] = useState<ViewMode>('board');
   const [showHeatmap, setShowHeatmap] = useState<boolean>(false);
 
   const value = useMemo(
@@ -133,13 +83,9 @@ export function DagProvider({ children }: { children: ReactNode }) {
       setActiveView: (view: React.SetStateAction<ViewMode>) => startTransition(() => setActiveView(view)),
       showHeatmap,
       setShowHeatmap: (show: React.SetStateAction<boolean>) => startTransition(() => setShowHeatmap(show)),
-      setNodes: (newNodes: React.SetStateAction<DagNode[]>) => startTransition(() => setNodes(newNodes)),
-      setEdges: (newEdges: React.SetStateAction<DagEdge[]>) => startTransition(() => setEdges(newEdges)),
-      onNodesChange,
-      onEdgesChange,
       setIsLoading,
     }),
-    [nodes, edges, isLoading, isPending, activeView, showHeatmap, onNodesChange, onEdgesChange, setNodes, setEdges],
+    [nodes, edges, isLoading, isPending, activeView, showHeatmap],
   );
 
   useEffect(() => {
@@ -152,10 +98,9 @@ export function DagProvider({ children }: { children: ReactNode }) {
         const parsedNodes: ParsedNode[] = await response.json();
         const dagGraph = buildDagGraph(parsedNodes);
 
-        // Convert the DAG build output to React Flow format
+        // Convert the DAG build output to standard format
         const initialNodes: DagNode[] = dagGraph.nodes.map((node) => ({
           id: node.id,
-          type: 'custom',
           data: {
             ...node.data,
             label: node.id,
@@ -168,21 +113,16 @@ export function DagProvider({ children }: { children: ReactNode }) {
             confidence_score: typeof node.data.confidence_score === 'number' ? node.data.confidence_score : null,
             experiment_variants: node.data.experiment_variants,
           },
-          position: { x: 0, y: 0 }, // Initial position, layout will overwrite
         }));
 
         const initialEdges = dagGraph.edges.map((edge) => ({
           id: `e-${edge.source}-${edge.target}`,
           source: edge.source,
           target: edge.target,
-          animated: true,
-          style: { stroke: '#52525b', strokeWidth: 2, strokeDasharray: '4 4' }, // Zinc-600 dashed
         }));
 
-        const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(initialNodes, initialEdges);
-
-        setNodes(layoutedNodes);
-        setEdges(layoutedEdges);
+        setNodes(initialNodes);
+        setEdges(initialEdges);
       } catch {
         console.error('System: DAG loading failed');
       } finally {
@@ -191,7 +131,7 @@ export function DagProvider({ children }: { children: ReactNode }) {
     }
 
     void loadData();
-  }, [setNodes, setEdges]);
+  }, []);
 
   return <DagContext value={value}>{children}</DagContext>;
 }

@@ -1,7 +1,6 @@
 import type React from 'react';
 import { useMemo } from 'react';
-import type { DagNodeData } from '../../dag/DagNode';
-import { useDagContext } from '../DagContext';
+import { type DagNodeData, useDagContext } from '../DagContext';
 
 const COLUMNS = ['PENDING', 'READY', 'ACTIVE', 'BLOCKED', 'COMPLETED', 'FAILED', 'CANCELLED'];
 
