@@ -152,6 +152,53 @@ export async function generateEvolutionSuggestions(
         break;
       }
 
+      // Wurmple (#265) evolution prediction in Gen 3 using Personality Value (personalityValue)
+      // If (personalityValue >> 16) % 10 < 5 -> Silcoon (#266) -> Beautifly (#267)
+      // If >= 5 -> Cascoon (#268) -> Dustox (#269)
+      if (closestOwnedParentId === 265 && saveData.generation === 3) {
+        const pv = bestInstance.personalityValue;
+        if (pv !== undefined) {
+          const val = (pv >>> 16) % 10;
+          const predictedBranch = val < 5 ? 'Silcoon (#266) / Beautifly (#267)' : 'Cascoon (#268) / Dustox (#269)';
+          const targetInBranch = val < 5 ? targetId === 266 || targetId === 267 : targetId === 268 || targetId === 269;
+
+          const targetWurmple = targetInBranch
+            ? bestInstance
+            : ownedInstances.find((inst) => {
+                if (inst.personalityValue === undefined) return false;
+                const pVal = (inst.personalityValue >>> 16) % 10;
+                return val < 5 ? pVal >= 5 : pVal < 5;
+              });
+
+          if (!targetWurmple) {
+            suggestions.push({
+              id: `evo-wurmple-branch-${targetId}`,
+              category: 'Evolve',
+              title: isIntermediate ? pathTitlePrefix : `Personality Branch: #${targetId}`,
+              description: `Your owned Wurmple (#265) has a personality value predicted to evolve into ${predictedBranch}. Catch another Wurmple to get #${targetId}!`,
+              pokemonId: targetId,
+              priority: 60,
+            });
+            break;
+          }
+
+          const targetBranchName =
+            targetId === 266 || targetId === 267
+              ? 'Silcoon (#266) / Beautifly (#267)'
+              : 'Cascoon (#268) / Dustox (#269)';
+
+          suggestions.push({
+            id: `evo-wurmple-match-${targetId}`,
+            category: 'Evolve',
+            title: isIntermediate ? pathTitlePrefix : `Predicted Evolution: #${targetId}`,
+            description: `Your owned Wurmple (#265) is predicted to evolve into ${targetBranchName}! Level it up to Lv. 7 to evolve${evolveTargetText}.`,
+            pokemonId: targetId,
+            priority: targetWurmple.level >= 7 ? 90 : 80,
+          });
+          break;
+        }
+      }
+
       if (tr === EVO_TRIGGER.LEVEL_UP) {
         if (min_l) {
           const isReady = bestInstance.level >= min_l;
