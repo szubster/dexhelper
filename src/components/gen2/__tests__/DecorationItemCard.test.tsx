@@ -53,4 +53,26 @@ describe('DecorationItemCard', () => {
 
     await expect.element(page.getByText('LOCKED')).toBeVisible();
   });
+
+  it('applies correct styling for active items', async () => {
+    const activeItem: DecorationItem = {
+      ...baseItem,
+      isActive: true,
+    };
+
+    const { container } = await render(<DecorationItemCard item={activeItem} />);
+    const cardDiv = container.querySelector('div.flex.flex-col');
+    expect(cardDiv?.className).toContain('border-[var(--theme-primary)]');
+  });
+
+  it('applies correct styling for locked items', async () => {
+    const lockedItem: DecorationItem = {
+      ...baseItem,
+      isUnlocked: false,
+    };
+
+    const { container } = await render(<DecorationItemCard item={lockedItem} />);
+    const cardDiv = container.querySelector('div.flex.flex-col');
+    expect(cardDiv?.className).toContain('opacity-50');
+  });
 });

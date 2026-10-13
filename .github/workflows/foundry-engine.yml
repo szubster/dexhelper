@@ -49,13 +49,13 @@ jobs:
           JULES_API_KEY: ${{ secrets.JULES_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          node --strip-types .github/scripts/foundry-heartbeat.ts
+          node --strip-types packages/foundry/foundry-heartbeat.ts
 
       - name: Generate Statistics
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          node --strip-types .github/scripts/generate-statistics.ts
+          node --strip-types packages/foundry/generate-statistics.ts
 
       - name: Verify DAG References
         run: |
@@ -65,7 +65,7 @@ jobs:
         id: set-matrix
         run: |
           set +e
-          output=$(node --strip-types .github/scripts/foundry-orchestrator.ts --strict 2> orchestrator-err.log | tail -n 1)
+          output=$(node --strip-types packages/foundry/foundry-orchestrator.ts --strict 2> orchestrator-err.log | tail -n 1)
           exit_code=${PIPESTATUS[0]}
           set -e
           cat "orchestrator-err.log" >&2
@@ -117,8 +117,8 @@ jobs:
               git rebase --abort || true
               git fetch origin main
               git reset --hard origin/main
-              node --strip-types .github/scripts/foundry-orchestrator.ts --strict
-              node --strip-types .github/scripts/generate-statistics.ts
+              node --strip-types packages/foundry/foundry-orchestrator.ts --strict
+              node --strip-types packages/foundry/generate-statistics.ts
               git add .foundry ACTIVE_SESSIONS.md foundry-statistics.json foundry-statistics.md
               if [[ -n $(git status --porcelain .foundry ACTIVE_SESSIONS.md foundry-statistics.json foundry-statistics.md) ]]; then
                 git commit -m "Foundry: Promote unblocked nodes to READY, update ACTIVE_SESSIONS.md and statistics"
@@ -232,7 +232,7 @@ jobs:
             task_content=$(cat "$NODE_REPO_PATH")
             
             # Compile the multi-layered prompt on the fly
-            agent_context=$(node --experimental-strip-types .github/scripts/foundry-orchestrator.ts --compile "$NODE_REPO_PATH")
+            agent_context=$(node --experimental-strip-types packages/foundry/foundry-orchestrator.ts --compile "$NODE_REPO_PATH")
 
             if [[ -z "$agent_context" ]]; then
               owner_persona="$NODE_OWNER_PERSONA"
@@ -246,7 +246,7 @@ jobs:
             fi
 
             # 1.5 Extract research_references from parent chain safely
-            research_context_str=$(node --strip-types .github/scripts/extract-research.ts "$NODE_REPO_PATH")
+            research_context_str=$(node --strip-types packages/foundry/extract-research.ts "$NODE_REPO_PATH")
 
             if [[ -n "$research_context_str" ]]; then
               agent_context="${agent_context}\n\n### RESEARCH REFERENCES\nThe following research context paths have been automatically injected from the node dependency chain. You may use the read_file tool to read their contents if necessary:\n${research_context_str}"
@@ -327,7 +327,7 @@ jobs:
         run: |
           set -o pipefail
           # Transition the file to ACTIVE state and inject the real Jules ID
-          node --strip-types .github/scripts/foundry-active.ts "$NODE_REPO_PATH" "$SESSION_ID" 2>&1 | tee active-transition.log
+          node --strip-types packages/foundry/foundry-active.ts "$NODE_REPO_PATH" "$SESSION_ID" 2>&1 | tee active-transition.log
 
       - name: Commit State Change
         if: env.SESSION_SCHEDULED == 'true'
@@ -343,7 +343,7 @@ jobs:
             git rebase --abort || true
             git fetch origin main
             git reset --hard origin/main
-            node --strip-types .github/scripts/foundry-active.ts "$NODE_REPO_PATH" "$SESSION_ID"
+            node --strip-types packages/foundry/foundry-active.ts "$NODE_REPO_PATH" "$SESSION_ID"
             git add "$NODE_REPO_PATH" ACTIVE_SESSIONS.md
             git commit -m "Foundry: Transition $NODE_ID -> ACTIVE [$SESSION_ID] (run: ${{ github.run_id }})"
             git pull --rebase origin main

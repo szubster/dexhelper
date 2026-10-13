@@ -2,10 +2,10 @@
 id: task-564-572-qa-gen3-pokedex-gaps-ui
 type: TASK
 title: QA Gen 3 Pokédex Gaps UI
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-13'
-updated_at: '2026-09-16'
+updated_at: '2026-10-11'
 depends_on:
   - task-564-571-gen3-pokedex-gaps-ui-impl
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - pokedex
   - ui
 research_references: []
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-564-571-gen3-pokedex-gaps-ui-impl
 locks: []
 ---
 

@@ -528,3 +528,9 @@ The task `task-638-641-extract-constants-to-core` failed because of TS2308 dupli
 1. **Namespacing Exports:** Do not use a flat export structure for `@dexhelper/core`'s entry point. Instead, preserve generation-specific and domain-specific namespaces. The entry point (`packages/core/src/index.ts`) should export them as: `export * as Gen1Constants from './constants/gen1';`, `export * as Gen2Constants from './constants/gen2';`, etc.
 2. **Common Deduplication:** Create a `packages/core/src/constants/common.ts` file for constants that share both identifier and value across all files (e.g., `BITS_PER_BYTE`). Export these normally.
 3. **Refactor Imports:** Update all imports in the `src/` codebase to use the new namespaces from `@dexhelper/core` (e.g., `Gen1Constants.ITEM_QUANTITY_OFFSET`).
+
+---
+
+# 2026-10-09 Session
+
+Investigated the failure of `task-639-641-extract-data-generation-scripts` and discovered it was a false permanent failure caused by repeated `[ACKNOWLEDGED] Session terminated with state: COMPLETED` agent session crashes rather than actual QA rejections.
