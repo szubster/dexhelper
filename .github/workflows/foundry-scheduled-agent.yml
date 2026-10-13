@@ -61,7 +61,7 @@ jobs:
 
           agent_file=".github/agents/${persona}.md"
 
-          agent_context=$(node --experimental-strip-types .github/scripts/foundry-orchestrator.ts --compile-scheduled "$persona")
+          agent_context=$(node --experimental-strip-types packages/foundry/foundry-orchestrator.ts --compile-scheduled "$persona")
 
           if [[ -z "$agent_context" ]]; then
             if [[ -f "$agent_file" ]]; then

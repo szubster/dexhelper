@@ -330,7 +330,7 @@ Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing 
 ## 2026-09-21 - [Accepted] - Prompt improvement - Update Archivist script execution to native Node flag
 **Type:** Prompt improvement
 **Outcome:** Merged
-**Why:** The `.github/agents/archivist.md` prompt instructed running `aggregate-journals.ts` via `npx tsx`, which violates the project's native script execution standard (`node --experimental-strip-types`) and can introduce execution failures or latency in CI environments. Standardizing the execution command to `node --experimental-strip-types .github/scripts/aggregate-journals.ts` aligns the Archivist schedule with project standards and prevents script execution overhead.
+**Why:** The `.github/agents/archivist.md` prompt instructed running `aggregate-journals.ts` via `npx tsx`, which violates the project's native script execution standard (`node --experimental-strip-types`) and can introduce execution failures or latency in CI environments. Standardizing the execution command to `node --experimental-strip-types packages/foundry/aggregate-journals.ts` aligns the Archivist schedule with project standards and prevents script execution overhead.
 **Pattern:** Align script execution instructions across scheduled agent prompts with project-wide native execution standards to ensure consistency and prevent environment-related failures.
 
 ---
@@ -373,3 +373,27 @@ Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing 
 **Outcome:** Merged
 **Why:** `.github/agents/strategist.md` contained a stale reference to `.foundry/journals/agile_coach/master.md` as an example journal path in its Context section. Replacing it with `.foundry/journals/tech_lead/master.md` ensures example paths in prompt documentation point to active, representative personas.
 **Pattern:** Keep example file paths in schedule prompts up to date with active agent roster definitions to prevent confusion.
+
+---
+
+## 2026-10-03 - [Accepted] - Prompt improvement - Standardize Journal section in Lens schedule
+**Type:** Prompt improvement
+**Outcome:** Merged (Optimistic execution)
+**Why:** `.github/agents/lens.md` was the only agent prompt in `.github/agents/` whose `## Journal` section was missing the mandatory reference to `.foundry/docs/knowledge_base/agents/core_policies.md`. Standardizing this section ensures all agents operate under consistent journaling policies and maintain system-wide prompt uniformity.
+**Pattern:** Audit all persona prompts periodically to ensure standard mandatory phrasing (such as journal reading directives and core policies references) remains uniform across the entire agent roster.
+
+---
+
+## 2026-10-04 - [Accepted] - Prompt improvement - Scrub redundant directives from agile_coach.md
+**Type:** Prompt improvement
+**Outcome:** Accepted
+**Why:** The `agile_coach.md` prompt contained item 6 under `## Core Directives` ("Consolidate Redundancy") which was explicitly duplicated from `.foundry/docs/knowledge_base/agents/core_policies.md` ("Prompt Compilation Architecture & Fragment Layering"). Since `core_policies.md` is automatically appended to all persona prompts by the orchestrator at dispatch time, repeating this instruction in `agile_coach.md` creates token bloat and risk of prompt rot.
+**Pattern:** Scrub agent persona prompts for duplicate instructions that are centrally defined in `core_policies.md` to keep prompts lean and maintain a single source of truth.
+
+---
+
+## 2026-10-07 - [Accepted] - Prompt improvement - Scrub redundant Core Directives from tech_lead.md
+**Type:** Prompt improvement
+**Outcome:** Merged (Optimistic execution)
+**Why:** The `.github/agents/tech_lead.md` prompt contained a redundant `## Core Directives` section (with numbered items starting at 2) outlining task drafting, defining contracts, and maintaining architecture. These rules are already centrally defined and enforced in `.foundry/docs/knowledge_base/agents/core_policies.md` under "Node Generation Rules", "Mandate Decomposition, Granularity, and Late Binding", and "Architectural & Coding Constraints". Since `core_policies.md` is automatically appended to all agent prompts by the orchestrator at dispatch time, repeating these instructions in `tech_lead.md` creates token bloat and risk of prompt rot.
+**Pattern:** Regularly scrub agent persona prompts for duplicate instructions that are centrally defined in `core_policies.md` to keep prompts lean and maintain a single source of truth.
