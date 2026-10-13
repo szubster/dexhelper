@@ -31,6 +31,9 @@ Relocate `.github/scripts/` into `@dexhelper/foundry`.
 - [x] research-640-652-investigate-relocate-scripts-failure
 - [x] task-640-653-relocate-foundry-scripts-replacement
 - [x] task-640-654-qa-relocate-foundry-scripts-replacement
-- [ ] research-640-668-investigate-relocate-scripts-replacement-failure
+- [x] research-640-668-investigate-relocate-scripts-replacement-failure
 - [x] task-640-669-relocate-foundry-scripts-replacement-v2
-- [ ] task-640-670-qa-relocate-foundry-scripts-replacement-v2
+- [x] task-640-670-qa-relocate-foundry-scripts-replacement-v2
+- [ ] research-640-676-investigate-relocate-scripts-replacement-failure-retry
+- [ ] task-640-677-relocate-foundry-scripts-replacement-v3
+- [ ] task-640-678-qa-relocate-foundry-scripts-replacement-v3
