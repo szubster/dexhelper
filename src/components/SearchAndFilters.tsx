@@ -85,7 +85,7 @@ export function SearchAndFilters() {
 
         <div className="relative z-10 flex flex-col gap-6 pt-4 xl:flex-row xl:items-stretch">
           {/* Left Pane: Target Acquisition Array */}
-          <div className="group relative flex-1 border border-cyan-500/30 border-dashed bg-cyan-950/10 p-5 shadow-[inset_0_0_30px_rgba(6,182,212,0.03)] transition-colors hover:bg-cyan-950/20">
+          <div className="group relative flex-1 border border-cyan-500/30 border-dashed bg-cyan-950/10 px-5 pt-6 pb-5 shadow-[inset_0_0_30px_rgba(6,182,212,0.03)] transition-colors hover:bg-cyan-950/20">
             {/* Tactical Corners */}
             <CornerCrosshairs className="h-3 w-3 border-cyan-500/60" thickness={2} />
 
@@ -162,7 +162,7 @@ export function SearchAndFilters() {
           </div>
 
           {/* Right Pane: Filter Parameters - Hardware Switches */}
-          <div className="relative flex-1 border border-zinc-700 border-dashed bg-black/80 p-5 xl:max-w-[40%]">
+          <div className="relative flex-1 border border-zinc-700 border-dashed bg-black/80 px-5 pt-6 pb-5 xl:max-w-[40%]">
             <EdgeLabel className="-top-2 left-5 bg-zinc-950 px-2 text-zinc-400 tracking-[0.2em]">
               PARAMETER_ROUTING
             </EdgeLabel>

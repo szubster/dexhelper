@@ -29,4 +29,4 @@ priority: 60
 Implement Playwright E2E tests for tactical styling invariants (sharp edges, dashed borders, monospaced fonts) for base CVA components.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for base component tactical invariants.
+- [x] Implement Playwright E2E tests for base component tactical invariants.

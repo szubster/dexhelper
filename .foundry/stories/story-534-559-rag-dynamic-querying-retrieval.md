@@ -2,7 +2,7 @@
 id: story-534-559-rag-dynamic-querying-retrieval
 type: STORY
 title: Implement Dynamic Querying and Chunk Retrieval Logic
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-07'
 updated_at: '2026-10-10'
@@ -14,8 +14,8 @@ tags:
   - foundry
   - orchestrator
   - query
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 ---
 
