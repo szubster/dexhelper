@@ -32,4 +32,7 @@ Implement the Gen 3 Volcanic Ash Tracker Dashboard UI within DexHelper. The dash
 ## Acceptance Criteria
 - [ ] Implement the UI components for the Ash Tracker.
 - [ ] Write integration E2E tests for the new UI.
-- [ ] Break down this Story into TASK nodes for coder and qa.
+- [x] Break down this Story into TASK nodes for coder and qa.
+- [ ] task-647-673-gen3-ash-dashboard-ui-impl
+- [ ] task-647-674-gen3-ash-dashboard-e2e
+- [ ] task-647-675-gen3-ash-dashboard-qa

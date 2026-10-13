@@ -31,5 +31,8 @@ Implement the visual representation of the Safari Zone that highlights based on 
 - [x] Break down into Tasks
 - [ ] task-527-594-safari-zone-data-hook
 - [ ] task-527-595-safari-zone-selection-ui
-- [ ] task-527-596-safari-zone-area-map-ui
-- [ ] task-527-597-safari-zone-area-highlighting-qa
+- [x] task-527-596-safari-zone-area-map-ui
+- [x] task-527-597-safari-zone-area-highlighting-qa
+- [ ] research-527-673-investigate-safari-zone-area-map-failure
+- [ ] task-527-674-safari-zone-area-map-ui-v2
+- [ ] task-527-675-safari-zone-area-highlighting-qa-v2

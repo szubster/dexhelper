@@ -28,5 +28,5 @@ locks: []
 Verify the implementation of systematic file move to `.foundry/archive/*` preserves subdirectories for terminal trees and tests pass correctly.
 
 ## Acceptance Criteria
-- [ ] Verify `archiveChildNodes` properly moves files and preserves subdirectories.
-- [ ] Verify tests pass successfully.
+- [x] Verify `archiveChildNodes` properly moves files and preserves subdirectories.
+- [x] Verify tests pass successfully.

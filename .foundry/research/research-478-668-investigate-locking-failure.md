@@ -2,20 +2,20 @@
 id: research-478-668-investigate-locking-failure
 type: RESEARCH
 title: Investigate lock aggregation failure
-status: ACTIVE
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-06'
-updated_at: '2026-10-09'
+updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '7628773333336321424'
+jules_session_id: null
 pr_number: null
 parent: story-412-478-implement-resolve-phase-locking
 tags:
   - orchestrator
   - research
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---
