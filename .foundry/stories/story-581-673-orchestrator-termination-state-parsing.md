@@ -2,12 +2,12 @@
 id: story-581-673-orchestrator-termination-state-parsing
 type: STORY
 title: Parse Orchestrator Termination States
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-09'
 updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '65792456440755501'
 pr_number: null
 parent: epic-586-581-orchestrator-rejection-processing
 tags: []
