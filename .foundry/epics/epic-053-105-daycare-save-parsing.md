@@ -38,3 +38,4 @@ Implement offline save parsing to extract real-time Daycare data.
 - [x] Break down into Stories.
 - [x] .foundry/archive/stories/story-105-240-daycare-gen2-parsing.md
 - [x] .foundry/stories/story-105-241-daycare-gen3-parsing.md
+- [ ] story-105-649-daycare-save-parsing-e2e
