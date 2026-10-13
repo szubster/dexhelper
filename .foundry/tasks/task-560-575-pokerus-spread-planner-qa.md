@@ -2,10 +2,10 @@
 id: task-560-575-pokerus-spread-planner-qa
 type: TASK
 title: Pokerus Spread Planner QA
-status: READY
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-09'
-updated_at: '2026-10-10'
+updated_at: '2026-10-13'
 depends_on:
   - task-560-574-pokerus-spread-planner-tests
 jules_session_id: null
@@ -17,10 +17,9 @@ tags:
   - planner
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
-confidence_score: 100
 ---
 
 # Pokerus Spread Planner QA

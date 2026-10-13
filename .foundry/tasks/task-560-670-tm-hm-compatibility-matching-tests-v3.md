@@ -2,10 +2,10 @@
 id: task-560-670-tm-hm-compatibility-matching-tests-v3
 type: TASK
 title: Write Unit Tests for TM/HM Compatibility Matching (V3)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-13'
 depends_on:
   - task-560-669-tm-hm-compatibility-matching-impl-v3
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - test
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-560-668-investigate-tm-hm-compatibility-v3-failure
 notes: ''
 locks: []
 priority: 50

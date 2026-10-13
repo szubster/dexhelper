@@ -2,19 +2,20 @@
 id: task-407-669-e2e-mixed-records-rematch
 type: TASK
 title: E2E Tests for Mixed Record and Rematch Tracking
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-08-04'
-updated_at: '2026-10-10'
+updated_at: '2026-10-13'
 depends_on: []
+jules_session_id: null
 parent: story-397-407-gen3-secret-base-parsing-e2e
-jules_session_id: '5587335252802731484'
 tags:
   - e2e
   - gen3
   - secret-base
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
+locks: []
 ---
 
 # TASK: E2E Tests for Mixed Record and Rematch Tracking

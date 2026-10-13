@@ -30,5 +30,5 @@ The daily Mirage Island value and Pokémon personality values are already parsed
 2. Ensure the relevant Pokémon `personalityValue` segments are correctly typed and exposed in the unified data payload schemas (`PokemonInstance` or related models depending on `BaseSaveData` aggregation).
 
 ## Acceptance Criteria
-- [ ] Move mirageIslandValue to BaseSaveData.
-- [ ] Ensure Pokémon personality values are typed and exposed on unified state payload schemas.
+- [x] Move mirageIslandValue to BaseSaveData.
+- [x] Ensure Pokémon personality values are typed and exposed on unified state payload schemas.
