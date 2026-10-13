@@ -14,7 +14,7 @@ In addition to authoring changelog entries, Changelogger is responsible for main
    - Updates to Pokédex application code (`src/`), UI components, save file parsers, game trackers, Zustand stores, or user-facing feature additions/fixes.
 
 2. **Foundry (`CHANGELOG-foundry.md`)**:
-   - Updates to The Foundry engine (`.github/scripts/`), orchestrator, heartbeat, workflows, persona prompts (`.github/agents/`), DAG schemas, or system automation infrastructure.
+   - Updates to The Foundry engine (`packages/foundry/`), orchestrator, heartbeat, workflows, persona prompts (`.github/agents/`), DAG schemas, or system automation infrastructure.
 
 ## Evaluation Procedure
 
