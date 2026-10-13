@@ -2,7 +2,7 @@
 id: epic-335-346-spinda-pattern-rendering-engine
 type: EPIC
 title: Spinda Pattern Rendering Engine
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-26'
 updated_at: '2026-10-10'
