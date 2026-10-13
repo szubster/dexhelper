@@ -2,10 +2,10 @@
 id: story-556-562-e2e-tests-item-selection-route-display
 type: STORY
 title: E2E Tests for Item Selection and Route Display
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-24'
+updated_at: '2026-10-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,5 +32,5 @@ This story is part of the Wild Item E2E Verification epic. It focuses on writing
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks.
-- [ ] task-562-576-item-selection-route-e2e-impl
-- [ ] task-562-577-item-selection-route-e2e-qa
+- [x] task-562-576-item-selection-route-e2e-impl
+- [x] task-562-577-item-selection-route-e2e-qa

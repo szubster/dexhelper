@@ -8,7 +8,7 @@ created_at: '2026-08-25'
 updated_at: '2026-10-10'
 depends_on:
   - story-131-474-gen3-substructure-mapping
-jules_session_id: '3628547113889724780'
+jules_session_id: null
 pr_number: null
 parent: epic-097-131-gen3-data-decryption-mapping
 tags:

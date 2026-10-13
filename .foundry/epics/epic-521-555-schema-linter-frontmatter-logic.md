@@ -2,10 +2,10 @@
 id: epic-521-555-schema-linter-frontmatter-logic
 type: EPIC
 title: 'Schema Linter: Frontmatter & Directory Iteration'
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-24'
-updated_at: '2026-09-14'
+updated_at: '2026-10-13'
 depends_on: []
 jules_session_id: null
 parent: prd-421-521-automated-schema-linting

@@ -2,10 +2,10 @@
 id: task-537-625-testing-style-guide-e2e-qa
 type: TASK
 title: QA Testing Style Guide E2E Verification
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-22'
-updated_at: '2026-09-25'
+updated_at: '2026-10-13'
 depends_on:
   - task-537-624-testing-style-guide-e2e-coder
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-537-624-testing-style-guide-e2e-coder
 notes: ''
 locks: []
 ---

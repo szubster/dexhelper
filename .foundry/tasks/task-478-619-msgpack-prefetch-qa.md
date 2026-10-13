@@ -2,13 +2,13 @@
 id: task-478-619-msgpack-prefetch-qa
 type: TASK
 title: QA Verification for Msgpack Prefetch Tests
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-22'
-updated_at: '2026-10-08'
+updated_at: '2026-10-13'
 depends_on:
   - task-478-618-msgpack-prefetch-e2e-tests
-jules_session_id: '6945795248040455521'
+jules_session_id: null
 pr_number: null
 parent: story-420-478-background-fetching-e2e-verification
 tags:
@@ -18,7 +18,7 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---
@@ -34,3 +34,7 @@ QA needs to verify the msgpack prefetch E2E and integration tests.
 ## Acceptance Criteria
 - [ ] Verify integration tests pass.
 - [ ] Verify E2E tests pass.
+
+
+### QA Rejection Note
+Rejected task-478-617-msgpack-prefetch-integration-tests because the integration tests are completely missing from the codebase.

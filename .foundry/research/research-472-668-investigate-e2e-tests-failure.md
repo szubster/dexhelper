@@ -2,10 +2,10 @@
 id: research-472-668-investigate-e2e-tests-failure
 type: RESEARCH
 title: Investigate E2E Tests Failure for New Fixtures
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-08'
-updated_at: '2026-10-10'
+updated_at: '2026-10-11'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,10 +16,8 @@ tags:
   - fixtures
   - research
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

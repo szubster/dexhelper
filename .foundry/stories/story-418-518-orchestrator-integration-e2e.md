@@ -1,15 +1,14 @@
 ---
 id: story-418-518-orchestrator-integration-e2e
 type: STORY
-title: "Orchestrator Integration E2E Verification"
-status: PENDING
+title: Orchestrator Integration E2E Verification
+status: ACTIVE
 owner_persona: tech_lead
-created_at: "2026-09-02"
-updated_at: "2026-09-02"
+created_at: '2026-09-02'
+updated_at: '2026-10-12'
 depends_on:
   - story-418-517-orchestrator-fallback-mechanisms
-jules_session_id: null
-locks: []
+jules_session_id: '17592586293509545871'
 pr_number: null
 parent: epic-343-418-orchestrator-integration
 tags:
@@ -18,10 +17,11 @@ tags:
   - integration
   - e2e
 research_references: []
-experiment_variants: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+experiment_variants: []
+locks: []
 ---
 
 # Orchestrator Integration E2E Verification
