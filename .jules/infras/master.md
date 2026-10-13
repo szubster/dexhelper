@@ -14,7 +14,7 @@
 ## Critical Learnings
 
 - Found a critical bug in the Foundry DAG Orchestrator where completed or cancelled tasks that were moved to `.foundry/archive/` were not correctly resolved by references pointing to their original paths.
-- Fixed `resolveNodePath` in `.github/scripts/foundry-orchestrator.ts` to automatically attempt to resolve paths to their archived counterparts if the original file does not exist.
+- Fixed `resolveNodePath` in `packages/foundry/foundry-orchestrator.ts` to automatically attempt to resolve paths to their archived counterparts if the original file does not exist.
 - Updated Phase 3 matches, Phase 4 target artifacts, and Phase 4.5 idempotent links to resolve using the updated helper.
 - Added extensive regression tests to prevent similar issues in the future.
 
@@ -81,7 +81,7 @@
 
 ## Critical Learnings
 - **Tooling configuration context**: Discovered that `@vitejs/plugin-react`, `@cloudflare/workers-types`, `@types/node`, `knip`, and `lucide-react` were outdated. Upgraded them via `pnpm up` to keep the ecosystem current. Also found that `knip.json` still contained an `ignore` entry for a previously deleted file (`src/engine/saveParser/gen3/pokeblock/index.ts`). Removing this resolved a `knip` configuration hint warning.
-- **Execution Plan Exploration Rule**: When proposing modifications to configuration files like `knip.json` or typescript files like `.github/scripts/schema.ts`, you must explicitly read their contents first to satisfy the Groundedness Rule before recreating the execution plan, even if you know what to change.
+- **Execution Plan Exploration Rule**: When proposing modifications to configuration files like `knip.json` or typescript files like `packages/foundry/schema.ts`, you must explicitly read their contents first to satisfy the Groundedness Rule before recreating the execution plan, even if you know what to change.
 
 ---
 
@@ -97,7 +97,7 @@
 ---
 
 ## Critical Learnings
-- **Tooling configuration context**: Discovered that `pnpm knip` reported unused exports for files in `src/engine/saveParser/parsers/gen2.ts` and `.github/scripts/schema.ts`, which was causing CI pipeline failures when running the `lint` script.
+- **Tooling configuration context**: Discovered that `pnpm knip` reported unused exports for files in `src/engine/saveParser/parsers/gen2.ts` and `packages/foundry/schema.ts`, which was causing CI pipeline failures when running the `lint` script.
 - **Action Taken**: Explicitly ignored these two files by adding them to the `ignore` array in `knip.json`. This resolved the unused exports warnings and ensures the CI pipeline passes cleanly without requiring codebase logic changes.
 
 ---

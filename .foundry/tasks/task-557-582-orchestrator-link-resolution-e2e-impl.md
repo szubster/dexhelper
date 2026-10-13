@@ -2,17 +2,17 @@
 id: task-557-582-orchestrator-link-resolution-e2e-impl
 type: TASK
 title: Orchestrator Link Resolution E2E Tests Implementation
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-15T20:14:57Z'
-updated_at: '2026-10-08'
+updated_at: '2026-10-09'
 depends_on:
   - task-557-581-orchestrator-link-resolution-fixtures
-jules_session_id: '2618362324627245934'
+jules_session_id: null
 pr_number: null
 parent: story-551-557-integration-e2e-verification
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

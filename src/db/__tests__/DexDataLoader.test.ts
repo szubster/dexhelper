@@ -9,6 +9,8 @@ vi.mock('../PokeDB', () => ({
     getBerriesBulk: vi.fn<() => Promise<import('../schema').BerryMetadata[]>>(),
 
     getPokemons: vi.fn<() => Promise<PokemonMetadata[]>>(),
+    getItemsBulk: vi.fn<() => Promise<import('../schema').ItemMetadata[]>>(),
+    getMovesBulk: vi.fn<() => Promise<import('../schema').MoveMetadata[]>>(),
     getEncountersBulk: vi.fn<() => Promise<LocationAreaEncounters[]>>(),
     getAreaNames: vi.fn<() => Promise<Record<number, string>>>(),
   },
@@ -20,6 +22,8 @@ describe('DexDataLoader', () => {
     // Clear DataLoader cache between tests
     dexDataLoader.pokemon.clearAll();
     dexDataLoader.encounters.clearAll();
+    dexDataLoader.items.clearAll();
+    dexDataLoader.moves.clearAll();
   });
 
   it('batches calls to pokeDB.getPokemons', async () => {
@@ -32,6 +36,96 @@ describe('DexDataLoader', () => {
     expect(p2).toEqual(mockPokes[1]);
     expect(pokeDB.getPokemons).toHaveBeenCalledTimes(1);
     expect(pokeDB.getPokemons).toHaveBeenCalledWith([1, 2]);
+  });
+
+  it('batches calls to pokeDB.getItemsBulk', async () => {
+    const mockItems = [
+      { id: 1, name: 'Item1' },
+      { id: 2, name: 'Item2' },
+    ] as import('../schema').ItemMetadata[];
+    vi.mocked(pokeDB.getItemsBulk).mockResolvedValue(mockItems);
+
+    const [i1, i2] = await Promise.all([dexDataLoader.items.load(1), dexDataLoader.items.load(2)]);
+
+    expect(i1).toEqual(mockItems[0]);
+    expect(i2).toEqual(mockItems[1]);
+    expect(pokeDB.getItemsBulk).toHaveBeenCalledTimes(1);
+    expect(pokeDB.getItemsBulk).toHaveBeenCalledWith([1, 2]);
+  });
+
+  it('batches calls to pokeDB.getMovesBulk', async () => {
+    const mockMoves = [
+      { id: 1, name: 'Move1' },
+      { id: 2, name: 'Move2' },
+    ] as import('../schema').MoveMetadata[];
+    vi.mocked(pokeDB.getMovesBulk).mockResolvedValue(mockMoves);
+
+    const [m1, m2] = await Promise.all([dexDataLoader.moves.load(1), dexDataLoader.moves.load(2)]);
+
+    expect(m1).toEqual(mockMoves[0]);
+    expect(m2).toEqual(mockMoves[1]);
+    expect(pokeDB.getMovesBulk).toHaveBeenCalledTimes(1);
+    expect(pokeDB.getMovesBulk).toHaveBeenCalledWith([1, 2]);
+  });
+
+  it('batches calls to pokeDB.getItemsBulk', async () => {
+    const mockItems = [
+      { id: 1, name: 'Item1' },
+      { id: 2, name: 'Item2' },
+    ] as import('../schema').ItemMetadata[];
+    vi.mocked(pokeDB.getItemsBulk).mockResolvedValue(mockItems);
+
+    const [i1, i2] = await Promise.all([dexDataLoader.items.load(1), dexDataLoader.items.load(2)]);
+
+    expect(i1).toEqual(mockItems[0]);
+    expect(i2).toEqual(mockItems[1]);
+    expect(pokeDB.getItemsBulk).toHaveBeenCalledTimes(1);
+    expect(pokeDB.getItemsBulk).toHaveBeenCalledWith([1, 2]);
+  });
+
+  it('batches calls to pokeDB.getMovesBulk', async () => {
+    const mockMoves = [
+      { id: 1, name: 'Move1' },
+      { id: 2, name: 'Move2' },
+    ] as import('../schema').MoveMetadata[];
+    vi.mocked(pokeDB.getMovesBulk).mockResolvedValue(mockMoves);
+
+    const [m1, m2] = await Promise.all([dexDataLoader.moves.load(1), dexDataLoader.moves.load(2)]);
+
+    expect(m1).toEqual(mockMoves[0]);
+    expect(m2).toEqual(mockMoves[1]);
+    expect(pokeDB.getMovesBulk).toHaveBeenCalledTimes(1);
+    expect(pokeDB.getMovesBulk).toHaveBeenCalledWith([1, 2]);
+  });
+
+  it('batches calls to pokeDB.getItemsBulk', async () => {
+    const mockItems = [
+      { id: 1, name: 'Item1' },
+      { id: 2, name: 'Item2' },
+    ] as import('../schema').ItemMetadata[];
+    vi.mocked(pokeDB.getItemsBulk).mockResolvedValue(mockItems);
+
+    const [i1, i2] = await Promise.all([dexDataLoader.items.load(1), dexDataLoader.items.load(2)]);
+
+    expect(i1).toEqual(mockItems[0]);
+    expect(i2).toEqual(mockItems[1]);
+    expect(pokeDB.getItemsBulk).toHaveBeenCalledTimes(1);
+    expect(pokeDB.getItemsBulk).toHaveBeenCalledWith([1, 2]);
+  });
+
+  it('batches calls to pokeDB.getMovesBulk', async () => {
+    const mockMoves = [
+      { id: 1, name: 'Move1' },
+      { id: 2, name: 'Move2' },
+    ] as import('../schema').MoveMetadata[];
+    vi.mocked(pokeDB.getMovesBulk).mockResolvedValue(mockMoves);
+
+    const [m1, m2] = await Promise.all([dexDataLoader.moves.load(1), dexDataLoader.moves.load(2)]);
+
+    expect(m1).toEqual(mockMoves[0]);
+    expect(m2).toEqual(mockMoves[1]);
+    expect(pokeDB.getMovesBulk).toHaveBeenCalledTimes(1);
+    expect(pokeDB.getMovesBulk).toHaveBeenCalledWith([1, 2]);
   });
 
   it('handles errors from pokeDB', async () => {

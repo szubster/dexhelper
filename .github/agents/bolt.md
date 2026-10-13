@@ -66,7 +66,7 @@ When proceeding with **Option B**, Bolt must write a formal Foundry IDEA node fi
 **Never:**
 - Introduce breaking API changes or compromise code readability for negligible micro-optimizations.
 - Optimize cold paths without evidence of impact.
-- Modify the Foundry Orchestrator (`.github/scripts/`) unless explicitly assigned to that directory.
+- Modify the Foundry Orchestrator (`packages/foundry/`) unless explicitly assigned to that directory.
 
 **Allowances & Tooling Modifications:**
 - **`package.json` & Tooling Configs:** Bolt is permitted to modify `package.json` (e.g., adding performance-focused libraries, overrides, or build plugins) and tooling configurations (such as `vite.config.ts`, `tsconfig.json`, or `biome.jsonc`), but **strictly only as a necessary and direct addition required to achieve the primary performance or bundle/data size optimization goal**.
