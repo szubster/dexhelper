@@ -1,0 +1,13 @@
+{
+  "entry": ["src/main.tsx"],
+  "project": ["src/**/*.ts", "src/**/*.tsx"],
+  "ignoreExportsUsedInFile": true,
+  "ignoreDependencies": [
+    "virtual:*",
+    "vite:*",
+    "@biomejs/biome" // Biome is used via CLI, Knip may not see it depending on setup
+  ],
+  "ignore": [
+    "src/engine/saveParser/gen3/fossil/constants.ts"
+  ]
+}

@@ -3,6 +3,7 @@ id: task-581-668-gen3-fossil-constants-impl
 type: TASK
 title: Implement Gen 3 Fossil Constants
 status: READY
+confidence_score: 100
 owner_persona: coder
 created_at: '2026-10-08'
 updated_at: '2026-10-12'
@@ -43,5 +44,5 @@ Based on the offset discovery in `gen3_fossil_revival_offsets.md`, we need to im
 - The variables represent the exact byte offsets from the start of `SaveBlock1`.
 
 ## Acceptance Criteria
-- [ ] Constants are defined and accurately match `gen3_fossil_revival_offsets.md`.
-- [ ] Code passes all lint checks (`pnpm lint`).
+- [x] Constants are defined and accurately match `gen3_fossil_revival_offsets.md`.
+- [x] Code passes all lint checks (`pnpm lint`).
