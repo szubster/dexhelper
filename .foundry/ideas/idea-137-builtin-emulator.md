@@ -2,12 +2,12 @@
 id: idea-137-builtin-emulator
 type: IDEA
 title: Built-in Emulator Integration
-status: READY
+status: ACTIVE
 owner_persona: curator
 created_at: '2026-08-08'
 updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7049671878520294098'
 pr_number: null
 parent: null
 tags:
