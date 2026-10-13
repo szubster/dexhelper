@@ -25,7 +25,7 @@ priority: 50
 # Evaluate State Machine Libraries for Node Lifecycle Transitions
 
 ## Context
-The Foundry orchestrator manages the lifecycle of nodes (e.g., DRAFT, PENDING, READY, ACTIVE, VERIFYING, COMPLETED, FAILED, CANCELLED). As the rules for transitions between these states become more complex (e.g., handling transient rejections, impossible loops, zombie node recovery, and dependency graph updates), there is a need to evaluate if adopting a formal state machine library (such as XState) would improve robustness, maintainability, and predictability compared to the current custom logic in `.github/scripts/foundry-orchestrator.ts` and `foundry-heartbeat.ts`.
+The Foundry orchestrator manages the lifecycle of nodes (e.g., DRAFT, PENDING, READY, ACTIVE, VERIFYING, COMPLETED, FAILED, CANCELLED). As the rules for transitions between these states become more complex (e.g., handling transient rejections, impossible loops, zombie node recovery, and dependency graph updates), there is a need to evaluate if adopting a formal state machine library (such as XState) would improve robustness, maintainability, and predictability compared to the current custom logic in `packages/foundry/foundry-orchestrator.ts` and `foundry-heartbeat.ts`.
 
 ## Decision
 We evaluated state machine libraries, specifically XState, for potential adoption.
