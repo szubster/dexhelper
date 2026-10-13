@@ -2,12 +2,12 @@
 id: story-426-517-binjgb-wasm-wrapper
 type: STORY
 title: Implement binjgb WASM Module Wrapper and React Component
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-10-12'
+updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13964989886348339331'
 pr_number: null
 parent: epic-421-426-binjgb-integration
 tags:
