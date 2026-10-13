@@ -33,4 +33,6 @@ Ensure the integrated static analysis linter works properly end-to-end.
 Perform integration and E2E verification to ensure infinite-blocking commands like \`tail -f\` are properly caught and blocked before execution, and the user is provided with clear feedback.
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks.
+- [x] Break down this story into tasks.
+- [ ] task-528-683-bash-linter-e2e-tests
+- [ ] task-528-684-bash-linter-e2e-qa
