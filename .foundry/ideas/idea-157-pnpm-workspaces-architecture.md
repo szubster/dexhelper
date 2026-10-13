@@ -2,7 +2,7 @@
 id: idea-157-pnpm-workspaces-architecture
 type: IDEA
 title: Step-by-Step Monorepo Architectural Migration to pnpm Workspaces
-status: COMPLETED
+status: PENDING
 owner_persona: curator
 created_at: '2026-08-19'
 updated_at: '2026-10-10'
@@ -88,3 +88,4 @@ When migrating to `apps/web` or nested workspace packages:
 - [x] Product Manager: Convert this IDEA into a PRD detailing the incremental migration phases, workspace boundaries, and Cloudflare Pages configuration instructions.
 - [x] prd-157-519-pnpm-workspaces-architecture
 - [x] Tech Lead: Break down the architectural refactoring into isolated TASK nodes per phase.
+- [ ] research-157-675-cloudflare-regression-analysis

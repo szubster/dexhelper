@@ -30,4 +30,6 @@ A final story exclusively dedicated to Integration and E2E Verification of the s
 - Implement Playwright E2E tests to verify that generation-specific bundles are loaded dynamically.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-479-676-e2e-core-fetch
+- [ ] task-479-677-e2e-dynamic-bundles
