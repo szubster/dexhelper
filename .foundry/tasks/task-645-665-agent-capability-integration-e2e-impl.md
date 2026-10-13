@@ -2,12 +2,12 @@
 id: task-645-665-agent-capability-integration-e2e-impl
 type: TASK
 title: Implement Integration and E2E Tests for Agent Confidence Capability
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-05T01:48:00Z'
-updated_at: '2026-10-06'
+updated_at: '2026-10-09'
 depends_on: []
-jules_session_id: '12935681318470036829'
+jules_session_id: null
 pr_number: null
 parent: story-572-645-agent-capability-integration-e2e
 tags:
@@ -34,5 +34,5 @@ As part of the Agent Confidence Metrics epic, we need to ensure that our prompt 
 - Add an explicit E2E or integration test that passes a mock node with a low `confidence_score` and verifies that the system interprets the `confidence_score` capability correctly according to core policies.
 
 ## Acceptance Criteria
-- [ ] Implement or update E2E tests to verify agent confidence capability.
-- [ ] Tests pass locally and demonstrate the correctness of the confidence score processing.
+- [x] Implement or update E2E tests to verify agent confidence capability.
+- [x] Tests pass locally and demonstrate the correctness of the confidence score processing.

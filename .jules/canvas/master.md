@@ -76,3 +76,19 @@
 **Outcome:** Merged (Optimistic execution)
 **Why:** Status panel items across event items, static encounters, and secret bases were unencapsulated and visually flat. The redesign transforms status items into tactical telemetry modules adhering to ADR 008, improving visual hierarchy and active status readability across telemetry dashboards.
 **Pattern:** Status display items should feature left accent indicator bars, status LED dots, and hardware corner accents to convey live system telemetry states cleanly.
+
+---
+
+## 2026-09-30 - [Accepted] - 🖼️ Canvas: Bold TacticalSegmentedControl Hardware Redesign
+**What:** Redesigned `TacticalSegmentedControl` from a basic boxed button array into an encapsulated tactical hardware module. Added support for CVA color variants (`default`, `emerald`, `amber`, `blue`, `red`, `purple`), 4-corner crosshairs (`CornerCrosshairs`), dynamic active item status LED dots with glow shadows, animated scanline hover highlights (`ScanlineOverlay`), micro telemetry code tags, and item `sublabel` support while maintaining full backward compatibility with existing class overrides.
+**Outcome:** Merged (Optimistic execution)
+**Why:** Segmented controls across settings, checklists, and DAG view controls were missing tactile hardware texture and depth. The redesign encapsulates items inside a heavy hardware casing with explicit corner crosshairs, illuminated status indicators, and subtle scanlines aligned with ADR 008.
+**Pattern:** Segmented controls and selector switches should be cased as hardware channel panels with corner crosshair anchors, illuminated LED status indicators, and subtle scanline textures to signal channel selection.
+
+---
+
+## 2026-10-06 - [Accepted] - 🖼️ Canvas: Bold SubDataPoint Hardware Redesign
+**What:** Transformed `SubDataPoint` from a simple unencapsulated key-value block into a cased micro tactical hardware telemetry module. The redesigned component features a dashed hardware casing (`border border-zinc-800/80 border-dashed bg-zinc-950/90`), 4-corner micro mounting ticks, a live status LED indicator dot, subtle laser scan overlay on hover, and enhanced monospaced typography while maintaining 100% backward compatibility.
+**Outcome:** Merged (Optimistic execution)
+**Why:** Sub-metric grid cells (such as OT_ID, HELD_ITEM, and POKERUS_STRAIN in Pokemon caught details) lacked tactical structure and visual depth compared to primary DataPoints. The redesign adheres strictly to the "tactical hardware/snooping" aesthetic (ADR 008) while improving hover feedback and data encapsulation across dense telemetry screens.
+**Pattern:** Secondary and sub-metric data cells should be cased inside micro hardware modules with corner ticks and status LED indicators to maintain cohesive tactical hardware hierarchy across the application.

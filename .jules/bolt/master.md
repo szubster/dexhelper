@@ -111,3 +111,19 @@ Based on feedback, the 2D canvas of nodes is also hard to parse for users trying
 - Optimized `AliveTeamView.tsx` by wrapping the component in `React.memo`, memoizing `aliveTeam` array filtering via `useMemo`, and replacing `Array.from({ length: 10 })` inside the HP bar render loop with a module-level pre-allocated index array `HP_SEGMENT_INDICES`.
 - Optimized `SyncProgress.tsx` by replacing `Array.from({ length: 10 })` and `Array.from({ length: matrixBlocks })` render loops with module-level pre-allocated index arrays `GAUGE_INDICES` and `MATRIX_BLOCK_INDICES` to prevent garbage collection pressure during high-frequency sync progress updates.
 - Learned that when replacing `Array.from().map((_, i) => ...)` with static index arrays `.map((i) => ...)`, Biome flags unused `// biome-ignore lint/suspicious/noArrayIndexKey` suppression comments as errors (`suppressions/unused`), which must be removed.
+
+
+---
+
+# Performance Optimization Journal
+
+- Optimized `CatchMethodSection` and `PokemonListSection` in `src/components/assistant/` by wrapping both components in `React.memo`. This avoids unnecessary re-renders of child section subtrees when parent `AssistantSuggestionCard` updates without props changing.
+
+---
+
+# Performance Optimization Journal
+
+- Optimized `LocationRow.tsx` by wrapping the component in `React.memo`. This prevents unnecessary DOM re-renders across repeated location list items when parent views update without row props changing.
+- Optimized `PokemonLocations.tsx` by wrapping `PokemonLocations` and internal `GeospatialNode` in `React.memo`. This eliminates cascading render evaluations across encounter field zones when unrelated details states change.
+- Optimized `PokemonCatchProbability.tsx` by wrapping the component in `React.memo` to isolate its render cycle from parent context/state changes.
+- Annotated all changes with `// ⚡ Bolt:` comments explaining the memoization context.

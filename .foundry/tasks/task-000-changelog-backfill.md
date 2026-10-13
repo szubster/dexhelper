@@ -5,9 +5,9 @@ title: Changelog Backfill Commit Evaluation
 status: ACTIVE
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-10-08'
+updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: '17339711332379294623'
+jules_session_id: '521332512551994265'
 locks: []
 pr_number: null
 parent: null
@@ -27,42 +27,41 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `14bc9b60fae74a1f114130391bd9e23b2096145d`
-- **Previous Commit SHA:** `748a61356bbecf42660c6e2c38a8df5265e7507f`
-- **Commit Date:** `2026-04-02`
+- **Commit SHA:** `bd676cb4db66ecc313c0f24e3e354a26457085a8`
+- **Previous Commit SHA:** `5dfb95e04548639734fdc9b9e48a683a48b422a9`
+- **Commit Date:** `2026-04-03`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `patch` (from `0.22.0` -> `0.22.1`)
+- **Suggested SemVer Bump:** `patch` (from `0.23.2` -> `0.23.3`)
 
 ## Commit Message
 ```text
-🧪 [testing improvement] Add edge case tests for decodeGen12String
-
-Added unit tests for `decodeGen12String` in `src/utils/saveParser.test.ts`.
-Scenarios covered:
-- Happy path (normal characters)
-- Unmapped characters (returns "?")
-- Multiple terminators (0x50, 0x00, 0xFF)
-- maxLength constraint
-- Trimming behavior
-- String filling maxLength without terminator
-
-Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
+refactor: isolate useAssistant into suggestionEngine and remove Gen1 constants duplication
 ```
 
 ## Modified Files
-- `src/utils/saveParser.test.ts`
+- `src/engine/assistant/strategies/gen1Strategy.ts`
+- `src/engine/assistant/strategies/types.ts`
+- `src/engine/assistant/suggestionEngine.ts`
+- `src/engine/data/gen1/assistantData.ts`
+- `src/hooks/useAssistant.test.ts`
+- `src/hooks/useAssistant.ts`
 
 ## Diff Summary
 ```text
-14bc9b60f 🧪 [testing improvement] Add edge case tests for decodeGen12String
- src/utils/saveParser.test.ts | 42 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 42 insertions(+)
+bd676cb4d refactor: isolate useAssistant into suggestionEngine and remove Gen1 constants duplication
+ src/engine/assistant/strategies/gen1Strategy.ts |   2 +-
+ src/engine/assistant/strategies/types.ts        |  50 +--
+ src/engine/assistant/suggestionEngine.ts        | 415 ++++++++++++++++++++++
+ src/engine/data/gen1/assistantData.ts           |   9 -
+ src/hooks/useAssistant.test.ts                  |   2 +-
+ src/hooks/useAssistant.ts                       | 441 +-----------------------
+ 6 files changed, 439 insertions(+), 480 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 14bc9b60fae74a1f114130391bd9e23b2096145d` (or `git diff 748a61356bbecf42660c6e2c38a8df5265e7507f..14bc9b60fae74a1f114130391bd9e23b2096145d`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show bd676cb4db66ecc313c0f24e3e354a26457085a8` (or `git diff 5dfb95e04548639734fdc9b9e48a683a48b422a9..bd676cb4db66ecc313c0f24e3e354a26457085a8`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.22.1] - 2026-04-02` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.22.0...0.22.1`](https://github.com/${repo}/compare/748a613...14bc9b6)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.23.3] - 2026-04-03` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.23.2...0.23.3`](https://github.com/${repo}/compare/5dfb95e...bd676cb)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.

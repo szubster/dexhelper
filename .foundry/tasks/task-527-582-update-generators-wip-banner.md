@@ -5,10 +5,10 @@ title: Update documentation generators to include WIP/DRAFT banner
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-15T18:24:00Z'
-updated_at: '2026-10-08'
+updated_at: '2026-10-11'
 depends_on:
   - task-527-581-define-markdown-banner
-jules_session_id: '4632996750283506459'
+jules_session_id: '3982221641909725680'
 pr_number: null
 parent: story-517-527-markdown-banner
 tags:
@@ -17,6 +17,7 @@ tags:
   - wip
 rejection_reason: ''
 locks: []
+rejection_count: 1
 ---
 
 ## Description
