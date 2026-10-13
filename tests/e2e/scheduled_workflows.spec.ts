@@ -13,7 +13,7 @@ test.describe('Scheduled Workflow Action & Orchestrator CLI E2E', () => {
     // Run the orchestrator with --compile-scheduled
     // we use a known generic persona like 'coder'
     const stdout = execSync(
-      `node --experimental-strip-types .github/scripts/foundry-orchestrator.ts --compile-scheduled coder`,
+      `node --experimental-strip-types packages/foundry/foundry-orchestrator.ts --compile-scheduled coder`,
       { cwd: rootDir, encoding: 'utf-8' },
     );
 

@@ -36,4 +36,4 @@ The coder has implemented integration and E2E tests for the agent confidence cap
 - Ensure that the tests are not tautological and verify the actual outcome in the UI or orchestrator execution flow.
 
 ## Acceptance Criteria
-- [ ] Verify E2E and integration tests run successfully and correctly validate confidence metrics.
+- [x] Verify E2E and integration tests run successfully and correctly validate confidence metrics.

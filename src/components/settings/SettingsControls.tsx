@@ -2,6 +2,7 @@ import { Archive, CircleDot, Settings2 } from 'lucide-react';
 import type { GameVersion, PokeballType } from '../../store';
 import type { GenerationConfig } from '../../utils/generationConfig';
 import { getGenerationConfig } from '../../utils/generationConfig';
+import { PokeballIcon } from '../PokeballIcon';
 import { SettingsRow } from '../SettingsRow';
 import { TacticalSegmentedControl } from '../TacticalSegmentedControl';
 
@@ -108,19 +109,7 @@ export function SettingsControls({
             ariaLabel: `${pb.label}`,
             label: (
               <>
-                <div
-                  className={`h-4 w-4 rounded-none border ${
-                    pb.value === 'safari' || pb.value === 'friend' || pb.value === 'lure'
-                      ? 'border-emerald-500 bg-emerald-500/20'
-                      : pb.value === 'ultra' || pb.value === 'level'
-                        ? 'border-yellow-500 bg-yellow-500/20'
-                        : pb.value === 'great' || pb.value === 'heavy' || pb.value === 'moon'
-                          ? 'border-blue-500 bg-blue-500/20'
-                          : pb.value === 'love'
-                            ? 'border-pink-500 bg-pink-500/20'
-                            : 'border-red-500 bg-red-500/20'
-                  }`}
-                />
+                <PokeballIcon type={pb.value} size="sm" />
                 {pb.label}
               </>
             ),
