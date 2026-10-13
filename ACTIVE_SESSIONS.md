@@ -7,6 +7,7 @@
 | [epic-337-401-engine-code-splitting](.foundry/epics/epic-337-401-engine-code-splitting.md) | EPIC | Engine Code Splitting by Game Generation | story_owner | [18293930511574936321](https://jules.google.com/session/18293930511574936321) |
 | [epic-337-402-ui-component-splitting](.foundry/epics/epic-337-402-ui-component-splitting.md) | EPIC | UI Component Splitting by Game Generation | story_owner | [8313081356306163637](https://jules.google.com/session/8313081356306163637) |
 | [epic-518-531-priority-orchestrator-dispatch](.foundry/epics/epic-518-531-priority-orchestrator-dispatch.md) | EPIC | Implement Priority-Based Dispatch in Orchestrator | story_owner | [12337048013298732747](https://jules.google.com/session/12337048013298732747) |
+| [epic-519-527-extract-ui-components](.foundry/epics/epic-519-527-extract-ui-components.md) | EPIC | Phase 4 - Extract Shared UI Component Library | story_owner | [2977280475898007053](https://jules.google.com/session/2977280475898007053) |
 | [epic-566-580-e2e-test-migration](.foundry/epics/epic-566-580-e2e-test-migration.md) | EPIC | E2E Test Migration to COM Pattern | story_owner | [4099276891458752926](https://jules.google.com/session/4099276891458752926) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
