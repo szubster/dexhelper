@@ -2,9 +2,9 @@ import * as fs from 'node:fs/promises';
 import os from 'node:os';
 import * as path from 'node:path';
 import { expect, test } from '@playwright/test';
-import { ingestJournals } from '../../.github/scripts/librarian-ingestion';
-import { sweepJournals } from '../../.github/scripts/sweep-journals';
-import { updateKnowledgeBase } from '../../.github/scripts/update-knowledge-base';
+import { ingestJournals } from '../../packages/foundry/librarian-ingestion';
+import { sweepJournals } from '../../packages/foundry/sweep-journals';
+import { updateKnowledgeBase } from '../../packages/foundry/update-knowledge-base';
 
 test.describe('Librarian Pipeline E2E Integration', () => {
   let tmpDir: string;
