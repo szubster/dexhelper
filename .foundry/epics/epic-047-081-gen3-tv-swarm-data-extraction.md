@@ -2,10 +2,10 @@
 id: epic-047-081-gen3-tv-swarm-data-extraction
 type: EPIC
 title: Gen 3 TV Broadcast and Swarm Tracker Data Extraction
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-12'
-updated_at: '2026-09-15'
+updated_at: '2026-10-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - daily-events
   - data-parsing
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---
@@ -43,15 +43,15 @@ This epic covers the backend logic to extract TV broadcast events and swarm trac
 ## 3. Acceptance Criteria
 - [x] Story Owner: Break down into Stories.
 
-- [ ] story-081-121-gen3-tv-block-dataview-parser
+- [x] story-081-121-gen3-tv-block-dataview-parser
 - [x] story-081-122-gen3-rtc-extraction
 - [x] story-081-123-gen3-active-swarm-parsing
 - [x] story-081-124-gen3-event-forecast-schedule
 - [x] research-081-144-gen3-rtc-strategy
 - [x] story-081-144-gen3-rtc-fallback-strategy
-- [ ] story-081-279-gen3-ignore-emulator-trailing-bytes
-- [ ] story-081-281-gen3-system-time-fallback
-- [ ] story-081-282-gen3-manual-time-ui-overrides
-- [ ] story-081-288-gen3-mix-record-inherited-events
+- [x] story-081-279-gen3-ignore-emulator-trailing-bytes
+- [x] story-081-281-gen3-system-time-fallback
+- [x] story-081-282-gen3-manual-time-ui-overrides
+- [x] story-081-288-gen3-mix-record-inherited-events
 - [x] story-081-289-gen3-rtc-extraction-replacement
 - [x] story-081-290-gen3-rtc-fallback-strategy-replacement

@@ -2,10 +2,10 @@
 id: story-552-581-gen3-fossil-constants
 type: STORY
 title: Define Gen 3 Fossil Constants
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-17T18:41:57Z'
-updated_at: '2026-10-07'
+updated_at: '2026-10-12'
 depends_on:
   - story-552-580-gen3-fossil-schema-docs
 jules_session_id: null
@@ -31,4 +31,6 @@ Implement module-level constants for Gen 3 fossil offsets as determined by the p
 - Ensure constants adhere to Section 13 guidelines (no magic numbers, relative offsets).
 
 ## Acceptance Criteria
-- [ ] Break down this story into tasks.
+- [x] Break down this story into tasks.
+- [ ] task-581-668-gen3-fossil-constants-impl
+- [ ] task-581-669-gen3-fossil-constants-qa
