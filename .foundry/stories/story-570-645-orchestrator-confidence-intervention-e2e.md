@@ -33,4 +33,5 @@ E2E Verification for orchestrator interventions on low confidence metrics.
 - Verify that a node with confidence_score < 70 does not bypass the review and correctly spawns a QA/Auditor task.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-645-673-orchestrator-confidence-intervention-e2e-impl

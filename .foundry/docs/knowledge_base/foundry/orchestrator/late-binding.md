@@ -15,7 +15,7 @@ If a child node explicitly lists its parent in `depends_on`, or if a parent list
 
 ## 2. The Native Solution
 
-Late-binding is implemented natively in `.github/scripts/foundry-orchestrator.ts` and `.github/scripts/foundry-heartbeat.ts` through status-based suspension and completion phases, without mutating `depends_on` arrays.
+Late-binding is implemented natively in `packages/foundry/foundry-orchestrator.ts` and `packages/foundry/foundry-heartbeat.ts` through status-based suspension and completion phases, without mutating `depends_on` arrays.
 
 ### A. Dynamic Child Linking
 When a persona (e.g. `tech_lead` or `story_owner`) processes a macro node:
