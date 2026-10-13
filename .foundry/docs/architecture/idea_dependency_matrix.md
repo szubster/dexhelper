@@ -216,7 +216,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-156-automated-graph-healing` | Automated Graph Healing for BLOCKED Nodes | foundry, orchestrator, dag, self-healing |  | PENDING |
 | `idea-156-foundry-node-status-health-heatmap` | Foundry DAG Node Health Heatmap Visualizer | foundry, orchestrator, UI, tooling |  | PENDING |
 | `idea-157-gen2-headbutt-tree-predictor` | Gen 2 Headbutt Tree Predictor | dexhelper, feature, gen2, tracker |  | PENDING |
-| `idea-157-pnpm-workspaces-architecture` | Step-by-Step Monorepo Architectural Migration to pnpm Workspaces | architecture, monorepo, pnpm, dx, cloudflare |  | PENDING |
+| `idea-157-pnpm-workspaces-architecture` | Step-by-Step Monorepo Architectural Migration to pnpm Workspaces | architecture, monorepo, pnpm, dx, cloudflare | `idea-055-cloudflare-sync-and-future-features`, `idea-062-drive-cloudflare-sync` | PENDING |
 | `idea-158-dataview-composite-wrapper` | DataView Composite Wrapper & Save Parser Abstraction | architecture, dataview, save-parser, abstraction, testing, refactoring |  | PENDING |
 | `idea-159-individual-pokemon-pkm-exporter` | Individual Pokémon PKM/PK3 Exporter | feature, gen1, gen2, gen3, export |  | PENDING |
 | `idea-417-407-more-save-files` | Idea: Source additional save files for testing | testing, fixtures | Parent: `epic-343-417-test-fixtures-sourcing` | PENDING |

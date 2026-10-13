@@ -1,15 +1,14 @@
 ---
 id: epic-520-535-acceptance-criteria-adr
 type: EPIC
-title: "Architecture Decision Phase: Acceptance Criteria Structure"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-09-04"
-updated_at: '2026-09-04'
+title: 'Architecture Decision Phase: Acceptance Criteria Structure'
+status: READY
+owner_persona: story_owner
+created_at: '2026-09-04'
+updated_at: '2026-10-13'
 depends_on:
   - epic-520-534-acceptance-criteria-research
 jules_session_id: null
-locks: []
 pr_number: null
 parent: prd-149-520-reevaluate-acceptance-criteria
 tags:
@@ -18,8 +17,9 @@ tags:
   - adr
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Epic: Architecture Decision Phase: Acceptance Criteria Structure
