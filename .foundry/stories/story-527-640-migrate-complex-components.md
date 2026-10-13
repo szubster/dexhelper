@@ -2,10 +2,10 @@
 id: story-527-640-migrate-complex-components
 type: STORY
 title: Migrate Complex Layout and Data Components
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-01'
+updated_at: '2026-10-13'
 depends_on:
   - story-527-639-migrate-tactical-primitives
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - react
   - components
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  story-527-639-migrate-tactical-primitives
 notes: ''
 locks: []
 ---

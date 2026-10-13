@@ -23,7 +23,7 @@ To prevent massive context bloat while keeping tasks context-aware, global syste
 
 ## 2. DAG Orchestrator & Massive Concurrency
 - Workflows are defined by `depends_on` arrays within the YAML frontmatter of the markdown files. Dependencies are universal across directories.
-- A custom Node.js orchestrator script (`.github/scripts/foundry-orchestrator.ts`) parses frontmatter across all items to calculate an in-degree of `0` globally.
+- A custom Node.js orchestrator script (`packages/foundry/foundry-orchestrator.ts`) parses frontmatter across all items to calculate an in-degree of `0` globally.
 - It passes a JSON array of all unblocked nodes to a GitHub Action, which utilizes a `matrix` strategy to spawn dozens of Jules instances concurrently for parallel execution of all independent epics/stories/tasks.
 
 ## 3. The Resurrection Loop & Self-Healing
@@ -72,7 +72,7 @@ The `.foundry/` monofolder has been scaffolded at the repository root. All 9 fil
 **QA & State Bootstrap**
 - State store bootstrapped with initial v1.0 nodes: `.foundry/ideas/idea-001`, `.foundry/epics/epic-003`, `.foundry/stories/story-001/002`.
 - Verification performed: Successfully promoted `epic-003` to `READY` via `foundry-orchestrator.ts`.
-- **Automated Testing**: 5/5 Vitest unit tests implemented in `.github/scripts/foundry-orchestrator.test.ts`, covering DAG resolution, blocking, resilience, and dry-run logic.
+- **Automated Testing**: 5/5 Vitest unit tests implemented in `packages/foundry/foundry-orchestrator.test.ts`, covering DAG resolution, blocking, resilience, and dry-run logic.
 - Foundational `package.json` updated with test automation scripts.
 
 ### ✅ Story 001 — COMPLETED (2026-04-20)

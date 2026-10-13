@@ -35,4 +35,7 @@ Implement webhook registration and refresh logic, ensuring the worker accurately
 ## Acceptance Criteria
 - [ ] Implement webhook registration.
 - [ ] Implement webhook channel renewal/refresh logic.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-527-673-webhook-registration-impl
+- [ ] task-527-674-webhook-renewal-impl
+- [ ] task-527-675-drive-webhook-qa
