@@ -27,3 +27,6 @@ locks: []
 ## Acceptance Criteria
 - [ ] Track the current markdown section during parsing.
 - [ ] Error if a checkbox is encountered outside of `## Acceptance Criteria`.
+- [ ] task-563-680-schema-linter-section-tracking-impl
+- [ ] task-563-681-schema-linter-section-tracking-tests
+- [ ] task-563-682-schema-linter-section-tracking-qa
