@@ -36,5 +36,6 @@ Introduce a pre-test execution guard or environment fallback helper script in `.
 Eliminates false-positive test output errors, improves developer experience, and stabilizes test session results across agent runs.
 
 ## Acceptance Criteria
-- [ ] PRD generated detailing the pre-install verification script or Vitest browser setup fallback.
+- [x] PRD generated detailing the pre-install verification script or Vitest browser setup fallback.
+- [ ] prd-536-587-playwright-browsers-preinstall-guard
 - [ ] Pre-install guard script or hook integrated into workspace test execution.
