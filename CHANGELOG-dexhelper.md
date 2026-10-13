@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.23.3] - 2026-04-03
+### Changed
+- Isolate `useAssistant` hook logic into a dedicated `suggestionEngine` module and remove duplicate Gen 1 constants for a cleaner architecture.
+
+## [0.23.2] - 2026-04-03
+### Changed
+- Decompose `PokemonDetails` and `AssistantPanel` into smaller, focused sub-components (`AssistantDebugView`, `AssistantSuggestionCard`, `PokemonCatchProbability`, etc.) to improve modularity and maintainability.
+
 ## [0.23.1] - 2026-04-03
 ### Changed
 - Refactored module imports to directly consume `engine/` modules, removing legacy `utils/` shims.
@@ -209,3 +217,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [0.23.0]: https://github.com/szubster/dexhelper/compare/415739935a20abd5d62bffc08f9adf4ca559fcf6...1336859d026c3a33f000009eaf9389ab6d0e5640
 [0.23.1]: https://github.com/szubster/dexhelper/compare/1336859d026c3a33f000009eaf9389ab6d0e5640...9fca8ef72fccabc6a4dfb44e2a92f16402b2809a
+[0.23.2]: https://github.com/szubster/dexhelper/compare/9fca8ef72fccabc6a4dfb44e2a92f16402b2809a...5dfb95e04548639734fdc9b9e48a683a48b422a9
+[0.23.3]: https://github.com/szubster/dexhelper/compare/5dfb95e04548639734fdc9b9e48a683a48b422a9...bd676cb4db66ecc313c0f24e3e354a26457085a8

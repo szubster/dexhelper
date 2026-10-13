@@ -5,10 +5,10 @@ title: E2E Verification for Gen 3 Secret Base Parsing (v3)
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-04'
-updated_at: '2026-10-10'
+updated_at: '2026-10-13'
 depends_on:
   - story-397-406-gen3-npc-rematch-status
-jules_session_id: '5274100743083013289'
+jules_session_id: '7004854670689761358'
 pr_number: null
 parent: epic-045-397-gen3-secret-base-parsing-v3
 tags:
@@ -35,6 +35,11 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer Epic, we must perform i
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into actionable TASK nodes (Coder/QA as needed).
-- [ ] task-407-668-e2e-base-location-parsing
-- [ ] task-407-669-e2e-mixed-records-rematch
-- [ ] task-407-670-qa-e2e-secret-base
+- [x] task-407-668-e2e-base-location-parsing
+- [x] task-407-669-e2e-mixed-records-rematch
+- [x] task-407-670-qa-e2e-secret-base
+
+- [ ] research-407-676-e2e-failure-investigation
+- [ ] task-407-677-e2e-base-location-parsing-retry
+- [ ] task-407-678-e2e-mixed-records-rematch-retry
+- [ ] task-407-679-qa-e2e-secret-base-retry
