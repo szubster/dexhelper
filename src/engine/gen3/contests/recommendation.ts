@@ -1,3 +1,4 @@
+import { NATURE_MODIFIER_DISLIKES, NATURE_MODIFIER_LIKES } from './constants';
 import { getDislikedCondition, getPreferredCondition } from './natureMapping';
 import type { ContestCondition, Nature } from './types';
 
@@ -28,9 +29,9 @@ export function getContestRecommendations(
     let score = conditionValue + remainingPotential;
 
     if (category === preferred) {
-      score *= 1.1;
+      score *= NATURE_MODIFIER_LIKES;
     } else if (category === disliked) {
-      score *= 0.9;
+      score *= NATURE_MODIFIER_DISLIKES;
     }
 
     recommendations.push({ category, score });
