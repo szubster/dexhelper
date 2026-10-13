@@ -31,4 +31,6 @@ This Epic covers updating the `.foundry` YAML frontmatter schema to include a de
 - Implement validation logic to ensure `system_failure_count` is properly typed and handled.
 
 ## Acceptance Criteria
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [ ] story-582-673-yaml-schema-validation-impl
+- [ ] story-582-674-yaml-schema-e2e-verification
