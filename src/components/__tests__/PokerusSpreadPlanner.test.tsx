@@ -60,6 +60,17 @@ describe('PokerusSpreadPlanner', () => {
     await expect.element(getByText('[AT RISK]', { exact: false })).toBeInTheDocument();
   });
 
+  it('hides warning when no contagious pokemon in party', async () => {
+    const party = [createUninfectedPokemon(), createCuredPokemon()];
+
+    const { getByText } = await render(<PokerusSpreadPlanner initialParty={party} />);
+
+    // Check warning is NOT visible
+    await expect
+      .element(getByText('Clock approaching midnight. Curing possible.', { exact: false }))
+      .not.toBeInTheDocument();
+  });
+
   it('allows moving pokemon up and down', async () => {
     const party = [
       createUninfectedPokemon(), // index 0
