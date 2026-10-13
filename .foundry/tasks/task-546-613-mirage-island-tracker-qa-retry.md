@@ -2,13 +2,13 @@
 id: task-546-613-mirage-island-tracker-qa-retry
 type: TASK
 title: QA Verification for Mirage Island Tracker Retry
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-22'
-updated_at: '2026-10-08'
+updated_at: '2026-10-13'
 depends_on:
   - task-546-612-mirage-island-ui-component-retry
-jules_session_id: '16019948908023149693'
+jules_session_id: null
 pr_number: null
 parent: story-062-546-implement-mirage-island-tracker
 tags:
@@ -18,7 +18,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---

@@ -2,12 +2,12 @@
 id: epic-586-581-orchestrator-rejection-processing
 type: EPIC
 title: Implement Phase 3.0 Orchestrator Rejection Processing Logic
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-08'
-updated_at: '2026-10-09'
+updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: '6737123496821041618'
+jules_session_id: null
 pr_number: null
 parent: prd-535-586-false-permanent-failure-detection
 priority: 80

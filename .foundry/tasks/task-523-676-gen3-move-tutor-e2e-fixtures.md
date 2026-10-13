@@ -2,12 +2,12 @@
 id: task-523-676-gen3-move-tutor-e2e-fixtures
 type: TASK
 title: Gen 3 Move Tutor E2E Fixtures
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-11'
 updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: '9653579245104234745'
+jules_session_id: null
 pr_number: null
 parent: story-407-523-gen3-move-tutor-integration-e2e
 tags:
@@ -16,11 +16,10 @@ tags:
   - integration
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 priority: 50
-confidence_score: null
 ---
 
 # Gen 3 Move Tutor E2E Fixtures

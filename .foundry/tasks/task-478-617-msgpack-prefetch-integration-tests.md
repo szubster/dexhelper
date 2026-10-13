@@ -2,10 +2,10 @@
 id: task-478-617-msgpack-prefetch-integration-tests
 type: TASK
 title: Write Msgpack Prefetch Integration Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-09-30'
+updated_at: '2026-10-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - preloading
   - integration
 research_references: []
-rejection_count: 1
-rejection_reason: 'Integration tests for msgpack prefetching are entirely missing from the codebase.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

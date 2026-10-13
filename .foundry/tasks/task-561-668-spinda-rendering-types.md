@@ -2,12 +2,12 @@
 id: task-561-668-spinda-rendering-types
 type: TASK
 title: Spinda Component Types & Interfaces
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-10'
+updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: '6657462512254663554'
+jules_session_id: null
 pr_number: null
 parent: story-346-561-spinda-pattern-rendering-component
 tags:
@@ -17,10 +17,9 @@ tags:
   - types
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
-confidence_score: 100
 ---
 
 # Spinda Component Types & Interfaces

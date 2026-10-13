@@ -2,10 +2,10 @@
 id: task-524-679-living-dex-ghosts-styling-qa
 type: TASK
 title: QA Verification for Living Dex Ghost Rendering and Tactical Styling
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-09'
-updated_at: '2026-10-09'
+updated_at: '2026-10-13'
 depends_on:
   - task-524-678-living-dex-ghosts-styling-tests
 jules_session_id: null

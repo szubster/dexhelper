@@ -2,20 +2,19 @@
 id: task-474-602-gen3-wallpaper-phrase-generator-e2e-impl
 type: TASK
 title: Gen 3 Wallpaper Phrase Generator E2E Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-20'
-updated_at: '2026-10-08'
+updated_at: '2026-10-13'
 depends_on: []
+jules_session_id: null
 parent: story-335-474-gen3-wallpaper-phrase-generator-e2e
-confidence_score: 100
-jules_session_id: '14703227376968332469'
 tags:
   - gen3
   - customization
   - e2e
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
 locks: []
 ---
 

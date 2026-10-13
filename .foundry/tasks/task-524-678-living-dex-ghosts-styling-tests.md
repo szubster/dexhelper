@@ -2,10 +2,10 @@
 id: task-524-678-living-dex-ghosts-styling-tests
 type: TASK
 title: Write Tests for Living Dex Ghost Rendering and Tactical Styling
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-09'
-updated_at: '2026-10-09'
+updated_at: '2026-10-13'
 depends_on:
   - task-524-677-living-dex-ghosts-styling-ui
 jules_session_id: null

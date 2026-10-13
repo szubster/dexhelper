@@ -1,22 +1,22 @@
 ---
 id: story-581-673-orchestrator-termination-state-parsing
 type: STORY
-title: "Parse Orchestrator Termination States"
-status: PENDING
+title: Parse Orchestrator Termination States
+status: READY
 owner_persona: tech_lead
-created_at: "2026-10-09"
-updated_at: "2026-10-09"
+created_at: '2026-10-09'
+updated_at: '2026-10-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: epic-586-581-orchestrator-rejection-processing
-priority: 80
-confidence_score: null
 tags: []
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 80
 ---
 
 # Parse Orchestrator Termination States

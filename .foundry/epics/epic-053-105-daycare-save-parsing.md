@@ -2,12 +2,12 @@
 id: epic-053-105-daycare-save-parsing
 type: EPIC
 title: Daycare Core Data Extraction Engine
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-06-22'
-updated_at: '2026-10-12'
+updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: '4745700693120463347'
+jules_session_id: null
 pr_number: null
 parent: prd-083-053-daycare-egg-tracker
 tags:

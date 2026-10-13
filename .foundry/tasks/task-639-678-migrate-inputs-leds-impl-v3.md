@@ -2,10 +2,10 @@
 id: task-639-678-migrate-inputs-leds-impl-v3
 type: TASK
 title: Migrate Tactical Inputs and LEDs Implementation (v3)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-13'
 depends_on:
   - research-639-675-investigate-primitives-migration-failures-v2
 jules_session_id: null

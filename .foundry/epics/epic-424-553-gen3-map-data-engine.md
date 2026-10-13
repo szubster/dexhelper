@@ -2,12 +2,12 @@
 id: epic-424-553-gen3-map-data-engine
 type: EPIC
 title: Gen 3 Map Data Extraction & Coordinate Mapping
-status: ACTIVE
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-09-04'
 updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: '1592047069318918659'
+jules_session_id: null
 pr_number: null
 parent: prd-424-001-gen3-interactive-map-dashboard
 tags:
@@ -35,6 +35,6 @@ Implement the data extraction logic and coordinate mapping system required to tr
 ## Acceptance Criteria
 - [x] Story Owner: Break down into STORY nodes for data extraction and coordinate mapping.
 - [x] Story Owner: Create a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
-- [ ] story-553-563-gen3-map-data-extraction
-- [ ] story-553-564-gen3-coordinate-mapping
-- [ ] story-553-565-gen3-map-data-integration-e2e
+- [x] story-553-563-gen3-map-data-extraction
+- [x] story-553-564-gen3-coordinate-mapping
+- [x] story-553-565-gen3-map-data-integration-e2e

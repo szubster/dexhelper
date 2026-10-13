@@ -2,10 +2,10 @@
 id: task-563-682-schema-linter-section-tracking-qa
 type: TASK
 title: QA Markdown Section Tracking in Schema Linter
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-13'
 depends_on:
   - task-563-681-schema-linter-section-tracking-tests
 jules_session_id: null

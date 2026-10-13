@@ -2,13 +2,13 @@
 id: story-134-524-living-dex-ghosts-and-styling
 type: STORY
 title: Highlight Ghosts and Apply Tactical Styling to Living Dex Grid
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-10'
+updated_at: '2026-10-13'
 depends_on:
   - story-134-523-living-dex-state-overlay
-jules_session_id: '7418547267019004444'
+jules_session_id: null
 pr_number: null
 parent: epic-103-134-living-dex-grid-ui
 tags:
