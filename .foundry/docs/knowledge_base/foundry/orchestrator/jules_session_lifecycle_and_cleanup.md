@@ -61,7 +61,7 @@ Historical nodes that were marked `COMPLETED` or `CANCELLED` in previous cycles 
 ## 5. Bulk Historical Session Pruning (`clean-jules-sessions.ts`)
 To prune thousands of historical sessions extracted from git commit history and restore responsiveness to the Jules Web UI:
 
-- **Script**: `.github/scripts/clean-jules-sessions.ts`
+- **Script**: `packages/foundry/clean-jules-sessions.ts`
 - **Workflow**: `.github/workflows/clean-jules-sessions.yml`
 - **Capabilities**:
   - `harvestAllSessionIds`: Scans git log (`git log --all --format="%s %b"`), candidate files (`jules_source_session_ids.txt`, `sep_ids.txt`), and `.foundry/` frontmatter.

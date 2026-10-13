@@ -2,10 +2,10 @@
 id: task-478-670-evaluate-locks-for-pending-nodes-retry
 type: TASK
 title: Evaluate locks for PENDING nodes in RESOLVE phase (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-10'
 depends_on:
   - task-478-669-aggregate-active-locks-retry
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-478-668-investigate-locking-failure
 notes: ''
 locks: []
 ---
