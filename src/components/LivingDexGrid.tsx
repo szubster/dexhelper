@@ -13,7 +13,7 @@ export const LivingDexGrid = React.memo(function LivingDexGrid() {
     const inParty = partySet.has(id);
     const inPC = pcSet.has(id);
     const isShiny = shinySpeciesIds.has(id);
-    cells.push(<LivingDexCell key={id} id={id} inParty={inParty} inPC={inPC} isShiny={isShiny} />);
+    cells.push(<LivingDexCell key={id} id={id} inParty={inParty} inPC={inPC} isShiny={isShiny} isGhost={false} />);
   }
 
   return (

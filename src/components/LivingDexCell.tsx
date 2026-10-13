@@ -1,17 +1,18 @@
 import { useNavigate } from '@tanstack/react-router';
 import { CircleDot, Monitor, Sparkles } from 'lucide-react';
 import React, { useCallback } from 'react';
+import type { TacticalLivingDexCellProps } from '../features/living-dex/types';
 import { cn } from '../utils/cn';
 import { LcdGrid } from './LcdGrid';
 
-interface LivingDexCellProps {
-  id: number;
-  inParty: boolean;
-  inPC: boolean;
-  isShiny: boolean;
-}
-
-export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, inPC, isShiny }: LivingDexCellProps) {
+export const LivingDexCell = React.memo(function LivingDexCell({
+  id,
+  inParty,
+  inPC,
+  isShiny,
+  isGhost,
+  className,
+}: TacticalLivingDexCellProps) {
   const navigate = useNavigate();
   const isSecured = inParty || inPC;
 
@@ -29,9 +30,12 @@ export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, in
       data-pokemon-id={id}
       className={cn(
         'group focus-visible:tactical-focus relative flex aspect-square w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-none border border-dashed text-left transition-all duration-300',
-        isSecured
-          ? 'border-cyan-500/50 bg-cyan-950/20 hover:border-cyan-400 hover:bg-cyan-900/40'
-          : 'border-zinc-800 bg-black/40 hover:border-zinc-700',
+        isGhost && !isSecured
+          ? 'border-rose-500/50 bg-rose-950/20 hover:border-rose-400 hover:bg-rose-900/40'
+          : isSecured
+            ? 'border-cyan-500/50 bg-cyan-950/20 hover:border-cyan-400 hover:bg-cyan-900/40'
+            : 'border-zinc-800 bg-black/40 hover:border-zinc-700',
+        className,
       )}
     >
       <LcdGrid className="opacity-[0.03]" />

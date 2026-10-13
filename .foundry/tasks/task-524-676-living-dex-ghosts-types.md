@@ -28,5 +28,5 @@ locks: []
 To support the visual highlighting of "ghosts" (missing slots) and the application of tactical styling in the Living Dex Grid, we need to extend our type definitions to represent these states.
 
 ## Acceptance Criteria
-- [ ] Define types/interfaces to represent a "ghost" slot in the Living Dex grid data structure.
-- [ ] Define any necessary type extensions for component props to accept tactical styling overrides (e.g. `isGhost: boolean`, specific tactical class utility props if needed).
+- [x] Define types/interfaces to represent a "ghost" slot in the Living Dex grid data structure.
+- [x] Define any necessary type extensions for component props to accept tactical styling overrides (e.g. `isGhost: boolean`, specific tactical class utility props if needed).
