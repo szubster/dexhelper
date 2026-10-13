@@ -2,7 +2,7 @@
 id: epic-565-573-agent-confidence-metrics-e2e
 type: EPIC
 title: E2E Verification for Confidence Metrics Dashboard
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-09-17T01:15:33Z'
 updated_at: '2026-09-17T01:15:33Z'

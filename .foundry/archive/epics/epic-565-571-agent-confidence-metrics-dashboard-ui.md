@@ -2,7 +2,7 @@
 id: epic-565-571-agent-confidence-metrics-dashboard-ui
 type: EPIC
 title: Implement Dashboard UI for Confidence Metrics
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-09-17T01:15:33Z'
 updated_at: '2026-10-02'
