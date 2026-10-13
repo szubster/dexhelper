@@ -2,13 +2,13 @@
 id: story-419-479-data-splitting-e2e
 type: STORY
 title: Data splitting integration and E2E verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-02'
+updated_at: '2026-10-11'
 depends_on:
   - story-419-478-pokedb-sync-refactor
-jules_session_id: '6706478323854200827'
+jules_session_id: '710391697845411108'
 pr_number: null
 parent: epic-340-419-data-splitting
 tags:

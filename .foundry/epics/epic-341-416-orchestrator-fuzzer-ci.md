@@ -2,10 +2,10 @@
 id: epic-341-416-orchestrator-fuzzer-ci
 type: EPIC
 title: Orchestrator State Machine Fuzzing - CI Integration & Validation
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-12'
-updated_at: '2026-08-12'
+updated_at: '2026-10-12'
 depends_on:
   - epic-341-414-orchestrator-fuzzer-core
   - epic-341-415-orchestrator-fuzzer-simulation
@@ -22,6 +22,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Orchestrator State Machine Fuzzing - CI Integration & Validation
