@@ -2,14 +2,14 @@
 id: story-530-555-pkm-data-integration-e2e
 type: STORY
 title: PKM/PK3 Data Extraction E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-10-01'
+updated_at: '2026-10-11'
 depends_on:
   - story-530-553-gen1-gen2-pkm-extraction
   - story-530-554-gen3-pk3-extraction
-jules_session_id: null
+jules_session_id: '584141171147599498'
 parent: epic-516-530-pkm-data-extraction-generation
 tags:
   - data

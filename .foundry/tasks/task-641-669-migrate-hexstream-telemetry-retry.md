@@ -2,10 +2,10 @@
 id: task-641-669-migrate-hexstream-telemetry-retry
 type: TASK
 title: Migrate HexStream and Telemetry Decorations Retry
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-06'
-updated_at: '2026-10-09'
+updated_at: '2026-10-10'
 depends_on:
   - research-641-668-investigate-hexstream-telemetry-failure
 jules_session_id: null
@@ -14,7 +14,9 @@ tags:
   - react
   - components
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-641-668-investigate-hexstream-telemetry-failure
 notes: ''
 locks: []
 ---
