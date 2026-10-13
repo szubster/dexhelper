@@ -2,10 +2,10 @@
 id: task-442-671-qa-e2e-cross-save-synergy
 type: TASK
 title: QA Verification for Cross-Save Synergy E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-06T22:39:19Z'
-updated_at: '2026-10-06'
+updated_at: '2026-10-13'
 depends_on:
   - task-442-669-e2e-cross-save-synergy
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - e2e
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-442-668-integration-cross-save-synergy
 notes: ''
 locks: []
 ---

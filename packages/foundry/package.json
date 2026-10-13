@@ -1,0 +1,27 @@
+{
+  "name": "@dexhelper/foundry",
+  "version": "1.0.0",
+  "description": "Foundry DAG orchestration scripts — run with Node 24 native TypeScript support.",
+  "type": "module",
+  "scripts": {
+    "orchestrate": "node --experimental-strip-types foundry-orchestrator.ts",
+    "orchestrate:dry": "node --experimental-strip-types foundry-orchestrator.ts --dry-run",
+    "orchestrate:strict": "node --experimental-strip-types foundry-orchestrator.ts --strict",
+    "test": "vitest run",
+    "verify:refs": "node --experimental-strip-types verify-dag-refs.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^2.22.0",
+    "flexsearch": "^0.8.212",
+    "gray-matter": "^4.0.3",
+    "zod": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.5.1",
+    "fast-check": "^4.9.0",
+    "vitest": "^4.1.11"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

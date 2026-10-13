@@ -2,10 +2,10 @@
 id: story-082-145-gen3-tv-swarm-dashboard-scaffold
 type: STORY
 title: Scaffold Gen 3 TV and Swarm Dashboard Component
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-06-19'
-updated_at: '2026-06-19'
+updated_at: '2026-10-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,8 +17,9 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: Cancelled due to cascading cancellation from parent
 notes: ''
+locks: []
 ---
 
 # Story: Scaffold Gen 3 TV and Swarm Dashboard Component

@@ -2,10 +2,10 @@
 id: story-269-648-gen3-ash-dashboard-e2e
 type: STORY
 title: 'Story: Gen 3 Volcanic Ash Tracker Dashboard Integration & E2E'
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-10-03T19:33:53.000Z'
-updated_at: '2026-10-05'
+updated_at: '2026-10-13'
 depends_on:
   - story-269-647-gen3-ash-dashboard-ui
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  story-269-647-gen3-ash-dashboard-ui
 locks: []
 ---
 
