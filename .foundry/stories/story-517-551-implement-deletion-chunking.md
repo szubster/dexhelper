@@ -2,7 +2,7 @@
 id: story-517-551-implement-deletion-chunking
 type: STORY
 title: Implement Deletion Chunking
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-06'
 updated_at: '2026-10-10'
@@ -10,7 +10,8 @@ depends_on:
   - story-517-550-implement-node-age-filtering
 jules_session_id: null
 parent: epic-346-517-archival-cleanup-core-engine
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 ---
 

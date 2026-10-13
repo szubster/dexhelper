@@ -217,3 +217,4 @@ Wrapped decorative telemetry brackets (`[` and `]`) in `CapacitySegmentedBar.tsx
 ## Key Learnings
 - **Screen Reader Noise Reduction**: Telemetry labels (`[SYS.CAP]`) in status controls (such as `CapacitySegmentedBar`) should isolate decorative bracket characters with `<span aria-hidden="true">`.
 - This prevents assistive technologies from repetitively announcing "left bracket" and "right bracket" across storage views, while preserving the tactical hardware aesthetic visually.
+- **Screen Reader Clarity**: Text elements in grid displays that present telemetry data formatted with ASCII brackets (e.g. `[RED]`, `[ READY ]`, `[ EMPTY ]`) should isolate the brackets in `<span aria-hidden="true">`. This prevents screen readers from redundantly voicing "left bracket" and "right bracket" for every card in large storage box grids while preserving the tactical hardware aesthetic visually.
