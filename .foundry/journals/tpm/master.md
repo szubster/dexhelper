@@ -348,3 +348,24 @@ Date: 2026-10-10 03:38:21
   - `task-361-496-sorting-algorithms-e2e-qa-retry` (tasks)
   - `research-407-468-sorting-ui-implementation` (research)
   - `research-361-494-sorting-algorithms-e2e-root-cause` (research)
+
+---
+
+# TPM Session Journal
+Date: 2026-10-11 03:45:00
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving strictly operates at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+- **Summary of Archived DAG Tree**: Archived the completed 100% terminal tree rooted at `epic-031-036-progression-tracking` (10 nodes total):
+  - `epic-031-036-progression-tracking` (epics)
+  - `story-036-257-concurrent-game-management` (stories)
+  - `task-257-379-progression-timeline-ui-retry-qa` (tasks)
+  - `task-257-378-progression-timeline-ui-retry-impl` (tasks)
+  - `task-257-374-progression-timeline-ui-qa` (tasks)
+  - `research-257-377-investigate-progression-timeline-failure` (research)
+  - `story-036-490-progression-e2e-verification` (stories)
+  - `task-490-525-progression-switcher-e2e-impl` (tasks)
+  - `task-490-524-progression-sync-e2e-impl` (tasks)
+  - `task-490-526-progression-e2e-qa` (tasks)
