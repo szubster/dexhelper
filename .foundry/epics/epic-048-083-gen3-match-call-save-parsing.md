@@ -2,10 +2,10 @@
 id: epic-048-083-gen3-match-call-save-parsing
 type: EPIC
 title: 'Epic: Gen 3 Match Call Save Parsing'
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-13'
-updated_at: '2026-08-25'
+updated_at: '2026-10-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Gen 3 Match Call Save Parsing
@@ -44,4 +45,4 @@ This epic covers the extraction of PokéNav Match Call data from Gen 3 Pokémon 
 - [x] story-083-127-gen3-match-call-schema-integration
 
 ## Acceptance Criteria
-- [ ] story-083-473-gen3-match-call-e2e-verification
+- [x] story-083-473-gen3-match-call-e2e-verification

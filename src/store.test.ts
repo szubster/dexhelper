@@ -33,6 +33,8 @@ describe('Zustand Store', () => {
       searchTerm: '',
       isSettingsOpen: false,
       isVersionModalOpen: false,
+      huntBaselineQuantities: {},
+      newlyAcquiredWildItemIds: [],
     });
   });
 
@@ -206,6 +208,24 @@ describe('Zustand Store', () => {
 
       expect(useStore.getState().newlyAcquiredWildItemIds).toEqual([2]);
     });
+
+    it('should not mark item as newly acquired if count is equal or less than baseline or pcItems is undefined', () => {
+      useStore.getState().addSelectedWildItemId(1);
+      useStore.getState().addSelectedWildItemId(2);
+      useStore.getState().setHuntBaselineQuantities({ 1: 5, 2: 10 });
+
+      const mockSaveData = {
+        inventory: [{ id: 1, quantity: 5 }], // Equal to baseline (5 === 5)
+        partyDetails: [{ item: 2 }], // 1 in party
+        pcDetails: [],
+        pcItems: undefined,
+        // biome-ignore lint/suspicious/noExplicitAny: test mock
+      } as any;
+
+      useStore.getState().setSaveData(mockSaveData);
+
+      expect(useStore.getState().newlyAcquiredWildItemIds).toEqual([]);
+    });
   });
 
   describe('Save data', () => {
@@ -267,6 +287,30 @@ describe('Zustand Store', () => {
       expect(r2Client.listSaves).toHaveBeenCalled();
       expect(r2Client.getSave).toHaveBeenCalledWith('cloud-save-id');
       expect(putSaveSpy).toHaveBeenCalledWith('last_save_file', cloudData);
+      expect(useStore.getState().saveData).toEqual(mockSaveData);
+
+      vi.unstubAllGlobals();
+    });
+
+    it('should fallback to local DB if r2Client.getSave returns undefined', async () => {
+      vi.stubGlobal('localStorage', {
+        getItem: () => 'true',
+        setItem: vi.fn<() => void>(),
+        removeItem: vi.fn<() => void>(),
+      });
+      vi.mocked(r2Client.listSaves).mockResolvedValue([{ id: 'cloud-save-id' }]);
+      vi.mocked(r2Client.getSave).mockResolvedValue(undefined);
+
+      const localData = new Uint8Array([1, 2, 3]);
+      vi.spyOn(saveDB, 'getSave').mockResolvedValue(localData);
+      const mockSaveData = { trainerName: 'LOCAL_FALLBACK', generation: 1, gameVersion: 'red' };
+      vi.mocked(parseSaveFile).mockReturnValue(mockSaveData as unknown as ReturnType<typeof parseSaveFile>);
+
+      await useStore.getState().loadSaveFromStorage();
+
+      expect(r2Client.listSaves).toHaveBeenCalled();
+      expect(r2Client.getSave).toHaveBeenCalledWith('cloud-save-id');
+      expect(saveDB.getSave).toHaveBeenCalledWith('last_save_file');
       expect(useStore.getState().saveData).toEqual(mockSaveData);
 
       vi.unstubAllGlobals();

@@ -20,6 +20,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Implement Gen 3 Map State Store
@@ -35,6 +36,6 @@ The application needs a way to manage map toggle states and selected map feature
 - Create a Zustand store for selected map features.
 
 ## Acceptance Criteria
-- [ ] Zustand store is implemented and exported.
-- [ ] Type definitions for state are provided.
-- [ ] Unit tests for the state store are written and pass.
+- [x] Zustand store is implemented and exported.
+- [x] Type definitions for state are provided.
+- [x] Unit tests for the state store are written and pass.

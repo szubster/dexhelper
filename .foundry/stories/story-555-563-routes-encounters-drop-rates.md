@@ -5,10 +5,10 @@ title: 'Display Routes, Encounters, and Drop Rates'
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-07'
+updated_at: '2026-10-12'
 depends_on:
   - story-555-562-wild-item-selection-ui
-jules_session_id: '1771983362692322216'
+jules_session_id: '16737342756498904530'
 pr_number: null
 parent: epic-521-555-wild-item-hunting-ui
 tags:

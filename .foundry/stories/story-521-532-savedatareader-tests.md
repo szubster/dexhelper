@@ -9,7 +9,7 @@ updated_at: '2026-10-10'
 depends_on:
   - story-521-530-savedatareader-core
   - story-521-531-savedatareader-bitwise
-jules_session_id: '855423809410018407'
+jules_session_id: null
 pr_number: null
 parent: epic-158-521-core-dataview-wrapper
 tags:

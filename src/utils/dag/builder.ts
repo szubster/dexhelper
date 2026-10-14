@@ -14,7 +14,6 @@ export interface GraphNode {
     rejection_count: number;
     depends_on: string[];
     experiment_variants?: string[] | undefined;
-    confidence_score?: number | null;
   };
 }
 
@@ -62,10 +61,6 @@ export function buildDagGraph(parsedNodes: ParsedNode[]): DagGraph {
 
     if (node.data.experiment_variants !== undefined) {
       graphNodeData.experiment_variants = node.data.experiment_variants;
-    }
-
-    if (node.data.confidence_score !== undefined) {
-      graphNodeData.confidence_score = node.data.confidence_score;
     }
 
     nodes.push({

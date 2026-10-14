@@ -2,10 +2,10 @@
 id: task-562-670-gen2-wild-item-extraction-tests-retry
 type: TASK
 title: Write Unit Tests for Gen 2 Wild Encounter Extraction (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - task-562-669-gen2-wild-item-extraction-logic-retry
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - tests
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-562-668-investigate-gen2-wild-encounter-extraction-failure
 notes: ''
 locks: []
 priority: 50
