@@ -94,6 +94,7 @@
 | [task-564-604-pokemon-held-item-tracker-qa](.foundry/tasks/task-564-604-pokemon-held-item-tracker-qa.md) | TASK | QA Pokemon Held Item Tracker Logic | qa | [6453232980205938556](https://jules.google.com/session/6453232980205938556) |
 | [task-564-668-gen2-roamer-ui-impl](.foundry/tasks/task-564-668-gen2-roamer-ui-impl.md) | TASK | Gen 2 Roamer UI Component Integration | coder | [830980291351580460](https://jules.google.com/session/830980291351580460) |
 | [task-565-607-hunting-progress-qa](.foundry/tasks/task-565-607-hunting-progress-qa.md) | TASK | Hunting Progress QA | qa | [3486173123400765323](https://jules.google.com/session/3486173123400765323) |
+| [task-573-656-item-gating-qa](.foundry/tasks/task-573-656-item-gating-qa.md) | TASK | Item Gating QA | qa | [15306784518842154641](https://jules.google.com/session/15306784518842154641) |
 | [task-574-670-heatmap-ui-overlay-types](.foundry/tasks/task-574-670-heatmap-ui-overlay-types.md) | TASK | Define Heatmap UI Overlay Types | coder | [14184503781113587523](https://jules.google.com/session/14184503781113587523) |
 | [task-581-668-gen3-fossil-constants-impl](.foundry/tasks/task-581-668-gen3-fossil-constants-impl.md) | TASK | Implement Gen 3 Fossil Constants | coder | [7934345002849595763](https://jules.google.com/session/7934345002849595763) |
 | [task-617-667-multi-box-search-input-ui](.foundry/tasks/task-617-667-multi-box-search-input-ui.md) | TASK | Multi-Box Search Input UI Component | coder | [1137387669541954092](https://jules.google.com/session/1137387669541954092) |
