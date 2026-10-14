@@ -239,3 +239,70 @@ Date: 2026-10-11 03:45:00
   - `task-490-525-progression-switcher-e2e-impl` (tasks)
   - `task-490-524-progression-sync-e2e-impl` (tasks)
   - `task-490-526-progression-e2e-qa` (tasks)
+
+
+---
+
+# TPM Archiving Journal
+Date: 2026-10-11 03:05:00
+
+---
+
+## Archiving Activity
+- Identified 11 terminal DAG trees across `.foundry/` comprising 39 total nodes where all nodes in the tree hierarchy reached terminal states (`COMPLETED` or `CANCELLED`).
+- Safely relocated 39 node markdown files into their corresponding `.foundry/archive/` subdirectories (`ideas/`, `prds/`, `epics/`, `stories/`, `research/`, `tasks/`).
+- Verified that no external active nodes referenced these archived nodes or had filepath dependencies in YAML frontmatter.
+
+---
+
+## Archivable Trees Archived
+1. `idea-090-pokegear-phone-tracker` tree (29 nodes: 26 COMPLETED, 3 CANCELLED)
+2. `idea-106-rs-battle-tower-dashboard-support` (1 COMPLETED)
+3. `research-078-150-rs-battle-tower-data` (1 COMPLETED)
+4. `task-080-132-refactor-generation-exports-impl` (1 CANCELLED)
+5. `task-080-133-refactor-generation-exports-qa` (1 CANCELLED)
+6. `task-142-249-gen3-contest-data-mapping-impl` (1 COMPLETED)
+7. `task-142-250-gen3-contest-data-mapping-qa` (1 COMPLETED)
+8. `task-249-261-gen3-ev-interface-impl` (1 COMPLETED)
+9. `task-338-339-trick-house-e2e-tests` (1 COMPLETED)
+10. `task-568-581-modify-shared-workflow-impl` (1 COMPLETED)
+11. `task-568-582-modify-shared-workflow-qa` (1 COMPLETED)
+
+---
+
+## Rule Reminders and Observations
+- Retained all trees with non-terminal statuses (`PENDING`, `READY`, `ACTIVE`, `VERIFYING`, `BLOCKED`, `DRAFT`) to preserve active execution context.
+- Frontmatter `parent` and `depends_on` fields strictly remain as pure Node IDs, satisfying DAG ID strictness rules.
+
+---
+
+# TPM Archiving Journal
+Date: 2026-10-11 03:45:00
+
+---
+
+## Archiving Activity
+- Identified terminal DAG tree `epic-031-036-progression-tracking` comprising 10 total nodes where all nodes in the tree hierarchy reached terminal states (`COMPLETED` or `CANCELLED`).
+- Safely relocated 10 node markdown files into their corresponding `.foundry/archive/` subdirectories (`epics/`, `stories/`, `tasks/`, `research/`).
+- Verified that no active nodes reference these archived nodes or have filepath dependencies in YAML frontmatter.
+
+---
+
+## Archivable Trees Archived
+1. `epic-031-036-progression-tracking` tree (10 nodes: 8 COMPLETED, 2 CANCELLED)
+   - `epic-031-036-progression-tracking.md`
+   - `story-036-257-concurrent-game-management.md`
+   - `task-257-379-progression-timeline-ui-retry-qa.md`
+   - `task-257-378-progression-timeline-ui-retry-impl.md`
+   - `task-257-374-progression-timeline-ui-qa.md`
+   - `research-257-377-investigate-progression-timeline-failure.md`
+   - `story-036-490-progression-e2e-verification.md`
+   - `task-490-525-progression-switcher-e2e-impl.md`
+   - `task-490-524-progression-sync-e2e-impl.md`
+   - `task-490-526-progression-e2e-qa.md`
+
+---
+
+## Rule Reminders and Observations
+- Retained all trees with non-terminal statuses (`PENDING`, `READY`, `ACTIVE`, `VERIFYING`, `BLOCKED`, `DRAFT`) to preserve active execution context.
+- Frontmatter `parent` and `depends_on` fields strictly remain as pure Node IDs, satisfying DAG ID strictness rules.

@@ -174,3 +174,20 @@ In tightly-spaced grid layouts or forms where inputs lack top padding on their p
 
 ## Rule for Future UI Development
 Whenever `TacticalInput` is used with a `label` prop inside compact grid rows or forms without explicit top margin/padding, ensure `containerClassName="pt-2"` (or equivalent top margin/padding) is provided to ensure clean visual separation between the upper dashed input border and the floating tactical edge label.
+
+---
+
+# Lens Journal Entry - 2026-10-10-04-34-11
+
+## Findings & Heuristics
+* **EdgeLabel Alignment & Container Padding**: When containers use absolute-positioned `<EdgeLabel>` overlays (e.g. `-top-2 left-5`), a container padding of `p-5` brings content directly against the top border where the edge label is rendered.
+* **Remediation**: Adjusting container padding from `p-5` to `px-5 pt-6 pb-5` gives the edge label breathing room and maintains the high-tech tactical hardware aesthetic (ADR 008) without overlapping content or crowding borders.
+* **Component Affected**: `src/components/SearchAndFilters.tsx`.
+
+---
+
+# Lens Visual QA & Exploratory Audit Learnings
+
+## DiagnosticCard Grid Responsiveness
+* **Issue Identified**: In `AssistantDebugView.tsx`, diagnostic telemetry cards rendered in a `grid-cols-2 md:grid-cols-4` grid layout. When a 5th card (`ASH.CNT` for Volcanic Ash in Gen 3 saves) rendered, it created an asymmetric 3rd row on mobile and desktop viewports (`123.5x131.5` vs `123.5x118`).
+* **Fix Applied**: Refactored grid breakpoints to `grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5`. This allows all 5 telemetry cards to fit cleanly onto a single row on desktop and adapt smoothly across intermediate screen sizes.

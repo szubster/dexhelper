@@ -1394,3 +1394,26 @@ The task task-472-659-implement-e2e-tests permanently failed during E2E testing 
 The task `task-608-619-multi-box-text-search-engine-e2e` reached its maximum rejection count and failed permanently. In accordance with the Impossible Loop protocol, I have spawned a research node (`research-608-673-investigate-text-search-e2e-failure`) to investigate the root cause of the E2E failures, and created a replacement task (`task-608-674-multi-box-text-search-engine-e2e-retry`) that depends on the research node.
 
 The permanently failed child task `task-608-619` has been checked off in the parent story `story-574-608-multi-box-text-search-engine`, and the new nodes have been appended to the acceptance criteria to prevent premature verification.
+
+
+---
+
+# Late Binding for Gen 3 AI Mapping Test Failure
+
+When `research-423-668-investigate-ai-mapping-test-failure-v2` permanently failed due to a system abort (Autonomous No-Ask Policy Violation), I successfully executed the Impossible Loop protocol by:
+1. Cancelling its blocked downstream nodes (`task-423-669` and `task-423-670`) in their YAML frontmatter.
+2. Checking off the failed node and its cancelled downstream nodes in `story-411-423-gen3-ai-data-extraction-e2e.md`.
+3. Spawning a new set of replacement nodes (`research-423-673`, `task-423-674`, `task-423-675`) and appending them as unchecked tasks in the parent story's markdown body.
+
+---
+
+# Impossible Loop Safari Zone UI Failure
+
+Triggered the Impossible Loop protocol for `story-325-527-safari-zone-area-highlighting` due to the permanent failure of `task-527-596-safari-zone-area-map-ui` and its QA dependent task `task-527-597-safari-zone-area-highlighting-qa`. Spawned `research-527-673-investigate-safari-zone-area-map-failure` to investigate the failure, followed by `task-527-674-safari-zone-area-map-ui-v2` and `task-527-675-safari-zone-area-highlighting-qa-v2` to attempt implementation again.
+
+
+---
+
+# Tech Lead Journal: 2026-10-10-03-01-04
+
+Encountered the Impossible Loop where `research-639-668-investigate-primitives-migration-failures` reached its maximum rejection count and was marked as CANCELLED. As a result, its dependent tasks for migrating UI primitives (`task-639-669-migrate-buttons-impl-retry`, `task-639-670-migrate-badges-impl-retry`, `task-639-671-migrate-inputs-leds-impl-retry`, `task-639-672-migrate-primitives-qa-retry`) were also permanently failed. To resolve this, I have spawned a new `RESEARCH` node (`research-639-675-investigate-primitives-migration-failures-v2`) to investigate the root cause, along with a new set of replacement `TASK` nodes (`task-639-676-migrate-buttons-impl-v3`, `task-639-677-migrate-badges-impl-v3`, `task-639-678-migrate-inputs-leds-impl-v3`, `task-639-679-migrate-primitives-qa-v3`) that correctly depend on the new research being completed. I also checked off the permanently failed tasks in the parent `story-527-639-migrate-tactical-primitives` to allow the orchestration to continue cleanly. This adheres to the Orchestrator Demotion Compliance Rule and Impossible Loop handling.
