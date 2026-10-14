@@ -33,6 +33,6 @@ With the schema types updated, the actual runtime mapping and hydration logic mu
 4. Update unit tests to verify the hydration of these fields works as expected.
 
 ## Acceptance Criteria
-- [ ] Implement mapping and hydration logic for mirageIslandValue on BaseSaveData.
-- [ ] Implement mapping and hydration logic for personalityValue segments on unified data payload.
-- [ ] Update and verify test suite for these changes.
+- [x] Implement mapping and hydration logic for mirageIslandValue on BaseSaveData.
+- [x] Implement mapping and hydration logic for personalityValue segments on unified data payload.
+- [x] Update and verify test suite for these changes.
