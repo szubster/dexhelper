@@ -9,7 +9,9 @@ test.describe('Tactical Aesthetics E2E - Base Components', () => {
     await page.waitForTimeout(500);
   });
 
-  test('verifies base components adhere to tactical invariants (sharp edges, dashed borders, monospaced fonts)', async ({ page }) => {
+  test('verifies base components adhere to tactical invariants (sharp edges, dashed borders, monospaced fonts)', async ({
+    page,
+  }) => {
     // TacticalBadge
     const badgeIds = [
       '#badge-primary',
@@ -49,9 +51,7 @@ test.describe('Tactical Aesthetics E2E - Base Components', () => {
     }
 
     // TacticalInput
-    const inputIds = [
-      '#input-default'
-    ];
+    const inputIds = ['#input-default'];
 
     for (const id of inputIds) {
       const el = page.locator(id);
