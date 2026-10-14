@@ -1,6 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+import { NodeFrontmatter } from './schema.ts';
+
+export function buildQueryFromFrontmatter(frontmatter: NodeFrontmatter): string {
+    const parts = [
+        frontmatter.title,
+        frontmatter.type,
+        ...(frontmatter.tags || [])
+    ];
+    return parts.join(' ');
+}
 
 const require = createRequire(import.meta.url);
 const FlexSearch = require('flexsearch');
