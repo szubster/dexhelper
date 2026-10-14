@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.23.4] - 2026-04-03
+### Changed
+- Bump `typescript` development dependency from 5.9.3 to 6.0.2.
+
 ## [0.23.3] - 2026-04-03
 ### Changed
 - Isolate `useAssistant` hook logic into a dedicated `suggestionEngine` module and remove duplicate Gen 1 constants for a cleaner architecture.
@@ -219,3 +223,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.23.1]: https://github.com/szubster/dexhelper/compare/1336859d026c3a33f000009eaf9389ab6d0e5640...9fca8ef72fccabc6a4dfb44e2a92f16402b2809a
 [0.23.2]: https://github.com/szubster/dexhelper/compare/9fca8ef72fccabc6a4dfb44e2a92f16402b2809a...5dfb95e04548639734fdc9b9e48a683a48b422a9
 [0.23.3]: https://github.com/szubster/dexhelper/compare/5dfb95e04548639734fdc9b9e48a683a48b422a9...bd676cb4db66ecc313c0f24e3e354a26457085a8
+[0.23.4]: https://github.com/szubster/dexhelper/compare/cef37c945ee740b9537dc8e664d7ccd28af5d60d...c8e8728539f8ed5bb663ae68968a40946c73c35b
