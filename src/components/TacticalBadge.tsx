@@ -45,10 +45,22 @@ export const TacticalBadge = React.forwardRef<HTMLSpanElement, TacticalBadgeProp
         {...props}
       >
         {/* Hardware Corner Accent Ticks */}
-        <span className="pointer-events-none absolute top-0 left-0 h-1 w-1 border-current border-t border-l opacity-40" />
-        <span className="pointer-events-none absolute top-0 right-0 h-1 w-1 border-current border-t border-r opacity-40" />
-        <span className="pointer-events-none absolute bottom-0 left-0 h-1 w-1 border-current border-b border-l opacity-40" />
-        <span className="pointer-events-none absolute right-0 bottom-0 h-1 w-1 border-current border-r border-b opacity-40" />
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute top-0 left-0 h-1 w-1 border-current border-t border-l opacity-40"
+        />
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute top-0 right-0 h-1 w-1 border-current border-t border-r opacity-40"
+        />
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 left-0 h-1 w-1 border-current border-b border-l opacity-40"
+        />
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute right-0 bottom-0 h-1 w-1 border-current border-r border-b opacity-40"
+        />
 
         {/* Dynamic LED Dot Indicator */}
         {dot && (

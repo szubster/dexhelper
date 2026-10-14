@@ -17,7 +17,7 @@ export function CornerCrosshairs({ className, thickness = 1, corners = ALL_CORNE
   const l = thickness === 2 ? 'border-l-2' : 'border-l';
 
   return (
-    <>
+    <div aria-hidden="true" className="pointer-events-none contents">
       {corners.includes('top-left') && (
         <div className={cn(`pointer-events-none absolute top-0 left-0 ${t} ${l}`, className)} />
       )}
@@ -30,6 +30,6 @@ export function CornerCrosshairs({ className, thickness = 1, corners = ALL_CORNE
       {corners.includes('bottom-right') && (
         <div className={cn(`pointer-events-none absolute right-0 bottom-0 ${r} ${b}`, className)} />
       )}
-    </>
+    </div>
   );
 }

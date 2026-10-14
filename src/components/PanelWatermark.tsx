@@ -8,7 +8,10 @@ interface PanelWatermarkProps {
 
 export function PanelWatermark({ icon, className }: PanelWatermarkProps) {
   return (
-    <div className={cn('absolute top-0 right-0 p-4 opacity-5 transition-transform duration-500', className)}>
+    <div
+      aria-hidden="true"
+      className={cn('absolute top-0 right-0 p-4 opacity-5 transition-transform duration-500', className)}
+    >
       {icon}
     </div>
   );
