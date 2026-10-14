@@ -2,12 +2,12 @@
 id: task-442-668-integration-cross-save-synergy
 type: TASK
 title: Implement Integration Tests for Cross-Save Synergy
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-06T22:39:19Z'
-updated_at: '2026-10-13'
+updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4118480546782407486'
 pr_number: null
 parent: story-350-442-cross-save-synergy-e2e
 tags:
