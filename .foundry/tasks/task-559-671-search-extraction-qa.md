@@ -2,7 +2,7 @@
 id: task-559-671-search-extraction-qa
 type: TASK
 title: QA Search and Extraction Logic
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-07'
 updated_at: '2026-10-14'
@@ -14,9 +14,7 @@ tags:
   - search
   - qa
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-559-668-query-formulation-impl
+rejection_reason: ''
 locks: []
 ---
 

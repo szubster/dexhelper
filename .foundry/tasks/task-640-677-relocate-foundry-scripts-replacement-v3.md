@@ -2,7 +2,7 @@
 id: task-640-677-relocate-foundry-scripts-replacement-v3
 type: TASK
 title: Relocate Foundry Scripts Replacement V3
-status: CANCELLED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-10'
 updated_at: '2026-10-13'
@@ -16,9 +16,7 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  research-640-676-investigate-relocate-scripts-replacement-failure-retry
+rejection_reason: ''
 notes: ''
 locks: []
 ---

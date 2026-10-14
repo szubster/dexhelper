@@ -2,7 +2,7 @@
 id: task-551-670-qa-orchestrator-priority-v2
 type: TASK
 title: QA Verification for Priority Sorting in Orchestrator v2
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-07'
 updated_at: '2026-10-14'
@@ -10,9 +10,7 @@ depends_on:
   - task-551-669-update-orchestrator-priority-tests-v2
 jules_session_id: null
 parent: story-540-551-priority-engine-dispatch
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-551-669-update-orchestrator-priority-tests-v2
+rejection_reason: ''
 locks: []
 ---
 

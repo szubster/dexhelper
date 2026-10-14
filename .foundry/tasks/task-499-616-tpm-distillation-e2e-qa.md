@@ -2,7 +2,7 @@
 id: task-499-616-tpm-distillation-e2e-qa
 type: TASK
 title: TPM Distillation Logic E2E - QA Verification
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-23'
 updated_at: '2026-10-13'
@@ -15,9 +15,7 @@ tags:
   - foundry
   - e2e
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-499-615-tpm-distillation-e2e-implementation
+rejection_reason: ''
 notes: ''
 locks: []
 ---

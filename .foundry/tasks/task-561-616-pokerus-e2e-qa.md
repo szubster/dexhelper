@@ -2,7 +2,7 @@
 id: task-561-616-pokerus-e2e-qa
 type: TASK
 title: Pokerus UI Badges E2E - QA Verification
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-23'
 updated_at: '2026-10-13'
@@ -18,9 +18,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-561-615-pokerus-e2e-uninfected-cured
+rejection_reason: ''
 notes: ''
 locks: []
 ---

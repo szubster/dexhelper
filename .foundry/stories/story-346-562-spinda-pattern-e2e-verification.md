@@ -2,7 +2,7 @@
 id: story-346-562-spinda-pattern-e2e-verification
 type: STORY
 title: Spinda Pattern Engine E2E Verification
-status: CANCELLED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-09'
 updated_at: '2026-10-10'
@@ -18,9 +18,7 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  story-346-561-spinda-pattern-rendering-component
+rejection_reason: ''
 notes: ''
 locks: []
 ---

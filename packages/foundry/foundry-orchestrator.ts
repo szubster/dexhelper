@@ -1308,16 +1308,19 @@ function main(): void {
     if (node.frontmatter.status === 'PENDING') {
       const children = parentToChildren.get(node.repoPath) || [];
       if (children.length > 0) {
-        // Parent is PENDING and has children. Check if ALL children are COMPLETED.
+        // Parent is PENDING and has children. Check if all children are resolved, and at least one is COMPLETED.
         let allChildrenCompleted = true;
+        let hasCompletedChild = false;
         for (const child of children) {
-          if (child.frontmatter.status !== 'COMPLETED' && child.frontmatter.status !== 'CANCELLED') {
+          if (child.frontmatter.status === 'COMPLETED') {
+            hasCompletedChild = true;
+          } else if (child.frontmatter.status !== 'CANCELLED') {
             allChildrenCompleted = false;
             break;
           }
         }
 
-        if (allChildrenCompleted) {
+        if (allChildrenCompleted && hasCompletedChild) {
           let isDepIncomplete = false;
           for (const depRef of node.frontmatter.depends_on) {
             const depPath = resolveNodePath(depRef);

@@ -2,7 +2,7 @@
 id: story-399-522-save-state-quota-handling
 type: STORY
 title: Graceful handling of storage quota errors
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
 updated_at: '2026-10-14'
@@ -27,4 +27,4 @@ Ensure the storage engine handles IndexedDB quota exceeded errors gracefully, po
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [x] task-522-668-quota-handling-impl
-- [x] task-522-669-quota-handling-qa
+- [ ] task-522-669-quota-handling-qa

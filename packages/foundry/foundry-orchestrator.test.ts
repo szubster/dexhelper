@@ -558,7 +558,7 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(result).toContain('status: READY');
   });
 
-  test('Hierarchical Completion: considers CANCELLED child nodes as complete', () => {
+  test('Hierarchical Completion: considers CANCELLED child nodes as complete when at least one child is COMPLETED', () => {
     // Epic 1: PENDING (Waiting for children)
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
       id: "epic-001",
@@ -583,13 +583,28 @@ vi.doMock('node:url', async (importOriginal) => {
       updated_at: "2026-04-20",
       depends_on: [],
       parent: ".foundry/epics/epic-001.md",
+      rejection_reason: "[ACKNOWLEDGED] Feature deprecated",
+      jules_session_id: null,
+    });
+
+    // Story 2: Child of Epic 1, COMPLETED
+    createValidTestNode(tmpDir, '.foundry/stories/story-002.md', {
+      id: "story-002",
+      type: "STORY",
+      title: "Story 2",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      parent: ".foundry/epics/epic-001.md",
       tags: ["integration"],
       jules_session_id: null,
     });
 
     main();
 
-    // Epic 1 SHOULD be promoted to COMPLETED because its child is CANCELLED (which counts as completed)
+    // Epic 1 SHOULD be promoted to COMPLETED because its child is CANCELLED (which counts as resolved) and Story 2 is COMPLETED
     const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
     expect(epicContent).toContain('status: COMPLETED');
   });
@@ -3425,6 +3440,100 @@ Target artifact: task-completed
 
     const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
     expect(epicContent).toContain('status: COMPLETED');
+  });
+
+  test('Phase 4.1: Late-Binding parent does NOT auto-complete if all child tasks are CANCELLED', () => {
+    createValidTestNode(tmpDir, '.foundry/stories/story-late.md', {
+      id: "story-late",
+      type: "STORY",
+      title: "Story Late",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-child-1.md', {
+      id: "task-child-1",
+      type: "TASK",
+      title: "Task Child 1",
+      status: "CANCELLED",
+      owner_persona: "coder",
+      parent: "story-late",
+      rejection_reason: "Cancelled due to permanent failure of dependency: other-task",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-child-2.md', {
+      id: "task-child-2",
+      type: "TASK",
+      title: "Task Child 2",
+      status: "CANCELLED",
+      owner_persona: "coder",
+      parent: "story-late",
+      rejection_reason: "Cancelled due to permanent failure of dependency: other-task",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-late.md'), 'utf-8');
+    expect(storyContent).toContain('status: PENDING');
+    expect(storyContent).not.toContain('status: COMPLETED');
+  });
+
+  test('Phase 4.1: Late-Binding parent transitions to COMPLETED when at least one child is COMPLETED and remainder are CANCELLED', () => {
+    createValidTestNode(tmpDir, '.foundry/stories/story-mixed.md', {
+      id: "story-mixed",
+      type: "STORY",
+      title: "Story Mixed",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-child-ok.md', {
+      id: "task-child-ok",
+      type: "TASK",
+      title: "Task Child OK",
+      status: "COMPLETED",
+      owner_persona: "coder",
+      parent: "story-mixed",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-child-cancelled.md', {
+      id: "task-child-cancelled",
+      type: "TASK",
+      title: "Task Child Cancelled",
+      status: "CANCELLED",
+      owner_persona: "coder",
+      parent: "story-mixed",
+      rejection_reason: "Cancelled due to permanent failure of dependency: other-task",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-mixed.md'), 'utf-8');
+    expect(storyContent).toContain('status: COMPLETED');
   });
 
   test('Archived Dependency: resolves dependency pointing to archived task path', () => {

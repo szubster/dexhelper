@@ -2,7 +2,7 @@
 id: task-522-669-quota-handling-qa
 type: TASK
 title: QA Verification for Quota Exceeded Handling
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-07'
 updated_at: '2026-10-10'
@@ -16,9 +16,7 @@ tags:
   - indexeddb
   - history
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-522-668-quota-handling-impl
+rejection_reason: ''
 notes: ''
 locks: []
 ---

@@ -2,7 +2,7 @@
 id: task-560-669-tm-hm-compatibility-matching-impl-v3
 type: TASK
 title: Implement TM/HM Compatibility Matching Core Logic (V3)
-status: CANCELLED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-06'
 updated_at: '2026-10-13'
@@ -16,9 +16,7 @@ tags:
   - logic
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  research-560-668-investigate-tm-hm-compatibility-v3-failure
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

@@ -2,7 +2,7 @@
 id: task-407-677-e2e-base-location-parsing-retry
 type: TASK
 title: E2E Tests for Base Location Parsing (Retry)
-status: CANCELLED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-10'
 updated_at: '2026-10-13'
@@ -15,9 +15,7 @@ tags:
   - gen3
   - secret-base
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  research-407-676-e2e-failure-investigation
+rejection_reason: ''
 locks: []
 ---
 

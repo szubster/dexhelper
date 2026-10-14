@@ -2,7 +2,7 @@
 id: task-492-671-pal-park-batch-ui-tests
 type: TASK
 title: Pal Park Batch UI Component Tests
-status: CANCELLED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-06'
 updated_at: '2026-10-14'
@@ -18,9 +18,7 @@ tags:
   - migration
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-492-670-pal-park-batch-ui-impl
+rejection_reason: ''
 notes: ''
 locks: []
 ---

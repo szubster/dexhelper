@@ -2,7 +2,7 @@
 id: task-472-677-qa-tests-verification-retry-2
 type: TASK
 title: QA Verification of New Fixture Tests (Retry 2)
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-10'
 updated_at: '2026-10-14'
@@ -16,9 +16,7 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  research-472-675-investigate-e2e-tests-failure-v2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
