@@ -126,7 +126,7 @@ export async function mockDagData(page: Page, mockDataPath: string = 'tests/fixt
   });
 }
 
-export async function injectMockState(page: Page, mockDataPath: string) {
+async function injectMockState(page: Page, mockDataPath: string) {
   const mockDataString = fs.readFileSync(mockDataPath, 'utf8');
   const mockData = JSON.parse(mockDataString);
 
