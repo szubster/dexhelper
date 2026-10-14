@@ -33,4 +33,7 @@ The Roamer IV Glitch affects Gen 3 roamers by discarding the top bits of the 32-
 ## Acceptance Criteria
 - [ ] Define the type or enum for the Roamer IV glitch state.
 - [ ] Write unit tests verifying the glitch detection logic with both glitched and non-glitched IV spreads.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-649-687-define-roamer-iv-glitch-types
+- [ ] task-649-688-write-roamer-iv-glitch-tests
+- [ ] task-649-689-qa-roamer-iv-glitch-types-and-tests
