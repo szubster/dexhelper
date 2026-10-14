@@ -81,3 +81,13 @@ When fixing Assistant Logic related to branching vs linear evolutions, ensure th
 
 - **Gen 3 Wurmple Evolution Branch Prediction**: In Generation 3, Wurmple (#265) evolution is non-deterministic at runtime unless calculating its 32-bit personality value (`personalityValue`). Specifically, `(personalityValue >>> 16) % 10 < 5` predicts evolution into Silcoon (#266) / Beautifly (#267), whereas `>= 5` predicts Cascoon (#268) / Dustox (#269).
 - **Multi-Instance Branch Evaluation**: When evaluating branch evolutions for species with PID-dependent paths (like Wurmple), if `bestInstance` (e.g. highest level instance) does not match the target evolution branch requested by the user, the assistant logic must search all owned instances for a `targetWurmple` that DOES match the branch before falling back to recommending catching a new instance.
+
+
+---
+
+# Trainer Session Journal - 2026-10-10
+
+## Gen 3 Item Pocket Parsing and Assistant Integration
+- **Context:** Previously, Generation 3 save parsing returned `inventory: []` on `Gen3SaveData`. This prevented assistant recommendation generators (e.g. `evolutionGenerator.ts`, `encounterTools.ts`) from detecting evolution stones (Water Stone, Moon Stone, Fire Stone, Leaf Stone, Sun Stone) and held trade evolution items (Dragon Scale, DeepSeaScale, DeepSeaTooth, Metal Coat, etc.) present in the player's Bag.
+- **Parsing Mechanics:** In Gen 3 `SaveBlock1`, main item pocket entries are located at offset `0x0560` (80 bytes RS, 120 bytes Emerald) and `0x0310` (168 bytes FRLG). Item quantities are XOR-masked with the lower 16 bits of the Security Key (`quantity = maskedQuantity ^ (securityKey & 0xffff)`).
+- **Assistant Impact:** With `parseGen3Inventory` populating `saveData.inventory`, the assistant automatically detects held and pocket evolution items for Gen 3 saves, boosting suggestion priority to 95 ("Ready to Evolve: #...") without requiring external user intervention or runtime API calls.
