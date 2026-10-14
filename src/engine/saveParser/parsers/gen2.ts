@@ -442,23 +442,30 @@ function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersi
  * @param offsets - The dynamically resolved start offsets for the `owned` and `seen` blocks.
  * @returns An object containing Sets of the `owned` and `seen` Pokémon IDs.
  */
-function parsePokedex(view: DataView, offsets: { owned: number; seen: number }) {
+function parseGen2Pokedex(view: DataView, offsets: { owned: number; seen: number }) {
   const owned = new Set<number>();
   const seen = new Set<number>();
 
-  for (let dexId = 1; dexId <= MAX_VALID_SPECIES_ID; dexId++) {
-    const byteIdx = Math.floor((dexId - 1) / BITS_PER_BYTE);
-    const bitIdx = (dexId - 1) % BITS_PER_BYTE;
+  try {
+    for (let dexId = 1; dexId <= MAX_VALID_SPECIES_ID; dexId++) {
+      const byteIdx = Math.floor((dexId - 1) / BITS_PER_BYTE);
+      const bitIdx = (dexId - 1) % BITS_PER_BYTE;
 
-    const oByte = view.getUint8(offsets.owned + byteIdx);
-    const sByte = view.getUint8(offsets.seen + byteIdx);
+      const oByte = view.getUint8(offsets.owned + byteIdx);
+      const sByte = view.getUint8(offsets.seen + byteIdx);
 
-    if ((oByte & (1 << bitIdx)) !== 0) {
-      owned.add(dexId);
+      if ((oByte & (1 << bitIdx)) !== 0) {
+        owned.add(dexId);
+      }
+      if ((sByte & (1 << bitIdx)) !== 0) {
+        seen.add(dexId);
+      }
     }
-    if ((sByte & (1 << bitIdx)) !== 0) {
-      seen.add(dexId);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
     }
+    throw error;
   }
 
   return { owned, seen };
@@ -830,7 +837,7 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
         currentBoxSpecies: CURRENT_BOX_SPECIES_OFFSET,
       };
 
-  const { owned, seen } = parsePokedex(view, offsets);
+  const { owned, seen } = parseGen2Pokedex(view, offsets);
 
   const party: number[] = [];
   const partyDetails: PokemonInstance[] = [];
