@@ -2,7 +2,7 @@
 id: task-527-674-webhook-renewal-impl
 type: TASK
 title: Drive Webhook Renewal Logic
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-09'
 updated_at: '2026-10-14'
@@ -17,10 +17,8 @@ tags:
   - sync
 research_references:
   - adr-336-033-server-side-drive-sync
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

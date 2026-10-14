@@ -2,7 +2,7 @@
 id: research-639-675-investigate-primitives-migration-failures-v2
 type: RESEARCH
 title: Investigate Primitives Migration Failures (v2)
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-10'
 updated_at: '2026-10-14'
@@ -14,8 +14,8 @@ tags:
   - react
   - components
   - research
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---

@@ -2,10 +2,10 @@
 id: task-638-669-extract-constants-to-core-v3
 type: TASK
 title: Extract Constants to Core Package V3
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-08'
-updated_at: '2026-10-08'
+updated_at: '2026-10-14'
 depends_on:
   - research-638-668-investigate-constants-extraction-retry-failure
 jules_session_id: null

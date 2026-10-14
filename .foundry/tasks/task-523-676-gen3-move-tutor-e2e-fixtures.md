@@ -2,7 +2,7 @@
 id: task-523-676-gen3-move-tutor-e2e-fixtures
 type: TASK
 title: Gen 3 Move Tutor E2E Fixtures
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-11'
 updated_at: '2026-10-14'
@@ -15,8 +15,8 @@ tags:
   - gen3
   - integration
 research_references: []
-rejection_count: 2
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 priority: 50

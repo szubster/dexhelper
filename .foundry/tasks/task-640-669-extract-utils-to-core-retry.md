@@ -2,7 +2,7 @@
 id: task-640-669-extract-utils-to-core-retry
 type: TASK
 title: Migrate pure JS/TS logic from src/utils to packages/core (Retry)
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-14'
@@ -16,8 +16,8 @@ tags:
   - monorepo
   - pnpm
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: COMPLETED'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
