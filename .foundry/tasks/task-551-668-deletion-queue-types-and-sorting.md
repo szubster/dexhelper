@@ -2,12 +2,12 @@
 id: task-551-668-deletion-queue-types-and-sorting
 type: TASK
 title: Deletion Queue Types and Sorting
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: '8766432344017377013'
+jules_session_id: null
 parent: story-517-551-implement-deletion-chunking
 rejection_reason: ''
 locks: []

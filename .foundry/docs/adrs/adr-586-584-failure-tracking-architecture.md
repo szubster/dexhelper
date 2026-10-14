@@ -2,7 +2,7 @@
 id: adr-586-584-failure-tracking-architecture
 type: ADR
 title: Technical Architecture for Failure Tracking
-status: FAILED
+status: READY
 owner_persona: architect
 created_at: '2026-10-08'
 updated_at: '2026-10-14'
@@ -12,10 +12,8 @@ pr_number: null
 parent: prd-535-586-false-permanent-failure-detection
 tags: []
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 80

@@ -2,18 +2,20 @@
 id: task-559-668-query-formulation-impl
 type: TASK
 title: Implement Query Formulation Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: '14095493671537195104'
+jules_session_id: null
 parent: story-534-559-rag-dynamic-querying-retrieval
 tags:
   - query
   - impl
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 locks: []
 ---
 

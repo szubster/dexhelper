@@ -2,7 +2,7 @@
 id: research-472-675-investigate-e2e-tests-failure-v2
 type: RESEARCH
 title: Investigate E2E Tests Failure for New Fixtures V2
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-10'
 updated_at: '2026-10-14'
@@ -16,10 +16,8 @@ tags:
   - fixtures
   - research
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
