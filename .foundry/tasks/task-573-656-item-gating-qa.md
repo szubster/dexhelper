@@ -30,4 +30,4 @@ A QA pass is needed to verify the item gating types, constants mapping, and eval
 Review the implementation and tests for item gating mapping and utilities. Ensure accuracy with Gen 3 data.
 
 ## Acceptance Criteria
-- [ ] qa: Verify the item gating implementation accurately maps and evaluates requirements.
+- [x] qa: Verify the item gating implementation accurately maps and evaluates requirements.
