@@ -2,12 +2,12 @@
 id: task-533-676-savedatareader-integration-tests
 type: TASK
 title: Write Integration Tests for SaveDataReader
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17749991930523576822'
 parent: story-521-533-savedatareader-e2e
 tags:
   - testing
