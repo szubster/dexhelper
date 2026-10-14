@@ -2,7 +2,7 @@
 id: task-442-670-qa-integration-cross-save-synergy
 type: TASK
 title: QA Verification for Cross-Save Synergy Integration Tests
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-06T22:39:19Z'
 updated_at: '2026-10-13'
@@ -15,9 +15,7 @@ tags:
   - integration
   - qa
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-442-668-integration-cross-save-synergy
+rejection_reason: ''
 notes: ''
 locks: []
 ---

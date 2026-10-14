@@ -2,7 +2,7 @@
 id: story-527-643-ui-e2e-verification
 type: STORY
 title: UI Component Library E2E Verification
-status: CANCELLED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-13'
@@ -15,9 +15,7 @@ tags:
   - e2e
   - integration
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  story-527-639-migrate-tactical-primitives
+rejection_reason: ''
 notes: ''
 locks: []
 ---

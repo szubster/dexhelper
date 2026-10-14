@@ -51,7 +51,8 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:xvfb": "xvfb-run -a playwright test",
     "test:watch": "vitest",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "verify:refs": "pnpm --filter @dexhelper/foundry verify:refs"
   },
   "dependencies": {
     "@cloudflare/pages-plugin-cloudflare-access": "^1.0.5",

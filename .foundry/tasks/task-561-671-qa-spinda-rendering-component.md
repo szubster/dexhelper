@@ -2,7 +2,7 @@
 id: task-561-671-qa-spinda-rendering-component
 type: TASK
 title: QA Spinda Rendering Component
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-07'
 updated_at: '2026-10-13'
@@ -18,9 +18,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-561-668-spinda-rendering-types
+rejection_reason: ''
 notes: ''
 locks: []
 ---

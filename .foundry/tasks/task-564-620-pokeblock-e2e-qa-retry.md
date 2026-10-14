@@ -2,7 +2,7 @@
 id: task-564-620-pokeblock-e2e-qa-retry
 type: TASK
 title: QA Verification for Pokéblock Optimizer E2E Tests (Retry)
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-22T12:00:00Z'
 updated_at: '2026-10-13'
@@ -18,9 +18,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-564-619-pokeblock-e2e-implementation-retry
+rejection_reason: ''
 notes: ''
 locks: []
 ---

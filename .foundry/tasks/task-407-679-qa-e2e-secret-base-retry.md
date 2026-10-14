@@ -2,7 +2,7 @@
 id: task-407-679-qa-e2e-secret-base-retry
 type: TASK
 title: QA Verification for E2E Tests of Gen 3 Secret Base (Retry)
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-10'
 updated_at: '2026-10-13'
@@ -17,9 +17,7 @@ tags:
   - gen3
   - secret-base
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  research-407-676-e2e-failure-investigation
+rejection_reason: ''
 locks: []
 ---
 

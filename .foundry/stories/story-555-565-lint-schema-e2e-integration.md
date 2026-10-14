@@ -2,7 +2,7 @@
 id: story-555-565-lint-schema-e2e-integration
 type: STORY
 title: Schema Linter Integration & E2E Verification
-status: CANCELLED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
 updated_at: '2026-10-13'
@@ -16,9 +16,7 @@ tags:
   - e2e
   - integration
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  story-555-564-lint-schema-frontmatter-validation
+rejection_reason: ''
 notes: ''
 locks: []
 ---

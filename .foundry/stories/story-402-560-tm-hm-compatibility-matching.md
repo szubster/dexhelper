@@ -2,7 +2,7 @@
 id: story-402-560-tm-hm-compatibility-matching
 type: STORY
 title: Compatibility Matching Logic
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2025-02-14'
 updated_at: '2026-10-14'
@@ -42,6 +42,6 @@ This STORY implements the core logic layer for checking if Pokémon currently in
 - [x] task-560-610-tm-hm-compatibility-matching-tests-retry
 - [x] task-560-611-tm-hm-compatibility-matching-qa-retry
 - [x] research-560-668-investigate-tm-hm-compatibility-v3-failure
-- [x] task-560-669-tm-hm-compatibility-matching-impl-v3
-- [x] task-560-670-tm-hm-compatibility-matching-tests-v3
-- [x] task-560-671-tm-hm-compatibility-matching-qa-v3
+- [ ] task-560-669-tm-hm-compatibility-matching-impl-v3
+- [ ] task-560-670-tm-hm-compatibility-matching-tests-v3
+- [ ] task-560-671-tm-hm-compatibility-matching-qa-v3

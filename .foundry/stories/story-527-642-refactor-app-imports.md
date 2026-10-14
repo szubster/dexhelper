@@ -2,7 +2,7 @@
 id: story-527-642-refactor-app-imports
 type: STORY
 title: Refactor Dexhelper Application Imports
-status: CANCELLED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-13'
@@ -15,9 +15,7 @@ parent: epic-519-527-extract-ui-components
 tags:
   - refactor
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  story-527-639-migrate-tactical-primitives
+rejection_reason: ''
 notes: ''
 locks: []
 ---

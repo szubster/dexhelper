@@ -2,7 +2,7 @@
 id: task-517-669-orchestrator-fallback-generic-prompt-retry
 type: TASK
 title: Orchestrator Fallback to Generic Prompt (Retry)
-status: CANCELLED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-10'
@@ -17,9 +17,7 @@ tags:
   - fallback
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  research-517-668-investigate-orchestrator-generic-prompt-failure
+rejection_reason: ''
 notes: ''
 experiment_variants: []
 locks: []

@@ -2,7 +2,7 @@
 id: task-442-669-e2e-cross-save-synergy
 type: TASK
 title: Implement E2E Tests for Cross-Save Synergy
-status: CANCELLED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-06T22:39:19Z'
 updated_at: '2026-10-13'
@@ -14,9 +14,7 @@ parent: story-350-442-cross-save-synergy-e2e
 tags:
   - e2e
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-442-668-integration-cross-save-synergy
+rejection_reason: ''
 notes: ''
 locks: []
 ---

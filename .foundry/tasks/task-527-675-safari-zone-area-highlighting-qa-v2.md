@@ -2,7 +2,7 @@
 id: task-527-675-safari-zone-area-highlighting-qa-v2
 type: TASK
 title: Safari Zone Area Highlighting QA V2
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-09'
 updated_at: '2026-10-13'
@@ -17,9 +17,7 @@ tags:
   - safari-zone
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  research-527-673-investigate-safari-zone-area-map-failure
+rejection_reason: ''
 notes: ''
 locks: []
 ---

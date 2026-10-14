@@ -2,7 +2,7 @@
 id: story-535-559-heatmap-integration-e2e
 type: STORY
 title: Heatmap UI Components E2E Verification
-status: CANCELLED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-07'
 updated_at: '2026-10-10'
@@ -18,9 +18,7 @@ tags:
   - e2e
   - integration
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  story-535-557-react-flow-node-styling
+rejection_reason: ''
 notes: ''
 locks: []
 ---

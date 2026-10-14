@@ -2,7 +2,7 @@
 id: task-640-674-qa-extract-engine-data-retry
 type: TASK
 title: QA Verification for Engine Data Extraction (Retry)
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-07'
 updated_at: '2026-10-14'
@@ -17,9 +17,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-640-669-extract-utils-to-core-retry
+rejection_reason: ''
 notes: ''
 locks: []
 ---

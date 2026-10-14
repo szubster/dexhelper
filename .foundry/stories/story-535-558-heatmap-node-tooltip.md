@@ -2,7 +2,7 @@
 id: story-535-558-heatmap-node-tooltip
 type: STORY
 title: Heatmap Node Hover Tooltip
-status: CANCELLED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-07'
 updated_at: '2026-10-10'
@@ -16,9 +16,7 @@ tags:
   - UI
   - tooling
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  story-535-557-react-flow-node-styling
+rejection_reason: ''
 notes: ''
 locks: []
 ---

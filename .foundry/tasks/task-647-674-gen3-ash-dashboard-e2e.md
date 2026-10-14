@@ -2,7 +2,7 @@
 id: task-647-674-gen3-ash-dashboard-e2e
 type: TASK
 title: 'Task: E2E Tests for Gen 3 Volcanic Ash Tracker Dashboard UI'
-status: CANCELLED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-03T19:33:53.000Z'
 updated_at: '2026-10-13'
@@ -17,9 +17,7 @@ tags:
   - playwright
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-647-673-gen3-ash-dashboard-ui-impl
+rejection_reason: ''
 locks: []
 ---
 

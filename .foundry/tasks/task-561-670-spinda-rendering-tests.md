@@ -2,7 +2,7 @@
 id: task-561-670-spinda-rendering-tests
 type: TASK
 title: Spinda Component Unit Tests
-status: CANCELLED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-13'
@@ -18,9 +18,7 @@ tags:
   - tests
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-561-668-spinda-rendering-types
+rejection_reason: ''
 notes: ''
 locks: []
 ---
