@@ -2,12 +2,12 @@
 id: story-047-605-permanent-failure-dashboard-e2e
 type: STORY
 title: E2E Verification for Permanent Failure Dashboard UI
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11035130029712162552'
 pr_number: null
 parent: epic-034-047-permanent-failure-dashboard-ui
 tags:
