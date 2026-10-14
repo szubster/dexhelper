@@ -12,6 +12,9 @@ test.describe('Pokegear Alerts E2E', () => {
     const matrixTitle = page.getByText('ACTIVE CALLERS MATRIX');
     await expect(matrixTitle).toBeVisible();
 
+    const matrixContainer = page.locator('.tactical-panel').filter({ hasText: 'ACTIVE CALLERS MATRIX' }).first();
+    await expect(matrixContainer).toBeVisible();
+
     const swarmBadge1 = page.getByText('[ SWARM ]').first();
     await expect(swarmBadge1).toBeVisible();
 

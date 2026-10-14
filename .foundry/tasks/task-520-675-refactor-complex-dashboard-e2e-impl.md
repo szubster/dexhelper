@@ -40,5 +40,5 @@ Following the Tailwind v4 migration of complex dashboard components and speciali
 4. Run E2E tests via `xvfb-run -a pnpm test:e2e tests/e2e/dashboard.spec.ts tests/e2e/trackers.spec.ts` and ensure they pass.
 
 ## Acceptance Criteria
-- [ ] Playwright E2E tests for dashboard and tracker components exist, verifying structural rendering and style persistence.
-- [ ] The E2E tests pass reliably.
+- [x] Playwright E2E tests for dashboard and tracker components exist, verifying structural rendering and style persistence.
+- [x] The E2E tests pass reliably.
