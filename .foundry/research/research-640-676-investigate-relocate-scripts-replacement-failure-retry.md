@@ -2,12 +2,12 @@
 id: research-640-676-investigate-relocate-scripts-replacement-failure-retry
 type: RESEARCH
 title: Investigate Relocate Scripts Replacement Failure Retry
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-10'
 updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10771314756622357671'
 pr_number: null
 parent: story-525-640-relocate-foundry-scripts
 tags:
