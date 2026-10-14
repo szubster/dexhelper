@@ -1,19 +1,19 @@
 ---
 id: task-673-683-parse-termination-states-logic
 type: TASK
-title: "Implement Orchestrator Termination State Parsing Logic"
-status: READY
+title: Implement Orchestrator Termination State Parsing Logic
+status: ACTIVE
 owner_persona: coder
-created_at: "2026-10-13"
-updated_at: "2026-10-13"
+created_at: '2026-10-13'
+updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10558519803003770900'
 parent: story-581-673-orchestrator-termination-state-parsing
 tags:
   - orchestrator
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Implement Orchestrator Termination State Parsing Logic
