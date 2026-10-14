@@ -664,8 +664,16 @@ function main(): void {
   // ── Phase 3.0: MAX REJECTION THRESHOLD CHECK ───────────────────────────────
   info('Phase 3.0: Checking for max rejection threshold...');
   for (const node of nodes) {
-    if (node.frontmatter.status === 'FAILED' && (node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD) {
-      promoteNodeToCancelledWithReason(node, 'Max rejection count reached');
+    if (node.frontmatter.status === 'FAILED') {
+      const reason = node.frontmatter.rejection_reason || '';
+      const isInfraError = reason.includes('Session terminated with state: NOT_FOUND') ||
+                           reason.includes('Session terminated with state: INTERNAL_ERROR');
+
+      if (!isInfraError && (node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD) {
+        promoteNodeToCancelledWithReason(node, 'Max rejection count reached');
+      } else if (isInfraError && (node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD) {
+        info(`Skipping max rejection check for ${node.repoPath} due to infrastructure error: ${reason}`);
+      }
     }
   }
 
@@ -873,7 +881,9 @@ function main(): void {
       node.frontmatter.rejection_reason &&
       !node.frontmatter.rejection_reason.startsWith('[ACKNOWLEDGED]') &&
       node.frontmatter.rejection_reason !== 'Cancelled due to cascading cancellation from parent' &&
-      !node.frontmatter.rejection_reason.startsWith('Cancelled due to permanent failure of dependency:'))
+      !node.frontmatter.rejection_reason.startsWith('Cancelled due to permanent failure of dependency:') &&
+      !node.frontmatter.rejection_reason.includes('Session terminated with state: NOT_FOUND') &&
+      !node.frontmatter.rejection_reason.includes('Session terminated with state: INTERNAL_ERROR'))
     ) {
       // Skip waking up parent if the child is merely suspended (waiting for dependencies/children).
       // We ignore the parent node itself during this check because it's exactly what we want to find out

@@ -1,0 +1,3 @@
+fix: Skip max rejection threshold check for infra errors
+
+Updates the DAG orchestrator Phase 3.0 logic to identify infrastructure-related failures based on the `rejection_reason`. If a node fails due to a `NOT_FOUND` or `INTERNAL_ERROR` infrastructure termination state, the max rejection count check is skipped, allowing the node to stay FAILED and potentially resurrected rather than incorrectly auto-cancelled as a permanent domain error. Also adds test coverage to verify this specific loop case.
