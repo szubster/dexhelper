@@ -30,4 +30,4 @@ priority: 60
 Verify the implementation of Playwright E2E tests for complex CVA components.
 
 ## Acceptance Criteria
-- [ ] Verify that tests correctly assert complex tactical aesthetics according to ADR 008.
+- [x] Verify that tests correctly assert complex tactical aesthetics according to ADR 008.
