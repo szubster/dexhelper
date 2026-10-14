@@ -2,10 +2,10 @@
 id: task-527-675-drive-webhook-qa
 type: TASK
 title: Drive Webhook Logic QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-09'
-updated_at: '2026-10-13'
+updated_at: '2026-10-14'
 depends_on:
   - task-527-673-webhook-registration-impl
   - task-527-674-webhook-renewal-impl
@@ -20,7 +20,9 @@ tags:
 research_references:
   - adr-336-033-server-side-drive-sync
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-527-674-webhook-renewal-impl
 notes: ''
 locks: []
 priority: 50

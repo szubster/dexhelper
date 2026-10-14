@@ -2,7 +2,7 @@
 id: research-527-673-investigate-safari-zone-area-map-failure
 type: RESEARCH
 title: Investigate Safari Zone Area Map Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-09'
 updated_at: '2026-10-14'
@@ -16,10 +16,8 @@ tags:
   - react
   - safari-zone
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

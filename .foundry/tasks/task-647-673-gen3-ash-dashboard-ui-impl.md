@@ -2,7 +2,7 @@
 id: task-647-673-gen3-ash-dashboard-ui-impl
 type: TASK
 title: 'Task: Implement Gen 3 Volcanic Ash Tracker Dashboard UI'
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-03T19:33:53.000Z'
 updated_at: '2026-10-14'
@@ -16,10 +16,8 @@ tags:
   - ash
   - react
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 2
+rejection_reason: ''
 locks: []
 ---
 

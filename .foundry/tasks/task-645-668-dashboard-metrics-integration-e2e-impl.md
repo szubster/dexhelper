@@ -2,7 +2,7 @@
 id: task-645-668-dashboard-metrics-integration-e2e-impl
 type: TASK
 title: Implement Integration and E2E Tests for Confidence Metrics Dashboard
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07T04:50:01.754Z'
 updated_at: '2026-10-14'
@@ -16,10 +16,8 @@ tags:
   - ui
   - dashboard
 research_references: []
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 priority: 60

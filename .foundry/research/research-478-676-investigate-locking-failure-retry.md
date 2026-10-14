@@ -2,7 +2,7 @@
 id: research-478-676-investigate-locking-failure-retry
 type: RESEARCH
 title: Investigate lock aggregation failure (Retry)
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-10'
 updated_at: '2026-10-14'
@@ -14,8 +14,8 @@ tags:
   - orchestrator
   - research
 research_references: []
-rejection_count: 1
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

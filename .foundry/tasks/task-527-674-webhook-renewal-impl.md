@@ -2,17 +2,14 @@
 id: task-527-674-webhook-renewal-impl
 type: TASK
 title: Drive Webhook Renewal Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-09'
 updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: '7412521865218077734'
-locks: []
+jules_session_id: null
 pr_number: null
 parent: story-402-527-drive-webhook-registration
-priority: 50
-confidence_score: null
 tags:
   - task
   - backend
@@ -21,8 +18,12 @@ tags:
 research_references:
   - adr-336-033-server-side-drive-sync
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
+locks: []
+priority: 50
 ---
 
 # Drive Webhook Renewal Logic

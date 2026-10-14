@@ -2,10 +2,10 @@
 id: story-402-527-drive-webhook-registration
 type: STORY
 title: Drive Webhook Registration and State Management
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-10-13'
+updated_at: '2026-10-14'
 depends_on:
   - story-402-526-cloudflare-worker-setup
 jules_session_id: null
