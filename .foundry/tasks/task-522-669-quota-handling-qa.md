@@ -2,13 +2,13 @@
 id: task-522-669-quota-handling-qa
 type: TASK
 title: QA Verification for Quota Exceeded Handling
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-07'
 updated_at: '2026-10-14'
 depends_on:
   - task-522-668-quota-handling-impl
-jules_session_id: null
+jules_session_id: '7387405383127029190'
 pr_number: null
 parent: story-399-522-save-state-quota-handling
 tags:
