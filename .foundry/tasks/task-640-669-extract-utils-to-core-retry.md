@@ -2,13 +2,13 @@
 id: task-640-669-extract-utils-to-core-retry
 type: TASK
 title: Migrate pure JS/TS logic from src/utils to packages/core (Retry)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-14'
 depends_on:
   - research-640-668-investigate-extract-utils-timeout
-jules_session_id: '10675854865926307733'
+jules_session_id: null
 pr_number: null
 parent: story-526-640-extract-domain-logic
 tags:
@@ -17,7 +17,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: COMPLETED'
 notes: ''
 locks: []
 ---
