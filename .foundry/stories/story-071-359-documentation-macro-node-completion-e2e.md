@@ -31,3 +31,7 @@ locks: []
 Add an Integration/E2E Verification task for the documentation updates ensuring the schema validation passes and no further issues exist.
 
 ## Acceptance Criteria
+- [ ] task-359-687-documentation-macro-node-completion-e2e
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
