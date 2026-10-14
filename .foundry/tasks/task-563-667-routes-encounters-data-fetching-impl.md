@@ -1,11 +1,11 @@
 ---
 id: task-563-667-routes-encounters-data-fetching-impl
 type: TASK
-title: Routes, Encounters, and Drop Rates Data Fetching
-status: READY
+title: 'Routes, Encounters, and Drop Rates Data Fetching'
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-12'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - dexhelper
   - data
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

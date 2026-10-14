@@ -54,14 +54,14 @@
 ## Actions Taken
 - Executed `node --experimental-strip-types packages/foundry/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
 - Consolidated entries for `agile_coach`, `coder`, `lens`, `qa`, `researcher`, `canvas`, `nurse`, `oak`, `palette`, `sculptor`, `strategist`, and `trainer`, safely unlinking transient session files upon aggregation.
-- Cleaned up unparsed `$(date)` placeholders and redundant session headers in `.jules/trainer/master.md`.
+- Cleaned up unparsed `2026-10-14` placeholders and redundant session headers in `.jules/trainer/master.md`.
 - Verified no legacy `.Jules/` (uppercase) directory exists and confirmed `.serena/memories/` symlink validity.
 - Ran project linting and unit test suite via `pnpm lint && pnpm test`.
 
 ---
 
 ## Critical Learnings
-- **Journal Hygiene & Placeholder Stripping**: Unparsed placeholders (like `$(date)`) and repetitive section headers in aggregated journals should be stripped during curation sessions to keep master journals readable and concise for LLM context windows.
+- **Journal Hygiene & Placeholder Stripping**: Unparsed placeholders (like `2026-10-14`) and repetitive section headers in aggregated journals should be stripped during curation sessions to keep master journals readable and concise for LLM context windows.
 
 
 ---
@@ -79,3 +79,15 @@
 
 ## Critical Learnings
 - **Journal Aggregation Efficiency**: Consolidating session files using `aggregate-journals.ts` followed by targeted regex-based purging of transient lines keeps master journals high-signal and token-efficient.
+
+---
+
+# Archivist Knowledge Hygiene Session
+
+---
+
+## Critical Learnings & Knowledge Hygiene Patterns
+
+- **Transient Log Purging Strategy**: When aggregating scattered session files into `master.md` logs via `aggregate-journals.ts`, personas often append transient status logs (e.g. raw session IDs, temporary task breakdown traces, or lists of individual archived nodes). These entries inflate context window sizes without providing long-term value. Purging transient execution traces while explicitly preserving core rules and architectural findings (like the Tree Completeness Rule) keeps master logs token-efficient and high-signal.
+- **Cross-Component UI Rule Consolidation**: Independent sessions for related UI components (e.g. `PokemonStatusBadge` and `StorageGrid`) can produce duplicated learnings regarding decorative accessibility patterns. Synthesizing these duplicate entries into unified design rules (e.g. wrapping decorative ASCII brackets in `<span aria-hidden="true">`) ensures future agents receive clean, non-redundant guidelines.
+- **Journal Formatting Standardization**: Multiple `# Learnings` or `# Session` headers within a single `master.md` file impair LLM parsing clarity. Consolidating repeated section headers into a single clean list prevents structural clutter across persona journals.

@@ -2,13 +2,13 @@
 id: story-411-423-save-data-extraction-e2e
 type: STORY
 title: Integration and E2E Verification for Save Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-11T00:00:00.000Z'
-updated_at: '2026-10-10'
+updated_at: '2026-10-11'
 depends_on:
   - story-411-422-pc-box-and-tm-extraction
-jules_session_id: '5170308475024845918'
+jules_session_id: null
 pr_number: null
 parent: epic-340-411-save-data-extraction
 tags:
@@ -29,3 +29,7 @@ locks: []
 ## Acceptance Criteria
 - [ ] Write integration tests for save data extraction.
 - [ ] Write E2E verification tests for save data extraction.
+- [ ] task-423-676-save-data-extraction-integration-tests
+- [ ] task-423-677-save-data-extraction-integration-qa
+- [ ] task-423-678-save-data-extraction-e2e-tests
+- [ ] task-423-679-save-data-extraction-e2e-qa

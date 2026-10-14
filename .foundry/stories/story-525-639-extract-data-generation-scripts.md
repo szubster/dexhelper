@@ -5,9 +5,9 @@ title: Extract Data Generation Scripts
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-10'
+updated_at: '2026-10-11'
 depends_on: []
-jules_session_id: '6950372511862884203'
+jules_session_id: '2351933059847749452'
 pr_number: null
 parent: epic-519-525-extract-build-tooling
 tags:
@@ -31,5 +31,7 @@ Extract data generation scripts into `@dexhelper/pokedata-extractor`.
 - [x] task-639-659-extract-data-generation-scripts-v2
 - [x] research-639-668-investigate-extract-data-scripts-failure-v2
 - [x] task-639-669-extract-data-generation-scripts-v3
-- [ ] research-639-673-investigate-extract-data-scripts-failure-v3
-- [ ] task-639-674-extract-data-generation-scripts-v4
+- [x] research-639-673-investigate-extract-data-scripts-failure-v3
+- [x] task-639-674-extract-data-generation-scripts-v4
+- [ ] research-639-675-investigate-extract-data-scripts-failure-v4
+- [ ] task-639-676-extract-data-generation-scripts-v5

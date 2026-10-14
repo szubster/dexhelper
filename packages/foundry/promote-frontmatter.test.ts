@@ -2,6 +2,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { execSync } from 'node:child_process';
+import { WIP_DRAFT_BANNER } from './utils/banner.ts';
 
 describe('promote-frontmatter.ts CLI script', () => {
   const tempFilePath = path.join(__dirname, 'temp-test-file.md');
@@ -54,5 +55,22 @@ describe('promote-frontmatter.ts CLI script', () => {
     // So the content should remain unchanged, script succeeds.
     expect(content).not.toContain('status: STABLE');
     expect(content).toContain('type: PRD');
+  });
+
+  it('adds WIP banner when promoting to WIP or DRAFT', () => {
+    fs.writeFileSync(tempFilePath, `---\nid: my-node\nstatus: READY\ntype: PRD\n---\n# Content`, 'utf-8');
+    execSync(`node --experimental-strip-types promote-frontmatter.ts ${tempFilePath} DRAFT`, { cwd: __dirname });
+    const content = fs.readFileSync(tempFilePath, 'utf-8');
+    expect(content).toContain('status: DRAFT');
+    expect(content).toContain(WIP_DRAFT_BANNER);
+  });
+
+  it('removes WIP banner when promoting to STABLE or READY', () => {
+    fs.writeFileSync(tempFilePath, `---\nid: my-node\nstatus: DRAFT\ntype: PRD\n---\n${WIP_DRAFT_BANNER}\n\n# Content`, 'utf-8');
+    execSync(`node --experimental-strip-types promote-frontmatter.ts ${tempFilePath} STABLE`, { cwd: __dirname });
+    const content = fs.readFileSync(tempFilePath, 'utf-8');
+    expect(content).toContain('status: STABLE');
+    expect(content).not.toContain(WIP_DRAFT_BANNER);
+    expect(content).toContain('# Content');
   });
 });

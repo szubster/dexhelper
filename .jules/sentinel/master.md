@@ -177,3 +177,17 @@ Learned that running coverage reports can clutter the working directory, and ens
 
 **Result:**
 - Increased statement coverage of `src/engine/saveParser/gen3/daycare/parser.ts` to 95.6% and branch coverage to 85.3% without modifying any application code.
+
+---
+
+# Sentinel Session: Zustand Store Test Coverage
+
+**Target File:** `src/store.ts`
+
+**Observations & Actions:**
+- Identified uncovered branches in `src/store.ts` relating to hunting progress baseline tracking (equal quantity boundaries and missing `pcItems`) as well as `loadSaveFromStorage` fallback logic when `r2Client.getSave` returns `undefined`.
+- Extended `src/store.test.ts` with unit test cases for these paths.
+- Reset `huntBaselineQuantities` and `newlyAcquiredWildItemIds` in `beforeEach` to guarantee test state isolation across runs.
+
+**Result:**
+- Improved statement/branch coverage of central Zustand store without modifying any application source code.

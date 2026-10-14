@@ -3,27 +3,27 @@
     "byType": {
       "ADR": 43,
       "EPIC": 496,
-      "IDEA": 228,
+      "IDEA": 229,
       "PRD": 200,
-      "RESEARCH": 254,
-      "STORY": 987,
-      "TASK": 2350
+      "RESEARCH": 264,
+      "STORY": 1000,
+      "TASK": 2420
     },
     "byStatus": {
-      "COMPLETED": 2971,
-      "ACTIVE": 80,
-      "CANCELLED": 625,
-      "PENDING": 748,
-      "READY": 113,
+      "COMPLETED": 3065,
+      "ACTIVE": 100,
+      "CANCELLED": 738,
+      "PENDING": 642,
+      "READY": 87,
       "BLOCKED": 14,
-      "FAILED": 7
+      "FAILED": 6
     }
   },
   "prs": {
-    "totalPRs": 30,
-    "openPRs": 22,
-    "mergedPRs": 6,
-    "closedPRs": 2
+    "totalPRs": 9413,
+    "openPRs": 127,
+    "mergedPRs": 8161,
+    "closedPRs": 1125
   },
-  "timestamp": "2026-10-10T19:36:09.780Z"
+  "timestamp": "2026-10-14T14:09:10.923Z"
 }

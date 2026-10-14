@@ -179,6 +179,33 @@ export const writeSaveState = async (id: string, saveData: Uint8Array, metadata:
 
     await Promise.all([savesStore.put(saveData, id), metadataStore.put(metadata, id), tx.done]);
   } catch (error) {
+    if (error instanceof Error && error.name === 'QuotaExceededError' && metadata.playthroughId) {
+      console.warn('QuotaExceededError caught, attempting aggressive eviction...');
+      try {
+        const currentCount = await countSavesForPlaythrough(metadata.playthroughId);
+        const limit = Math.max(1, Math.floor(currentCount / 2));
+        const oldestSaves = await getOldestSaves(metadata.playthroughId, limit);
+        for (const oldSaveId of oldestSaves) {
+          await deleteSaveState(oldSaveId);
+        }
+
+        const retryDb = await initHistoryDb();
+        const retryTx = retryDb.transaction(['saves', 'metadata'], 'readwrite');
+
+        const retrySavesStore = retryTx.objectStore('saves');
+        const retryMetadataStore = retryTx.objectStore('metadata');
+
+        await Promise.all([retrySavesStore.put(saveData, id), retryMetadataStore.put(metadata, id), retryTx.done]);
+        return;
+      } catch (retryError) {
+        console.error(
+          'Aggressive eviction and retry failed',
+          retryError instanceof Error ? retryError.message : 'Unknown error',
+        );
+        throw retryError;
+      }
+    }
+
     console.error('Failed to write save state', error instanceof Error ? error.message : 'Unknown error');
     throw error;
   }

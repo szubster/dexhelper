@@ -2,10 +2,10 @@
 id: epic-044-398-gen3-roamer-iv-glitch-v5
 type: EPIC
 title: Gen 3 Roamer IV Glitch Detection v5
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-10-01'
+updated_at: '2026-10-14'
 depends_on:
   - epic-044-397-gen3-roamer-core-extraction-v5
   - research-044-396-gen3-roamer-tracker-failure
@@ -36,4 +36,8 @@ Analyze the extracted IV bitfield from the `Roamer` struct. The glitch causes th
 - [ ] Return a clear boolean or enum state indicating if the glitch is present.
 - [ ] Write unit tests verifying the glitch detection logic with both glitched and non-glitched IV spreads.
 - [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification to ensure proper system-wide rendering.
-- [ ] Story Owner: Break down this Epic into executable Stories.
+- [x] Story Owner: Break down this Epic into executable Stories.
+- [ ] story-398-649-gen3-roamer-iv-glitch-types-and-tests
+- [ ] story-398-650-gen3-roamer-iv-glitch-implementation
+- [ ] story-398-651-gen3-roamer-iv-glitch-qa
+- [ ] story-398-652-gen3-roamer-iv-glitch-integration-e2e

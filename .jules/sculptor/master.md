@@ -230,3 +230,12 @@ Improve AI readability by extracting magic numbers for Generation 2 and Generati
 ## Critical Learnings
 - **Inline Gender Ratios & Bitmasks Obfuscate Domain Logic:** Using inline values like `-1`, `0`, `8`, `1`, `3`, `7`, `11`, `31`, `63`, `127`, `191`, and `0xff` in gender calculation routines makes it difficult for LLMs to infer the underlying rules without domain context.
 - **Explicit Top-Level Constants Establish Intent:** Converting these values to clearly-named constants (e.g., `GEN2_FEMALE_THRESHOLD_HALF`, `GEN3_PERSONALITY_GENDER_MASK`) allows AI models to immediately comprehend the purpose and boundaries of gender calculation and DV validation logic without needing to reverse-engineer magic numbers.
+
+---
+
+## Refactoring Goal
+Improve AI readability in `src/engine/breeding/inventoryTools.ts` by replacing imperative, pre-allocated array loops with declarative array and Map methods (`flat()`, `filter()`, `reduce()`).
+
+## Critical Learnings
+- **Declarative collections improve LLM comprehension:** Imperative array pre-allocation with index tracking (`result.length = ...`, `result[index++] = p`, `result.length = index`) introduces verbose index arithmetic that obfuscates the core collection operation for AI models.
+- **Replacing imperative loops:** Modern high-level methods (`flat()`, `filter()`, `reduce()`) express intent clearly, reducing cognitive load and lowering error risk when AI tools inspect or modify inventory logic.

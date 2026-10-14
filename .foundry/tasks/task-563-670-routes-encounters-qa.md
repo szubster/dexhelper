@@ -1,11 +1,11 @@
 ---
 id: task-563-670-routes-encounters-qa
 type: TASK
-title: Routes, Encounters, and Drop Rates QA
-status: PENDING
+title: 'Routes, Encounters, and Drop Rates QA'
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-10'
 depends_on:
   - task-563-669-routes-encounters-tests-impl
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-563-667-routes-encounters-data-fetching-impl
 notes: ''
 locks: []
 ---

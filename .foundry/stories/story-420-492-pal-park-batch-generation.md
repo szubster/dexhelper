@@ -2,10 +2,10 @@
 id: story-420-492-pal-park-batch-generation
 type: STORY
 title: Pal Park Batch Generation and Location Mapping
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-09'
+updated_at: '2026-10-14'
 depends_on:
   - story-420-490-pal-park-hm-validation
   - story-420-491-pal-park-item-identification
