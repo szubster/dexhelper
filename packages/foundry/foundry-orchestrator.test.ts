@@ -6,7 +6,7 @@ import { main, compilePromptForNode } from './foundry-orchestrator';
 import { createValidTestNode } from './foundry-test-utils';
 
 describe('foundry-orchestrator', () => {
-  test('compilePromptForNode: logs a warning for missing tags and ignores them gracefully', () => {
+  test('compilePromptForNode: logs a debug message for missing tags and ignores them gracefully without warning', () => {
     const node = {
       repoPath: '.foundry/tasks/task-001.md',
       frontmatter: {
@@ -32,7 +32,7 @@ describe('foundry-orchestrator', () => {
     fs.mkdirSync(coreDir, { recursive: true });
     fs.writeFileSync(path.join(coreDir, 'core_policies.md'), 'Core Policies Content');
 
-    const warnSpy = vi.spyOn(process.stderr, 'write');
+    const stderrSpy = vi.spyOn(process.stderr, 'write');
 
     const compiled = compilePromptForNode(node as any, tmpDir);
 
@@ -42,7 +42,8 @@ describe('foundry-orchestrator', () => {
     expect(compiled).toContain('Core Policies Content');
 
     const missingPath = path.join(tmpDir, '.github', 'agents', 'specific', 'missing-tag.md');
-    expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining(`Requested tag/layer file does not exist: ${missingPath}`));
+    expect(stderrSpy).toHaveBeenCalledWith(expect.stringContaining(`DEBUG Requested tag/layer file does not exist: ${missingPath}`));
+    expect(stderrSpy).not.toHaveBeenCalledWith(expect.stringContaining('::warning::'));
   });
 
   let tmpDir: string;
@@ -260,7 +261,7 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(output[0].status).toBe('READY');
   });
 
-  test('Blocking: cancels PENDING node if a dependency is FAILED', () => {
+  test('Blocking: keeps PENDING node in PENDING if a dependency is retrying FAILED', () => {
     createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
       id: "idea-001",
       type: "IDEA",
@@ -271,7 +272,7 @@ vi.doMock('node:url', async (importOriginal) => {
       updated_at: "2026-04-20",
       depends_on: [],
       jules_session_id: "sess-123",
-
+      rejection_count: 1,
     });
 
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
@@ -284,19 +285,53 @@ vi.doMock('node:url', async (importOriginal) => {
       updated_at: "2026-04-20",
       depends_on: [".foundry/ideas/idea-001.md"],
       jules_session_id: null,
-
     });
 
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     main();
 
     const epicChar = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
-    expect(epicChar).toContain('status: CANCELLED');
+    expect(epicChar).toContain('status: PENDING');
+    expect(epicChar).not.toContain('status: CANCELLED');
     
     // Output should be empty since nothing is READY
     expect(logSpy).toHaveBeenCalled();
     const lastCall = logSpy.mock.calls[logSpy.mock.calls.length - 1][0];
     expect(JSON.parse(lastCall)).toHaveLength(0);
+  });
+
+  test('Blocking: cancels PENDING node if a dependency is permanently FAILED (max rejections)', () => {
+    createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', {
+      id: "idea-001",
+      type: "IDEA",
+      title: "Idea 1",
+      status: "FAILED",
+      owner_persona: "product_manager",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: "sess-123",
+      rejection_count: 3,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic 1",
+      status: "PENDING",
+      owner_persona: "story_owner",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/ideas/idea-001.md"],
+      jules_session_id: null,
+    });
+
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    main();
+
+    const epicChar = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+    expect(epicChar).toContain('status: CANCELLED');
+    expect(epicChar).toContain('Cancelled due to permanent failure of dependency: idea-001');
   });
 
   test('Validation: skips nodes with multiple owners (comma separated)', () => {
@@ -2871,8 +2906,8 @@ Target artifact: task-completed
     expect(activeContent).toContain("rejection_reason: 'Cancelled due to permanent failure of dependency: task-failed'");
   });
 
-  test("Impossible Loop: auto-cancels orphaned dependent nodes when dependency fails for any reason", () => {
-    // Task 1: Failed task without max rejections
+  test("Impossible Loop: keeps dependent nodes in PENDING while dependency is retrying, only cancels on permanent failure", () => {
+    // Task 1: Failed task with rejection_count < MAX_REJECTION_THRESHOLD (still retrying)
     createValidTestNode(tmpDir, ".foundry/tasks/task-general-fail.md", {
       id: "task-general-fail",
       type: "TASK",
@@ -2884,6 +2919,7 @@ Target artifact: task-completed
       updated_at: "2026-04-20",
       depends_on: [],
       jules_session_id: null,
+      rejection_count: 1,
     });
 
     // Task PENDING depending on task-general-fail
@@ -2902,8 +2938,170 @@ Target artifact: task-completed
     main();
 
     const depContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-dep.md"), "utf-8");
+    expect(depContent).toContain("status: PENDING");
+    expect(depContent).not.toContain("status: CANCELLED");
+  });
+
+  test("Impossible Loop: keeps parent in PENDING while child is actively retrying, wakes up parent on permanent failure", () => {
+    // Parent Story: PENDING
+    createValidTestNode(tmpDir, ".foundry/stories/story-parent-retry.md", {
+      id: "story-parent-retry",
+      type: "STORY",
+      title: "Parent Story",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, "- [ ] .foundry/tasks/task-child-retry.md");
+
+    // Child Task: FAILED with rejection_count: 1 (retrying)
+    createValidTestNode(tmpDir, ".foundry/tasks/task-child-retry.md", {
+      id: "task-child-retry",
+      type: "TASK",
+      title: "Retrying Child Task",
+      status: "FAILED",
+      owner_persona: "coder",
+      parent: "story-parent-retry",
+      rejection_reason: "Unit test failure",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+      rejection_count: 1,
+    });
+
+    main();
+
+    // Parent should remain in PENDING while child is retrying
+    const parentResult = fs.readFileSync(path.join(tmpDir, ".foundry/stories/story-parent-retry.md"), "utf-8");
+    expect(parentResult).toContain("status: PENDING");
+    expect(parentResult).not.toContain("status: READY");
+  });
+
+  test("Impossible Loop: wakes up parent when it has mixed children (one retrying, one permanently failed)", () => {
+    // Parent Story: PENDING
+    createValidTestNode(tmpDir, ".foundry/stories/story-parent-mixed.md", {
+      id: "story-parent-mixed",
+      type: "STORY",
+      title: "Parent Story Mixed",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, "- [ ] .foundry/tasks/task-child-retry.md\n- [ ] .foundry/tasks/task-child-perm.md");
+
+    // Child Task 1: FAILED with rejection_count: 1 (retrying)
+    createValidTestNode(tmpDir, ".foundry/tasks/task-child-retry.md", {
+      id: "task-child-retry",
+      type: "TASK",
+      title: "Retrying Child Task",
+      status: "FAILED",
+      owner_persona: "coder",
+      parent: "story-parent-mixed",
+      rejection_reason: "Unit test failure",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+      rejection_count: 1,
+    });
+
+    // Child Task 2: FAILED with rejection_count: 3 (permanent failure)
+    createValidTestNode(tmpDir, ".foundry/tasks/task-child-perm.md", {
+      id: "task-child-perm",
+      type: "TASK",
+      title: "Permanently Failed Child Task",
+      status: "FAILED",
+      owner_persona: "coder",
+      parent: "story-parent-mixed",
+      rejection_reason: "Max rejection count reached",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+      rejection_count: 3,
+    });
+
+    main();
+
+    // Parent should be woken up to READY because child 2 permanently failed
+    const parentResult = fs.readFileSync(path.join(tmpDir, ".foundry/stories/story-parent-mixed.md"), "utf-8");
+    expect(parentResult).toContain("status: READY");
+  });
+
+  test("Impossible Loop: auto-cancels dependent nodes when dependency is an acknowledged permanently failed node", () => {
+    // Upstream task permanently failed and already acknowledged in previous run
+    createValidTestNode(tmpDir, ".foundry/tasks/task-ack-fail.md", {
+      id: "task-ack-fail",
+      type: "TASK",
+      title: "Acknowledged Failed Task",
+      status: "CANCELLED",
+      owner_persona: "coder",
+      rejection_reason: "[ACKNOWLEDGED] Max rejection count reached",
+      rejection_count: 3,
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // Dependent task in PENDING
+    createValidTestNode(tmpDir, ".foundry/tasks/task-downstream.md", {
+      id: "task-downstream",
+      type: "TASK",
+      title: "Downstream Task",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-ack-fail.md"],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const downstreamContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-downstream.md"), "utf-8");
+    expect(downstreamContent).toContain("status: CANCELLED");
+    expect(downstreamContent).toContain("rejection_reason: 'Cancelled due to permanent failure of dependency: task-ack-fail'");
+  });
+
+  test("Impossible Loop: auto-cancels dependent nodes when dependency has explicit permanent failure reason", () => {
+    // Upstream task permanently failed
+    createValidTestNode(tmpDir, ".foundry/tasks/task-parent-cancelled.md", {
+      id: "task-parent-cancelled",
+      type: "TASK",
+      title: "Permanent Failure Task",
+      status: "CANCELLED",
+      owner_persona: "coder",
+      rejection_reason: "Permanent failure: feature not supported",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // Dependent task in PENDING
+    createValidTestNode(tmpDir, ".foundry/tasks/task-dep-on-cascade.md", {
+      id: "task-dep-on-cascade",
+      type: "TASK",
+      title: "Dependent on Cascade Task",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-parent-cancelled.md"],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const depContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-dep-on-cascade.md"), "utf-8");
     expect(depContent).toContain("status: CANCELLED");
-    expect(depContent).toContain("rejection_reason: 'Cancelled due to permanent failure of dependency: task-general-fail'");
+    expect(depContent).toContain("rejection_reason: 'Cancelled due to permanent failure of dependency: task-parent-cancelled'");
   });
 
   test("Impossible Loop: does not wake up parent if child was cancelled due to permanent failure of dependency", () => {

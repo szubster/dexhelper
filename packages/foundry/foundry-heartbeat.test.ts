@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { main, identifyBranchesForCleanup, cleanupRemoteBranches, transitionNodeToCompleted, transitionNodeToReady, transitionNodeToReadyWithoutPenalty, transitionNodeToFailed, cleanupLingeringCompletedSessions } from './foundry-heartbeat.ts';
+import { main, identifyBranchesForCleanup, cleanupRemoteBranches, transitionNodeToCompleted, transitionNodeToReady, transitionNodeToReadyWithoutPenalty, transitionNodeToFailed, cleanupLingeringCompletedSessions, findPRForSession, githubApiLimiter } from './foundry-heartbeat.ts';
 import * as orchestrator from './foundry-orchestrator.ts';
 
 
@@ -19,6 +19,7 @@ describe('Foundry Heartbeat', () => {
     vi.resetAllMocks();
     vi.clearAllMocks();
     globalFetch.mockClear();
+    githubApiLimiter.clear();
     process.env = { ...originalEnv, JULES_API_KEY: 'mock-api-key', GITHUB_TOKEN: 'mock-token' };
     vi.spyOn(process, 'cwd').mockReturnValue(mockRepoRoot);
 
@@ -31,6 +32,7 @@ describe('Foundry Heartbeat', () => {
   });
 
   afterEach(() => {
+    githubApiLimiter.clear();
     process.env = originalEnv;
     vi.restoreAllMocks();
   });
@@ -1603,44 +1605,205 @@ status: ACTIVE
       expect(writeCall![1]).toContain('owner_persona: auditor');
     });
   });
-});
+
+  describe('Bulk PR Discovery & API Throttling', () => {
+    it('bulk-fetches recent pull requests with per_page=100 once per run and matches session ID in-memory', async () => {
+      const mockNode = {
+        filePath: '/mock/repo/.foundry/tasks/task-bulk.md',
+        repoPath: '.foundry/tasks/task-bulk.md',
+        frontmatter: {
+          id: 'task-bulk',
+          type: 'TASK',
+          status: 'ACTIVE',
+          jules_session_id: 'session-bulk-123',
+          owner_persona: 'coder',
+          updated_at: '2026-04-20',
+        },
+        rawContent: '---\nstatus: ACTIVE\njules_session_id: "session-bulk-123"\nupdated_at: "2026-04-20"\n---\nBody'
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-bulk.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+      const fetchUrls: string[] = [];
+      globalFetch.mockImplementation(async (url: any) => {
+        const urlStr = typeof url === 'string' ? url : url.toString();
+        fetchUrls.push(urlStr);
+
+        if (urlStr.includes('/sessions/session-bulk-123')) {
+          return { ok: true, status: 200, json: async () => ({ state: 'IN_PROGRESS' }) } as any;
+        }
+        if (urlStr.includes('/pulls?state=all&per_page=100')) {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => [
+              { number: 999, state: 'open', body: 'Work for session-bulk-123', head: { ref: 'feat/test' } }
+            ]
+          } as any;
+        }
+        if (urlStr.includes('/pulls?state=open&per_page=100')) {
+          return { ok: true, status: 200, json: async () => [] } as any;
+        }
+        if (urlStr.includes('/git/matching-refs/heads/')) {
+          return { ok: true, status: 200, json: async () => [] } as any;
+        }
+        return { ok: false, status: 404, json: async () => ({}) } as any;
+      });
+
+      await main();
+
+      // Verified: called bulk pulls with per_page=100
+      expect(fetchUrls.some(u => u.includes('/pulls?state=all&per_page=100'))).toBe(true);
+
+      // Verified: NEVER called /search/issues
+      expect(fetchUrls.some(u => u.includes('/search/issues'))).toBe(false);
+
+      // Node stays ACTIVE because PR #999 is open
+      expect(fs.writeFileSync).not.toHaveBeenCalledWith(
+        expect.any(String),
+        expect.stringContaining('status: FAILED'),
+        expect.any(String)
+      );
+    });
+
+    it('matches session ID in head.ref in-memory without /search/issues call', async () => {
+      const recentPulls = [
+        { number: 101, state: 'open', body: 'description', head: { ref: 'jules-session-ref-456' } }
+      ];
+
+      globalFetch.mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => ({ state: 'IN_PROGRESS' })
+      } as any);
+
+      const res = await findPRForSession('mock/repo', 'token', 'key', 'session-ref-456', recentPulls);
+      expect(res.pr).toBeDefined();
+      expect(res.pr.number).toBe(101);
+      expect(globalFetch).toHaveBeenCalledTimes(1); // Only Jules API called, no github search
+    });
+
+    it('matches session ID in PR title in-memory', async () => {
+      const recentPulls = [
+        { number: 102, state: 'open', title: 'Task fix (session-title-789)', body: 'regular desc', head: { ref: 'feature-branch' } }
+      ];
+
+      globalFetch.mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => ({ state: 'IN_PROGRESS' })
+      } as any);
+
+      const res = await findPRForSession('mock/repo', 'token', 'key', 'session-title-789', recentPulls);
+      expect(res.pr).toBeDefined();
+      expect(res.pr.number).toBe(102);
+      expect(globalFetch).toHaveBeenCalledTimes(1);
+    });
+
+    it('uses merged_at directly from bulk-fetched PR without secondary API fetch', async () => {
+      const mockNode = {
+        filePath: '/mock/repo/.foundry/tasks/task-cached-merged.md',
+        repoPath: '.foundry/tasks/task-cached-merged.md',
+        frontmatter: {
+          id: 'task-cached-merged',
+          type: 'TASK',
+          status: 'ACTIVE',
+          jules_session_id: 'session-merged-opt'
+        },
+        rawContent: '---\nid: task-cached-merged\ntype: TASK\nstatus: ACTIVE\njules_session_id: "session-merged-opt"\n---\n## Acceptance Criteria\n- [x] Done\n'
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-cached-merged.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+      const fetchUrls: string[] = [];
+      globalFetch.mockImplementation(async (url) => {
+        const urlStr = typeof url === 'string' ? url : (url as URL).toString();
+        fetchUrls.push(urlStr);
+
+        // Bulk pulls
+        if (urlStr.includes('/pulls?state=all&per_page=100')) {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => [
+              {
+                number: 555,
+                state: 'closed',
+                merged_at: '2026-10-14T20:00:00Z',
+                body: 'Fix session-merged-opt'
+              }
+            ]
+          } as any;
+        }
+
+        // Jules session API
+        if (urlStr.includes('/sessions/session-merged-opt')) {
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ state: 'COMPLETED' })
+          } as any;
+        }
+
+        // Branch cleanup
+        if (urlStr.includes('/pulls?state=open&per_page=100')) {
+          return { ok: true, status: 200, json: async () => [] } as any;
+        }
+        if (urlStr.includes('/git/matching-refs/heads/')) {
+          return { ok: true, status: 200, json: async () => [] } as any;
+        }
+
+        return { ok: false, status: 404 } as any;
+      });
+
+      await main();
+
+      // Verified: No GET /repos/mock/repo/pulls/555 was called because merged_at was already in the bulk PR
+      expect(fetchUrls.some(u => u.includes('/pulls/555'))).toBe(false);
+
+      // Node should have transitioned to COMPLETED
+      expect(fs.writeFileSync).toHaveBeenCalledWith(
+        expect.stringContaining('task-cached-merged.md'),
+        expect.stringContaining('status: COMPLETED'),
+        expect.any(String)
+      );
+    });
+  });
 
   describe('cleanupRemoteBranches', () => {
     it('should skip deletion and write to journal in DRY_RUN mode', async () => {
-      // Mock DRY_RUN = true
       vi.stubGlobal('DRY_RUN', true);
-
-      // Need to re-import or mock DRY_RUN inside module.
-      // Easiest is to rely on mock output if info/warn were mocked, but we mock fetch.
 
       globalFetch.mockImplementation(async (url) => {
         const urlStr = typeof url === "string" ? url : (url as URL).toString();
-        if (urlStr.endsWith('/pulls?state=open')) {
+        if (urlStr.includes('/pulls?state=open')) {
           return { ok: true, json: async () => [] } as any;
         }
-        if (urlStr.endsWith('/git/matching-refs/heads/')) {
+        if (urlStr.includes('/git/matching-refs/heads/')) {
           return { ok: true, json: async () => [{ ref: 'refs/heads/branch-delete' }] } as any;
         }
         return { ok: false } as any;
       });
 
-      // Need DRY_RUN disabled explicitly just in case environment leaks
-      vi.stubGlobal('DRY_RUN', false);
-
       const mockFailedNode = {
-        frontmatter: { status: 'FAILED', jules_session_id: 'delete' }
+        frontmatter: { status: 'FAILED', jules_session_id: 'delete' },
+        rawContent: '---\nstatus: FAILED\njules_session_id: "delete"\n---\n'
       };
 
       vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['fail.md']);
       vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockFailedNode as any);
 
-      // We expect identifying to work, but no DELETE fetch
-      await main();
+      try {
+        await main();
 
-      const calls = globalFetch.mock.calls;
-      const deleteCalls = calls.filter(call => call[1]?.method === 'DELETE');
-      expect(deleteCalls.length).toBe(0);
-
+        const calls = globalFetch.mock.calls;
+        const deleteCalls = calls.filter(call => call[1]?.method === 'DELETE');
+        expect(deleteCalls.length).toBe(0);
+      } finally {
+        vi.stubGlobal('DRY_RUN', false);
+      }
     });
 
     it('should delete branch and write to journal when not DRY_RUN', async () => {
@@ -2048,5 +2211,4 @@ status: ACTIVE
       expect(globalFetch).toHaveBeenCalledTimes(1);
     });
   });
-
-
+});
