@@ -20,5 +20,5 @@ locks: []
 Implement unit tests for the deletion queue sorting and chunking logic.
 
 ## Acceptance Criteria
-- [ ] Write unit tests verifying that older nodes are prioritized in the deletion queue.
-- [ ] Write unit tests verifying the 50-node chunking limit.
+- [x] Write unit tests verifying that older nodes are prioritized in the deletion queue.
+- [x] Write unit tests verifying the 50-node chunking limit.
