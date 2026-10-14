@@ -1850,6 +1850,44 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(task2Content).toContain('rejection_reason: \'Cancelled due to permanent failure of dependency: task-001\'');
   });
 
+  test('Impossible Loop: Does not auto-cancel when max rejection count is reached if rejection is infra error', async () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-003.md', {
+      id: "task-003",
+      type: "TASK",
+      title: "Task 3",
+      status: "FAILED",
+      owner_persona: "coder",
+      parent: "story-001",
+      rejection_reason: "Session terminated with state: NOT_FOUND",
+      rejection_count: 3
+    });
+
+    const orchestratorPath = path.resolve(__dirname, 'foundry-orchestrator.ts');
+    require('child_process').execSync(`node --experimental-strip-types "${orchestratorPath}"`, { cwd: tmpDir }).toString();
+
+    const task3Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-003.md'), 'utf-8');
+    expect(task3Content).toContain('status: FAILED');
+  });
+
+  test('Impossible Loop: Does not auto-cancel when max rejection count is reached if rejection is INTERNAL_ERROR', async () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-004.md', {
+      id: "task-004",
+      type: "TASK",
+      title: "Task 4",
+      status: "FAILED",
+      owner_persona: "coder",
+      parent: "story-001",
+      rejection_reason: "Session terminated with state: INTERNAL_ERROR",
+      rejection_count: 3
+    });
+
+    const orchestratorPath = path.resolve(__dirname, 'foundry-orchestrator.ts');
+    require('child_process').execSync(`node --experimental-strip-types "${orchestratorPath}"`, { cwd: tmpDir }).toString();
+
+    const task4Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004.md'), 'utf-8');
+    expect(task4Content).toContain('status: FAILED');
+  });
+
   test('Impossible Loop: Auto-cancels PENDING nodes depending indirectly on permanently failed node', () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
       id: "story-001",
