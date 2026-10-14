@@ -2,7 +2,7 @@
 id: task-562-573-tm-hm-compatibility-e2e-qa
 type: TASK
 title: QA TM/HM Compatibility E2E Tests
-status: READY
+status: CANCELLED
 owner_persona: qa
 created_at: '2025-02-14'
 updated_at: '2026-10-14'
@@ -16,7 +16,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-562-572-tm-hm-compatibility-e2e-impl
 notes: ''
 locks: []
 priority: 50
