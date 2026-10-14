@@ -4,6 +4,7 @@
 | --- | --- | --- | --- | --- |
 | [adr-586-584-failure-tracking-architecture](.foundry/docs/adrs/adr-586-584-failure-tracking-architecture.md) | ADR | Technical Architecture for Failure Tracking | architect | [7091627030144498796](https://jules.google.com/session/7091627030144498796) |
 | [epic-045-072-refactor-views](.foundry/epics/epic-045-072-refactor-views.md) | EPIC | Refactor DagDashboard Views to consume DagContext | story_owner | [9357572952968118621](https://jules.google.com/session/9357572952968118621) |
+| [epic-048-085-gen3-match-call-dashboard-ui](.foundry/epics/epic-048-085-gen3-match-call-dashboard-ui.md) | EPIC | Epic: Gen 3 Rematch Dashboard UI | story_owner | [10617233047977806906](https://jules.google.com/session/10617233047977806906) |
 | [epic-337-401-engine-code-splitting](.foundry/epics/epic-337-401-engine-code-splitting.md) | EPIC | Engine Code Splitting by Game Generation | story_owner | [18293930511574936321](https://jules.google.com/session/18293930511574936321) |
 | [epic-337-402-ui-component-splitting](.foundry/epics/epic-337-402-ui-component-splitting.md) | EPIC | UI Component Splitting by Game Generation | story_owner | [8313081356306163637](https://jules.google.com/session/8313081356306163637) |
 | [epic-518-531-priority-orchestrator-dispatch](.foundry/epics/epic-518-531-priority-orchestrator-dispatch.md) | EPIC | Implement Priority-Based Dispatch in Orchestrator | story_owner | [12337048013298732747](https://jules.google.com/session/12337048013298732747) |
