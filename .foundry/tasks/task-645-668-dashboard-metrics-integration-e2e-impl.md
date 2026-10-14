@@ -2,12 +2,12 @@
 id: task-645-668-dashboard-metrics-integration-e2e-impl
 type: TASK
 title: Implement Integration and E2E Tests for Confidence Metrics Dashboard
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-07T04:50:01.754Z'
 updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: '4472181658451212205'
+jules_session_id: null
 pr_number: null
 parent: story-571-645-dashboard-metrics-integration-e2e
 tags:
@@ -17,7 +17,9 @@ tags:
   - dashboard
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
+  AWAITING_USER_FEEDBACK
 notes: ''
 locks: []
 priority: 60

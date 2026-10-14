@@ -2,10 +2,10 @@
 id: story-525-640-relocate-foundry-scripts
 type: STORY
 title: Relocate Foundry Scripts
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-13'
+updated_at: '2026-10-14'
 depends_on: []
 jules_session_id: null
 pr_number: null

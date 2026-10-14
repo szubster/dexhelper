@@ -2,10 +2,10 @@
 id: task-647-673-gen3-ash-dashboard-ui-impl
 type: TASK
 title: 'Task: Implement Gen 3 Volcanic Ash Tracker Dashboard UI'
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-03T19:33:53.000Z'
-updated_at: '2026-10-13'
+updated_at: '2026-10-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - ash
   - react
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 ---
 

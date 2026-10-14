@@ -2,10 +2,10 @@
 id: research-640-676-investigate-relocate-scripts-replacement-failure-retry
 type: RESEARCH
 title: Investigate Relocate Scripts Replacement Failure Retry
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-10'
-updated_at: '2026-10-13'
+updated_at: '2026-10-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,10 +14,8 @@ tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 0
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
