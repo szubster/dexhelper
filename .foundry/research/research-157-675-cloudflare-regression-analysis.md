@@ -29,5 +29,6 @@ locks: []
 Investigate potential regressions and configuration conflicts with the existing Cloudflare server-side sync architecture (established in `idea-055` and `idea-062`) introduced by the new pnpm workspace monorepo migration (`idea-157`).
 
 ## Acceptance Criteria
-- [ ] Analyze the current Cloudflare worker configurations and how they are impacted by the migration to `apps/functions`.
-- [ ] Propose any necessary updates or ADRs to maintain backend sync stability.
+- [x] Analyze the current Cloudflare worker configurations and how they are impacted by the migration to `apps/functions`.
+- [x] Propose any necessary updates or ADRs to maintain backend sync stability.
+- [ ] adr-675-676-cloudflare-monorepo-functions
