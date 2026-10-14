@@ -2,12 +2,12 @@
 id: task-564-680-implement-frontmatter-parsing
 type: TASK
 title: Implement Frontmatter Parsing & Required Fields
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-13'
+updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17340827588177872512'
 parent: story-555-564-lint-schema-frontmatter-validation
 tags:
   - linting
