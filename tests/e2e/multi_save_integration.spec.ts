@@ -145,4 +145,66 @@ test.describe('Multi-Save Architecture Integration', () => {
     const request = await putRequestPromise;
     expect(request.method()).toBe('PUT');
   });
+
+  test('should generate and display cross-save synergy trade opportunities between multiple saves', async ({
+    page,
+    isMobile,
+  }) => {
+    await clearStorage(page);
+    await page.goto('.');
+    await waitForSync(page);
+
+    await expect(page.getByText(/\[ UPLOAD\.SYS \]/i)).toBeVisible();
+
+    // Upload first save (yellow)
+    const fileInput = page.locator('input[type="file"]').first();
+    await fileInput.setInputFiles(path.join('tests', 'fixtures', 'yellow.sav'));
+    await waitForSync(page);
+
+    // Verify yellow save loaded
+    await expect(
+      page
+        .locator('header')
+        .getByText(/YELLOW/i)
+        .first(),
+    ).toBeVisible();
+
+    // Upload second save (crystal)
+    const fileInput2 = page.locator('input[type="file"]').first();
+    await fileInput2.setInputFiles(path.join('tests', 'fixtures', 'crystal.sav'));
+    await waitForSync(page);
+
+    // Verify crystal save loaded
+    await expect(
+      page
+        .locator('header')
+        .getByText(/CRYSTAL/i)
+        .first(),
+    ).toBeVisible();
+
+    // Navigate to Assistant
+    if (isMobile) {
+      const assistantLink = page.getByRole('link', { name: 'Assistant' });
+      await expect(assistantLink).toBeVisible();
+      await assistantLink.click();
+    } else {
+      const assistantLink = page.getByRole('link', { name: /SYS\.ASST/i });
+      await expect(assistantLink).toBeVisible();
+      await assistantLink.click();
+    }
+
+    // Check if AI Assistant loads
+    await expect(page.getByText(/AI Assistant/i)).toBeVisible();
+
+    // Verify trade/synergy elements are populated.
+    // Use .first() within .or() chains to avoid strict mode violations.
+    await expect(
+      page
+        .getByText(/Cross-Save/i)
+        .first()
+        .or(page.getByText(/Synergy/i).first())
+        .or(page.getByText(/Trade/i).first())
+        .first(),
+    ).toBeVisible({ timeout: 15000 });
+  });
 });

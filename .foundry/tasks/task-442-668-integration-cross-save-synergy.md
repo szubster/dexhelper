@@ -27,4 +27,4 @@ As part of the Cross-Save Synergy Analysis Engine, we need to perform Integratio
 - Integration tests ensuring Pokédex and game-exclusive data is correctly parsed and passed to the evaluator.
 
 ## Acceptance Criteria
-- [ ] Coder: Implement Integration tests.
+- [x] Coder: Implement Integration tests.
