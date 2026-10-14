@@ -235,8 +235,8 @@ function validateSchema() {
           hasError = true;
         }
 
-        if (currentSection !== 'Acceptance Criteria') {
-          console.error(`Error: Checkbox found outside of 'Acceptance Criteria' section in file ${file} at line ${index + 1}`);
+        if (currentSection !== 'Acceptance Criteria' && currentSection !== 'Next Steps') {
+          console.error(`Error: Checkbox found outside of 'Acceptance Criteria' or 'Next Steps' section in file ${file} at line ${index + 1}`);
           hasError = true;
         }
       }
