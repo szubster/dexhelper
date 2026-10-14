@@ -1,13 +1,13 @@
 ---
 id: task-527-674-webhook-renewal-impl
 type: TASK
-title: "Drive Webhook Renewal Logic"
-status: READY
-owner_persona: "coder"
-created_at: "2026-10-09"
-updated_at: "2026-10-09"
+title: Drive Webhook Renewal Logic
+status: ACTIVE
+owner_persona: coder
+created_at: '2026-10-09'
+updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7412521865218077734'
 locks: []
 pr_number: null
 parent: story-402-527-drive-webhook-registration
@@ -21,8 +21,8 @@ tags:
 research_references:
   - adr-336-033-server-side-drive-sync
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Drive Webhook Renewal Logic
