@@ -25,6 +25,6 @@ locks: []
 Integrate the styling utility functions into the React Flow custom node components to dynamically apply visual styles when the heatmap mode is toggled on.
 
 ## Acceptance Criteria
-- [ ] Update custom node components to conditionally consume heatmap state.
-- [ ] Apply dynamic styles to the nodes using the newly created utilities.
-- [ ] Ensure component tests confirm correct conditional rendering.
+- [x] Update custom node components to conditionally consume heatmap state.
+- [x] Apply dynamic styles to the nodes using the newly created utilities.
+- [x] Ensure component tests confirm correct conditional rendering.

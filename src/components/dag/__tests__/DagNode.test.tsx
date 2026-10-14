@@ -6,10 +6,13 @@ import { render } from 'vitest-browser-react';
 import { DagNode } from '../DagNode';
 
 vi.mock('../../dashboard/DagContext', () => ({
-  useDagContext: vi.fn<() => { maxRejectionThreshold: number }>(() => ({
+  useDagContext: vi.fn<() => { maxRejectionThreshold: number; showHeatmap: boolean }>(() => ({
     maxRejectionThreshold: 3,
+    showHeatmap: false,
   })),
 }));
+
+import { useDagContext } from '../../dashboard/DagContext';
 
 const nodeTypes = {
   custom: DagNode,
@@ -198,6 +201,48 @@ test('DagNode applies permanent failure styles when rejection_count >= 3', async
   await expect.element(node).toHaveClass('border-red-500');
   await expect.element(node).toHaveClass('border-2');
   await expect.element(page.getByTitle('Permanent Failure')).toBeInTheDocument();
+});
+
+test('DagNode applies heatmap styles when showHeatmap is true and heatmapMetric is provided', async () => {
+  vi.mocked(useDagContext).mockReturnValue({ maxRejectionThreshold: 3, showHeatmap: true } as unknown as ReturnType<
+    typeof useDagContext
+  >);
+  const data = {
+    id: 'test-task-003',
+    label: 'test-task-003',
+    type: 'TASK',
+    owner_persona: 'coder',
+    status: 'ACTIVE',
+    heatmapMetric: {
+      value: 95,
+      thresholds: { low: 20, medium: 50, high: 80, critical: 90 },
+    },
+  };
+
+  const nodes = [
+    {
+      id: 'test-task-003',
+      type: 'custom',
+      data,
+      position: { x: 0, y: 0 },
+    },
+  ];
+
+  await render(
+    <div style={{ width: '500px', height: '500px' }}>
+      <ReactFlow nodes={nodes} nodeTypes={nodeTypes} />
+    </div>,
+  );
+
+  const node = page.getByTestId('dag-node');
+  await expect.element(node).toHaveClass('bg-red-900');
+  await expect.element(node).toHaveClass('border-red-500');
+  await expect.element(node).toHaveClass('text-red-100');
+
+  // reset mock
+  vi.mocked(useDagContext).mockReturnValue({ maxRejectionThreshold: 3, showHeatmap: false } as unknown as ReturnType<
+    typeof useDagContext
+  >);
 });
 
 test('DagNode applies permanent failure styles to CANCELLED nodes when rejection_count >= 3', async () => {
