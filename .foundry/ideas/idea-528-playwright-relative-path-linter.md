@@ -33,6 +33,9 @@ Create a custom ESLint / Biome / Oxlint rule or AST-based check that scans `test
 2. Fail linting with an actionable error message reminding developers to use relative navigation paths (e.g. `./dashboard`).
 3. Optionally support auto-fixing by prefixing single-leading-slash routes with `.`.
 
+## Acceptance Criteria
+- [ ] prd-528-587-playwright-relative-path-linter
+
 ## Expected Impact
 - Eliminates QA rejections and resurrection cycles caused by Playwright path syntax violations.
 - Shifts policy enforcement left to pre-commit linting rather than post-PR review.
