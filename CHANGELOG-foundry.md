@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.5] - 2026-04-03
+### Security
+- Added explicit `contents: read` permissions to the Playwright workflow to resolve code scanning alerts.
+
 ## [0.1.4] - 2026-04-03
 ### Changed
 - Bumped `actions/upload-artifact` from v4 to v7 in the Playwright workflow.
@@ -24,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bumped `actions/deploy-pages` from v4 to v5 in the deployment workflow to ensure compatibility with latest GitHub Pages deployment infrastructure.
 
 
+[0.1.5]: https://github.com/szubster/dexhelper/compare/c8e8728...4fd4221
 [0.1.4]: https://github.com/szubster/dexhelper/compare/2081976...4157399
 [0.1.3]: https://github.com/szubster/dexhelper/compare/2a7bab1...2081976
 [0.1.2]: https://github.com/szubster/dexhelper/compare/02aa931...cd452d1
