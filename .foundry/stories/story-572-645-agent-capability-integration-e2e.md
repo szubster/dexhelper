@@ -2,10 +2,10 @@
 id: story-572-645-agent-capability-integration-e2e
 type: STORY
 title: Integration and E2E Verification for Agent Capability
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-01T15:12:11Z'
-updated_at: '2026-10-06'
+updated_at: '2026-10-13'
 depends_on:
   - story-572-644-update-agent-prompts-for-confidence
 jules_session_id: null
@@ -34,5 +34,5 @@ This story serves as the mandatory Integration and E2E verification dedicated st
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-645-665-agent-capability-integration-e2e-impl
-- [ ] task-645-666-qa-agent-capability-integration-e2e
+- [x] task-645-665-agent-capability-integration-e2e-impl
+- [x] task-645-666-qa-agent-capability-integration-e2e

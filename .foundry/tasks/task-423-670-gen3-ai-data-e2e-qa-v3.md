@@ -2,7 +2,7 @@
 id: task-423-670-gen3-ai-data-e2e-qa-v3
 type: TASK
 title: QA for Gen 3 AI Data Extraction E2E Tests (V3)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-06'
 updated_at: '2026-10-08'
@@ -18,7 +18,7 @@ tags:
   - e2e
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Parent dependency permanently failed'
 notes: ''
 locks: []
 ---

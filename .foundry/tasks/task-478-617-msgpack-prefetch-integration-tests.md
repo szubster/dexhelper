@@ -2,12 +2,12 @@
 id: task-478-617-msgpack-prefetch-integration-tests
 type: TASK
 title: Write Msgpack Prefetch Integration Tests
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-22'
-updated_at: '2026-09-30'
+updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18326118442233510025'
 pr_number: null
 parent: story-420-478-background-fetching-e2e-verification
 tags:
@@ -15,7 +15,7 @@ tags:
   - preloading
   - integration
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
@@ -30,4 +30,4 @@ We need to ensure the msgpack prefetching logic integrates correctly with the st
 - Write integration tests to confirm prefetching triggers correctly and state is updated.
 
 ## Acceptance Criteria
-- [x] Write integration tests for msgpack prefetching.
+- [ ] Write integration tests for msgpack prefetching.

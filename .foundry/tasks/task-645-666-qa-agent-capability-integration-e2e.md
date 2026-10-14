@@ -2,13 +2,13 @@
 id: task-645-666-qa-agent-capability-integration-e2e
 type: TASK
 title: QA Verification for Agent Confidence Capability E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-05T01:48:00Z'
-updated_at: '2026-10-09'
+updated_at: '2026-10-13'
 depends_on:
   - task-645-665-agent-capability-integration-e2e-impl
-jules_session_id: '13097215454368760807'
+jules_session_id: null
 pr_number: null
 parent: story-572-645-agent-capability-integration-e2e
 tags:
@@ -36,4 +36,4 @@ The coder has implemented integration and E2E tests for the agent confidence cap
 - Ensure that the tests are not tautological and verify the actual outcome in the UI or orchestrator execution flow.
 
 ## Acceptance Criteria
-- [ ] Verify E2E and integration tests run successfully and correctly validate confidence metrics.
+- [x] Verify E2E and integration tests run successfully and correctly validate confidence metrics.

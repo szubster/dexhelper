@@ -2,12 +2,12 @@
 id: research-566-668-investigate-orchestrator-diagnosis-failure
 type: RESEARCH
 title: Investigate Orchestrator BLOCKED Diagnosis Implementation Failure
-status: ACTIVE
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-07T21:10:47.146Z'
-updated_at: '2026-10-10'
+updated_at: '2026-10-11'
 depends_on: []
-jules_session_id: '16129085069940658208'
+jules_session_id: null
 pr_number: null
 parent: story-552-566-orchestrator-diagnosis-artifact
 tags:
@@ -16,8 +16,8 @@ tags:
   - dag
   - research
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---

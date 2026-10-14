@@ -2,10 +2,10 @@
 id: task-492-672-pal-park-batch-qa
 type: TASK
 title: QA - Pal Park Batch Generation and Location Mapping
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-14'
 depends_on:
   - task-492-669-pal-park-batch-logic-tests
   - task-492-671-pal-park-batch-ui-tests
@@ -19,7 +19,9 @@ tags:
   - migration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-492-670-pal-park-batch-ui-impl
 notes: ''
 locks: []
 ---

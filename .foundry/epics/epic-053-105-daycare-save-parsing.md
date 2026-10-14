@@ -5,7 +5,7 @@ title: Daycare Core Data Extraction Engine
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-22'
-updated_at: '2026-06-29'
+updated_at: '2026-10-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,9 +15,10 @@ tags:
   - gen3
   - breeding
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Daycare Core Data Extraction Engine
@@ -35,5 +36,6 @@ Implement offline save parsing to extract real-time Daycare data.
 
 ## Acceptance Criteria
 - [x] Break down into Stories.
-- [ ] .foundry/archive/stories/story-105-240-daycare-gen2-parsing.md
-- [ ] .foundry/stories/story-105-241-daycare-gen3-parsing.md
+- [x] .foundry/archive/stories/story-105-240-daycare-gen2-parsing.md
+- [x] .foundry/stories/story-105-241-daycare-gen3-parsing.md
+- [ ] story-105-649-daycare-save-parsing-e2e

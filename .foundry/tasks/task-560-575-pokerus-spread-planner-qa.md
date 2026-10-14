@@ -5,7 +5,7 @@ title: Pokerus Spread Planner QA
 status: READY
 owner_persona: qa
 created_at: '2026-09-09'
-updated_at: '2026-10-10'
+updated_at: '2026-10-13'
 depends_on:
   - task-560-574-pokerus-spread-planner-tests
 jules_session_id: null
@@ -16,11 +16,10 @@ tags:
   - pokerus
   - planner
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
-confidence_score: 100
 ---
 
 # Pokerus Spread Planner QA

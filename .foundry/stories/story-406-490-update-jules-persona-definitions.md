@@ -5,7 +5,7 @@ title: Update Jules Persona Definitions to Narrative Skins
 status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-01'
+updated_at: '2026-10-13'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,7 +13,7 @@ parent: epic-339-406-jules-agent-skins
 tags:
   - personas
   - gamification
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

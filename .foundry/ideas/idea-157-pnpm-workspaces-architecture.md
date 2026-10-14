@@ -7,7 +7,7 @@ owner_persona: curator
 created_at: '2026-08-19'
 updated_at: '2026-10-10'
 depends_on: []
-jules_session_id: '7565404314246404041'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -88,3 +88,4 @@ When migrating to `apps/web` or nested workspace packages:
 - [x] Product Manager: Convert this IDEA into a PRD detailing the incremental migration phases, workspace boundaries, and Cloudflare Pages configuration instructions.
 - [x] prd-157-519-pnpm-workspaces-architecture
 - [x] Tech Lead: Break down the architectural refactoring into isolated TASK nodes per phase.
+- [x] research-157-675-cloudflare-regression-analysis
