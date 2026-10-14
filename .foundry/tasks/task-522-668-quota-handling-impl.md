@@ -18,6 +18,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 95
 ---
 
 # Task: Implement graceful IndexedDB quota exceeded handling
@@ -26,8 +27,8 @@ locks: []
 Implement error handling in the storage engine (`src/engine/storage/historyDb.ts`) to gracefully handle `DOMException` with the name `QuotaExceededError`. When this error occurs during a write operation (e.g. `writeSaveState`), the system should attempt an aggressive eviction (e.g., deleting older saves beyond the usual LRU limits or clearing half the history) and then retry the write operation.
 
 ## Acceptance Criteria
-- [ ] Implement `try...catch` around write operations in `src/engine/storage/historyDb.ts` to detect `QuotaExceededError`.
-- [ ] On `QuotaExceededError`, trigger an aggressive eviction of older save states for the current playthrough (e.g., delete the oldest 50% of saves).
-- [ ] Retry the write operation after eviction.
-- [ ] If the retry still fails, ensure the error is handled gracefully without crashing the application (e.g. surface a user-friendly error to the console or fallback mechanism).
-- [ ] Write unit tests to verify the quota exceeded handling and aggressive eviction logic.
+- [x] Implement `try...catch` around write operations in `src/engine/storage/historyDb.ts` to detect `QuotaExceededError`.
+- [x] On `QuotaExceededError`, trigger an aggressive eviction of older save states for the current playthrough (e.g., delete the oldest 50% of saves).
+- [x] Retry the write operation after eviction.
+- [x] If the retry still fails, ensure the error is handled gracefully without crashing the application (e.g. surface a user-friendly error to the console or fallback mechanism).
+- [x] Write unit tests to verify the quota exceeded handling and aggressive eviction logic.
