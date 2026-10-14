@@ -225,7 +225,8 @@ function validateSchema() {
     lines.forEach((line, index) => {
       const headingMatch = line.match(/^(#{1,6})\s+(.*)$/);
       if (headingMatch && headingMatch[2]) {
-        currentSection = headingMatch[2].trim();
+        // Strip out any prefix numbering (e.g. "5. Acceptance Criteria" -> "Acceptance Criteria")
+        currentSection = headingMatch[2].replace(/^[\d.]+\s*/, '').trim();
       }
 
       if (/^\s*[-*+]\s*\[[\sXx]*\]/.test(line)) {
