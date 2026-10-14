@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildDocumentationIndex } from './flexsearch-utils.ts';
+import { buildDocumentationIndex, buildQueryFromFrontmatter } from './flexsearch-utils.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -29,5 +29,22 @@ describe('flexsearch-utils', () => {
     expect(adrResults[0].result).toContain(path.join(adrsDir, 'test2.md'));
 
     fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('should formulate a correct query from frontmatter', () => {
+    const frontmatter = {
+      title: 'Implement feature X',
+      type: 'TASK',
+      tags: ['feature', 'X'],
+      id: 'task-1',
+      status: 'PENDING',
+      owner_persona: 'coder',
+      created_at: '2024-01-01',
+      updated_at: '2024-01-01',
+      depends_on: []
+    } as any;
+
+    const query = buildQueryFromFrontmatter(frontmatter);
+    expect(query).toBe('Implement feature X TASK feature X');
   });
 });
