@@ -34,4 +34,6 @@ Refactor existing Settings-related E2E tests (`tests/e2e/settings.spec.ts` and `
 ## Acceptance Criteria
 - [ ] Settings tests are refactored to use `SettingsModalModel`.
 - [ ] Tests use semantic locators via the COM.
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-673-687-migrate-settings-tests-impl
+- [ ] task-673-688-migrate-settings-tests-qa
