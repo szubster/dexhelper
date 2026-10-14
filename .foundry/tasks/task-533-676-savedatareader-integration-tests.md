@@ -24,6 +24,6 @@ locks: []
 Write integration tests for the `SaveDataReader` to ensure it integrates correctly with the application workflows and handles simulated save data correctly.
 
 ## Acceptance Criteria
-- [ ] Create integration test cases for `SaveDataReader`.
-- [ ] Verify core engine workflow execution against dummy/stubbed buffer files.
-- [ ] Ensure all new integration tests pass successfully (`pnpm test`).
+- [x] Create integration test cases for `SaveDataReader`.
+- [x] Verify core engine workflow execution against dummy/stubbed buffer files.
+- [x] Ensure all new integration tests pass successfully (`pnpm test`).
