@@ -2,13 +2,13 @@
 id: story-398-649-gen3-roamer-iv-glitch-types-and-tests
 type: STORY
 title: Types and Tests for Roamer IV Glitch Detection
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-14'
 depends_on:
   - epic-044-397-gen3-roamer-core-extraction-v5
-jules_session_id: null
+jules_session_id: '9429084630202296489'
 pr_number: null
 parent: epic-044-398-gen3-roamer-iv-glitch-v5
 tags:
