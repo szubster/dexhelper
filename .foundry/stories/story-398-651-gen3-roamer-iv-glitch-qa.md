@@ -2,10 +2,10 @@
 id: story-398-651-gen3-roamer-iv-glitch-qa
 type: STORY
 title: QA Verification of Roamer IV Glitch Detection
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-14'
 depends_on:
   - story-398-650-gen3-roamer-iv-glitch-implementation
 jules_session_id: null
