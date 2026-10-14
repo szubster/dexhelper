@@ -2,12 +2,12 @@
 id: task-527-674-webhook-renewal-impl
 type: TASK
 title: Drive Webhook Renewal Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-09'
 updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13615158592377888513'
 pr_number: null
 parent: story-402-527-drive-webhook-registration
 tags:
