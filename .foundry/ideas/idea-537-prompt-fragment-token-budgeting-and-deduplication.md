@@ -52,6 +52,6 @@ Implement a **Prompt Fragment Token Budgeting and Dynamic Deduplication Engine**
 - **Cost & Latency Optimization:** Lower token overhead reduces per-session API cost and speeds up agent turn responses.
 
 ## 5. Acceptance Criteria
-- [ ] Create PRD for Prompt Fragment Token Budgeting and Dynamic Deduplication Engine (`prd-537-...`).
+- [ ] Draft PRD for Prompt Fragment Token Budgeting and Dynamic Deduplication Engine.
 - [ ] Design token estimation and section-based deduplication strategy in the Foundry prompt compiler architecture.
 - [ ] Integrate compiled prompt token metrics logging into the DAG Orchestrator dispatch pipeline.
