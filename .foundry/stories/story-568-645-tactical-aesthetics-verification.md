@@ -2,7 +2,7 @@
 id: story-568-645-tactical-aesthetics-verification
 type: STORY
 title: Tactical Aesthetics Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-02'
 updated_at: '2026-10-14'
