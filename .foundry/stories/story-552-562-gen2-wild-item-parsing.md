@@ -33,11 +33,15 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks for Gen 2 data extraction.
-- [ ] task-562-578-gen2-wild-item-models-impl
+- [x] task-562-578-gen2-wild-item-models-impl
 - [x] task-562-579-gen2-wild-item-extraction-logic-impl
 - [x] task-562-580-gen2-wild-item-extraction-tests
 - [x] task-562-581-gen2-wild-item-extraction-qa
-- [ ] research-562-668-investigate-gen2-wild-encounter-extraction-failure
-- [ ] task-562-669-gen2-wild-item-extraction-logic-retry
-- [ ] task-562-670-gen2-wild-item-extraction-tests-retry
-- [ ] task-562-671-gen2-wild-item-extraction-qa-retry
+- [x] research-562-668-investigate-gen2-wild-encounter-extraction-failure
+- [x] task-562-669-gen2-wild-item-extraction-logic-retry
+- [x] task-562-670-gen2-wild-item-extraction-tests-retry
+- [x] task-562-671-gen2-wild-item-extraction-qa-retry
+- [ ] research-562-687-investigate-gen2-wild-encounter-extraction-failure-retry
+- [ ] task-562-688-gen2-wild-item-extraction-logic-v3
+- [ ] task-562-689-gen2-wild-item-extraction-tests-v3
+- [ ] task-562-690-gen2-wild-item-extraction-qa-v3
