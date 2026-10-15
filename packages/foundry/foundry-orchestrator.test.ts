@@ -3821,7 +3821,7 @@ Target artifact: task-completed
     expect(parsedOutput[0].compiled_prompt).toContain('As the coder of The Foundry, your task is described in the provided node file.');
 
     expect(stderrSpy).toHaveBeenCalled();
-    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('Base persona prompt not found for: coder, using default generic prompt.'));
+    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('::warning::Base persona prompt not found for: coder, using default generic prompt.'));
     expect(warningMsg).toBeDefined();
 
     consoleSpy.mockRestore();
@@ -3936,7 +3936,7 @@ Target artifact: task-completed
     expect(compiledOutput).toContain('As the tpm of The Foundry, your task is to execute your scheduled responsibilities.');
 
     expect(stderrSpy).toHaveBeenCalled();
-    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('Scheduled agent persona prompt not found for: tpm, using default generic prompt.'));
+    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('::warning::Scheduled agent persona prompt not found for: tpm, using default generic prompt.'));
     expect(warningMsg).toBeDefined();
 
     stdoutSpy.mockRestore();
