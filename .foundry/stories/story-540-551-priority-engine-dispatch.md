@@ -19,6 +19,9 @@ locks: []
 - [ ] task-551-564-update-orchestrator-priority-logic
 - [x] task-551-565-update-orchestrator-priority-tests
 - [x] task-551-566-qa-orchestrator-priority
-- [ ] research-551-668-investigate-orchestrator-priority-tests-failure
-- [ ] task-551-669-update-orchestrator-priority-tests-v2
-- [ ] task-551-670-qa-orchestrator-priority-v2
+- [x] research-551-668-investigate-orchestrator-priority-tests-failure
+- [x] task-551-669-update-orchestrator-priority-tests-v2
+- [x] task-551-670-qa-orchestrator-priority-v2
+- [ ] research-551-690-investigate-orchestrator-priority-tests-v2-failure
+- [ ] task-551-691-update-orchestrator-priority-tests-v3
+- [ ] task-551-692-qa-orchestrator-priority-v3
