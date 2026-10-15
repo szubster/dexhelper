@@ -39,10 +39,17 @@ locks: []
 - [x] task-640-662-extract-engine-data-to-core
 - [x] task-640-663-update-app-imports-engine-data
 - [x] task-640-664-qa-extract-engine-data
-- [ ] research-640-668-investigate-extract-utils-timeout
-- [ ] task-640-669-extract-utils-to-core-retry
-- [ ] task-640-670-update-app-imports-utils-retry
-- [ ] task-640-671-qa-extract-utils-retry
-- [ ] task-640-672-extract-engine-data-to-core-retry
-- [ ] task-640-673-update-app-imports-engine-data-retry
-- [ ] task-640-674-qa-extract-engine-data-retry
+- [x] research-640-668-investigate-extract-utils-timeout
+- [x] task-640-669-extract-utils-to-core-retry
+- [x] task-640-670-update-app-imports-utils-retry
+- [x] task-640-671-qa-extract-utils-retry
+- [x] task-640-672-extract-engine-data-to-core-retry
+- [x] task-640-673-update-app-imports-engine-data-retry
+- [x] task-640-674-qa-extract-engine-data-retry
+- [ ] research-640-687-investigate-extract-utils-timeout-retry
+- [ ] task-640-688-extract-utils-to-core-v3
+- [ ] task-640-689-update-app-imports-utils-v3
+- [ ] task-640-690-qa-extract-utils-v3
+- [ ] task-640-691-extract-engine-data-to-core-v3
+- [ ] task-640-692-update-app-imports-engine-data-v3
+- [ ] task-640-693-qa-extract-engine-data-v3
