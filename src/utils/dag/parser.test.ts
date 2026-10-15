@@ -23,50 +23,6 @@ depends_on:
     });
   });
 
-  it('should parse confidence_score if present', () => {
-    const rawContent = `---
-id: task-043-074-parse-frontmatter
-type: TASK
-status: READY
-owner_persona: coder
-depends_on: []
-confidence_score: 0.85
----
-# Content here`;
-    const result = parseFoundryNode(rawContent);
-    expect(result).toEqual({
-      id: 'task-043-074-parse-frontmatter',
-      type: 'TASK',
-      status: 'READY',
-      owner_persona: 'coder',
-      depends_on: [],
-      rejection_count: 0,
-      confidence_score: 0.85,
-    });
-  });
-
-  it('should parse confidence_score as null if explicitly null', () => {
-    const rawContent = `---
-id: task-043-074-parse-frontmatter
-type: TASK
-status: READY
-owner_persona: coder
-depends_on: []
-confidence_score: null
----
-# Content here`;
-    const result = parseFoundryNode(rawContent);
-    expect(result).toEqual({
-      id: 'task-043-074-parse-frontmatter',
-      type: 'TASK',
-      status: 'READY',
-      owner_persona: 'coder',
-      depends_on: [],
-      rejection_count: 0,
-      confidence_score: null,
-    });
-  });
-
   it('should fallback to 0 if rejection_count is omitted', () => {
     const rawContent = `---
 id: task-043-074-parse-frontmatter

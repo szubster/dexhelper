@@ -1065,3 +1065,22 @@ try {
   // fallback logic
 }
 ```
+
+---
+
+# Gen 3 Wallpaper Phrase Generator E2E tests
+
+Tested generating a Playwright E2E script for Gen 3 custom wallpaper unlocking. This tests the logic exposed by the `generateWallpaperPhrases` utility function, executing it in the browser environment via Playwright instead of relying solely on Vitest unit tests.
+
+---
+
+# Box Analyzer Highlight UI
+
+Successfully implemented the UI highlights for the box analyzer matrix by correctly integrating `findBestStats` from `highlighting.ts`.
+
+Key learnings / patterns applied:
+1. Applied tactical primitives (such as `rounded-none`, `border-dashed`) as dictated by ADR 024.
+2. Modified the component to visually distinguish cells with the highest stat values.
+3. Added a new unit test in `BoxAnalyzerMatrix.test.tsx` verifying the rendering of the highlighted classes.
+4. `xvfb-run -a pnpm test:e2e` fails as expected due to missing Playwright binaries (which aligns with memory policy of not manually installing playwright dependencies).
+5. All relevant file changes verified locally without regressions on lint.

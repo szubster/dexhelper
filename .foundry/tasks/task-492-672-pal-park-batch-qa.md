@@ -5,7 +5,7 @@ title: QA - Pal Park Batch Generation and Location Mapping
 status: PENDING
 owner_persona: qa
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-14'
 depends_on:
   - task-492-669-pal-park-batch-logic-tests
   - task-492-671-pal-park-batch-ui-tests

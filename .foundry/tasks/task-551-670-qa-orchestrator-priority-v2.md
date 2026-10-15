@@ -5,7 +5,7 @@ title: QA Verification for Priority Sorting in Orchestrator v2
 status: PENDING
 owner_persona: qa
 created_at: '2026-10-07'
-updated_at: '2026-10-09'
+updated_at: '2026-10-14'
 depends_on:
   - task-551-669-update-orchestrator-priority-tests-v2
 jules_session_id: null

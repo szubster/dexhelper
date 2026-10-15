@@ -2,7 +2,7 @@
 id: task-617-669-qa-multi-box-search-ui
 type: TASK
 title: QA - Multi-Box Search UI Components
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-23'
 updated_at: '2026-10-12'
@@ -19,9 +19,7 @@ tags:
   - pc-box
   - qa
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-617-668-multi-box-attribute-filters-ui
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

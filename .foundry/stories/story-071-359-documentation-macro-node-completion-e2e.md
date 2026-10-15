@@ -2,15 +2,15 @@
 id: story-071-359-documentation-macro-node-completion-e2e
 type: STORY
 title: Documentation E2E Verification for Macro Node Completion
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-19'
-updated_at: '2026-09-22'
+updated_at: '2026-10-14'
 depends_on:
   - story-071-108-update-schema-macro-node-completion
   - story-071-109-update-adr001-macro-node-completion
   - story-071-110-verify-core-documentation
-jules_session_id: null
+jules_session_id: '7048714883130441072'
 pr_number: null
 parent: epic-045-071-documentation-macro-node-completion
 tags:

@@ -2,16 +2,17 @@
 id: task-551-669-update-orchestrator-priority-tests-v2
 type: TASK
 title: Write Unit Tests for Orchestrator Priority Sorting v2
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-09'
+updated_at: '2026-10-15'
 depends_on:
   - research-551-668-investigate-orchestrator-priority-tests-failure
-jules_session_id: null
+jules_session_id: '11771446274486595440'
 parent: story-540-551-priority-engine-dispatch
 rejection_reason: ''
 locks: []
+rejection_count: 1
 ---
 
 # Write Unit Tests for Orchestrator Priority Sorting v2

@@ -5,14 +5,14 @@ title: Investigate Autonomous No-Ask Policy Violation in E2E Tasks
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-10'
-updated_at: '2026-10-12'
+updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: '6908666620103141999'
+jules_session_id: '17936225256393113062'
 parent: story-397-407-gen3-secret-base-parsing-e2e
 tags:
   - research
   - e2e
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 locks: []
 ---

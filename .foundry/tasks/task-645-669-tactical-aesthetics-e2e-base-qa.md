@@ -2,10 +2,10 @@
 id: task-645-669-tactical-aesthetics-e2e-base-qa
 type: TASK
 title: QA Tactical Aesthetics E2E - Base Components
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-14'
 depends_on:
   - task-645-668-tactical-aesthetics-e2e-base-impl
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
 research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 priority: 60

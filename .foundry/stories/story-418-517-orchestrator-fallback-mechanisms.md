@@ -2,7 +2,7 @@
 id: story-418-517-orchestrator-fallback-mechanisms
 type: STORY
 title: Orchestrator Fallback Mechanisms
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
 updated_at: '2026-10-11'
@@ -35,4 +35,4 @@ Ensure the orchestrator gracefully handles scenarios where expected prompt fragm
 - [x] task-517-576-orchestrator-fallback-generic-prompt
 - [x] task-517-577-orchestrator-fallback-ignore-tags
 - [x] research-517-668-investigate-orchestrator-generic-prompt-failure
-- [x] task-517-669-orchestrator-fallback-generic-prompt-retry
+- [ ] task-517-669-orchestrator-fallback-generic-prompt-retry

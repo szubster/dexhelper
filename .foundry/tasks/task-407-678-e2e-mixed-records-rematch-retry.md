@@ -5,7 +5,7 @@ title: E2E Tests for Mixed Record and Rematch Tracking (Retry)
 status: PENDING
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-12'
+updated_at: '2026-10-13'
 depends_on:
   - research-407-676-e2e-failure-investigation
 jules_session_id: null

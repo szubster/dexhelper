@@ -2,13 +2,13 @@
 id: story-134-475-gen3-condition-stats-extraction-e2e
 type: STORY
 title: E2E Verification for Gen 3 Contest Condition Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-25'
-updated_at: '2026-10-12'
+updated_at: '2026-10-13'
 depends_on:
   - story-134-474-gen3-condition-stats-extraction-tests
-jules_session_id: '9799755804550130800'
+jules_session_id: null
 pr_number: null
 parent: epic-101-134-gen3-condition-stats-extraction
 tags:
@@ -17,7 +17,7 @@ tags:
   - data-extraction
   - e2e
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -32,4 +32,6 @@ Implement E2E testing to verify the end-to-end integration of the Gen 3 Conditio
 - Ensures full stack functions correctly.
 
 ## Acceptance Criteria
-- [ ] Break down story into tasks for writing E2E tests for Condition data extraction.
+- [x] Break down story into tasks for writing E2E tests for Condition data extraction.
+- [ ] task-475-680-gen3-condition-stats-extraction-e2e-tests
+- [ ] task-475-681-gen3-condition-stats-extraction-e2e-qa
