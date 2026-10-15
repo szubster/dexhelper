@@ -27,9 +27,9 @@ locks: []
 Verify the Coder's implementation of the quota exceeded error handling and aggressive eviction in `src/engine/storage/historyDb.ts`.
 
 ## Acceptance Criteria
-- [ ] Verify that `writeSaveState` correctly detects `QuotaExceededError`.
-- [ ] Verify that an aggressive eviction mechanism is triggered upon encountering the error, correctly removing a significant portion of older saves.
-- [ ] Verify that the write operation is retried successfully after eviction.
-- [ ] Verify that if the retry fails, the application does not crash and the error is handled gracefully.
-- [ ] Verify that comprehensive unit tests are provided by the Coder and that they mock the `QuotaExceededError` scenario accurately.
-- [ ] Verify there are no regressions in standard `writeSaveState` behavior under normal (non-quota-exceeded) conditions.
+- [x] Verify that `writeSaveState` correctly detects `QuotaExceededError`.
+- [x] Verify that an aggressive eviction mechanism is triggered upon encountering the error, correctly removing a significant portion of older saves.
+- [x] Verify that the write operation is retried successfully after eviction.
+- [x] Verify that if the retry fails, the application does not crash and the error is handled gracefully.
+- [x] Verify that comprehensive unit tests are provided by the Coder and that they mock the `QuotaExceededError` scenario accurately.
+- [x] Verify there are no regressions in standard `writeSaveState` behavior under normal (non-quota-exceeded) conditions.
