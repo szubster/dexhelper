@@ -2,7 +2,7 @@
 id: task-566-678-orchestrator-diagnosis-tests-retry-v2
 type: TASK
 title: Write Unit Tests for BLOCKED Diagnosis Generation (Retry v2)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07T21:10:47.153Z'
 updated_at: '2026-10-15'
@@ -18,7 +18,9 @@ tags:
   - tests
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-566-676-investigate-orchestrator-diagnosis-failure-v2
 notes: ''
 locks: []
 ---

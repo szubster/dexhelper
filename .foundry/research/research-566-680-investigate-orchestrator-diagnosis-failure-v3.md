@@ -1,0 +1,32 @@
+---
+id: research-566-680-investigate-orchestrator-diagnosis-failure-v3
+type: RESEARCH
+title: Investigate Orchestrator BLOCKED Diagnosis Implementation Failure (v3)
+status: ACTIVE
+owner_persona: researcher
+created_at: '2026-10-15T18:29:01.995Z'
+updated_at: '2026-10-15'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: story-552-566-orchestrator-diagnosis-artifact
+tags:
+  - foundry
+  - orchestrator
+  - dag
+  - research
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+locks: []
+---
+
+# Research: Investigate Orchestrator BLOCKED Diagnosis Implementation Failure (v3)
+
+## Description
+Task 582 (Implement Orchestrator Logic for BLOCKED Diagnosis) and its retries reached maximum rejection counts and failed permanently. We need to investigate the root cause of these failures. The orchestrator logic modification for detecting BLOCKED states and outputting the "BLOCKED Diagnosis" artifact failed multiple times. Research the orchestrator code (`.github/scripts/foundry-orchestrator.ts`), review PRs/rejection history, and determine the correct approach for implementing this feature without breaking existing tests or logic.
+
+## Acceptance Criteria
+- [ ] Determine the root cause of the previous implementation failures.
+- [ ] Document the correct approach and necessary modifications.

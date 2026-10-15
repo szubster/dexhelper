@@ -2,7 +2,7 @@
 id: research-566-676-investigate-orchestrator-diagnosis-failure-v2
 type: RESEARCH
 title: Investigate Orchestrator BLOCKED Diagnosis Implementation Failure (v2)
-status: ACTIVE
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-07T21:10:47.146Z'
 updated_at: '2026-10-15'
@@ -17,7 +17,7 @@ tags:
   - research
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
