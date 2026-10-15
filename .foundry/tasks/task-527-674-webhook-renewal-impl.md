@@ -30,6 +30,6 @@ priority: 50
 Implement the scheduled logic to renew Google Drive webhooks before they expire.
 
 ## Acceptance Criteria
-- [ ] Create a scheduled Cloudflare Worker task for webhook renewal.
-- [ ] Implement logic to track channel expiration.
-- [ ] Write unit tests for the renewal logic.
+- [x] Create a scheduled Cloudflare Worker task for webhook renewal.
+- [x] Implement logic to track channel expiration.
+- [x] Write unit tests for the renewal logic.
