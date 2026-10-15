@@ -30,4 +30,8 @@ With the item gating data mapping in place, DexHelper needs a UI mechanism (Bike
 Implement a UI filter that allows users to toggle or see which items on the current route are gated by specific bikes. Display this information explicitly (e.g., "TM13 Ice Beam (Abandoned Ship) - Requires Dive & Storage Key"). Update the route display components to integrate this filter.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break down this Story into Tasks for Coder and QA.
+- [x] tech_lead: Break down this Story into Tasks for Coder and QA.
+- [ ] task-574-690-item-gating-ui-components
+- [ ] task-574-691-item-gating-ui-state
+- [ ] task-574-692-item-gating-ui-tests
+- [ ] task-574-693-item-gating-ui-qa
