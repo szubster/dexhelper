@@ -10,20 +10,19 @@
       "TASK": 2420
     },
     "byStatus": {
-      "COMPLETED": 3073,
-      "ACTIVE": 119,
-      "CANCELLED": 682,
-      "PENDING": 697,
-      "READY": 66,
-      "BLOCKED": 14,
-      "FAILED": 1
+      "COMPLETED": 3081,
+      "ACTIVE": 116,
+      "CANCELLED": 688,
+      "PENDING": 686,
+      "READY": 67,
+      "BLOCKED": 14
     }
   },
   "prs": {
     "totalPRs": 9450,
-    "openPRs": 151,
-    "mergedPRs": 8174,
+    "openPRs": 149,
+    "mergedPRs": 8176,
     "closedPRs": 1125
   },
-  "timestamp": "2026-10-15T01:11:28.604Z"
+  "timestamp": "2026-10-15T06:36:21.782Z"
 }

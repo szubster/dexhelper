@@ -2,13 +2,13 @@
 id: task-499-615-tpm-distillation-e2e-implementation
 type: TASK
 title: TPM Distillation Logic E2E - Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-23'
 updated_at: '2026-10-15'
 depends_on:
   - task-499-614-tpm-distillation-e2e-fixtures
-jules_session_id: '15552666041760045526'
+jules_session_id: null
 pr_number: null
 parent: story-406-499-tpm-distillation-e2e
 tags:
