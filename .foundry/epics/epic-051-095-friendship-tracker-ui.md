@@ -34,9 +34,13 @@ Develop the user interface to display the extracted Friendship data, calculate m
 *   Must adhere to Tailwind v4 utility guidelines and the app's aesthetic constraints (e.g., sharp edges, monospaced fonts).
 
 ## Acceptance Criteria
-- [ ] UI component implemented to display Numeric Friendship and Progress Bar (target 220).
-- [ ] UI displays calculated base power for Return and Frustration.
-- [ ] Filtering logic implemented to show only Friendship-evolving Pokémon.
-- [ ] Sorting logic implemented to order by closeness to 220.
-- [ ] Heuristic logic implemented to calculate and display estimated "actions needed" (Vitamins/Steps).
-- [ ] End-to-end tests implemented to verify UI rendering and filtering logic.
+- [ ] story-095-676-friendship-display-and-power-calc
+- [ ] story-095-677-friendship-filtering-and-sorting
+- [ ] story-095-678-friendship-heuristic-engine
+- [ ] story-095-679-friendship-tracker-e2e-verification
+- [x] UI component implemented to display Numeric Friendship and Progress Bar (target 220).
+- [x] UI displays calculated base power for Return and Frustration.
+- [x] Filtering logic implemented to show only Friendship-evolving Pokémon.
+- [x] Sorting logic implemented to order by closeness to 220.
+- [x] Heuristic logic implemented to calculate and display estimated "actions needed" (Vitamins/Steps).
+- [x] End-to-end tests implemented to verify UI rendering and filtering logic.
