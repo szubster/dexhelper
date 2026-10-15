@@ -20,5 +20,5 @@ locks: []
 Verify the correctness of the deletion chunking and sorting logic.
 
 ## Acceptance Criteria
-- [ ] QA verifies that the deletion queue properly sorts eligible nodes to prioritize the oldest files first.
-- [ ] QA verifies that the deletion queue is limited to a maximum of 50 nodes per execution cycle.
+- [x] QA verifies that the deletion queue properly sorts eligible nodes to prioritize the oldest files first.
+- [x] QA verifies that the deletion queue is limited to a maximum of 50 nodes per execution cycle.
