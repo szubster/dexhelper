@@ -27,6 +27,6 @@ locks: []
 Verify the correctness of the Box Analyzer highlighting logic and its UI integration.
 
 ## Acceptance Criteria
-- [ ] Verify that findBestStats correctly identifies the highest stats in various edge cases (e.g., ties, all zero).
-- [ ] Verify that the BoxAnalyzerMatrix component correctly applies ADR 024 compliant tactical styling to the highlighted cells.
-- [ ] Verify that tests are comprehensive and pass successfully.
+- [x] Verify that findBestStats correctly identifies the highest stats in various edge cases (e.g., ties, all zero).
+- [x] Verify that the BoxAnalyzerMatrix component correctly applies ADR 024 compliant tactical styling to the highlighted cells.
+- [x] Verify that tests are comprehensive and pass successfully.
