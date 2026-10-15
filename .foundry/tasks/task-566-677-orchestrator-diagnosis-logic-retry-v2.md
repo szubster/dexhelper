@@ -2,10 +2,10 @@
 id: task-566-677-orchestrator-diagnosis-logic-retry-v2
 type: TASK
 title: Implement Orchestrator Logic for BLOCKED Diagnosis (Retry v2)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-07T21:10:47.153Z'
-updated_at: '2026-10-10'
+updated_at: '2026-10-15'
 depends_on:
   - research-566-676-investigate-orchestrator-diagnosis-failure-v2
 jules_session_id: null

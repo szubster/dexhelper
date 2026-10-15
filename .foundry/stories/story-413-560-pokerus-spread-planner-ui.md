@@ -2,10 +2,10 @@
 id: story-413-560-pokerus-spread-planner-ui
 type: STORY
 title: Pokerus Spread Planner UI
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-09'
-updated_at: '2026-10-13'
+updated_at: '2026-10-15'
 depends_on: []
 jules_session_id: '8199578389853981379'
 pr_number: null
@@ -28,7 +28,7 @@ Implement the UI tool to strategically plan Pokerus spread, suggesting party con
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-560-572-pokerus-spread-planner-state
-- [ ] task-560-573-pokerus-spread-planner-ui-component
-- [ ] task-560-574-pokerus-spread-planner-tests
-- [ ] task-560-575-pokerus-spread-planner-qa
+- [x] task-560-572-pokerus-spread-planner-state
+- [x] task-560-573-pokerus-spread-planner-ui-component
+- [x] task-560-574-pokerus-spread-planner-tests
+- [x] task-560-575-pokerus-spread-planner-qa

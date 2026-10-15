@@ -2,10 +2,10 @@
 id: story-018-513-orchestrator-test-updates
 type: STORY
 title: Update Orchestrator Idempotent Tests
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-09-02'
+updated_at: '2026-10-15'
 depends_on:
   - story-018-512-idempotent-orchestrator-bypass
 jules_session_id: null

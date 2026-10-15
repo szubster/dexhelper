@@ -2,7 +2,7 @@
 id: task-564-604-pokemon-held-item-tracker-qa
 type: TASK
 title: QA Pokemon Held Item Tracker Logic
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-09-19'
 updated_at: '2026-10-15'
@@ -14,8 +14,8 @@ parent: story-554-564-pokemon-held-item-tracker
 tags:
   - dexhelper
   - tracker
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

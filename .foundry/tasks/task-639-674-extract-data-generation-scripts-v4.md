@@ -2,10 +2,10 @@
 id: task-639-674-extract-data-generation-scripts-v4
 type: TASK
 title: Extract Data Generation Scripts to Workspace Package v4
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-08'
-updated_at: '2026-10-10'
+updated_at: '2026-10-15'
 depends_on:
   - research-639-673-investigate-extract-data-scripts-failure-v3
 jules_session_id: null

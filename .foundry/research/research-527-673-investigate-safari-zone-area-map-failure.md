@@ -2,7 +2,7 @@
 id: research-527-673-investigate-safari-zone-area-map-failure
 type: RESEARCH
 title: Investigate Safari Zone Area Map Failure
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-09'
 updated_at: '2026-10-15'
@@ -16,8 +16,8 @@ tags:
   - react
   - safari-zone
 research_references: []
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

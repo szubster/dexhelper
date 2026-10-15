@@ -2,10 +2,10 @@
 id: task-527-674-safari-zone-area-map-ui-v2
 type: TASK
 title: Safari Zone Area Map UI Component V2
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-09'
-updated_at: '2026-10-13'
+updated_at: '2026-10-15'
 depends_on:
   - research-527-673-investigate-safari-zone-area-map-failure
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - safari-zone
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-527-673-investigate-safari-zone-area-map-failure
 notes: ''
 locks: []
 ---

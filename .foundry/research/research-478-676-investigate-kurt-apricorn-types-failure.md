@@ -2,12 +2,12 @@
 id: research-478-676-investigate-kurt-apricorn-types-failure
 type: RESEARCH
 title: Investigate Kurt Apricorn Types Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-10'
 updated_at: '2026-10-15'
 depends_on: []
-jules_session_id: '43784353702562721'
+jules_session_id: null
 pr_number: null
 parent: story-404-478-kurt-apricorn-parsing-logic
 tags:
@@ -15,7 +15,7 @@ tags:
   - types
   - failure-investigation
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

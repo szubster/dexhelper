@@ -2,10 +2,10 @@
 id: task-566-679-qa-blocked-diagnosis-retry-v2
 type: TASK
 title: QA Verification for Orchestrator BLOCKED Diagnosis (Retry v2)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-07T21:10:47.156Z'
-updated_at: '2026-10-10'
+updated_at: '2026-10-15'
 depends_on:
   - task-566-678-orchestrator-diagnosis-tests-retry-v2
 jules_session_id: null
