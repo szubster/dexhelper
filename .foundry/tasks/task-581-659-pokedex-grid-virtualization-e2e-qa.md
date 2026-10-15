@@ -27,6 +27,6 @@ locks: []
 Verify that the Playwright E2E tests implemented for the `PokedexGrid` virtualization correctly and robustly assert the rendering and scrolling behaviors.
 
 ## Acceptance Criteria
-- [ ] Review the implemented E2E tests in the `PokedexGrid` implementation.
-- [ ] Ensure the tests use semantic locators and the `PokedexGridModel` appropriately.
-- [ ] Verify that the E2E tests pass reliably without flakiness (`xvfb-run -a pnpm test:e2e`).
+- [x] Review the implemented E2E tests in the `PokedexGrid` implementation.
+- [x] Ensure the tests use semantic locators and the `PokedexGridModel` appropriately.
+- [x] Verify that the E2E tests pass reliably without flakiness (`xvfb-run -a pnpm test:e2e`).
