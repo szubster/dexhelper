@@ -34,6 +34,9 @@ Implement changes required by ADR 015. Update the runtime interfaces and compone
 - [x] Break down story into tasks for technical blueprinting and implementation.
 - [x] task-336-346-update-runtime-interfaces-keys-impl
 - [x] task-336-347-update-runtime-interfaces-keys-qa
-- [ ] research-336-567-investigate-runtime-interfaces-keys-failure
-- [ ] task-336-568-update-runtime-interfaces-keys-impl-v2
-- [ ] task-336-569-update-runtime-interfaces-keys-qa-v2
+- [x] research-336-567-investigate-runtime-interfaces-keys-failure
+- [x] task-336-568-update-runtime-interfaces-keys-impl-v2
+- [x] task-336-569-update-runtime-interfaces-keys-qa-v2
+- [ ] research-336-690-investigate-runtime-interfaces-keys-failure-v2
+- [ ] task-336-691-update-runtime-interfaces-keys-impl-v3
+- [ ] task-336-692-update-runtime-interfaces-keys-qa-v3
