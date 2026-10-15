@@ -23,3 +23,7 @@ locks: []
 # Investigate Data Generation Scripts Extraction Failure v3
 
 Investigate why `research-639-668-investigate-extract-data-scripts-failure-v2` failed to investigate why `task-639-641-extract-data-generation-scripts` failed to extract data generation scripts to `@dexhelper/pokedata-extractor`.
+
+## Research Report
+
+The failure of `research-639-668-investigate-extract-data-scripts-failure-v2` was due to an Autonomous No-Ask Policy Violation. The orchestrator detected that the session entered an `AWAITING_USER_FEEDBACK` state (which occurs when the agent attempts to prompt the user using conversational tools rather than acting autonomously). According to the strict core policies, asking for user input or stalling the session is blocked and results in immediate session failure.
