@@ -33,4 +33,4 @@ Implement the core logic layer for checking if Pokémon currently in the player'
 - A filtered list of compatible Pokémon should be returned.
 
 ## Acceptance Criteria
-- [ ] Implement getCompatiblePokemonForTMHM (or similar) in the compatibility engine module.
+- [x] Implement getCompatiblePokemonForTMHM (or similar) in the compatibility engine module.
