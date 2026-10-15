@@ -33,7 +33,12 @@ Once an item is selected, we need to display the recommended routes, encounter t
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks.
-- [ ] task-563-667-routes-encounters-data-fetching-impl
-- [ ] task-563-668-routes-encounters-ui-components-impl
-- [ ] task-563-669-routes-encounters-tests-impl
-- [ ] task-563-670-routes-encounters-qa
+- [x] task-563-667-routes-encounters-data-fetching-impl
+- [x] task-563-668-routes-encounters-ui-components-impl
+- [x] task-563-669-routes-encounters-tests-impl
+- [x] task-563-670-routes-encounters-qa
+- [ ] research-563-676-investigate-routes-encounters-failure
+- [ ] task-563-677-routes-encounters-data-fetching-retry
+- [ ] task-563-678-routes-encounters-ui-components-retry
+- [ ] task-563-679-routes-encounters-tests-retry
+- [ ] task-563-680-routes-encounters-qa-retry
