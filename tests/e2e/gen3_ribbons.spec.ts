@@ -51,8 +51,14 @@ test.describe('Gen 3 Ribbon Data Extraction E2E', () => {
       timeout: 20000,
     });
 
-    // Navigate to ribbons dashboard
-    await page.goto('./dexhelper/dashboard/ribbons');
+    // Navigate to ribbons dashboard using relative URL strategy that bypasses Vite base url issues
+    await page.goto('./dashboard');
+    await expect(page.getByText(/SYSTEM DIRECTORY/i).first()).toBeVisible({ timeout: 15000 });
+
+    await page
+      .getByRole('link', { name: /GLOBAL RIBBON CHECKLIST/i })
+      .first()
+      .click();
 
     // Verify it loads correctly
     await expect(page.getByText(/GLOBAL RIBBON CHECKLIST/i).first()).toBeVisible({ timeout: 15000 });
