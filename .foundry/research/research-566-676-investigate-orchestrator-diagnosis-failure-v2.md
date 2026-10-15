@@ -2,12 +2,12 @@
 id: research-566-676-investigate-orchestrator-diagnosis-failure-v2
 type: RESEARCH
 title: Investigate Orchestrator BLOCKED Diagnosis Implementation Failure (v2)
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-07T21:10:47.146Z'
 updated_at: '2026-10-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1950935229900381893'
 pr_number: null
 parent: story-552-566-orchestrator-diagnosis-artifact
 tags:
