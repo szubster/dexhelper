@@ -59,14 +59,17 @@ test.describe('Gen 3 Ribbon Data Extraction E2E', () => {
       page
         .getByText(/PC BOXES/i)
         .first()
-        .or(page.getByText(/GLOBAL RIBBON CHECKLIST/i).first())
+        .or(page.getByText(/SYSTEM DIRECTORY/i).first())
         .first(),
     ).toBeVisible({ timeout: 15000 });
 
     // We can interact with the main menu link
     const ribbonLink = page.getByRole('link', { name: /GLOBAL RIBBON CHECKLIST/i });
-    if (await ribbonLink.isVisible()) {
+    if (await ribbonLink.first().isVisible()) {
       await ribbonLink.first().click();
+    } else {
+      // Try clicking it via CSS if the role isn't exactly matching (e.g. mobile nav or hidden structure)
+      await page.locator('text=/GLOBAL RIBBON CHECKLIST/i').first().click({ force: true });
     }
 
     // Verify it loads correctly
