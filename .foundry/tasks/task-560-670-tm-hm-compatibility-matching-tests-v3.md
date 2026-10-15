@@ -2,13 +2,13 @@
 id: task-560-670-tm-hm-compatibility-matching-tests-v3
 type: TASK
 title: Write Unit Tests for TM/HM Compatibility Matching (V3)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-06'
 updated_at: '2026-10-15'
 depends_on:
   - task-560-669-tm-hm-compatibility-matching-impl-v3
-jules_session_id: null
+jules_session_id: '9607403523392567919'
 pr_number: null
 parent: story-402-560-tm-hm-compatibility-matching
 tags:
