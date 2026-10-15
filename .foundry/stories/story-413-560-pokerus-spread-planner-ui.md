@@ -7,7 +7,7 @@ owner_persona: tech_lead
 created_at: '2026-09-09'
 updated_at: '2026-10-15'
 depends_on: []
-jules_session_id: '8199578389853981379'
+jules_session_id: null
 pr_number: null
 parent: epic-038-413-pokerus-spread-planner-retry
 tags:

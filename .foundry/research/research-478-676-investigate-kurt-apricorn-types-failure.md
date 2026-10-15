@@ -2,7 +2,7 @@
 id: research-478-676-investigate-kurt-apricorn-types-failure
 type: RESEARCH
 title: Investigate Kurt Apricorn Types Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-10'
 updated_at: '2026-10-15'
@@ -14,8 +14,8 @@ tags:
   - gen2
   - types
   - failure-investigation
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

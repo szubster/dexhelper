@@ -2,13 +2,13 @@
 id: task-638-669-extract-constants-to-core-v3
 type: TASK
 title: Extract Constants to Core Package V3
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-08'
 updated_at: '2026-10-15'
 depends_on:
   - research-638-668-investigate-constants-extraction-retry-failure
-jules_session_id: '9232806101873708618'
+jules_session_id: null
 pr_number: null
 parent: story-526-638-extract-constants
 tags:
@@ -16,7 +16,7 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
