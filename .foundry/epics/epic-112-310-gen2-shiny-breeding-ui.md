@@ -2,13 +2,13 @@
 id: epic-112-310-gen2-shiny-breeding-ui
 type: EPIC
 title: Gen 2 Shiny Breeding Compatibility Planner UI
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-07-12'
-updated_at: '2026-10-09'
+updated_at: '2026-10-15'
 depends_on:
   - epic-112-309-gen2-shiny-breeding-logic
-jules_session_id: null
+jules_session_id: '16219565049414883815'
 pr_number: null
 parent: prd-108-112-gen2-shiny-breeding-dv-planner
 tags:
