@@ -2,12 +2,12 @@
 id: task-479-676-e2e-core-fetch
 type: TASK
 title: Implement E2E test for pokedata-core.msgpack fetching
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-11'
-updated_at: '2026-10-11'
+updated_at: '2026-10-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1745257068235129723'
 pr_number: null
 parent: story-419-479-data-splitting-e2e
 tags:
