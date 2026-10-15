@@ -48,4 +48,7 @@ This Epic involves building the user interface for the Shiny Breeding Planner in
     *   Use Tailwind v4 `@utility` classes (e.g., `tactical-panel`) for consistent styling, incorporating dashed borders (`border-dashed`), sharp corners (`rounded-none`), and monospaced typography (`font-mono`).
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this EPIC down into actionable STORY nodes for the engineering team.
+- [x] Story Owner: Break this EPIC down into actionable STORY nodes for the engineering team.
+- [ ] story-310-676-pokemon-selection-interface
+- [ ] story-310-677-compatibility-odds-display
+- [ ] story-310-678-shiny-breeding-ui-e2e
