@@ -30,5 +30,34 @@ The child task `task-478-667-kurt-apricorn-types` encountered a permanent failur
 - Provide a clear, actionable set of typed interfaces and file destinations so the `coder` persona can implement them without needing to ask the user.
 
 ## Acceptance Criteria
-- [ ] Investigate the root cause of the `task-478-667` failure.
-- [ ] Document the required TypeScript interfaces and their correct file path in the `## Research Report` section of this node.
+- [x] Investigate the root cause of the `task-478-667` failure.
+- [x] Document the required TypeScript interfaces and their correct file path in the `## Research Report` section of this node.
+
+## Research Report
+
+### Root Cause Analysis of `task-478-667` Failure
+The child task `task-478-667-kurt-apricorn-types` failed because the agent encountered ambiguity regarding where to place Kurt Apricorn types/constants and what specific interfaces were needed for Kurt's crafting state, leading to a Autonomous No-Ask Policy Violation. Specifically, Gen 2 modular save parsers in this codebase (such as phone and roamer) are organized in dedicated subdirectories under `src/engine/saveParser/parsers/gen2/`.
+
+### Required TypeScript Interfaces and File Locations
+To eliminate ambiguity for the retry coder persona:
+1. **Target File Location**: `src/engine/saveParser/parsers/gen2/kurt/types.ts` (or `src/engine/saveParser/parsers/gen2/kurt/constants.ts` / `types.ts`).
+2. **TypeScript Interfaces**:
+```typescript
+export interface KurtApricornState {
+  apricornId: number;
+  ballId: number;
+  quantity: number;
+  isCrafting: boolean;
+  dayOfWeek?: number;
+}
+
+export type ApricornType = 'RED' | 'BLU' | 'YLW' | 'GRN' | 'WHT' | 'BLK' | 'PNK';
+
+export interface ApricornBallMapping {
+  apricornId: number;
+  ballId: number;
+  ballName: string;
+}
+```
+3. **Save Offset Reference**:
+- SRAM Offsets in Crystal / GS for Kurt Apricorn count/quantity and items should be placed in `src/engine/saveParser/parsers/gen2/kurt/constants.ts` or exported alongside `gen2Constants.ts`.
