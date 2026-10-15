@@ -2,12 +2,12 @@
 id: research-478-676-investigate-kurt-apricorn-types-failure
 type: RESEARCH
 title: Investigate Kurt Apricorn Types Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-15'
 depends_on: []
-jules_session_id: null
+jules_session_id: '43784353702562721'
 pr_number: null
 parent: story-404-478-kurt-apricorn-parsing-logic
 tags:
