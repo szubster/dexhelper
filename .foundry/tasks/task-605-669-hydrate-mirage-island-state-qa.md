@@ -2,13 +2,13 @@
 id: task-605-669-hydrate-mirage-island-state-qa
 type: TASK
 title: QA Hydration of Mirage Island State into PokeDB
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-07'
-updated_at: '2026-10-14'
+updated_at: '2026-10-15'
 depends_on:
   - task-605-670-hydrate-mirage-island-state-logic-impl
-jules_session_id: null
+jules_session_id: '16263805675463965637'
 pr_number: null
 parent: story-063-605-mirage-island-unified-state-hydration
 tags:
