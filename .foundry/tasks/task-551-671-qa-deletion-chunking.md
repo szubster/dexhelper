@@ -2,13 +2,13 @@
 id: task-551-671-qa-deletion-chunking
 type: TASK
 title: QA Deletion Chunking
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-07'
 updated_at: '2026-10-15'
 depends_on:
   - task-551-670-deletion-queue-unit-tests
-jules_session_id: '6169062639203980821'
+jules_session_id: null
 parent: story-517-551-implement-deletion-chunking
 rejection_reason: ''
 locks: []

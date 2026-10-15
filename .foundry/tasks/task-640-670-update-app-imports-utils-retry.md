@@ -2,10 +2,10 @@
 id: task-640-670-update-app-imports-utils-retry
 type: TASK
 title: Update application imports to use @dexhelper/core for utils (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-14'
+updated_at: '2026-10-15'
 depends_on:
   - task-640-669-extract-utils-to-core-retry
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-640-669-extract-utils-to-core-retry
 notes: ''
 locks: []
 ---

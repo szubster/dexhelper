@@ -2,10 +2,10 @@
 id: story-400-479-gen3-pokeblock-parsing-e2e
 type: STORY
 title: Gen 3 Pokéblock Parsing E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-10-13'
+updated_at: '2026-10-15'
 depends_on:
   - story-400-478-gen3-pokeblock-parsing-logic
 jules_session_id: null
@@ -28,10 +28,10 @@ locks: []
 To ensure our parsing backend correctly integrates with the broader application, we need to verify the extraction of the Pokéblock Case data end-to-end using real save files.
 
 ## Acceptance Criteria
-- [ ] Write E2E tests verifying that Pokéblocks are successfully parsed from a provided Gen 3 save file.
+- [x] Write E2E tests verifying that Pokéblocks are successfully parsed from a provided Gen 3 save file.
 - [x] Break down into Tasks.
 - [x] task-479-576-gen3-pokeblock-e2e-impl
 - [x] task-479-577-gen3-pokeblock-e2e-qa
-- [ ] research-479-608-investigate-gen3-pokeblock-e2e-failure
-- [ ] task-479-609-gen3-pokeblock-e2e-impl-v2
-- [ ] task-479-610-gen3-pokeblock-e2e-qa-v2
+- [x] research-479-608-investigate-gen3-pokeblock-e2e-failure
+- [x] task-479-609-gen3-pokeblock-e2e-impl-v2
+- [x] task-479-610-gen3-pokeblock-e2e-qa-v2
