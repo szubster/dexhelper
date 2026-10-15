@@ -32,7 +32,12 @@ With the memory offsets and constants defined, this story implements the actual 
 
 ## Acceptance Criteria
 - [x] tech_lead: Break this STORY down into actionable TASK nodes.
-- [ ] task-478-667-kurt-apricorn-types
-- [ ] task-478-668-kurt-apricorn-core-logic
-- [ ] task-478-669-kurt-apricorn-unit-tests
-- [ ] task-478-670-kurt-apricorn-qa
+- [x] task-478-667-kurt-apricorn-types
+- [x] task-478-668-kurt-apricorn-core-logic
+- [x] task-478-669-kurt-apricorn-unit-tests
+- [x] task-478-670-kurt-apricorn-qa
+- [ ] research-478-676-investigate-kurt-apricorn-types-failure
+- [ ] task-478-677-kurt-apricorn-types-retry
+- [ ] task-478-678-kurt-apricorn-core-logic-retry
+- [ ] task-478-679-kurt-apricorn-unit-tests-retry
+- [ ] task-478-680-kurt-apricorn-qa-retry
