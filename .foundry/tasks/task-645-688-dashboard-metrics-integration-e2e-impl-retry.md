@@ -2,10 +2,10 @@
 id: task-645-688-dashboard-metrics-integration-e2e-impl-retry
 type: TASK
 title: Implement Integration and E2E Tests for Confidence Metrics Dashboard (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-14T14:58:21.117Z'
-updated_at: '2026-10-14'
+updated_at: '2026-10-15'
 depends_on:
   - research-645-687-investigate-dashboard-metrics-e2e-failure
 jules_session_id: null

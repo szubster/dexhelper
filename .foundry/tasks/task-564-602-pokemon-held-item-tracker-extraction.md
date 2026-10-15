@@ -2,10 +2,10 @@
 id: task-564-602-pokemon-held-item-tracker-extraction
 type: TASK
 title: Pokemon Held Item Tracker Data Extraction
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-27'
+updated_at: '2026-10-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,8 +13,8 @@ parent: story-554-564-pokemon-held-item-tracker
 tags:
   - dexhelper
   - tracker
-rejection_count: 1
-rejection_reason: 'extractHeldItems incorrectly drops duplicate held items by using a Set. It must return an array preserving duplicates so diffing logic can accurately identify newly acquired items.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

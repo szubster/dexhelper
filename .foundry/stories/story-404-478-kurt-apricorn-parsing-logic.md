@@ -2,13 +2,13 @@
 id: story-404-478-kurt-apricorn-parsing-logic
 type: STORY
 title: Kurt Apricorn Parsing Logic
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-10'
+updated_at: '2026-10-15'
 depends_on:
   - story-404-477-kurt-apricorn-offset-and-constants
-jules_session_id: '9923357002698927917'
+jules_session_id: null
 pr_number: null
 parent: epic-338-404-kurt-apricorn-data-engine
 tags:

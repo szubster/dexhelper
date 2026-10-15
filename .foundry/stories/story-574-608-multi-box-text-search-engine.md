@@ -2,12 +2,12 @@
 id: story-574-608-multi-box-text-search-engine
 type: STORY
 title: Multi-Box Text Search Engine
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-22'
-updated_at: '2026-10-11'
+updated_at: '2026-10-15'
 depends_on: []
-jules_session_id: '2971746968757231560'
+jules_session_id: null
 pr_number: null
 parent: epic-566-574-multi-box-search-engine
 tags:

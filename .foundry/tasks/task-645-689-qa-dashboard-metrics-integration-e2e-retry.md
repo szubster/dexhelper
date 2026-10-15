@@ -2,10 +2,10 @@
 id: task-645-689-qa-dashboard-metrics-integration-e2e-retry
 type: TASK
 title: QA Verification for Confidence Metrics Dashboard E2E Tests (Retry)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-14T14:58:21.117Z'
-updated_at: '2026-10-14'
+updated_at: '2026-10-15'
 depends_on:
   - task-645-688-dashboard-metrics-integration-e2e-impl-retry
 jules_session_id: null
