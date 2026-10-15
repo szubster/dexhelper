@@ -27,3 +27,6 @@ Verify the logic implemented in src/engine/tracker/heldItemExtractor.ts and src/
 
 ## Acceptance Criteria
 - [ ] Verify functionality and tests.
+
+### QA Rejection
+The implementation of `extractHeldItems` in `src/engine/tracker/heldItemExtractor.ts` uses a `Set` which incorrectly drops duplicate held items. This breaks downstream diffing logic. Task `task-564-602-pokemon-held-item-tracker-extraction` has been marked as FAILED.
