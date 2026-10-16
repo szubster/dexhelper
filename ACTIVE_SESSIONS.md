@@ -16,6 +16,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [idea-129-epic-level-distillation-archival](.foundry/ideas/idea-129-epic-level-distillation-archival.md) | IDEA | Epic-Level Distillation and Cold Storage Archival | curator | [11914054102843343933](https://jules.google.com/session/11914054102843343933) |
 | [idea-488-autonomous-execution-enforcement](.foundry/ideas/idea-488-autonomous-execution-enforcement.md) | IDEA | Implement Automated Detection of Autonomous Execution Violations | curator | [2721788046849115960](https://jules.google.com/session/2721788046849115960) |
 | [idea-526-save-file-schema-migration-framework](.foundry/ideas/idea-526-save-file-schema-migration-framework.md) | IDEA | Versioned Save State Schema Migration Pipeline | product_manager | [16960194378758863441](https://jules.google.com/session/16960194378758863441) |
 | [idea-528-playwright-relative-path-linter](.foundry/ideas/idea-528-playwright-relative-path-linter.md) | IDEA | Playwright Relative Path Navigation Linter Rule | product_manager | [12127147966401658127](https://jules.google.com/session/12127147966401658127) |
