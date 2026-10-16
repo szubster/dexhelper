@@ -33,6 +33,9 @@ Implement the visual representation of the Safari Zone that highlights based on 
 - [ ] task-527-595-safari-zone-selection-ui
 - [x] task-527-596-safari-zone-area-map-ui
 - [x] task-527-597-safari-zone-area-highlighting-qa
-- [ ] research-527-673-investigate-safari-zone-area-map-failure
-- [ ] task-527-674-safari-zone-area-map-ui-v2
-- [ ] task-527-675-safari-zone-area-highlighting-qa-v2
+- [x] research-527-673-investigate-safari-zone-area-map-failure
+- [x] task-527-674-safari-zone-area-map-ui-v2
+- [x] task-527-675-safari-zone-area-highlighting-qa-v2
+- [ ] research-527-690-investigate-safari-zone-area-map-failure-v2
+- [ ] task-527-691-safari-zone-area-map-ui-v3
+- [ ] task-527-692-safari-zone-area-highlighting-qa-v3
