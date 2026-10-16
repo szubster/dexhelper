@@ -43,4 +43,39 @@ test.describe('Gen 3 Secret Base Rematches E2E', () => {
     await expect(page.getByText('BEATEN TRAINER')).toBeVisible();
     await expect(page.getByText('[ ALREADY BATTLED ]')).toBeVisible();
   });
+
+  test('should render Gen 3 Secret Base Rematches from mixed record extraction in the UI', async ({ page }) => {
+    // Navigate to dashboard
+    await page.goto('./dashboard');
+    await waitForSync(page);
+
+    // Mock state in Zustand store
+    await page.evaluate(() => {
+      // biome-ignore lint/suspicious/noExplicitAny: window.__store is untyped
+      const store = (window as typeof window & { __store: () => any }).__store();
+      store.setSaveData({
+        ...store.saveData,
+        generation: 3,
+        gen3SecretBases: [
+          {
+            trainerName: 'MIXED RECORD 1',
+            battledOwnerToday: false,
+          },
+          {
+            trainerName: 'MIXED RECORD 2',
+            battledOwnerToday: true,
+          },
+        ],
+        gen3TrainerRematchFlags: [0, 1],
+      });
+    });
+
+    await expect(page.getByText(/SECRET BASE REMATCHES/i)).toBeVisible();
+
+    await expect(page.getByText('MIXED RECORD 1')).toBeVisible();
+    await expect(page.getByText('[ BATTLE AVAILABLE ]')).toBeVisible();
+
+    await expect(page.getByText('MIXED RECORD 2')).toBeVisible();
+    await expect(page.getByText('[ ALREADY BATTLED ]')).toBeVisible();
+  });
 });
