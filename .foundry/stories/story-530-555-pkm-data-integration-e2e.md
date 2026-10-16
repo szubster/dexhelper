@@ -25,4 +25,8 @@ rejection_reason: ''
 This story is dedicated to the end-to-end verification of the backend data extraction layer for individual Pokémon exports across Gen 1, Gen 2, and Gen 3.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks to verify E2E integration.
+- [x] Tech Lead: Break down into Tasks to verify E2E integration.
+- [ ] task-555-680-gen1-gen2-pkm-e2e-tests-impl
+- [ ] task-555-681-qa-gen1-gen2-pkm-e2e-tests
+- [ ] task-555-682-gen3-pk3-e2e-tests-impl
+- [ ] task-555-683-qa-gen3-pk3-e2e-tests
