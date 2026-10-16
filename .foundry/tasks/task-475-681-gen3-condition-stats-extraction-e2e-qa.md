@@ -2,10 +2,10 @@
 id: task-475-681-gen3-condition-stats-extraction-e2e-qa
 type: TASK
 title: QA Verification for Gen 3 Contest Condition Data Extraction E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-12T06:52:49.000Z'
-updated_at: '2026-10-12T06:52:49.000Z'
+updated_at: '2026-10-16'
 depends_on:
   - task-475-680-gen3-condition-stats-extraction-e2e-tests
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-475-680-gen3-condition-stats-extraction-e2e-tests
 notes: ''
 locks: []
 ---

@@ -2,15 +2,16 @@
 id: task-490-678-orchestrator-theme-qa-v2
 type: TASK
 title: Orchestrator Theme QA (v2)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-11'
-updated_at: '2026-10-11'
+updated_at: '2026-10-16'
 depends_on:
   - task-490-677-orchestrator-badge-injection-impl-v2
-parent: story-408-490-orchestrator-themed-output-impl
 jules_session_id: null
+parent: story-408-490-orchestrator-themed-output-impl
 rejection_reason: ''
+locks: []
 ---
 # Orchestrator Theme QA (v2)
 

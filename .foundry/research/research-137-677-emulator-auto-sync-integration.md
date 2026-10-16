@@ -1,23 +1,26 @@
 ---
 id: research-137-677-emulator-auto-sync-integration
 type: RESEARCH
-title: "Investigate Emulator Auto-Sync overlap with Built-in Emulator"
-status: READY
+title: Investigate Emulator Auto-Sync overlap with Built-in Emulator
+status: PENDING
 owner_persona: researcher
-created_at: "2026-10-13"
-updated_at: "2026-10-13"
+created_at: '2026-10-13'
+updated_at: '2026-10-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-137-builtin-emulator
-priority: 50
 tags:
   - architecture
   - documentation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "Investigate potential regressions and architecture overlap between idea-061-emulator-auto-sync and idea-137-builtin-emulator."
+rejection_reason: ''
+notes: >-
+  Investigate potential regressions and architecture overlap between
+  idea-061-emulator-auto-sync and idea-137-builtin-emulator.
+locks: []
+priority: 50
 ---
 
 # Investigate Emulator Auto-Sync overlap with Built-in Emulator

@@ -2,10 +2,10 @@
 id: task-534-679-orchestrator-idea-reverification-qa-retry
 type: TASK
 title: Orchestrator IDEA Re-Verification Stage QA Retry
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-16'
 depends_on:
   - task-534-678-orchestrator-idea-reverification-tests-retry
 jules_session_id: null

@@ -2,11 +2,12 @@
 id: task-558-681-telemetry-generator-update
 type: TASK
 title: Update Telemetry Generator Output
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-11'
-updated_at: '2026-10-11'
-depends_on: ['task-558-680-telemetry-extraction-logic']
+updated_at: '2026-10-16'
+depends_on:
+  - task-558-680-telemetry-extraction-logic
 jules_session_id: null
 pr_number: null
 parent: story-534-558-telemetry-data-extraction-impl

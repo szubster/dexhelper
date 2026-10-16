@@ -2,7 +2,7 @@
 id: task-475-680-gen3-condition-stats-extraction-e2e-tests
 type: TASK
 title: Write E2E Tests for Gen 3 Contest Condition Data Extraction
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-12T06:52:40.000Z'
 updated_at: '2026-10-16'
@@ -16,8 +16,8 @@ tags:
   - data-extraction
   - e2e
 research_references: []
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

@@ -2,12 +2,12 @@
 id: research-645-687-investigate-dashboard-metrics-e2e-failure
 type: RESEARCH
 title: Investigate E2E Test Failure for Dashboard Metrics
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-14T14:58:21.117Z'
 updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: '3260986342322774605'
+jules_session_id: null
 pr_number: null
 parent: story-571-645-dashboard-metrics-integration-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - dashboard
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 priority: 60

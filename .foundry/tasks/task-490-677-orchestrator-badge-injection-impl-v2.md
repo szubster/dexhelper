@@ -2,15 +2,16 @@
 id: task-490-677-orchestrator-badge-injection-impl-v2
 type: TASK
 title: Orchestrator Badge Injection Implementation (v2)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-11'
-updated_at: '2026-10-11'
+updated_at: '2026-10-16'
 depends_on:
   - research-490-676-investigate-badge-injection-failure
-parent: story-408-490-orchestrator-themed-output-impl
 jules_session_id: null
+parent: story-408-490-orchestrator-themed-output-impl
 rejection_reason: ''
+locks: []
 ---
 # Orchestrator Badge Injection Implementation (v2)
 

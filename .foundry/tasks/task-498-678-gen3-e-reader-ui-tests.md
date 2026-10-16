@@ -2,10 +2,10 @@
 id: task-498-678-gen3-e-reader-ui-tests
 type: TASK
 title: Gen 3 E-Reader UI Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-11'
-updated_at: '2026-10-11'
+updated_at: '2026-10-16'
 depends_on:
   - task-498-677-gen3-e-reader-ui-integration
 jules_session_id: null
