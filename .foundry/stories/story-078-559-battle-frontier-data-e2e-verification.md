@@ -31,3 +31,5 @@ Perform integration and end-to-end verification of the Battle Frontier and Battl
 - [ ] Create and run E2E tests verifying Battle Frontier data is accurately extracted and displayed for Emerald.
 - [ ] Create and run E2E tests verifying Battle Tower data is accurately extracted and displayed for Ruby/Sapphire.
 - [ ] Ensure no regressions are introduced into other Gen 3 parsing processes.
+- [ ] task-559-680-battle-frontier-data-e2e-tests
+- [ ] task-559-681-battle-frontier-data-e2e-qa
