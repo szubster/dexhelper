@@ -27,4 +27,6 @@ As required by the E2E verification mandate, this story is dedicated to running 
 - Ensure the removal of the mock does not cause any regressions.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-551-683-gen3-heuristic-integration-e2e-impl
+- [ ] task-551-684-gen3-heuristic-integration-e2e-qa
