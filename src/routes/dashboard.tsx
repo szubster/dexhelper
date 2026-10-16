@@ -22,6 +22,12 @@ const Gen3SecretBaseDashboard = React.lazy(() =>
   })),
 );
 
+const MysteryEventTracker = React.lazy(() =>
+  import('../components/dashboard/e-reader/MysteryEventTracker').then((m) => ({
+    default: m.MysteryEventTracker,
+  })),
+);
+
 const Gen3MirageIslandTracker = React.lazy(() =>
   import('../components/dashboard/mirage-island/Gen3MirageIslandTracker').then((m) => ({
     default: m.Gen3MirageIslandTracker,
@@ -146,6 +152,7 @@ function DashboardPage() {
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
             <Gen3MirageIslandTracker saveData={saveData} />
+            <MysteryEventTracker mysteryGiftData={saveData.gen3MysteryGift} />
             <Gen3SecretBaseDashboard saveData={saveData} />
             <Gen3EventItemsDashboard saveData={saveData} />
             <Gen3StaticEncountersDashboard saveData={saveData} />

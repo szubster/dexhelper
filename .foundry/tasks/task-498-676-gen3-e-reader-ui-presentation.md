@@ -31,5 +31,5 @@ Implement the presentational UI component for the Gen 3 E-Reader and Mystery Eve
 - Ensure strict adherence to the tactical hardware/snooping UI constraints (sharp edges, dashed borders, monospaced telemetry fonts).
 
 ## Acceptance Criteria
-- [ ] Create the presentational component file under `src/components/dashboard/`.
-- [ ] Component strictly uses tactical UI primitives (e.g., `@utility tactical-panel`) and avoids rounded corners except `rounded-full` where permitted.
+- [x] Create the presentational component file under `src/components/dashboard/`.
+- [x] Component strictly uses tactical UI primitives (e.g., `@utility tactical-panel`) and avoids rounded corners except `rounded-full` where permitted.
