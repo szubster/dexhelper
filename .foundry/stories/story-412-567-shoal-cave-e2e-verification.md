@@ -29,5 +29,8 @@ This story implements the E2E verification for the Shoal Cave UI Dashboard, fulf
 
 ## Acceptance Criteria
 - [x] Break down into Tasks to write E2E tests for the Shoal Cave Dashboard.
-- [ ] task-567-586-shoal-cave-e2e-coder
-- [ ] task-567-587-shoal-cave-e2e-qa
+- [x] task-567-586-shoal-cave-e2e-coder
+- [x] task-567-587-shoal-cave-e2e-qa
+- [ ] research-567-690-investigate-shoal-cave-e2e-failure
+- [ ] task-567-691-shoal-cave-e2e-coder-retry
+- [ ] task-567-692-shoal-cave-e2e-qa-retry
