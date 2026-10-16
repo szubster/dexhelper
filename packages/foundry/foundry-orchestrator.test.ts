@@ -4154,4 +4154,48 @@ Target artifact: task-completed
     stderrSpy.mockRestore();
   });
 
+  test('Phase 4.5: Non-node references in body (like adr-compliance) do not trigger unresolvable node warnings or strict mode failure', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic with adr-compliance reference",
+      status: "PENDING",
+      owner_persona: "story_owner",
+    }, `
+# Epic
+Referencing adr-compliance in body.
+
+## Acceptance Criteria
+- [ ] story-001
+`);
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "E2E Integration Story",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      parent: "epic-001",
+      tags: ["e2e"],
+    }, `
+# Story
+`);
+
+    const stderrSpy = vi.spyOn(process.stderr, 'write');
+    process.argv.push('--strict');
+    try {
+      main();
+    } finally {
+      process.argv.splice(process.argv.indexOf('--strict'), 1);
+    }
+
+    const output = stderrSpy.mock.calls.map(call => call[0] as string).join('');
+    expect(output).not.toContain("Unresolvable node reference: 'adr-compliance'");
+    expect(process.exitCode).not.toBe(1);
+
+    // cleanup
+    process.exitCode = 0;
+    stderrSpy.mockRestore();
+  });
+
 });
