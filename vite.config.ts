@@ -16,64 +16,66 @@ export default defineConfig(() => {
   const sourceDir = path.resolve(import.meta.dirname, 'data/db');
   const target = 'esnext';
 
-  return {
-    base: process.env['CF_PAGES'] === 'true' ? '/' : '/dexhelper/',
-    plugins: [
-      pokedataPlugin({ sourceDir }),
-      foundryPlugin(),
-      tanstackRouter(),
-      react(),
-      tailwindcss(),
-      VitePWA({
-        registerType: 'autoUpdate',
-        manifest: {
-          name: 'DexHelper',
-          short_name: 'DexHelper',
-          description: 'A modern Pokedex with AI assistance',
-          theme_color: '#ef4444',
-          icons: [
-            {
-              src: 'pwa-192x192.png',
-              sizes: '192x192',
-              type: 'image/png'
-            },
-            {
-              src: 'pwa-512x512.png',
-              sizes: '512x512',
-              type: 'image/png'
-            }
-          ]
-        },
-        workbox: {
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
-          runtimeCaching: [
-            {
-              urlPattern: /^https:\/\/raw\.githubusercontent\.com\/PokeAPI\/sprites\/master\/sprites\/pokemon\/.*\.png$/,
-              handler: 'CacheFirst',
-              options: {
-                cacheName: 'pokemon-sprites',
-                expiration: {
-                  maxEntries: 500,
-                  maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
-                },
+  const plugins = [
+    pokedataPlugin({ sourceDir }),
+    foundryPlugin(),
+    tanstackRouter(),
+    react(),
+    tailwindcss(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest: {
+        name: 'DexHelper',
+        short_name: 'DexHelper',
+        description: 'A modern Pokedex with AI assistance',
+        theme_color: '#ef4444',
+        icons: [
+          {
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/raw\.githubusercontent\.com\/PokeAPI\/sprites\/master\/sprites\/pokemon\/.*\.png$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'pokemon-sprites',
+              expiration: {
+                maxEntries: 500,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
               },
             },
-          ],
-        },
-      }),
-      process.env['ANALYZE'] === 'true' && visualizer({
-        filename: 'stats.html',
-        open: false,
-        gzipSize: true,
-        brotliSize: true,
-      }),
-      codecovVitePlugin({
-        enableBundleAnalysis: process.env['CODECOV_TOKEN'] !== undefined,
-        bundleName: "dexhelper",
-        uploadToken: process.env['CODECOV_TOKEN'] ?? '',
-        gitService: "github",
-      }),
-    ].filter(Boolean),
+          },
+        ],
+      },
+    }),
+    ...(process.env['ANALYZE'] === 'true' ? [visualizer({
+      filename: 'stats.html',
+      open: false,
+      gzipSize: true,
+      brotliSize: true,
+    })] : []),
+    codecovVitePlugin({
+      enableBundleAnalysis: process.env['CODECOV_TOKEN'] !== undefined,
+      bundleName: "dexhelper",
+      uploadToken: process.env['CODECOV_TOKEN'] ?? '',
+      gitService: "github",
+    }),
+  ];
+
+  return {
+    base: process.env['CF_PAGES'] === 'true' ? '/' : '/dexhelper/',
+    plugins: plugins as any,
     resolve: {
       alias: {
         '@': path.resolve(import.meta.dirname, '.'),
