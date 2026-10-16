@@ -31,4 +31,6 @@ Integration and E2E verification for the Jules agent skins integration.
 - Ensure tests validate the updated contexts.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks to write E2E tests for the new persona skins.
+- [ ] task-491-690-implement-persona-skins-e2e
+- [ ] task-491-691-qa-persona-skins-e2e
+- [x] Tech Lead: Break down into Tasks to write E2E tests for the new persona skins.
