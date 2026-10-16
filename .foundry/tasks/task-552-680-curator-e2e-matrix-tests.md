@@ -29,5 +29,5 @@ Write E2E tests using Playwright to verify that the idea dependency matrix is co
 - Assert that the matrix reflects the latest dependencies accurately.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for matrix updates
-- [ ] Ensure tests pass successfully
+- [x] Implement Playwright E2E tests for matrix updates
+- [x] Ensure tests pass successfully
