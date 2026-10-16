@@ -2,13 +2,13 @@
 id: task-499-616-tpm-distillation-e2e-qa
 type: TASK
 title: TPM Distillation Logic E2E - QA Verification
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-23'
-updated_at: '2026-10-15'
+updated_at: '2026-10-16'
 depends_on:
   - task-499-615-tpm-distillation-e2e-implementation
-jules_session_id: null
+jules_session_id: '2423237702135802530'
 pr_number: null
 parent: story-406-499-tpm-distillation-e2e
 tags:
