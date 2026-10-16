@@ -35,6 +35,7 @@ This proposal introduces an automated linter check / pre-commit hook rule that d
 - **Boosts Pipeline Throughput**: Eliminates avoidable rejection cycles caused solely by lingering temporary files.
 
 ## Acceptance Criteria
+- [ ] prd-531-587-automatic-scratchpad-cleanup-guard
 - [ ] Implement a root scratchpad detector in `.github/scripts/` or Biome/Oxlint/Lefthook rules.
 - [ ] Add tests verifying that ephemeral debug scripts outside allowed paths trigger a linting error or auto-cleanup.
 - [ ] Integrate into `pnpm lint` and git pre-commit hooks.
