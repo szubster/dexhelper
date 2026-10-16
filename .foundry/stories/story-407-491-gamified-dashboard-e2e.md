@@ -27,4 +27,8 @@ locks: []
 Break down the E2E verification of the gamified DAG Dashboard into actionable tasks.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks to write Playwright E2E tests verifying the gamified DAG dashboard features.
+- [x] Tech Lead: Break down into Tasks to write Playwright E2E tests verifying the gamified DAG dashboard features.
+- [ ] task-491-690-gamified-dashboard-e2e-visual
+- [ ] task-491-691-gamified-dashboard-e2e-visual-qa
+- [ ] task-491-692-gamified-dashboard-e2e-interactions
+- [ ] task-491-693-gamified-dashboard-e2e-interactions-qa
