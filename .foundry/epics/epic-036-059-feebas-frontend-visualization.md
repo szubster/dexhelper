@@ -28,3 +28,6 @@ Design and build a visual map component specifically for Route 119 that dynamica
 - [ ] Build a visual map component for Route 119.
 - [ ] Implement dynamic overlay of indicators based on the calculated coordinates.
 - [ ] Ensure 100% accuracy in visualizing the coordinates.
+- [ ] story-059-676-route-119-visual-map
+- [ ] story-059-677-dynamic-tile-overlay
+- [ ] story-059-678-feebas-visualization-e2e
