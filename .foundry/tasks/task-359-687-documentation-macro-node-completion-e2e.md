@@ -2,12 +2,12 @@
 id: task-359-687-documentation-macro-node-completion-e2e
 type: TASK
 title: Documentation E2E Verification for Macro Node Completion
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-09-22'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4982164042528196329'
 pr_number: null
 parent: story-071-359-documentation-macro-node-completion-e2e
 tags:
