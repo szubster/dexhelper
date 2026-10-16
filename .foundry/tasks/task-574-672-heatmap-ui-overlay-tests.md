@@ -2,13 +2,13 @@
 id: task-574-672-heatmap-ui-overlay-tests
 type: TASK
 title: Write Heatmap UI Overlay Component Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-11T00:00:00Z'
 updated_at: '2026-10-16'
 depends_on:
   - task-574-671-heatmap-ui-overlay-impl
-jules_session_id: null
+jules_session_id: '2055514335962489108'
 pr_number: null
 parent: story-049-574-heatmap-ui-overlay-component
 tags:
