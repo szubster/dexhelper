@@ -2,14 +2,14 @@
 id: story-105-649-daycare-save-parsing-e2e
 type: STORY
 title: Daycare Save Parsing E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-12'
-updated_at: '2026-10-13'
+updated_at: '2026-10-16'
 depends_on:
   - story-105-240-daycare-gen2-parsing
   - story-105-241-daycare-gen3-parsing
-jules_session_id: null
+jules_session_id: '7331384752242085525'
 pr_number: null
 parent: epic-053-105-daycare-save-parsing
 tags:
