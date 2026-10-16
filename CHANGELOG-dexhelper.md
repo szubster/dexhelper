@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.23.6] - 2026-04-03
+### Added
+- Add comprehensive unit tests for `getGenerationConfig` to verify Gen 1 fallback behavior for unknown or missing generation IDs.
+
 ## [0.23.5] - 2026-04-03
 ### Changed
 - Bump the `playwright` dependency group (including `@playwright/test` and `@playwright/experimental-ct-react`) from 1.59.0 to 1.59.1.
@@ -229,3 +233,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.23.3]: https://github.com/szubster/dexhelper/compare/5dfb95e04548639734fdc9b9e48a683a48b422a9...bd676cb4db66ecc313c0f24e3e354a26457085a8
 [0.23.4]: https://github.com/szubster/dexhelper/compare/cef37c945ee740b9537dc8e664d7ccd28af5d60d...c8e8728539f8ed5bb663ae68968a40946c73c35b
 [0.23.5]: https://github.com/szubster/dexhelper/compare/c8e8728539f8ed5bb663ae68968a40946c73c35b...034ee21c23bd91854fabd387693e7247b9fce8ee
+
+[0.23.6]: https://github.com/szubster/dexhelper/compare/d67d3464e87381688ecfcf5136c3f299b7c7f79c...7184ba35ce6641a67e1f3003403e22e4d39b5913
