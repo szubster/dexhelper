@@ -38,4 +38,5 @@ Develop an automated validator utility within `.github/scripts/` (and integrated
 - Prevents DAG state corruptions and reduces redundant Jules session dispatch cycles.
 
 ## Acceptance Criteria
-- [ ] Decompose into Epic
+- [x] Decompose into Epic
+- [ ] epic-585-587-implement-macro-node-subtree-completeness-validator
