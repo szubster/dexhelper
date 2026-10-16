@@ -33,5 +33,5 @@ Write and execute end-to-end tests to verify the integration of the Gen 2 dynami
 - Ensure all tests pass.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for the Gen 2 Checklist UI.
-- [ ] Tests verify accurate rendering of checklist items based on save file state.
+- [x] Implement Playwright E2E tests for the Gen 2 Checklist UI.
+- [x] Tests verify accurate rendering of checklist items based on save file state.
