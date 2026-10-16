@@ -30,4 +30,4 @@ We need to extract Kurt's Apricorn crafting state from a Generation 2 save file.
 - Ensure strict typing for Gen 2 item IDs related to Apricorns and Poké Balls.
 
 ## Acceptance Criteria
-- [ ] Implement the TypeScript interfaces for the Apricorn crafting state in the appropriate domain folder as specified by the research node.
+- [x] Implement the TypeScript interfaces for the Apricorn crafting state in the appropriate domain folder as specified by the research node.
