@@ -29,7 +29,11 @@ locks: []
 Generate E2E verification story for the tree completeness evaluation and file moves.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
 - [ ] Verify entire parent/descendant chain is correctly evaluated
 - [ ] Verify systematic file moves preserving subdirectories
 - [ ] Ensure archival operation is deterministic via orchestrator
+- [ ] task-575-690-archival-tree-e2e-harness
+- [ ] task-575-691-archival-tree-completeness-e2e-tests
+- [ ] task-575-692-archival-file-move-e2e-tests
+- [ ] task-575-693-archival-tree-e2e-qa
