@@ -33,5 +33,8 @@ This story is part of the Wild Item E2E Verification epic. It focuses on writing
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks.
 - [ ] task-563-578-save-file-progress-fixtures-coder
-- [ ] task-563-579-save-file-progress-e2e-coder
-- [ ] task-563-580-save-file-progress-e2e-qa
+- [x] task-563-579-save-file-progress-e2e-coder
+- [x] task-563-580-save-file-progress-e2e-qa
+- [ ] research-563-690-investigate-save-file-progress-e2e-failure
+- [ ] task-563-691-save-file-progress-e2e-coder-retry
+- [ ] task-563-692-save-file-progress-e2e-qa-retry
