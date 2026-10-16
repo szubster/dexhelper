@@ -31,5 +31,5 @@ We need unit/component tests to ensure the Heatmap UI overlay component renders 
 Write unit/component tests for Heatmap UI Overlay components using Vitest based on `.foundry/stories/story-049-574-heatmap-ui-overlay-component.md`.
 
 ## Acceptance Criteria
-- [ ] Write component tests verifying overlay rendering with mock heatmap density data.
-- [ ] Verify handling of empty/zero density data and edge cases.
+- [x] Write component tests verifying overlay rendering with mock heatmap density data.
+- [x] Verify handling of empty/zero density data and edge cases.
