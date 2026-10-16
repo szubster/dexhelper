@@ -28,4 +28,6 @@ locks: []
 This story acts as the final E2E verification step for the `architect_visionary` persona integration. It ensures that the scheduled workflow correctly triggers the agent and that the schema validation allows the new persona to operate within the Foundry DAG.
 
 ## Acceptance Criteria
-- [ ] Decompose this story into actionable TASK nodes for E2E verification of the new persona.
+- [ ] task-561-690-architect-visionary-persona-e2e-impl
+- [ ] task-561-691-architect-visionary-persona-e2e-qa
+- [x] Decompose this story into actionable TASK nodes for E2E verification of the new persona.
