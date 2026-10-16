@@ -34,5 +34,8 @@ After the script `scripts/verify-adr-compliance.ts` is implemented, it must be i
 - Ensure it's executed as part of `pnpm lint`.
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
-- [ ] Ensure a final STORY is generated that is dedicated exclusively to Integration and E2E Verification.
+- [ ] story-418-676-adr-compliance-package-scripts
+- [ ] story-418-677-adr-compliance-lefthook-integration
+- [ ] story-418-678-adr-compliance-integration-e2e
+- [x] Break down this epic into stories.
+- [x] Ensure a final STORY is generated that is dedicated exclusively to Integration and E2E Verification.
