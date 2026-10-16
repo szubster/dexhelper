@@ -28,4 +28,7 @@ locks: []
 Implement stat filters to allow users to search for Pokémon with specific IVs (Individual Values).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into implementation and testing tasks.
+- [ ] task-617-700-iv-filters-state-logic
+- [ ] task-617-701-iv-filters-ui
+- [ ] task-617-702-iv-filters-qa
+- [x] Tech Lead: Break down this Story into implementation and testing tasks.
