@@ -29,4 +29,7 @@ locks: []
 Provide integration and end-to-end verification for the Hall of Fame Certificate rendering and export logic. Ensure that the E2E tests validate the accurate rendering of the component and the successful generation of the image.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-496-676-hof-certificate-e2e-rendering
+- [ ] task-496-677-hof-certificate-e2e-export
+- [ ] task-496-678-hof-certificate-e2e-qa
