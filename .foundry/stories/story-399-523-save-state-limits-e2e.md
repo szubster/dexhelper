@@ -26,4 +26,6 @@ locks: []
 Perform End-to-End (E2E) verification for the save state limits, LRU eviction logic, and quota handling.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-523-690-save-state-limits-e2e-impl
+- [ ] task-523-691-save-state-limits-e2e-qa
