@@ -2,10 +2,10 @@
 id: epic-142-418-automated-adr-compliance-ci-integration
 type: EPIC
 title: Automated ADR Compliance CI Integration
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2025-01-01T00:00:00.000Z'
-updated_at: '2026-08-15'
+updated_at: '2026-10-16'
 depends_on:
   - epic-142-417-automated-adr-compliance-linter
 jules_session_id: '3355379518708574393'
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Automated ADR Compliance CI Integration

@@ -2,14 +2,15 @@
 id: research-490-676-investigate-badge-injection-failure
 type: RESEARCH
 title: Investigate Badge Injection Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-11'
 updated_at: '2026-10-16'
 depends_on: []
 jules_session_id: null
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_reason: ''
 parent: story-408-490-orchestrator-themed-output-impl
+rejection_count: 1
 ---
 # Investigate Badge Injection Failure
 
