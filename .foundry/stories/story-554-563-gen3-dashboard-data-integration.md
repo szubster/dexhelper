@@ -28,4 +28,7 @@ This story integrates the Pokédex Gaps, Missed Milestones, and Trainer Card Sta
 - [ ] Implement data fetching and state management for the dashboard widgets.
 - [ ] Integrate Pokédex gap visualizer.
 - [ ] Integrate Missed Milestones visualizer.
-- [ ] Break down into implementation Tasks.
+- [x] Break down into implementation Tasks.
+- [ ] task-563-680-gen3-dashboard-data-state
+- [ ] task-563-681-gen3-dashboard-widgets-ui
+- [ ] task-563-682-gen3-dashboard-data-qa

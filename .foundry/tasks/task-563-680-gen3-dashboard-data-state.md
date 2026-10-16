@@ -1,0 +1,30 @@
+---
+id: task-563-680-gen3-dashboard-data-state
+type: TASK
+title: Gen 3 Dashboard Data State Layer
+status: READY
+owner_persona: coder
+created_at: '2026-10-02'
+updated_at: '2026-10-02'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: story-554-563-gen3-dashboard-data-integration
+tags:
+  - dexhelper
+  - gen3
+  - react
+research_references: []
+rejection_reason: ''
+locks: []
+---
+
+# Task: Gen 3 Dashboard Data State Layer
+
+## Description
+Implement the React Context layer and data fetching logic to retrieve Pokédex Gaps, Missed Milestones, and Trainer Card Status data for the Gen 3 Generation Transition Dashboard.
+
+## Acceptance Criteria
+- [ ] Implement React Context or state management for Gen 3 dashboard data.
+- [ ] Implement data fetching hooks for Pokédex gaps, Missed Milestones, and Trainer Card status.
+- [ ] Write unit tests for the data fetching and state layer.
