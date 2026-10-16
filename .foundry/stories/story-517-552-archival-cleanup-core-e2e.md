@@ -2,14 +2,14 @@
 id: story-517-552-archival-cleanup-core-e2e
 type: STORY
 title: Archival Cleanup Core E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-06'
-updated_at: '2026-10-15'
+updated_at: '2026-10-16'
 depends_on:
   - story-517-550-implement-node-age-filtering
   - story-517-551-implement-deletion-chunking
-jules_session_id: null
+jules_session_id: '12933664061712774000'
 parent: epic-346-517-archival-cleanup-core-engine
 tags:
   - e2e
