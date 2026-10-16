@@ -2,13 +2,13 @@
 id: story-134-475-gen3-condition-stats-extraction-e2e
 type: STORY
 title: E2E Verification for Gen 3 Contest Condition Data Extraction
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-25'
 updated_at: '2026-10-16'
 depends_on:
   - story-134-474-gen3-condition-stats-extraction-tests
-jules_session_id: null
+jules_session_id: '15520029512158432058'
 pr_number: null
 parent: epic-101-134-gen3-condition-stats-extraction
 tags:
