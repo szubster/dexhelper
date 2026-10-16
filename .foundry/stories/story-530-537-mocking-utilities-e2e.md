@@ -28,4 +28,6 @@ locks: []
 A centralized utility module (`tests/e2e/mock-utils.ts`) was built for Playwright. This story ensures the utilities (`mockFilePicker`, `mockFileSystemAccess`, and `mockOfflineState`) are properly integrated and verified using E2E tests, verifying that they eliminate flakiness and function correctly in the context of the application.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-537-690-mocking-utilities-e2e-tests
+- [ ] task-537-691-mocking-utilities-e2e-qa
