@@ -2,13 +2,13 @@
 id: task-407-678-e2e-mixed-records-rematch-retry
 type: TASK
 title: E2E Tests for Mixed Record and Rematch Tracking (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-10'
 updated_at: '2026-10-16'
 depends_on:
   - research-407-676-e2e-failure-investigation
-jules_session_id: null
+jules_session_id: '11069240942369541409'
 parent: story-397-407-gen3-secret-base-parsing-e2e
 tags:
   - e2e
