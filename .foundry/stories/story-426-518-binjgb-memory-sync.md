@@ -34,5 +34,8 @@ Implement real-time memory synchronization with DexHelper Save DB to extract sav
 - [x] task-518-529-binjgb-memory-sync-impl
 - [x] task-518-530-binjgb-memory-sync-qa
 - [ ] task-518-602-binjgb-bindings-impl-v2
-- [ ] task-518-603-binjgb-memory-sync-impl-v2
-- [ ] task-518-604-binjgb-memory-sync-qa-v2
+- [x] task-518-603-binjgb-memory-sync-impl-v2
+- [x] task-518-604-binjgb-memory-sync-qa-v2
+- [ ] research-518-690-investigate-binjgb-memory-sync-failure
+- [ ] task-518-691-binjgb-memory-sync-impl-v3
+- [ ] task-518-692-binjgb-memory-sync-qa-v3
