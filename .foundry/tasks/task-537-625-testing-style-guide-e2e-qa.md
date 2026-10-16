@@ -32,8 +32,8 @@ Verify the Playwright E2E tests for the Testing Style Guide.
 Verify that the `coder` correctly implemented `tests/e2e/playwright_style_guide.spec.ts` to ensure it explicitly uses `locator.or()`, `isMobile`, and the new mock utilities as described in `.foundry/docs/knowledge_base/testing/playwright_style_guide.md`. Run the tests locally to ensure they pass.
 
 ## Acceptance Criteria
-- [ ] Verify `tests/e2e/playwright_style_guide.spec.ts` exists.
-- [ ] Verify a test uses `locator.or()` with strict mode (`.first()`).
-- [ ] Verify a test conditionally adjusts locators based on the `isMobile` fixture.
-- [ ] Verify a test uses `mockDagData`.
-- [ ] Run `xvfb-run -a pnpm test:e2e tests/e2e/playwright_style_guide.spec.ts` and verify it passes.
+- [x] Verify `tests/e2e/playwright_style_guide.spec.ts` exists.
+- [x] Verify a test uses `locator.or()` with strict mode (`.first()`).
+- [x] Verify a test conditionally adjusts locators based on the `isMobile` fixture.
+- [x] Verify a test uses `mockDagData`.
+- [x] Run `xvfb-run -a pnpm test:e2e tests/e2e/playwright_style_guide.spec.ts` and verify it passes.
