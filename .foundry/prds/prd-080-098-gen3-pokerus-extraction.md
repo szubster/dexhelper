@@ -33,3 +33,6 @@ Extract the Pokerus status byte from the decrypted Gen 3 Pokémon Miscellaneous 
 2. Apply the bitwise operators (`>> 4` and `& 0x0f`) to extract the strain and days remaining.
 3. Map the parsed Pokerus data onto the corresponding Pokémon objects within the returned `SaveData` payload.
 4. This requires the foundational decryption and parsing logic to be completed first (see `prd-080-097-gen3-data-parsing-infrastructure`).
+
+## Acceptance Criteria
+- [ ] epic-098-690-gen3-pokerus-data-extraction
