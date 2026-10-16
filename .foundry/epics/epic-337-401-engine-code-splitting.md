@@ -2,13 +2,13 @@
 id: epic-337-401-engine-code-splitting
 type: EPIC
 title: Engine Code Splitting by Game Generation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-05'
-updated_at: '2026-10-12'
+updated_at: '2026-10-16'
 depends_on:
   - epic-337-400-data-splitting
-jules_session_id: '18293930511574936321'
+jules_session_id: null
 pr_number: null
 parent: prd-117-337-split-bundles-and-data
 tags:

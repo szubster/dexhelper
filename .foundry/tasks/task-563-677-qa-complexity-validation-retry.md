@@ -2,10 +2,10 @@
 id: task-563-677-qa-complexity-validation-retry
 type: TASK
 title: QA - Automate complexity validation for STORY to TASK
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2025-01-22'
-updated_at: '2025-01-22'
+updated_at: '2026-10-16'
 depends_on:
   - task-563-676-implement-complexity-validation-retry
 jules_session_id: null

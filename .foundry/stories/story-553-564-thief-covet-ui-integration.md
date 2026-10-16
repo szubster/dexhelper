@@ -2,13 +2,13 @@
 id: story-553-564-thief-covet-ui-integration
 type: STORY
 title: UI Integration for Thief/Covet Optimizer
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-16'
 depends_on:
   - story-553-563-thief-covet-engine-logic
-jules_session_id: '4033936586132715498'
+jules_session_id: null
 pr_number: null
 parent: epic-521-553-thief-covet-team-optimizer
 tags:

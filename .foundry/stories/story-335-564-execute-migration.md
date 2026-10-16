@@ -2,13 +2,13 @@
 id: story-335-564-execute-migration
 type: STORY
 title: Execute Task Reminders Migration
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-11'
-updated_at: '2026-10-12'
+updated_at: '2026-10-16'
 depends_on:
   - story-335-563-develop-migration-script
-jules_session_id: '1912599033190626449'
+jules_session_id: null
 pr_number: null
 parent: epic-117-335-migrate-task-reminders
 tags:

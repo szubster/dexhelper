@@ -2,17 +2,14 @@
 id: task-521-676-gen3-submodules-constants-impl
 type: TASK
 title: Extract Gen 3 Submodule Constants
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-11'
-updated_at: '2026-10-11'
+updated_at: '2026-10-16'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-523-521-gen3-parsers-refactor-modules
-priority: 50
-confidence_score: null
 tags:
   - architecture
   - save-parsing
@@ -22,6 +19,8 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
+priority: 50
 ---
 
 # Extract Gen 3 Submodule Constants

@@ -1,11 +1,11 @@
 ---
 id: task-561-680-orchestrator-dag-graphology-impl
 type: TASK
-title: 'Implement Graphology for DAG Operations'
-status: PENDING
+title: Implement Graphology for DAG Operations
+status: READY
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-16'
 depends_on: []
 jules_session_id: null
 pr_number: null

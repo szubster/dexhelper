@@ -2,13 +2,13 @@
 id: story-522-521-gen2-parser-refactor-impl
 type: STORY
 title: Update Gen 2 Parsers for ADR 028
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-11'
+updated_at: '2026-10-16'
 depends_on:
   - story-522-520-gen2-constants-extraction
-jules_session_id: '11547463584077245732'
+jules_session_id: null
 pr_number: null
 parent: epic-517-522-gen2-parser-refactor-adr-028
 tags:

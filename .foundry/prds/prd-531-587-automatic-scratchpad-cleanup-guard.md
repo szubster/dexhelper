@@ -1,18 +1,15 @@
 ---
 id: prd-531-587-automatic-scratchpad-cleanup-guard
-title: Automatic Developer Scratchpad Cleanup Guard in Pre-Commit Hook
 type: PRD
-status: PENDING
+title: Automatic Developer Scratchpad Cleanup Guard in Pre-Commit Hook
+status: READY
 owner_persona: epic_planner
-created_at: "2026-10-14"
-updated_at: "2026-10-14"
+created_at: '2026-10-14'
+updated_at: '2026-10-16'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: idea-531-automatic-scratchpad-cleanup-guard
-priority: 50
-confidence_score: null
 tags:
   - foundry
   - process
@@ -20,8 +17,10 @@ tags:
   - lint
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Automatic Developer Scratchpad Cleanup Guard in Pre-Commit Hook

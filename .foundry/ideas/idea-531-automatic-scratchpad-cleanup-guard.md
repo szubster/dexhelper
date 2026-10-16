@@ -2,12 +2,12 @@
 id: idea-531-automatic-scratchpad-cleanup-guard
 title: Automatic Developer Scratchpad Cleanup Guard in Pre-Commit Hook
 type: IDEA
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-28T05:00:00.000Z'
-updated_at: '2026-10-14'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: '14079286590345807418'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

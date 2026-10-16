@@ -2,10 +2,10 @@
 id: task-564-683-thief-covet-e2e-tests
 type: TASK
 title: E2E Tests for Thief/Covet Optimizer
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-16'
 depends_on:
   - task-564-680-thief-covet-ui-integration-components
 jules_session_id: null

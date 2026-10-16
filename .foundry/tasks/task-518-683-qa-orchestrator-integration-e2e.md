@@ -2,10 +2,10 @@
 id: task-518-683-qa-orchestrator-integration-e2e
 type: TASK
 title: QA - Orchestrator Integration E2E
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-16'
 depends_on:
   - task-518-682-orchestrator-integration-fallback-tests
 jules_session_id: null

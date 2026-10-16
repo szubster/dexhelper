@@ -2,10 +2,10 @@
 id: task-521-677-gen2-parser-refactor
 type: TASK
 title: Refactor Gen 2 Parser magic numbers
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-09-03'
-updated_at: '2026-10-08'
+updated_at: '2026-10-16'
 depends_on:
   - task-521-676-gen2-constants
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - save-parsing
   - offset-mapping
   - gen2
-locks: []
 rejection_reason: ''
+locks: []
 ---
 # TASK: Refactor Gen 2 Parser magic numbers
 

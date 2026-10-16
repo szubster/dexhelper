@@ -2,10 +2,10 @@
 id: task-518-681-orchestrator-integration-composite-prompt-tests
 type: TASK
 title: Orchestrator Integration Composite Prompt Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-16'
 depends_on:
   - task-518-680-orchestrator-integration-e2e-fixtures
 jules_session_id: null

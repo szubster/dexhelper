@@ -2,13 +2,13 @@
 id: story-407-491-gamified-dashboard-e2e
 type: STORY
 title: Gamified Dashboard E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-10-16'
 depends_on:
   - story-407-490-gamified-dashboard-components
-jules_session_id: '14813592167608885488'
+jules_session_id: null
 pr_number: null
 parent: epic-339-407-gamified-dashboard-ui
 tags:

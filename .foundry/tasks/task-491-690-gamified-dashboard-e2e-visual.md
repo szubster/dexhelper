@@ -2,7 +2,7 @@
 id: task-491-690-gamified-dashboard-e2e-visual
 type: TASK
 title: Gamified Dashboard E2E Visual Rendering Tests
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-16T12:36:37.042Z'
 updated_at: '2026-10-16'
@@ -20,7 +20,9 @@ tags:
   - gamified-dashboard
   - visual
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-490-504-visualize-dag-statuses-impl
 notes: ''
 locks: []
 ---

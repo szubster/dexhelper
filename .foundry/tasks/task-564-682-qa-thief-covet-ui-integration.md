@@ -2,10 +2,10 @@
 id: task-564-682-qa-thief-covet-ui-integration
 type: TASK
 title: QA for Thief/Covet UI Integration
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-16'
 depends_on:
   - task-564-681-thief-covet-ui-integration-tests
 jules_session_id: null
