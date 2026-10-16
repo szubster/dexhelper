@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [adr-586-584-failure-tracking-architecture](.foundry/docs/adrs/adr-586-584-failure-tracking-architecture.md) | ADR | Technical Architecture for Failure Tracking | architect | [7091627030144498796](https://jules.google.com/session/7091627030144498796) |
+| [epic-036-059-feebas-frontend-visualization](.foundry/epics/epic-036-059-feebas-frontend-visualization.md) | EPIC | Feebas Route 119 Visual Component | story_owner | [8753621580016031511](https://jules.google.com/session/8753621580016031511) |
 | [epic-045-072-refactor-views](.foundry/epics/epic-045-072-refactor-views.md) | EPIC | Refactor DagDashboard Views to consume DagContext | story_owner | [9357572952968118621](https://jules.google.com/session/9357572952968118621) |
 | [epic-048-085-gen3-match-call-dashboard-ui](.foundry/epics/epic-048-085-gen3-match-call-dashboard-ui.md) | EPIC | Epic: Gen 3 Rematch Dashboard UI | story_owner | [10617233047977806906](https://jules.google.com/session/10617233047977806906) |
 | [epic-051-095-friendship-tracker-ui](.foundry/epics/epic-051-095-friendship-tracker-ui.md) | EPIC | Friendship Tracker UI & Actionable Insights | story_owner | [13402338707876484912](https://jules.google.com/session/13402338707876484912) |
