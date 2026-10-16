@@ -30,4 +30,8 @@ locks: []
 Perform comprehensive integration and E2E verification for the frontend ecosystem refactoring, ensuring that React 19 concurrent features and TanStack Query optimizations function correctly together.
 
 ## Acceptance Criteria
+- [ ] task-548-690-e2e-concurrent-fixtures
+- [ ] task-548-691-e2e-react-19-concurrent-tests
+- [ ] task-548-692-e2e-tanstack-query-tests
+- [ ] task-548-693-e2e-refactoring-qa
 - [ ] Write and execute Playwright E2E tests validating frontend refactoring changes.
