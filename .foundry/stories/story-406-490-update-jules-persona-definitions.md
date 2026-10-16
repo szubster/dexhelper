@@ -36,6 +36,6 @@ Update the developer-facing persona templates under `.jules/` to utilize their r
 - [x] task-490-507-update-nurse-persona-skin-impl
 - [x] task-490-508-identify-update-other-gen1-personas-impl
 - [x] task-490-509-persona-skins-qa
-- [ ] research-490-604-investigate-other-gen1-personas-failure
-- [ ] task-490-605-identify-update-other-gen1-personas-v2
-- [ ] task-490-606-persona-skins-qa-v2
+- [x] research-490-604-investigate-other-gen1-personas-failure
+- [x] task-490-605-identify-update-other-gen1-personas-v2
+- [x] task-490-606-persona-skins-qa-v2
