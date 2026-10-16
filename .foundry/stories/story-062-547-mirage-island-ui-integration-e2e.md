@@ -33,4 +33,7 @@ This story covers the integration of the Mirage Island tracker component into th
 - Verify end-to-end functionality including correct reporting of matching Pokémon.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-547-690-mirage-island-ui-integration
+- [ ] task-547-691-mirage-island-e2e-tests
+- [ ] task-547-692-qa-mirage-island-integration-e2e
