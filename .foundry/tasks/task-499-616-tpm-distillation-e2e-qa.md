@@ -31,5 +31,5 @@ Verify the E2E tests for the TPM distillation logic.
 - Ensure the setup fixtures correctly reset the environment before each run to avoid flakiness.
 
 ## Acceptance Criteria
-- [ ] Verify the E2E tests run successfully without errors.
-- [ ] Verify the assertions comprehensively cover the required file modifications.
+- [x] Verify the E2E tests run successfully without errors.
+- [x] Verify the assertions comprehensively cover the required file modifications.
