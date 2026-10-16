@@ -2,13 +2,13 @@
 id: task-566-584-shoal-ui-qa
 type: TASK
 title: QA - Shoal Cave UI Dashboard Components
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-16T11:22:41Z'
 updated_at: '2026-10-16'
 depends_on:
   - task-566-583-shoal-dashboard-layout
-jules_session_id: '12458520846371303282'
+jules_session_id: null
 pr_number: null
 parent: story-412-566-shoal-cave-ui-components
 tags:

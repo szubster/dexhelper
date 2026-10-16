@@ -2,10 +2,10 @@
 id: story-406-491-jules-agent-skins-e2e-verification
 type: STORY
 title: Jules Agent Skins E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-13'
+updated_at: '2026-10-16'
 depends_on:
   - story-406-490-update-jules-persona-definitions
 jules_session_id: null

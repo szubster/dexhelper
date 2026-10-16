@@ -2,13 +2,13 @@
 id: task-518-603-binjgb-memory-sync-impl-v2
 type: TASK
 title: Implement real-time synchronization with DexHelper Save DB v2
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-20'
-updated_at: '2026-10-15'
+updated_at: '2026-10-16'
 depends_on:
   - task-518-602-binjgb-bindings-impl-v2
-jules_session_id: '8717477942410058815'
+jules_session_id: null
 pr_number: null
 parent: story-426-518-binjgb-memory-sync
 tags:
@@ -18,7 +18,7 @@ tags:
   - gen2
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: >-
   Created as replacement for permanently failed
   task-518-529-binjgb-memory-sync-impl
