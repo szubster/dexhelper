@@ -2,12 +2,12 @@
 id: task-558-680-telemetry-extraction-logic
 type: TASK
 title: Telemetry Extraction Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-11'
-updated_at: '2026-10-11'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11718803837081038230'
 pr_number: null
 parent: story-534-558-telemetry-data-extraction-impl
 tags:
