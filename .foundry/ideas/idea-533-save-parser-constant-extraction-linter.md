@@ -36,3 +36,6 @@ Introduce an automated linter rule or pre-commit validator (e.g., an ESLint/Oxli
 
 ## Next Steps
 - [ ] prd-533-save-parser-constant-extraction-linter
+
+## Acceptance Criteria
+- [ ] prd-533-587-save-parser-constant-extraction-linter
