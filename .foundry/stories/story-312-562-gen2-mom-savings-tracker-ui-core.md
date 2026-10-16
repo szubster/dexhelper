@@ -34,5 +34,8 @@ Implement the UI logic in `Gen2SavingsDashboard` to display progression toward t
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] task-562-581-gen2-moms-savings-logic
-- [ ] task-562-582-gen2-moms-savings-ui
-- [ ] task-562-583-gen2-moms-savings-qa
+- [x] task-562-582-gen2-moms-savings-ui
+- [x] task-562-583-gen2-moms-savings-qa
+- [ ] research-562-680-investigate-moms-savings-ui-failure
+- [ ] task-562-681-gen2-moms-savings-ui-retry
+- [ ] task-562-682-gen2-moms-savings-qa-retry
