@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-10-16'
@@ -27,30 +27,35 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `7184ba35ce6641a67e1f3003403e22e4d39b5913`
-- **Previous Commit SHA:** `d67d3464e87381688ecfcf5136c3f299b7c7f79c`
+- **Commit SHA:** `5feaa6ef2b2ad4fc2df304b0b2f0ee026b2e70af`
+- **Previous Commit SHA:** `7184ba35ce6641a67e1f3003403e22e4d39b5913`
 - **Commit Date:** `2026-04-03`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `patch` (from `0.23.5` -> `0.23.6`)
+- **Suggested SemVer Bump:** `patch` (from `0.23.6` -> `0.23.7`)
 
 ## Commit Message
 ```text
-🧪 Test getGenerationConfig fallback behavior (#48)
+🧪 Add test coverage for PokeAPI client error handling (#49)
 
-🎯 **What:** Added tests to cover `getGenerationConfig` in
-`src/utils/generationConfig.ts` to ensure the correct behavior of the
-fallback to Gen 1 configuration for unknown or missing generation IDs.
-📊 **Coverage:** Covered happy paths (Gen 1, Gen 2) as well as various
-edge cases and error conditions (unknown gen like Gen 3, generation 0,
-negative generation numbers, and arbitrarily large generation numbers).
-✨ **Result:** Increased code coverage by completely unit testing
-`getGenerationConfig`'s fallback behavior, making the code more robust
-against regressions.
+🎯 **What:** Added Vitest unit tests to the undocumented
+`src/utils/pokeapi.ts` API wrapper client to guarantee the
+implementation catches network failures properly.
+
+📊 **Coverage:** Mocked `global.fetch` to simulate standard API data
+retrieval across all endpoints. Validated both error throwing on `{ ok:
+false }` for all 7 exported methods (`getPokemonsList`,
+`getPokemonEncounterAreasByName`, `getPokemonByName`,
+`getPokemonSpeciesByName`, `resource`, `getItem`, `getLocationArea`), as
+well as a success case path.
+
+✨ **Result:** Enhanced test coverage provides greater confidence in our
+API interactions and prevents regressions during future refactoring of
+`src/utils/pokeapi.ts`.
 
 ---
 *PR created automatically by Jules for task
-[15237542466758989704](https://jules.google.com/task/15237542466758989704)
+[4146503747626285575](https://jules.google.com/task/4146503747626285575)
 started by @szubster*
 
 Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
@@ -58,20 +63,18 @@ Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
 ```
 
 ## Modified Files
-- `package-lock.json`
-- `src/utils/generationConfig.test.ts`
+- `src/utils/pokeapi.test.ts`
 
 ## Diff Summary
 ```text
-7184ba35c 🧪 Test getGenerationConfig fallback behavior (#48)
- package-lock.json                  |  4 ++--
- src/utils/generationConfig.test.ts | 37 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 39 insertions(+), 2 deletions(-)
+5feaa6ef2 🧪 Add test coverage for PokeAPI client error handling (#49)
+ src/utils/pokeapi.test.ts | 87 +++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 87 insertions(+)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 7184ba35ce6641a67e1f3003403e22e4d39b5913` (or `git diff d67d3464e87381688ecfcf5136c3f299b7c7f79c..7184ba35ce6641a67e1f3003403e22e4d39b5913`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show 5feaa6ef2b2ad4fc2df304b0b2f0ee026b2e70af` (or `git diff 7184ba35ce6641a67e1f3003403e22e4d39b5913..5feaa6ef2b2ad4fc2df304b0b2f0ee026b2e70af`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.23.6] - 2026-04-03` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.23.5...0.23.6`](https://github.com/${repo}/compare/d67d346...7184ba3)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.23.7] - 2026-04-03` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.23.6...0.23.7`](https://github.com/${repo}/compare/7184ba3...5feaa6e)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
