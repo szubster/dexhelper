@@ -1,0 +1,37 @@
+---
+id: epic-581-584-gen2-tid-extraction
+type: EPIC
+title: Gen 2 TID Extraction
+status: PENDING
+owner_persona: story_owner
+created_at: '2026-10-16T17:53:10.106Z'
+updated_at: '2026-10-16'
+depends_on: []
+jules_session_id: null
+locks: []
+pr_number: null
+parent: prd-157-581-gen2-headbutt-tree-predictor
+priority: 50
+confidence_score: null
+tags:
+  - dexhelper
+  - feature
+  - gen2
+  - save-engine
+research_references: []
+rejection_count: 0
+rejection_reason: ""
+notes: ""
+---
+
+# Epic: Gen 2 TID Extraction
+
+## Objective
+Extract the 16-bit Trainer ID from Generation 2 save files to enable player-specific Headbutt tree calculations.
+
+## Scope
+- Implement parser extensions for Gen 2 save files to accurately extract the `wPlayerID`.
+- Ensure extraction logic matches Gen 2 save block structures.
+
+## Acceptance Criteria
+- [ ] Story Owner: Break down this Epic into implementation stories and ensure a final E2E verification story is included.

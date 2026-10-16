@@ -38,4 +38,7 @@ This feature provides a dynamic overlay on the Johto map in DexHelper to reveal 
 3. **Interactive Map Integration:** Render Headbutt trees on the map UI, color-coding them (e.g., Green = Rare, Yellow = Good, Gray = Bad) based on the calculated score.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into specific EPIC nodes.
+- [x] Epic Planner: Break down this PRD into specific EPIC nodes.
+- [ ] epic-581-584-gen2-tid-extraction
+- [ ] epic-581-585-gen2-tree-score-engine
+- [ ] epic-581-586-gen2-interactive-map-integration
