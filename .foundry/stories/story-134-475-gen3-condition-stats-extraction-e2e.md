@@ -33,5 +33,8 @@ Implement E2E testing to verify the end-to-end integration of the Gen 3 Conditio
 
 ## Acceptance Criteria
 - [x] Break down story into tasks for writing E2E tests for Condition data extraction.
-- [ ] task-475-680-gen3-condition-stats-extraction-e2e-tests
-- [ ] task-475-681-gen3-condition-stats-extraction-e2e-qa
+- [x] task-475-680-gen3-condition-stats-extraction-e2e-tests
+- [x] task-475-681-gen3-condition-stats-extraction-e2e-qa
+- [ ] research-475-690-gen3-condition-stats-extraction-e2e-failure
+- [ ] task-475-691-gen3-condition-stats-extraction-e2e-tests-retry
+- [ ] task-475-692-gen3-condition-stats-extraction-e2e-qa-retry
