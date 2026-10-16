@@ -47,6 +47,7 @@ Architect a structured Fallback Storage Manager and Telemetry system for DexHelp
    - Implement a retry / re-sync protocol that attempts to re-open IndexedDB when network or storage conditions recover, seamlessly flushing accumulated fallback records into IndexedDB without loss.
 
 ## Acceptance Criteria
-- [ ] Draft a PRD for the Storage Fallback Telemetry & Re-sync framework.
-- [ ] Define non-intrusive storage health events and UI state integration guidelines.
-- [ ] Specify fallback persistence strategies for `SaveDB` and `SaveHistoryDB`.
+- [x] Draft a PRD for the Storage Fallback Telemetry & Re-sync framework.
+- [x] Define non-intrusive storage health events and UI state integration guidelines.
+- [x] Specify fallback persistence strategies for `SaveDB` and `SaveHistoryDB`.
+- [ ] prd-532-587-indexeddb-fallback-storage-telemetry
