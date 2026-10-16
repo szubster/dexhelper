@@ -53,3 +53,4 @@ Introduce a decoupled `SaveDataValidationReport` engine and tactical UI modal:
 - [ ] Implement a reusable UI diagnostic modal component (`SaveDiagnosticModal`) rendering section health statuses.
 - [ ] Ensure non-fatal block corruption yields partial save state hydration with user warnings rather than complete parsing failure.
 - [ ] Add unit and component tests verifying diagnostic report generation for both valid and synthetic corrupted `.sav` files.
+- [ ] prd-535-587-save-data-validation-report
