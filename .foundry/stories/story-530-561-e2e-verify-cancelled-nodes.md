@@ -28,4 +28,6 @@ Write an E2E/Integration test to verify that the Permanent Failure Dashboard cor
 
 ## Acceptance Criteria
 - [ ] An E2E test is created and passes, verifying that `status: CANCELLED` nodes with `rejection_count >= 3` are visible in the Permanent Failure Dashboard.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-561-690-cancelled-nodes-e2e-impl
+- [ ] task-561-691-qa-cancelled-nodes-e2e
