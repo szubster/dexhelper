@@ -32,5 +32,5 @@ The Pokéblock Optimizer E2E tests have been implemented, and we must ensure the
 Review the Playwright tests implemented in the previous task. Ensure that strict mode OR conditions are properly used, `isMobile` context is considered, and no flaky tests are introduced.
 
 ## Acceptance Criteria
-- [ ] Verify the implemented E2E tests pass reliably in the CI environment (or locally via headless Playwright).
-- [ ] Verify all Playwright best practices (e.g., locator strictness, initialization utilities) were followed.
+- [x] Verify the implemented E2E tests pass reliably in the CI environment (or locally via headless Playwright).
+- [x] Verify all Playwright best practices (e.g., locator strictness, initialization utilities) were followed.
