@@ -27,5 +27,16 @@ The child tasks for Gen 3 Secret Base E2E verification failed due to an Autonomo
 - Formulate a plan or set of constraints to prevent this in the retry tasks.
 
 ## Acceptance Criteria
-- [ ] Determine the root cause of the policy violation.
-- [ ] Provide recommendations for the retry tasks.
+- [x] Determine the root cause of the policy violation.
+- [x] Provide recommendations for the retry tasks.
+
+## Findings
+
+### Root Cause
+The child tasks (e.g., `task-407-668-e2e-base-location-parsing`) failed because the session entered the `AWAITING_USER_FEEDBACK` state. This occurs when an agent directly violates the **Autonomous Communication & No-Ask Policy** by ending its turn with a conversational prompt or question directed at the user. Since the Orchestrator operates fully autonomously without a human in the loop, asking a question causes the session to hang indefinitely until it times out or is forcibly failed by the Orchestrator's heartbeat.
+
+### Recommendations for Retry Tasks
+To prevent this in the retry tasks (`task-407-677`, `task-407-678`, `task-407-679`):
+1. **Enforce the No-Ask Policy:** The Coder and QA agents must never ask the user questions, ask for permission to proceed, or seek feedback in chat.
+2. **Autonomous Submission:** Agents must autonomously finalize their work using the `submit` tool without confirming with the user first.
+3. **Use Late Binding for Missing Context:** If the agents lack context, they must not ask the user for hints. Instead, they should dynamically spawn new nodes (like `RESEARCH` or `IDEA`) via Late Binding, append them to the current task, and submit.
