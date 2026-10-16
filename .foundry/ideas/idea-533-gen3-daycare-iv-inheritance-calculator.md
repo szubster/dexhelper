@@ -42,6 +42,7 @@ Architect a dedicated **Gen 3 Daycare IV & Egg Inheritance Calculator** tab/util
 3. **PC Box Pair Recommendation**: Allow users to select a target Pokémon species and desired minimum IVs, then scan all compatible breeding group pairs across the user's PC Boxes to highlight optimal parent combinations.
 
 ## Acceptance Criteria
-- [ ] Draft PRD for the Gen 3 Daycare IV & Egg Inheritance Calculator.
-- [ ] Define Daycare save memory parsing specs for Gen 3 parent IV extraction.
-- [ ] Specify combinatorics model and UI representation for IV inheritance probabilities.
+- [x] Draft PRD for the Gen 3 Daycare IV & Egg Inheritance Calculator.
+- [x] Define Daycare save memory parsing specs for Gen 3 parent IV extraction.
+- [x] Specify combinatorics model and UI representation for IV inheritance probabilities.
+- [ ] prd-533-587-gen3-daycare-iv-inheritance-calculator
