@@ -35,5 +35,6 @@ While `.foundry/docs/knowledge_base/agents/core_policies.md` mandates the use of
 - **Design System Consistency**: Ensures all UI components adhere strictly to ADR 008 and ADR 024 tactical hardware aesthetic primitives.
 
 ## Acceptance Criteria
-- [ ] PRD generated detailing the AST or linter rules for detecting raw inline tactical styling classes.
+- [x] PRD generated detailing the AST or linter rules for detecting raw inline tactical styling classes.
+- [ ] prd-534-587-automated-tactical-utility-usage-linter-rule
 - [ ] Linter rule integrated into `pnpm lint` static analysis pipeline.
