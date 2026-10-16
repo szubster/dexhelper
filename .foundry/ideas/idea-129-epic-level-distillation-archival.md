@@ -38,3 +38,4 @@ This directly addresses the scalability limits of treating a Git repository as a
 
 ## Acceptance Criteria
 - [x] prd-129-339-epic-level-distillation-archival
+- [ ] research-129-688-archival-dependency-matrix-overlap
