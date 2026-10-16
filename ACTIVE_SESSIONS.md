@@ -11,6 +11,7 @@
 | [epic-121-346-gen3-mystery-gift-dashboard-ui](.foundry/epics/epic-121-346-gen3-mystery-gift-dashboard-ui.md) | EPIC | Gen 3 Mystery Gift Dashboard UI | story_owner | [1746427173490395711](https://jules.google.com/session/1746427173490395711) |
 | [epic-337-401-engine-code-splitting](.foundry/epics/epic-337-401-engine-code-splitting.md) | EPIC | Engine Code Splitting by Game Generation | story_owner | [18293930511574936321](https://jules.google.com/session/18293930511574936321) |
 | [epic-337-402-ui-component-splitting](.foundry/epics/epic-337-402-ui-component-splitting.md) | EPIC | UI Component Splitting by Game Generation | story_owner | [8313081356306163637](https://jules.google.com/session/8313081356306163637) |
+| [epic-341-416-orchestrator-fuzzer-ci](.foundry/epics/epic-341-416-orchestrator-fuzzer-ci.md) | EPIC | Orchestrator State Machine Fuzzing - CI Integration & Validation | story_owner | [1128244232233425503](https://jules.google.com/session/1128244232233425503) |
 | [epic-518-531-priority-orchestrator-dispatch](.foundry/epics/epic-518-531-priority-orchestrator-dispatch.md) | EPIC | Implement Priority-Based Dispatch in Orchestrator | story_owner | [12337048013298732747](https://jules.google.com/session/12337048013298732747) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
