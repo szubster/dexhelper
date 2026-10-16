@@ -451,6 +451,7 @@ export interface Gen3SaveData extends BaseSaveData {
   generation: 3;
   gen3Pokeblocks?: import('../gen3/pokeblock/types').Gen3Pokeblock[];
   gen3TrickHouse?: import('./../gen3/trickHouse/parser').Gen3TrickHouse;
+  gen3WeatherAnomaly?: import('../gen3/weatherAnomaly/types').Gen3WeatherAnomaly;
   gen3MatchCall?: import('../../gen3/matchCall/parser').Gen3MatchCall;
   gen3FameChecker?: import('../../gen3/fameChecker/parser').Gen3FameCheckerData[];
   /** In-game NPC trade status flags mapped by their flag name for Gen 3 games. */
