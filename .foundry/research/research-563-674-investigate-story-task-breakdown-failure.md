@@ -2,12 +2,12 @@
 id: research-563-674-investigate-story-task-breakdown-failure
 type: RESEARCH
 title: Investigate failure in story to task complexity validation
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2025-01-22'
-updated_at: '2025-01-22'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13564065261696205513'
 parent: story-552-563-story-to-task-complexity-validation
 tags: []
 rejection_reason: ''
