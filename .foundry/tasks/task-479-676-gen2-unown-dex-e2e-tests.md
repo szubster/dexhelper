@@ -2,7 +2,7 @@
 id: task-479-676-gen2-unown-dex-e2e-tests
 type: TASK
 title: Implement Gen 2 Unown Dex Data Extraction E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-16'
@@ -14,7 +14,7 @@ tags:
   - e2e
   - gen2
   - unown
-jules_session_id: null
+jules_session_id: '13660389110926970288'
 rejection_count: 1
 rejection_reason: ''
 locks: []
