@@ -31,5 +31,5 @@ With the heatmap data processing layer and overlay types defined, we need to imp
 Implement the React components and styling required to overlay heatmap data onto the map graph, adhering to tactical hardware aesthetics based on `.foundry/stories/story-049-574-heatmap-ui-overlay-component.md`.
 
 ## Acceptance Criteria
-- [ ] Implement HeatmapOverlay React component to render density highlights over map nodes.
-- [ ] Apply tactical aesthetic styling for density visual display.
+- [x] Implement HeatmapOverlay React component to render density highlights over map nodes.
+- [x] Apply tactical aesthetic styling for density visual display.
