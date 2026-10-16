@@ -2,19 +2,19 @@
 id: task-552-682-curator-e2e-remediation-tests
 type: TASK
 title: Write E2E Tests for Curator Remediation Node Spawning
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: '14611653085117738713'
+jules_session_id: null
 parent: story-532-552-curator-integration-e2e-verification
 tags:
   - e2e
   - testing
   - playwright
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 confidence_score: 100
 ---
 

@@ -2,19 +2,19 @@
 id: task-552-681-curator-e2e-domain-overlap-tests
 type: TASK
 title: Write E2E Tests for Curator Domain Overlap Identification
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: '9887560237751560554'
+jules_session_id: null
 parent: story-532-552-curator-integration-e2e-verification
 tags:
   - e2e
   - testing
   - playwright
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 confidence_score: 100
 ---
 

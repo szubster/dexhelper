@@ -2,12 +2,12 @@
 id: research-566-676-investigate-orchestrator-diagnosis-failure-v2
 type: RESEARCH
 title: Investigate Orchestrator BLOCKED Diagnosis Implementation Failure (v2)
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-07T21:10:47.146Z'
 updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: '9634352778936540215'
+jules_session_id: null
 pr_number: null
 parent: story-552-566-orchestrator-diagnosis-artifact
 tags:
@@ -17,7 +17,7 @@ tags:
   - research
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
