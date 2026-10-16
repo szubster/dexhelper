@@ -29,5 +29,8 @@ Integrate the Gen 2 Room Decoration state logic and UI components into the main 
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] task-564-586-gen2-room-decoration-route-integration
-- [ ] task-564-587-gen2-room-decoration-e2e-tests
-- [ ] task-564-588-gen2-room-decoration-integration-qa
+- [x] task-564-587-gen2-room-decoration-e2e-tests
+- [x] task-564-588-gen2-room-decoration-integration-qa
+- [ ] research-564-690-investigate-gen2-room-decoration-e2e-failure
+- [ ] task-564-691-gen2-room-decoration-e2e-tests-retry
+- [ ] task-564-692-gen2-room-decoration-integration-qa-retry
