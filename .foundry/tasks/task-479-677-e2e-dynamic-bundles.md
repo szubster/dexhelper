@@ -30,4 +30,4 @@ This task implements Playwright E2E tests to verify that generation-specific bun
 - Integrate the test into the existing Playwright E2E test suite.
 
 ## Acceptance Criteria
-- [ ] Test verifying dynamic generation bundle loading is implemented and passes
+- [x] Test verifying dynamic generation bundle loading is implemented and passes
