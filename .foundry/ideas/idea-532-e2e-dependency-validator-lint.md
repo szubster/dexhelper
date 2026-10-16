@@ -2,12 +2,12 @@
 id: idea-532-e2e-dependency-validator-lint
 title: Automated E2E Task Dependency Linter Guard in Orchestrator DAG Validation
 type: IDEA
-status: ACTIVE
+status: FAILED
 owner_persona: product_manager
 created_at: '2026-09-29T06:00:00.000Z'
 updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: '8840339936836675001'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -19,7 +19,7 @@ research_references: []
 notes: ''
 locks: []
 priority: 50
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 ---
 
 # Automated E2E Task Dependency Linter Guard in Orchestrator DAG Validation

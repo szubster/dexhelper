@@ -2,7 +2,7 @@
 id: research-534-676-investigate-idea-reverification-failure
 type: RESEARCH
 title: Investigate IDEA Re-Verification Stage Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-10'
 updated_at: '2026-10-16'
@@ -15,8 +15,8 @@ tags:
   - curator
   - debugging
 research_references: []
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 experiment_variants: []
 locks: []
