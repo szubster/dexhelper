@@ -2,12 +2,12 @@
 id: task-496-676-hof-certificate-e2e-rendering
 type: TASK
 title: Hall of Fame Certificate E2E Rendering Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15521677552484790285'
 pr_number: null
 parent: story-071-496-hof-certificate-e2e-verification
 tags:
