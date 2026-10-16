@@ -2,13 +2,13 @@
 id: story-530-561-e2e-verify-cancelled-nodes
 type: STORY
 title: E2E Verify Cancelled Nodes on Permanent Failure Dashboard
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-09T00:00:00.000Z'
-updated_at: '2026-09-23'
+updated_at: '2026-10-16'
 depends_on:
   - story-530-560-update-dag-ui-components
-jules_session_id: null
+jules_session_id: '7965170850635121293'
 pr_number: null
 parent: epic-516-530-update-permanent-failure-dashboard-ui
 tags:
