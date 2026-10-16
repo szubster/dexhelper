@@ -2,15 +2,15 @@
 id: research-562-680-investigate-moms-savings-ui-failure
 type: RESEARCH
 title: Investigate Gen 2 Mom's Savings UI Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-12T00:00:00Z'
-updated_at: '2026-10-12T00:00:00Z'
-jules_session_id: null
+updated_at: '2026-10-16'
+jules_session_id: '9143675432605502308'
 pr_number: null
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 locks: []
 research_references: []
 depends_on: []
