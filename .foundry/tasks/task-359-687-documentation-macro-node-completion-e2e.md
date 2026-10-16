@@ -28,6 +28,6 @@ locks: []
 Implement an Integration/E2E Verification task for the documentation updates ensuring the schema validation passes and no further issues exist.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for schema validation.
-- [ ] Ensure the tests cover the newly added schema rules.
-- [ ] Ensure all tests pass.
+- [x] Implement E2E tests for schema validation.
+- [x] Ensure the tests cover the newly added schema rules.
+- [x] Ensure all tests pass.
