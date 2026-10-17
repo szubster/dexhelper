@@ -2,12 +2,12 @@
 id: task-639-683-jsonl-integration-e2e-impl
 type: TASK
 title: JSONL Integration E2E Tests Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-12T23:32:11Z'
-updated_at: '2026-10-12T23:32:11Z'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7012625155067573674'
 pr_number: null
 parent: story-088-639-jsonl-integration-e2e
 tags:
