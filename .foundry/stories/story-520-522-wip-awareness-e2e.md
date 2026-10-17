@@ -32,4 +32,8 @@ Perform end-to-end verification of the orchestrator and agent awareness regardin
 ## Acceptance Criteria
 - [ ] Write E2E tests validating that agents avoid depending on Draft/WIP artifacts.
 - [ ] Verify that the orchestrator respects the new WIP-awareness constraints.
-- [ ] Decompose into actionable TASK nodes.
+- [x] Decompose into actionable TASK nodes.
+- [ ] task-522-683-wip-awareness-e2e-fixtures
+- [ ] task-522-684-wip-awareness-e2e-agent-tests
+- [ ] task-522-685-wip-awareness-e2e-orchestrator-tests
+- [ ] task-522-686-wip-awareness-e2e-qa
