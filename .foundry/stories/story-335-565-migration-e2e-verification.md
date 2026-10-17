@@ -33,3 +33,5 @@ This story provides the E2E verification for the migration executed in `epic-117
 
 ## 3. Acceptance Criteria
 - [ ] The repository passes all linting and testing after the migration.
+- [ ] task-565-694-execute-migration-verification
+- [ ] task-565-695-qa-execute-migration-verification
