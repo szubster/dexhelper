@@ -23,4 +23,4 @@ locks: []
 # Write E2E Verification Tests for Save Data Extraction
 
 ## Acceptance Criteria
-- [ ] Write E2E verification tests for save data extraction.
+- [x] Write E2E verification tests for save data extraction.
