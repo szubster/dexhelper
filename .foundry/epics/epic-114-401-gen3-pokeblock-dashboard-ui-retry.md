@@ -2,13 +2,13 @@
 id: epic-114-401-gen3-pokeblock-dashboard-ui-retry
 type: EPIC
 title: Gen 3 Pokéblock Exact Stats Viewer Dashboard UI
-status: ACTIVE
+status: FAILED
 owner_persona: epic_planner
 created_at: '2026-08-05'
 updated_at: '2026-10-17'
 depends_on:
   - epic-114-400-gen3-pokeblock-case-parsing-retry
-jules_session_id: '10921031582024969470'
+jules_session_id: null
 pr_number: null
 parent: prd-113-114-gen3-pokeblock-stats-viewer
 tags:
@@ -18,7 +18,7 @@ tags:
   - frontend
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---
