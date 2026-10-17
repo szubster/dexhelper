@@ -24,6 +24,6 @@ locks: []
 Write End-to-End (E2E) tests for the `SaveDataReader` to ensure it works properly within the full application flow when reading save data.
 
 ## Acceptance Criteria
-- [ ] Create E2E test cases for `SaveDataReader` integration.
-- [ ] Verify core engine workflow execution against dummy/stubbed buffer files in E2E.
-- [ ] Ensure all new E2E tests pass successfully (`pnpm test:e2e`).
+- [x] Create E2E test cases for `SaveDataReader` integration.
+- [x] Verify core engine workflow execution against dummy/stubbed buffer files in E2E.
+- [x] Ensure all new E2E tests pass successfully (`pnpm test:e2e`).
