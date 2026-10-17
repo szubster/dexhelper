@@ -25,4 +25,8 @@ This story is dedicated exclusively to Integration and E2E Verification for the 
 ## Acceptance Criteria
 - [ ] Write integration tests verifying that `DRAFT` and `WIP` statuses are correctly parsed by the schema validator
 - [ ] Write E2E tests verifying that the warning banner is successfully rendered/injected in documentation nodes
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-528-690-wip-schema-integration-tests
+- [ ] task-528-691-wip-schema-integration-qa
+- [ ] task-528-692-wip-banner-e2e-tests
+- [ ] task-528-693-wip-banner-e2e-qa
