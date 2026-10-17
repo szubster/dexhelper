@@ -122,3 +122,9 @@
 
 ## Critical Learnings
 - **Knip Configuration Hint Maintenance**: Stale entries in `knip.json` (such as files that exist and are properly imported or tsconfig dependencies auto-detected by Knip) trigger configuration hint warnings. Cleaning up stale entries keeps the static analysis pipeline completely warning-free.
+
+---
+
+## Critical Learnings
+- **Dependency-Cruiser TypeScript Version Compatibility**: `dependency-cruiser` enforces a strict TypeScript compiler version constraint (`>=2.0.0 <7.0.0`). When `typescript` was set to `~7.0.2`, `dependency-cruiser` failed to parse any TypeScript files (`1 modules, 0 dependencies cruised`), silently skipping static architecture analysis for all TS source files. Aligning `typescript` to `~5.9.3` in `package.json` restored full dependency cruising across 840+ TS modules.
+- **TypeScript DOM Iteration (`TS2488`)**: Standard DOM collection iteration (e.g., `for (const x of nodeListOfElements)`) requires `"DOM.Iterable"` in `tsconfig.json` compilerOptions `lib` when target/lib configurations omit implicit iterable DOM declarations under stricter TS version options.
