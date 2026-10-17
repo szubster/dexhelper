@@ -2,10 +2,10 @@
 id: task-605-670-hydrate-mirage-island-state-logic-impl
 type: TASK
 title: Implement State Hydration Logic for Mirage Island
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-09'
+updated_at: '2026-10-14'
 depends_on:
   - task-605-668-hydrate-mirage-island-state-schema-impl
 jules_session_id: null
@@ -33,6 +33,6 @@ With the schema types updated, the actual runtime mapping and hydration logic mu
 4. Update unit tests to verify the hydration of these fields works as expected.
 
 ## Acceptance Criteria
-- [ ] Implement mapping and hydration logic for mirageIslandValue on BaseSaveData.
-- [ ] Implement mapping and hydration logic for personalityValue segments on unified data payload.
-- [ ] Update and verify test suite for these changes.
+- [x] Implement mapping and hydration logic for mirageIslandValue on BaseSaveData.
+- [x] Implement mapping and hydration logic for personalityValue segments on unified data payload.
+- [x] Update and verify test suite for these changes.

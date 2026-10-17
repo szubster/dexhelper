@@ -38,6 +38,12 @@ const Gen3NpcTrades = React.lazy(() =>
   import('../components/dashboard/trades/Gen3NpcTrades').then((m) => ({ default: m.Gen3NpcTrades })),
 );
 
+const Gen2RoamerDossier = React.lazy(() =>
+  import('../features/roamer/components/Gen2RoamerDossier').then((m) => ({
+    default: m.Gen2RoamerDossier,
+  })),
+);
+
 const Gen3RoamerDossier = React.lazy(() =>
   import('../features/roamer/components/Gen3RoamerDossier').then((m) => ({
     default: m.Gen3RoamerDossier,
@@ -152,6 +158,7 @@ function DashboardPage() {
             {saveData.hallOfFameRecords && saveData.hallOfFameRecords.length > 0 && (
               <HallOfFameDashboard saveData={saveData} />
             )}
+            <Gen2RoamerDossier saveData={saveData} />
             <Gen2Checklist />
             <Gen2SavingsDashboard />
             <Gen2DecorationsDashboard saveData={saveData} />

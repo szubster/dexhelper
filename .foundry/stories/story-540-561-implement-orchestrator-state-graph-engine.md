@@ -2,13 +2,13 @@
 id: story-540-561-implement-orchestrator-state-graph-engine
 type: STORY
 title: 'Story: Implement Orchestrator State and Graph Engine'
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-09'
-updated_at: '2026-10-12'
+updated_at: '2026-10-16'
 depends_on:
   - story-540-560-evaluate-state-and-graph-libraries
-jules_session_id: '4509795978612311343'
+jules_session_id: null
 pr_number: null
 parent: epic-521-540-foundry-rearchitecture-state-graph
 tags:
@@ -31,3 +31,7 @@ This story covers the implementation of the new Foundry orchestrator engine, int
 - [ ] Implement Node lifecycle state machine.
 - [ ] Implement DAG topology, operations, and sorting logic.
 - [ ] Implement new orchestrator engine abstraction.
+- [ ] task-561-680-orchestrator-dag-graphology-impl
+- [ ] task-561-681-orchestrator-state-machine-impl
+- [ ] task-561-682-orchestrator-engine-tests
+- [ ] task-561-683-orchestrator-engine-qa

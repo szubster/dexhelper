@@ -186,7 +186,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-136-gen3-ai-move-predictor` | Gen 3 Trainer AI Move Predictor | gen3, nuzlocke, ai |  | PENDING |
 | `idea-136-in-game-mail-archiver` | Gen 1-3 In-Game Mail Archiver | feature, mail, collector |  | BLOCKED |
 | `idea-136-split-bundles-and-data` | Split bundles and data by game generation | performance, architecture, bundles, database |  | PENDING |
-| `idea-137-builtin-emulator` | Built-in Emulator Integration | emulator, research, core |  | PENDING |
+| `idea-137-builtin-emulator` | Built-in Emulator Integration | emulator, research, core | Parent: `idea-061-emulator-auto-sync` | PENDING |
 | `idea-137-decouple-persona-prompts` | Decouple Persona Prompts and Support Composite Multi-Layered Prompts | foundry, orchestrator, architecture |  | PENDING |
 | `idea-137-external-source-links` | Add Links to External Sources | general, documentation, ui |  | BLOCKED |
 | `idea-138-realtime-memory-sync-extraction` | Real-Time WebAssembly Memory Sync and Extraction | emulator, save-engine, architecture |  | PENDING |
@@ -216,7 +216,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-156-automated-graph-healing` | Automated Graph Healing for BLOCKED Nodes | foundry, orchestrator, dag, self-healing |  | PENDING |
 | `idea-156-foundry-node-status-health-heatmap` | Foundry DAG Node Health Heatmap Visualizer | foundry, orchestrator, UI, tooling |  | PENDING |
 | `idea-157-gen2-headbutt-tree-predictor` | Gen 2 Headbutt Tree Predictor | dexhelper, feature, gen2, tracker |  | PENDING |
-| `idea-157-pnpm-workspaces-architecture` | Step-by-Step Monorepo Architectural Migration to pnpm Workspaces | architecture, monorepo, pnpm, dx, cloudflare |  | PENDING |
+| `idea-157-pnpm-workspaces-architecture` | Step-by-Step Monorepo Architectural Migration to pnpm Workspaces | architecture, monorepo, pnpm, dx, cloudflare | `idea-055-cloudflare-sync-and-future-features`, `idea-062-drive-cloudflare-sync` | PENDING |
 | `idea-158-dataview-composite-wrapper` | DataView Composite Wrapper & Save Parser Abstraction | architecture, dataview, save-parser, abstraction, testing, refactoring |  | PENDING |
 | `idea-159-individual-pokemon-pkm-exporter` | Individual Pokémon PKM/PK3 Exporter | feature, gen1, gen2, gen3, export |  | PENDING |
 | `idea-417-407-more-save-files` | Idea: Source additional save files for testing | testing, fixtures | Parent: `epic-343-417-test-fixtures-sourcing` | PENDING |

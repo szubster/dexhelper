@@ -2,18 +2,15 @@
 id: task-523-678-gen3-move-tutor-e2e-qa
 type: TASK
 title: Gen 3 Move Tutor E2E QA Verification
-status: PENDING
+status: CANCELLED
 owner_persona: qa
-created_at: "2026-10-11"
-updated_at: "2026-10-11"
+created_at: '2026-10-11'
+updated_at: '2026-10-12'
 depends_on:
   - task-523-677-gen3-move-tutor-e2e-tests
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-407-523-gen3-move-tutor-integration-e2e
-priority: 50
-confidence_score: null
 tags:
   - e2e
   - gen3
@@ -21,8 +18,13 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-523-676-gen3-move-tutor-e2e-fixtures
+notes: ''
+locks: []
+priority: 50
+confidence_score: null
 ---
 
 # Gen 3 Move Tutor E2E QA Verification

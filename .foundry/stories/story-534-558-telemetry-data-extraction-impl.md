@@ -2,12 +2,12 @@
 id: story-534-558-telemetry-data-extraction-impl
 type: STORY
 title: Implement Telemetry Data Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-10-11'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: '15220667080738332277'
+jules_session_id: null
 pr_number: null
 parent: epic-518-534-heatmap-telemetry-data
 tags:
@@ -20,6 +20,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Implement Telemetry Data Extraction
@@ -28,4 +29,8 @@ locks: []
 Implement the extraction and structuring of node telemetry data (rejection counts and wait times) to power the DAG Health Heatmap visualization.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks
+- [x] Tech Lead: Break down into Tasks
+- [ ] task-558-680-telemetry-extraction-logic
+- [ ] task-558-681-telemetry-generator-update
+- [ ] task-558-682-telemetry-extraction-tests
+- [ ] task-558-683-telemetry-extraction-qa

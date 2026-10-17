@@ -2,13 +2,13 @@
 id: story-335-564-execute-migration
 type: STORY
 title: Execute Task Reminders Migration
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-11'
-updated_at: '2026-10-12'
+updated_at: '2026-10-16'
 depends_on:
   - story-335-563-develop-migration-script
-jules_session_id: '1912599033190626449'
+jules_session_id: null
 pr_number: null
 parent: epic-117-335-migrate-task-reminders
 tags:
@@ -33,4 +33,7 @@ This story is part of `epic-117-335-migrate-task-reminders`. The objective is to
 - Commit the cleaned files.
 
 ## 3. Acceptance Criteria
+- [x] Break down into Tasks
+- [ ] task-564-680-execute-migration
+- [ ] task-564-681-qa-execute-migration
 - [ ] Active, pending, and ready TASK nodes are cleaned up and no longer contain `### REMINDER FOR CODER` or `### REMINDER FOR QA` blocks.

@@ -1,22 +1,23 @@
 ---
 id: epic-031-037-inter-save-trading
 type: EPIC
-title: "Pokémon Trading (Inter-Save)"
-status: PENDING
+title: Pokémon Trading (Inter-Save)
+status: ACTIVE
 owner_persona: story_owner
-created_at: "2026-05-20"
-updated_at: "2026-05-20"
+created_at: '2026-05-20'
+updated_at: '2026-10-17'
 depends_on:
   - epic-031-036-progression-tracking
-jules_session_id: null
+jules_session_id: '2088562123749152428'
 pr_number: null
 parent: prd-055-031-future-progression-trading
 tags:
   - backend
   - trading
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Epic: Pokémon Trading (Inter-Save)

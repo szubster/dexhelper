@@ -2,14 +2,14 @@
 id: story-518-522-wip-signaling-e2e
 type: STORY
 title: Integration and E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-10'
+updated_at: '2026-10-12'
 depends_on:
   - story-518-520-enforce-feature-flags
   - story-518-521-experimental-namespace
-jules_session_id: null
+jules_session_id: '2068814838976428673'
 pr_number: null
 parent: epic-346-518-wip-code-signaling
 tags:

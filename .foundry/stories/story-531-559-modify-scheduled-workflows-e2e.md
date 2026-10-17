@@ -2,10 +2,10 @@
 id: story-531-559-modify-scheduled-workflows-e2e
 type: STORY
 title: Integration and E2E Verification of Scheduled Workflow Issue Dispatch
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: $(date +%Y-%m-%d)
-updated_at: '2026-09-24'
+updated_at: '2026-10-12'
 depends_on:
   - story-531-558-modify-scheduled-workflows-impl
 jules_session_id: null
@@ -37,6 +37,6 @@ Following the implementation of issue-based dispatching for scheduled agent work
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into TASK nodes (QA to handle the E2E verification workflow).
-- [ ] task-559-617-scheduled-workflow-e2e-fixtures
-- [ ] task-559-618-scheduled-workflow-e2e-impl
-- [ ] task-559-619-scheduled-workflow-e2e-qa
+- [x] task-559-617-scheduled-workflow-e2e-fixtures
+- [x] task-559-618-scheduled-workflow-e2e-impl
+- [x] task-559-619-scheduled-workflow-e2e-qa

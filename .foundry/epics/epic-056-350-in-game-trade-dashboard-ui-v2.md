@@ -2,13 +2,13 @@
 id: epic-056-350-in-game-trade-dashboard-ui-v2
 type: EPIC
 title: In-Game Trade Dashboard UI v2
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-09-22'
+updated_at: '2026-10-17'
 depends_on:
   - epic-056-349-in-game-trade-data-extraction-v2
-jules_session_id: null
+jules_session_id: '1136558579059356814'
 pr_number: null
 parent: prd-095-056-in-game-trade-assistant
 tags:
