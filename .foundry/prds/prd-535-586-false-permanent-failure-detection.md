@@ -35,7 +35,7 @@ When tasks hit the maximum rejection count (`MAX_REJECTION_THRESHOLD = 3`), the 
 
 ## Acceptance Criteria
 - [x] Define the technical architecture for the new failure tracking (ADR).
-- [ ] adr-586-584-failure-tracking-architecture
+- [x] adr-586-584-failure-tracking-architecture
 - [x] Breakdown Epic to implement the phase 3.0 Orchestrator rejection processing logic.
 - [ ] epic-586-581-orchestrator-rejection-processing
 - [x] Breakdown Epic to update the schema and validation logic for new YAML counters.
