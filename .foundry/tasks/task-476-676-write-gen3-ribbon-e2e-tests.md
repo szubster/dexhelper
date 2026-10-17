@@ -30,5 +30,5 @@ We need to ensure the Gen 3 Ribbon data extraction integrates correctly into the
 Write Playwright E2E tests for the Gen 3 Ribbon extraction.
 
 ## Acceptance Criteria
-- [ ] Write Playwright tests verifying the Gen 3 Ribbon data extraction.
-- [ ] Tests must run successfully without errors.
+- [x] Write Playwright tests verifying the Gen 3 Ribbon data extraction.
+- [x] Tests must run successfully without errors.
