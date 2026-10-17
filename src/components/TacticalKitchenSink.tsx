@@ -8,6 +8,7 @@ import { TacticalChip } from './TacticalChip';
 import { TacticalInput } from './TacticalInput';
 import { TacticalModal } from './TacticalModal';
 import { TacticalPanel } from './TacticalPanel';
+import { SpindaRenderer } from './ui/spinda';
 
 export const TacticalKitchenSink: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -129,6 +130,27 @@ export const TacticalKitchenSink: React.FC = () => {
           </div>
         </TacticalPanel>
       </TacticalModal>
+
+      {/* Spinda Showcase */}
+      <div className="flex gap-4 border border-zinc-800 border-dashed p-4" id="spinda-showcase">
+        <SpindaRenderer
+          spots={{
+            topLeft: { x: 10, y: 10 },
+            topRight: { x: 40, y: 10 },
+            bottomLeft: { x: 10, y: 40 },
+            bottomRight: { x: 40, y: 40 },
+          }}
+        />
+        <SpindaRenderer
+          spots={{
+            topLeft: { x: 20, y: 10 },
+            topRight: { x: 30, y: 10 },
+            bottomLeft: { x: 20, y: 40 },
+            bottomRight: { x: 30, y: 40 },
+          }}
+          spotOpacity={0.8}
+        />
+      </div>
 
       {/* SubDataPoint Showcase */}
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-4" id="subdatapoint-showcase">

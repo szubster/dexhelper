@@ -35,6 +35,6 @@ Implement the purely presentational React component (`SpindaRenderer`) that take
 - Ensure the component is modular and reusable.
 
 ## Acceptance Criteria
-- [ ] Component renders the base Spinda sprite.
-- [ ] Component precisely overlays 4 spots at the provided coordinates.
-- [ ] Component strictly adheres to Tactical UI guidelines.
+- [x] Component renders the base Spinda sprite.
+- [x] Component precisely overlays 4 spots at the provided coordinates.
+- [x] Component strictly adheres to Tactical UI guidelines.
