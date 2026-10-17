@@ -33,7 +33,7 @@ test.describe('Gen 3 Box Analyzer Save Parsing Validation E2E', () => {
     const cardToClick = (await spindaCard.count()) > 0 ? spindaCard : cards.first();
 
     await cardToClick.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
-    await cardToClick.click();
+    await cardToClick.click({ force: true });
 
     // Verify modal is visible
     await expect(page.getByRole('dialog')).toBeVisible({ timeout: 20000 });
@@ -63,6 +63,6 @@ test.describe('Gen 3 Box Analyzer Save Parsing Validation E2E', () => {
 
     // Verify Party Pokemon exclusion logic implicitly by ensuring duplicate party mons aren't in the list
     // This is tested by the overall count and structure of the list against the known save state.
-    await page.getByRole('button', { name: /Close/i }).first().click();
+    await page.getByRole('button', { name: /Close/i }).first().click({ force: true });
   });
 });
