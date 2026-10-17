@@ -25,6 +25,6 @@ Verification of the UI components implemented for the Gen 2 Room Decoration View
 - Verify that tests provide adequate coverage for the components.
 
 ## Acceptance Criteria
-- [ ] The dashboard component displays unlocked decorations grouped correctly.
-- [ ] Mystery Gift exclusive items use the appropriate visual indicators.
-- [ ] The UI meets ADR 008 constraints.
+- [x] The dashboard component displays unlocked decorations grouped correctly.
+- [x] Mystery Gift exclusive items use the appropriate visual indicators.
+- [x] The UI meets ADR 008 constraints.
