@@ -36,4 +36,7 @@ Develop a standalone CLI utility that parses the git history of the `main` branc
 5. **Time-Series Output**: Generate a time-series dataset file (`foundry-historical-stats.json` or CSV) to facilitate trend analysis.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into Stories, ensuring the final STORY is dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Break down this Epic into Stories, ensuring the final STORY is dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-418-676-historical-stats-git-parser
+- [ ] story-418-677-historical-stats-aggregation
+- [ ] story-418-678-historical-stats-e2e-verification
