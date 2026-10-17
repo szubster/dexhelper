@@ -30,6 +30,8 @@ locks: []
 Verify the end-to-end functionality and integration of the mGBA WASM emulator and real-time memory synchronization.
 
 ## Acceptance Criteria
+- [ ] task-532-690-mgba-integration-e2e-impl
+- [ ] task-532-691-mgba-integration-e2e-qa
 - [ ] Write integration tests for the mGBA WASM wrapper and React component.
 - [ ] Write E2E tests using Playwright to verify emulator loading and rendering.
 - [ ] Write E2E tests to verify real-time memory synchronization and parsing for Gen 3.
