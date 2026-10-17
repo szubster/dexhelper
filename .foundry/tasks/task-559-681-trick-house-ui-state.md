@@ -35,6 +35,6 @@ As part of the Gen 3 Trick House Tracker Dashboard, we need a visual interface t
 - Write tests for the state integration layer.
 
 ## Acceptance Criteria
-- [ ] Integrate `TrickHouseDashboard` into the tracker view.
-- [ ] Connect `TrickHouseDashboard` to the parsed state.
-- [ ] Add tests for integration logic.
+- [x] Integrate `TrickHouseDashboard` into the tracker view.
+- [x] Connect `TrickHouseDashboard` to the parsed state.
+- [x] Add tests for integration logic.
