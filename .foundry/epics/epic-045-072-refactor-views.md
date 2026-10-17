@@ -33,4 +33,7 @@ With \`DagContext\` in place, the existing React Flow DAG visualizer (and any ot
 - Verify that there are no performance regressions due to the context refactoring.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-072-676-refactor-dag-visualizer
+- [ ] story-072-677-refactor-dashboard-views
+- [ ] story-072-678-dag-dashboard-context-e2e
