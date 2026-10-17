@@ -34,4 +34,6 @@ Refactor existing Pokedex grid-related E2E tests (e.g. `tests/e2e/pokedex-grid-v
 ## Acceptance Criteria
 - [ ] Pokedex tests are refactored to use `PokedexGridModel`.
 - [ ] Tests use semantic locators via the COM.
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-674-700-migrate-pokedex-e2e-tests-coder
+- [ ] task-674-701-migrate-pokedex-e2e-tests-qa
