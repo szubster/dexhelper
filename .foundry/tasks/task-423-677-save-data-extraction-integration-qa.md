@@ -24,4 +24,4 @@ locks: []
 # QA Integration Tests for Save Data Extraction
 
 ## Acceptance Criteria
-- [ ] Verify integration tests for save data extraction pass and are comprehensive.
+- [x] Verify integration tests for save data extraction pass and are comprehensive.
