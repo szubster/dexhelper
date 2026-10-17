@@ -25,6 +25,6 @@ locks: []
 As part of the Gen 3 Secret Base Epic, we need to verify mixed record trainer extraction and rematch tracking. This is a retry of the failed task.
 
 ## Acceptance Criteria
-- [ ] Write E2E tests for mixed record trainer extraction.
-- [ ] Write E2E tests for rematch status tracking.
-- [ ] Ensure integration with UI.
+- [x] Write E2E tests for mixed record trainer extraction.
+- [x] Write E2E tests for rematch status tracking.
+- [x] Ensure integration with UI.
