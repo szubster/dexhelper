@@ -2,13 +2,13 @@
 id: task-424-676-gen3-lottery-e2e-tests
 type: TASK
 title: Implement Gen3 Lottery E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-17'
 depends_on:
   - story-133-423-gen3-lottery-ui-integration
-jules_session_id: null
+jules_session_id: '1315541048076587694'
 pr_number: null
 parent: story-133-424-gen3-lottery-e2e-verification
 tags:
