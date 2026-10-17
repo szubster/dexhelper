@@ -19,6 +19,7 @@
 | [epic-341-416-orchestrator-fuzzer-ci](.foundry/epics/epic-341-416-orchestrator-fuzzer-ci.md) | EPIC | Orchestrator State Machine Fuzzing - CI Integration & Validation | story_owner | [1128244232233425503](https://jules.google.com/session/1128244232233425503) |
 | [epic-516-532-e2e-verification](.foundry/epics/epic-516-532-e2e-verification.md) | EPIC | E2E Verification of Scheduled Agents Issue Flow | story_owner | [5150304259109607505](https://jules.google.com/session/5150304259109607505) |
 | [epic-518-531-priority-orchestrator-dispatch](.foundry/epics/epic-518-531-priority-orchestrator-dispatch.md) | EPIC | Implement Priority-Based Dispatch in Orchestrator | story_owner | [12337048013298732747](https://jules.google.com/session/12337048013298732747) |
+| [epic-564-567-e2e-integration](.foundry/epics/epic-564-567-e2e-integration.md) | EPIC | Virtualization E2E Integration and Verification | story_owner | [5468991194714480218](https://jules.google.com/session/5468991194714480218) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
