@@ -2,15 +2,17 @@
 id: task-490-678-orchestrator-theme-qa-v2
 type: TASK
 title: Orchestrator Theme QA (v2)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-11'
-updated_at: '2026-10-16'
+updated_at: '2026-10-17'
 depends_on:
   - task-490-677-orchestrator-badge-injection-impl-v2
 jules_session_id: null
 parent: story-408-490-orchestrator-themed-output-impl
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-490-676-investigate-badge-injection-failure
 locks: []
 ---
 # Orchestrator Theme QA (v2)

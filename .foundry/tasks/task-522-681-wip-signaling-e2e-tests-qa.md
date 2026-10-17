@@ -2,10 +2,10 @@
 id: task-522-681-wip-signaling-e2e-tests-qa
 type: TASK
 title: Verify E2E Tests for WIP Signaling System
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-17'
 depends_on:
   - task-522-680-wip-signaling-e2e-tests
 jules_session_id: null

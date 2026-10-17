@@ -2,13 +2,13 @@
 id: epic-518-531-priority-orchestrator-dispatch
 type: EPIC
 title: Implement Priority-Based Dispatch in Orchestrator
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-10-13'
+updated_at: '2026-10-17'
 depends_on:
   - epic-518-530-priority-schema-updates
-jules_session_id: '12337048013298732747'
+jules_session_id: null
 pr_number: null
 parent: prd-148-518-priority-based-dispatch-queue
 tags:

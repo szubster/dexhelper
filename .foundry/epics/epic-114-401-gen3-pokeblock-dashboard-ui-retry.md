@@ -2,7 +2,7 @@
 id: epic-114-401-gen3-pokeblock-dashboard-ui-retry
 type: EPIC
 title: Gen 3 Pokéblock Exact Stats Viewer Dashboard UI
-status: FAILED
+status: READY
 owner_persona: epic_planner
 created_at: '2026-08-05'
 updated_at: '2026-10-17'
@@ -17,8 +17,8 @@ tags:
   - pokeblocks
   - frontend
 research_references: []
-rejection_count: 0
-rejection_reason: 'Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

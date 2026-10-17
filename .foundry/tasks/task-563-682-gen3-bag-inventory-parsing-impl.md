@@ -2,24 +2,23 @@
 id: task-563-682-gen3-bag-inventory-parsing-impl
 type: TASK
 title: Gen 3 Bag Inventory Parsing Implementation
-status: PENDING
+status: READY
 owner_persona: coder
-created_at: "2026-10-12"
-updated_at: "2026-10-12"
+created_at: '2026-10-12'
+updated_at: '2026-10-17'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-554-563-inventory-item-tracker
-priority: 50
-confidence_score: null
 tags:
   - dexhelper
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Gen 3 Bag Inventory Parsing Implementation

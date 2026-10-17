@@ -2,10 +2,10 @@
 id: task-522-686-wip-awareness-e2e-qa
 type: TASK
 title: QA WIP Orchestrator Awareness E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-13'
-updated_at: '2026-10-13'
+updated_at: '2026-10-17'
 depends_on:
   - task-522-685-wip-awareness-e2e-orchestrator-tests
 jules_session_id: null

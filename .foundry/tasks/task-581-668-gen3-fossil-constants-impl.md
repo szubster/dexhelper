@@ -2,18 +2,18 @@
 id: task-581-668-gen3-fossil-constants-impl
 type: TASK
 title: Implement Gen 3 Fossil Constants
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-10-08'
-updated_at: '2026-10-12'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '7934345002849595763'
+jules_session_id: null
 pr_number: null
 parent: story-552-581-gen3-fossil-constants
 tags:
   - gen3
   - constants
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

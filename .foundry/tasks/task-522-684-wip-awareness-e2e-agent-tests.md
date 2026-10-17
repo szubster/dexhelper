@@ -2,10 +2,10 @@
 id: task-522-684-wip-awareness-e2e-agent-tests
 type: TASK
 title: Implement Agent WIP Awareness Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-13'
-updated_at: '2026-10-13'
+updated_at: '2026-10-17'
 depends_on:
   - task-522-683-wip-awareness-e2e-fixtures
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: story-540-561-gen3-pokeblock-math-formulas
 type: STORY
 title: Gen 3 Pokéblock Math Formulas and Feel Calculations
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-19'
+updated_at: '2026-10-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,8 +31,8 @@ To determine the best recipe for blending berries, we need the exact mathematica
 Implement the mathematical formulas for Gen 3 Pokéblock blending, condition gains, feel calculations, and nature modifiers.
 
 ## Acceptance Criteria
-- [ ] Implement the mathematical formulas for Gen 3 Pokéblock blending, condition gains, feel calculations, and nature modifiers.
-- [ ] task-561-590-gen3-nature-modifiers-constants
-- [ ] task-561-591-gen3-pokeblock-blending-math
-- [ ] task-561-592-gen3-pokeblock-feeding-math
-- [ ] task-561-593-gen3-pokeblock-math-qa
+- [x] Implement the mathematical formulas for Gen 3 Pokéblock blending, condition gains, feel calculations, and nature modifiers.
+- [x] task-561-590-gen3-nature-modifiers-constants
+- [x] task-561-591-gen3-pokeblock-blending-math
+- [x] task-561-592-gen3-pokeblock-feeding-math
+- [x] task-561-593-gen3-pokeblock-math-qa

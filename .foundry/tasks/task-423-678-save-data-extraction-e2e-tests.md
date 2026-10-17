@@ -2,10 +2,10 @@
 id: task-423-678-save-data-extraction-e2e-tests
 type: TASK
 title: Write E2E Verification Tests for Save Data Extraction
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-08-11T00:00:00.000Z'
-updated_at: '2026-10-11'
+updated_at: '2026-10-17'
 depends_on:
   - task-423-677-save-data-extraction-integration-qa
 jules_session_id: null

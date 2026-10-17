@@ -2,10 +2,10 @@
 id: story-531-650-priority-orchestrator-dispatch-e2e
 type: STORY
 title: Priority-Based Dispatch in Orchestrator E2E tests
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-13'
-updated_at: '2026-10-13'
+updated_at: '2026-10-17'
 depends_on:
   - story-531-649-priority-orchestrator-dispatch-impl
 jules_session_id: null

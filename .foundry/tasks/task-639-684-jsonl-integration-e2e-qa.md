@@ -2,10 +2,10 @@
 id: task-639-684-jsonl-integration-e2e-qa
 type: TASK
 title: JSONL Integration E2E Tests QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-12T23:32:11Z'
-updated_at: '2026-10-12T23:32:11Z'
+updated_at: '2026-10-17'
 depends_on:
   - task-639-683-jsonl-integration-e2e-impl
 jules_session_id: null
@@ -20,7 +20,6 @@ rejection_reason: ''
 notes: ''
 locks: []
 priority: 50
-confidence_score: null
 ---
 
 # JSONL Integration E2E Tests QA

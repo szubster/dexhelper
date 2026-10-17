@@ -2,10 +2,10 @@
 id: task-522-685-wip-awareness-e2e-orchestrator-tests
 type: TASK
 title: Implement Orchestrator WIP Awareness Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-13'
-updated_at: '2026-10-13'
+updated_at: '2026-10-17'
 depends_on:
   - task-522-684-wip-awareness-e2e-agent-tests
 jules_session_id: null

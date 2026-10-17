@@ -2,10 +2,10 @@
 id: task-586-688-multi-box-integration-e2e
 type: TASK
 title: Multi-Box Search Integration E2E Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-17'
 depends_on:
   - task-586-687-multi-box-integration-impl
 jules_session_id: null

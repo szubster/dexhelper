@@ -2,10 +2,10 @@
 id: task-673-684-schema-system-failure-count-tests
 type: TASK
 title: Update Schema Tests for system_failure_count
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-13T19:46:42Z'
-updated_at: '2026-10-13T19:46:42Z'
+updated_at: '2026-10-17'
 depends_on:
   - task-673-683-schema-system-failure-count
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-586-689-multi-box-integration-qa
 type: TASK
 title: QA - Multi-Box Search Integration
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-17'
 depends_on:
   - task-586-688-multi-box-integration-e2e
 jules_session_id: null
