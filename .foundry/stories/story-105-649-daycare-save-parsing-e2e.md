@@ -28,4 +28,6 @@ locks: []
 As per the orchestrator safeguard, every Epic must have a final Story dedicated to Integration and E2E verification. This story verifies the daylight offline save parsing engine implementation across supported generations.
 
 ## Acceptance Criteria
-- [ ] Create task to implement E2E tests for Daycare extraction engine.
+- [ ] task-649-690-daycare-save-parsing-e2e-coder
+- [ ] task-649-691-daycare-save-parsing-e2e-qa
+- [x] Create task to implement E2E tests for Daycare extraction engine.
