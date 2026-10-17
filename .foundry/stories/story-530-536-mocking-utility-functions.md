@@ -2,10 +2,10 @@
 id: story-530-536-mocking-utility-functions
 type: STORY
 title: Implement Central Mocking Utility Functions
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-10-10'
+updated_at: '2026-10-15'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -27,4 +27,4 @@ The QA and coder personas need a centralized utility module (`tests/e2e/mock-uti
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-536-562-implement-mocking-utilities
+- [x] task-536-562-implement-mocking-utilities

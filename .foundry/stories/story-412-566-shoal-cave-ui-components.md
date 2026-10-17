@@ -2,10 +2,10 @@
 id: story-412-566-shoal-cave-ui-components
 type: STORY
 title: Shoal Cave UI Dashboard Components
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-25'
+updated_at: '2026-10-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -28,7 +28,7 @@ This story implements the React components required for the Shoal Cave tide and 
 
 ## Acceptance Criteria
 - [x] Break down into Tasks to implement the dashboard UI components (Tide, Item counts, Crafting indicator).
-- [ ] task-566-581-shoal-tide-display
-- [ ] task-566-582-shoal-item-tracker
-- [ ] task-566-583-shoal-dashboard-layout
-- [ ] task-566-584-shoal-ui-qa
+- [x] task-566-581-shoal-tide-display
+- [x] task-566-582-shoal-item-tracker
+- [x] task-566-583-shoal-dashboard-layout
+- [x] task-566-584-shoal-ui-qa

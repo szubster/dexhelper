@@ -2,10 +2,10 @@
 id: story-576-617-multi-box-search-ui-components
 type: STORY
 title: Multi-Box Search UI Components
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-23'
-updated_at: '2026-10-12'
+updated_at: '2026-10-13'
 depends_on: []
 jules_session_id: null
 pr_number: null

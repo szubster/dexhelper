@@ -5,7 +5,7 @@ title: Integration and E2E Verification for RAG Dynamic Querying
 status: PENDING
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-10'
+updated_at: '2026-10-14'
 depends_on:
   - task-559-670-search-extraction-impl
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-645-669-qa-dashboard-metrics-integration-e2e
 type: TASK
 title: QA Verification for Confidence Metrics Dashboard E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-07T04:50:01.754Z'
-updated_at: '2026-10-07'
+updated_at: '2026-10-14'
 depends_on:
   - task-645-668-dashboard-metrics-integration-e2e-impl
 jules_session_id: null
@@ -19,7 +19,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-645-668-dashboard-metrics-integration-e2e-impl
 notes: ''
 locks: []
 priority: 60

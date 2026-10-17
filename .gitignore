@@ -7,6 +7,7 @@ coverage/
 .env*
 !.env.example
 # Vitest
+.vitest/
 .vitest-attachments/
 __screenshots__/
 test-report.junit.xml

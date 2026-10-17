@@ -2,12 +2,12 @@
 id: story-408-490-orchestrator-themed-output-impl
 type: STORY
 title: Orchestrator Themed Output Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-29'
-updated_at: '2026-10-11'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: '1830220793751656194'
+jules_session_id: null
 pr_number: null
 parent: epic-339-408-orchestrator-themed-output
 tags:
@@ -33,5 +33,8 @@ Modify the Foundry Orchestrator script (.github/scripts/foundry-orchestrator.ts)
 ## Acceptance Criteria
 - [x] Tech Lead: Generate TASK node(s) for the implementation of themed outputs.
 - [ ] task-490-549-orchestrator-console-theme-impl
-- [ ] task-490-550-orchestrator-badge-injection-impl
-- [ ] task-490-551-orchestrator-theme-qa
+- [x] task-490-550-orchestrator-badge-injection-impl
+- [x] task-490-551-orchestrator-theme-qa
+- [ ] research-490-676-investigate-badge-injection-failure
+- [ ] task-490-677-orchestrator-badge-injection-impl-v2
+- [ ] task-490-678-orchestrator-theme-qa-v2

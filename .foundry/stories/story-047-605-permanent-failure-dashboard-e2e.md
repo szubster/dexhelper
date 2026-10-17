@@ -2,10 +2,10 @@
 id: story-047-605-permanent-failure-dashboard-e2e
 type: STORY
 title: E2E Verification for Permanent Failure Dashboard UI
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-21'
-updated_at: '2026-09-21'
+updated_at: '2026-10-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,4 +30,6 @@ Implement end-to-end tests to verify the "Permanent Failures" view in the DAG Da
 The implementation stories for epic-034-047-permanent-failure-dashboard-ui are completed. To satisfy the Orchestrator Safeguard E2E Verification Requirement, this story explicitly handles integration and E2E testing for the new feature.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-605-687-permanent-failure-dashboard-e2e-tests
+- [ ] task-605-688-permanent-failure-dashboard-e2e-qa

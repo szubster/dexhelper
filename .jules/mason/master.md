@@ -406,3 +406,13 @@ Removed redundant dead code (like the `ledOuter` and `ledInner` styles from `Tac
 - **Key Learnings**:
   - In `vitest-browser-react` component tests, `page` should be imported from `vitest/browser` (`import { page } from 'vitest/browser'`), not `vitest-browser-react`.
   - Replacing inline HTML span tags with design system primitives (`TacticalBadge`) ensures consistent tactical styling, animations, and hardware accent ticks across the application.
+
+---
+
+# PokeballIcon Extraction
+
+- **What**: Extracted repeated Pokéball indicator icon JSX patterns from `SettingsControls.tsx` and `PokemonCatchProbability.tsx` into a reusable `PokeballIcon` component (`src/components/PokeballIcon.tsx`).
+- **Why**: Standardizes visual representations of Pokéballs across settings controls and catch calculators. Reduces code duplication and ensures consistent theme color mapping (`emerald`, `yellow`, `blue`, `pink`, `red`) and tactical borders.
+- **Key Learnings**:
+  - `React.forwardRef` and extending `React.HTMLAttributes<HTMLDivElement>` allows `PokeballIcon` to seamlessly receive standard props (`data-testid`, `aria-label`, custom `className`).
+  - Combining size variants (`sm`, `md`, `lg`) and an optional `glow` prop encapsulates both basic dropdown/control items and prominent card/calculator callouts cleanly.

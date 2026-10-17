@@ -1,13 +1,13 @@
 ---
 id: task-537-680-remove-xyflow-deps
 type: TASK
-title: Remove xyflow dependencies, code, and update Vite config
-status: READY
+title: 'Remove xyflow dependencies, code, and update Vite config'
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-12'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13590513858184879123'
 pr_number: null
 parent: story-530-537-xyflow-cleanup
 tags:

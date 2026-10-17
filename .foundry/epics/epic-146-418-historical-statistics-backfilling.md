@@ -2,13 +2,13 @@
 id: epic-146-418-historical-statistics-backfilling
 type: EPIC
 title: Historical Statistics Backfilling Engine
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-08-14'
+updated_at: '2026-10-17'
 depends_on:
   - epic-146-417-real-time-statistics-generator
-jules_session_id: '11083204589735225959'
+jules_session_id: '16665974068628959637'
 pr_number: null
 parent: prd-146-001-foundry-system-statistics
 tags:
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Historical Statistics Backfilling Engine

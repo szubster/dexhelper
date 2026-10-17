@@ -5,9 +5,9 @@ title: False Permanent Failure Detection & Distinction in Orchestrator
 status: PENDING
 owner_persona: epic_planner
 created_at: '2026-10-04'
-updated_at: '2026-10-09'
+updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9828408791248575598'
 pr_number: null
 parent: idea-535-false-permanent-failure-detection
 rejection_count: 1
