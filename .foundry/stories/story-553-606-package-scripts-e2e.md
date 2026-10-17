@@ -28,3 +28,5 @@ locks: []
 
 ## Acceptance Criteria
 - [ ] Verify validation passes correctly on valid files and fails on malformed files.
+- [ ] task-606-687-lint-foundry-e2e-impl
+- [ ] task-606-688-lint-foundry-e2e-qa
