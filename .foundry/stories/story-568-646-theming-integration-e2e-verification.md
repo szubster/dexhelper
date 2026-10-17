@@ -35,4 +35,6 @@ Ensure existing component unit tests continue to pass and run comprehensive inte
 - Verify unit tests coverage.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into modular implementation and QA tasks.
+- [ ] task-646-702-theming-integration-e2e-impl
+- [ ] task-646-703-theming-integration-e2e-qa
+- [x] Tech Lead: Break down this Story into modular implementation and QA tasks.
