@@ -42,4 +42,10 @@ This epic involves constructing the frontend tactical UI for the "Rematch Dashbo
 - Integrate robust testing to ensure the filter logic and UI rendering work correctly with mock save states.
 
 ## Next Steps
-- [ ] Story Owner: Break this Epic down into actionable Stories (e.g., UI Component Design, State/Data Integration, Filter Logic Implementation).
+- [x] Story Owner: Break this Epic down into actionable Stories (e.g., UI Component Design, State/Data Integration, Filter Logic Implementation).
+
+## Acceptance Criteria
+- [ ] story-085-676-rematch-dashboard-layout-and-routing
+- [ ] story-085-677-rematch-trainer-card-component
+- [ ] story-085-678-rematch-filter-and-sort-logic
+- [ ] story-085-679-rematch-dashboard-integration-e2e
