@@ -25,5 +25,5 @@ locks: []
 Create src/engine/tracker/heldItemExtractor.ts that exports an extractHeldItems function which iterates over the item property of PokemonInstance in the party and PC boxes of SaveData to extract held items. Write tests in src/engine/tracker/heldItemExtractor.test.ts.
 
 ## Acceptance Criteria
-- [ ] Implement extractHeldItems function.
-- [ ] Add unit tests.
+- [x] Implement extractHeldItems function.
+- [x] Add unit tests.
