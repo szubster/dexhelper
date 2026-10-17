@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
 
+## [0.23.9] - 2026-04-03
+### Added
+- Improve test coverage and consolidate unit tests for the `decodeGen12String` extraction utility to prevent regressions in Generation 1 and 2 save file parsing.
+
 ## [0.23.8] - 2026-04-03
 ### Changed
 - Refactor the suggestion engine by extracting `findAncestors` out of `fetchAssistantApiData` into a top-level helper function `getAncestors` to reduce closure nesting and improve maintainability.
@@ -247,3 +251,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.23.6]: https://github.com/szubster/dexhelper/compare/d67d3464e87381688ecfcf5136c3f299b7c7f79c...7184ba35ce6641a67e1f3003403e22e4d39b5913
 [0.23.7]: https://github.com/szubster/dexhelper/compare/7184ba35ce6641a67e1f3003403e22e4d39b5913...5feaa6ef2b2ad4fc2df304b0b2f0ee026b2e70af
 [0.23.8]: https://github.com/szubster/dexhelper/compare/5feaa6ef2b2ad4fc2df304b0b2f0ee026b2e70af...f3e1743b567af90ec93b9445ec3ec92ed7eb2952
+[0.23.9]: https://github.com/szubster/dexhelper/compare/f3e1743b567af90ec93b9445ec3ec92ed7eb2952...20ca1be20e3522bede6b25bd0589217cbf668385
