@@ -10,6 +10,7 @@ import { HexStreamDecoration } from './HexStreamDecoration';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { LocationSuggestions } from './LocationSuggestions';
+import { AttributeFilters } from './pc-box/search/AttributeFilters';
 import { TacticalInput } from './TacticalInput';
 import { TacticalMultiSelectControl } from './TacticalMultiSelectControl';
 import { TacticalPanel } from './TacticalPanel';
@@ -207,6 +208,8 @@ export function SearchAndFilters() {
               ))}
             </div>
           </div>
+
+          <AttributeFilters />
         </div>
       </TacticalPanel>
     </div>

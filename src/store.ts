@@ -126,6 +126,13 @@ interface AppStore {
   selectedWildItemIds: number[];
   /** Current search query for filtering Pokémon lists. */
   searchTerm: string;
+  /** Attribute filters for Multi-Box Search. */
+  attributeFilters: {
+    nature?: string;
+    gender?: string;
+    ability?: string;
+    heldItem?: string;
+  };
   /** Currently selected map location for viewing details. */
   selectedLocationId: number | null;
   /** Toggles the global settings modal. */
@@ -137,6 +144,10 @@ interface AppStore {
    * @param v - The search query string.
    */
   setSearchTerm: (v: string) => void;
+  /**
+   * Updates attribute filters.
+   */
+  setAttributeFilters: (filters: { nature?: string; gender?: string; ability?: string; heldItem?: string }) => void;
   /**
    * Updates the currently selected map location ID.
    * @param id - The ID of the map location, or null to clear the selection.
@@ -343,10 +354,12 @@ export const useStore = create<AppStore>()(
       // Transient UI
       selectedWildItemIds: [],
       searchTerm: '',
+      attributeFilters: {},
       selectedLocationId: null,
       isSettingsOpen: false,
       isVersionModalOpen: false,
       setSearchTerm: (v) => set({ searchTerm: v }),
+      setAttributeFilters: (filters) => set({ attributeFilters: filters }),
       setSelectedLocationId: (id) => set({ selectedLocationId: id }),
       setIsSettingsOpen: (v) => set({ isSettingsOpen: v }),
       setIsVersionModalOpen: (v) => set({ isVersionModalOpen: v }),

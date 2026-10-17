@@ -21,7 +21,6 @@ rejection_reason: ''
 notes: ''
 locks: []
 priority: 50
-confidence_score: null
 ---
 
 # Task: Multi-Box Attribute Filters UI Components
@@ -34,6 +33,6 @@ As part of the Multi-Box Search and Filtering system, we need to implement dropd
 - Adhere to the "tactical hardware/snooping" aesthetic outlined in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Filter components (Nature, Ability, Gender, Held Item) are implemented.
-- [ ] Components are styled according to ADR 008 using `@utility` tactical primitives.
-- [ ] Components have appropriate Vitest unit tests verifying rendering and user interactions using `vitest-browser-react`.
+- [x] Filter components (Nature, Ability, Gender, Held Item) are implemented.
+- [x] Components are styled according to ADR 008 using `@utility` tactical primitives.
+- [x] Components have appropriate Vitest unit tests verifying rendering and user interactions using `vitest-browser-react`.
