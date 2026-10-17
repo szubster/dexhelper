@@ -36,5 +36,5 @@ QA verification for the Multi-Box Search and Filtering UI components.
 - Verify adherence to architectural constraints.
 
 ## Acceptance Criteria
-- [ ] Search input and attribute filters pass QA verification.
-- [ ] Adherence to ADR 008 is confirmed.
+- [x] Search input and attribute filters pass QA verification.
+- [x] Adherence to ADR 008 is confirmed.
