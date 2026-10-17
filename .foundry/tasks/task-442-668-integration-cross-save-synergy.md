@@ -5,14 +5,14 @@ title: Implement Integration Tests for Cross-Save Synergy
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-06T22:39:19Z'
-updated_at: '2026-10-09'
+updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: '3795153409368528370'
+jules_session_id: '4118480546782407486'
 pr_number: null
 parent: story-350-442-cross-save-synergy-e2e
 tags:
   - integration
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

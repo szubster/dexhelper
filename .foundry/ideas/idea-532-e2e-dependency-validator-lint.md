@@ -5,7 +5,7 @@ type: IDEA
 status: READY
 owner_persona: product_manager
 created_at: '2026-09-29T06:00:00.000Z'
-updated_at: '2026-09-29T06:00:00.000Z'
+updated_at: '2026-10-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -20,6 +20,7 @@ notes: ''
 locks: []
 priority: 50
 rejection_reason: ''
+rejection_count: 1
 ---
 
 # Automated E2E Task Dependency Linter Guard in Orchestrator DAG Validation

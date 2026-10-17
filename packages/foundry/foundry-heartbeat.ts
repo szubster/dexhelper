@@ -13,8 +13,22 @@ import matter from 'gray-matter';
 import { discoverNodeFiles, parseNodeFile } from './foundry-orchestrator.ts';
 import { todayISO, updateActiveSessionsTable } from './dag-utils.ts';
 import { deleteJulesSession, getSessionActivities } from './session-api.ts';
+import { createThrottle } from './utils/throttle.ts';
 
-const DRY_RUN = process.argv.includes('--dry-run');
+export function isDryRun(): boolean {
+  return process.argv.includes('--dry-run') || Boolean((globalThis as any).DRY_RUN);
+}
+
+const DRY_RUN = isDryRun();
+
+export const githubApiLimiter = createThrottle({
+  limit: process.env.VITEST ? 1000 : 30,
+  interval: process.env.VITEST ? 50 : 60_000
+});
+
+export async function githubFetch(url: string | URL | Request, init?: RequestInit): Promise<Response> {
+  return githubApiLimiter.schedule(() => fetch(url, init));
+}
 
 function warn(msg: string): void {
   process.stderr.write(`[heartbeat] WARN  ${msg}\n`);
@@ -378,19 +392,19 @@ export async function transitionNodeToReadyWithoutPenalty(node: any, repoRoot: s
   }
 }
 
-/** Robust discovery: Jules Session -> GitHub Search -> GitHub List */
+/** Robust discovery: Jules Session -> In-Memory Recent PRs */
 export async function findPRForSession(
   repoFullName: string,
   githubToken: string,
   julesKey: string,
-  sessionId: string
+  sessionId: string,
+  recentPulls: any[] = []
 ): Promise<{ pr: any; sessionStatus: string | null; updateTime?: string; createTime?: string }> {
   let sessionStatus: string | null = null;
   let updateTime: string | undefined;
   let createTime: string | undefined;
 
   let prData: any = null;
-
 
   // 1. Fetch Jules session details (Primary Source of Truth)
   try {
@@ -414,11 +428,16 @@ export async function findPRForSession(
         const match = prUrl.match(/pull\/(\d+)$/);
         if (match) {
           const prNumber = parseInt(match[1], 10);
-          const prRes = await fetch(`https://api.github.com/repos/${repoFullName}/pulls/${prNumber}`, {
-            headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
-          });
-          if (prRes.ok) {
-            prData = await prRes.json();
+          const cachedPr = recentPulls.find((p: any) => p.number === prNumber);
+          if (cachedPr) {
+            prData = cachedPr;
+          } else {
+            const prRes = await githubFetch(`https://api.github.com/repos/${repoFullName}/pulls/${prNumber}`, {
+              headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
+            });
+            if (prRes.ok) {
+              prData = await prRes.json();
+            }
           }
         }
       }
@@ -431,29 +450,14 @@ export async function findPRForSession(
 
   if (prData) return { pr: prData, sessionStatus, updateTime, createTime };
 
-  // 2. Fallback to GitHub Search API (Index-dependent)
-  try {
-    const searchRes = await fetch(`https://api.github.com/search/issues?q=repo:${repoFullName}+is:pr+${sessionId}`, {
-      headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    const searchJson = await searchRes.json() as any;
-    if (searchJson.items?.[0]) return { pr: searchJson.items[0], sessionStatus, updateTime };
-  } catch { /* ignore search error */ }
-
-  // 3. Fallback to listing recent PRs (Index-independent)
-  try {
-    const pullsRes = await fetch(`https://api.github.com/repos/${repoFullName}/pulls?state=all&per_page=30`, {
-      headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    const pulls = await pullsRes.json() as any;
-    if (Array.isArray(pulls)) {
-      for (const pr of pulls) {
-        if (pr.body?.includes(sessionId) || pr.head?.ref?.includes(sessionId)) {
-          return { pr, sessionStatus, updateTime };
-        }
+  // 2. In-memory match against bulk-fetched recent PRs (eliminates per-session GitHub Search API /search/issues calls)
+  if (Array.isArray(recentPulls)) {
+    for (const pr of recentPulls) {
+      if (pr.body?.includes(sessionId) || pr.head?.ref?.includes(sessionId) || pr.title?.includes(sessionId)) {
+        return { pr, sessionStatus, updateTime, createTime };
       }
     }
-  } catch { /* ignore list error */ }
+  }
 
   return { pr: null, sessionStatus, updateTime, createTime };
 }
@@ -483,6 +487,22 @@ export async function main() {
 
   info(`Monitoring ${activeNodes.length} ACTIVE/VERIFYING and ${failedNodes.length} FAILED nodes.`);
 
+  // Bulk-fetch recent pull requests once per run to match session IDs in-memory
+  let recentPulls: any[] = [];
+  try {
+    const pullsRes = await githubFetch(`https://api.github.com/repos/${repoFullName}/pulls?state=all&per_page=100`, {
+      headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (pullsRes.ok) {
+      const data = await pullsRes.json() as any[];
+      if (Array.isArray(data)) {
+        recentPulls = data;
+      }
+    }
+  } catch (err) {
+    process.stderr.write(`[heartbeat] Failed to bulk-fetch recent pull requests: ${String(err)}\n`);
+  }
+
   // --- Pass 1: Check ACTIVE Nodes ---
   for (const node of activeNodes) {
     const sessionId = getSessionId(node);
@@ -503,11 +523,16 @@ export async function main() {
       const prNumber = node.frontmatter.pr_number;
       if (prNumber) {
         try {
-          const prRes = await fetch(`https://api.github.com/repos/${repoFullName}/pulls/${prNumber}`, {
-            headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
-          });
-          if (prRes.ok) {
-            pr = await prRes.json();
+          const cachedPr = recentPulls.find((p: any) => p.number === prNumber);
+          if (cachedPr) {
+            pr = cachedPr;
+          } else {
+            const prRes = await githubFetch(`https://api.github.com/repos/${repoFullName}/pulls/${prNumber}`, {
+              headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
+            });
+            if (prRes.ok) {
+              pr = await prRes.json();
+            }
           }
         } catch (err) {
           process.stderr.write(`[heartbeat] GitHub API error for human task: ${String(err)}\n`);
@@ -515,7 +540,7 @@ export async function main() {
       }
     } else {
       // A. Robust PR Discovery
-      const res = await findPRForSession(repoFullName, githubToken, julesKey, sessionId as string);
+      const res = await findPRForSession(repoFullName, githubToken, julesKey, sessionId as string, recentPulls);
       pr = res.pr;
       sessionStatus = res.sessionStatus;
       updateTime = res.updateTime;
@@ -524,14 +549,17 @@ export async function main() {
 
     if (pr) {
       if (pr.state === 'closed') {
-        // If from search, it might lack 'merged' property. Ensure we have the detail.
+        // If from search or list, it might lack 'merged' property. Ensure we have the detail.
         let isMerged = pr.merged;
+        if (isMerged === undefined && pr.merged_at !== undefined) {
+          isMerged = pr.merged_at !== null;
+        }
         if (isMerged === undefined) {
-          const detailRes = await fetch(`https://api.github.com/repos/${repoFullName}/pulls/${pr.number}`, {
+          const detailRes = await githubFetch(`https://api.github.com/repos/${repoFullName}/pulls/${pr.number}`, {
             headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
           });
           const detail = await detailRes.json() as any;
-          isMerged = detail.merged;
+          isMerged = detail.merged ?? (detail.merged_at !== null);
         }
 
         if (isMerged) {
@@ -614,8 +642,7 @@ export async function main() {
 
   // --- Pass 2: Check FAILED Nodes ---
   for (const node of failedNodes) {
-    const parsed = matter(node.rawContent);
-    const rejectionCount = parsed.data.rejection_count || 0;
+    const rejectionCount = node.frontmatter?.rejection_count ?? (node.rawContent ? matter(node.rawContent).data.rejection_count : 0) ?? 0;
     if (rejectionCount >= 3) {
       info(`Skipping retry for ${node.repoPath} because rejection_count (${rejectionCount}) >= 3.`);
     } else {
@@ -689,7 +716,7 @@ if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith
 export async function cleanupRemoteBranches(repoRoot: string, repoFullName: string, githubToken: string): Promise<void> {
   try {
     // 1. Fetch open PR head refs
-    const openPrsRes = await fetch(`https://api.github.com/repos/${repoFullName}/pulls?state=open&per_page=100`, {
+    const openPrsRes = await githubFetch(`https://api.github.com/repos/${repoFullName}/pulls?state=open&per_page=100`, {
       headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
     });
     let openPrHeadRefs: string[] = [];
@@ -704,7 +731,7 @@ export async function cleanupRemoteBranches(repoRoot: string, repoFullName: stri
     }
 
     // 2. Fetch all remote branches
-    const refsRes = await fetch(`https://api.github.com/repos/${repoFullName}/git/matching-refs/heads/`, {
+    const refsRes = await githubFetch(`https://api.github.com/repos/${repoFullName}/git/matching-refs/heads/`, {
       headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
     });
     let remoteBranches: string[] = [];
@@ -729,10 +756,10 @@ export async function cleanupRemoteBranches(repoRoot: string, repoFullName: stri
 
     // 4. Delete branches
     for (const branch of branchesToDelete) {
-      if (DRY_RUN) {
+      if (isDryRun()) {
         info(`[DRY-RUN] Would delete remote branch: ${branch}`);
       } else {
-        const deleteRes = await fetch(`https://api.github.com/repos/${repoFullName}/git/refs/heads/${branch}`, {
+        const deleteRes = await githubFetch(`https://api.github.com/repos/${repoFullName}/git/refs/heads/${branch}`, {
           method: 'DELETE',
           headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
         });

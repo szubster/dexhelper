@@ -2,10 +2,10 @@
 id: story-407-573-item-gating-data-mapping
 type: STORY
 title: Item Gating Data Mapping
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-16T05:45:31Z'
-updated_at: '2026-10-03'
+updated_at: '2026-10-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,8 +29,8 @@ Define a data structure and mapping logic to associate items with their requirem
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks for Coder and QA.
-- [ ] task-573-652-item-gating-types
-- [ ] task-573-653-item-gating-constants
-- [ ] task-573-654-item-gating-utilities
-- [ ] task-573-655-item-gating-tests
-- [ ] task-573-656-item-gating-qa
+- [x] task-573-652-item-gating-types
+- [x] task-573-653-item-gating-constants
+- [x] task-573-654-item-gating-utilities
+- [x] task-573-655-item-gating-tests
+- [x] task-573-656-item-gating-qa

@@ -2,10 +2,10 @@
 id: prd-129-339-epic-level-distillation-archival
 type: PRD
 title: Epic-Level Distillation and Cold Storage Archival
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-08-06'
-updated_at: '2026-08-08'
+updated_at: '2026-10-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic-Level Distillation and Cold Storage Archival
@@ -44,9 +45,9 @@ To implement an archival strategy that maintains crucial historical context whil
 - Automatic archiving of nodes that are CANCELLED or FAILED unless explicitly handled by separate workflow logic.
 
 ## Acceptance Criteria
-- [ ] Implement TPM logic to trigger distillation when an EPIC completes.
-- [ ] Implement synthesis logic to append "Changelog & Learnings" to the EPIC node.
-- [ ] Implement file system logic to move child node files to `.foundry/archive/`.
-- [ ] Ensure the orchestrator is updated to ignore `.foundry/archive/` during DAG parsing.
-- [ ] epic-339-405-orchestrator-archive-bypass
-- [ ] epic-339-406-tpm-distillation-logic
+- [x] Implement TPM logic to trigger distillation when an EPIC completes.
+- [x] Implement synthesis logic to append "Changelog & Learnings" to the EPIC node.
+- [x] Implement file system logic to move child node files to `.foundry/archive/`.
+- [x] Ensure the orchestrator is updated to ignore `.foundry/archive/` during DAG parsing.
+- [x] epic-339-405-orchestrator-archive-bypass
+- [x] epic-339-406-tpm-distillation-logic

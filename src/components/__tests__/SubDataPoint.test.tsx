@@ -1,13 +1,14 @@
 import { describe, expect, it } from 'vitest';
+import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { SubDataPoint } from '../SubDataPoint';
 
 describe('SubDataPoint', () => {
   it('renders label and value correctly', async () => {
     expect.hasAssertions();
-    const { container } = await render(<SubDataPoint label="OT_ID" value="ASH / 12345" />);
-    await expect.element(container).toHaveTextContent('OT_ID');
-    await expect.element(container).toHaveTextContent('ASH / 12345');
+    await render(<SubDataPoint label="OT_ID" value="ASH / 12345" />);
+    await expect.element(page.getByText('OT_ID')).toBeInTheDocument();
+    await expect.element(page.getByText('ASH / 12345')).toBeInTheDocument();
   });
 
   it('renders children when value is not provided', async () => {
@@ -17,7 +18,7 @@ describe('SubDataPoint', () => {
         <span data-testid="child-status">ACTIVE</span>
       </SubDataPoint>,
     );
-    await expect.element(container).toHaveTextContent('STATUS');
+    await expect.element(page.getByText('STATUS')).toBeInTheDocument();
     const child = container.querySelector<HTMLElement>('[data-testid="child-status"]');
     expect(child).toBeInTheDocument();
   });

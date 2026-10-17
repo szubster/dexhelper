@@ -2,12 +2,12 @@
 id: idea-137-builtin-emulator
 type: IDEA
 title: Built-in Emulator Integration
-status: ACTIVE
+status: PENDING
 owner_persona: curator
 created_at: '2026-08-08'
-updated_at: '2026-10-13'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: '7049671878520294098'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -38,3 +38,5 @@ This upgrades DexHelper from a static post-save analyzer into an interactive, li
 ## Acceptance Criteria
 - [x] Product Manager: Draft a comprehensive PRD outlining the web-emulator integration flow, UI/UX layouts, and the reactive instruction schema.
 - [x] prd-137-343-built-in-emulator
+
+- [ ] research-137-677-emulator-auto-sync-integration

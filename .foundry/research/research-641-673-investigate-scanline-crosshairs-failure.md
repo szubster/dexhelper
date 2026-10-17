@@ -5,7 +5,7 @@ title: Investigate Scanline and Corner Crosshairs Migration Failure
 status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-09'
-updated_at: '2026-10-11'
+updated_at: '2026-10-13'
 depends_on: []
 jules_session_id: null
 parent: story-527-641-migrate-decorations
@@ -14,7 +14,7 @@ tags:
   - components
   - research
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

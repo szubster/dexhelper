@@ -59,7 +59,7 @@ jobs:
 
       - name: Verify DAG References
         run: |
-          pnpm --filter foundry-scripts verify:refs
+          pnpm --filter @dexhelper/foundry verify:refs
 
       - name: Run Orchestrator
         id: set-matrix

@@ -2,10 +2,10 @@
 id: epic-347-531-testing-style-guide
 type: EPIC
 title: Playwright Testing Style Guide
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-07'
+updated_at: '2026-10-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # EPIC: Playwright Testing Style Guide
@@ -30,5 +31,5 @@ Create a style guide in `.foundry/docs/knowledge_base/testing/playwright_style_g
 ## Acceptance Criteria
 - [x] Write the Playwright testing style guide.
 - [x] Implement a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-531-536-write-playwright-style-guide
-- [ ] story-531-537-testing-style-guide-e2e
+- [x] story-531-536-write-playwright-style-guide
+- [x] story-531-537-testing-style-guide-e2e

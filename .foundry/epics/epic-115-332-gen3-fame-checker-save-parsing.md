@@ -2,10 +2,10 @@
 id: epic-115-332-gen3-fame-checker-save-parsing
 type: EPIC
 title: Gen 3 Fame Checker Save Parsing
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-09-18'
+updated_at: '2026-10-15'
 depends_on:
   - epic-115-331-gen3-fame-checker-research
 jules_session_id: null
@@ -41,5 +41,5 @@ Following the research into Fame Checker event flags (`epic-115-331-gen3-fame-ch
 - Ensure the data structure conforms to the `PokeData` application naming schema where necessary.
 
 ## Acceptance Criteria
-- [ ] story-332-473-gen3-fame-checker-parsing-logic
-- [ ] story-332-474-gen3-fame-checker-save-parsing-e2e
+- [x] story-332-473-gen3-fame-checker-parsing-logic
+- [x] story-332-474-gen3-fame-checker-save-parsing-e2e

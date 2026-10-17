@@ -2,7 +2,7 @@
 id: story-534-560-rag-retrieval-injection-invariants
 type: STORY
 title: Inject Retrieved Chunks and Preserve Prompt Safety Invariants
-status: CANCELLED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-07'
 updated_at: '2026-10-10'
@@ -15,9 +15,7 @@ tags:
   - orchestrator
   - prompt
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  story-534-559-rag-dynamic-querying-retrieval
+rejection_reason: ''
 locks: []
 ---
 

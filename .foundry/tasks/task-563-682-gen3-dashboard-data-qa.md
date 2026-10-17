@@ -1,0 +1,32 @@
+---
+id: task-563-682-gen3-dashboard-data-qa
+type: TASK
+title: QA - Gen 3 Dashboard Data Integration
+status: PENDING
+owner_persona: qa
+created_at: '2026-10-02'
+updated_at: '2026-10-02'
+depends_on:
+  - task-563-681-gen3-dashboard-widgets-ui
+jules_session_id: null
+pr_number: null
+parent: story-554-563-gen3-dashboard-data-integration
+tags:
+  - dexhelper
+  - gen3
+  - qa
+research_references: []
+rejection_reason: ''
+locks: []
+---
+
+# Task: QA - Gen 3 Dashboard Data Integration
+
+## Description
+Verify the Gen 3 Dashboard Data Integration logic, ensuring state management, data fetching, and widget UI integration conform to the acceptance criteria and tactical aesthetics.
+
+## Acceptance Criteria
+- [ ] Verify data fetching and state management for dashboard widgets.
+- [ ] Verify Pokédex gap, Missed Milestones, and Trainer Card widget UI integrations.
+- [ ] Verify Vitest component and hook tests pass.
+- [ ] Verify adherence to the tactical hardware UI aesthetics.

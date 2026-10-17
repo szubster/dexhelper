@@ -38,6 +38,7 @@ export default defineConfig(async (configEnv) => {
             include: ['src/components/**/*.test.tsx', 'src/hooks/**/*.test.tsx', 'src/contexts/**/*.test.tsx', 'src/routes/__tests__/**/*.test.tsx', 'src/features/**/*.test.tsx'],
             exclude: ['tests/e2e/**/*'],
             browser: {
+            locators: { exact: false },
               enabled: true,
               provider: playwright(),
               instances: [

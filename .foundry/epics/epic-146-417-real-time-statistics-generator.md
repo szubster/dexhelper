@@ -2,10 +2,10 @@
 id: epic-146-417-real-time-statistics-generator
 type: EPIC
 title: Real-Time Statistics Generator & Orchestrator Integration
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-09-03'
+updated_at: '2026-10-14'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 2
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Real-Time Statistics Generator & Orchestrator Integration
@@ -34,5 +35,5 @@ Implement a real-time statistics generation module that runs at the end of each 
 
 ## Acceptance Criteria
 - [x] Break down this Epic into Stories, ensuring the final STORY is dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
-- [ ] story-417-520-statistics-generation
-- [ ] story-417-521-statistics-e2e
+- [x] story-417-520-statistics-generation
+- [x] story-417-521-statistics-e2e

@@ -2,12 +2,12 @@
 id: idea-488-autonomous-execution-enforcement
 type: IDEA
 title: Implement Automated Detection of Autonomous Execution Violations
-status: READY
+status: ACTIVE
 owner_persona: curator
 created_at: '2026-09-03'
-updated_at: '2026-10-12'
+updated_at: '2026-10-14'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2721788046849115960'
 pr_number: null
 parent: null
 tags: []

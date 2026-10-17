@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { FEEBAS_SEED_RELATIVE_OFFSET_RS } from '../../gen3/feebas';
+import { parseGen3Inventory } from '../gen3/inventory/parser';
 import {
   RIBBON_ARTIST_BIT,
   RIBBON_BATTLE_CHAMPION_BIT,
@@ -75,6 +76,34 @@ import {
   parseGen3TrainerId,
   parseGen3VolcanicAsh,
 } from './gen3';
+
+describe('parseGen3Inventory', () => {
+  it('should parse main item pocket with security key unmasking', () => {
+    const buffer = new ArrayBuffer(0x1000);
+    const view = new DataView(buffer);
+    const offset = 0x0560; // RS / Emerald offset
+
+    // Item 1: Water Stone (itemId 34 / 0x22), quantity 3 masked with 0x5678
+    view.setUint16(offset + 0, 34, true);
+    view.setUint16(offset + 2, 3 ^ 0x5678, true);
+
+    // Item 2: Moon Stone (itemId 30 / 0x1e), quantity 1 masked with 0x5678
+    view.setUint16(offset + 4, 30, true);
+    view.setUint16(offset + 6, 1 ^ 0x5678, true);
+
+    const result = parseGen3Inventory(view, 0, 'emerald', 0x12345678);
+    expect(result).toEqual([
+      { id: 34, quantity: 3 },
+      { id: 30, quantity: 1 },
+    ]);
+  });
+
+  it('should throw RangeError corrupted file error on out-of-bounds reads', () => {
+    const buffer = new ArrayBuffer(10);
+    const view = new DataView(buffer);
+    expect(() => parseGen3Inventory(view, 0, 'emerald', 0)).toThrow('The save file is corrupted or incomplete.');
+  });
+});
 
 describe('parseGen3TMHMs', () => {
   it('should parse TM/HM items correctly', () => {

@@ -101,6 +101,10 @@ function info(msg: string): void {
   process.stderr.write(`[orchestrator] ${getRandomPokemonPhrase()} INFO  ${msg}\n`);
 }
 
+function debug(msg: string): void {
+  process.stderr.write(`[orchestrator] ${getRandomPokemonPhrase()} DEBUG ${msg}\n`);
+}
+
 // ─── Utilities ────────────────────────────────────────────────────────────────
 
 // ─── Phase 1: DISCOVER ───────────────────────────────────────────────────────
@@ -214,17 +218,6 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: NodeFrontmatter['sta
   if (node.frontmatter.status !== currentStatus) {
     warn(`${dryTag}Cannot promote status. Current status is ${node.frontmatter.status}, expected ${currentStatus} in: ${node.repoPath}`);
     return;
-  }
-
-  if (
-    (targetStatus === 'COMPLETED' || targetStatus === 'VERIFYING') &&
-    node.frontmatter.confidence_score !== undefined &&
-    node.frontmatter.confidence_score !== null &&
-    node.frontmatter.confidence_score < 70
-  ) {
-    targetStatus = 'READY';
-    newOwner = node.frontmatter.type === 'TASK' ? 'qa' : 'auditor';
-    info(`${dryTag}Low confidence score (${node.frontmatter.confidence_score}) detected for ${node.repoPath}. Overriding transition to spawn a ${newOwner} task.`);
   }
 
   const clearRejectionReasonStatuses: NodeFrontmatter['status'][] = ['ACTIVE', 'READY', 'PENDING', 'VERIFYING', 'COMPLETED'];
@@ -345,6 +338,70 @@ function acknowledgeNodeFailure(node: ParsedNode): void {
   info(`${dryTag}Acknowledged failure in: ${node.repoPath}`);
 }
 
+function isPermanentFailureForCascade(node: ParsedNode): boolean {
+  const reason = node.frontmatter.rejection_reason;
+  if (node.frontmatter.status === 'CANCELLED') {
+    if (!reason) return false;
+    return (
+      reason.includes('Max rejection count reached') ||
+      reason.includes('Cancelled due to permanent failure of dependency:') ||
+      reason.toLowerCase().includes('impossible') ||
+      reason.toLowerCase().includes('permanent')
+    );
+  }
+  if (node.frontmatter.status === 'FAILED') {
+    if ((node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD) {
+      return true;
+    }
+    if (reason) {
+      return (
+        reason.includes('Max rejection count reached') ||
+        reason.toLowerCase().includes('impossible') ||
+        reason.toLowerCase().includes('permanent') ||
+        reason.includes('Feature not supported') ||
+        reason.includes('Manual rejection') ||
+        reason.includes('Circular dependency detected') ||
+        reason.includes('Hierarchical deadlock detected') ||
+        reason.includes('Invalid owner_persona mapping') ||
+        reason.includes('Merged with unfulfilled acceptance criteria')
+      );
+    }
+  }
+  return false;
+}
+
+function shouldWakeUpParent(node: ParsedNode): boolean {
+  if (!node.frontmatter.rejection_reason) return false;
+  if (node.frontmatter.rejection_reason.startsWith('[ACKNOWLEDGED]')) return false;
+  if (node.frontmatter.rejection_reason === 'Cancelled due to cascading cancellation from parent') return false;
+  if (node.frontmatter.rejection_reason.startsWith('Cancelled due to permanent failure of dependency:')) return false;
+
+  if (node.frontmatter.status === 'CANCELLED') {
+    return true;
+  }
+  if (node.frontmatter.status === 'FAILED') {
+    // Keep parent in PENDING while child is actively retrying
+    if ((node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD) {
+      return true;
+    }
+    const reason = node.frontmatter.rejection_reason;
+    if (
+      reason.includes('Max rejection count reached') ||
+      reason.toLowerCase().includes('impossible') ||
+      reason.toLowerCase().includes('permanent') ||
+      reason.includes('Feature not supported') ||
+      reason.includes('Manual rejection') ||
+      reason.includes('Circular dependency detected') ||
+      reason.includes('Hierarchical deadlock detected') ||
+      reason.includes('Invalid owner_persona mapping') ||
+      reason.includes('Merged with unfulfilled acceptance criteria')
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
   const ownerPersona = node.frontmatter.status === 'VERIFYING' ? 'auditor' : node.frontmatter.owner_persona;
 
@@ -383,7 +440,7 @@ function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
       const layerContent = fs.readFileSync(layerPath, 'utf-8');
       combined += `\n\n### SPECIFIC CONTEXT: ${layer.toUpperCase()}\n${layerContent}`;
     } else {
-      warn(`Requested tag/layer file does not exist: ${layerPath}`);
+      debug(`Requested tag/layer file does not exist: ${layerPath}`);
     }
   }
 
@@ -857,13 +914,8 @@ function main(): void {
   // ── Phase 3.6: IMPOSSIBLE LOOP ─────────────────────────────────────────────
   info('Phase 3.6: Checking for Impossible Loop conditions...');
   for (const node of nodes) {
-    if (
-      node.frontmatter.status === 'FAILED' ||
-      (node.frontmatter.status === 'CANCELLED' &&
-       (node.frontmatter.rejection_reason === 'Max rejection count reached' ||
-        (node.frontmatter.rejection_reason && node.frontmatter.rejection_reason.startsWith('Cancelled due to permanent failure of dependency:'))))
-    ) {
-      // Auto-cancel orphaned non-completed nodes depending directly or indirectly on this failed/cancelled node
+    if (isPermanentFailureForCascade(node)) {
+      // Auto-cancel orphaned non-completed nodes depending directly or indirectly on this permanently failed/cancelled node
 
       const dependents = buildReverseDependencyGraph(nodes, resolveNodePath as (ref: string) => string | null);
       const visited = getOrphanedNodes(node.repoPath, dependents);
@@ -879,13 +931,7 @@ function main(): void {
       }
     }
 
-    if (
-      ((node.frontmatter.status === 'FAILED' || node.frontmatter.status === 'CANCELLED') &&
-      node.frontmatter.rejection_reason &&
-      !node.frontmatter.rejection_reason.startsWith('[ACKNOWLEDGED]') &&
-      node.frontmatter.rejection_reason !== 'Cancelled due to cascading cancellation from parent' &&
-      !node.frontmatter.rejection_reason.startsWith('Cancelled due to permanent failure of dependency:'))
-    ) {
+    if (shouldWakeUpParent(node)) {
       // Skip waking up parent if the child is merely suspended (waiting for dependencies/children).
       // We ignore the parent node itself during this check because it's exactly what we want to find out
       // (if something OTHER than the parent is blocking the child).
@@ -1262,16 +1308,19 @@ function main(): void {
     if (node.frontmatter.status === 'PENDING') {
       const children = parentToChildren.get(node.repoPath) || [];
       if (children.length > 0) {
-        // Parent is PENDING and has children. Check if ALL children are COMPLETED.
+        // Parent is PENDING and has children. Check if all children are resolved, and at least one is COMPLETED.
         let allChildrenCompleted = true;
+        let hasCompletedChild = false;
         for (const child of children) {
-          if (child.frontmatter.status !== 'COMPLETED' && child.frontmatter.status !== 'CANCELLED') {
+          if (child.frontmatter.status === 'COMPLETED') {
+            hasCompletedChild = true;
+          } else if (child.frontmatter.status !== 'CANCELLED') {
             allChildrenCompleted = false;
             break;
           }
         }
 
-        if (allChildrenCompleted) {
+        if (allChildrenCompleted && hasCompletedChild) {
           let isDepIncomplete = false;
           for (const depRef of node.frontmatter.depends_on) {
             const depPath = resolveNodePath(depRef);
@@ -1382,7 +1431,7 @@ function main(): void {
       const links = [...body.matchAll(idRegex)].map(m => m[0]);
 
       if (links.length > 0) {
-        const resolvedLinks = links.map(l => resolveNodePath(l)).filter((l): l is string => !!l);
+        const resolvedLinks = links.map(l => resolveNodePath(l, true)).filter((l): l is string => !!l);
         const allExist = resolvedLinks.every(l => nodeMap.has(l) || fs.existsSync(path.join(repoRoot, l)));
         const hasChild = resolvedLinks.some(l => {
           let childNode = nodeMap.get(l);
@@ -1409,7 +1458,7 @@ function main(): void {
       if (hasUncheckedTasks) {
         info(`Idempotent check: Artifacts for ${node.repoPath} exist. Auto-checking non-node tasks...`);
         const updatedBody = node.body.replace(/(## Acceptance Criteria\s*[\s\S]*?)(?:\n## |$)/, (match) => {
-          return match.replace(/^(\s*-\s*\[)\s(\]\s(?:(?!(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+).)*)$/gm, '$1x$2');
+          return match.replace(/^(\s*-\s*\[)\s(\]\s+(?!(?:(?:\[[^\]]*\]\([^)]*\))|(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+)\s*$).*)$/gm, '$1x$2');
         });
 
         if (updatedBody !== node.body) {
@@ -1439,7 +1488,7 @@ function main(): void {
           const idRegex = /(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+/g;
           const bodyLinks = [...node.body.matchAll(idRegex)].map(m => m[0]);
           const e2eChildExists = bodyLinks.some(l => {
-            const resolvedLink = resolveNodePath(l);
+            const resolvedLink = resolveNodePath(l, true);
             const childNode = resolvedLink ? nodeMap.get(resolvedLink) : undefined;
             return childNode &&
                    childNode.frontmatter.type === 'STORY' &&

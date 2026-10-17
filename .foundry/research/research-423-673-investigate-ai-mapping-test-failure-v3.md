@@ -2,7 +2,7 @@
 id: research-423-673-investigate-ai-mapping-test-failure-v3
 type: RESEARCH
 title: Investigate Gen 3 AI Script Mapping E2E Test Failure (V3)
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-09'
 updated_at: '2026-10-13'
@@ -15,10 +15,8 @@ tags:
   - ai
   - e2e
   - research
-rejection_count: 2
-rejection_reason: >-
-  [ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered
-  AWAITING_USER_FEEDBACK
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

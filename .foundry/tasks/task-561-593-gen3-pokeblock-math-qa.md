@@ -36,7 +36,7 @@ The math formulas for Gen 3 Pokéblock blending, nature modifiers, and condition
 - Cross-reference calculations with known Gen 3 mechanics.
 
 ## Acceptance Criteria
-- [ ] Verify blending formulas.
-- [ ] Verify nature modifier application.
-- [ ] Verify feeding condition gain calculations.
-- [ ] Ensure strict adherence to coding and architecture guidelines.
+- [x] Verify blending formulas.
+- [x] Verify nature modifier application.
+- [x] Verify feeding condition gain calculations.
+- [x] Ensure strict adherence to coding and architecture guidelines.
