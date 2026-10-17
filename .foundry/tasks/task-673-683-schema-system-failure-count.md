@@ -29,5 +29,5 @@ As part of STORY `story-582-673-yaml-schema-validation-impl`, we need to track i
 Update the YAML frontmatter schema definition in `packages/foundry/schema.ts` to include `system_failure_count` as an optional integer.
 
 ## Acceptance Criteria
-- [ ] Add `system_failure_count: z.number().int().optional()` to `NodeFrontmatterSchema` in `packages/foundry/schema.ts`.
-- [ ] Ensure type inference correctly picks up the new field.
+- [x] Add `system_failure_count: z.number().int().optional()` to `NodeFrontmatterSchema` in `packages/foundry/schema.ts`.
+- [x] Ensure type inference correctly picks up the new field.
