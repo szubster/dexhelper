@@ -1,6 +1,6 @@
 import type React from 'react';
 import type { Gen3Pokeblock } from '../../engine/saveParser/gen3/pokeblock/types';
-import type { Gen3SaveData } from '../../engine/saveParser/parsers/common';
+import { isGen3Save } from '../../engine/saveParser/parsers/common';
 import { useStore } from '../../store';
 import { TacticalBlockHeader } from '../TacticalBlockHeader';
 import { TacticalPanel } from '../TacticalPanel';
@@ -8,12 +8,11 @@ import { TacticalPanel } from '../TacticalPanel';
 export const Gen3PokeblocksDashboard: React.FC = () => {
   const saveData = useStore((s) => s.saveData);
 
-  if (saveData?.generation !== 3) {
+  if (!saveData || !isGen3Save(saveData)) {
     return null;
   }
 
-  const gen3Data = saveData as Gen3SaveData;
-  const pokeblocks = gen3Data.gen3Pokeblocks;
+  const pokeblocks = saveData.gen3Pokeblocks;
 
   if (!pokeblocks || pokeblocks.length === 0) {
     return null;
