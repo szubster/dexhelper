@@ -28,4 +28,6 @@ locks: []
 Verify the integration and functionality of the multi-box IV and EV stat filters end-to-end.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into E2E verification tasks.
+- [x] Tech Lead: Break down this Story into E2E verification tasks.
+- [ ] task-619-687-multi-box-stat-filters-e2e-tests
+- [ ] task-619-688-multi-box-stat-filters-e2e-qa
