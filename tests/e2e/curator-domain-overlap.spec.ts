@@ -1,8 +1,8 @@
-import * as child_process from 'node:child_process';
 import * as fs from 'node:fs';
 import * as os from 'node:os';
 import * as path from 'node:path';
 import { expect, test } from '@playwright/test';
+import { updateIdeaDependencyMatrix } from '../../packages/foundry/update-idea-matrix.ts';
 
 test.describe('Curator Domain Overlap Identification', () => {
   let tmpDir: string;
@@ -62,14 +62,7 @@ tags:
 `;
     fs.writeFileSync(path.join(tmpDir, '.foundry/ideas/idea-002.md'), idea002Content);
 
-    // Execute the script
-    const scriptPath = path.resolve('packages/foundry/update-idea-matrix.ts');
-
-    child_process.execSync(`npx tsx ${scriptPath}`, {
-      cwd: tmpDir,
-      env: { ...process.env },
-      stdio: 'ignore',
-    });
+    updateIdeaDependencyMatrix(tmpDir);
 
     // Read the updated matrix
     const updatedMatrix = fs.readFileSync(
