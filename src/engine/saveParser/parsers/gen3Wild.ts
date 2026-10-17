@@ -74,7 +74,7 @@ export function determineGen3HeldItemProbabilities(
 export function extractHeldItemFromSubstruct0(substruct0DataView: DataView, offset: number = 0): number {
   try {
     return substruct0DataView.getUint16(offset + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
-  } catch (_err) {
+  } catch {
     throw new Error('The save file is corrupted or incomplete.');
   }
 }
