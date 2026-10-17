@@ -35,7 +35,11 @@ Add support in the Orchestrator for an "IDEA Re-Verification Stage" so that cont
 - [x] task-534-668-orchestrator-idea-reverification-impl
 - [x] task-534-669-orchestrator-idea-reverification-qa
 - [x] task-534-670-orchestrator-idea-reverification-tests
-- [ ] research-534-676-investigate-idea-reverification-failure
-- [ ] task-534-677-orchestrator-idea-reverification-impl-retry
-- [ ] task-534-678-orchestrator-idea-reverification-tests-retry
-- [ ] task-534-679-orchestrator-idea-reverification-qa-retry
+- [x] research-534-676-investigate-idea-reverification-failure
+- [x] task-534-677-orchestrator-idea-reverification-impl-retry
+- [x] task-534-678-orchestrator-idea-reverification-tests-retry
+- [x] task-534-679-orchestrator-idea-reverification-qa-retry
+- [ ] research-534-694-investigate-idea-reverification-failure-v2
+- [ ] task-534-695-orchestrator-idea-reverification-impl-v3
+- [ ] task-534-696-orchestrator-idea-reverification-tests-v3
+- [ ] task-534-697-orchestrator-idea-reverification-qa-v3
