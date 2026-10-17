@@ -33,5 +33,5 @@ This task verifies the work done in `task-564-680-execute-migration`. The object
 - Ensure that the execution didn't remove other necessary parts of the markdown files or modify the YAML frontmatter improperly.
 
 ## 3. Acceptance Criteria
-- [ ] Verification confirms no active, pending, or ready TASK nodes contain the reminder blocks.
-- [ ] Verification confirms no unintended modifications occurred to the TASK files.
+- [x] Verification confirms no active, pending, or ready TASK nodes contain the reminder blocks.
+- [x] Verification confirms no unintended modifications occurred to the TASK files.
