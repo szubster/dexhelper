@@ -26,4 +26,4 @@ locks: []
 Implement the parsing of `rejection_count`, `created_at`, and `updated_at` (to compute wait times) inside `aggregateNodeStatistics` in `packages/foundry/utils/statistics.ts` for heatmap telemetry.
 
 ## Acceptance Criteria
-- [ ] Coder: Update `aggregateNodeStatistics` to extract and structure telemetry metrics.
+- [x] Coder: Update `aggregateNodeStatistics` to extract and structure telemetry metrics.
