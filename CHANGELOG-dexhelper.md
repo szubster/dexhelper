@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
 
+## [0.23.7] - 2026-04-03
+### Added
+- Add Vitest unit tests for the `pokeapi` wrapper client to guarantee correct network failure handling.
+
 ## [0.23.6] - 2026-04-03
 ### Added
 - Add comprehensive unit tests for `getGenerationConfig` to verify Gen 1 fallback behavior for unknown or missing generation IDs.
@@ -237,3 +241,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.23.5]: https://github.com/szubster/dexhelper/compare/c8e8728539f8ed5bb663ae68968a40946c73c35b...034ee21c23bd91854fabd387693e7247b9fce8ee
 
 [0.23.6]: https://github.com/szubster/dexhelper/compare/d67d3464e87381688ecfcf5136c3f299b7c7f79c...7184ba35ce6641a67e1f3003403e22e4d39b5913
+[0.23.7]: https://github.com/szubster/dexhelper/compare/7184ba35ce6641a67e1f3003403e22e4d39b5913...5feaa6ef2b2ad4fc2df304b0b2f0ee026b2e70af
