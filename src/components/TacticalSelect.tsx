@@ -28,7 +28,7 @@ export const TacticalSelect = React.forwardRef<HTMLSelectElement, TacticalSelect
           {children}
         </select>
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-zinc-500 peer-disabled:opacity-50">
-          <ChevronDown size={14} />
+          <ChevronDown size={14} aria-hidden="true" />
         </div>
       </div>
     );
