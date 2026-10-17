@@ -43,5 +43,5 @@ Based on the offset discovery in `gen3_fossil_revival_offsets.md`, we need to im
 - The variables represent the exact byte offsets from the start of `SaveBlock1`.
 
 ## Acceptance Criteria
-- [ ] Constants are defined and accurately match `gen3_fossil_revival_offsets.md`.
-- [ ] Code passes all lint checks (`pnpm lint`).
+- [x] Constants are defined and accurately match `gen3_fossil_revival_offsets.md`.
+- [x] Code passes all lint checks (`pnpm lint`).
