@@ -2,13 +2,13 @@
 id: story-554-563-gen3-dashboard-data-integration
 type: STORY
 title: Gen 3 Dashboard Data Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-10-12'
+updated_at: '2026-10-16'
 depends_on:
   - story-554-562-gen3-dashboard-layout-and-routing
-jules_session_id: '15923538779686366610'
+jules_session_id: null
 pr_number: null
 parent: epic-520-554-gen3-transition-dashboard
 tags:
@@ -28,4 +28,7 @@ This story integrates the Pokédex Gaps, Missed Milestones, and Trainer Card Sta
 - [ ] Implement data fetching and state management for the dashboard widgets.
 - [ ] Integrate Pokédex gap visualizer.
 - [ ] Integrate Missed Milestones visualizer.
-- [ ] Break down into implementation Tasks.
+- [x] Break down into implementation Tasks.
+- [ ] task-563-680-gen3-dashboard-data-state
+- [ ] task-563-681-gen3-dashboard-widgets-ui
+- [ ] task-563-682-gen3-dashboard-data-qa

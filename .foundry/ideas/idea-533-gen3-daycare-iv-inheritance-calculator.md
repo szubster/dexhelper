@@ -2,12 +2,12 @@
 id: idea-533-gen3-daycare-iv-inheritance-calculator
 type: IDEA
 title: Gen 3 Daycare IV & Egg Inheritance Calculator
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-09-30'
-updated_at: '2026-09-30'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6043681595880226264'
 locks: []
 pr_number: null
 parent: null

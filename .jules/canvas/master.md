@@ -30,7 +30,7 @@
 
 ---
 
-## $(date -u +"%Y-%m-%d") - [Accepted] - 🖼️ Canvas: Bold DiagnosticCard Redesign
+## 2026-10-14 - [Accepted] - 🖼️ Canvas: Bold DiagnosticCard Redesign
 **What:** Redesigned the \`DiagnosticCard\` from a simple wrapper to a highly structured, dense telemetry module resembling a terminal interface. Added animated hover effects, including a laser scan, blinking block cursor, and command prompt indicator (\`>\`).
 **Outcome:** Merged (Optimistic execution)
 **Why:** The previous design lacked the dense, technical feel of a hardware diagnostic interface. The redesign emphasizes the "tactical hardware" aesthetic by introducing structural boundaries (command prompt tab) and stronger interactive feedback.
@@ -92,3 +92,11 @@
 **Outcome:** Merged (Optimistic execution)
 **Why:** Sub-metric grid cells (such as OT_ID, HELD_ITEM, and POKERUS_STRAIN in Pokemon caught details) lacked tactical structure and visual depth compared to primary DataPoints. The redesign adheres strictly to the "tactical hardware/snooping" aesthetic (ADR 008) while improving hover feedback and data encapsulation across dense telemetry screens.
 **Pattern:** Secondary and sub-metric data cells should be cased inside micro hardware modules with corner ticks and status LED indicators to maintain cohesive tactical hardware hierarchy across the application.
+
+---
+
+## 2026-10-09 - [Accepted] - 🖼️ Canvas: Bold TacticalChip Hardware Redesign
+**What:** Redesigned `TacticalChip` from a simple dashed border text tag into a cased hardware telemetry micro chip module. Added 4-corner mounting tick accents, an active LED status indicator dot with ping animation, optional `codeTag` telemetry badges (`[SYS]`), an interactive hover scanline overlay, a cased dismiss button, and expanded variant themes (`primary`, `zinc`, `danger`, `amber`, `emerald`, `purple`) and sizes (`sm`, `md`) while preserving complete backward compatibility.
+**Outcome:** Merged (Optimistic execution)
+**Why:** Standard filter chips and target tags lacked tactile hardware texture and visual boundaries. The redesign aligns strictly with ADR 008 (tactical hardware / snooping aesthetic), transforming simple chips into active telemetry status modules with clear visual feedback and accessibility compliance.
+**Pattern:** Micro filter chips, selection tags, and dismissible badges should feature 4-corner corner ticks, active LED dots, and cased dismiss buttons to convey live hardware telemetry states.

@@ -247,3 +247,19 @@ In Generation 4 Pal Park migration logic, Pokémon containing any Generation 3 H
 
 ### Why This Matters
 HM moves are mandatory for overworld navigation in Generation 3. If the migration tool allowed transferring a Pokémon that is the player's sole possessor of a necessary overworld HM (such as `Surf` or `Fly`), the player could become permanently soft-locked or trapped in an isolated map zone without any way to travel or battle. Identifying these HM moves (`hasGen3HMMoves`) allows the user interface to flag candidates for move deletion prior to transfer.
+
+---
+
+# Scribe Journal - Gen 2 Breeding Inheritance Documentation
+
+## Target Module
+`src/engine/breeding/inheritance.ts`
+
+## Motivation
+The Gen 2 breeding engine module (`src/engine/breeding/inheritance.ts`) determines which parent passes down Defense and Special Determinant Values (DVs) to offspring. While the code was functionally complete, it lacked top-level `@module` JSDoc detailing the opposite-gender parent inheritance rules, interface field JSDoc, and `@example` code blocks for `determineInheritedDVs`.
+
+## Additions
+- Added `@module inheritance` JSDoc detailing Gen 2 DV mechanics (Defense and Special DV inheritance, Ditto donor rules, and shiny probability context).
+- Added JSDoc comments to `InheritedDVsResult` interface fields (`maleOffspring`, `femaleOffspring`, `genderlessOffspring`).
+- Added comprehensive JSDoc to `determineInheritedDVs` with `@param`, `@returns`, and `@example` blocks.
+- Added concise inline comments explaining why Ditto overrides opposite-gender inheritance and why cross-gender DV inheritance occurs in Gen 2 ROM mechanics.

@@ -2,10 +2,10 @@
 id: story-418-518-orchestrator-integration-e2e
 type: STORY
 title: Orchestrator Integration E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-10-12'
+updated_at: '2026-10-14'
 depends_on:
   - story-418-517-orchestrator-fallback-mechanisms
 jules_session_id: '17592586293509545871'
@@ -32,4 +32,8 @@ Perform end-to-end verification of the orchestrator's prompt resolution integrat
 ## Acceptance Criteria
 - [ ] Write E2E tests validating the composite prompt generation process in the orchestrator.
 - [ ] Verify fallback mechanisms via test scenarios with missing prompt fragments.
-- [ ] Decompose into actionable TASK nodes.
+- [x] Decompose into actionable TASK nodes.
+- [ ] task-518-680-orchestrator-integration-e2e-fixtures
+- [ ] task-518-681-orchestrator-integration-composite-prompt-tests
+- [ ] task-518-682-orchestrator-integration-fallback-tests
+- [ ] task-518-683-qa-orchestrator-integration-e2e

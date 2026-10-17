@@ -1,19 +1,20 @@
 import { describe, expect, it } from 'vitest';
+import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { TacticalHeaderDivider } from '../TacticalHeaderDivider';
 
 describe('TacticalHeaderDivider', () => {
   it('renders children correctly', async () => {
     expect.hasAssertions();
-    const { container } = await render(
+    await render(
       <TacticalHeaderDivider data-testid="header-divider">
         <span>Header Title</span>
         <span>Header Action</span>
       </TacticalHeaderDivider>,
     );
 
-    await expect.element(container).toHaveTextContent('Header Title');
-    await expect.element(container).toHaveTextContent('Header Action');
+    await expect.element(page.getByText('Header Title')).toBeInTheDocument();
+    await expect.element(page.getByText('Header Action')).toBeInTheDocument();
   });
 
   it('applies default and custom classes correctly', async () => {

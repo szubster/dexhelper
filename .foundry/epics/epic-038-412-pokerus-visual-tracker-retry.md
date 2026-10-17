@@ -2,10 +2,10 @@
 id: epic-038-412-pokerus-visual-tracker-retry
 type: EPIC
 title: Pokerus Visual Tracker Epic (Retry)
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-10'
-updated_at: '2026-09-13'
+updated_at: '2026-10-16'
 depends_on:
   - epic-038-411-pokerus-state-exfiltration-retry
 jules_session_id: null
@@ -27,7 +27,7 @@ locks: []
 Add UI badges indicating Pokerus status (Uninfected, Infected/Contagious, Cured/Immune) and explicitly calculate and display remaining days for contagious Pokemon using RTC.
 
 ## Acceptance Criteria
-- [ ] Add UI badges for pokerus status
+- [x] Add UI badges for pokerus status
 - [x] Story Owner: Generate a final STORY node dedicated exclusively to Integration and E2E Verification.
-- [ ] story-412-560-pokerus-ui-badges
-- [ ] story-412-561-pokerus-ui-e2e
+- [x] story-412-560-pokerus-ui-badges
+- [x] story-412-561-pokerus-ui-e2e

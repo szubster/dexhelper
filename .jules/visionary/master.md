@@ -317,7 +317,7 @@
 
 ---
 
-# Visionary Journal - $(date +%Y-%m-%d)
+# Visionary Journal - 2026-10-14
 
 ---
 

@@ -1,6 +1,7 @@
 import * as path from 'node:path';
 import * as fs from 'node:fs';
 import { type NodeFrontmatter } from './schema.ts';
+import { WIP_DRAFT_BANNER } from './utils/banner.ts';
 
 export function getValidOwnerPersona(type: string): string {
   switch (type) {
@@ -35,8 +36,7 @@ export function createValidNodeFrontmatter(overrides: Partial<NodeFrontmatter> &
     research_references: overrides.research_references || [],
     rejection_count: overrides.rejection_count || 0,
     rejection_reason: overrides.rejection_reason || '',
-    notes: overrides.notes || '',
-    confidence_score: overrides.confidence_score !== undefined ? overrides.confidence_score : undefined
+    notes: overrides.notes || ''
   };
 
   let yaml = '';
@@ -82,5 +82,7 @@ export function createValidTestNode(tmpDir: string, relPath: string, overrides: 
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 
   const frontmatter = createValidNodeFrontmatter(overrides);
-  fs.writeFileSync(fullPath, `---\n${frontmatter}\n---\n\n${body}`, 'utf-8');
+  const status = overrides.status || 'PENDING';
+  const finalBody = (status === 'WIP' || status === 'DRAFT') ? `${WIP_DRAFT_BANNER}\n\n${body}` : body;
+  fs.writeFileSync(fullPath, `---\n${frontmatter}\n---\n\n${finalBody}`, 'utf-8');
 }

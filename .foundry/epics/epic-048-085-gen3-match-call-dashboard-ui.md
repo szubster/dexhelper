@@ -2,14 +2,14 @@
 id: epic-048-085-gen3-match-call-dashboard-ui
 type: EPIC
 title: 'Epic: Gen 3 Rematch Dashboard UI'
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-10-14'
 depends_on:
   - epic-048-083-gen3-match-call-save-parsing
   - epic-048-084-gen3-match-call-static-data
-jules_session_id: null
+jules_session_id: '10617233047977806906'
 pr_number: null
 parent: prd-077-048-gen3-match-call-tracker
 tags:
@@ -21,6 +21,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Gen 3 Rematch Dashboard UI

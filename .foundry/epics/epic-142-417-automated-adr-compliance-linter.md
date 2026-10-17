@@ -2,10 +2,10 @@
 id: epic-142-417-automated-adr-compliance-linter
 type: EPIC
 title: Automated ADR Compliance Linter Script
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2025-01-01T00:00:00.000Z'
-updated_at: '2026-08-23'
+updated_at: '2026-10-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Automated ADR Compliance Linter Script
@@ -34,6 +35,6 @@ Develop a static analysis linter script (`scripts/verify-adr-compliance.ts`) usi
 ## Acceptance Criteria
 - [x] Break down this epic into stories.
 - [x] Ensure a final STORY is generated that is dedicated exclusively to Integration and E2E Verification.
-- [ ] story-417-443-adr-008-ui-compliance-linter
-- [ ] story-417-444-adr-013-state-compliance-linter
-- [ ] story-417-445-linter-integration-e2e
+- [x] story-417-443-adr-008-ui-compliance-linter
+- [x] story-417-444-adr-013-state-compliance-linter
+- [x] story-417-445-linter-integration-e2e

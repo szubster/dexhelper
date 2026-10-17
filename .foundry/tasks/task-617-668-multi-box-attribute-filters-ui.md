@@ -5,9 +5,9 @@ title: Multi-Box Attribute Filters UI Components
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-23'
-updated_at: '2026-10-12'
+updated_at: '2026-10-13'
 depends_on: []
-jules_session_id: '8135331897702842407'
+jules_session_id: '11155673416528609380'
 pr_number: null
 parent: story-576-617-multi-box-search-ui-components
 tags:
@@ -16,7 +16,7 @@ tags:
   - search
   - pc-box
   - react
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

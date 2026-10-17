@@ -2,10 +2,10 @@
 id: task-518-604-binjgb-memory-sync-qa-v2
 type: TASK
 title: QA Verification for binjgb memory synchronization v2
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-20'
-updated_at: '2026-09-20'
+updated_at: '2026-10-16'
 depends_on:
   - task-518-603-binjgb-memory-sync-impl-v2
 jules_session_id: null
@@ -17,8 +17,12 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-notes: 'Created as replacement for permanently failed task-518-530-binjgb-memory-sync-qa'
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-518-603-binjgb-memory-sync-impl-v2
+notes: >-
+  Created as replacement for permanently failed
+  task-518-530-binjgb-memory-sync-qa
 locks: []
 ---
 
