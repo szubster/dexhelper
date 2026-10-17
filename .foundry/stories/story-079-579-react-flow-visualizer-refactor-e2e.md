@@ -27,4 +27,6 @@ locks: []
 E2E verification for the React Flow visualizer refactor.
 
 ## Acceptance Criteria
-- [ ] Break down into tasks.
+- [x] Break down into tasks.
+- [ ] task-579-687-react-flow-visualizer-e2e-tests
+- [ ] task-579-688-react-flow-visualizer-e2e-qa
