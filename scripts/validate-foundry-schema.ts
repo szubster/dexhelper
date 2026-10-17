@@ -221,10 +221,23 @@ function validateSchema() {
 
     // 2.88 Validate Markdown Checkbox Formatting (ADR 007)
     const lines = parsed.content.split('\n');
+    let currentSection = '';
     lines.forEach((line, index) => {
+      const headingMatch = line.match(/^(#{1,6})\s+(.*)$/);
+      if (headingMatch && headingMatch[2]) {
+        // Strip out any prefix numbering (e.g. "5. Acceptance Criteria" -> "Acceptance Criteria")
+        currentSection = headingMatch[2].replace(/^[\d.]+\s*/, '').trim();
+      }
+
       if (/^\s*[-*+]\s*\[[\sXx]*\]/.test(line)) {
         if (!/^\s*- \[( |x)\] /.test(line)) {
           console.error(`Error: Invalid checkbox syntax in file ${file} at line ${index + 1}: ${line.trim()}`);
+          hasError = true;
+        }
+
+        const allowedSections = ['Acceptance Criteria', 'Next Steps', 'Implementation Steps Completed', 'Generated Tasks'];
+        if (!allowedSections.includes(currentSection)) {
+          console.error(`Error: Checkbox found outside of allowed sections in file ${file} at line ${index + 1}`);
           hasError = true;
         }
       }

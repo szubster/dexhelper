@@ -44,7 +44,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-111-valid-checkbox';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n- [ ] Unchecked\n- [x] Checked\n- [ ] `);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n- [ ] Unchecked\n- [x] Checked\n- [ ] `);
 
         let output = '';
         let error: Error | null = null;
@@ -173,6 +173,8 @@ jules_session_id: null
 rejection_reason: ''
 ---
 # Test Curator Idea
+
+## Acceptance Criteria
 - [ ] AC 1
 `;
         writeFileSync(filePath, ideaFrontmatter);
