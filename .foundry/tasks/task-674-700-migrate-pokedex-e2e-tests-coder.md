@@ -2,12 +2,12 @@
 id: task-674-700-migrate-pokedex-e2e-tests-coder
 type: TASK
 title: Refactor Pokedex Grid Virtualization E2E Tests to use COM Pattern
-status: READY
+status: ACTIVE
 owner_persona: coder
-created_at: '$(date -u +"%Y-%m-%d")'
-updated_at: '$(date -u +"%Y-%m-%d")'
+created_at: $(date -u +"%Y-%m-%d")
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1898951004855831706'
 pr_number: null
 parent: story-580-674-migrate-pokedex-e2e-tests
 tags:
