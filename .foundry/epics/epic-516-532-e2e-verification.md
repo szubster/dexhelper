@@ -35,4 +35,5 @@ To satisfy the Orchestrator Safeguard (E2E/Integration Requirement), we must ver
 - Verify that when the Jules PR merges, the issue is automatically closed natively.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down into STORY node(s) dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break down into STORY node(s) dedicated exclusively to Integration and E2E Verification.
+- [ ] story-532-676-scheduled-agents-issue-flow-e2e
