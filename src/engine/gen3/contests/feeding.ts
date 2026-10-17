@@ -1,5 +1,11 @@
 import type { PokeblockProfile } from './blending';
-import { MAX_CONDITION, MAX_FEEL, NATURE_FLAVOR_MODIFIERS } from './constants';
+import {
+  MAX_CONDITION,
+  MAX_FEEL,
+  NATURE_FLAVOR_MODIFIERS,
+  NATURE_MODIFIER_DISLIKES,
+  NATURE_MODIFIER_LIKES,
+} from './constants';
 import type { Nature } from './types';
 
 export interface ContestStats {
@@ -16,8 +22,8 @@ export function calculateFeedingGains(pokeblock: PokeblockProfile, nature: Natur
 
   const applyModifier = (flavor: 'spicy' | 'dry' | 'sweet' | 'bitter' | 'sour', value: number) => {
     if (value === 0) return 0;
-    if (modifiers.likes === flavor) return Math.floor(value * 1.1);
-    if (modifiers.dislikes === flavor) return Math.floor(value * 0.9);
+    if (modifiers.likes === flavor) return Math.floor(value * NATURE_MODIFIER_LIKES);
+    if (modifiers.dislikes === flavor) return Math.floor(value * NATURE_MODIFIER_DISLIKES);
     return value;
   };
 

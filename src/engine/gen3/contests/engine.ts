@@ -1,5 +1,6 @@
 import type { BerryProfile, PokeblockProfile } from './blending';
 import { calculatePokeblockProfile } from './blending';
+import { NATURE_MODIFIER_DISLIKES, NATURE_MODIFIER_LIKES, NATURE_MODIFIER_NEUTRAL } from './constants';
 import { getDislikedCondition, getPreferredCondition } from './natureMapping';
 import type { ContestCondition, Nature } from './types';
 
@@ -42,7 +43,12 @@ export function recommendPokeblocks(params: RecommendationEngineParams): Recomme
   const preferred = getPreferredCondition(nature);
   const disliked = getDislikedCondition(nature);
 
-  const conditionMultiplier = targetCategory === preferred ? 1.1 : targetCategory === disliked ? 0.9 : 1.0;
+  const conditionMultiplier =
+    targetCategory === preferred
+      ? NATURE_MODIFIER_LIKES
+      : targetCategory === disliked
+        ? NATURE_MODIFIER_DISLIKES
+        : NATURE_MODIFIER_NEUTRAL;
 
   // We want to maximize the stat gain per feel (efficiency).
   // This is a greedy approach for simplicity.
