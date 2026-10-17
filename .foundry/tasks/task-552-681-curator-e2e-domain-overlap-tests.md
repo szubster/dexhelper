@@ -29,5 +29,5 @@ Write Playwright E2E tests to verify that the curator can successfully read the 
 - Assert that the curator identifies the correct overlapping domains.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for domain overlaps
-- [ ] Ensure tests pass successfully
+- [x] Implement Playwright E2E tests for domain overlaps
+- [x] Ensure tests pass successfully
