@@ -33,4 +33,8 @@ Create the unified "Trainer Card Stars" dashboard for Pokemon Emerald. It will d
 - [ ] Display current number of earned stars.
 - [ ] Display detailed checkmarks and fractional progress bars for all sub-goals.
 - [ ] Verify the implementation's exact alignment with the documentation schemas (e.g., Section 14 of .foundry/docs/schema.md) before marking tasks complete.
-- [ ] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Create a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-401-676-gen3-trainer-card-core-state
+- [ ] story-401-677-gen3-trainer-card-tactical-components
+- [ ] story-401-678-gen3-trainer-card-progress-components
+- [ ] story-401-679-gen3-trainer-card-integration-e2e
