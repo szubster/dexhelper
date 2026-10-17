@@ -1,23 +1,24 @@
 import { describe, expect, it } from 'vitest';
+import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { EmptyState } from '../EmptyState';
 
 describe('EmptyState', () => {
   it('renders correctly', async () => {
-    const { container } = await render(<EmptyState label="Test Empty State" />);
-    await expect.element(container).toHaveTextContent('Test Empty State');
+    await render(<EmptyState label="Test Empty State" />);
+    await expect.element(page.getByText('Test Empty State')).toBeInTheDocument();
   });
 
   it('renders default variant', async () => {
-    const { container } = await render(<EmptyState variant="default" label="Default State" />);
-    await expect.element(container).toHaveTextContent('Default State');
-    await expect.element(container).toHaveTextContent('DATA_STREAM_EMPTY');
+    await render(<EmptyState variant="default" label="Default State" />);
+    await expect.element(page.getByText('Default State')).toBeInTheDocument();
+    await expect.element(page.getByText('DATA_STREAM_EMPTY')).toBeInTheDocument();
   });
 
   it('renders warning variant', async () => {
-    const { container } = await render(<EmptyState variant="warning" label="Warning State" />);
-    await expect.element(container).toHaveTextContent('Warning State');
-    await expect.element(container).toHaveTextContent('SIGNAL_LOST');
+    await render(<EmptyState variant="warning" label="Warning State" />);
+    await expect.element(page.getByText('Warning State')).toBeInTheDocument();
+    await expect.element(page.getByText('SIGNAL_LOST')).toBeInTheDocument();
   });
 
   it('renders with custom icon', async () => {

@@ -2,13 +2,13 @@
 id: task-563-669-gen3-map-state-ui
 type: TASK
 title: Connect Gen 3 Map State to UI
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-10'
+updated_at: '2026-10-15'
 depends_on:
   - task-563-668-gen3-map-state-store
-jules_session_id: null
+jules_session_id: '15710974205509493560'
 pr_number: null
 parent: story-552-563-gen3-map-state-management
 tags:

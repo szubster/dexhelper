@@ -534,3 +534,35 @@ The task `task-638-641-extract-constants-to-core` failed because of TS2308 dupli
 # 2026-10-09 Session
 
 Investigated the failure of `task-639-641-extract-data-generation-scripts` and discovered it was a false permanent failure caused by repeated `[ACKNOWLEDGED] Session terminated with state: COMPLETED` agent session crashes rather than actual QA rejections.
+
+
+---
+
+# Investigation: Runtime API Failure for Gen 3 Berry Data
+
+## Failure Context
+Task `task-537-600-gen3-berry-runtime-api` failed permanently.
+
+## Findings
+The failure was due to an architectural contradiction. The task attempted to integrate dynamic runtime data (parsed Gen 3 save file data) into the static build-time pipeline (`scripts/generate-pokedata.ts` producing `pokedata-core.msgpack`).
+
+As concluded in `research-599-633-investigate-dynamic-berry-data` and formalized in `adr-599-638-dynamic-data-hydration`, dynamic data must strictly bypass the static serialization pipeline and instead be directly hydrated into the runtime application state (e.g., Zustand).
+
+## Resolution
+The parent story `story-513-537-gen3-berry-serialization-and-api` has already been updated with replacement tasks:
+- `task-537-665-gen3-berry-runtime-state-hydration`
+- `task-537-666-gen3-berry-runtime-state-qa`
+
+These new tasks align with the architectural decision to hydrate dynamic save data directly into runtime state.
+
+---
+
+# Playwright Full Suite Execution Anti-Pattern
+
+When retrying tasks that failed due to session timeouts (like `task-403-535-playwright-e2e-retry-impl-v2`), we must ensure that their acceptance criteria are updated to not explicitly mandate running the full E2E suite (`xvfb-run -a pnpm test:e2e`). If a retry task copies the original task's acceptance criteria exactly, it will fail again for the exact same timeout reason.
+
+---
+
+# Investigated task-640-659-extract-utils-to-core timeout
+
+Investigated the failure of `task-640-659-extract-utils-to-core` and discovered it was a false permanent failure caused by repeated `[ACKNOWLEDGED] Session terminated with state: COMPLETED` agent session crashes rather than actual QA rejections.

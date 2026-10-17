@@ -2,13 +2,13 @@
 id: story-125-520-refactor-complex-dashboard-e2e
 type: STORY
 title: E2E Verification for Complex Dashboard Components Migration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03T13:29:59.885Z'
-updated_at: '2026-10-10'
+updated_at: '2026-10-13'
 depends_on:
   - story-125-519-refactor-complex-dashboard
-jules_session_id: '5499128375442155456'
+jules_session_id: null
 pr_number: null
 parent: epic-071-125-migrate-complex-app-components-v2
 tags:
@@ -38,4 +38,5 @@ Following the Tailwind v4 migration of complex dashboard components and speciali
 2. Assert on visual styles corresponding to \`tactical-panel\`, \`tactical-text\`, and other relevant \`@utility\` classes by checking computed styles or snapshot tests.
 
 ## Acceptance Criteria
+- [ ] task-520-675-refactor-complex-dashboard-e2e-impl
 - [ ] E2E tests explicitly verifying the structural rendering and style persistence of dashboard and tracker components are implemented and passing.

@@ -170,7 +170,7 @@ flowchart TD
 | **3.0** | **MAX REJECTIONS** | Auto-promotes `FAILED` nodes with `rejection_count >= 3` to `CANCELLED`. |
 | **3.1** | **CASCADE CANCEL** | Recursively cascades `CANCELLED` status down to non-completed child nodes. |
 | **3.5** | **SUSPEND** | Suspends `ACTIVE`, `VERIFYING`, or `READY` nodes to `PENDING` if any child or dependency is incomplete. |
-| **3.6** | **IMPOSSIBLE LOOP** | Identifies unacknowledged child failures. Wakes up the parent node to `READY` or `ACTIVE` (for human) with feeedback, or flags for `tpm` if orphan. |
+| **3.6** | **IMPOSSIBLE LOOP** | Only cascade-cancels downstream nodes when an upstream dependency has permanently failed (`rejection_count >= MAX_REJECTION_THRESHOLD` or explicit permanent failure reason). Retrying nodes keep dependents in `PENDING`. Keeps parent nodes in `PENDING` while children are actively retrying, only waking up the parent for re-planning if a child permanently fails. |
 | **3.9** | **CYCLE DETECT** | Performs DFS cycle detection across `PENDING` nodes. Marks cycle participants as `FAILED`. |
 | **3.10** | **DEADLOCK DETECT**| Detects hierarchical parent-child cycles. Marks offending nodes as `FAILED`. |
 | **4** | **RESOLVE** | Identifies eligible `PENDING` nodes with satisfied dependencies. Waives parent block for late-binding children. Performs preflight checks for existing completed artifacts. |
@@ -186,6 +186,7 @@ flowchart TD
 ## 6. Heartbeat Subsystem Analysis
 
 * **Execution Timing**: Runs as step 1 in `foundry-engine.yml` before reference verification and orchestration.
+* **Bulk PR Discovery & Rate Limiting**: Bulk-fetches recent PRs once per run (`per_page=100`) to match session IDs in-memory, completely eliminating per-session `/search/issues` calls. Employs a sliding-window token rate limiter (`githubApiLimiter`) capped at 30 req/min for all GitHub REST API calls to prevent secondary rate limits.
 * **Resurrection Policy**:
   * Unmerged PR close / rejection → `rejection_count` incremented by 1.
   * `rejection_count < 3` → Node resurrected `FAILED` → `READY`.

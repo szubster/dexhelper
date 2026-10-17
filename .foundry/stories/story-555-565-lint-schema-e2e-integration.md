@@ -5,7 +5,7 @@ title: Schema Linter Integration & E2E Verification
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-10-13'
 depends_on:
   - story-555-564-lint-schema-frontmatter-validation
 jules_session_id: null

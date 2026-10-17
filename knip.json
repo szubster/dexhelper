@@ -34,7 +34,6 @@
     "src/engine/radar/index.ts",
     "src/engine/saveParser/parsers/gen2Constants.ts"
   ],
-  "ignoreExportsUsedInFile": true,
   "ignoreBinaries": [],
   "rules": {
     "files": "warn",

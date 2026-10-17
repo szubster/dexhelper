@@ -50,6 +50,22 @@ describe('evaluateRequirement', () => {
     expect(evaluateRequirement(req, context)).toBe(true);
   });
 
+  it('evaluates logical AND requirements - failure (missing one)', () => {
+    const context = createMockContext({
+      hasHM: vi.fn<(hmId: string) => boolean>().mockImplementation((id) => id === 'dive'),
+      hasItem: vi.fn<(itemId: string) => boolean>().mockReturnValue(false),
+    });
+    const req = {
+      type: 'logical' as const,
+      operator: 'AND' as const,
+      requirements: [
+        { type: 'hm' as const, hmId: 'dive' },
+        { type: 'item' as const, itemId: 'storage_key' },
+      ],
+    };
+    expect(evaluateRequirement(req, context)).toBe(false);
+  });
+
   it('evaluates logical OR requirements', () => {
     const context = createMockContext({
       hasBike: vi.fn<(bikeType: 'mach' | 'acro' | 'any') => boolean>().mockImplementation((type) => type === 'acro'),
@@ -63,5 +79,41 @@ describe('evaluateRequirement', () => {
       ],
     };
     expect(evaluateRequirement(req, context)).toBe(true);
+  });
+
+  it('evaluates logical OR requirements - failure (missing all)', () => {
+    const context = createMockContext({
+      hasBike: vi.fn<(bikeType: 'mach' | 'acro' | 'any') => boolean>().mockReturnValue(false),
+    });
+    const req = {
+      type: 'logical' as const,
+      operator: 'OR' as const,
+      requirements: [
+        { type: 'bike' as const, bikeType: 'mach' as const },
+        { type: 'bike' as const, bikeType: 'acro' as const },
+      ],
+    };
+    expect(evaluateRequirement(req, context)).toBe(false);
+  });
+
+  it('evaluates unknown logical operators gracefully', () => {
+    const context = createMockContext();
+    const req = {
+      type: 'logical' as const,
+      // biome-ignore lint/suspicious/noExplicitAny: Testing graceful degradation
+      operator: 'UNKNOWN' as any,
+      requirements: [],
+    };
+    expect(evaluateRequirement(req, context)).toBe(false);
+  });
+
+  it('evaluates unknown requirement types gracefully', () => {
+    const context = createMockContext();
+    const req = {
+      // biome-ignore lint/suspicious/noExplicitAny: Testing graceful degradation
+      type: 'unknown' as any,
+      // biome-ignore lint/suspicious/noExplicitAny: Testing graceful degradation
+    } as any;
+    expect(evaluateRequirement(req, context)).toBe(false);
   });
 });

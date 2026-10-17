@@ -5,10 +5,10 @@ title: IDEA Re-Verification Stage Implementation
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-10-10'
+updated_at: '2026-10-17'
 depends_on:
   - story-531-533-orchestrator-trigger-logic-updates
-jules_session_id: '8751001442717337311'
+jules_session_id: '7943726414715424712'
 parent: epic-518-531-orchestrator-curator-loop
 tags:
   - orchestrator
@@ -32,6 +32,10 @@ Add support in the Orchestrator for an "IDEA Re-Verification Stage" so that cont
 - Verify through E2E/integration tests that the system successfully runs through the full cycle: Idea -> Implementation -> Curator Trigger -> Curator Spawning Nodes -> Idea Re-Verification.
 
 ## Acceptance Criteria
-- [ ] task-534-668-orchestrator-idea-reverification-impl
-- [ ] task-534-669-orchestrator-idea-reverification-qa
-- [ ] task-534-670-orchestrator-idea-reverification-tests
+- [x] task-534-668-orchestrator-idea-reverification-impl
+- [x] task-534-669-orchestrator-idea-reverification-qa
+- [x] task-534-670-orchestrator-idea-reverification-tests
+- [ ] research-534-676-investigate-idea-reverification-failure
+- [ ] task-534-677-orchestrator-idea-reverification-impl-retry
+- [ ] task-534-678-orchestrator-idea-reverification-tests-retry
+- [ ] task-534-679-orchestrator-idea-reverification-qa-retry

@@ -2,14 +2,13 @@
 id: task-561-593-gen3-pokeblock-math-qa
 type: TASK
 title: QA Verification for Gen 3 Pokéblock Math
-status: READY
-confidence_score: 100
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-18'
-updated_at: '2026-10-12'
+updated_at: '2026-10-13'
 depends_on:
   - task-561-592-gen3-pokeblock-feeding-math
-jules_session_id: null
+jules_session_id: '9135791245231878384'
 pr_number: null
 parent: story-540-561-gen3-pokeblock-math-formulas
 tags:

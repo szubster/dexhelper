@@ -1,3 +1,10 @@
+export const ITEMS_POCKET_OFFSET_RS = 0x0560;
+export const ITEMS_POCKET_OFFSET_EMERALD = 0x0560;
+export const ITEMS_POCKET_OFFSET_FRLG = 0x0310;
+export const ITEMS_POCKET_SIZE_RS = 80;
+export const ITEMS_POCKET_SIZE_EMERALD = 120;
+export const ITEMS_POCKET_SIZE_FRLG = 168;
+
 export const ITEM_EON_TICKET = 0x0113;
 export const ITEM_MYSTIC_TICKET = 0x0172;
 export const ITEM_AURORA_TICKET = 0x0173;

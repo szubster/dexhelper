@@ -2,13 +2,13 @@
 id: task-522-670-box-analyzer-highlight-qa
 type: TASK
 title: Box Analyzer Highlight QA
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-06'
-updated_at: '2026-10-06'
+updated_at: '2026-10-14'
 depends_on:
   - task-522-669-box-analyzer-highlight-ui
-jules_session_id: null
+jules_session_id: '3806017024630994792'
 pr_number: null
 parent: story-109-522-box-analyzer-highlighting-logic
 tags:

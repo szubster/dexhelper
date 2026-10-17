@@ -2,13 +2,13 @@
 id: story-405-498-gen3-e-reader-dashboard-components
 type: STORY
 title: Gen 3 E-Reader Dashboard Components
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-31'
-updated_at: '2026-10-11'
+updated_at: '2026-10-16'
 depends_on:
   - story-405-497-gen3-e-reader-dashboard-state
-jules_session_id: '17603034921689649681'
+jules_session_id: null
 pr_number: null
 parent: epic-121-405-gen3-e-reader-event-dashboard-ui
 tags:
@@ -34,4 +34,8 @@ This story focuses on the visual representation of the Gen 3 E-Reader and Myster
 - Provide visual feedback for whether an event was successfully verified in the save file.
 
 ## Acceptance Criteria
-- [ ] Create TASK nodes for the dashboard UI implementation and corresponding unit tests.
+- [x] Create TASK nodes for the dashboard UI implementation and corresponding unit tests.
+- [ ] task-498-676-gen3-e-reader-ui-presentation
+- [ ] task-498-677-gen3-e-reader-ui-integration
+- [ ] task-498-678-gen3-e-reader-ui-tests
+- [ ] task-498-679-gen3-e-reader-ui-qa

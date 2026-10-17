@@ -59,4 +59,35 @@ describe('filterArchivalNodes', () => {
     // High value records should be retained, meaning they are NOT returned in the archival list
     expect(result).toHaveLength(0);
   });
+
+  it('sorts eligible nodes to prioritize the oldest files first based on updated_at', () => {
+    const nodeOldest = createNode({ updated_at: '2022-01-01T00:00:00Z' });
+    const nodeNewer = createNode({ updated_at: '2022-12-01T00:00:00Z' });
+    const nodeMiddle = createNode({ updated_at: '2022-06-01T00:00:00Z' });
+
+    // Pass them in unsorted order
+    const result = filterArchivalNodes([nodeNewer, nodeOldest, nodeMiddle], referenceDate);
+
+    expect(result).toHaveLength(3);
+    // Oldest should be first
+    expect(result[0]).toBe(nodeOldest);
+    expect(result[1]).toBe(nodeMiddle);
+    expect(result[2]).toBe(nodeNewer);
+  });
+
+  it('limits the deletion queue to a maximum of 50 nodes per execution cycle', () => {
+    // Create 60 old nodes (all > 90 days)
+    const oldNodes = Array.from({ length: 60 }).map((_, i) =>
+      createNode({
+        id: `test-node-${i}`,
+        updated_at: `2022-01-${String((i % 28) + 1).padStart(2, '0')}T00:00:00Z`
+      })
+    );
+
+    const result = filterArchivalNodes(oldNodes, referenceDate);
+
+    // It should only return 50
+    expect(result).toHaveLength(50);
+  });
+
 });

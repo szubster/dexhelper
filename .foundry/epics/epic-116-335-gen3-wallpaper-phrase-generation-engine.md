@@ -2,10 +2,10 @@
 id: epic-116-335-gen3-wallpaper-phrase-generation-engine
 type: EPIC
 title: Gen 3 Wallpaper Phrase Generation Engine
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-19'
-updated_at: '2026-08-26'
+updated_at: '2026-10-15'
 depends_on: []
 jules_session_id: null
 parent: prd-116-049-gen3-pc-box-wallpaper-customizer
@@ -15,6 +15,7 @@ tags:
   - algorithm
 rejection_count: 0
 rejection_reason: ''
+locks: []
 ---
 
 # Gen 3 Wallpaper Phrase Generation Engine
@@ -37,5 +38,5 @@ In Generation 3 games, a player can unlock up to 16 unique PC box wallpapers by 
 
 ## Acceptance Criteria
 - [x] Story Owner: Break this EPIC down into actionable STORY nodes.
-- [ ] story-335-473-gen3-wallpaper-phrase-generator
-- [ ] story-335-474-gen3-wallpaper-phrase-generator-e2e
+- [x] story-335-473-gen3-wallpaper-phrase-generator
+- [x] story-335-474-gen3-wallpaper-phrase-generator-e2e

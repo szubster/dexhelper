@@ -31,4 +31,10 @@ To help players track progress during a hunt, we need to scan the Bag inventory 
 - Identify newly acquired target items compared to the previous save state.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into Tasks.
+- [x] Break down this Story into Tasks.
+- [ ] task-563-680-gen2-bag-inventory-parsing-impl
+- [ ] task-563-681-gen2-bag-inventory-parsing-qa
+- [ ] task-563-682-gen3-bag-inventory-parsing-impl
+- [ ] task-563-683-gen3-bag-inventory-parsing-qa
+- [ ] task-563-684-inventory-diffing-logic-impl
+- [ ] task-563-685-inventory-diffing-logic-qa

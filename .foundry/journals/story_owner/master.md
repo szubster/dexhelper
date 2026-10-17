@@ -481,7 +481,7 @@ Notes for Future:
 - When appending generated child nodes to a parent's markdown body, strictly use the exact Node ID without file extensions.
 - Ensuring there's a dedicated E2E verification story for complex features like fuzzing is critical for ensuring orchestration components operate as a cohesive unit.
 
-**Date:** $(date +%Y-%m-%d)
+**Date:** 2026-10-14
 
 ---
 
@@ -491,7 +491,7 @@ When dynamically creating downstream child nodes (e.g., STORY nodes from an EPIC
 ---
 
 ## Challenge
-In the past, I used multi-line cat commands wrapped in a bash script to rewrite the entire parent file. This technique incorrectly re-evaluated bash variables (\$(date +%Y-%m-%d)) in the YAML frontmatter, corrupting the parent's updated_at field and failing schema validation (a strict policy violation since frontmatter cannot be modified).
+In the past, I used multi-line cat commands wrapped in a bash script to rewrite the entire parent file. This technique incorrectly re-evaluated bash variables (\2026-10-14) in the YAML frontmatter, corrupting the parent's updated_at field and failing schema validation (a strict policy violation since frontmatter cannot be modified).
 
 ---
 
