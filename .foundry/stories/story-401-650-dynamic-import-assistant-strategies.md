@@ -25,4 +25,7 @@ locks: []
 Move generation-specific Assistant Strategies behind dynamic imports to minimize the bundle size.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into coder TASK nodes for implementation.
+- [x] Break down this Story into coder TASK nodes for implementation.
+- [ ] task-650-694-dynamic-import-assistant-strategies-impl
+- [ ] task-650-696-dynamic-import-assistant-strategies-tests
+- [ ] task-650-695-dynamic-import-assistant-strategies-qa
