@@ -2,20 +2,20 @@
 id: task-478-678-kurt-apricorn-core-logic-retry
 type: TASK
 title: Kurt Apricorn Core Parsing Logic Retry
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-10'
 updated_at: '2026-10-17'
 depends_on:
   - task-478-677-kurt-apricorn-types-retry
-jules_session_id: '11571549288712917999'
+jules_session_id: null
 pr_number: null
 parent: story-404-478-kurt-apricorn-parsing-logic
 tags:
   - gen2
   - items
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

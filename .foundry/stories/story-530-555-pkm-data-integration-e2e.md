@@ -2,10 +2,10 @@
 id: story-530-555-pkm-data-integration-e2e
 type: STORY
 title: PKM/PK3 Data Extraction E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-10-16'
+updated_at: '2026-10-17'
 depends_on:
   - story-530-553-gen1-gen2-pkm-extraction
   - story-530-554-gen3-pk3-extraction
@@ -15,8 +15,8 @@ tags:
   - data
   - e2e
   - integration
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # Story: PKM/PK3 Data Extraction E2E Verification
