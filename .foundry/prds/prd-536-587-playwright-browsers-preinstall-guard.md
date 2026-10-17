@@ -40,4 +40,5 @@ Vitest's browser tests (`@vitest/browser-playwright`) will fail with an unhandle
 - Must not automatically attempt to `pnpm exec playwright install` as per system policies.
 
 ## Acceptance Criteria
-- [ ] Create `EPIC` to outline the implementation of the pre-install guard.
+- [x] Create `EPIC` to outline the implementation of the pre-install guard.
+- [ ] epic-587-584-playwright-browser-guard
