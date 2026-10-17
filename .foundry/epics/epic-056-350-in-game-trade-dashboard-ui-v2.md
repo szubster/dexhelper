@@ -36,5 +36,8 @@ Build a dedicated dashboard for tracking in-game NPC trades, providing real-time
 - [ ] Trades are visually tagged based on their completion status in the save file.
 - [ ] The dashboard correctly identifies if the player has the required "offered" Pokémon in their collection.
 - [ ] The UI adheres to the "tactical hardware" design system.
-- [ ] Story Owner: Break down this Epic into executable Stories.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break down this Epic into executable Stories.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-350-676-in-game-trade-dashboard-core-ui
+- [ ] story-350-677-in-game-trade-collection-cross-reference
+- [ ] story-350-678-in-game-trade-dashboard-e2e
