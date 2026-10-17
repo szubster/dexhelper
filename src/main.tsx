@@ -3,6 +3,7 @@ import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { FeatureFlagProvider } from './contexts/FeatureFlagContext';
+import { Gen3MissedItemsProvider } from './contexts/Gen3MissedItemsContext';
 import { Gen3RTCProvider } from './contexts/Gen3RTCContext';
 import { TimeOverrideProvider } from './contexts/TimeOverrideContext';
 import { pokeDB } from './db/PokeDB';
@@ -57,7 +58,9 @@ createRoot(rootElement).render(
       <QueryClientProvider client={queryClient}>
         <Gen3RTCProvider>
           <TimeOverrideProvider>
-            <RouterProvider router={router} />
+            <Gen3MissedItemsProvider>
+              <RouterProvider router={router} />
+            </Gen3MissedItemsProvider>
           </TimeOverrideProvider>
         </Gen3RTCProvider>
       </QueryClientProvider>
