@@ -2,12 +2,12 @@
 id: task-522-683-wip-awareness-e2e-fixtures
 type: TASK
 title: Setup Test Fixtures for WIP Awareness E2E
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-13'
 updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '3901065511213460439'
+jules_session_id: null
 pr_number: null
 parent: story-520-522-wip-awareness-e2e
 tags:

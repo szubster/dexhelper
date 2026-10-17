@@ -2,7 +2,7 @@
 id: task-674-700-migrate-pokedex-e2e-tests-coder
 type: TASK
 title: Refactor Pokedex Grid Virtualization E2E Tests to use COM Pattern
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: $(date -u +"%Y-%m-%d")
 updated_at: '2026-10-17'
@@ -14,8 +14,8 @@ tags:
   - testing
   - e2e
   - playwright
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 60

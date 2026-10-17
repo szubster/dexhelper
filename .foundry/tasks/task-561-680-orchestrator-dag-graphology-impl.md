@@ -2,12 +2,12 @@
 id: task-561-680-orchestrator-dag-graphology-impl
 type: TASK
 title: Implement Graphology for DAG Operations
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-12'
 updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '16220142265849330862'
+jules_session_id: null
 pr_number: null
 parent: story-540-561-implement-orchestrator-state-graph-engine
 tags:
@@ -15,7 +15,7 @@ tags:
   - architecture
   - dag
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

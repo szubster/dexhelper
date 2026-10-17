@@ -2,7 +2,7 @@
 id: research-640-687-investigate-extract-utils-timeout-v3
 type: RESEARCH
 title: Investigate timeout during utils extraction v3
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-14'
 updated_at: '2026-10-17'
@@ -14,8 +14,8 @@ tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 research_references: []
 notes: ''
 locks: []
