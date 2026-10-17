@@ -34,4 +34,4 @@ Write comprehensive unit tests for the Pal Park batching and location resolution
 - Handle edge cases, such as an empty list or lists that do not divide evenly by 6.
 
 ## Acceptance Criteria
-- [ ] Implement unit tests for the batching logic.
+- [x] Implement unit tests for the batching logic.
