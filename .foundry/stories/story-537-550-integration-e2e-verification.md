@@ -30,4 +30,9 @@ locks: []
 This story is dedicated exclusively to Integration and E2E Verification for the generator architecture refactoring.
 
 ## Acceptance Criteria
-- [ ] Write E2E tests to verify the generator architecture changes.
+- [x] Write E2E tests to verify the generator architecture changes.
+- [ ] task-550-683-generator-save-file-parsers-e2e-impl
+- [ ] task-550-684-generator-binary-chunk-streams-e2e-impl
+- [ ] task-550-685-generator-tree-traversals-e2e-impl
+- [ ] task-550-686-generator-pagination-engines-e2e-impl
+- [ ] task-550-687-generator-architecture-e2e-qa
