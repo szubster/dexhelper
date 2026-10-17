@@ -78,6 +78,7 @@ tags: []                # Optional. Free-form string labels for filtering and co
 research_references: [] # Optional. Array of repo-relative paths to research nodes.
 experiment_variants: [] # Optional. Tracks variant configurations for A/B experiments.
 rejection_count: 0      # Optional. Incremented by the Resurrection Loop on each CEO veto. Omit for IDEA nodes. Broadcasted to UI for permanent failure tracking (ADR 017).
+system_failure_count: 0 # Optional. Tracks system infrastructure crashes (e.g. NOT_FOUND).
 rejection_reason: ""    # Optional. Used when transitioning a node to FAILED because it is fundamentally impossible to complete.
 notes: ""               # Optional. Free-form Markdown remarks.
 ---
@@ -105,6 +106,7 @@ notes: ""               # Optional. Free-form Markdown remarks.
 | `research_references` | `string[]` | optional | Array of repo-relative paths to research nodes. |
 | `experiment_variants` | `string[]` | optional | Tracks variant configurations for A/B experiments. |
 | `rejection_count` | `integer` | optional | Tracks CEO vetoes. Incremented by the Resurrection Loop. The `agile_coach` monitors high values as signals of chronic failure areas. Omit for `IDEA` and `PRD` nodes. Also broadcasted to the Permanent Failure Dashboard UI for visibility (ADR 017). |
+| `system_failure_count` | `integer` | optional | Tracks system infrastructure crashes (e.g. NOT_FOUND). |
 | `rejection_reason` | `string` | optional | Used when transitioning a node to `FAILED` because it is fundamentally impossible to complete. |
 | `notes` | `string` | optional | Free-form Markdown for human remarks, caveats, or inline research. |
 
@@ -246,6 +248,7 @@ confidence_score: null
 tags: []
 research_references: []
 rejection_count: 0
+system_failure_count: 0
 rejection_reason: ""
 notes: ""
 ---
