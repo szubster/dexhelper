@@ -31,5 +31,5 @@ This task implements `story-335-564-execute-migration`. The objective is to exec
 - Ensure no other files or file contents are accidentally modified.
 
 ## 3. Acceptance Criteria
-- [ ] The migration script is executed successfully.
-- [ ] Active, pending, and ready TASK nodes are cleaned up and no longer contain `### REMINDER FOR CODER` or `### REMINDER FOR QA` blocks.
+- [x] The migration script is executed successfully.
+- [x] Active, pending, and ready TASK nodes are cleaned up and no longer contain `### REMINDER FOR CODER` or `### REMINDER FOR QA` blocks.
