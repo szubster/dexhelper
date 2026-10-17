@@ -1,6 +1,7 @@
 import { Handle, Position } from '@xyflow/react';
 import { AlertTriangle } from 'lucide-react';
 import React from 'react';
+import { getHeatmapColorClass, getSeverity, type TelemetryMetric } from '../../features/node-styling/utils/heatmap';
 import { cn } from '../../utils/cn';
 import { CornerCrosshairs } from '../CornerCrosshairs';
 import { useDagContext } from '../dashboard/DagContext';
@@ -15,11 +16,12 @@ export type DagNodeData = Record<string, unknown> & {
   label?: string;
   isHighlighted?: boolean;
   isDimmed?: boolean;
+  heatmapMetric?: TelemetryMetric;
 };
 
 // ⚡ Bolt: Wrapped in React.memo to prevent unnecessary re-renders when parent states or viewports change
 export const DagNode = React.memo(function DagNode({ data }: { data: DagNodeData }) {
-  const { maxRejectionThreshold } = useDagContext();
+  const { maxRejectionThreshold, showHeatmap } = useDagContext();
   let statusColor = 'text-zinc-500';
   let dotColor = 'text-zinc-500';
   let bgClass = 'bg-zinc-900/50';
@@ -66,6 +68,11 @@ export const DagNode = React.memo(function DagNode({ data }: { data: DagNodeData
       // PENDING
       statusColor = 'text-zinc-500';
       bgClass = 'bg-zinc-900/50 border-white/20';
+  }
+
+  if (showHeatmap && data.heatmapMetric) {
+    const severity = getSeverity(data.heatmapMetric);
+    bgClass = getHeatmapColorClass(severity);
   }
 
   if (data.isHighlighted) {
