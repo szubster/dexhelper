@@ -28,4 +28,6 @@ locks: []
 This story is dedicated exclusively to Integration and E2E Verification of the Pokerus Spread Planner.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-561-690-pokerus-spread-planner-e2e-impl
+- [ ] task-561-691-pokerus-spread-planner-e2e-qa
