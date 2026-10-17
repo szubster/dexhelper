@@ -43,3 +43,4 @@ In the previous session, IDEA-421 (Automated Markdown Schema Validation) was pro
 ## Acceptance Criteria
 - [x] Product Manager: Convert this idea into a PRD detailing the required Gen 3 berry blending formulas and Nature modifiers.
 - [x] prd-422-518-gen3-pokeblock-recipe-optimizer
+- [ ] research-422-702-remediation-legacy-conflict
