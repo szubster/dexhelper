@@ -31,4 +31,5 @@ The script `scripts/verify-adr-compliance.ts` must be integrated with the system
 - Update the `lint` script in `package.json` to ensure the compliance check is run alongside other linters.
 
 ## Acceptance Criteria
-- [ ] Decompose this story into actionable TASK nodes.
+- [ ] task-676-702-add-adr-compliance-scripts
+- [x] Decompose this story into actionable TASK nodes.
