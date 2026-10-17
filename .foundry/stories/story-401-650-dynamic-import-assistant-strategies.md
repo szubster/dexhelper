@@ -1,13 +1,13 @@
 ---
 id: story-401-650-dynamic-import-assistant-strategies
 type: STORY
-title: "Story: Dynamic Import Assistant Strategies"
-status: READY
+title: 'Story: Dynamic Import Assistant Strategies'
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-12T07:40:28.000Z'
-updated_at: '2026-10-12T07:40:28.000Z'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6835079573412954116'
 pr_number: null
 parent: epic-337-401-engine-code-splitting
 tags:
@@ -15,7 +15,7 @@ tags:
   - architecture
   - bundles
 rejection_count: 0
-rejection_reason: ""
+rejection_reason: ''
 locks: []
 ---
 
