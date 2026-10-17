@@ -1,3 +1,4 @@
+import React from 'react';
 import { cn } from '../utils/cn';
 import { TacticalButton } from './TacticalButton';
 
@@ -6,7 +7,8 @@ interface ClearFiltersBadgeProps {
   onClick: () => void;
 }
 
-export function ClearFiltersBadge({ isActive, onClick }: ClearFiltersBadgeProps) {
+// ⚡ Bolt: Wrapped ClearFiltersBadge in React.memo to prevent unnecessary re-renders when parent filter controls update without badge props changing.
+export const ClearFiltersBadge = React.memo(function ClearFiltersBadge({ isActive, onClick }: ClearFiltersBadgeProps) {
   return (
     <TacticalButton
       onClick={onClick}
@@ -31,4 +33,4 @@ export function ClearFiltersBadge({ isActive, onClick }: ClearFiltersBadgeProps)
       <span aria-hidden="true">[ </span>ALL<span aria-hidden="true"> ]</span>
     </TacticalButton>
   );
-}
+});
