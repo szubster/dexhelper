@@ -27,3 +27,6 @@ Update `.foundry/scripts/lint-schema.ts` to parse YAML frontmatter and validate 
 - The following fields must be present: `id`, `type`, `title`, `status`, `owner_persona`, `created_at`, `updated_at`, `depends_on`, `jules_session_id`.
 - If any required field is missing, log an error to the console and ensure the script sets a failure state to eventually exit with code `1`.
 - Ensure the script correctly reads the file contents using `fs.readFile` before parsing.
+
+## Acceptance Criteria
+- [x] Update lint-schema.ts to parse frontmatter and validate fields
