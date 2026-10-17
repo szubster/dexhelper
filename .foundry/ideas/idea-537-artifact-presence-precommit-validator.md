@@ -2,12 +2,12 @@
 id: idea-537-artifact-presence-precommit-validator
 type: IDEA
 title: Automated Pre-Commit Deliverable Artifact Presence Validator
-status: ACTIVE
+status: FAILED
 owner_persona: product_manager
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: ''
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -16,7 +16,7 @@ tags:
   - validation
   - workflow
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 locks: []
 priority: 80
 ---

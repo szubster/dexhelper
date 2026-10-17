@@ -2,12 +2,12 @@
 id: research-157-675-cloudflare-regression-analysis
 type: RESEARCH
 title: Cloudflare Sync Regression Analysis for pnpm Monorepo
-status: ACTIVE
+status: PENDING
 owner_persona: researcher
 created_at: '2026-10-10'
-updated_at: '2026-10-14'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '8347013874568603797'
+jules_session_id: null
 pr_number: null
 parent: idea-157-pnpm-workspaces-architecture
 tags:

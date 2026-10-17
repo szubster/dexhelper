@@ -1,16 +1,15 @@
 ---
 id: research-422-702-remediation-legacy-conflict
 type: RESEARCH
-title: "Remediation: Resolve Domain Conflicts for Pokéblock Recipe Optimizer"
-status: READY
+title: 'Remediation: Resolve Domain Conflicts for Pokéblock Recipe Optimizer'
+status: PENDING
 owner_persona: researcher
-created_at: "2026-10-18"
-updated_at: "2026-10-18"
+created_at: '2026-10-18'
+updated_at: '2026-10-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-422-gen3-pokeblock-recipe-optimizer
-priority: 50
 tags:
   - dexhelper
   - gen3
@@ -18,9 +17,10 @@ tags:
   - optimization
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 locks: []
+priority: 50
 ---
 
 # Remediation: Resolve Domain Conflicts for Pokéblock Recipe Optimizer

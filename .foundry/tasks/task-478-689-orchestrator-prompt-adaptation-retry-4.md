@@ -2,10 +2,10 @@
 id: task-478-689-orchestrator-prompt-adaptation-retry-4
 type: TASK
 title: Implement DAG Node Prompt Adaptation Logic (Retry 4)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-15'
-updated_at: '2026-10-15'
+updated_at: '2026-10-17'
 depends_on:
   - task-478-688-orchestrator-cloning-logic-retry-4
 jules_session_id: null

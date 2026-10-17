@@ -2,10 +2,10 @@
 id: task-478-688-orchestrator-cloning-logic-retry-4
 type: TASK
 title: Implement DAG Node Cloning Logic (Retry 4)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-15'
-updated_at: '2026-10-15'
+updated_at: '2026-10-17'
 depends_on:
   - research-478-687-investigate-cloning-logic-failure-retry-3
 jules_session_id: null

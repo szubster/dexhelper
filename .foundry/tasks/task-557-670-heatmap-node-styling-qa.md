@@ -2,10 +2,10 @@
 id: task-557-670-heatmap-node-styling-qa
 type: TASK
 title: Heatmap Node Styling QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-07'
-updated_at: '2026-10-10'
+updated_at: '2026-10-17'
 depends_on:
   - task-557-669-heatmap-node-styling-ui
 jules_session_id: null

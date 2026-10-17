@@ -2,10 +2,10 @@
 id: task-478-691-orchestrator-cloning-qa-retry-4
 type: TASK
 title: QA Verification for DAG Node Cloning Logic (Retry 4)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-15'
-updated_at: '2026-10-15'
+updated_at: '2026-10-17'
 depends_on:
   - task-478-690-orchestrator-cloning-tests-retry-4
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-649-691-daycare-save-parsing-e2e-qa
 type: TASK
 title: QA Daycare Save Parsing E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-16T02:11:19.097Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-17'
 depends_on:
   - task-649-690-daycare-save-parsing-e2e-coder
 jules_session_id: null
