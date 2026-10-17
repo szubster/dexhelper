@@ -23,6 +23,8 @@ locks: []
 Develop an end-to-end integration test suite that verifies the core archival cleanup engine works correctly.
 
 ## Acceptance Criteria
+- [ ] task-552-690-archival-cleanup-e2e-tests
+- [ ] task-552-691-archival-cleanup-e2e-qa
 - [ ] Verify nodes older than 90 days are pruned.
 - [ ] Verify high-value nodes (ADR, PRD, RESEARCH) are skipped and retained.
 - [ ] Verify the engine limits deletions to a maximum of 50 files per run.
