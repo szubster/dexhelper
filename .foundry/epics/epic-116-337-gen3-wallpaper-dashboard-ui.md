@@ -41,4 +41,7 @@ Once the phrase generation engine (Epic 335) calculates the codes based on the p
 *   `.foundry/epics/epic-116-336-gen3-wallpaper-app-state-tracking.md`
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this EPIC down into actionable STORY nodes.
+- [x] Story Owner: Break this EPIC down into actionable STORY nodes.
+- [ ] story-337-676-gen3-wallpaper-ui-component
+- [ ] story-337-677-gen3-wallpaper-ui-integration
+- [ ] story-337-678-gen3-wallpaper-e2e-verification
