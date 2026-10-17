@@ -42,7 +42,10 @@ This proposal introduces an automated linter check / pre-commit hook rule that d
 - Must run fast enough not to significantly slow down the pre-commit workflow.
 
 ## Acceptance Criteria
-- [ ] Implement a root scratchpad detector in `.github/scripts/` or Biome/Oxlint/Lefthook rules.
-- [ ] Add tests verifying that ephemeral debug scripts outside allowed paths trigger a linting error or auto-cleanup.
-- [ ] Integrate into `pnpm lint` and git pre-commit hooks.
-- [ ] Ensure orchestrator macro node completion safeguard: An integration/E2E EPIC breakdown requirement is met.
+- [ ] epic-587-584-root-scratchpad-detector-script
+- [ ] epic-587-585-scratchpad-detector-testing
+- [ ] epic-587-586-scratchpad-detector-integration
+- [x] Implement a root scratchpad detector in `.github/scripts/` or Biome/Oxlint/Lefthook rules.
+- [x] Add tests verifying that ephemeral debug scripts outside allowed paths trigger a linting error or auto-cleanup.
+- [x] Integrate into `pnpm lint` and git pre-commit hooks.
+- [x] Ensure orchestrator macro node completion safeguard: An integration/E2E EPIC breakdown requirement is met.
