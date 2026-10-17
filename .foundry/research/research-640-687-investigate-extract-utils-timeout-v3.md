@@ -2,12 +2,12 @@
 id: research-640-687-investigate-extract-utils-timeout-v3
 type: RESEARCH
 title: Investigate timeout during utils extraction v3
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-14'
 updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '2300251425669244873'
+jules_session_id: null
 pr_number: null
 parent: story-526-640-extract-domain-logic
 tags:
@@ -15,7 +15,7 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 research_references: []
 notes: ''
 locks: []
