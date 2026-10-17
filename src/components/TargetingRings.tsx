@@ -14,7 +14,7 @@ export const TargetingRings = React.memo(function TargetingRings({
   ...props
 }: TargetingRingsProps) {
   return (
-    <div className={cn('pointer-events-none absolute inset-0', className)} {...props}>
+    <div aria-hidden="true" className={cn('pointer-events-none absolute inset-0', className)} {...props}>
       <div
         className={cn(
           'absolute inset-2 rounded-full border border-cyan-500/0 opacity-0 transition-all duration-500 group-hover/card:animate-[spin_4s_linear_infinite] group-hover/card:border-cyan-500/30 group-hover/card:opacity-100',

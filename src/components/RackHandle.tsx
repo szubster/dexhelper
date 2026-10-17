@@ -7,6 +7,7 @@ export const RackHandle = React.forwardRef<HTMLDivElement, RackHandleProps>(({ c
   return (
     <div
       ref={ref}
+      aria-hidden="true"
       className={cn(
         'flex w-4 shrink-0 flex-col justify-between border-zinc-700/50 border-r border-dashed pr-2',
         className,

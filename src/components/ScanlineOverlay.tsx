@@ -9,7 +9,11 @@ interface ScanlineOverlayProps {
 export const ScanlineOverlay = React.forwardRef<HTMLDivElement, ScanlineOverlayProps>(
   ({ className, opacityClass = 'opacity-20' }, ref) => {
     return (
-      <div ref={ref} className={cn('scanline-overlay pointer-events-none absolute inset-0', opacityClass, className)} />
+      <div
+        ref={ref}
+        aria-hidden="true"
+        className={cn('scanline-overlay pointer-events-none absolute inset-0', opacityClass, className)}
+      />
     );
   },
 );
