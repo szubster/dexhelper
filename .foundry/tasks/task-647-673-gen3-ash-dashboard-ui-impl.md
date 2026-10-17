@@ -32,5 +32,5 @@ Implement the Gen 3 Volcanic Ash Tracker Dashboard UI within DexHelper. The dash
 - No PokeAPI dependency.
 
 ## Acceptance Criteria
-- [ ] Implement the UI components for the Ash Tracker.
-- [ ] Write `vitest-browser-react` unit tests and interaction tests for the new component.
+- [x] Implement the UI components for the Ash Tracker.
+- [x] Write `vitest-browser-react` unit tests and interaction tests for the new component.
