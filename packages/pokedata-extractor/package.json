@@ -1,0 +1,18 @@
+{
+  "name": "@dexhelper/pokedata-extractor",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Extracts data from pokeapi",
+  "type": "module",
+  "exports": {
+    "./data/gen3/mapping": "./data/gen3/mapping.ts",
+    "./data/gen3/match_call/etl.ts": "./data/gen3/match_call/etl.ts"
+  },
+  "scripts": {
+    "data:gen": "node --experimental-strip-types generate-pokedata.ts",
+    "data:gen-maps": "node --experimental-strip-types generateMapLocations.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.5.1"
+  }
+}

@@ -24,8 +24,8 @@
     "check:biome": "biome check --error-on-warnings .",
     "check:fix": "biome check --write --unsafe .",
     "clean": "rm -rf dist",
-    "data:gen": "node --experimental-strip-types scripts/generate-pokedata.ts",
-    "data:gen-maps": "node --experimental-strip-types scripts/generateMapLocations.ts",
+    "data:gen": "node --experimental-strip-types packages/pokedata-extractor/generate-pokedata.ts",
+    "data:gen-maps": "node --experimental-strip-types packages/pokedata-extractor/generateMapLocations.ts",
     "dev": "vite --port=3000 --host=0.0.0.0",
     "feature-flag": "node --experimental-strip-types scripts/feature-flags/cli.ts",
     "format": "pnpm format:biome && pnpm format:checkboxes",
@@ -56,6 +56,7 @@
   },
   "dependencies": {
     "@cloudflare/pages-plugin-cloudflare-access": "^1.0.5",
+    "@dexhelper/pokedata-extractor": "workspace:*",
     "@fontsource/jetbrains-mono": "^5.3.0",
     "@fontsource/outfit": "^5.3.0",
     "@fontsource/press-start-2p": "^5.3.0",
