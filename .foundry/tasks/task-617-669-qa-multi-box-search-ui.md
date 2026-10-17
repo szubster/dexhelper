@@ -2,14 +2,14 @@
 id: task-617-669-qa-multi-box-search-ui
 type: TASK
 title: QA - Multi-Box Search UI Components
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-23'
 updated_at: '2026-10-17'
 depends_on:
   - task-617-667-multi-box-search-input-ui
   - task-617-668-multi-box-attribute-filters-ui
-jules_session_id: null
+jules_session_id: '5898583827021552404'
 pr_number: null
 parent: story-576-617-multi-box-search-ui-components
 tags:
