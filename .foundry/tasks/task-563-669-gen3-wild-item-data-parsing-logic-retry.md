@@ -33,6 +33,6 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 - Incorporate findings from `research-563-668-investigate-wild-item-parsing-failure`.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 3 wild encounter locations and rates parsing.
-- [ ] Map held item data and their respective drop rates for Gen 3 Pokémon.
-- [ ] Utilize relative offsets where applicable.
+- [x] Implement Gen 3 wild encounter locations and rates parsing.
+- [x] Map held item data and their respective drop rates for Gen 3 Pokémon.
+- [x] Utilize relative offsets where applicable.
