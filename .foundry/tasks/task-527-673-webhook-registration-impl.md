@@ -31,6 +31,6 @@ notes: ''
 Implement the endpoint to register Google Drive webhooks using Cloudflare Workers, satisfying Google's domain verification constraints.
 
 ## Acceptance Criteria
-- [ ] Implement webhook registration endpoint.
-- [ ] Ensure correct responses to domain verification requests.
-- [ ] Write unit tests for the registration flow.
+- [x] Implement webhook registration endpoint.
+- [x] Ensure correct responses to domain verification requests.
+- [x] Write unit tests for the registration flow.
