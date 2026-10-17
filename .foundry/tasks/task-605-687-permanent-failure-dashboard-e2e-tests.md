@@ -31,7 +31,7 @@ Write Playwright E2E tests to verify the "Permanent Failures" view in the DAG Da
 The "Permanent Failures" dashboard feature has been implemented, allowing users to filter and view nodes that have reached their max rejection count and permanently failed. We need to verify this functionality end-to-end using Playwright to ensure the UI correctly fetches data, filters it, and applies the correct styling to failed nodes.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests in `tests/e2e/dashboard/permanent_failures.spec.ts` (or similar file) to test the filtering functionality.
-- [ ] The tests should verify that toggling the filter correctly shows/hides the permanent failures and applies correct classes/styles (e.g. `border-red-500`, `brightness-125`).
-- [ ] The tests should intercept or mock the `/foundry.json` (or similar) endpoint to provide deterministic test data.
-- [ ] Ensure all playwright tests pass locally.
+- [x] Implement Playwright E2E tests in `tests/e2e/dashboard/permanent_failures.spec.ts` (or similar file) to test the filtering functionality.
+- [x] The tests should verify that toggling the filter correctly shows/hides the permanent failures and applies correct classes/styles (e.g. `border-red-500`, `brightness-125`).
+- [x] The tests should intercept or mock the `/foundry.json` (or similar) endpoint to provide deterministic test data.
+- [x] Ensure all playwright tests pass locally.
