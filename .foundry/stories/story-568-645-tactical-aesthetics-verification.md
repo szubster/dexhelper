@@ -34,7 +34,10 @@ Verify that styling complies with ADR 008 tactical aesthetics (sharp edges, dash
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down this Story into modular implementation and QA tasks.
-- [ ] task-645-668-tactical-aesthetics-e2e-base-impl
-- [ ] task-645-669-tactical-aesthetics-e2e-base-qa
+- [x] task-645-668-tactical-aesthetics-e2e-base-impl
+- [x] task-645-669-tactical-aesthetics-e2e-base-qa
+- [ ] research-645-687-investigate-base-aesthetics-qa-failure
+- [ ] task-645-688-tactical-aesthetics-e2e-base-impl-retry
+- [ ] task-645-689-tactical-aesthetics-e2e-base-qa-retry
 - [ ] task-645-670-tactical-aesthetics-e2e-complex-impl
 - [ ] task-645-671-tactical-aesthetics-e2e-complex-qa
