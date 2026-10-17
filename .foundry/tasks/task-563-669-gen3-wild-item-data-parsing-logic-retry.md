@@ -2,10 +2,10 @@
 id: task-563-669-gen3-wild-item-data-parsing-logic-retry
 type: TASK
 title: Implement Gen 3 Wild Encounter and Held Item Parsing Logic (Retry)
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-16'
+updated_at: '2026-10-17'
 depends_on:
   - research-563-668-investigate-wild-item-parsing-failure
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - gen3
   - dexhelper
 research_references: []
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

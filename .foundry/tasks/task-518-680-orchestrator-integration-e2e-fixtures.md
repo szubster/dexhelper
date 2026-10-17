@@ -2,12 +2,12 @@
 id: task-518-680-orchestrator-integration-e2e-fixtures
 type: TASK
 title: Orchestrator Integration E2E Fixtures
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-16'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '2991220517774558889'
+jules_session_id: null
 pr_number: null
 parent: story-418-518-orchestrator-integration-e2e
 tags:
@@ -18,7 +18,7 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 experiment_variants: []
 locks: []

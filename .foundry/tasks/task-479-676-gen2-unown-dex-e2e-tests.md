@@ -2,10 +2,10 @@
 id: task-479-676-gen2-unown-dex-e2e-tests
 type: TASK
 title: Implement Gen 2 Unown Dex Data Extraction E2E Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-16'
+updated_at: '2026-10-17'
 depends_on:
   - story-338-557-gen2-unown-dex-parsing-retry
   - story-338-478-gen2-ruins-of-alph-puzzle-flags
@@ -15,8 +15,8 @@ tags:
   - gen2
   - unown
 jules_session_id: null
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 locks: []
 ---
 

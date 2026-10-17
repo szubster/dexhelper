@@ -2,12 +2,12 @@
 id: task-564-680-thief-covet-ui-integration-components
 type: TASK
 title: UI Components for Thief/Covet Optimizer
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-16'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '12579634830009863528'
+jules_session_id: null
 pr_number: null
 parent: story-553-564-thief-covet-ui-integration
 tags:
@@ -16,7 +16,7 @@ tags:
   - react
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

@@ -2,10 +2,10 @@
 id: research-534-676-investigate-idea-reverification-failure
 type: RESEARCH
 title: Investigate IDEA Re-Verification Stage Failure
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-10'
-updated_at: '2026-10-16'
+updated_at: '2026-10-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - curator
   - debugging
 research_references: []
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 experiment_variants: []
 locks: []
