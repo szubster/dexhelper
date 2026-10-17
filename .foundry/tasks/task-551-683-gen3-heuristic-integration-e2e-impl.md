@@ -27,5 +27,5 @@ As part of the Gen 3 Heuristic fix, we need to implement integration and E2E tes
 - Ensure tests verify there are no regressions caused by the mock removal.
 
 ## Acceptance Criteria
-- [ ] Implement integration tests for `isGen3Save`.
-- [ ] Implement E2E tests to verify Gen 3 save detection.
+- [x] Implement integration tests for `isGen3Save`.
+- [x] Implement E2E tests to verify Gen 3 save detection.
