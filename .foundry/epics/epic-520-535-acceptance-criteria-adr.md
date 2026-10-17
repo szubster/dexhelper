@@ -32,5 +32,8 @@ Following the research phase evaluating the usage of Acceptance Criteria in the 
 - Outline the necessary updates for `.foundry/docs/schema.md` and `.github/scripts/foundry-orchestrator.ts`.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into STORY nodes, including the creation of the required `ADR` node.
-- [ ] story_owner: Ensure this Epic generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] story_owner: Break down this Epic into STORY nodes, including the creation of the required `ADR` node.
+- [ ] story-535-679-adr-acceptance-criteria
+- [ ] story-535-680-update-schema-orchestrator-ac
+- [x] story_owner: Ensure this Epic generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-535-681-acceptance-criteria-adr-e2e
