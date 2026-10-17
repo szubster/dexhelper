@@ -31,3 +31,4 @@ This story covers the end-to-end testing and integration verification required t
 - [ ] Verify existing E2E tests related to the Pokedex view pass.
 - [ ] If required, update E2E locators or assertions to handle the fact that off-screen items are no longer rendered in the DOM.
 - [ ] Confirm no regressions in Pokedex grid filtering and searching.
+- [ ] task-567-690-verify-e2e-tests-pokedex-grid
