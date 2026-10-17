@@ -2,12 +2,12 @@
 id: task-555-682-gen3-pk3-e2e-tests-impl
 type: TASK
 title: Gen 3 PK3 Extraction E2E Tests Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-11'
 updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11000264277620532666'
 locks: []
 parent: story-530-555-pkm-data-integration-e2e
 tags:
