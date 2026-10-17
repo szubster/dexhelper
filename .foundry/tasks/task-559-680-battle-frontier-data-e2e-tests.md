@@ -27,6 +27,6 @@ locks: []
 Write Playwright end-to-end (E2E) tests to verify the extraction and display of Battle Frontier data for Emerald and Battle Tower data for Ruby/Sapphire. Ensure no regressions in other Gen 3 parsing processes.
 
 ## Acceptance Criteria
-- [ ] Create E2E tests for Emerald Battle Frontier data extraction and display.
-- [ ] Create E2E tests for Ruby/Sapphire Battle Tower data extraction and display.
-- [ ] Run tests and ensure no regressions in other Gen 3 components.
+- [x] Create E2E tests for Emerald Battle Frontier data extraction and display.
+- [x] Create E2E tests for Ruby/Sapphire Battle Tower data extraction and display.
+- [x] Run tests and ensure no regressions in other Gen 3 components.
