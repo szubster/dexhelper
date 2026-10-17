@@ -13,8 +13,8 @@ describe('gen3Wild', () => {
       const encounters = parseGen3WildEncounterProbabilities('land', slots);
 
       expect(encounters).toHaveLength(12);
-      expect(encounters[0].chance).toBe(20);
-      expect(encounters[10].chance).toBe(1);
+      expect(encounters[0]?.chance).toBe(20);
+      expect(encounters[10]?.chance).toBe(1);
     });
   });
 

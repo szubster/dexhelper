@@ -33,7 +33,7 @@ export function parseGen3WildEncounterProbabilities(
         pokemonId: slot.pokemonId,
         minLevel: slot.minLevel,
         maxLevel: slot.maxLevel,
-        chance: chances[index],
+        chance: chances[index] ?? 0,
       });
     }
   });
