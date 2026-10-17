@@ -28,4 +28,4 @@ As part of the Cross-Save Synergy Analysis Engine, we need to perform E2E Verifi
 - E2E testing to verify that synergy recommendations work correctly across multiple saves.
 
 ## Acceptance Criteria
-- [ ] Coder: Implement E2E tests.
+- [x] Coder: Implement E2E tests.
