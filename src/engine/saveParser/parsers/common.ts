@@ -194,6 +194,7 @@ export interface Gen3SecretBasePartyMember {
 }
 
 export interface Gen3SecretBase {
+  baseLocation?: string;
   secretBaseId: number;
   mapId: number;
   trainerName: string;

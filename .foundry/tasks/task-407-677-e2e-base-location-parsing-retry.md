@@ -25,5 +25,5 @@ locks: []
 As part of the Gen 3 Secret Base and Mixed Record Viewer Epic, we need to verify the parsing of base locations. This is a retry of the failed task.
 
 ## Acceptance Criteria
-- [ ] Write E2E tests verifying base location parsing from save file.
-- [ ] Ensure integration with UI components.
+- [x] Write E2E tests verifying base location parsing from save file.
+- [x] Ensure integration with UI components.
