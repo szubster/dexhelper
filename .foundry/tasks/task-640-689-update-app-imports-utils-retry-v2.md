@@ -2,10 +2,10 @@
 id: task-640-689-update-app-imports-utils-retry-v2
 type: TASK
 title: Update application imports to use @dexhelper/core for utils (Retry v2)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-17'
 depends_on:
   - task-640-688-extract-utils-to-core-retry-v2
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-563-677-routes-encounters-data-fetching-retry
 type: TASK
 title: 'Routes, Encounters, and Drop Rates Data Fetching (Retry)'
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-17'
 depends_on:
   - research-563-676-investigate-routes-encounters-failure
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-478-678-kurt-apricorn-core-logic-retry
 type: TASK
 title: Kurt Apricorn Core Parsing Logic Retry
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-17'
 depends_on:
   - task-478-677-kurt-apricorn-types-retry
 jules_session_id: null

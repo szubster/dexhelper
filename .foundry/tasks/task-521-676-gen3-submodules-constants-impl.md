@@ -2,7 +2,7 @@
 id: task-521-676-gen3-submodules-constants-impl
 type: TASK
 title: Extract Gen 3 Submodule Constants
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-11'
 updated_at: '2026-10-17'
@@ -16,8 +16,8 @@ tags:
   - offset-mapping
   - gen3
 research_references: []
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50
