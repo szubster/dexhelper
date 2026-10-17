@@ -17,6 +17,7 @@
 | [epic-146-418-historical-statistics-backfilling](.foundry/epics/epic-146-418-historical-statistics-backfilling.md) | EPIC | Historical Statistics Backfilling Engine | story_owner | [16665974068628959637](https://jules.google.com/session/16665974068628959637) |
 | [epic-341-416-orchestrator-fuzzer-ci](.foundry/epics/epic-341-416-orchestrator-fuzzer-ci.md) | EPIC | Orchestrator State Machine Fuzzing - CI Integration & Validation | story_owner | [1128244232233425503](https://jules.google.com/session/1128244232233425503) |
 | [epic-516-532-e2e-verification](.foundry/epics/epic-516-532-e2e-verification.md) | EPIC | E2E Verification of Scheduled Agents Issue Flow | story_owner | [5150304259109607505](https://jules.google.com/session/5150304259109607505) |
+| [epic-520-535-acceptance-criteria-adr](.foundry/epics/epic-520-535-acceptance-criteria-adr.md) | EPIC | Architecture Decision Phase: Acceptance Criteria Structure | story_owner | [10119125683127650897](https://jules.google.com/session/10119125683127650897) |
 | [epic-564-567-e2e-integration](.foundry/epics/epic-564-567-e2e-integration.md) | EPIC | Virtualization E2E Integration and Verification | story_owner | [5468991194714480218](https://jules.google.com/session/5468991194714480218) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
