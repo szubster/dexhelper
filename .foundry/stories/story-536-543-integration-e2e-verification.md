@@ -29,4 +29,6 @@ locks: []
 This story is dedicated exclusively to Integration and E2E Verification for the Tech Stack Audit & Benchmarking epic. It ensures that all benchmarking environments, testing capabilities, and the orchestration plan are fully integrated and end-to-end verifiable without breaking existing workflows.
 
 ## Acceptance Criteria
-- [ ] Decompose into implementation tasks for integrating and verifying the benchmarking setup end-to-end.
+- [x] Decompose into implementation tasks for integrating and verifying the benchmarking setup end-to-end.
+- [ ] task-543-683-benchmarking-setup-integration-tests
+- [ ] task-543-684-benchmarking-setup-integration-qa
