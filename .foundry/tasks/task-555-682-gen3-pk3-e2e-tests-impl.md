@@ -24,4 +24,4 @@ rejection_count: 1
 Implement the E2E tests for the Gen 3 PK3 data extraction logic, verifying memory blocks and relative offsets mapping.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for Gen 3 PK3 extraction.
+- [x] Implement Playwright E2E tests for Gen 3 PK3 extraction.
