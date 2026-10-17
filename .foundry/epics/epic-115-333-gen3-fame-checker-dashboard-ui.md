@@ -38,3 +38,8 @@ With the Fame Checker progress data successfully extracted from the save file (`
 - Develop a set of React components for the Fame Checker dashboard.
 - Ensure the UI aligns with the application's overall design system (Tailwind v4 primitives).
 - Follow the "tactical hardware/snooping" aesthetic guidelines where appropriate.
+
+## Acceptance Criteria
+- [ ] story-333-676-fame-checker-dashboard-components
+- [ ] story-333-677-fame-checker-dashboard-integration
+- [ ] story-333-678-fame-checker-dashboard-e2e
