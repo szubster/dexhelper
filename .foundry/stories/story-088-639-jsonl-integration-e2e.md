@@ -31,3 +31,6 @@ Following the integration of JSONL parsing for moves and items data into the app
 ## Acceptance Criteria
 - [ ] Implement Playwright E2E tests verifying that move and item data load correctly via the new JSONL data source.
 - [ ] Ensure components that depend on moves/items render appropriately.
+
+- [ ] task-639-683-jsonl-integration-e2e-impl
+- [ ] task-639-684-jsonl-integration-e2e-qa
