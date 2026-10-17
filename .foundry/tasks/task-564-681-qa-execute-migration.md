@@ -2,13 +2,13 @@
 id: task-564-681-qa-execute-migration
 type: TASK
 title: QA - Execute Task Reminders Migration
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-12'
 updated_at: '2026-10-17'
 depends_on:
   - task-564-680-execute-migration
-jules_session_id: null
+jules_session_id: '8821480605043588617'
 pr_number: null
 parent: story-335-564-execute-migration
 tags:
