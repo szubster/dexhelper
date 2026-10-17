@@ -2,13 +2,13 @@
 id: task-442-669-e2e-cross-save-synergy
 type: TASK
 title: Implement E2E Tests for Cross-Save Synergy
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-06T22:39:19Z'
 updated_at: '2026-10-17'
 depends_on:
   - task-442-668-integration-cross-save-synergy
-jules_session_id: null
+jules_session_id: '4031580527088497085'
 pr_number: null
 parent: story-350-442-cross-save-synergy-e2e
 tags:
