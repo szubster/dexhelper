@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [adr-675-676-cloudflare-monorepo-functions](.foundry/docs/adrs/adr-675-676-cloudflare-monorepo-functions.md) | ADR | Cloudflare Pages Functions Structure in pnpm Monorepo | architect | [3512910946165607263](https://jules.google.com/session/3512910946165607263) |
 | [epic-031-037-inter-save-trading](.foundry/epics/epic-031-037-inter-save-trading.md) | EPIC | Pokémon Trading (Inter-Save) | story_owner | [2088562123749152428](https://jules.google.com/session/2088562123749152428) |
 | [epic-036-059-feebas-frontend-visualization](.foundry/epics/epic-036-059-feebas-frontend-visualization.md) | EPIC | Feebas Route 119 Visual Component | story_owner | [8753621580016031511](https://jules.google.com/session/8753621580016031511) |
 | [epic-045-072-refactor-views](.foundry/epics/epic-045-072-refactor-views.md) | EPIC | Refactor DagDashboard Views to consume DagContext | story_owner | [9357572952968118621](https://jules.google.com/session/9357572952968118621) |
