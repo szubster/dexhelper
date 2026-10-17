@@ -34,3 +34,6 @@ Verify the refactored Pokedex grid-related E2E tests.
 ## Acceptance Criteria
 - [ ] Pokedex grid tests pass reliably.
 - [ ] Tests use `PokedexGridModel` and avoid raw DOM locators.
+
+### QA Rejection
+The tests still contain raw DOM locators in tests/e2e/gen3_pokedex_gaps.spec.ts. Please update to use the PokedexGridModel.
