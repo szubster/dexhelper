@@ -4,6 +4,7 @@ import { SubDataPoint } from './SubDataPoint';
 import { TacticalBadge } from './TacticalBadge';
 import { TacticalButton } from './TacticalButton';
 import { TacticalCard } from './TacticalCard';
+import { TacticalCheckbox } from './TacticalCheckbox';
 import { TacticalChip } from './TacticalChip';
 import { TacticalInput } from './TacticalInput';
 import { TacticalModal } from './TacticalModal';
@@ -11,6 +12,7 @@ import { TacticalPanel } from './TacticalPanel';
 
 export const TacticalKitchenSink: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCheckboxChecked, setIsCheckboxChecked] = useState(true);
 
   return (
     <div className="flex flex-col gap-4 p-4">
@@ -116,6 +118,20 @@ export const TacticalKitchenSink: React.FC = () => {
 
       {/* Input */}
       <TacticalInput id="input-default" />
+
+      {/* Checkbox Showcase */}
+      <div className="flex flex-wrap gap-4 border border-zinc-800 border-dashed p-4" id="checkbox-showcase">
+        <TacticalCheckbox
+          label="Routes Layer"
+          checked={isCheckboxChecked}
+          onChange={(e) => setIsCheckboxChecked(e.target.checked)}
+          data-testid="sink-checkbox-routes"
+        />
+        <TacticalCheckbox label="Emerald Variant" variant="emerald" checked={true} readOnly />
+        <TacticalCheckbox label="Amber Variant" variant="amber" checked={true} readOnly />
+        <TacticalCheckbox label="Red Variant" variant="red" checked={true} readOnly />
+        <TacticalCheckbox label="Disabled Checkbox" disabled checked={false} />
+      </div>
 
       {/* Modal */}
       <TacticalModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>

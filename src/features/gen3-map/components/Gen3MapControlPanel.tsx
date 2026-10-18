@@ -1,4 +1,5 @@
 import type React from 'react';
+import { TacticalCheckbox } from '../../../components/TacticalCheckbox';
 import { useGen3MapStore } from '../store';
 
 export const Gen3MapControlPanel: React.FC = () => {
@@ -11,38 +12,26 @@ export const Gen3MapControlPanel: React.FC = () => {
       <div className="flex flex-col gap-2">
         <h3 className="tactical-text text-lg">Layers</h3>
 
-        <label className="flex cursor-pointer items-center gap-2">
-          <input
-            type="checkbox"
-            className="h-4 w-4 rounded-none border-dashed bg-transparent"
-            checked={layers.routes}
-            onChange={() => toggleLayer('routes')}
-            data-testid="layer-routes"
-          />
-          <span className="tactical-text">Routes</span>
-        </label>
+        <TacticalCheckbox
+          label="Routes"
+          checked={layers.routes}
+          onChange={() => toggleLayer('routes')}
+          data-testid="layer-routes"
+        />
 
-        <label className="flex cursor-pointer items-center gap-2">
-          <input
-            type="checkbox"
-            className="h-4 w-4 rounded-none border-dashed bg-transparent"
-            checked={layers.cities}
-            onChange={() => toggleLayer('cities')}
-            data-testid="layer-cities"
-          />
-          <span className="tactical-text">Cities</span>
-        </label>
+        <TacticalCheckbox
+          label="Cities"
+          checked={layers.cities}
+          onChange={() => toggleLayer('cities')}
+          data-testid="layer-cities"
+        />
 
-        <label className="flex cursor-pointer items-center gap-2">
-          <input
-            type="checkbox"
-            className="h-4 w-4 rounded-none border-dashed bg-transparent"
-            checked={layers.pois}
-            onChange={() => toggleLayer('pois')}
-            data-testid="layer-pois"
-          />
-          <span className="tactical-text">POIs</span>
-        </label>
+        <TacticalCheckbox
+          label="POIs"
+          checked={layers.pois}
+          onChange={() => toggleLayer('pois')}
+          data-testid="layer-pois"
+        />
       </div>
 
       <div className="mt-2 flex flex-col gap-2 border-t-2 border-dashed pt-4">
