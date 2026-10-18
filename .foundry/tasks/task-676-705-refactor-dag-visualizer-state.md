@@ -2,7 +2,7 @@
 id: task-676-705-refactor-dag-visualizer-state
 type: TASK
 title: Remove duplicate state from React Flow DAG Visualizer
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-14'
 updated_at: '2026-10-18'
