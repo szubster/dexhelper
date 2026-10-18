@@ -29,4 +29,7 @@ This story is dedicated to the Integration and E2E verification of the Gen 2 Uno
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] Implement E2E verification to ensure correct extraction of Unown forms and Ruins of Alph puzzle flags.
-- [ ] task-479-676-gen2-unown-dex-e2e-tests
+- [x] task-479-676-gen2-unown-dex-e2e-tests
+- [ ] research-479-676-e2e-timeout
+- [ ] task-479-700-gen2-unown-dex-e2e-coder
+- [ ] task-479-701-gen2-unown-dex-e2e-qa
