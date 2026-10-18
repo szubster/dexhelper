@@ -2,12 +2,12 @@
 id: task-618-687-multi-box-ev-filters-types
 type: TASK
 title: Multi-Box EV Filters Types and Interfaces
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-14'
 updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3266087009732688070'
 pr_number: null
 parent: story-575-618-multi-box-ev-filters
 tags:
