@@ -2,13 +2,13 @@
 id: epic-036-059-feebas-frontend-visualization
 type: EPIC
 title: Feebas Route 119 Visual Component
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-05'
-updated_at: '2026-10-16'
+updated_at: '2026-10-18'
 depends_on:
   - epic-036-058-feebas-backend-parsing
-jules_session_id: '8753621580016031511'
+jules_session_id: null
 pr_number: null
 parent: prd-066-036-feebas-tile-predictor
 tags:
@@ -28,3 +28,6 @@ Design and build a visual map component specifically for Route 119 that dynamica
 - [ ] Build a visual map component for Route 119.
 - [ ] Implement dynamic overlay of indicators based on the calculated coordinates.
 - [ ] Ensure 100% accuracy in visualizing the coordinates.
+- [ ] story-059-676-route-119-visual-map
+- [ ] story-059-677-dynamic-tile-overlay
+- [ ] story-059-678-feebas-visualization-e2e

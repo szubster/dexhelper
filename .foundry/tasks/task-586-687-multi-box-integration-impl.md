@@ -2,7 +2,7 @@
 id: task-586-687-multi-box-integration-impl
 type: TASK
 title: Implement Multi-Box Search Integration Logic
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-14'
 updated_at: '2026-10-18'
@@ -14,8 +14,8 @@ tags:
   - dexhelper
   - integration
   - pc-box
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

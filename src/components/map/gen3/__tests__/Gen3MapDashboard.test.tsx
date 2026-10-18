@@ -13,7 +13,7 @@ test('Gen3MapDashboard renders and displays context state', async () => {
 
   await expect.element(page.getByText('Gen 3 Map Dashboard')).toBeVisible();
   await expect.element(page.getByText('Zoom Level:')).toBeVisible();
-  await expect.element(page.getByText('1')).toBeVisible(); // Default zoom level
+  await expect.element(page.getByText('1', { exact: true }).first()).toBeVisible(); // Default zoom level
   await expect.element(page.getByText('Selected Location ID:')).toBeVisible();
-  await expect.element(page.getByText('None')).toBeVisible(); // Default selected location
+  await expect.element(page.getByText('None', { exact: true }).first()).toBeVisible(); // Default selected location
 });

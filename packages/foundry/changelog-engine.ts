@@ -137,6 +137,21 @@ export function classifyCommit(details: CommitDetails): CommitClassification {
     return { action: 'skip', reason: 'Non-idea Foundry sub-node lifecycle update' };
   }
 
+  // Check if touched files are strictly test files or test coverage improvements
+  const isOnlyTestFiles =
+    files.length > 0 &&
+    files.every(
+      (f) =>
+        f.includes('.test.') ||
+        f.includes('.spec.') ||
+        f.startsWith('tests/') ||
+        f.includes('/__tests__/')
+    );
+
+  if (isOnlyTestFiles) {
+    return { action: 'skip', reason: 'Test-only modification' };
+  }
+
   // Check if files are exclusively trivial maintenance/chore config files
   const trivialPatterns = [
     'pnpm-lock.yaml',

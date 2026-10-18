@@ -15,7 +15,7 @@ tags:
   - testing
   - wip
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
