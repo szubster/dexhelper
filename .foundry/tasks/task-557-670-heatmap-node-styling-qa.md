@@ -26,5 +26,5 @@ locks: []
 Verify the implementation of dynamic heatmap node styling.
 
 ## Acceptance Criteria
-- [ ] Verify that React Flow nodes visually change based on telemetry metrics when the heatmap is toggled.
-- [ ] Ensure no regressions in node functionality.
+- [x] Verify that React Flow nodes visually change based on telemetry metrics when the heatmap is toggled.
+- [x] Ensure no regressions in node functionality.
