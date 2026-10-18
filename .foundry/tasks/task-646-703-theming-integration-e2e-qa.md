@@ -2,10 +2,10 @@
 id: task-646-703-theming-integration-e2e-qa
 type: TASK
 title: QA Theming Integration E2E Tests
-status: READY
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-17'
-updated_at: '2026-10-17'
+updated_at: '2026-10-18'
 depends_on:
   - task-646-702-theming-integration-e2e-impl
 jules_session_id: null
@@ -19,10 +19,11 @@ research_references:
   - .foundry/research/research-145-001-component-variant-libraries.md
   - .foundry/research/research-145-002-component-theming-mechanisms.md
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-645-669-tactical-aesthetics-e2e-base-qa
 notes: ''
 locks: []
-confidence_score: null
 ---
 
 # Task: QA Theming Integration E2E Tests

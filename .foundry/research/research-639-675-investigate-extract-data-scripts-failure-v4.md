@@ -2,12 +2,12 @@
 id: research-639-675-investigate-extract-data-scripts-failure-v4
 type: RESEARCH
 title: Investigate Data Generation Scripts Extraction Failure v4
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-10'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '16797068286188693670'
+jules_session_id: null
 pr_number: null
 parent: story-525-639-extract-data-generation-scripts
 tags:

@@ -2,10 +2,10 @@
 id: story-059-678-feebas-visualization-e2e
 type: STORY
 title: Feebas Visualization E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-16T21:14:46.241Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-18'
 depends_on:
   - story-059-676-route-119-visual-map
   - story-059-677-dynamic-tile-overlay

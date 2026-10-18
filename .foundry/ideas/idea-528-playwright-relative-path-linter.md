@@ -2,12 +2,12 @@
 id: idea-528-playwright-relative-path-linter
 type: IDEA
 title: Playwright Relative Path Navigation Linter Rule
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-22'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '12127147966401658127'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

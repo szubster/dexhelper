@@ -2,10 +2,10 @@
 id: task-478-619-msgpack-prefetch-qa
 type: TASK
 title: QA Verification for Msgpack Prefetch Tests
-status: PENDING
+status: FAILED
 owner_persona: qa
 created_at: '2026-09-22'
-updated_at: '2026-10-13'
+updated_at: '2026-10-18'
 depends_on:
   - task-478-618-msgpack-prefetch-e2e-tests
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - integration
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: Merged with unfulfilled acceptance criteria
 notes: ''
 locks: []
 ---

@@ -2,10 +2,10 @@
 id: story-059-677-dynamic-tile-overlay
 type: STORY
 title: Dynamic Tile Overlay Implementation
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-16T21:14:46.232Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-18'
 depends_on:
   - story-059-676-route-119-visual-map
 jules_session_id: null

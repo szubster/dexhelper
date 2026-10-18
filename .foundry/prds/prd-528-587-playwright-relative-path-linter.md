@@ -2,16 +2,14 @@
 id: prd-528-587-playwright-relative-path-linter
 type: PRD
 title: PRD Playwright Relative Path Navigation Linter Rule
-status: PENDING
+status: READY
 owner_persona: epic_planner
-created_at: "2026-10-15"
-updated_at: "2026-10-15"
+created_at: '2026-10-15'
+updated_at: '2026-10-18'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: idea-528-playwright-relative-path-linter
-priority: 50
 tags:
   - testing
   - playwright
@@ -19,8 +17,10 @@ tags:
   - quality
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # PRD: Playwright Relative Path Navigation Linter Rule

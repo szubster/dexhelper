@@ -1,11 +1,11 @@
 ---
 id: task-618-690-multi-box-ev-filters-qa
 type: TASK
-title: "QA: Multi-Box EV Filters"
-status: ACTIVE
+title: 'QA: Multi-Box EV Filters'
+status: FAILED
 owner_persona: qa
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on:
   - task-618-689-multi-box-ev-filters-tests
 jules_session_id: null
@@ -19,7 +19,7 @@ tags:
   - ev
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 notes: ''
 locks: []
 priority: 50

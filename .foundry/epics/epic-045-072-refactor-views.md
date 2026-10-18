@@ -2,13 +2,13 @@
 id: epic-045-072-refactor-views
 type: EPIC
 title: Refactor DagDashboard Views to consume DagContext
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on:
   - epic-045-071-refactor-data-parsing-layer
-jules_session_id: '9357572952968118621'
+jules_session_id: null
 pr_number: null
 parent: prd-073-045-refactor-dag-dashboard-context
 tags:

@@ -2,10 +2,10 @@
 id: task-618-688-multi-box-ev-filters-logic
 type: TASK
 title: Multi-Box EV Filters Core Logic
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on:
   - task-618-687-multi-box-ev-filters-types
 jules_session_id: null
@@ -19,7 +19,7 @@ tags:
   - ev
   - logic
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 notes: ''
 locks: []
 priority: 50

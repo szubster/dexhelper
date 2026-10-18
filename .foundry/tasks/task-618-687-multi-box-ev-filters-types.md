@@ -2,10 +2,10 @@
 id: task-618-687-multi-box-ev-filters-types
 type: TASK
 title: Multi-Box EV Filters Types and Interfaces
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,7 +18,7 @@ tags:
   - ev
   - types
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 notes: ''
 locks: []
 priority: 50

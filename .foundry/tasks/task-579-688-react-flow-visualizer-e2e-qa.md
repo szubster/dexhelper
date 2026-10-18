@@ -2,10 +2,10 @@
 id: task-579-688-react-flow-visualizer-e2e-qa
 type: TASK
 title: QA React Flow Visualizer E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on:
   - task-579-687-react-flow-visualizer-e2e-tests
 jules_session_id: null
