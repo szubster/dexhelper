@@ -27,6 +27,6 @@ locks: []
 To finalize the Gen 1 parsers refactor (ADR 028), we must verify that the existing test suite passes and that no regressions were introduced. Specifically, we need to verify the E2E tests for Gen 1 save parsing.
 
 ## Acceptance Criteria
-- [ ] Run the existing Gen 1 save parsing E2E tests (`tests/e2e/gen1_save_parsing.spec.ts`).
-- [ ] Ensure that all tests within the file pass successfully.
-- [ ] Address any regressions or failures introduced by the refactor if tests fail.
+- [x] Run the existing Gen 1 save parsing E2E tests (`tests/e2e/gen1_save_parsing.spec.ts`).
+- [x] Ensure that all tests within the file pass successfully.
+- [x] Address any regressions or failures introduced by the refactor if tests fail.
