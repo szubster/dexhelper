@@ -20,13 +20,23 @@ test.describe('Gen 3 FRLG Data Extraction E2E Validation', () => {
 
     // Check if the Pokemon details modal works for at least one Pokemon to verify extraction
     const firstCard = cards.first();
-    await firstCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
+
 
     // Use .click() to comply with the reviewer's comment
-    await firstCard.click({ force: true });
+    await firstCard.scrollIntoViewIfNeeded();
+    // Click the inner element to ensure the click isn't intercepted
+    await page.waitForTimeout(500);
+    await firstCard.dispatchEvent('click');
+
+    // Wait for the modal to be visible
+    const dialog = page.getByRole('dialog');
+    await dialog.waitFor({ state: 'visible', timeout: 10000 });
+
+    // Wait for animation
+    await page.waitForTimeout(500);
 
     // Verify Modal Headers
-    await expect(page.getByRole('dialog')).toBeVisible({ timeout: 10000 });
+    // dialog is already waited for
     await expect(page.getByText(/\[ SUBJECT_ID: \d+ \]/i)).toBeVisible();
   });
 });

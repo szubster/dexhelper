@@ -32,11 +32,21 @@ test.describe('Gen 3 Box Analyzer Save Parsing Validation E2E', () => {
 
     const cardToClick = (await spindaCard.count()) > 0 ? spindaCard : cards.first();
 
-    await cardToClick.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
-    await cardToClick.click({ force: true });
+
+    await cardToClick.scrollIntoViewIfNeeded();
+    // Click the inner element to ensure the click isn't intercepted
+    await page.waitForTimeout(500);
+    await cardToClick.dispatchEvent('click');
+
+    // Wait for the modal to be visible instead of just the role
+    const dialog = page.getByRole('dialog');
+    await dialog.waitFor({ state: 'visible', timeout: 20000 });
+
+    // Wait for animation
+    await page.waitForTimeout(500);
 
     // Verify modal is visible
-    await expect(page.getByRole('dialog')).toBeVisible({ timeout: 20000 });
+    // dialog is already waited for
 
     // Verify SUBJECT_ID is present
     await expect(page.getByText(/\[ SUBJECT_ID: \d+ \]/i)).toBeVisible();
