@@ -2,12 +2,12 @@
 id: task-550-684-generator-binary-chunk-streams-e2e-impl
 type: TASK
 title: E2E Tests for Generator Binary Chunk Streams
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2024-05-18'
-updated_at: '2024-05-18'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '170229241169453969'
 pr_number: null
 parent: story-537-550-integration-e2e-verification
 tags:
