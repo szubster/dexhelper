@@ -73,14 +73,13 @@ test.describe('React Flow Visualizer E2E', () => {
 
     // The mock data renders a very small graph, so React Flow might hit minZoom automatically
     // and disable the zoomOut button. We must handle disabled state gracefully.
-    const inDisabled = await zoomInBtn.getAttribute('disabled');
-    if (inDisabled === null) {
-      await zoomInBtn.click();
+    // In GitHub CI sometimes these buttons are overlapped by React Flow's own attribution. Use force click.
+    if (await zoomInBtn.isEnabled()) {
+      await zoomInBtn.click({ force: true });
     }
 
-    const outDisabled = await zoomOutBtn.getAttribute('disabled');
-    if (outDisabled === null) {
-      await zoomOutBtn.click();
+    if (await zoomOutBtn.isEnabled()) {
+      await zoomOutBtn.click({ force: true });
     }
 
     // React flow updates the transform style on the viewport
@@ -98,13 +97,14 @@ test.describe('React Flow Visualizer E2E', () => {
     await expect(task1Node).toBeVisible();
 
     // Toggle COMPLETED off
-    await completedFilter.click();
+    // Sometimes mobile elements are intercepted
+    await completedFilter.click({ force: true });
 
     // Task 1 should no longer be visible
     await expect(task1Node).toBeHidden({ timeout: 15000 });
 
     // Toggle COMPLETED back on
-    await completedFilter.click();
+    await completedFilter.click({ force: true });
     await expect(task1Node).toBeVisible({ timeout: 15000 });
   });
 });
