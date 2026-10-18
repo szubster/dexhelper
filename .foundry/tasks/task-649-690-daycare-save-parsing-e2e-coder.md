@@ -26,4 +26,4 @@ locks: []
 Implement E2E tests for Daycare extraction engine across supported generations to verify offline save parsing engine implementation.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for Daycare save parsing engine.
+- [x] Implement E2E tests for Daycare save parsing engine.
