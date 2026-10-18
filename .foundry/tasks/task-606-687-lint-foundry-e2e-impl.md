@@ -2,12 +2,12 @@
 id: task-606-687-lint-foundry-e2e-impl
 type: TASK
 title: 'Implement E2E Verification of lint:foundry package script'
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-14T20:10:00.000Z'
-updated_at: '2026-10-14T20:10:00.000Z'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15095662025280188488'
 parent: story-553-606-package-scripts-e2e
 tags:
   - foundry
