@@ -34,3 +34,6 @@ Enhance the existing scheduled `palette` persona to maintain `src/index.css`, en
 ## Acceptance Criteria
 - [ ] Agent prompts/configurations are updated to assign styling ownership to the `palette` persona.
 - [ ] Relevant documentation is updated to reflect this new responsibility.
+- [ ] story-126-703-update-palette-persona-prompt
+- [ ] story-126-704-update-domain-ownership-docs
+- [ ] story-126-705-palette-persona-integration-verification
