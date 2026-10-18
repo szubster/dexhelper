@@ -20,7 +20,8 @@ interface AssistantSuggestionCardProps {
   areaNames?: Record<number, string> | undefined;
 }
 
-export function AssistantSuggestionCard({
+// ⚡ Bolt: Wrapped in React.memo to prevent unnecessary card re-renders when parent AssistantPanel re-renders or updates active category/debug states.
+export const AssistantSuggestionCard = React.memo(function AssistantSuggestionCard({
   suggestion: s,
   style,
   showDebug,
@@ -197,4 +198,4 @@ export function AssistantSuggestionCard({
       )}
     </div>
   );
-}
+});
