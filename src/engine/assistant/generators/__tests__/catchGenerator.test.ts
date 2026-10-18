@@ -293,6 +293,73 @@ describe('catchGenerator', () => {
 
     expect(suggestions).toHaveLength(0);
   });
+
+  it('should generate high-priority roaming suggestions for active Gen 2 and Gen 3 roamers', () => {
+    const apiData = {
+      localEncounters: [],
+      localAid: undefined,
+      missingEncounters: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const myOtIds = new Set<number>();
+    const missingIds = new Set<number>([243, 380]);
+    const queryTargets = [243, 380];
+    const saveDataGen2 = {
+      generation: 2,
+      currentMapId: 1,
+      roamingLegendaries: [
+        { speciesId: 243, isActive: true, hp: 100 }, // Active Raikou
+        { speciesId: 244, isActive: true, hp: 0 }, // Defeated Entei
+      ],
+    } as unknown as SaveData;
+
+    const suggestionsGen2: Suggestion[] = [];
+    const localPidsGen2 = new Set<number>();
+
+    generateCatchSuggestions(
+      apiData,
+      1,
+      myOtIds,
+      missingIds,
+      queryTargets,
+      saveDataGen2,
+      gen1Strategy,
+      suggestionsGen2,
+      localPidsGen2,
+    );
+
+    expect(suggestionsGen2).toHaveLength(1);
+    expect(suggestionsGen2[0]?.id).toBe('catch-roamer-243');
+    expect(suggestionsGen2[0]?.priority).toBe(115);
+    expect(suggestionsGen2[0]?.description).toContain('Fast Balls');
+
+    const saveDataGen3 = {
+      generation: 3,
+      currentMapId: 1,
+      roamingLegendaries: [{ speciesId: 380, isActive: true, hp: 80 }],
+    } as unknown as SaveData;
+
+    const suggestionsGen3: Suggestion[] = [];
+    const localPidsGen3 = new Set<number>();
+
+    generateCatchSuggestions(
+      apiData,
+      1,
+      myOtIds,
+      missingIds,
+      queryTargets,
+      saveDataGen3,
+      gen1Strategy,
+      suggestionsGen3,
+      localPidsGen3,
+    );
+
+    expect(suggestionsGen3).toHaveLength(1);
+    expect(suggestionsGen3[0]?.id).toBe('catch-roamer-380');
+    expect(suggestionsGen3[0]?.priority).toBe(115);
+    expect(suggestionsGen3[0]?.description).toContain('Shadow Tag');
+  });
 });
 it('should suggest catching a pre-evolution if target is missing and pre-evolution is nearby', () => {
   const apiData = {
