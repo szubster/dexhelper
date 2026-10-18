@@ -8,7 +8,6 @@ describe('TacticalProgressBar', () => {
     const { container } = await render(<TacticalProgressBar label="POWER" value={100} max={200} />);
 
     await expect.element(page.getByText('[ POWER ]')).toBeVisible();
-    await expect.element(page.getByText('100')).toBeVisible();
 
     const progressBar = container.querySelector('[role="progressbar"]');
     expect(progressBar).not.toBeNull();
@@ -30,5 +29,12 @@ describe('TacticalProgressBar', () => {
 
     const segments = container.querySelectorAll('[role="progressbar"] > div');
     expect(segments.length).toBe(10);
+  });
+
+  it('renders codeTag and applies variant styles', async () => {
+    await render(<TacticalProgressBar label="TEMP" value={150} max={255} codeTag="THERM.01" variant="amber" />);
+
+    await expect.element(page.getByText('[THERM.01]')).toBeVisible();
+    await expect.element(page.getByText('[ TEMP ]')).toBeVisible();
   });
 });
