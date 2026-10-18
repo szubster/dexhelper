@@ -40,7 +40,7 @@ test('DagWrapper renders DagProvider and DagDashboard without crashing', async (
     { timeout: 2000 },
   );
 
-  await expect.element(page.getByText('[ GRAPH ]')).toBeInTheDocument();
+  await expect.element(page.getByText('node-1')).toBeInTheDocument();
 
   // Clean up
   vi.restoreAllMocks();

@@ -24,7 +24,7 @@ export interface DagNodeData extends Record<string, unknown> {
 export type DagNode = { id: string; data: DagNodeData };
 export type DagEdge = { id: string; source: string; target: string };
 
-export type ViewMode = 'graph' | 'board';
+export type ViewMode = 'board';
 
 export interface DagContextState {
   nodes: DagNode[];
@@ -69,7 +69,7 @@ export function DagProvider({ children }: { children: ReactNode }) {
   const [edges, setEdges] = useState<DagEdge[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isPending, startTransition] = useTransition();
-  const [activeView, setActiveView] = useState<ViewMode>('graph');
+  const [activeView, setActiveView] = useState<ViewMode>('board');
   const [showHeatmap, setShowHeatmap] = useState<boolean>(false);
 
   const value = useMemo(
