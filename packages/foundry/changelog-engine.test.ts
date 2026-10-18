@@ -123,6 +123,17 @@ describe('changelog-engine', () => {
       expect(res.reason).toContain('Non-idea Foundry sub-node');
     });
 
+    it('skips test-only modifications', () => {
+      const res = classifyCommit({
+        sha: '334',
+        message: 'test: improve decodeGen12String test coverage',
+        date: '2026-05-01',
+        files: ['src/engine/saveParser/saveParser.test.ts', 'src/utils/saveParser.test.ts']
+      });
+      expect(res.action).toBe('skip');
+      expect(res.reason).toContain('Test-only modification');
+    });
+
     it('skips trivial chore files', () => {
       const res = classifyCommit({
         sha: '444',
