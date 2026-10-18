@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
 
+## [0.24.0] - 2026-04-03
+### Added
+- Add dynamic base path configuration for Vite to support seamless deployment on Cloudflare Pages.
+
 ## [0.23.9] - 2026-04-03
 ### Added
 - Improve test coverage and consolidate unit tests for the `decodeGen12String` extraction utility to prevent regressions in Generation 1 and 2 save file parsing.
@@ -252,3 +256,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.23.7]: https://github.com/szubster/dexhelper/compare/7184ba35ce6641a67e1f3003403e22e4d39b5913...5feaa6ef2b2ad4fc2df304b0b2f0ee026b2e70af
 [0.23.8]: https://github.com/szubster/dexhelper/compare/5feaa6ef2b2ad4fc2df304b0b2f0ee026b2e70af...f3e1743b567af90ec93b9445ec3ec92ed7eb2952
 [0.23.9]: https://github.com/szubster/dexhelper/compare/f3e1743b567af90ec93b9445ec3ec92ed7eb2952...20ca1be20e3522bede6b25bd0589217cbf668385
+[0.24.0]: https://github.com/szubster/dexhelper/compare/a6a53c17ebde6858a331450305b6ea43f0474aa2...5617da6f34388d20bbeec8a2b1ff419e5b3b724c
