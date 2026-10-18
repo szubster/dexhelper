@@ -8,7 +8,7 @@ created_at: '2026-07-03'
 updated_at: '2026-10-18'
 depends_on:
   - epic-071-124-migrate-core-tactical-components-v2
-jules_session_id: '12861060129650014348'
+jules_session_id: null
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
 tags:

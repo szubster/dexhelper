@@ -2,7 +2,7 @@
 id: task-403-674-playwright-e2e-retry-impl-v4
 type: TASK
 title: Retry Playwright E2E Tests for DV/IV Extraction V4
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-08'
 updated_at: '2026-10-18'
@@ -17,8 +17,8 @@ tags:
   - testing
   - playwright
 research_references: []
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
