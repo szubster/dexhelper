@@ -23,7 +23,7 @@ test.describe('Gen 3 RSE Data Extraction E2E Validation', () => {
     await firstCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
 
     // Use .click() to comply with the reviewer's comment
-    await firstCard.evaluate((el) => el.click());
+    await firstCard.evaluate((el: HTMLElement) => el.click());
 
     // Verify Modal Headers
     await expect(page.getByRole('dialog').first()).toBeVisible({ timeout: 10000 });
