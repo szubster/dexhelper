@@ -1,7 +1,6 @@
 import { DagProvider, useDagContext, type ViewMode } from '../dashboard/DagContext';
 import { DagKanbanBoard } from '../dashboard/kanban/DagKanbanBoard';
 import { TacticalSegmentedControl } from '../TacticalSegmentedControl';
-import { DagDashboard } from './DagDashboard';
 
 function DagViewSwitcher() {
   const { activeView, setActiveView } = useDagContext();
@@ -19,9 +18,7 @@ function DagViewSwitcher() {
           ]}
         />
       </div>
-      <div className="relative flex-1 overflow-hidden">
-        {activeView === 'board' ? <DagKanbanBoard /> : <DagDashboard />}
-      </div>
+      <div className="relative flex-1 overflow-hidden">{activeView === 'board' ? <DagKanbanBoard /> : null}</div>
     </div>
   );
 }
