@@ -93,7 +93,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Rose2[] = {
       return '';
     });
 
-    await import('../../../../scripts/data/gen3/match_call/etl.ts');
+    await import('../../../../packages/pokedata-extractor/data/gen3/match_call/etl.ts');
 
     expect(mockWriteFileSync).toHaveBeenCalled();
     const writeCall = mockWriteFileSync.mock.calls[0] as [

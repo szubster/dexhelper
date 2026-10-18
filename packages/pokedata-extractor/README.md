@@ -51,5 +51,5 @@ To manually run the pipeline locally and update the database files:
     ```
 3.  Alternatively, run the sync script to automatically create a PR:
     ```bash
-    ./scripts/sync-pokedata.sh
+    ./packages/pokedata-extractor/sync-pokedata.sh
     ```
