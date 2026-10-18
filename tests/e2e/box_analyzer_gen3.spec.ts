@@ -33,7 +33,7 @@ test.describe('Gen 3 Box Analyzer Save Parsing Validation E2E', () => {
     const cardToClick = (await spindaCard.count()) > 0 ? spindaCard : cards.first();
 
     await cardToClick.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
-    await cardToClick.click({ force: true });
+    await cardToClick.dispatchEvent('click');
 
     // Verify modal is visible
     // Ensure modal actually opens on mobile by double clicking if needed

@@ -28,6 +28,7 @@ import * as fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
+import { randomInt } from 'node:crypto';
 import { buildDocumentationIndex } from "./flexsearch-utils.ts";
 import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal, updateActiveSessionsTable, trackCycleDetectionFailure } from './dag-utils.ts';
 import { NodeFrontmatterSchema, type NodeFrontmatter } from './schema.ts';
@@ -85,7 +86,7 @@ const POKEMON_PHRASES = [
 ];
 
 function getRandomPokemonPhrase(): string {
-  const randomIndex = Math.floor(Math.random() * POKEMON_PHRASES.length);
+  const randomIndex = randomInt(0, POKEMON_PHRASES.length);
   return POKEMON_PHRASES[randomIndex];
 }
 
