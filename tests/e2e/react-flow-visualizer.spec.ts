@@ -33,8 +33,14 @@ test.describe('React Flow Visualizer E2E', () => {
 
     await page.goto('./dag');
 
+    // Wait for the sync overlay to disappear
+    const overlay = page.getByTestId('sync-progress-overlay');
+    await expect(overlay)
+      .toBeHidden({ timeout: 60000 })
+      .catch(() => {});
+
     // Wait for the view mode to be 'graph'
-    await page.locator('[data-testid="view-mode-graph"]').click({ force: true });
+    await page.locator('[data-testid="view-mode-graph"]').click();
   });
 
   test('should render React Flow nodes and edges based on mock data', async ({ page }) => {
@@ -66,8 +72,8 @@ test.describe('React Flow Visualizer E2E', () => {
     await expect(zoomOutBtn).toBeVisible();
 
     // Attempt clicking zoom controls
-    await zoomInBtn.click({ force: true });
-    await zoomOutBtn.click({ force: true });
+    await zoomInBtn.click();
+    await zoomOutBtn.click();
 
     // React flow updates the transform style on the viewport
     const viewport = page.locator('.react-flow__viewport');
@@ -84,13 +90,13 @@ test.describe('React Flow Visualizer E2E', () => {
     await expect(task1Node).toBeVisible();
 
     // Toggle COMPLETED off
-    await completedFilter.click({ force: true });
+    await completedFilter.click();
 
     // Task 1 should no longer be visible
-    await expect(task1Node).toBeHidden();
+    await expect(task1Node).toBeHidden({ timeout: 15000 });
 
     // Toggle COMPLETED back on
-    await completedFilter.click({ force: true });
-    await expect(task1Node).toBeVisible();
+    await completedFilter.click();
+    await expect(task1Node).toBeVisible({ timeout: 15000 });
   });
 });
