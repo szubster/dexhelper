@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
-import React, { memo, useMemo } from 'react';
+import type React from 'react';
+import { memo, useMemo } from 'react';
 import type { EncounterDetail, Suggestion } from '../../engine/assistant/strategies/types';
 import type { SaveData } from '../../engine/saveParser/index';
 import { objectEntries } from '../../utils/object';
