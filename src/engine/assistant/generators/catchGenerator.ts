@@ -43,6 +43,33 @@ export function generateCatchSuggestions(
   suggestions: Suggestion[],
   localPids: Set<number>,
 ) {
+  // Roaming Legendaries detection (Gen 2 / Gen 3)
+  if (saveData.roamingLegendaries && saveData.roamingLegendaries.length > 0) {
+    for (let i = 0; i < saveData.roamingLegendaries.length; i++) {
+      const roamer = saveData.roamingLegendaries[i];
+      if (!roamer) continue;
+      const pid = roamer.speciesId;
+      const isActive = roamer.isActive !== false;
+      const hasHp = roamer.hp === undefined || roamer.hp > 0;
+
+      if (pid && missingIds.has(pid) && isActive && hasHp) {
+        let description = `Active Roamer! Toggle between two adjacent routes repeatedly to match locations. Use Mean Look / Block or Fast Balls!`;
+        if (saveData.generation === 3) {
+          description = `Active Roamer! Toggle route boundaries repeatedly to switch its location. Use Shadow Tag (Wobbuffet), Mean Look, or Master Ball!`;
+        }
+
+        suggestions.push({
+          id: `catch-roamer-${pid}`,
+          category: 'Catch',
+          title: `Roaming Legendary: #${pid}`,
+          description,
+          pokemonId: pid,
+          priority: 115,
+        });
+      }
+    }
+  }
+
   // We group potential encounters by location to avoid spamming the user with separate
   // suggestions for every single Pokémon on Route 1. By aggregating them into one
   // "Catch X, Y, Z at Location" suggestion, we reduce UI clutter.
