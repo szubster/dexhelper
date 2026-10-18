@@ -2,12 +2,12 @@
 id: research-537-690-berry-serialization-deprecation
 type: RESEARCH
 title: Deprecate msgpackr Serialization for Gen 3 Berry Data
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-15'
-updated_at: '2026-10-15'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1825351804434102709'
 pr_number: null
 parent: story-513-537-gen3-berry-serialization-and-api
 rejection_count: 0
