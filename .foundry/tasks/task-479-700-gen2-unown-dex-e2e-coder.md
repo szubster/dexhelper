@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-18'
 depends_on:
-  - research-479-676-e2e-timeout
+  - research-479-703-e2e-timeout
 parent: story-338-479-gen2-unown-dex-e2e
 tags:
   - e2e

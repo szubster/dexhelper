@@ -1,5 +1,5 @@
 ---
-id: research-479-676-e2e-timeout
+id: research-479-703-e2e-timeout
 type: RESEARCH
 title: Investigate Max Rejection Count for task-479-676-gen2-unown-dex-e2e-tests
 status: READY
