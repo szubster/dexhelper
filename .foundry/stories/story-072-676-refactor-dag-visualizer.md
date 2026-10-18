@@ -26,4 +26,7 @@ Refactor the React Flow DAG visualizer component to consume data from `DagContex
 - Remove duplicate state management within the visualizer.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-676-704-refactor-dag-visualizer-context
+- [ ] task-676-705-refactor-dag-visualizer-state
+- [ ] task-676-706-qa-refactor-dag-visualizer
