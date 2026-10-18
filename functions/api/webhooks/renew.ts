@@ -3,11 +3,10 @@ import type { Env } from '../../types/env';
 import { renewWebhooks } from '../../utils/webhook-renewal';
 
 export const onRequest: PagesFunction<Env> = async (context) => {
-  // In a real app, this would be protected by a cron trigger or an internal auth header
-  // Since Cloudflare Pages Functions don't support Cron Triggers directly yet,
-  // we expose it as a webhook endpoint that a separate Cloudflare Worker (or GitHub Action) can ping.
+  // We use this as a secure HTTP endpoint to trigger renewal logic.
+  // In Cloudflare Workers this could be a 'scheduled' handler, but for Pages file-based routing
+  // an HTTP endpoint protected by a secret works nicely and can be triggered by external cron services.
 
-  // Protect the endpoint (basic check against webhook secret to prevent abuse)
   const authHeader = context.request.headers.get('Authorization');
   if (authHeader !== `Bearer ${context.env.GOOGLE_DRIVE_WEBHOOK_SECRET}`) {
       return new globalThis.Response('Unauthorized', { status: 401 }) as any;
