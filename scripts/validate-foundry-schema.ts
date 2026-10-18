@@ -221,8 +221,9 @@ function validateSchema() {
 
     // 2.88 Validate Markdown Checkbox Formatting (ADR 007)
     const lines = parsed.content.split('\n');
-    // Note: We deliberately do not restrict checkboxes to only the "Acceptance Criteria" section
-    // due to the immense variability of organically generated headers across archived legacy nodes.
+    // Due to the immense variability of organically generated section headers across archived legacy nodes,
+    // we disable the strict "only Acceptance Criteria" section check to prevent endless false-positive CI failures.
+    // We still strictly enforce the syntax of checkboxes themselves (ADR 007).
     lines.forEach((line, index) => {
       if (/^\s*[-*+]\s*\[[\sXx]*\]/.test(line)) {
         if (!/^\s*- \[( |x)\] /.test(line)) {
