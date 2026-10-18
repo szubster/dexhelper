@@ -31,6 +31,7 @@ describe('chunkPalParkBatches', () => {
       createMockPokemon('Box 14', 30),
       createMockPokemon('Party', 1),
       createMockPokemon('Unknown Box Format', undefined),
+      createMockPokemon('Box Invalid', 5),
     ];
 
     const batches = chunkPalParkBatches(pokes);
@@ -40,9 +41,19 @@ describe('chunkPalParkBatches', () => {
     expect(batch?.[1]?.location).toEqual({ box: 14, slot: 30 });
     expect(batch?.[2]?.location).toEqual({ box: 0, slot: 1 });
     expect(batch?.[3]?.location).toEqual({ box: 0, slot: 0 });
+    expect(batch?.[4]?.location).toEqual({ box: 0, slot: 5 });
   });
 
   it('handles empty arrays', () => {
     expect(chunkPalParkBatches([])).toEqual([]);
+  });
+
+  it('handles lists that divide evenly by 6', () => {
+    const pokes = Array.from({ length: 12 }).map((_, i) => createMockPokemon(`Box 1`, i + 1));
+    const batches = chunkPalParkBatches(pokes);
+
+    expect(batches.length).toBe(2);
+    expect(batches[0]?.length).toBe(6);
+    expect(batches[1]?.length).toBe(6);
   });
 });

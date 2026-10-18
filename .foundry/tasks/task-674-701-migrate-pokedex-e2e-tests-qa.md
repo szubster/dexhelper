@@ -2,13 +2,13 @@
 id: task-674-701-migrate-pokedex-e2e-tests-qa
 type: TASK
 title: QA Refactored Pokedex Grid Virtualization E2E Tests
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: $(date -u +"%Y-%m-%d")
 updated_at: '2026-10-17'
 depends_on:
   - task-674-700-migrate-pokedex-e2e-tests-coder
-jules_session_id: null
+jules_session_id: '16971878880183562476'
 pr_number: null
 parent: story-580-674-migrate-pokedex-e2e-tests
 tags:

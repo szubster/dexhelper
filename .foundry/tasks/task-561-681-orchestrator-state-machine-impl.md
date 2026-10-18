@@ -1,11 +1,11 @@
 ---
 id: task-561-681-orchestrator-state-machine-impl
 type: TASK
-title: 'Implement Custom Node Lifecycle State Machine'
-status: PENDING
+title: Implement Custom Node Lifecycle State Machine
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-18'
 depends_on:
   - task-561-680-orchestrator-dag-graphology-impl
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - architecture
   - state-machine
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-561-680-orchestrator-dag-graphology-impl
 notes: ''
 locks: []
 ---

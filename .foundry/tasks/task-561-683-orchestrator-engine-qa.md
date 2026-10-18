@@ -2,10 +2,10 @@
 id: task-561-683-orchestrator-engine-qa
 type: TASK
 title: 'QA: Orchestrator State and Graph Engine'
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-18'
 depends_on:
   - task-561-682-orchestrator-engine-tests
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - state-machine
   - dag
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-561-680-orchestrator-dag-graphology-impl
 notes: ''
 locks: []
 ---

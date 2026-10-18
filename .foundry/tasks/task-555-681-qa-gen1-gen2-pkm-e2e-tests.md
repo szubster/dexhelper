@@ -2,21 +2,23 @@
 id: task-555-681-qa-gen1-gen2-pkm-e2e-tests
 type: TASK
 title: QA Gen 1 & Gen 2 PKM Extraction E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-11'
-updated_at: '2026-10-11'
+updated_at: '2026-10-17'
 depends_on:
   - task-555-680-gen1-gen2-pkm-e2e-tests-impl
 jules_session_id: null
-locks: []
 parent: story-530-555-pkm-data-integration-e2e
 tags:
   - qa
   - e2e
   - data
   - integration
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-555-680-gen1-gen2-pkm-e2e-tests-impl
+locks: []
 ---
 
 # QA Gen 1 & Gen 2 PKM Extraction E2E Tests

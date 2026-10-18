@@ -226,7 +226,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-421-automated-schema-linting` | Implement Automated Markdown Schema Validation via Biome or Custom CLI | Uncategorized |  | PENDING |
 | `idea-422-formalize-playwright-mocking-utilities` | Formalize Playwright Mocking Utilities and Testing Style Guide | Uncategorized |  | PENDING |
 | `idea-422-gen3-fossil-revival-tracker` | Gen 3 Fossil Revival Tracker | dexhelper, gen3, tracking |  | PENDING |
-| `idea-422-gen3-pokeblock-recipe-optimizer` | Gen 3 Pokéblock Recipe Optimizer for Contest Conditions | dexhelper, gen3, contests, optimization |  | PENDING |
+| `idea-422-gen3-pokeblock-recipe-optimizer` | Gen 3 Pokéblock Recipe Optimizer for Contest Conditions | dexhelper, gen3, contests, optimization | `idea-517-gen3-berry-blender-optimizer`, `idea-520-gen3-berry-blending-optimizer-dashboard`, `idea-113-gen3-pokeblock-stats-viewer` | PENDING |
 | `idea-423-dynamic-rag-context-hydration` | Dynamic RAG-Based Context Hydration for Agent Prompts | foundry, orchestrator, optimization, AI |  | PENDING |
 | `idea-424-gen3-interactive-map-dashboard` | Gen 3 Interactive Map Dashboard | dexhelper, feature, gen3, map |  | PENDING |
 | `idea-487-refactor-rejection-count-schema` | Refactor IDEA Node Schema to Disallow Rejection Count and Reason | Uncategorized |  | BLOCKED |

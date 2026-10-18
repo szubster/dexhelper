@@ -2,13 +2,13 @@
 id: story-418-676-adr-compliance-package-scripts
 type: STORY
 title: Add ADR Compliance Package Scripts
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-16T21:05:41.924Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-17'
 depends_on: []
 parent: epic-142-418-automated-adr-compliance-ci-integration
-jules_session_id: '3355379518708574393'
+jules_session_id: '3057792312510943808'
 pr_number: null
 rejection_count: 0
 rejection_reason: ''

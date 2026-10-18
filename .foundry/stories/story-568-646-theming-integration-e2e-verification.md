@@ -2,13 +2,13 @@
 id: story-568-646-theming-integration-e2e-verification
 type: STORY
 title: Theming Integration and Unit Test Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-02'
 updated_at: '2026-10-17'
 depends_on:
   - story-568-645-tactical-aesthetics-verification
-jules_session_id: null
+jules_session_id: '14297382345102302382'
 pr_number: null
 parent: epic-565-568-theming-e2e-verification
 tags:

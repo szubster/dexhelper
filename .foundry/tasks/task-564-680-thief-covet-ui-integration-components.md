@@ -2,12 +2,12 @@
 id: task-564-680-thief-covet-ui-integration-components
 type: TASK
 title: UI Components for Thief/Covet Optimizer
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-01'
 updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5014806265669464492'
 pr_number: null
 parent: story-553-564-thief-covet-ui-integration
 tags:
