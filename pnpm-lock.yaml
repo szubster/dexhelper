@@ -147,8 +147,8 @@ importers:
         specifier: ^4.29.3
         version: 4.29.3
       bundlemon:
-        specifier: ^3.1.0
-        version: 3.1.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2)
+        specifier: ^3.2.0
+        version: 3.2.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2)
       dependency-cruiser:
         specifier: ^18.5.0
         version: 18.5.0
@@ -2871,8 +2871,8 @@ packages:
     resolution: {integrity: sha512-7wxHoOlzICvQyMRfVqoBpnM5pJt1JdcUxsYPNiFx3RlVmUEANh2xdEyoyTsVCqzeJC3rn+AbPuiermBwA3szAQ==}
     engines: {node: '>=18'}
 
-  bundlemon@3.1.0:
-    resolution: {integrity: sha512-8PAomH/fzAD/aXUKmphKmPm4Tl2L7mo51AAalO0EVAZE0cik58AM2x0CVdw4jutD069U2rSyRQstxHo2NEr+9Q==}
+  bundlemon@3.2.0:
+    resolution: {integrity: sha512-lilNF1rYPmEGgeCDTqavZavokbQ31OdBloocqFK8BtaJcl38uBVu9y4fFu6lGakaqOEW1odnZoSmCFZNW354bg==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -7434,7 +7434,7 @@ snapshots:
     dependencies:
       bytes: 3.1.2
 
-  bundlemon@3.1.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2):
+  bundlemon@3.2.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)(typescript@7.0.2):
     dependencies:
       axios: 1.20.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
       axios-retry: 4.5.0(axios@1.20.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2))
