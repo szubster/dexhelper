@@ -2,12 +2,12 @@
 id: task-563-680-schema-linter-section-tracking-impl
 type: TASK
 title: Implement Markdown Section Tracking in Schema Linter
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '9066701985019852740'
+jules_session_id: null
 parent: story-552-563-schema-linter-section-tracking
 tags:
   - foundry

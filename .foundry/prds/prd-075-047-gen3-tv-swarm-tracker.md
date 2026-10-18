@@ -2,12 +2,12 @@
 id: prd-075-047-gen3-tv-swarm-tracker
 type: PRD
 title: Gen 3 TV Broadcast and Swarm Tracker
-status: ACTIVE
-owner_persona: epic_planner
+status: READY
+owner_persona: auditor
 created_at: '2026-06-12'
-updated_at: '2026-10-16'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '12967653888123270880'
+jules_session_id: null
 pr_number: null
 parent: idea-075-gen3-tv-swarm-tracker
 tags:

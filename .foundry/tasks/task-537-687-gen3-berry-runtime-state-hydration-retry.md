@@ -2,10 +2,10 @@
 id: task-537-687-gen3-berry-runtime-state-hydration-retry
 type: TASK
 title: Hydrate Gen 3 Berry Data into Runtime State (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-15'
-updated_at: '2026-10-15'
+updated_at: '2026-10-18'
 depends_on:
   - research-537-690-berry-serialization-deprecation
   - research-537-689-investigate-runtime-state-hydration-failure

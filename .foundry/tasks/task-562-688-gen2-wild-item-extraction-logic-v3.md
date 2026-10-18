@@ -2,10 +2,10 @@
 id: task-562-688-gen2-wild-item-extraction-logic-v3
 type: TASK
 title: Implement Gen 2 Wild Encounter and Held Item Extraction Logic (v3)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-15'
-updated_at: '2026-10-15'
+updated_at: '2026-10-18'
 depends_on:
   - task-562-578-gen2-wild-item-models-impl
   - research-562-687-investigate-gen2-wild-encounter-extraction-failure-retry

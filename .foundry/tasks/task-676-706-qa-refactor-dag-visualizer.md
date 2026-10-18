@@ -2,18 +2,21 @@
 id: task-676-706-qa-refactor-dag-visualizer
 type: TASK
 title: QA Refactor React Flow DAG Visualizer to consume DagContext
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
-depends_on: ["task-676-705-refactor-dag-visualizer-state"]
+updated_at: '2026-10-18'
+depends_on:
+  - task-676-705-refactor-dag-visualizer-state
 jules_session_id: null
 pr_number: null
 parent: story-072-676-refactor-dag-visualizer
-tags: ["qa"]
+tags:
+  - qa
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # QA Refactor React Flow DAG Visualizer to consume DagContext

@@ -2,10 +2,10 @@
 id: research-523-690-investigate-gen3-move-tutor-fixtures-failure
 type: RESEARCH
 title: Investigate Gen 3 Move Tutor E2E Fixtures Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-16T00:10:43.998Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-18'
 depends_on: []
 jules_session_id: null
 parent: story-407-523-gen3-move-tutor-integration-e2e
@@ -14,7 +14,7 @@ tags:
   - e2e
   - gen3
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 locks: []
 ---
 

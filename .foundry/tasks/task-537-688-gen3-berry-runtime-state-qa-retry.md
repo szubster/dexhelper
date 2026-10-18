@@ -2,10 +2,10 @@
 id: task-537-688-gen3-berry-runtime-state-qa-retry
 type: TASK
 title: QA Gen 3 Berry Runtime State Hydration (Retry)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-15'
-updated_at: '2026-10-15'
+updated_at: '2026-10-18'
 depends_on:
   - task-537-687-gen3-berry-runtime-state-hydration-retry
 jules_session_id: null

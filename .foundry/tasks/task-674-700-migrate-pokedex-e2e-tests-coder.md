@@ -2,10 +2,10 @@
 id: task-674-700-migrate-pokedex-e2e-tests-coder
 type: TASK
 title: Refactor Pokedex Grid Virtualization E2E Tests to use COM Pattern
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: $(date -u +"%Y-%m-%d")
-updated_at: '2026-10-17'
+updated_at: '2026-10-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - testing
   - e2e
   - playwright
-rejection_count: 2
-rejection_reason: 'Raw DOM locators still exist in tests/e2e/gen3_pokedex_gaps.spec.ts instead of using PokedexGridModel'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 priority: 60

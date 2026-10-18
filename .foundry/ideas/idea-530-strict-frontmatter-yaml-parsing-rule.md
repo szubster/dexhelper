@@ -2,12 +2,12 @@
 id: idea-530-strict-frontmatter-yaml-parsing-rule
 type: IDEA
 title: Strict Frontmatter Isolation in Markdown Parsing Utilities
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-25'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '3571098881891874753'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

@@ -2,10 +2,10 @@
 id: task-619-688-multi-box-stat-filters-e2e-qa
 type: TASK
 title: Multi-Box Stat Filters E2E QA Verification
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on:
   - task-619-687-multi-box-stat-filters-e2e-tests
 jules_session_id: null

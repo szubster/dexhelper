@@ -2,10 +2,10 @@
 id: story-580-674-migrate-pokedex-e2e-tests
 type: STORY
 title: Migrate Pokedex E2E Tests to COM Pattern
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-09'
-updated_at: '2026-10-17'
+updated_at: '2026-10-18'
 depends_on: []
 jules_session_id: null
 pr_number: null

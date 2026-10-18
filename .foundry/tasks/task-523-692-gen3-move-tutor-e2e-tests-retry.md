@@ -2,10 +2,10 @@
 id: task-523-692-gen3-move-tutor-e2e-tests-retry
 type: TASK
 title: Gen 3 Move Tutor E2E Tests Retry
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-16T00:10:44.028Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-18'
 depends_on:
   - task-523-691-gen3-move-tutor-e2e-fixtures-retry
 jules_session_id: null

@@ -2,13 +2,13 @@
 id: task-674-701-migrate-pokedex-e2e-tests-qa
 type: TASK
 title: QA Refactored Pokedex Grid Virtualization E2E Tests
-status: ACTIVE
+status: CANCELLED
 owner_persona: qa
 created_at: $(date -u +"%Y-%m-%d")
-updated_at: '2026-10-17'
+updated_at: '2026-10-18'
 depends_on:
   - task-674-700-migrate-pokedex-e2e-tests-coder
-jules_session_id: '16971878880183562476'
+jules_session_id: null
 pr_number: null
 parent: story-580-674-migrate-pokedex-e2e-tests
 tags:
@@ -16,7 +16,9 @@ tags:
   - e2e
   - playwright
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-674-700-migrate-pokedex-e2e-tests-coder
 notes: ''
 locks: []
 priority: 60

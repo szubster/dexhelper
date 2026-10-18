@@ -2,12 +2,12 @@
 id: story-072-676-refactor-dag-visualizer
 type: STORY
 title: Refactor React Flow DAG Visualizer to consume DagContext
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-14'
 updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '2533276681205797316'
+jules_session_id: null
 pr_number: null
 parent: epic-045-072-refactor-views
 tags: []

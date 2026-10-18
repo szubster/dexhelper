@@ -2,29 +2,29 @@
   "nodes": {
     "byType": {
       "ADR": 44,
-      "EPIC": 497,
-      "IDEA": 232,
-      "PRD": 203,
-      "RESEARCH": 281,
-      "STORY": 1020,
-      "TASK": 2588
+      "EPIC": 499,
+      "IDEA": 233,
+      "PRD": 204,
+      "RESEARCH": 286,
+      "STORY": 1024,
+      "TASK": 2601
     },
     "byStatus": {
-      "COMPLETED": 3178,
-      "ACTIVE": 171,
+      "COMPLETED": 3183,
+      "ACTIVE": 163,
       "CANCELLED": 751,
-      "PENDING": 739,
-      "READY": 9,
+      "PENDING": 754,
       "BLOCKED": 14,
+      "READY": 20,
       "VERIFYING": 1,
-      "FAILED": 2
+      "FAILED": 5
     }
   },
   "prs": {
-    "totalPRs": 9685,
-    "openPRs": 185,
-    "mergedPRs": 8358,
-    "closedPRs": 1142
+    "totalPRs": 9693,
+    "openPRs": 176,
+    "mergedPRs": 8374,
+    "closedPRs": 1143
   },
-  "timestamp": "2026-10-18T18:22:37.032Z"
+  "timestamp": "2026-10-18T21:10:28.912Z"
 }

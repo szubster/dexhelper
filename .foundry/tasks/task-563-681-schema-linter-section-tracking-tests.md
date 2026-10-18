@@ -2,10 +2,10 @@
 id: task-563-681-schema-linter-section-tracking-tests
 type: TASK
 title: Write Tests for Markdown Section Tracking
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-13'
+updated_at: '2026-10-18'
 depends_on:
   - task-563-680-schema-linter-section-tracking-impl
 jules_session_id: null
