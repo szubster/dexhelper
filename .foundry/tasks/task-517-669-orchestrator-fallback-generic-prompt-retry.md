@@ -29,6 +29,6 @@ locks: []
 Modify the orchestrator's prompt compilation functions to fall back to a default generic prompt when the requested base persona prompt is missing. This is a retry task; adhere to the findings from the prerequisite research node.
 
 ## Acceptance Criteria
-- [ ] Implement a fallback string in `compilePromptForNode` and `compileScheduledPrompt` when persona files cannot be found.
-- [ ] Log a warning message indicating that the default fallback prompt is being used.
-- [ ] Write or update unit tests to verify the generic prompt fallback behavior.
+- [x] Implement a fallback string in `compilePromptForNode` and `compileScheduledPrompt` when persona files cannot be found.
+- [x] Log a warning message indicating that the default fallback prompt is being used.
+- [x] Write or update unit tests to verify the generic prompt fallback behavior.
