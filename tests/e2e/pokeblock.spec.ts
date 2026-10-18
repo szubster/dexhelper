@@ -9,7 +9,7 @@ test.describe('Gen 3 Pokeblocks E2E', () => {
     await page.goto('./gen3-dashboard');
 
     // For an empty array of pokeblocks, the POKÉBLOCKS component won't render
-    const pokeblockHeader = page.getByText('POKÉBLOCKS', { exact: true });
+    const pokeblockHeader = page.getByText('POKÉBLOCKS', { exact: true }).filter({ hasNot: page.locator('nav') });
     await expect(pokeblockHeader).toBeHidden();
   });
 
@@ -30,7 +30,7 @@ test.describe('Gen 3 Pokeblocks E2E', () => {
     await page.goto('./gen3-dashboard');
 
     // FRLG does not have pokeblocks.
-    const pokeblockHeader = page.getByText('POKÉBLOCKS', { exact: true });
+    const pokeblockHeader = page.getByText('POKÉBLOCKS', { exact: true }).filter({ hasNot: page.locator('nav') });
     await expect(pokeblockHeader).toBeHidden();
   });
 

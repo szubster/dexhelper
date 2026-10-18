@@ -20,10 +20,8 @@ test.describe('Gen 3 RSE Data Extraction E2E Validation', () => {
 
     // Check if the Pokemon details modal works for at least one Pokemon to verify extraction
     const firstCard = cards.first();
-    await firstCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
-
-    // Use .click() to comply with the reviewer's comment
-    await firstCard.click({ force: true });
+    await firstCard.evaluate((el) => (el as HTMLElement).click());
+    await page.waitForTimeout(1000);
 
     // Verify Modal Headers
     await expect(page.getByRole('dialog')).toBeVisible({ timeout: 10000 });
