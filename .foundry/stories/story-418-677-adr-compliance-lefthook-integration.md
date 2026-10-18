@@ -31,4 +31,6 @@ To ensure code compliance before it is committed, the ADR compliance checks need
 - Make sure the script handles staged files properly or runs against the entire codebase depending on its design.
 
 ## Acceptance Criteria
-- [ ] Decompose this story into actionable TASK nodes.
+- [x] Decompose this story into actionable TASK nodes.
+- [ ] task-677-678-adr-compliance-lefthook-integration-impl
+- [ ] task-677-679-adr-compliance-lefthook-integration-qa
