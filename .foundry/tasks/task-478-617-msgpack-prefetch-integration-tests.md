@@ -30,4 +30,4 @@ We need to ensure the msgpack prefetching logic integrates correctly with the st
 - Write integration tests to confirm prefetching triggers correctly and state is updated.
 
 ## Acceptance Criteria
-- [ ] Write integration tests for msgpack prefetching.
+- [x] Write integration tests for msgpack prefetching.
