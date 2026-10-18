@@ -31,7 +31,12 @@ Following the core refactoring, this story addresses the refactoring of Gen 3 su
 ## Acceptance Criteria
 - [x] Decompose this Story into actionable Task nodes for the Gen 3 submodule parser refactoring.
 - [x] Ensure Tasks address defining module-level constants and implementing relative offsets for all relevant submodules.
-- [ ] task-521-676-gen3-submodules-constants-impl
-- [ ] task-521-677-gen3-submodules-logic-impl
-- [ ] task-521-678-gen3-submodules-tests-impl
-- [ ] task-521-679-gen3-submodules-qa
+- [x] task-521-676-gen3-submodules-constants-impl
+- [x] task-521-677-gen3-submodules-logic-impl
+- [x] task-521-678-gen3-submodules-tests-impl
+- [x] task-521-679-gen3-submodules-qa
+- [ ] research-521-703-gen3-submodules-constants-failure
+- [ ] task-521-704-gen3-submodules-constants-impl-retry
+- [ ] task-521-705-gen3-submodules-logic-impl-retry
+- [ ] task-521-706-gen3-submodules-tests-impl-retry
+- [ ] task-521-707-gen3-submodules-qa-retry
