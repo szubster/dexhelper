@@ -30,3 +30,6 @@ QA for the E2E implementation of Gen 3 Secret Base and Mixed Records. This is a 
 - [ ] Verify E2E tests for base location parsing.
 - [ ] Verify E2E tests for mixed record and rematch tracking.
 - [ ] Verify architectural compliance and E2E test execution.
+
+### QA Rejection
+The E2E tests were implemented using `page.evaluate()` to bypass the application layer, re-implement mock logic, or poll internal global state (`window.__store()`). This is a direct violation of Playwright E2E Testing Architecture rules. E2E tests must verify actual functionality by simulating real user interactions and asserting against rendered UI components on valid application routes. Both upstream tasks have been rejected.

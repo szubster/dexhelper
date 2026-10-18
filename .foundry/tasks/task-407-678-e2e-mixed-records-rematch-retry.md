@@ -2,7 +2,7 @@
 id: task-407-678-e2e-mixed-records-rematch-retry
 type: TASK
 title: E2E Tests for Mixed Record and Rematch Tracking (Retry)
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-10'
 updated_at: '2026-10-17'
@@ -14,8 +14,8 @@ tags:
   - e2e
   - gen3
   - secret-base
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Playwright E2E tests must verify actual functionality by simulating real user interactions, not by bypassing the application layer using page.evaluate() to modify window.__store()'
 locks: []
 ---
 
@@ -25,6 +25,6 @@ locks: []
 As part of the Gen 3 Secret Base Epic, we need to verify mixed record trainer extraction and rematch tracking. This is a retry of the failed task.
 
 ## Acceptance Criteria
-- [x] Write E2E tests for mixed record trainer extraction.
-- [x] Write E2E tests for rematch status tracking.
-- [x] Ensure integration with UI.
+- [ ] Write E2E tests for mixed record trainer extraction.
+- [ ] Write E2E tests for rematch status tracking.
+- [ ] Ensure integration with UI.
