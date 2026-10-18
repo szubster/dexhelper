@@ -33,10 +33,10 @@ test.describe('Gen 3 Box Analyzer Save Parsing Validation E2E', () => {
     const cardToClick = (await spindaCard.count()) > 0 ? spindaCard : cards.first();
 
     await cardToClick.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
-    await cardToClick.click({ force: true });
+    await cardToClick.evaluate((el: HTMLElement) => el.click());
 
     // Verify modal is visible
-    await expect(page.getByRole('dialog')).toBeVisible({ timeout: 20000 });
+    await expect(page.getByRole('dialog').first()).toBeVisible({ timeout: 20000 });
 
     // Verify SUBJECT_ID is present
     await expect(page.getByText(/\[ SUBJECT_ID: \d+ \]/i)).toBeVisible();
