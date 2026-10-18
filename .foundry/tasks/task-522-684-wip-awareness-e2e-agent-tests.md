@@ -30,4 +30,4 @@ locks: []
 Write E2E tests validating that agents avoid depending on Draft/WIP artifacts when parsing nodes.
 
 ## Acceptance Criteria
-- [ ] Write tests verifying agent prompts and dependencies exclude DRAFT/WIP.
+- [x] Write tests verifying agent prompts and dependencies exclude DRAFT/WIP.
