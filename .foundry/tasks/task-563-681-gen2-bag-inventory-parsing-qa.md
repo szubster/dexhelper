@@ -36,3 +36,6 @@ QA verification for Gen 2 Bag inventory parsing.
 - [ ] QA verifies that Gen 2 Bag items and quantities are correctly parsed.
 - [ ] No magic numbers are used and constants are properly defined.
 - [ ] Unit tests are comprehensive.
+
+### Auditor Rejection
+The upstream implementation is missing unit tests for the Bag inventory (Items, Key Items, Balls pockets) in `src/engine/saveParser/parsers/gen2.test.ts`. Please add the required tests.
