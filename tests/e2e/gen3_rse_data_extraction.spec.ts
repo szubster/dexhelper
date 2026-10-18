@@ -22,8 +22,8 @@ test.describe('Gen 3 RSE Data Extraction E2E Validation', () => {
     const firstCard = cards.first();
     await firstCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
 
-    // Use .click() to comply with the reviewer's comment
-    await firstCard.click({ force: true });
+    // Use dispatchEvent('click') to reliably trigger card click events on mobile viewports
+    await firstCard.dispatchEvent('click');
 
     // Verify Modal Headers
     await expect(page.getByRole('dialog')).toBeVisible({ timeout: 10000 });

@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import React from 'react';
+import React, { memo, useMemo } from 'react';
 import type { EncounterDetail, Suggestion } from '../../engine/assistant/strategies/types';
 import type { SaveData } from '../../engine/saveParser/index';
 import { objectEntries } from '../../utils/object';
@@ -21,7 +21,7 @@ interface AssistantSuggestionCardProps {
 }
 
 // ⚡ Bolt: Wrapped in React.memo to prevent unnecessary card re-renders when parent AssistantPanel re-renders or updates active category/debug states.
-export const AssistantSuggestionCard = React.memo(function AssistantSuggestionCard({
+export const AssistantSuggestionCard = memo(function AssistantSuggestionCard({
   suggestion: s,
   style,
   showDebug,
@@ -45,7 +45,7 @@ export const AssistantSuggestionCard = React.memo(function AssistantSuggestionCa
 
   const hasMultiple = s.pokemonIds && s.pokemonIds.length > 0;
 
-  const catchMethods = React.useMemo(() => {
+  const catchMethods = useMemo(() => {
     if (s.category !== 'Catch' || !s.pokemonIds) return [];
 
     const pokemonIds = s.pokemonIds || [];
