@@ -36,7 +36,7 @@ The state store created in the previous task needs to be wired up to the UI comp
 - Follow tactical hardware/snooping aesthetic (ADR 008).
 
 ## Acceptance Criteria
-- [ ] UI components are successfully connected to the Zustand store.
-- [ ] Toggling layers updates the state.
-- [ ] Selecting features updates the state.
-- [ ] Unit tests for the UI components are written and pass.
+- [x] UI components are successfully connected to the Zustand store.
+- [x] Toggling layers updates the state.
+- [x] Selecting features updates the state.
+- [x] Unit tests for the UI components are written and pass.
