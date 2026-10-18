@@ -2,12 +2,12 @@
 id: story-525-639-extract-data-generation-scripts
 type: STORY
 title: Extract Data Generation Scripts
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '2351933059847749452'
+jules_session_id: '18368737095870251717'
 pr_number: null
 parent: epic-519-525-extract-build-tooling
 tags:
