@@ -45,5 +45,8 @@ This feature will parse the TV event data structures and RTC from Gen 3 save fil
 
 ## 3. Acceptance Criteria
 - [x] Epic Planner: Break this PRD down into granular EPICs, ensuring separate epics for Data Parsing and UI/Dashboard implementation.
-- [ ] epic-047-081-gen3-tv-swarm-data-extraction
-- [ ] epic-047-082-gen3-tv-swarm-dashboard-ui
+- [x] epic-047-081-gen3-tv-swarm-data-extraction
+- [x] epic-047-082-gen3-tv-swarm-dashboard-ui
+- [ ] research-047-586-tv-swarm-extraction-failure
+- [ ] epic-047-584-gen3-tv-swarm-data-extraction
+- [ ] epic-047-585-gen3-tv-swarm-dashboard-ui
