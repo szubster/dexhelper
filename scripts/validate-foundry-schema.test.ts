@@ -62,7 +62,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-112-invalid-no-space';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n-[] Invalid`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n-[] Invalid`);
 
         let errorOutput = '';
         let hasThrown = false;
@@ -81,7 +81,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-113-invalid-asterisk';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n* [ ] Invalid`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n* [ ] Invalid`);
 
         let errorOutput = '';
         let hasThrown = false;
@@ -100,7 +100,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-114-invalid-uppercase-x';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n- [X] Invalid`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n- [X] Invalid`);
 
         let errorOutput = '';
         let hasThrown = false;
@@ -119,7 +119,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-115-invalid-missing-trailing-space';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n- [ ]Invalid`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n- [ ]Invalid`);
 
         let errorOutput = '';
         let hasThrown = false;
