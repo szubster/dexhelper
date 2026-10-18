@@ -152,6 +152,16 @@ export function classifyCommit(details: CommitDetails): CommitClassification {
     return { action: 'skip', reason: 'Test-only modification' };
   }
 
+  // Check if commit message explicitly indicates test coverage or test-only changes
+  const isTestMessage =
+    /^test(\([a-z0-9_.-]+\))?:/i.test(message) ||
+    message.toLowerCase().includes('test coverage') ||
+    message.toLowerCase().includes('coverage improvement');
+
+  if (isTestMessage) {
+    return { action: 'skip', reason: 'Test or coverage commit message' };
+  }
+
   // Check if files are exclusively trivial maintenance/chore config files
   const trivialPatterns = [
     'pnpm-lock.yaml',
