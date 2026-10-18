@@ -45,4 +45,6 @@ Create a custom ESLint / Biome / Oxlint rule or AST-based check that scans `test
 - Ensures seamless test execution regardless of Vite base URL deployment configurations.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-587-707-playwright-path-ast-analyzer
+- [ ] epic-587-708-playwright-path-linter-integration
