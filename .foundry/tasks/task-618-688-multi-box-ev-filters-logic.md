@@ -2,7 +2,7 @@
 id: task-618-688-multi-box-ev-filters-logic
 type: TASK
 title: Multi-Box EV Filters Core Logic
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-14'
 updated_at: '2026-10-18'
@@ -18,8 +18,8 @@ tags:
   - pc-box
   - ev
   - logic
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

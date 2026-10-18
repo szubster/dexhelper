@@ -11,20 +11,20 @@
     },
     "byStatus": {
       "COMPLETED": 3178,
-      "ACTIVE": 158,
-      "CANCELLED": 738,
-      "PENDING": 746,
+      "ACTIVE": 160,
+      "CANCELLED": 745,
+      "PENDING": 742,
       "READY": 22,
       "BLOCKED": 14,
       "VERIFYING": 1,
-      "FAILED": 8
+      "FAILED": 3
     }
   },
   "prs": {
-    "totalPRs": 9663,
-    "openPRs": 163,
+    "totalPRs": 9667,
+    "openPRs": 167,
     "mergedPRs": 8358,
     "closedPRs": 1142
   },
-  "timestamp": "2026-10-18T11:50:54.502Z"
+  "timestamp": "2026-10-18T14:57:17.200Z"
 }
