@@ -21,6 +21,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Define Gen 3 Roamer IV Glitch Types
@@ -32,4 +33,4 @@ Define the TypeScript types or enums to represent the state of the Gen 3 Roamer 
 The Gen 3 Roamer IV Glitch discards the top bits of the 32-bit IV field, severely limiting the maximum IVs for certain stats. We need a clear type representation (e.g., a boolean flag or an enum) to indicate whether a roamer's IV spread is glitched. This task is strictly for defining the types in the appropriate core or types directory.
 
 ## Acceptance Criteria
-- [ ] Create or update the types to include a representation for the Roamer IV glitch state.
+- [x] Create or update the types to include a representation for the Roamer IV glitch state.
