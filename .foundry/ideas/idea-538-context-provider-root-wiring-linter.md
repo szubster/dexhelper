@@ -36,5 +36,6 @@ Create a static AST analysis rule or linter utility in `.github/scripts/` or Bio
 Prevents unwrapped Context runtime errors, guarantees proper context hierarchy integration across feature implementations, and reduces QA transient rejections.
 
 ## Acceptance Criteria
-- [ ] PRD generated detailing static AST context wiring validation specifications.
+- [x] PRD generated detailing static AST context wiring validation specifications.
+- [ ] prd-538-703-ast-linter-context-wiring
 - [ ] Linter rule or verification script integrated into `pnpm lint` workflow.
