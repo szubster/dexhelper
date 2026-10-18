@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-17T23:34:46.639Z*
+*Generated at: 2026-10-18T01:38:40.037Z*
 
 ## Node Statistics
 
@@ -19,18 +19,18 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3171 |
-| ACTIVE | 140 |
+| ACTIVE | 151 |
 | CANCELLED | 731 |
-| READY | 43 |
-| PENDING | 740 |
+| PENDING | 743 |
+| READY | 28 |
 | BLOCKED | 14 |
-| FAILED | 4 |
+| FAILED | 5 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9620 |
-| Open PRs | 142 |
+| Total PRs | 9632 |
+| Open PRs | 154 |
 | Merged PRs | 8338 |
 | Closed PRs | 1140 |

@@ -2,13 +2,13 @@
 id: task-522-684-wip-awareness-e2e-agent-tests
 type: TASK
 title: Implement Agent WIP Awareness Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-13'
 updated_at: '2026-10-18'
 depends_on:
   - task-522-683-wip-awareness-e2e-fixtures
-jules_session_id: '4827324098713738696'
+jules_session_id: null
 pr_number: null
 parent: story-520-522-wip-awareness-e2e
 tags:
@@ -18,7 +18,7 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 experiment_variants: []
 locks: []

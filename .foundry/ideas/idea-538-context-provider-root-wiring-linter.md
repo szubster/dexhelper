@@ -2,10 +2,10 @@
 id: idea-538-context-provider-root-wiring-linter
 type: IDEA
 title: Static AST Linter Rule for React Context Application Root Wiring
-status: FAILED
+status: READY
 owner_persona: product_manager
 created_at: '2026-10-14'
-updated_at: '2026-10-17'
+updated_at: '2026-10-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - linter
   - context
   - architecture
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 locks: []
 priority: 80
 ---
