@@ -2,13 +2,13 @@
 id: story-540-561-implement-orchestrator-state-graph-engine
 type: STORY
 title: 'Story: Implement Orchestrator State and Graph Engine'
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-09'
 updated_at: '2026-10-18'
 depends_on:
   - story-540-560-evaluate-state-and-graph-libraries
-jules_session_id: null
+jules_session_id: '12487753137543915476'
 pr_number: null
 parent: epic-521-540-foundry-rearchitecture-state-graph
 tags:
