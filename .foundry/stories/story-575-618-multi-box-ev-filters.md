@@ -28,4 +28,8 @@ locks: []
 Implement stat filters to allow users to search for Pokémon with specific EVs (Effort Values).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into implementation and testing tasks.
+- [x] Tech Lead: Break down this Story into implementation and testing tasks.
+- [ ] task-618-687-multi-box-ev-filters-types
+- [ ] task-618-688-multi-box-ev-filters-logic
+- [ ] task-618-689-multi-box-ev-filters-tests
+- [ ] task-618-690-multi-box-ev-filters-qa
