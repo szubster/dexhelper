@@ -29,5 +29,5 @@ Refactor the React Flow DAG visualizer component to consume data from `DagContex
 - Update relevant rendering tests.
 
 ## Acceptance Criteria
-- [ ] Refactor visualizer to use `DagContext`
-- [ ] Ensure rendering tests pass
+- [x] Refactor visualizer to use `DagContext`
+- [x] Ensure rendering tests pass
