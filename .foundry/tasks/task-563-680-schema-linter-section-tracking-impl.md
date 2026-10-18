@@ -24,5 +24,5 @@ locks: []
 We need to update the schema validation script (`scripts/validate-foundry-schema.ts`) to track the current markdown section and emit a warning or error if a checkbox is encountered outside of an `## Acceptance Criteria` section.
 
 ## Acceptance Criteria
-- [ ] Track the current markdown section during parsing.
-- [ ] Emit an error if a checkbox is encountered outside of `## Acceptance Criteria`.
+- [x] Track the current markdown section during parsing.
+- [x] Emit an error if a checkbox is encountered outside of `## Acceptance Criteria`.
