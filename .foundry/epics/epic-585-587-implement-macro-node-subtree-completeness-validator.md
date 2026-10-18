@@ -31,6 +31,6 @@ This Epic covers the implementation of the Macro Node Subtree Completeness Valid
 This tool aims to eliminate premature Auditor rejections, enforce compliance with System Invariant 15 in `.foundry/docs/schema.md`, and prevent DAG state corruptions.
 
 ## Acceptance Criteria
-- [ ] story-587-588-implement-validator-core-logic
-- [ ] story-587-589-integrate-validator-with-orchestrator
-- [ ] story-587-590-e2e-verification-macro-node-completeness
+- [ ] story-587-707-implement-validator-core-logic
+- [ ] story-587-708-integrate-validator-with-orchestrator
+- [ ] story-587-709-e2e-verification-macro-node-completeness
