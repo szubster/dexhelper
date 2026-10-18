@@ -26,5 +26,5 @@ locks: []
 Write integration and E2E tests for the generator binary chunk streams. Ensure they correctly process binary streams.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for binary chunk streams using Playwright.
-- [ ] Tests must verify correct chunking and streaming integration.
+- [x] Implement E2E tests for binary chunk streams using Playwright.
+- [x] Tests must verify correct chunking and streaming integration.
