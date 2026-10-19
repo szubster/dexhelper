@@ -2,12 +2,12 @@
 id: research-561-703-orchestrator-dag-graphology-failure
 type: RESEARCH
 title: Investigate Graphology Implementation Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4300699931134173978'
 pr_number: null
 parent: story-540-561-implement-orchestrator-state-graph-engine
 tags:
