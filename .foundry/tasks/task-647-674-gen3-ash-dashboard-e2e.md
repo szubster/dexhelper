@@ -2,13 +2,13 @@
 id: task-647-674-gen3-ash-dashboard-e2e
 type: TASK
 title: 'Task: E2E Tests for Gen 3 Volcanic Ash Tracker Dashboard UI'
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-03T19:33:53.000Z'
-updated_at: '2026-10-13'
+updated_at: '2026-10-19'
 depends_on:
   - task-647-673-gen3-ash-dashboard-ui-impl
-jules_session_id: null
+jules_session_id: '16509443379880955574'
 pr_number: null
 parent: story-269-647-gen3-ash-dashboard-ui
 tags:

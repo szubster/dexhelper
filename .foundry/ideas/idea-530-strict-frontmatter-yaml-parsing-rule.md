@@ -2,12 +2,12 @@
 id: idea-530-strict-frontmatter-yaml-parsing-rule
 type: IDEA
 title: Strict Frontmatter Isolation in Markdown Parsing Utilities
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-25'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '3571098881891874753'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -35,3 +35,6 @@ Establish system-wide rules and tooling to enforce strict YAML frontmatter isola
 ## Expected Impact
 - Prevents erroneous state evaluation in DAG utilities and test runners caused by false-positive regex matches in markdown body text.
 - Standardizes frontmatter parsing across all scripts in the Foundry ecosystem.
+
+## Acceptance Criteria
+- [ ] prd-530-587-strict-frontmatter-yaml-parsing-rule

@@ -32,4 +32,4 @@ Implement a system to enforce the Autonomous No-Ask Policy by updating the Orche
 - [x] The heartbeat correctly detects when a session transitions to the `AWAITING_USER_FEEDBACK` state.
 - [x] The heartbeat flags this state as a violation of the Autonomous No-Ask Policy and triggers an appropriate rejection/failure for the node.
 - [x] An integration/E2E STORY is created to verify the heartbeat correctly detects and rejects these violations.
-- [ ] story-563-564-verify-heartbeat-violation-detection
+- [x] story-563-564-verify-heartbeat-violation-detection

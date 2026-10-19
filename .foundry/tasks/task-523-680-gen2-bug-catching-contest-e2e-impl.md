@@ -26,4 +26,4 @@ locks: []
 Write Playwright E2E verification tests for the Gen 2 Bug-Catching Contest save data extraction features.
 
 ## Acceptance Criteria
-- [ ] Write E2E verification tests for Gen 2 Bug-Catching Contest save data extraction.
+- [x] Write E2E verification tests for Gen 2 Bug-Catching Contest save data extraction.

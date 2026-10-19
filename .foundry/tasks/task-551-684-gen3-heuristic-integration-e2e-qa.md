@@ -2,10 +2,10 @@
 id: task-551-684-gen3-heuristic-integration-e2e-qa
 type: TASK
 title: QA - Gen 3 Heuristic Integration and E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-18'
-updated_at: '2026-09-18'
+updated_at: '2026-10-19'
 depends_on:
   - task-551-683-gen3-heuristic-integration-e2e-impl
 jules_session_id: null
@@ -13,8 +13,8 @@ parent: story-536-551-integration-e2e-verification
 tags:
   - e2e
   - integration
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # QA - Gen 3 Heuristic Integration and E2E Tests
