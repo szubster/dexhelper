@@ -27,5 +27,5 @@ locks: []
 Set up specific Playwright fixtures, page objects, and utilities required to effectively test React 19 concurrent rendering (like transitions and suspense states) within the application.
 
 ## Acceptance Criteria
-- [ ] Create Playwright E2E fixtures to mock and interact with React 19 concurrent features.
-- [ ] Ensure fixtures support testing of suspense boundaries and deferred values.
+- [x] Create Playwright E2E fixtures to mock and interact with React 19 concurrent features.
+- [x] Ensure fixtures support testing of suspense boundaries and deferred values.
