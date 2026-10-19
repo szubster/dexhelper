@@ -27,4 +27,4 @@ locks: []
 Write Playwright E2E tests to verify the Gen 3 weather anomaly extraction integrates properly into the broader data processing pipeline.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for Gen 3 weather anomaly extraction.
+- [x] Implement Playwright E2E tests for Gen 3 weather anomaly extraction.
