@@ -35,3 +35,6 @@ Verify the Gen 2 roamer map translation end-to-end within the roamer tracking da
 ## Acceptance Criteria
 - [ ] The tracking dashboard correctly displays translated route names for roamers.
 - [ ] E2E tests successfully verify the rendering of these locations.
+
+### QA Rejection Note
+The target task `task-564-669-gen2-roamer-e2e-tests` was rejected because the Playwright E2E tests violate the Playwright E2E UI Component Integration Testing policy. They use `page.evaluate()` to directly inject hardcoded save state into the store (bypassing the application layer), rather than relying on standard initialization hooks and verifying actual interactions.
