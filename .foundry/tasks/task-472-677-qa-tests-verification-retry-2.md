@@ -2,13 +2,13 @@
 id: task-472-677-qa-tests-verification-retry-2
 type: TASK
 title: QA Verification of New Fixture Tests (Retry 2)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-10'
 updated_at: '2026-10-19'
 depends_on:
   - task-472-676-implement-e2e-tests-retry-2
-jules_session_id: null
+jules_session_id: '8988337862692498496'
 pr_number: null
 parent: story-428-472-e2e-verification
 tags:
