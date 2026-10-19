@@ -2,13 +2,13 @@
 id: story-109-523-box-analyzer-matrix-e2e
 type: STORY
 title: Box Analyzer Matrix E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-06-28'
-updated_at: '2026-10-18'
+updated_at: '2026-10-19'
 depends_on:
   - story-109-522-box-analyzer-highlighting-logic
-jules_session_id: null
+jules_session_id: '919226496214948474'
 pr_number: null
 parent: epic-054-109-box-analyzer-matrix-ui
 tags:
