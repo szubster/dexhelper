@@ -22,12 +22,52 @@ test.describe('Save State Limits and Quota Handling (E2E)', () => {
         });
       }
 
-      // Check count
-      const count = await window.countSavesForPlaythrough(playthroughId);
+      // We implement count and getOldest directly here to avoid touching src/main.tsx
+      const countSaves = async (pid: string) => {
+        return new Promise<number>((resolve, reject) => {
+          const req = indexedDB.open('SaveHistoryDB');
+          req.onsuccess = () => {
+            const db = req.result;
+            const tx = db.transaction('metadata', 'readonly');
+            const store = tx.objectStore('metadata');
+            const index = store.index('by-playthrough-timestamp');
+            const range = IDBKeyRange.bound([pid, -Infinity], [pid, Infinity]);
+            const countReq = index.count(range);
+            countReq.onsuccess = () => resolve(countReq.result);
+            countReq.onerror = () => reject(countReq.error);
+          };
+          req.onerror = () => reject(req.error);
+        });
+      };
 
-      // Try to get oldest ones to verify eviction
-      // The oldest 5 should have been evicted, so the first remaining should be limit-save-5
-      const oldestSaves = await window.getOldestSaves(playthroughId, 5);
+      const getOldest = async (pid: string, limit: number) => {
+        return new Promise<string[]>((resolve, reject) => {
+          const req = indexedDB.open('SaveHistoryDB');
+          req.onsuccess = () => {
+            const db = req.result;
+            const tx = db.transaction('metadata', 'readonly');
+            const store = tx.objectStore('metadata');
+            const index = store.index('by-playthrough-timestamp');
+            const range = IDBKeyRange.bound([pid, -Infinity], [pid, Infinity]);
+            const cursorReq = index.openCursor(range, 'next');
+            const res: string[] = [];
+            cursorReq.onsuccess = (e) => {
+              const cursor = (e.target as IDBRequest<IDBCursorWithValue>).result;
+              if (cursor && res.length < limit) {
+                res.push(cursor.primaryKey as string);
+                cursor.continue();
+              } else {
+                resolve(res);
+              }
+            };
+            cursorReq.onerror = () => reject(cursorReq.error);
+          };
+          req.onerror = () => reject(req.error);
+        });
+      };
+
+      const count = await countSaves(playthroughId);
+      const oldestSaves = await getOldest(playthroughId, 5);
 
       return { count, oldestSaves };
     }, MAX_SAVE_STATES_PER_PLAYTHROUGH);
@@ -43,8 +83,6 @@ test.describe('Save State Limits and Quota Handling (E2E)', () => {
   });
 
   test('should handle QuotaExceededError by evicting half the saves', async ({ page }) => {
-    // This is hard to trigger exactly in a normal e2e run because we can't easily exhaust disk quota.
-    // Instead we can mock the IDB put to throw a QuotaExceededError.
     const result = await page.evaluate(async () => {
       const playthroughId = 'test-quota';
 
@@ -56,7 +94,6 @@ test.describe('Save State Limits and Quota Handling (E2E)', () => {
         });
       }
 
-      // We will override IDBObjectStore.prototype.put temporarily to throw QuotaExceededError
       // eslint-disable-next-line @typescript-eslint/unbound-method
       const originalPut = IDBObjectStore.prototype.put;
       let throwQuotaError = true;
@@ -71,27 +108,64 @@ test.describe('Save State Limits and Quota Handling (E2E)', () => {
       };
 
       try {
-        // This write should trigger the mocked quota error, which will be caught,
-        // it will evict half (5) saves, and then retry successfully.
         await window.writeSaveState(`quota-save-new`, new Uint8Array([99]), {
           playthroughId,
           timestamp: 5000,
         });
       } finally {
-        // Restore original put
         IDBObjectStore.prototype.put = originalPut;
       }
 
-      const count = await window.countSavesForPlaythrough(playthroughId);
-      const oldestSaves = await window.getOldestSaves(playthroughId, 10);
+      const countSaves = async (pid: string) => {
+        return new Promise<number>((resolve, reject) => {
+          const req = indexedDB.open('SaveHistoryDB');
+          req.onsuccess = () => {
+            const db = req.result;
+            const tx = db.transaction('metadata', 'readonly');
+            const store = tx.objectStore('metadata');
+            const index = store.index('by-playthrough-timestamp');
+            const range = IDBKeyRange.bound([pid, -Infinity], [pid, Infinity]);
+            const countReq = index.count(range);
+            countReq.onsuccess = () => resolve(countReq.result);
+            countReq.onerror = () => reject(countReq.error);
+          };
+          req.onerror = () => reject(req.error);
+        });
+      };
+
+      const getOldest = async (pid: string, limit: number) => {
+        return new Promise<string[]>((resolve, reject) => {
+          const req = indexedDB.open('SaveHistoryDB');
+          req.onsuccess = () => {
+            const db = req.result;
+            const tx = db.transaction('metadata', 'readonly');
+            const store = tx.objectStore('metadata');
+            const index = store.index('by-playthrough-timestamp');
+            const range = IDBKeyRange.bound([pid, -Infinity], [pid, Infinity]);
+            const cursorReq = index.openCursor(range, 'next');
+            const res: string[] = [];
+            cursorReq.onsuccess = (e) => {
+              const cursor = (e.target as IDBRequest<IDBCursorWithValue>).result;
+              if (cursor && res.length < limit) {
+                res.push(cursor.primaryKey as string);
+                cursor.continue();
+              } else {
+                resolve(res);
+              }
+            };
+            cursorReq.onerror = () => reject(cursorReq.error);
+          };
+          req.onerror = () => reject(req.error);
+        });
+      };
+
+      const count = await countSaves(playthroughId);
+      const oldestSaves = await getOldest(playthroughId, 10);
 
       return { count, oldestSaves };
     });
 
-    // Started with 10. Evicted half (5). Added 1 new. Total should be 6.
     expect(result.count).toBe(6);
-    // Oldest 5 should have been removed (quota-save-0 to quota-save-4).
-    // Remaining should be 5 through 9, plus the new one.
     expect(result.oldestSaves).toEqual([
       'quota-save-5',
       'quota-save-6',

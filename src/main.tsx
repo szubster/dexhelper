@@ -10,13 +10,7 @@ import { queryClient } from './queryClient';
 import { routeTree } from './routeTree.gen';
 import './index.css';
 
-import {
-  countSavesForPlaythrough,
-  getMostRecentSave,
-  getOldestSaves,
-  getPreviousSave,
-  writeSaveState,
-} from './engine/storage/historyDb';
+import { getMostRecentSave, getPreviousSave, writeSaveState } from './engine/storage/historyDb';
 import { useStore } from './store';
 
 declare global {
@@ -25,8 +19,6 @@ declare global {
     writeSaveState: typeof writeSaveState;
     getMostRecentSave: typeof getMostRecentSave;
     getPreviousSave: typeof getPreviousSave;
-    countSavesForPlaythrough: typeof countSavesForPlaythrough;
-    getOldestSaves: typeof getOldestSaves;
   }
 }
 
@@ -36,8 +28,6 @@ if (import.meta.env.MODE === 'development' || import.meta.env.MODE === 'test') {
   window.writeSaveState = writeSaveState;
   window.getMostRecentSave = getMostRecentSave;
   window.getPreviousSave = getPreviousSave;
-  window.countSavesForPlaythrough = countSavesForPlaythrough;
-  window.getOldestSaves = getOldestSaves;
 }
 
 // Initialize and sync PokeData
