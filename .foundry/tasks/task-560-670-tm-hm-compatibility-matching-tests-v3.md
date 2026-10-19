@@ -32,4 +32,4 @@ Write unit tests for the core logic layer that checks if Pokémon can learn a se
 - Provide adequate coverage for different learnsets and move types.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the matching logic.
+- [x] Write unit tests for the matching logic.
