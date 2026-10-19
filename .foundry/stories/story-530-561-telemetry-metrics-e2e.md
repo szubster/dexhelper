@@ -33,6 +33,8 @@ Verify the integration of telemetry metrics for cycle detection and hierarchical
 2. Confirm the telemetry file (\`.foundry/telemetry/cycle-detection.log\`) is successfully created and correctly logs failures.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks to write integration and E2E tests for telemetry.
+- [x] Break down into Tasks to write integration and E2E tests for telemetry.
 - [ ] Tests verify cycle telemetry is appended correctly.
 - [ ] Tests verify hierarchical deadlock telemetry is appended correctly.
+- [ ] task-561-690-telemetry-metrics-e2e-coder
+- [ ] task-561-691-telemetry-metrics-e2e-qa
