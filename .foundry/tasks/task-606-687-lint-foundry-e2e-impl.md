@@ -28,6 +28,6 @@ locks: []
 - Integrate this script into the test suite or CI verification if applicable, or just ensure it exists as an integration test.
 
 ## Acceptance Criteria
-- [ ] Create an E2E verification script for `pnpm lint:foundry`.
-- [ ] The script verifies that validation passes correctly on valid files.
-- [ ] The script verifies that validation fails correctly on malformed files.
+- [x] Create an E2E verification script for `pnpm lint:foundry`.
+- [x] The script verifies that validation passes correctly on valid files.
+- [x] The script verifies that validation fails correctly on malformed files.
