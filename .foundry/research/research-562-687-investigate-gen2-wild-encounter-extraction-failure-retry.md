@@ -2,12 +2,12 @@
 id: research-562-687-investigate-gen2-wild-encounter-extraction-failure-retry
 type: RESEARCH
 title: Investigate Gen 2 Wild Encounter Extraction Logic Failure (Retry)
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-15'
 updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14565009712148053384'
 pr_number: null
 parent: story-552-562-gen2-wild-item-parsing
 tags:
