@@ -28,5 +28,5 @@ Verify the E2E and integration tests for `isGen3Save` function correctly and cat
 - Verify that `isGen3Save` correctly detects Gen 3 saves.
 
 ## Acceptance Criteria
-- [ ] Run and verify integration tests.
-- [ ] Run and verify E2E tests.
+- [x] Run and verify integration tests.
+- [x] Run and verify E2E tests.
