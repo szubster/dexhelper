@@ -27,6 +27,6 @@ locks: []
 Implement the data layer and custom hooks required for the Safari Zone Bounty Board panel to retrieve and format uncaught rare encounters.
 
 ## Acceptance Criteria
-- [ ] Implement custom hook or data fetching logic to determine uncaught rare encounters in the Safari Zone
-- [ ] Include necessary types/interfaces for the encounter data
-- [ ] Write unit tests for the data hook/functions
+- [x] Implement custom hook or data fetching logic to determine uncaught rare encounters in the Safari Zone
+- [x] Include necessary types/interfaces for the encounter data
+- [x] Write unit tests for the data hook/functions
