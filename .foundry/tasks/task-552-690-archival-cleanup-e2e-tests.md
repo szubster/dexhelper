@@ -22,6 +22,6 @@ locks: []
 Develop the end-to-end integration test suite that verifies the core archival cleanup engine correctly implements the business rules regarding pruning, high-value node retention, and chunking limits.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests to verify nodes older than 90 days are correctly identified and pruned.
-- [ ] Implement E2E tests to verify high-value nodes (e.g., ADR, PRD, RESEARCH) are skipped and retained regardless of age.
-- [ ] Implement E2E tests to verify the engine respects the maximum limit of 50 deletions per run.
+- [x] Implement E2E tests to verify nodes older than 90 days are correctly identified and pruned.
+- [x] Implement E2E tests to verify high-value nodes (e.g., ADR, PRD, RESEARCH) are skipped and retained regardless of age.
+- [x] Implement E2E tests to verify the engine respects the maximum limit of 50 deletions per run.
