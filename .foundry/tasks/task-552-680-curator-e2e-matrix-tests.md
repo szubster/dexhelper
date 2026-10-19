@@ -2,12 +2,12 @@
 id: task-552-680-curator-e2e-matrix-tests
 type: TASK
 title: Write E2E Tests for Idea Dependency Matrix Updates
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-16'
+updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: '7275827748593724887'
+jules_session_id: null
 parent: story-532-552-curator-integration-e2e-verification
 tags:
   - e2e

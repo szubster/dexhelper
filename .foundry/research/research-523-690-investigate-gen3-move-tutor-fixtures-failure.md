@@ -2,7 +2,7 @@
 id: research-523-690-investigate-gen3-move-tutor-fixtures-failure
 type: RESEARCH
 title: Investigate Gen 3 Move Tutor E2E Fixtures Failure
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-16T00:10:43.998Z'
 updated_at: '2026-10-19'
@@ -13,8 +13,8 @@ tags:
   - research
   - e2e
   - gen3
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 locks: []
 ---
 

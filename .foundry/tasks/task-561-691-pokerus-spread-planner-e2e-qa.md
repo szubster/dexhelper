@@ -2,10 +2,10 @@
 id: task-561-691-pokerus-spread-planner-e2e-qa
 type: TASK
 title: Pokerus Spread Planner E2E QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-16T02:37:32.074Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-19'
 depends_on:
   - task-561-690-pokerus-spread-planner-e2e-impl
 jules_session_id: null

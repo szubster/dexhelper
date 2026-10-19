@@ -2,13 +2,13 @@
 id: story-018-513-orchestrator-test-updates
 type: STORY
 title: Update Orchestrator Idempotent Tests
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-10-16'
+updated_at: '2026-10-19'
 depends_on:
   - story-018-512-idempotent-orchestrator-bypass
-jules_session_id: '4532613446520632782'
+jules_session_id: null
 parent: epic-008-018-session-dispatch-bypass
 tags:
   - orchestrator

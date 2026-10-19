@@ -2,10 +2,10 @@
 id: task-552-691-archival-cleanup-e2e-qa
 type: TASK
 title: QA Archival Cleanup E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-16T00:17:43.559Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-19'
 depends_on:
   - task-552-690-archival-cleanup-e2e-tests
 jules_session_id: null

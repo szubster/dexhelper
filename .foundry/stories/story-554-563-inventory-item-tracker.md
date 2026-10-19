@@ -2,7 +2,7 @@
 id: story-554-563-inventory-item-tracker
 type: STORY
 title: Wild Item Inventory Tracker
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-15'
 updated_at: '2026-10-19'

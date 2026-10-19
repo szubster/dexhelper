@@ -2,10 +2,10 @@
 id: task-606-688-lint-foundry-e2e-qa
 type: TASK
 title: 'QA E2E Verification of lint:foundry package script'
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-14T20:10:00.000Z'
-updated_at: '2026-10-18'
+updated_at: '2026-10-19'
 depends_on:
   - task-606-687-lint-foundry-e2e-impl
 jules_session_id: null

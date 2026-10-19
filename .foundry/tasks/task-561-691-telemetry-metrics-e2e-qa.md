@@ -2,10 +2,10 @@
 id: task-561-691-telemetry-metrics-e2e-qa
 type: TASK
 title: QA Orchestrator Telemetry Metrics E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-16T02:33:42.235Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-19'
 depends_on:
   - task-561-690-telemetry-metrics-e2e-coder
 jules_session_id: null
