@@ -51,5 +51,5 @@ Refactor `src/store.ts` into a modular, slice-based Zustand architecture:
 - **Enhanced Maintainability & DX**: Clean separation of state concerns across domain slices simplifies feature development and reduces merge conflicts for developer personas.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD detailing the slice architecture and selector strategy.
-- [ ] prd-537-586-zustand-store-slice-decomposition-and-selectors
+- [x] Product Manager: Convert this idea into a PRD detailing the slice architecture and selector strategy.
+- [ ] prd-537-707-zustand-store-slice-decomposition-and-selectors
