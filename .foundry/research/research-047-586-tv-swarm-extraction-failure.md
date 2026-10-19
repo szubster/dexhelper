@@ -2,12 +2,12 @@
 id: research-047-586-tv-swarm-extraction-failure
 type: RESEARCH
 title: Investigate Gen 3 TV Swarm Data Extraction Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
-created_at: "2026-10-16T18:00:00.000Z"
-updated_at: "2026-10-16"
+created_at: '2026-10-16T18:00:00.000Z'
+updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17399199724207661184'
 pr_number: null
 parent: prd-075-047-gen3-tv-swarm-tracker
 tags:
@@ -16,8 +16,8 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 locks: []
 ---
 
