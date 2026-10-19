@@ -33,3 +33,6 @@ Recent QA analysis revealed bugs caused by using global regex matches (like `sta
 - Update relevant utility scripts and linters to adopt this pattern.
 
 ## Acceptance Criteria
+- [ ] epic-587-707-yaml-parsing-utility
+- [ ] epic-587-708-refactor-orchestrator
+- [ ] epic-587-709-update-scripts-and-linters
