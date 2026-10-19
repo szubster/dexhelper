@@ -2,10 +2,10 @@
 id: story-346-679-mystery-gift-dashboard-integration-and-e2e-verification
 type: STORY
 title: Mystery Gift Dashboard Integration and E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-15T18:49:48.604Z'
-updated_at: '2026-10-15T18:49:48.604Z'
+updated_at: '2026-10-19'
 depends_on:
   - story-346-676-mystery-gift-data-access-layer
   - story-346-677-wonder-card-ui-components

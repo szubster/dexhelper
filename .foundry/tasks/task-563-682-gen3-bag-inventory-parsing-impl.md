@@ -2,12 +2,12 @@
 id: task-563-682-gen3-bag-inventory-parsing-impl
 type: TASK
 title: Gen 3 Bag Inventory Parsing Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-17'
+updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: '14743076655240598002'
+jules_session_id: null
 pr_number: null
 parent: story-554-563-inventory-item-tracker
 tags:
@@ -15,7 +15,7 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 locks: []
 priority: 50

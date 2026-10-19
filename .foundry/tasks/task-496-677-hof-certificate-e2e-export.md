@@ -2,10 +2,10 @@
 id: task-496-677-hof-certificate-e2e-export
 type: TASK
 title: Hall of Fame Certificate E2E Export Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-16'
+updated_at: '2026-10-19'
 depends_on:
   - task-496-676-hof-certificate-e2e-rendering
 jules_session_id: null

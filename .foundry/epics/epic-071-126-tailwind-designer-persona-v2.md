@@ -2,13 +2,13 @@
 id: epic-071-126-tailwind-designer-persona-v2
 type: EPIC
 title: Implement Tailwind Designer Persona Ownership V2
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-03'
-updated_at: '2026-10-18'
+updated_at: '2026-10-19'
 depends_on:
   - epic-071-125-migrate-complex-app-components-v2
-jules_session_id: '17616707561270469185'
+jules_session_id: null
 pr_number: null
 parent: prd-071-040-tailwind-v4-utilities-migration
 tags:

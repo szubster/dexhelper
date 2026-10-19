@@ -2,13 +2,13 @@
 id: epic-121-346-gen3-mystery-gift-dashboard-ui
 type: EPIC
 title: Gen 3 Mystery Gift Dashboard UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-25'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on:
   - epic-121-345-gen3-mystery-gift-data-extraction
-jules_session_id: '1746427173490395711'
+jules_session_id: null
 pr_number: null
 parent: prd-121-336-gen3-mystery-gift-viewer
 tags:

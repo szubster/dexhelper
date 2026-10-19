@@ -2,13 +2,13 @@
 id: epic-051-095-friendship-tracker-ui
 type: EPIC
 title: Friendship Tracker UI & Actionable Insights
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-16'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on:
   - epic-051-094-friendship-data-extraction
-jules_session_id: '13402338707876484912'
+jules_session_id: null
 pr_number: null
 parent: prd-081-051-friendship-evolution-tracker
 tags:

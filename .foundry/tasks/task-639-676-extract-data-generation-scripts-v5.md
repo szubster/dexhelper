@@ -8,7 +8,7 @@ created_at: '2026-10-10'
 updated_at: '2026-10-19'
 depends_on:
   - research-639-675-investigate-extract-data-scripts-failure-v4
-jules_session_id: '4835893035783234413'
+jules_session_id: null
 pr_number: null
 parent: story-525-639-extract-data-generation-scripts
 tags:

@@ -2,10 +2,10 @@
 id: story-333-678-fame-checker-dashboard-e2e
 type: STORY
 title: Fame Checker Dashboard E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-15T19:32:39.601Z'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on:
   - story-333-677-fame-checker-dashboard-integration
 jules_session_id: null

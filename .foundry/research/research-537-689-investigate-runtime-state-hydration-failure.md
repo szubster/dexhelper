@@ -2,7 +2,7 @@
 id: research-537-689-investigate-runtime-state-hydration-failure
 type: RESEARCH
 title: Investigate Gen 3 Berry Runtime State Hydration Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-15'
 updated_at: '2026-10-19'
@@ -10,8 +10,8 @@ depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-513-537-gen3-berry-serialization-and-api
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

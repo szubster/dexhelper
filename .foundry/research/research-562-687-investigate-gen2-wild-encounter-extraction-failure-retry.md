@@ -2,7 +2,7 @@
 id: research-562-687-investigate-gen2-wild-encounter-extraction-failure-retry
 type: RESEARCH
 title: Investigate Gen 2 Wild Encounter Extraction Logic Failure (Retry)
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-15'
 updated_at: '2026-10-19'
@@ -15,8 +15,8 @@ tags:
   - dexhelper
   - investigation
 research_references: []
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

@@ -2,13 +2,13 @@
 id: epic-115-333-gen3-fame-checker-dashboard-ui
 type: EPIC
 title: Gen 3 Fame Checker Dashboard UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on:
   - epic-115-332-gen3-fame-checker-save-parsing
-jules_session_id: '17223992818910884393'
+jules_session_id: null
 pr_number: null
 parent: prd-115-115-gen3-fame-checker-assistant
 tags:
