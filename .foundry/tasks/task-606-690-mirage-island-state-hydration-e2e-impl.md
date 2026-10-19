@@ -31,5 +31,5 @@ Implement E2E tests for the Mirage Island state hydration feature.
 2. Verify all UI components and states related to Mirage Island render properly with the hydrated data.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests in Playwright.
-- [ ] Ensure tests run and pass successfully locally.
+- [x] Implement E2E tests in Playwright.
+- [x] Ensure tests run and pass successfully locally.
