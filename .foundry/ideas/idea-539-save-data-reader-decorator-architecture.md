@@ -37,6 +37,7 @@ Introduce a composable Decorator/Wrapper architecture implementing the `ISaveDat
 Elevates code quality and modularity in `src/engine/saveParser/`, eliminates duplicate offset arithmetic across Gen 1-3 parsers, simplifies unit testing via mock/decorated readers, and enforces Section 13 schema invariants out of the box.
 
 ## Acceptance Criteria
-- [ ] PRD generated detailing the `ISaveDataReader` Decorator specification.
+- [x] PRD generated detailing the `ISaveDataReader` Decorator specification.
 - [ ] Decorator implementations (`OffsetDataReaderDecorator`, `SafeBoundsDataReaderDecorator`) added and tested in `src/engine/saveParser/`.
 - [ ] Refactored existing Gen 3 section parsers to leverage relative offset decorators.
+- [ ] prd-539-707-save-data-reader-decorator-architecture
