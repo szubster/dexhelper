@@ -191,3 +191,59 @@ rejection_reason: ''
         expect(output).toContain('All Foundry nodes passed schema validation.');
     });
 });
+
+describe('validate-foundry-schema - Markdown Section Tracking', () => {
+    const tempTasksDir = join(tempFoundryDir, 'tasks');
+
+    beforeAll(() => {
+        if (!existsSync(tempTasksDir)) {
+            mkdirSync(tempTasksDir, { recursive: true });
+        }
+    });
+
+    afterAll(() => {
+        // Do not delete the global tempFoundryDir as it causes race conditions and breaking tests
+        // Let Vitest or a global afterAll handle top-level cleanup
+    });
+
+    const runValidation = (filePath: string) => {
+        return execSync(`node --experimental-strip-types scripts/validate-foundry-schema.ts ${filePath}`, { encoding: 'utf-8' });
+    };
+
+    it('should pass with a checkbox inside Acceptance Criteria', () => {
+        expect.hasAssertions();
+        const id = 'task-000-201-valid-section';
+        const filePath = join(tempTasksDir, `${id}.md`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n- [ ] Valid task`);
+
+        let output = '';
+        let error: Error | null = null;
+        try {
+            output = runValidation(filePath);
+        } catch (e: any) {
+            error = e;
+        }
+
+        expect(error).toBeNull();
+        expect(output).toContain('All Foundry nodes passed schema validation.');
+    });
+
+    it('should fail with a checkbox outside Acceptance Criteria', () => {
+        expect.hasAssertions();
+        const id = 'task-000-202-invalid-section';
+        const filePath = join(tempTasksDir, `${id}.md`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Random Section\n- [ ] Invalid task\n## Acceptance Criteria\n- [ ] Valid task`);
+
+        let errorOutput = '';
+        let hasThrown = false;
+        try {
+            runValidation(filePath);
+        } catch (e: any) {
+            hasThrown = true;
+            errorOutput = e.stdout || e.stderr || e.message;
+        }
+
+        expect(hasThrown).toBe(true);
+        expect(errorOutput).toContain("Error: Checkbox found outside of allowed sections ('Random Section') in file");
+    });
+});

@@ -25,5 +25,5 @@ locks: []
 We need to write unit tests for the schema validation script to ensure that markdown section tracking correctly identifies and errors out on checkboxes found outside the `## Acceptance Criteria` section.
 
 ## Acceptance Criteria
-- [ ] Add unit tests verifying that a checkbox inside `## Acceptance Criteria` is valid.
-- [ ] Add unit tests verifying that a checkbox outside `## Acceptance Criteria` throws an error.
+- [x] Add unit tests verifying that a checkbox inside `## Acceptance Criteria` is valid.
+- [x] Add unit tests verifying that a checkbox outside `## Acceptance Criteria` throws an error.
