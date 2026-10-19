@@ -2,12 +2,12 @@
 id: task-563-680-schema-linter-section-tracking-impl
 type: TASK
 title: Implement Markdown Section Tracking in Schema Linter
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '9066701985019852740'
+jules_session_id: null
 parent: story-552-563-schema-linter-section-tracking
 tags:
   - foundry
@@ -24,5 +24,5 @@ locks: []
 We need to update the schema validation script (`scripts/validate-foundry-schema.ts`) to track the current markdown section and emit a warning or error if a checkbox is encountered outside of an `## Acceptance Criteria` section.
 
 ## Acceptance Criteria
-- [ ] Track the current markdown section during parsing.
-- [ ] Emit an error if a checkbox is encountered outside of `## Acceptance Criteria`.
+- [x] Track the current markdown section during parsing.
+- [x] Emit an error if a checkbox is encountered outside of `## Acceptance Criteria`.

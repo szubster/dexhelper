@@ -19,6 +19,12 @@ Dexhelper is a React-based web application designed as a Pokédex helper, likely
    pnpm dev
    ```
 
+
+## Deployment
+
+Dexhelper is configured to be seamlessly deployed on Cloudflare Pages. The Vite configuration dynamically adjusts the base path to `/` when deployed via Cloudflare Pages (`CF_PAGES='true'`), overriding the default `/dexhelper/` base path used for GitHub Pages.
+
+
 ## Development and Testing
 
 - Run unit tests: `pnpm test`

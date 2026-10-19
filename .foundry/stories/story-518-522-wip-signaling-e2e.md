@@ -2,14 +2,14 @@
 id: story-518-522-wip-signaling-e2e
 type: STORY
 title: Integration and E2E Verification
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-12'
+updated_at: '2026-10-19'
 depends_on:
   - story-518-520-enforce-feature-flags
   - story-518-521-experimental-namespace
-jules_session_id: '2068814838976428673'
+jules_session_id: null
 pr_number: null
 parent: epic-346-518-wip-code-signaling
 tags:
@@ -30,4 +30,6 @@ locks: []
 This story is dedicated exclusively to the integration and end-to-end verification of the WIP code signaling system. Ensure that experimental code is appropriately walled off or flagged and functions correctly when tested against these constraints.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-522-680-wip-signaling-e2e-tests
+- [ ] task-522-681-wip-signaling-e2e-tests-qa

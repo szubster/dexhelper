@@ -561,7 +561,15 @@ for (const loc of locations) {
   }
 }
 
-// Floyd-Warshall algorithm
+/**
+ * Floyd-Warshall All-Pairs Shortest Paths (APSP) Graph Computation
+ *
+ * Why precompute in the data pipeline?
+ * Dynamic client-side pathfinding (such as Dijkstra or BFS) across hundreds of map locations
+ * during suggestion engine evaluations creates significant CPU overhead on mobile devices.
+ * Precomputing all-pairs shortest distances at build time embeds an O(1) distance lookup
+ * table directly into `locations.jsonl` (`loc.dist`), enabling instant route evaluations in `mapGraph`.
+ */
 for (const k of ids) {
   const distK = dist[k];
   if (!distK) continue;
@@ -573,6 +581,7 @@ for (const k of ids) {
     for (const j of ids) {
       const dKJ = distK[j];
       const dIJ = distI[j];
+      // Triangle inequality: path i -> k -> j is shorter than direct i -> j path
       if (dKJ !== undefined && dIJ !== undefined && dIK + dKJ < dIJ) {
         distI[j] = dIK + dKJ;
       }
@@ -580,7 +589,7 @@ for (const k of ids) {
   }
 }
 
-// Attach computed distances to locations (reachable only, excluding 0 self-dist)
+// Attach computed distances to locations (reachable target locations only, excluding 0 self-distance)
 for (const loc of locations) {
   const reachable: Record<number, number> = {};
   const distLoc = dist[loc.id];

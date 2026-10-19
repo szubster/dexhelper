@@ -4,6 +4,7 @@ import { SubDataPoint } from './SubDataPoint';
 import { TacticalBadge } from './TacticalBadge';
 import { TacticalButton } from './TacticalButton';
 import { TacticalCard } from './TacticalCard';
+import { TacticalChip } from './TacticalChip';
 import { TacticalInput } from './TacticalInput';
 import { TacticalModal } from './TacticalModal';
 import { TacticalPanel } from './TacticalPanel';
@@ -135,6 +136,34 @@ export const TacticalKitchenSink: React.FC = () => {
         <SubDataPoint label="HELD_ITEM" value="SOOTHE BELL" />
         <SubDataPoint label="SYNC_RATE" value="255 PT" />
         <SubDataPoint label="STATUS" value="ACTIVE_LINK" />
+      </div>
+
+      {/* TacticalChip Showcase */}
+      <div
+        className="flex flex-wrap items-center gap-2 border border-zinc-800 border-dashed p-4"
+        id="tacticalchip-showcase"
+      >
+        <TacticalChip variant="primary" codeTag="SYS.01" sublabel="99%">
+          Primary Chip
+        </TacticalChip>
+        <TacticalChip variant="zinc" codeTag="MEM" sublabel="128MB">
+          Zinc Chip
+        </TacticalChip>
+        <TacticalChip variant="danger" codeTag="WARN" sublabel="CRIT">
+          Danger Chip
+        </TacticalChip>
+        <TacticalChip variant="amber" codeTag="STAT" sublabel="WARN">
+          Amber Chip
+        </TacticalChip>
+        <TacticalChip variant="emerald" codeTag="ITEM" sublabel="100%">
+          Emerald Chip
+        </TacticalChip>
+        <TacticalChip variant="purple" codeTag="MOD" sublabel="SYNC">
+          Purple Chip
+        </TacticalChip>
+        <TacticalChip variant="primary" size="sm" codeTag="MINI">
+          Mini Chip
+        </TacticalChip>
       </div>
     </div>
   );

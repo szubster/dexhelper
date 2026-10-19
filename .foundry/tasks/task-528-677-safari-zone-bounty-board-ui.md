@@ -2,10 +2,10 @@
 id: task-528-677-safari-zone-bounty-board-ui
 type: TASK
 title: Safari Zone Bounty Board UI Components
-status: PENDING
+status: FAILED
 owner_persona: coder
 created_at: '2024-05-24'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on:
   - task-528-676-safari-zone-bounty-board-data
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - safari-zone
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

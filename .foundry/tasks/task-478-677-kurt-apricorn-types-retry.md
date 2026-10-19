@@ -2,10 +2,10 @@
 id: task-478-677-kurt-apricorn-types-retry
 type: TASK
 title: Kurt Apricorn Parsing Types Retry
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-17'
 depends_on:
   - research-478-676-investigate-kurt-apricorn-types-failure
 jules_session_id: null
@@ -30,4 +30,4 @@ We need to extract Kurt's Apricorn crafting state from a Generation 2 save file.
 - Ensure strict typing for Gen 2 item IDs related to Apricorns and Poké Balls.
 
 ## Acceptance Criteria
-- [ ] Implement the TypeScript interfaces for the Apricorn crafting state in the appropriate domain folder as specified by the research node.
+- [x] Implement the TypeScript interfaces for the Apricorn crafting state in the appropriate domain folder as specified by the research node.

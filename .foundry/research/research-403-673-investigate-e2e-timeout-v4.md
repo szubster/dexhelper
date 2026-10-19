@@ -2,12 +2,12 @@
 id: research-403-673-investigate-e2e-timeout-v4
 type: RESEARCH
 title: Investigate Playwright E2E Session Timeout V4
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-08'
-updated_at: '2026-10-13'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '18346226953331165228'
+jules_session_id: null
 pr_number: null
 parent: story-112-403-integration-e2e
 tags:
@@ -33,5 +33,13 @@ The research node `research-403-668-investigate-e2e-timeout-v3` failed permanent
 - Document the findings.
 
 ## Acceptance Criteria
-- [ ] Investigate the root cause of the failure of `task-403-535-playwright-e2e-retry-impl-v2`.
-- [ ] Document findings and recommendations in the researcher journal and node body.
+- [x] Investigate the root cause of the failure of `task-403-535-playwright-e2e-retry-impl-v2`.
+- [x] Document findings and recommendations in the researcher journal and node body.
+
+## Findings and Recommendations
+
+### Root Cause Analysis
+The failed task `task-403-535-playwright-e2e-retry-impl-v2` still had the acceptance criterion `- [ ] Tests execute successfully via \`xvfb-run -a pnpm test:e2e\``. This command executes the full E2E suite which takes longer than the 400-second session timeout, directly causing the permanent failure again. The retry task incorrectly copied the original task's acceptance criteria instead of updating it to target specific test files as recommended by `research-403-534-investigate-playwright-timeout`.
+
+### Recommendations
+When generating or updating retry tasks, personas must actively modify the acceptance criteria to remove full-suite test commands (`xvfb-run -a pnpm test:e2e`) and replace them with targeted file execution (e.g., `xvfb-run -a pnpm test:e2e tests/e2e/<file>.spec.ts`).

@@ -2,13 +2,13 @@
 id: story-088-639-jsonl-integration-e2e
 type: STORY
 title: JSONL Integration E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-12'
+updated_at: '2026-10-17'
 depends_on:
   - story-088-638-client-db-jsonl-loader
-jules_session_id: '5879465300579046903'
+jules_session_id: null
 pr_number: null
 parent: epic-049-088-vite-plugin-jsonl-integration
 tags:
@@ -31,3 +31,6 @@ Following the integration of JSONL parsing for moves and items data into the app
 ## Acceptance Criteria
 - [ ] Implement Playwright E2E tests verifying that move and item data load correctly via the new JSONL data source.
 - [ ] Ensure components that depend on moves/items render appropriately.
+
+- [ ] task-639-683-jsonl-integration-e2e-impl
+- [ ] task-639-684-jsonl-integration-e2e-qa

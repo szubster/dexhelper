@@ -5,7 +5,7 @@ title: Investigate Primitives Migration Failures (v2)
 status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-10'
-updated_at: '2026-10-14'
+updated_at: '2026-10-17'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - components
   - research
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

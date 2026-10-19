@@ -28,6 +28,12 @@ const MysteryEventTracker = React.lazy(() =>
   })),
 );
 
+const Gen3AshTrackerDashboard = React.lazy(() =>
+  import('../components/dashboard/ash-tracker/Gen3AshTrackerDashboard').then((m) => ({
+    default: m.Gen3AshTrackerDashboard,
+  })),
+);
+
 const Gen3MirageIslandTracker = React.lazy(() =>
   import('../components/dashboard/mirage-island/Gen3MirageIslandTracker').then((m) => ({
     default: m.Gen3MirageIslandTracker,
@@ -151,6 +157,9 @@ function DashboardPage() {
             <WildItemSelector />
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
+            {saveData.gen3VolcanicAsh !== undefined && (
+              <Gen3AshTrackerDashboard gen3VolcanicAsh={saveData.gen3VolcanicAsh} />
+            )}
             <Gen3MirageIslandTracker saveData={saveData} />
             <MysteryEventTracker mysteryGiftData={saveData.gen3MysteryGift} />
             <Gen3SecretBaseDashboard saveData={saveData} />

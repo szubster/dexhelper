@@ -2,10 +2,10 @@
 id: task-424-676-gen3-lottery-e2e-tests
 type: TASK
 title: Implement Gen3 Lottery E2E Tests
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-07'
+updated_at: '2026-10-17'
 depends_on:
   - story-133-423-gen3-lottery-ui-integration
 jules_session_id: null
@@ -17,9 +17,10 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
+locks: []
 ---
 
 # Task: Implement Gen3 Lottery E2E Tests

@@ -2,12 +2,12 @@
 id: task-605-687-permanent-failure-dashboard-e2e-tests
 type: TASK
 title: Write Playwright E2E Tests for Permanent Failure Dashboard UI
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1122215434693788294'
 pr_number: null
 parent: story-047-605-permanent-failure-dashboard-e2e
 tags:

@@ -2,10 +2,10 @@
 id: story-313-563-gen2-room-decoration-ui-components
 type: STORY
 title: Gen 2 Room Decoration UI Components
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-25'
+updated_at: '2026-10-17'
 depends_on: []
 jules_session_id: null
 parent: epic-112-313-gen2-room-decoration-viewer-ui
@@ -26,6 +26,6 @@ Implement the presentation components for the Gen 2 Room Decoration Viewer. This
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-563-589-gen2-room-decoration-ui-impl
-- [ ] task-563-590-gen2-room-decoration-ui-tests
-- [ ] task-563-591-gen2-room-decoration-ui-qa
+- [x] task-563-589-gen2-room-decoration-ui-impl
+- [x] task-563-590-gen2-room-decoration-ui-tests
+- [x] task-563-591-gen2-room-decoration-ui-qa

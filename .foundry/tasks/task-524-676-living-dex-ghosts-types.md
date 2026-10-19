@@ -5,9 +5,9 @@ title: Define Types for Living Dex Ghost Slots and Tactical Styling
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-09'
-updated_at: '2026-10-13'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '6092014604942152580'
+jules_session_id: '6148750470546809114'
 pr_number: null
 parent: story-134-524-living-dex-ghosts-and-styling
 tags:
@@ -16,7 +16,7 @@ tags:
   - living-dex
   - types
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

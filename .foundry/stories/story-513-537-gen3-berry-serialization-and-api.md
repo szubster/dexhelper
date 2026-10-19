@@ -2,13 +2,13 @@
 id: story-513-537-gen3-berry-serialization-and-api
 type: STORY
 title: Gen 3 Berry Serialization and Runtime API Integration
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on:
   - story-513-536-gen3-berry-dataview-parsing
-jules_session_id: '15798749576555555250'
+jules_session_id: null
 pr_number: null
 parent: epic-037-513-gen3-berry-tracker-data-extraction-retry
 tags:
@@ -35,5 +35,9 @@ Take the parsed Gen 3 berry patch data and integrate it with the PokeData storag
 - [x] task-537-600-gen3-berry-runtime-api
 - [x] task-537-601-gen3-berry-serialization-qa
 - [ ] research-537-659-investigate-runtime-api-failure
-- [ ] task-537-665-gen3-berry-runtime-state-hydration
-- [ ] task-537-666-gen3-berry-runtime-state-qa
+- [x] task-537-665-gen3-berry-runtime-state-hydration
+- [x] task-537-666-gen3-berry-runtime-state-qa
+- [ ] task-537-687-gen3-berry-runtime-state-hydration-retry
+- [ ] task-537-688-gen3-berry-runtime-state-qa-retry
+- [ ] research-537-689-investigate-runtime-state-hydration-failure
+- [ ] research-537-690-berry-serialization-deprecation

@@ -5,9 +5,9 @@ title: Gen 2 Mom's Savings Tracker UI Core
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-10-12'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '3359087440905541772'
+jules_session_id: '17437864273593482015'
 pr_number: null
 parent: epic-112-312-gen2-mom-savings-tracker-ui
 tags:
@@ -34,5 +34,8 @@ Implement the UI logic in `Gen2SavingsDashboard` to display progression toward t
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] task-562-581-gen2-moms-savings-logic
-- [ ] task-562-582-gen2-moms-savings-ui
-- [ ] task-562-583-gen2-moms-savings-qa
+- [x] task-562-582-gen2-moms-savings-ui
+- [x] task-562-583-gen2-moms-savings-qa
+- [ ] research-562-680-investigate-moms-savings-ui-failure
+- [ ] task-562-681-gen2-moms-savings-ui-retry
+- [ ] task-562-682-gen2-moms-savings-qa-retry

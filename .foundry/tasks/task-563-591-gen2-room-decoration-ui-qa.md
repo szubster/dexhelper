@@ -2,13 +2,13 @@
 id: task-563-591-gen2-room-decoration-ui-qa
 type: TASK
 title: Gen 2 Room Decoration UI Components QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-17T15:30:42Z'
-updated_at: '2026-10-12'
+updated_at: '2026-10-17'
 depends_on:
   - task-563-590-gen2-room-decoration-ui-tests
-jules_session_id: '7594986676818624086'
+jules_session_id: null
 parent: story-313-563-gen2-room-decoration-ui-components
 rejection_reason: ''
 locks: []
@@ -25,6 +25,6 @@ Verification of the UI components implemented for the Gen 2 Room Decoration View
 - Verify that tests provide adequate coverage for the components.
 
 ## Acceptance Criteria
-- [ ] The dashboard component displays unlocked decorations grouped correctly.
-- [ ] Mystery Gift exclusive items use the appropriate visual indicators.
-- [ ] The UI meets ADR 008 constraints.
+- [x] The dashboard component displays unlocked decorations grouped correctly.
+- [x] Mystery Gift exclusive items use the appropriate visual indicators.
+- [x] The UI meets ADR 008 constraints.

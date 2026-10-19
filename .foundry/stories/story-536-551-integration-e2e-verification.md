@@ -2,19 +2,19 @@
 id: story-536-551-integration-e2e-verification
 type: STORY
 title: E2E and Integration Testing for Gen3 Heuristic
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-10-13'
+updated_at: '2026-10-19'
 depends_on:
   - story-536-550-remove-mock-and-fix-heuristic
-jules_session_id: '14534191392819798487'
+jules_session_id: null
 parent: epic-520-536-remove-gen3save-mock
 tags:
   - e2e
   - integration
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # E2E and Integration Testing for Gen3 Heuristic
@@ -27,4 +27,6 @@ As required by the E2E verification mandate, this story is dedicated to running 
 - Ensure the removal of the mock does not cause any regressions.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [x] task-551-683-gen3-heuristic-integration-e2e-impl
+- [x] task-551-684-gen3-heuristic-integration-e2e-qa

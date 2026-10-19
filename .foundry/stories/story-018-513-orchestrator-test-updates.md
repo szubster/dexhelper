@@ -2,13 +2,13 @@
 id: story-018-513-orchestrator-test-updates
 type: STORY
 title: Update Orchestrator Idempotent Tests
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-10-16'
+updated_at: '2026-10-19'
 depends_on:
   - story-018-512-idempotent-orchestrator-bypass
-jules_session_id: '4532613446520632782'
+jules_session_id: null
 parent: epic-008-018-session-dispatch-bypass
 tags:
   - orchestrator
@@ -28,5 +28,7 @@ Update test cases in `.github/scripts/foundry-orchestrator.test.ts` to cover the
 - Verify that a parent node is auto-fulfilled if its only unchecked criteria are plain text checkboxes.
 
 ## Acceptance Criteria
+- [ ] task-513-689-update-orchestrator-tests
+- [ ] task-513-690-qa-orchestrator-tests
 - [ ] Test cases added/updated for Phase 4.5 auto-checking behavior.
 - [ ] Tests pass cleanly with `npx vitest run`.

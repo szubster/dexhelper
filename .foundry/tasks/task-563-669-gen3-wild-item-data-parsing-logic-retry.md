@@ -5,17 +5,17 @@ title: Implement Gen 3 Wild Encounter and Held Item Parsing Logic (Retry)
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-16'
+updated_at: '2026-10-17'
 depends_on:
   - research-563-668-investigate-wild-item-parsing-failure
-jules_session_id: '15083220529657564600'
+jules_session_id: '17524836455577164056'
 pr_number: null
 parent: story-552-563-gen3-wild-item-parsing
 tags:
   - gen3
   - dexhelper
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

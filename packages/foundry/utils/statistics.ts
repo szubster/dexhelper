@@ -5,12 +5,16 @@ import matter from 'gray-matter';
 export interface NodeStatistics {
   byType: Record<string, number>;
   byStatus: Record<string, number>;
+  rejectionCounts?: Record<string, number>;
+  waitTimes?: Record<string, number>;
 }
 
 export function aggregateNodeStatistics(repoRoot: string): NodeStatistics {
   const stats: NodeStatistics = {
     byType: {},
     byStatus: {},
+    rejectionCounts: {},
+    waitTimes: {}
   };
 
   const foundryDir = path.join(repoRoot, '.foundry');
@@ -41,6 +45,29 @@ export function aggregateNodeStatistics(repoRoot: string): NodeStatistics {
 
             stats.byType[type] = (stats.byType[type] || 0) + 1;
             stats.byStatus[status] = (stats.byStatus[status] || 0) + 1;
+
+            if (parsed.data.rejection_count !== undefined) {
+              const count = parsed.data.rejection_count;
+              if (stats.rejectionCounts) {
+                stats.rejectionCounts[entry.name] = count;
+              } else {
+                stats.rejectionCounts = { [entry.name]: count };
+              }
+            }
+
+            if (parsed.data.created_at && parsed.data.updated_at) {
+              const created = new Date(parsed.data.created_at).getTime();
+              const updated = new Date(parsed.data.updated_at).getTime();
+              const waitTime = updated - created;
+
+              if (!Number.isNaN(waitTime)) {
+                 if (stats.waitTimes) {
+                   stats.waitTimes[entry.name] = waitTime;
+                 } else {
+                   stats.waitTimes = { [entry.name]: waitTime };
+                 }
+              }
+            }
           }
         } catch {
           // ignore malformed files

@@ -2,13 +2,13 @@
 id: story-551-557-integration-e2e-verification
 type: STORY
 title: Integration and E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-10-12'
+updated_at: '2026-10-17'
 depends_on:
   - story-551-556-orchestrator-link-resolution-implementation
-jules_session_id: '15261935731425653792'
+jules_session_id: null
 pr_number: null
 parent: epic-517-551-deterministic-archival-markdown-link-resolution
 tags:
@@ -30,5 +30,8 @@ Generate the final Story dedicated to Integration and E2E Verification for Markd
 ## Acceptance Criteria
 - [ ] Write E2E verification tests for orchestrator markdown link resolution
 - [ ] task-557-581-orchestrator-link-resolution-fixtures
-- [ ] task-557-582-orchestrator-link-resolution-e2e-impl
-- [ ] task-557-583-orchestrator-link-resolution-e2e-qa
+- [x] task-557-582-orchestrator-link-resolution-e2e-impl
+- [x] task-557-583-orchestrator-link-resolution-e2e-qa
+- [ ] research-557-680-investigate-link-resolution-e2e-failure
+- [ ] task-557-681-orchestrator-link-resolution-e2e-impl-retry
+- [ ] task-557-682-orchestrator-link-resolution-e2e-qa-retry

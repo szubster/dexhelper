@@ -2,10 +2,10 @@
 id: epic-036-058-feebas-backend-parsing
 type: EPIC
 title: Feebas Seed Backend Parsing
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-05'
-updated_at: '2026-08-12'
+updated_at: '2026-10-16'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,6 +16,7 @@ tags:
 rejection_count: 1
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Feebas Seed Backend Parsing
 
@@ -30,7 +31,7 @@ Create a utility module that reads the parsed save file's data at the identified
 - [x] .foundry/archive/stories/story-058-096-feebas-tile-calculation.md
 - [x] .foundry/archive/stories/story-058-152-refactor-feebas-magic-numbers.md
 - [x] story-058-280-feebas-backend-integration
-- [ ] story-058-341-feebas-fast-calculation
-- [ ] story-058-342-feebas-backend-integration-retry
-- [ ] story-058-412-feebas-parsing-e2e
+- [x] story-058-341-feebas-fast-calculation
+- [x] story-058-342-feebas-backend-integration-retry
+- [x] story-058-412-feebas-parsing-e2e
 

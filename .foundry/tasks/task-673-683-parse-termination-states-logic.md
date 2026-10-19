@@ -5,13 +5,13 @@ title: Implement Orchestrator Termination State Parsing Logic
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-13'
-updated_at: '2026-10-14'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '10558519803003770900'
+jules_session_id: '3996481536586036312'
 parent: story-581-673-orchestrator-termination-state-parsing
 tags:
   - orchestrator
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 ---

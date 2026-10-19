@@ -2,10 +2,10 @@
 id: task-552-680-curator-e2e-matrix-tests
 type: TASK
 title: Write E2E Tests for Idea Dependency Matrix Updates
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-01'
+updated_at: '2026-10-19'
 depends_on: []
 jules_session_id: null
 parent: story-532-552-curator-integration-e2e-verification
@@ -29,5 +29,5 @@ Write E2E tests using Playwright to verify that the idea dependency matrix is co
 - Assert that the matrix reflects the latest dependencies accurately.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for matrix updates
-- [ ] Ensure tests pass successfully
+- [x] Implement Playwright E2E tests for matrix updates
+- [x] Ensure tests pass successfully

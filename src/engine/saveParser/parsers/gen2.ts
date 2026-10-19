@@ -28,7 +28,6 @@ import { parseGen2DailyEvents, parseGen2NarrativeFlags, parseGen2RuinsOfAlphPuzz
 import type { GameVersion, Gen2SaveData, PokemonInstance } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
 import { parseGen2PokegearData } from './gen2/phone/parser';
-
 import {
   ACTIVE_DECO_COUNT,
   ACTIVE_DECO_OFFSET_RELATIVE_CRYSTAL,
@@ -62,6 +61,7 @@ import {
   CAUGHT_TIME_NIGHT,
   CAUGHT_TIME_SHIFT,
   CURRENT_BOX_COUNT_OFFSET,
+  CURRENT_BOX_NUM_MASK,
   CURRENT_BOX_NUM_OFFSET_CRYSTAL,
   CURRENT_BOX_NUM_OFFSET_GS,
   CURRENT_BOX_SPECIES_OFFSET,
@@ -91,6 +91,7 @@ import {
   GEN2_EGG_CYCLE_STEPS,
   GEN2_EGG_SPECIES_ID,
   GEN2_EMPTY_SLOT,
+  GEN2_EMPTY_SLOT_00,
   GEN2_ENTEI_SPECIES_ID,
   GEN2_HOF_MAX_RECORDS,
   GEN2_HOF_POKEMON_COUNT,
@@ -442,23 +443,30 @@ function detectGen2GameVersion(owned: Set<number>, seen: Set<number>): GameVersi
  * @param offsets - The dynamically resolved start offsets for the `owned` and `seen` blocks.
  * @returns An object containing Sets of the `owned` and `seen` Pokémon IDs.
  */
-function parsePokedex(view: DataView, offsets: { owned: number; seen: number }) {
+function parseGen2Pokedex(view: DataView, offsets: { owned: number; seen: number }) {
   const owned = new Set<number>();
   const seen = new Set<number>();
 
-  for (let dexId = 1; dexId <= MAX_VALID_SPECIES_ID; dexId++) {
-    const byteIdx = Math.floor((dexId - 1) / BITS_PER_BYTE);
-    const bitIdx = (dexId - 1) % BITS_PER_BYTE;
+  try {
+    for (let dexId = 1; dexId <= MAX_VALID_SPECIES_ID; dexId++) {
+      const byteIdx = Math.floor((dexId - 1) / BITS_PER_BYTE);
+      const bitIdx = (dexId - 1) % BITS_PER_BYTE;
 
-    const oByte = view.getUint8(offsets.owned + byteIdx);
-    const sByte = view.getUint8(offsets.seen + byteIdx);
+      const oByte = view.getUint8(offsets.owned + byteIdx);
+      const sByte = view.getUint8(offsets.seen + byteIdx);
 
-    if ((oByte & (1 << bitIdx)) !== 0) {
-      owned.add(dexId);
+      if ((oByte & (1 << bitIdx)) !== 0) {
+        owned.add(dexId);
+      }
+      if ((sByte & (1 << bitIdx)) !== 0) {
+        seen.add(dexId);
+      }
     }
-    if ((sByte & (1 << bitIdx)) !== 0) {
-      seen.add(dexId);
+  } catch (error) {
+    if (error instanceof RangeError) {
+      throw new Error('The save file is corrupted or incomplete.');
     }
+    throw error;
   }
 
   return { owned, seen };
@@ -516,7 +524,7 @@ export function* iterateGen2PCBoxes(
   offsets: { currentBoxNum: number; currentBoxCount: number; currentBoxSpecies: number },
   isCrystal: boolean,
 ) {
-  const currentBoxNum = view.getUint8(offsets.currentBoxNum) & 0x0f;
+  const currentBoxNum = view.getUint8(offsets.currentBoxNum) & CURRENT_BOX_NUM_MASK;
   const currentBoxCount = view.getUint8(offsets.currentBoxCount);
   const currentBoxDataOffset = offsets.currentBoxSpecies + GEN2_BOX_SPECIES_LIST_LENGTH; // After species list
 
@@ -699,7 +707,7 @@ function parseGen2HallOfFameRecords(
         const speciesId = view.getUint8(offset);
 
         // 0x00 or 0xFF usually means empty slot or terminator
-        if (speciesId === 0x00 || speciesId === GEN2_EMPTY_SLOT) {
+        if (speciesId === GEN2_EMPTY_SLOT_00 || speciesId === GEN2_EMPTY_SLOT) {
           continue;
         }
 
@@ -830,7 +838,7 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
         currentBoxSpecies: CURRENT_BOX_SPECIES_OFFSET,
       };
 
-  const { owned, seen } = parsePokedex(view, offsets);
+  const { owned, seen } = parseGen2Pokedex(view, offsets);
 
   const party: number[] = [];
   const partyDetails: PokemonInstance[] = [];

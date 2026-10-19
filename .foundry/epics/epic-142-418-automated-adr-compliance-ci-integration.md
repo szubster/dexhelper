@@ -5,10 +5,10 @@ title: Automated ADR Compliance CI Integration
 status: PENDING
 owner_persona: story_owner
 created_at: '2025-01-01T00:00:00.000Z'
-updated_at: '2026-08-15'
+updated_at: '2026-10-17'
 depends_on:
   - epic-142-417-automated-adr-compliance-linter
-jules_session_id: '3355379518708574393'
+jules_session_id: null
 pr_number: null
 parent: prd-142-342-automated-adr-compliance-linter
 tags:
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Automated ADR Compliance CI Integration
@@ -33,5 +34,8 @@ After the script `scripts/verify-adr-compliance.ts` is implemented, it must be i
 - Ensure it's executed as part of `pnpm lint`.
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
-- [ ] Ensure a final STORY is generated that is dedicated exclusively to Integration and E2E Verification.
+- [ ] story-418-676-adr-compliance-package-scripts
+- [ ] story-418-677-adr-compliance-lefthook-integration
+- [ ] story-418-678-adr-compliance-integration-e2e
+- [x] Break down this epic into stories.
+- [x] Ensure a final STORY is generated that is dedicated exclusively to Integration and E2E Verification.

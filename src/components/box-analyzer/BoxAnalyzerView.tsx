@@ -7,6 +7,7 @@ import { getTimeCapsuleValidation } from '../../utils/timeCapsule';
 import { StorageCard } from '../StorageGrid';
 import { TacticalBlockHeader } from '../TacticalBlockHeader';
 import { TacticalPanel } from '../TacticalPanel';
+import { MultiBoxSearchInput } from './MultiBoxSearchInput';
 
 interface BoxAnalyzerViewProps {
   pokemonList?: PokemonListItem[];
@@ -71,19 +72,22 @@ export function BoxAnalyzerView({ pokemonList = [] }: BoxAnalyzerViewProps) {
   return (
     <div className="flex h-full flex-col gap-6 pt-4 pb-[env(safe-area-inset-bottom,16px)]">
       <TacticalPanel className="flex flex-col p-4 sm:p-6" variant="cyan">
-        <div className="flex items-center justify-between border-cyan-500/30 border-b border-dashed pb-4">
-          <TacticalBlockHeader
-            title="Box Search Engine"
-            trackingLabel="SYS.SEARCH.CORE"
-            icon={<Network size={16} className="text-cyan-400" />}
-            variant="primary"
-          />
-          <div className="flex items-center gap-3 border border-cyan-500/20 bg-black/40 px-3 py-1.5">
-            <Database size={12} className="text-cyan-500" />
-            <span className="font-mono text-[10px] text-cyan-400 tracking-widest">
-              MATCHES: {filteredBoxPokemon.length}
-            </span>
+        <div className="flex flex-col gap-6 border-cyan-500/30 border-b border-dashed pb-6">
+          <div className="flex items-center justify-between">
+            <TacticalBlockHeader
+              title="Box Search Engine"
+              trackingLabel="SYS.SEARCH.CORE"
+              icon={<Network size={16} className="text-cyan-400" />}
+              variant="primary"
+            />
+            <div className="flex items-center gap-3 border border-cyan-500/20 bg-black/40 px-3 py-1.5">
+              <Database size={12} className="text-cyan-500" />
+              <span className="font-mono text-[10px] text-cyan-400 tracking-widest">
+                MATCHES: {filteredBoxPokemon.length}
+              </span>
+            </div>
           </div>
+          <MultiBoxSearchInput />
         </div>
 
         <div className="custom-scrollbar mt-6 flex-1 overflow-y-auto pr-2">

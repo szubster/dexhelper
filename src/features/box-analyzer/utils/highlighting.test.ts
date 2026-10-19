@@ -3,6 +3,39 @@ import type { MatrixRow } from '../types/matrix';
 import { findBestStats } from './highlighting';
 
 describe('findBestStats', () => {
+  it('handles all zero stats', () => {
+    const rows = [
+      {
+        dvsIvs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
+        calculatedIvTotal: 0,
+      } as MatrixRow,
+      {
+        dvsIvs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
+        calculatedIvTotal: 0,
+      } as MatrixRow,
+    ];
+
+    const result = findBestStats(rows);
+    expect(result[0]).toEqual({
+      hp: true,
+      atk: true,
+      def: true,
+      spa: true,
+      spd: true,
+      spe: true,
+      calculatedIvTotal: true,
+    });
+    expect(result[1]).toEqual({
+      hp: true,
+      atk: true,
+      def: true,
+      spa: true,
+      spd: true,
+      spe: true,
+      calculatedIvTotal: true,
+    });
+  });
+
   it('returns empty object for empty array', () => {
     expect(findBestStats([])).toEqual({});
   });

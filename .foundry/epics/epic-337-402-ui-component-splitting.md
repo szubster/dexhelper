@@ -2,13 +2,13 @@
 id: epic-337-402-ui-component-splitting
 type: EPIC
 title: UI Component Splitting by Game Generation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-05'
-updated_at: '2026-10-12'
+updated_at: '2026-10-17'
 depends_on:
   - epic-337-400-data-splitting
-jules_session_id: '8313081356306163637'
+jules_session_id: null
 pr_number: null
 parent: prd-117-337-split-bundles-and-data
 tags:
@@ -29,6 +29,9 @@ From PRD `prd-117-337-split-bundles-and-data`: Implement generation-based splitt
 - Update UI rendering logic to load these components via `React.lazy`.
 
 ## Acceptance Criteria
-- [ ] Story for refactoring UI components to support lazy loading
-- [ ] Story for updating specific generation views
-- [ ] Story dedicated exclusively to Integration and E2E Verification
+- [x] Story for refactoring UI components to support lazy loading
+- [ ] story-402-649-refactor-ui-lazy-loading
+- [x] Story for updating specific generation views
+- [ ] story-402-650-update-generation-views
+- [x] Story dedicated exclusively to Integration and E2E Verification
+- [ ] story-402-651-integration-e2e-verification

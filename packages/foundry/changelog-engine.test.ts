@@ -123,6 +123,37 @@ describe('changelog-engine', () => {
       expect(res.reason).toContain('Non-idea Foundry sub-node');
     });
 
+    it('skips test-only modifications', () => {
+      const res = classifyCommit({
+        sha: '334',
+        message: 'chore: improve save parser tests',
+        date: '2026-05-01',
+        files: ['src/engine/saveParser/saveParser.test.ts', 'src/utils/saveParser.test.ts']
+      });
+      expect(res.action).toBe('skip');
+      expect(res.reason).toContain('Test-only modification');
+    });
+
+    it('skips test or coverage commit messages', () => {
+      const res1 = classifyCommit({
+        sha: '335',
+        message: 'test: improve decodeGen12String test coverage',
+        date: '2026-05-01',
+        files: ['src/engine/saveParser/gen12.ts']
+      });
+      expect(res1.action).toBe('skip');
+      expect(res1.reason).toBe('Test or coverage commit message');
+
+      const res2 = classifyCommit({
+        sha: '336',
+        message: 'feat: add test coverage for assistant panel',
+        date: '2026-05-01',
+        files: ['src/components/AssistantPanel.tsx']
+      });
+      expect(res2.action).toBe('skip');
+      expect(res2.reason).toBe('Test or coverage commit message');
+    });
+
     it('skips trivial chore files', () => {
       const res = classifyCommit({
         sha: '444',

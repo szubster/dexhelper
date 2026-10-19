@@ -2,12 +2,12 @@
 id: story-582-673-yaml-schema-validation-impl
 type: STORY
 title: Implement Schema and Validation Logic for system_failure_count
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-09'
-updated_at: '2026-10-13'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '3290028109105512999'
+jules_session_id: null
 pr_number: null
 parent: epic-586-582-yaml-schema-counters
 tags:
@@ -30,4 +30,7 @@ As part of EPIC `epic-586-582-yaml-schema-counters`, we need to track infrastruc
 - Implement validation logic to ensure `system_failure_count` is correctly typed (integer) and handled.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-673-683-schema-system-failure-count
+- [ ] task-673-684-schema-system-failure-count-tests
+- [ ] task-673-685-schema-system-failure-count-qa

@@ -24,9 +24,16 @@ In addition to authoring changelog entries, Changelogger is responsible for main
    - Compare the commit message against the actual code diff to understand the true scope and functional impact of the change.
    - Do not rely solely on high-level or vague commit titles (e.g. "fix bug" or "refactor engine").
    - Author a clear, intelligent changelog bullet point that accurately summarizes the value delivered to users (for `dexhelper`) or system maintainers (for `foundry`).
-4. **Determine Action**:
+4. **Determine Action & Be Intelligently Picky**:
+   - **Selective Inclusion**: Not everything belongs in the changelog. Explicitly omit internal-only changes, test coverage updates, test additions/refactors, minor chore/CI configuration tweaks, internal developer tooling, and code refactoring that does not alter user-facing behavior or system API/infrastructure behavior.
    - **Important Feature / Fix / Behavior Change**: Add a concise, intelligent entry under `## [Unreleased]` or a new version release header (e.g., `## [X.Y.Z] - YYYY-MM-DD`) following semantic versioning in the appropriate changelog file (`CHANGELOG-dexhelper.md` or `CHANGELOG-foundry.md`). Update `README.md` if the change alters project usage, features, or setup.
    - **Trivial / Maintenance / Non-Idea Sub-Node / Non-User-Facing Change**: If neither changelog nor `README.md` requires updates, submit an Empty PR (0 files changed). You can also choose not to emit a changelog entry if you see it pointless, or merge them with a previous one if applicable.
+
+## Self-Improvement & Continuous Evolution
+
+When evaluating commits during history backfill or continuous execution:
+- **Identify Recurring Non-Changelog Patterns**: If you encounter commit patterns or categories (e.g., test coverage, benchmark script updates, internal lint configs) that are repeatedly non-changelog-worthy, proactively improve the system with every analyzed commit.
+- **Update Classification Rules**: Modify `packages/foundry/changelog-engine.ts` (specifically `classifyCommit`) to deterministically auto-skip those commit patterns in future evaluation cycles, or update this persona prompt (`.github/agents/changelogger.md`) to refine evaluation criteria.
 
 ## Keep a Changelog Format
 

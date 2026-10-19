@@ -2,10 +2,10 @@
 id: story-526-640-extract-domain-logic
 type: STORY
 title: Extract pure JS/TS domain logic to core package
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-15'
+updated_at: '2026-10-17'
 depends_on: []
 jules_session_id: '4798996806165639293'
 pr_number: null
@@ -39,10 +39,20 @@ locks: []
 - [x] task-640-662-extract-engine-data-to-core
 - [x] task-640-663-update-app-imports-engine-data
 - [x] task-640-664-qa-extract-engine-data
-- [ ] research-640-668-investigate-extract-utils-timeout
-- [ ] task-640-669-extract-utils-to-core-retry
-- [ ] task-640-670-update-app-imports-utils-retry
-- [ ] task-640-671-qa-extract-utils-retry
-- [ ] task-640-672-extract-engine-data-to-core-retry
-- [ ] task-640-673-update-app-imports-engine-data-retry
-- [ ] task-640-674-qa-extract-engine-data-retry
+- [x] research-640-668-investigate-extract-utils-timeout
+- [x] task-640-669-extract-utils-to-core-retry
+- [x] task-640-670-update-app-imports-utils-retry
+- [x] task-640-671-qa-extract-utils-retry
+- [x] task-640-672-extract-engine-data-to-core-retry
+- [x] task-640-673-update-app-imports-engine-data-retry
+- [x] task-640-674-qa-extract-engine-data-retry
+- [ ] research-640-687-investigate-extract-utils-timeout-v3
+- [ ] task-640-688-extract-utils-to-core-retry-v2
+- [ ] task-640-689-update-app-imports-utils-retry-v2
+- [ ] task-640-690-qa-extract-utils-retry-v2
+- [ ] task-640-691-extract-engine-data-to-core-retry-v2
+- [ ] task-640-692-update-app-imports-engine-data-retry-v2
+- [ ] task-640-693-qa-extract-engine-data-retry-v2
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

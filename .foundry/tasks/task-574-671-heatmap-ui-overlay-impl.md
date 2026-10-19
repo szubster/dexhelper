@@ -2,7 +2,7 @@
 id: task-574-671-heatmap-ui-overlay-impl
 type: TASK
 title: Implement Heatmap UI Overlay Component
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-11T00:00:00Z'
 updated_at: '2026-10-16'
@@ -31,5 +31,5 @@ With the heatmap data processing layer and overlay types defined, we need to imp
 Implement the React components and styling required to overlay heatmap data onto the map graph, adhering to tactical hardware aesthetics based on `.foundry/stories/story-049-574-heatmap-ui-overlay-component.md`.
 
 ## Acceptance Criteria
-- [ ] Implement HeatmapOverlay React component to render density highlights over map nodes.
-- [ ] Apply tactical aesthetic styling for density visual display.
+- [x] Implement HeatmapOverlay React component to render density highlights over map nodes.
+- [x] Apply tactical aesthetic styling for density visual display.

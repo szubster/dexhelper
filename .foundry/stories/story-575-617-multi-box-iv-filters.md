@@ -2,12 +2,12 @@
 id: story-575-617-multi-box-iv-filters
 type: STORY
 title: Multi-Box IV Filters
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-18'
-updated_at: '2026-09-19'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17881236950483177527'
 pr_number: null
 parent: epic-566-575-multi-box-stat-filters
 tags:

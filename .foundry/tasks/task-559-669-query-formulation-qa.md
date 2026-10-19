@@ -2,10 +2,10 @@
 id: task-559-669-query-formulation-qa
 type: TASK
 title: QA Query Formulation Logic
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-07'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on:
   - task-559-668-query-formulation-impl
 jules_session_id: null
@@ -14,7 +14,9 @@ tags:
   - query
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-559-668-query-formulation-impl
 locks: []
 ---
 

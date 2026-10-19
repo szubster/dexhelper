@@ -415,7 +415,7 @@ function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
   } else if (fs.existsSync(fallbackPath)) {
     genericPrompt = fs.readFileSync(fallbackPath, 'utf-8');
   } else {
-    warn(`Base persona prompt not found for: ${ownerPersona}, using default generic prompt.`);
+    warn(`::warning::Base persona prompt not found for: ${ownerPersona}, using default generic prompt.`);
     genericPrompt = `As the ${ownerPersona} of The Foundry, your task is described in the provided node file.`;
   }
 
@@ -477,7 +477,7 @@ function compileScheduledPrompt(persona: string, repoRoot: string): string {
   } else if (fs.existsSync(fallbackPath)) {
     basePrompt = fs.readFileSync(fallbackPath, 'utf-8');
   } else {
-    warn(`Scheduled agent persona prompt not found for: ${persona}, using default generic prompt.`);
+    warn(`::warning::Scheduled agent persona prompt not found for: ${persona}, using default generic prompt.`);
     basePrompt = `As the ${persona} of The Foundry, your task is to execute your scheduled responsibilities.`;
   }
 
@@ -1431,7 +1431,7 @@ function main(): void {
       const links = [...body.matchAll(idRegex)].map(m => m[0]);
 
       if (links.length > 0) {
-        const resolvedLinks = links.map(l => resolveNodePath(l)).filter((l): l is string => !!l);
+        const resolvedLinks = links.map(l => resolveNodePath(l, true)).filter((l): l is string => !!l);
         const allExist = resolvedLinks.every(l => nodeMap.has(l) || fs.existsSync(path.join(repoRoot, l)));
         const hasChild = resolvedLinks.some(l => {
           let childNode = nodeMap.get(l);
@@ -1488,7 +1488,7 @@ function main(): void {
           const idRegex = /(?:idea|prd|epic|story|task|research|adr)-[a-zA-Z0-9_-]+/g;
           const bodyLinks = [...node.body.matchAll(idRegex)].map(m => m[0]);
           const e2eChildExists = bodyLinks.some(l => {
-            const resolvedLink = resolveNodePath(l);
+            const resolvedLink = resolveNodePath(l, true);
             const childNode = resolvedLink ? nodeMap.get(resolvedLink) : undefined;
             return childNode &&
                    childNode.frontmatter.type === 'STORY' &&

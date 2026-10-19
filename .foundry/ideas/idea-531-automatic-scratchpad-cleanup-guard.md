@@ -2,12 +2,12 @@
 id: idea-531-automatic-scratchpad-cleanup-guard
 title: Automatic Developer Scratchpad Cleanup Guard in Pre-Commit Hook
 type: IDEA
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-28T05:00:00.000Z'
-updated_at: '2026-10-14'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: '14079286590345807418'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -35,6 +35,7 @@ This proposal introduces an automated linter check / pre-commit hook rule that d
 - **Boosts Pipeline Throughput**: Eliminates avoidable rejection cycles caused solely by lingering temporary files.
 
 ## Acceptance Criteria
+- [ ] prd-531-587-automatic-scratchpad-cleanup-guard
 - [ ] Implement a root scratchpad detector in `.github/scripts/` or Biome/Oxlint/Lefthook rules.
 - [ ] Add tests verifying that ephemeral debug scripts outside allowed paths trigger a linting error or auto-cleanup.
 - [ ] Integrate into `pnpm lint` and git pre-commit hooks.

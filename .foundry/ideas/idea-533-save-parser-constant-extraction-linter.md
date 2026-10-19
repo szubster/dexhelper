@@ -1,13 +1,13 @@
 ---
 id: idea-533-save-parser-constant-extraction-linter
 type: IDEA
-title: 'Automated Save Parser Magic Constant Extraction Linter'
-status: READY
+title: Automated Save Parser Magic Constant Extraction Linter
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-10-02'
-updated_at: '2026-10-02'
+updated_at: '2026-10-16'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16860366870763117446'
 pr_number: null
 parent: null
 tags:

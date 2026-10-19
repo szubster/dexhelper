@@ -2,13 +2,13 @@
 id: epic-112-310-gen2-shiny-breeding-ui
 type: EPIC
 title: Gen 2 Shiny Breeding Compatibility Planner UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-12'
-updated_at: '2026-10-15'
+updated_at: '2026-10-17'
 depends_on:
   - epic-112-309-gen2-shiny-breeding-logic
-jules_session_id: '16219565049414883815'
+jules_session_id: null
 pr_number: null
 parent: prd-108-112-gen2-shiny-breeding-dv-planner
 tags:
@@ -48,4 +48,7 @@ This Epic involves building the user interface for the Shiny Breeding Planner in
     *   Use Tailwind v4 `@utility` classes (e.g., `tactical-panel`) for consistent styling, incorporating dashed borders (`border-dashed`), sharp corners (`rounded-none`), and monospaced typography (`font-mono`).
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this EPIC down into actionable STORY nodes for the engineering team.
+- [x] Story Owner: Break this EPIC down into actionable STORY nodes for the engineering team.
+- [ ] story-310-676-pokemon-selection-interface
+- [ ] story-310-677-compatibility-odds-display
+- [ ] story-310-678-shiny-breeding-ui-e2e

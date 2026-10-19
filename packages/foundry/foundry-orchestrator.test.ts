@@ -3821,7 +3821,7 @@ Target artifact: task-completed
     expect(parsedOutput[0].compiled_prompt).toContain('As the coder of The Foundry, your task is described in the provided node file.');
 
     expect(stderrSpy).toHaveBeenCalled();
-    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('Base persona prompt not found for: coder, using default generic prompt.'));
+    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('::warning::Base persona prompt not found for: coder, using default generic prompt.'));
     expect(warningMsg).toBeDefined();
 
     consoleSpy.mockRestore();
@@ -3936,7 +3936,7 @@ Target artifact: task-completed
     expect(compiledOutput).toContain('As the tpm of The Foundry, your task is to execute your scheduled responsibilities.');
 
     expect(stderrSpy).toHaveBeenCalled();
-    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('Scheduled agent persona prompt not found for: tpm, using default generic prompt.'));
+    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('::warning::Scheduled agent persona prompt not found for: tpm, using default generic prompt.'));
     expect(warningMsg).toBeDefined();
 
     stdoutSpy.mockRestore();
@@ -4148,6 +4148,50 @@ Target artifact: task-completed
     expect(output).toContain('::warning::[orchestrator]');
     expect(output).toContain('Exiting with code 1: DAG resolution warnings or unresolvable dependencies detected (--strict mode).');
     expect(process.exitCode).toBe(1);
+
+    // cleanup
+    process.exitCode = 0;
+    stderrSpy.mockRestore();
+  });
+
+  test('Phase 4.5: Non-node references in body (like adr-compliance) do not trigger unresolvable node warnings or strict mode failure', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+      id: "epic-001",
+      type: "EPIC",
+      title: "Epic with adr-compliance reference",
+      status: "PENDING",
+      owner_persona: "story_owner",
+    }, `
+# Epic
+Referencing adr-compliance in body.
+
+## Acceptance Criteria
+- [ ] story-001
+`);
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "E2E Integration Story",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      parent: "epic-001",
+      tags: ["e2e"],
+    }, `
+# Story
+`);
+
+    const stderrSpy = vi.spyOn(process.stderr, 'write');
+    process.argv.push('--strict');
+    try {
+      main();
+    } finally {
+      process.argv.splice(process.argv.indexOf('--strict'), 1);
+    }
+
+    const output = stderrSpy.mock.calls.map(call => call[0] as string).join('');
+    expect(output).not.toContain("Unresolvable node reference: 'adr-compliance'");
+    expect(process.exitCode).not.toBe(1);
 
     // cleanup
     process.exitCode = 0;

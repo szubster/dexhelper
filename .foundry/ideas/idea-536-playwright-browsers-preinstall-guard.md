@@ -2,12 +2,12 @@
 id: idea-536-playwright-browsers-preinstall-guard
 type: IDEA
 title: Playwright Browser Pre-Install Guard and Fallback in Test Pipeline
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-10-09'
-updated_at: '2026-10-13'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '16082080627747318419'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -36,5 +36,6 @@ Introduce a pre-test execution guard or environment fallback helper script in `.
 Eliminates false-positive test output errors, improves developer experience, and stabilizes test session results across agent runs.
 
 ## Acceptance Criteria
-- [ ] PRD generated detailing the pre-install verification script or Vitest browser setup fallback.
+- [x] PRD generated detailing the pre-install verification script or Vitest browser setup fallback.
+- [ ] prd-536-587-playwright-browsers-preinstall-guard
 - [ ] Pre-install guard script or hook integrated into workspace test execution.

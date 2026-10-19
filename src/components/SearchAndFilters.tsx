@@ -1,5 +1,5 @@
 import { Crosshair, Fingerprint, Radio } from 'lucide-react';
-import { useMemo, useRef, useState, useTransition } from 'react';
+import React, { useMemo, useRef, useState, useTransition } from 'react';
 import { FILTER_TYPES, type FilterType, useStore } from '../store';
 import { cn } from '../utils/cn';
 import { ClearFiltersBadge } from './ClearFiltersBadge';
@@ -10,12 +10,15 @@ import { HexStreamDecoration } from './HexStreamDecoration';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { LocationSuggestions } from './LocationSuggestions';
+import { AttributeFilters } from './pc-box/search/AttributeFilters';
 import { TacticalInput } from './TacticalInput';
 import { TacticalMultiSelectControl } from './TacticalMultiSelectControl';
 import { TacticalPanel } from './TacticalPanel';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
-export function SearchAndFilters() {
+// ⚡ Bolt: Wrapped SearchAndFilters in React.memo to isolate its render cycle from parent view state updates
+// when props and selected store slices remain unchanged.
+export const SearchAndFilters = React.memo(function SearchAndFilters() {
   const inputRef = useRef<HTMLInputElement>(null);
   const saveData = useStore((s) => s.saveData);
   const searchTerm = useStore((s) => s.searchTerm);
@@ -207,8 +210,10 @@ export function SearchAndFilters() {
               ))}
             </div>
           </div>
+
+          <AttributeFilters />
         </div>
       </TacticalPanel>
     </div>
   );
-}
+});

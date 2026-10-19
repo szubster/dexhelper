@@ -5,9 +5,9 @@ title: Integration and E2E Verification for Multi-Box Search
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-18'
-updated_at: '2026-10-14'
+updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: '804232955174091612'
+jules_session_id: '8020393731610035852'
 pr_number: null
 parent: epic-566-577-multi-box-integration
 tags:
@@ -32,4 +32,7 @@ Implement integration logic bridging the search engine and UI components and exe
 - Ensure spatial organization remains unbroken.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-586-687-multi-box-integration-impl
+- [ ] task-586-688-multi-box-integration-e2e
+- [ ] task-586-689-multi-box-integration-qa

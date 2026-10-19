@@ -37,6 +37,10 @@ Group flagged Pokémon into batches of 6 and locate their physical Box and Slot 
 - [x] Tech Lead: Break down into Tasks.
 - [ ] task-492-668-pal-park-batch-logic-impl
 - [ ] task-492-669-pal-park-batch-logic-tests
-- [ ] task-492-670-pal-park-batch-ui-impl
-- [ ] task-492-671-pal-park-batch-ui-tests
-- [ ] task-492-672-pal-park-batch-qa
+- [x] task-492-670-pal-park-batch-ui-impl
+- [x] task-492-671-pal-park-batch-ui-tests
+- [x] task-492-672-pal-park-batch-qa
+- [ ] research-492-690-investigate-pal-park-batch-ui-failure
+- [ ] task-492-691-pal-park-batch-ui-impl-retry
+- [ ] task-492-692-pal-park-batch-ui-tests-retry
+- [ ] task-492-693-pal-park-batch-qa-retry

@@ -2,13 +2,13 @@
 id: story-530-561-e2e-verify-cancelled-nodes
 type: STORY
 title: E2E Verify Cancelled Nodes on Permanent Failure Dashboard
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-09T00:00:00.000Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-19'
 depends_on:
   - story-530-560-update-dag-ui-components
-jules_session_id: '7965170850635121293'
+jules_session_id: null
 pr_number: null
 parent: epic-516-530-update-permanent-failure-dashboard-ui
 tags:
@@ -28,4 +28,6 @@ Write an E2E/Integration test to verify that the Permanent Failure Dashboard cor
 
 ## Acceptance Criteria
 - [ ] An E2E test is created and passes, verifying that `status: CANCELLED` nodes with `rejection_count >= 3` are visible in the Permanent Failure Dashboard.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-561-690-cancelled-nodes-e2e-impl
+- [ ] task-561-691-qa-cancelled-nodes-e2e

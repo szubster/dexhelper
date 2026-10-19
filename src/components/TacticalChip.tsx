@@ -39,9 +39,17 @@ export interface TacticalChipProps extends React.HTMLAttributes<HTMLDivElement>,
    */
   codeTag?: React.ReactNode;
   /**
+   * Optional secondary telemetry metadata displayed on the right (e.g. "x12" or "99%").
+   */
+  sublabel?: React.ReactNode;
+  /**
    * Whether to display an active status LED dot.
    */
   showLed?: boolean;
+  /**
+   * Whether the chip is interactive (adds press state scaling and enhanced focus styles).
+   */
+  interactive?: boolean;
   /**
    * Optional callback when the clear/remove X button is clicked.
    */
@@ -60,7 +68,9 @@ export const TacticalChip = React.forwardRef<HTMLDivElement, TacticalChipProps>(
       className,
       children,
       codeTag,
+      sublabel,
       showLed = true,
+      interactive = false,
       onRemove,
       removeButtonTitle = 'Remove item',
       ...props
@@ -68,42 +78,49 @@ export const TacticalChip = React.forwardRef<HTMLDivElement, TacticalChipProps>(
     ref,
   ) => {
     return (
-      <div ref={ref} className={cn(chipVariants({ variant, size, className }))} {...props}>
+      <div
+        ref={ref}
+        className={cn(
+          chipVariants({ variant, size, className }),
+          interactive && 'focus-visible:tactical-focus cursor-pointer active:scale-[0.98]',
+        )}
+        {...props}
+      >
         {/* Hardware Corner Accent Ticks */}
         <span
-          className="pointer-events-none absolute top-0 left-0 h-1 w-1 border-current border-t border-l opacity-60 transition-opacity group-hover:opacity-100"
+          className="pointer-events-none absolute top-0 left-0 h-1.5 w-1.5 border-current border-t border-l opacity-60 transition-opacity group-hover:opacity-100"
           aria-hidden="true"
         />
         <span
-          className="pointer-events-none absolute top-0 right-0 h-1 w-1 border-current border-t border-r opacity-60 transition-opacity group-hover:opacity-100"
+          className="pointer-events-none absolute top-0 right-0 h-1.5 w-1.5 border-current border-t border-r opacity-60 transition-opacity group-hover:opacity-100"
           aria-hidden="true"
         />
         <span
-          className="pointer-events-none absolute bottom-0 left-0 h-1 w-1 border-current border-b border-l opacity-60 transition-opacity group-hover:opacity-100"
+          className="pointer-events-none absolute bottom-0 left-0 h-1.5 w-1.5 border-current border-b border-l opacity-60 transition-opacity group-hover:opacity-100"
           aria-hidden="true"
         />
         <span
-          className="pointer-events-none absolute right-0 bottom-0 h-1 w-1 border-current border-r border-b opacity-60 transition-opacity group-hover:opacity-100"
+          className="pointer-events-none absolute right-0 bottom-0 h-1.5 w-1.5 border-current border-r border-b opacity-60 transition-opacity group-hover:opacity-100"
           aria-hidden="true"
         />
 
-        {/* Hover Scanline Overlay */}
+        {/* Hover Laser Scanline Overlay */}
         <span
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-current/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-current/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           aria-hidden="true"
         />
 
         {/* LED Status Indicator */}
         {showLed && (
-          <span className="relative flex h-1.5 w-1.5 items-center justify-center" aria-hidden="true">
+          <span className="relative z-10 flex h-1.5 w-1.5 shrink-0 items-center justify-center" aria-hidden="true">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-current opacity-40" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-current shadow-[0_0_4px_currentColor]" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-current shadow-[0_0_6px_currentColor]" />
           </span>
         )}
 
         {/* Optional Code Tag */}
         {codeTag && (
-          <span className="font-mono text-[9px] uppercase tracking-wider opacity-75">
+          <span className="relative z-10 shrink-0 font-mono text-[9px] uppercase tracking-wider opacity-80">
             <span aria-hidden="true">[</span>
             {codeTag}
             <span aria-hidden="true">]</span>
@@ -113,16 +130,23 @@ export const TacticalChip = React.forwardRef<HTMLDivElement, TacticalChipProps>(
         {/* Content */}
         <span className="relative z-10 truncate font-semibold tracking-tight">{children}</span>
 
+        {/* Optional Sublabel */}
+        {sublabel && (
+          <span className="relative z-10 ml-0.5 shrink-0 border border-current/20 border-dashed bg-current/10 px-1 py-0.25 font-mono text-[9px] text-current tracking-wider opacity-90">
+            {sublabel}
+          </span>
+        )}
+
         {/* Remove Button */}
         {onRemove && (
           <button
             type="button"
             onClick={onRemove}
-            className="focus-visible:tactical-focus relative z-10 -mr-1 ml-0.5 inline-flex h-4 w-4 items-center justify-center rounded-none border border-current/30 border-dashed p-0.5 text-current opacity-80 transition-all hover:border-current hover:bg-current/20 hover:opacity-100 active:scale-95"
+            className="focus-visible:tactical-focus relative z-10 -mr-1 ml-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-none border border-current/30 border-dashed p-0.5 text-current opacity-80 transition-all hover:border-current hover:bg-current/20 hover:opacity-100 active:scale-90"
             title={removeButtonTitle}
             aria-label={removeButtonTitle}
           >
-            <X className="h-3 w-3" />
+            <X className="h-3 w-3" aria-hidden="true" />
           </button>
         )}
       </div>
