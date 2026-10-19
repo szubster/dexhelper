@@ -2,12 +2,12 @@
 id: task-522-680-wip-signaling-e2e-tests
 type: TASK
 title: Implement E2E Tests for WIP Signaling System
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-18'
+updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7249121970796238067'
 pr_number: null
 parent: story-518-522-wip-signaling-e2e
 tags:
