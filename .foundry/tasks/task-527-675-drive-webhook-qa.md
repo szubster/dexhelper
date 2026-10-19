@@ -2,10 +2,10 @@
 id: task-527-675-drive-webhook-qa
 type: TASK
 title: Drive Webhook Logic QA
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-10-09'
-updated_at: '2026-10-18'
+updated_at: '2026-10-19'
 depends_on:
   - task-527-673-webhook-registration-impl
   - task-527-674-webhook-renewal-impl
@@ -19,8 +19,8 @@ tags:
   - sync
 research_references:
   - adr-336-033-server-side-drive-sync
-rejection_count: 0
-rejection_reason: Merged with unfulfilled acceptance criteria
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

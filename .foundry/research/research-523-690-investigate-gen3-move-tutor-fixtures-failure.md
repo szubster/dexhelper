@@ -2,19 +2,19 @@
 id: research-523-690-investigate-gen3-move-tutor-fixtures-failure
 type: RESEARCH
 title: Investigate Gen 3 Move Tutor E2E Fixtures Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-16T00:10:43.998Z'
-updated_at: '2026-10-18'
+updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: '8497676435522346167'
+jules_session_id: null
 parent: story-407-523-gen3-move-tutor-integration-e2e
 tags:
   - research
   - e2e
   - gen3
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: FAILED'
 locks: []
 ---
 
