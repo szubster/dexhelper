@@ -2,12 +2,12 @@
 id: story-333-676-fame-checker-dashboard-components
 type: STORY
 title: Fame Checker Dashboard Components
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-15T19:32:39.601Z'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14406921732850274120'
 pr_number: null
 parent: epic-115-333-gen3-fame-checker-dashboard-ui
 tags:
