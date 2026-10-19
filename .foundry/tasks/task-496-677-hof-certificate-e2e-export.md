@@ -29,6 +29,6 @@ locks: []
 Implement Playwright E2E tests to cover the full export flow of the Hall of Fame Certificate. Ensure that simulating a click on the export button triggers the image generation process, and verifies that the resulting file download or blob matches expectations.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for the download/export button flow.
-- [ ] Verify successful interception of the generated blob or file download.
-- [ ] Ensure proper handling of loading state interactions during generation.
+- [x] Implement E2E tests for the download/export button flow.
+- [x] Verify successful interception of the generated blob or file download.
+- [x] Ensure proper handling of loading state interactions during generation.
