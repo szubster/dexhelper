@@ -28,5 +28,5 @@ priority: 50
 Review and verify the core logic layer for checking if Pokémon currently in the player's Party and PC Boxes can learn a selected TM/HM move.
 
 ## Acceptance Criteria
-- [ ] Verify the implementation of getCompatiblePokemonForTMHM.
-- [ ] Verify the unit tests provide adequate coverage.
+- [x] Verify the implementation of getCompatiblePokemonForTMHM.
+- [x] Verify the unit tests provide adequate coverage.
