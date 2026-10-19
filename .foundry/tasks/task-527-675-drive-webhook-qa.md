@@ -32,6 +32,6 @@ priority: 50
 Verify that the webhook registration and renewal logic correctly adheres to the requirements defined in adr-336-033-server-side-drive-sync and functions correctly within the Cloudflare Worker environment.
 
 ## Acceptance Criteria
-- [ ] Verify webhook registration logic.
-- [ ] Verify webhook renewal logic.
-- [ ] Ensure proper unit test coverage exists.
+- [x] Verify webhook registration logic.
+- [x] Verify webhook renewal logic.
+- [x] Ensure proper unit test coverage exists.
