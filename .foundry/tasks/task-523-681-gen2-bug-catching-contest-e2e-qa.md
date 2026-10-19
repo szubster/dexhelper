@@ -2,13 +2,13 @@
 id: task-523-681-gen2-bug-catching-contest-e2e-qa
 type: TASK
 title: Gen 2 Bug-Catching Contest E2E Integration QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-12T00:00:00.000Z'
 updated_at: '2026-10-19'
 depends_on:
   - task-523-680-gen2-bug-catching-contest-e2e-impl
-jules_session_id: null
+jules_session_id: '2422305748189518457'
 pr_number: null
 parent: story-512-523-gen2-bug-catching-contest-e2e
 tags:
