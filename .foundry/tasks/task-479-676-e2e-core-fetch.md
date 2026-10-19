@@ -30,4 +30,4 @@ This task implements Playwright E2E tests to ensure that `pokedata-core.msgpack`
 - Integrate the test into the existing Playwright E2E test suite.
 
 ## Acceptance Criteria
-- [ ] Test verifying `pokedata-core.msgpack` fetch is implemented and passes
+- [x] Test verifying `pokedata-core.msgpack` fetch is implemented and passes
