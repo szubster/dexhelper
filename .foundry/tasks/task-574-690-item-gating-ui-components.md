@@ -2,12 +2,12 @@
 id: task-574-690-item-gating-ui-components
 type: TASK
 title: Item Gating UI Components
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-15'
 updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14612015081033922268'
 pr_number: null
 parent: story-407-574-item-gating-ui-filter
 tags:
