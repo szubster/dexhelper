@@ -2,12 +2,12 @@
 id: task-552-690-archival-cleanup-e2e-tests
 type: TASK
 title: Archival Cleanup E2E Tests Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-16T00:17:43.550Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3273116151544159753'
 parent: story-517-552-archival-cleanup-core-e2e
 tags:
   - e2e
