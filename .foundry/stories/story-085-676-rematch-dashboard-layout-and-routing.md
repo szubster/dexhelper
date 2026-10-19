@@ -35,6 +35,10 @@ Implement the base layout and routing for the Rematch Dashboard view component. 
 - Use base tactical primitives (e.g., `tactical-panel`, `tactical-text`) from `src/index.css`.
 
 ## Acceptance Criteria
+- [ ] task-676-707-rematch-dashboard-layout-impl
+- [ ] task-676-708-rematch-dashboard-routing-impl
+- [ ] task-676-709-rematch-dashboard-e2e-tests
+- [ ] task-676-710-rematch-dashboard-qa
 - [ ] Implement Rematch Dashboard structural layout.
 - [ ] Set up application routing for the new view.
 - [ ] Adhere to tactical design system constraints.
