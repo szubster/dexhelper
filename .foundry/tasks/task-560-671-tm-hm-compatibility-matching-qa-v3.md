@@ -2,13 +2,13 @@
 id: task-560-671-tm-hm-compatibility-matching-qa-v3
 type: TASK
 title: QA TM/HM Compatibility Matching Logic (V3)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-06'
 updated_at: '2026-10-19'
 depends_on:
   - task-560-670-tm-hm-compatibility-matching-tests-v3
-jules_session_id: null
+jules_session_id: '3537011062787240602'
 pr_number: null
 parent: story-402-560-tm-hm-compatibility-matching
 tags:
