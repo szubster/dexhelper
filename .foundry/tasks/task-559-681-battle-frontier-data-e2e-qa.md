@@ -28,6 +28,6 @@ locks: []
 Verify the Playwright end-to-end (E2E) tests implemented for Battle Frontier (Emerald) and Battle Tower (Ruby/Sapphire) data extraction. Ensure tests are robust, accurately verify the requirements, and pass successfully.
 
 ## Acceptance Criteria
-- [ ] Verify E2E tests for Emerald Battle Frontier data extraction exist and pass.
-- [ ] Verify E2E tests for Ruby/Sapphire Battle Tower data extraction exist and pass.
-- [ ] Ensure the tests cover the required features and do not introduce regressions.
+- [x] Verify E2E tests for Emerald Battle Frontier data extraction exist and pass.
+- [x] Verify E2E tests for Ruby/Sapphire Battle Tower data extraction exist and pass.
+- [x] Ensure the tests cover the required features and do not introduce regressions.
