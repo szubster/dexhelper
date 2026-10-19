@@ -31,4 +31,6 @@ Ensure the Mirage Island state hydration works without regressions.
 1. **E2E Tests**: Write e2e tests to verify that the Mirage island state is hydrated.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks.
+- [ ] task-606-690-mirage-island-state-hydration-e2e-impl
+- [ ] task-606-691-mirage-island-state-hydration-e2e-qa
+- [x] Tech Lead: Break down into tasks.
