@@ -29,5 +29,5 @@ The script `scripts/verify-adr-compliance.ts` must be integrated with the system
 As a simple/low-risk change, no separate QA task is required. The coder should self-verify.
 
 ## Acceptance Criteria
-- [ ] Add a new script to `package.json` that executes `node --experimental-strip-types scripts/verify-adr-compliance.ts`.
-- [ ] Update the `lint` script in `package.json` to ensure the compliance check is run alongside other linters.
+- [x] Add a new script to `package.json` that executes `node --experimental-strip-types scripts/verify-adr-compliance.ts`.
+- [x] Update the `lint` script in `package.json` to ensure the compliance check is run alongside other linters.
