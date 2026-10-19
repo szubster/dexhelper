@@ -33,6 +33,10 @@ Implement integration logic bridging the search engine and UI components and exe
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-586-687-multi-box-integration-impl
-- [ ] task-586-688-multi-box-integration-e2e
-- [ ] task-586-689-multi-box-integration-qa
+- [x] task-586-687-multi-box-integration-impl
+- [x] task-586-688-multi-box-integration-e2e
+- [x] task-586-689-multi-box-integration-qa
+- [ ] research-586-707-investigate-multi-box-integration-failure
+- [ ] task-586-708-multi-box-integration-impl-retry
+- [ ] task-586-709-multi-box-integration-e2e-retry
+- [ ] task-586-710-multi-box-integration-qa-retry
