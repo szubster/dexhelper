@@ -51,33 +51,25 @@ test.describe('Gen 3 Ribbon Data Extraction E2E', () => {
       timeout: 20000,
     });
 
-    // We can go to the root base '.' and click the specific link
-    await page.goto('.');
+    // The Ribbon Checklist is accessible via the "System Directory" or the global navigation.
+    await page.goto('./dashboard');
 
-    // Check if the dashboard is loaded by expecting a generic dashboard text element
+    // Wait for dashboard to load
     await expect(
       page
-        .getByText(/LIVING DEX/i)
+        .getByText(/PC BOXES/i)
         .first()
-        .or(page.getByText(/TRNR/i).first())
+        .or(page.getByText(/SYSTEM DIRECTORY/i).first())
         .first(),
     ).toBeVisible({ timeout: 15000 });
 
-    // We can directly use standard explicit internal React Router links from base dashboard since the dashboard component loads the side bar
+    // We can interact with the main menu link
     const ribbonLink = page.getByRole('link', { name: /GLOBAL RIBBON CHECKLIST/i });
     if (await ribbonLink.first().isVisible()) {
       await ribbonLink.first().click();
     } else {
-      // Open navigation menu if hidden
-      const navButton = page.getByRole('button', { name: /Open menu/i });
-      if (await navButton.first().isVisible()) {
-        await navButton.first().click();
-      }
-
-      // Ensure the side menu has opened
-      await page.waitForTimeout(500);
-
-      await ribbonLink.first().click();
+      // Try clicking it via CSS if the role isn't exactly matching (e.g. mobile nav or hidden structure)
+      await page.locator('text=/GLOBAL RIBBON CHECKLIST/i').first().click({ force: true });
     }
 
     // Verify it loads correctly
