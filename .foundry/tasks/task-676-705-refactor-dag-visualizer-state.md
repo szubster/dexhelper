@@ -31,5 +31,5 @@ Remove duplicate state management and data fetching logic within the DAG visuali
 - Update relevant state-related tests.
 
 ## Acceptance Criteria
-- [ ] Remove duplicate state logic
-- [ ] Ensure state-related tests pass
+- [x] Remove duplicate state logic
+- [x] Ensure state-related tests pass
