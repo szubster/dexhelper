@@ -32,5 +32,8 @@ Enhance the existing scheduled `palette` persona to maintain `src/index.css`, en
 2. **Documentation**: Update `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` to formally document this new domain ownership within the multi-agent pipeline.
 
 ## Acceptance Criteria
+- [ ] story-126-707-update-palette-persona-instructions
+- [ ] story-126-708-update-palette-documentation
+- [ ] story-126-709-palette-persona-e2e-verification
 - [ ] Agent prompts/configurations are updated to assign styling ownership to the `palette` persona.
 - [ ] Relevant documentation is updated to reflect this new responsibility.
