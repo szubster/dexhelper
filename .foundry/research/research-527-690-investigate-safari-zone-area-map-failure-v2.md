@@ -2,12 +2,12 @@
 id: research-527-690-investigate-safari-zone-area-map-failure-v2
 type: RESEARCH
 title: Investigate Safari Zone Area Map Failure V2
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-15T23:58:52.670Z'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5796714790153803556'
 pr_number: null
 parent: story-325-527-safari-zone-area-highlighting
 tags:
