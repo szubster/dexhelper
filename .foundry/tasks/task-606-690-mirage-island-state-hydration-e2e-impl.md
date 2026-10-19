@@ -2,13 +2,13 @@
 id: task-606-690-mirage-island-state-hydration-e2e-impl
 type: TASK
 title: Mirage Island State Hydration E2E Tests Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-15T23:57:45.000Z'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on:
   - story-063-605-mirage-island-unified-state-hydration
-jules_session_id: null
+jules_session_id: '835903777801523190'
 pr_number: null
 parent: story-063-606-mirage-island-state-hydration-e2e
 tags:
