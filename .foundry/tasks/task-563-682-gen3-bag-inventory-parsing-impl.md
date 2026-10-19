@@ -2,12 +2,12 @@
 id: task-563-682-gen3-bag-inventory-parsing-impl
 type: TASK
 title: Gen 3 Bag Inventory Parsing Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-12'
 updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13579398733012427237'
 pr_number: null
 parent: story-554-563-inventory-item-tracker
 tags:
