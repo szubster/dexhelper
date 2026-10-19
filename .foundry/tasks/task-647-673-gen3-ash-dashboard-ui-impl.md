@@ -2,12 +2,12 @@
 id: task-647-673-gen3-ash-dashboard-ui-impl
 type: TASK
 title: 'Task: Implement Gen 3 Volcanic Ash Tracker Dashboard UI'
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-03T19:33:53.000Z'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: '9133679259778177772'
+jules_session_id: null
 pr_number: null
 parent: story-269-647-gen3-ash-dashboard-ui
 tags:

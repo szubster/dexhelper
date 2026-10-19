@@ -2,7 +2,7 @@
 id: task-522-685-wip-awareness-e2e-orchestrator-tests
 type: TASK
 title: Implement Orchestrator WIP Awareness Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-13'
 updated_at: '2026-10-19'
@@ -17,8 +17,8 @@ tags:
   - wip
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: 'Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 experiment_variants: []
 locks: []

@@ -2,10 +2,10 @@
 id: task-574-690-item-gating-ui-components
 type: TASK
 title: Item Gating UI Components
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-15'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,9 @@ tags:
   - map
   - ui
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Item Gating UI Components

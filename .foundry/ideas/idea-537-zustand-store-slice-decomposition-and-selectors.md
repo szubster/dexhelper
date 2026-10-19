@@ -2,12 +2,12 @@
 id: idea-537-zustand-store-slice-decomposition-and-selectors
 type: IDEA
 title: Modular Zustand Store Slice Decomposition and Memoized State Selectors
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-10-14'
 updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: '14442188994295393547'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

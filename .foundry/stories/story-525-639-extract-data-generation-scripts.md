@@ -2,7 +2,7 @@
 id: story-525-639-extract-data-generation-scripts
 type: STORY
 title: Extract Data Generation Scripts
-status: FAILED
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-09-30'
 updated_at: '2026-10-19'
@@ -14,8 +14,8 @@ tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
