@@ -2,13 +2,13 @@
 id: task-558-682-telemetry-extraction-tests
 type: TASK
 title: Write Tests for Telemetry Extraction
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-11'
 updated_at: '2026-10-20'
 depends_on:
   - task-558-680-telemetry-extraction-logic
-jules_session_id: null
+jules_session_id: '15666657906805231261'
 pr_number: null
 parent: story-534-558-telemetry-data-extraction-impl
 tags:
