@@ -397,3 +397,28 @@ Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing 
 **Outcome:** Merged (Optimistic execution)
 **Why:** The `.github/agents/tech_lead.md` prompt contained a redundant `## Core Directives` section (with numbered items starting at 2) outlining task drafting, defining contracts, and maintaining architecture. These rules are already centrally defined and enforced in `.foundry/docs/knowledge_base/agents/core_policies.md` under "Node Generation Rules", "Mandate Decomposition, Granularity, and Late Binding", and "Architectural & Coding Constraints". Since `core_policies.md` is automatically appended to all agent prompts by the orchestrator at dispatch time, repeating these instructions in `tech_lead.md` creates token bloat and risk of prompt rot.
 **Pattern:** Regularly scrub agent persona prompts for duplicate instructions that are centrally defined in `core_policies.md` to keep prompts lean and maintain a single source of truth.
+
+---
+
+## 2026-10-11 - [Accepted] - Prompt improvement - Fix broken list syntax and refine core directives in epic_planner.md
+
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** `.github/agents/epic_planner.md` contained a broken numbered list under `## Core Directives` that started at item `2.` with item `1.` missing due to previous prompt scrubbing. Restoring item 1 ("PRD Breakdown & Traceability") and refining item 2 ("Epic Formatting & Standards") fixes the syntax defect while explicitly reinforcing schema compliance, parent linkage, and mandatory E2E verification story directives as documented in `.foundry/journals/epic_planner/master.md`.
+**Pattern:** Periodically audit schedule prompts for syntax defects, orphaned list items, and missing domain constraints recorded in persona journals.
+
+---
+
+## 2026-10-17 - [Accepted] - Prompt improvement - Scrub redundant directives and overlapping prompt-editing role from Agile Coach
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** `.github/agents/agile_coach.md` contained item 1 under `## Core Directives` (session activity checks for non-autonomous behavior) which is redundant with `core_policies.md` ("Autonomous Communication & No-Ask Policy"), and item 3 instructing Agile Coach to update persona prompts in `.github/agents/`. Agent prompt maintenance was centralized under `strategist` on 2026-08-25, leaving `strategist` as the single source of truth for prompt evolution. Removing these redundant directives prevents prompt bloat and eliminates overlapping role definitions.
+**Pattern:** Ensure scheduled meta-agent prompts do not contain redundant instructions already enforced in `core_policies.md` or overlap in ownership with other dedicated meta-agents (e.g., `strategist` for agent prompts).
+
+---
+
+## 2026-10-18 - [Accepted] - Prompt improvement - Scrub redundant E2E safeguard directive from epic_planner.md
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** Item 2 under `## Core Directives` in `.github/agents/epic_planner.md` explicitly duplicated instructions requiring a final story for Integration and E2E Verification. This rule is already centrally defined and globally enforced for all generative personas in `.foundry/docs/knowledge_base/agents/core_policies.md` under "Orchestrator Safeguard (E2E/Integration Requirement)". Since `core_policies.md` is automatically appended to all persona prompts by the orchestrator at dispatch time, repeating this instruction in `epic_planner.md` creates token bloat and risk of prompt rot.
+**Pattern:** Regularly scrub agent persona prompts for duplicate instructions that are centrally defined in `core_policies.md` to keep prompts lean and maintain a single source of truth.

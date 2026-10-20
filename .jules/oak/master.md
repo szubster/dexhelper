@@ -85,3 +85,16 @@ Fixed missing FireRed exclusives (LeafGreen exclusives) list.
 * Cross-referenced Pokémon data across Gen 1, Gen 2, and Gen 3 version exclusive lists (`src/engine/exclusives/`), encounter mappings (`data/db/encounters.jsonl`), and data generation script schemas (`scripts/generate-pokedata.ts`).
 * All version exclusive mappings and wild encounter mappings across Gens 1, 2, and 3 match PokeAPI canonical definitions and decompiled ROM entries.
 * Confirmed that no data integrity discrepancies exist in this audit run.
+
+---
+
+# Data Integrity Audit - Professor Oak
+
+## Audit Summary
+- Cross-referenced committed Pokémon species data (`data/db/pokemon.jsonl`), encounter mappings (`data/db/encounters.jsonl`), and version exclusives (`src/engine/exclusives/`) across Gen 1, Gen 2, and Gen 3.
+- Verified that unobtainable Pokémon lists across Red, Blue, Yellow, Gold, Silver, Crystal, Ruby, Sapphire, Emerald, FireRed, and LeafGreen strictly align with wild encounter definitions in the committed database.
+- Confirmed that all catch methods, evolution triggers, species boundary boundaries (Gens 1-3, 386 species), and encounter distributions remain 100% compliant with canonical PokeAPI and decompiled ROM definitions.
+
+## Key Learnings
+- **Database Schema Mappings:** `ENCOUNTER_METHOD_MAP` in `src/db/schema.ts` covers all encounter types mapped across PokeAPI and decompiled ROM generation scripts.
+- **Version Exclusives Consistency:** The `GEN1_VERSION_EXCLUSIVES`, `GEN2_VERSION_EXCLUSIVES`, and `GEN3_VERSION_EXCLUSIVES` arrays represent missing/unobtainable Pokémon in each respective version. Checking these against `data/db/encounters.jsonl` confirmed no false missing listings or unintended encounter leaks.
