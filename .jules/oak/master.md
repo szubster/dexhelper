@@ -98,3 +98,16 @@ Fixed missing FireRed exclusives (LeafGreen exclusives) list.
 ## Key Learnings
 - **Database Schema Mappings:** `ENCOUNTER_METHOD_MAP` in `src/db/schema.ts` covers all encounter types mapped across PokeAPI and decompiled ROM generation scripts.
 - **Version Exclusives Consistency:** The `GEN1_VERSION_EXCLUSIVES`, `GEN2_VERSION_EXCLUSIVES`, and `GEN3_VERSION_EXCLUSIVES` arrays represent missing/unobtainable Pokémon in each respective version. Checking these against `data/db/encounters.jsonl` confirmed no false missing listings or unintended encounter leaks.
+
+---
+
+# Data Integrity Audit - Professor Oak
+
+## Audit Summary
+- Identified a data integrity issue in `scripts/generate-pokedata.ts` where the `compact` utility stripped `key === 'm'` when `value === 1` (the default `m: 1` encounter method ID representing 'walk').
+- Removing this filter restored `5,429` wild grass/walking encounter method IDs across Gen 1, Gen 2, and Gen 3 in `data/db/encounters.jsonl` that previously defaulted to `undefined`.
+- Regenerated `data/db/encounters.jsonl`, `data/db/items.jsonl`, and `data/db/metadata.json` via `pnpm run data:gen`.
+- Locked in the data integrity behavior by adding unit assertions in `src/engine/data/__tests__/schema.test.ts`.
+
+## Key Learnings
+- **Data Compaction Caveats:** Avoid stripping numeric values like `m === 1` during JSON compaction when `1` is a valid domain key/enum value in schema mappings (`ENCOUNTER_METHOD_MAP.walk = 1`).

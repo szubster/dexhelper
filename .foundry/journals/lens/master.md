@@ -218,3 +218,17 @@ Under constrained parent container widths or tight flex/grid layouts, components
 ### Remediation & Rule Enforcement
 * **Component Safeguard**: Updated `EdgeLabel.tsx` to include `whitespace-nowrap` on its container div.
 * **Non-Wrapping Policy**: All tactical bracket primitives, edge labels, and status badges must enforce `whitespace-nowrap` to preserve single-line rendering and maintain tactical hardware aesthetic compliance (ADR 008) across all device viewports.
+
+---
+
+# Lens Visual QA & Layout Audit Journal — 2026-10-20
+
+## Discoveries & Remediation
+
+### Sticky Header Collision & Pointer Event Interception
+* **Issue**: `SearchAndFilters.tsx` contained `sticky top-0 z-30 -mt-6`, which collided with `AppHeader` (`sticky top-0 z-50`). On scroll, `SearchAndFilters` stuck directly behind `AppHeader`, causing filter controls to be hidden and top grid items to be occluded while intercepting pointer clicks on mobile viewports.
+* **Fix**: Updated `SearchAndFilters.tsx` to `relative z-30 mb-6`, allowing smooth scrolling with the page document while `AppHeader` remains the single sticky header.
+
+### Mobile Title Text Scaling
+* **Issue**: `PokemonDetails.tsx` header used `text-5xl` for Pokemon names on 393px mobile viewports, forcing long entity names (`VICTREEBEL`, `EXEGGCUTE`) to break mid-word across lines.
+* **Fix**: Scaled heading text to `text-3xl sm:text-6xl lg:text-7xl` for clean mobile rendering.

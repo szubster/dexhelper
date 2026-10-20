@@ -658,3 +658,9 @@ When investigating the failure of `task-563-667-routes-encounters-data-fetching-
 The data structures are already properly generated via `scripts/generate-pokedata.ts`. The missing piece for the coder was likely how to structure the hook to query the `pokemonEncounterMap` from static data (`encounters.jsonl`) properly or lack of clarity on the rules, causing them to stall and ask for feedback.
 
 Moving forward, providing explicit instructions in the research node on using these static JSONL assets and documenting the logic required to calculate drop rates (incorporating Compound Eyes logic) will unblock the Coder.
+
+---
+
+# 2026-10-20 Session
+
+Investigated the failure of `task-638-669-extract-constants-to-core-v3` and discovered it was a false permanent failure caused by repeated `[ACKNOWLEDGED] Session terminated with state: COMPLETED` agent session crashes rather than actual QA rejections. Because the orchestrator's logic increments the `rejection_count` for these system-level crashes just like it does for standard task rejections, the node eventually hit the `MAX_REJECTION_THRESHOLD` (3) and was auto-cancelled. The namespaced exports deduplication strategy formulated in `research-638-668-investigate-constants-extraction-retry-failure` should still be implemented in the replacement node (`task-638-691-extract-constants-to-core-v4`).
