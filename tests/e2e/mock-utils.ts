@@ -39,6 +39,27 @@ export async function mockFileSystemAccess(
 }
 
 /**
+ * Triggers a file picker upload using standard locator inputs.
+ */
+export async function mockFilePicker(
+  page: Page,
+  locatorOrSelector: string | import('@playwright/test').Locator,
+  fileContent: Uint8Array | number[] | string,
+  fileName: string = 'test.sav',
+) {
+  let fileBuffer: Buffer;
+  if (typeof fileContent === 'string') {
+    fileBuffer = Buffer.from(fileContent);
+  } else if (fileContent instanceof Uint8Array) {
+    fileBuffer = Buffer.from(fileContent);
+  } else {
+    fileBuffer = Buffer.from(new Uint8Array(fileContent));
+  }
+  const locator = typeof locatorOrSelector === 'string' ? page.locator(locatorOrSelector) : locatorOrSelector;
+  await locator.setInputFiles({ name: fileName, mimeType: 'application/octet-stream', buffer: fileBuffer });
+}
+
+/**
  * Mocks the offline state.
  */
 export async function mockOfflineState(page: Page, isOffline: boolean = true) {
