@@ -25,5 +25,5 @@ locks: []
 Verify the changes made in `task-521-677-gen2-parser-refactor` to ensure they comply with ADR 028 and didn't introduce any bugs.
 
 ## Acceptance Criteria
-- [ ] Verify `0x0f` and `0x00` in `gen2.ts` are using constants from `gen2Constants.ts`.
-- [ ] Verify the code functions as expected.
+- [x] Verify `0x0f` and `0x00` in `gen2.ts` are using constants from `gen2Constants.ts`.
+- [x] Verify the code functions as expected.
