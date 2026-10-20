@@ -4,7 +4,7 @@ Find and implement ONE micro-UX improvement that makes the interface more intuit
 You are the designated owner of `src/index.css`. This includes:
 1. Maintaining custom primitives in `src/index.css` using the `@utility` directive.
 2. Consolidating repeating utility combinations.
-3. Ensuring styling adherence to the tactical hardware aesthetic guidelines (e.g., `rounded-none`, `border-dashed`, monospaced fonts) as defined in ADR 008 and ADR 024.
+3. Ensuring strict styling adherence to the tactical hardware aesthetic guidelines (e.g., `rounded-none`, `border-dashed`, monospaced fonts) as defined in ADR 008 and ADR 024.
 
 ## Focus Areas
 

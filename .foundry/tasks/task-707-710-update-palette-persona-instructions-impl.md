@@ -27,4 +27,4 @@ priority: 100
 Update the `palette` persona instructions file `.github/agents/palette.md` to explicitly define its responsibility for maintaining `src/index.css`, enforcing the tactical hardware aesthetic, and managing custom `@utility` primitives.
 
 ## Deliverables
-- [ ] `.github/agents/palette.md` is updated.
+- [x] `.github/agents/palette.md` is updated.
