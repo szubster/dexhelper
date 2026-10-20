@@ -25,4 +25,8 @@ locks: []
 Refactor existing UI components in DexHelper to support dynamic importing via `React.lazy`. Establish the necessary architectural boundaries and utility wrappers to ensure lazy loading can be safely implemented across the application without UI blocking or flashing.
 
 ## Acceptance Criteria
-- [ ] Decompose into granular TASK nodes
+- [x] Decompose into granular TASK nodes
+- [ ] task-402-649-001-lazy-loading-wrapper
+- [ ] task-402-649-002-refactor-pokemon-details
+- [ ] task-402-649-003-refactor-dashboard-ui
+- [ ] task-402-649-004-qa-lazy-loading
