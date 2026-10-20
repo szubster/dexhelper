@@ -2,12 +2,12 @@
 id: task-402-649-001-lazy-loading-wrapper
 type: TASK
 title: Create Lazy Loading Wrapper Utility
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-18T00:21:16Z'
 updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: '6036744551255240156'
+jules_session_id: null
 pr_number: null
 parent: story-402-649-refactor-ui-lazy-loading
 tags:

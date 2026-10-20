@@ -2,7 +2,7 @@
 id: task-707-711-update-palette-persona-instructions-qa
 type: TASK
 title: Update Palette Persona Instructions QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-19'
 updated_at: '2026-10-20'

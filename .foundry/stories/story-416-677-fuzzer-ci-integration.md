@@ -2,10 +2,10 @@
 id: story-416-677-fuzzer-ci-integration
 type: STORY
 title: Orchestrator Fuzzer CI Integration
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-16T13:00:51.663Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on:
   - story-416-676-fuzzer-deadlock-assertions
 jules_session_id: null

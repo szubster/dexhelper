@@ -2,7 +2,7 @@
 id: story-402-649-refactor-ui-lazy-loading
 type: STORY
 title: Refactor UI Components for Lazy Loading
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-12T16:56:51Z'
 updated_at: '2026-10-20'
@@ -15,7 +15,8 @@ tags:
   - performance
   - lazy-loading
 research_references: []
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 ---
 

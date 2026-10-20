@@ -2,12 +2,12 @@
 id: research-492-690-investigate-pal-park-batch-ui-failure
 type: RESEARCH
 title: Investigate Pal Park Batch UI Component Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-15'
-updated_at: '2026-10-17'
+updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: '10809547727901240067'
+jules_session_id: null
 pr_number: null
 parent: story-420-492-pal-park-batch-generation
 tags:

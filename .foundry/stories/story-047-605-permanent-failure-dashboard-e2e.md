@@ -2,10 +2,10 @@
 id: story-047-605-permanent-failure-dashboard-e2e
 type: STORY
 title: E2E Verification for Permanent Failure Dashboard UI
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-21'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,5 +31,5 @@ The implementation stories for epic-034-047-permanent-failure-dashboard-ui are c
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-605-687-permanent-failure-dashboard-e2e-tests
-- [ ] task-605-688-permanent-failure-dashboard-e2e-qa
+- [x] task-605-687-permanent-failure-dashboard-e2e-tests
+- [x] task-605-688-permanent-failure-dashboard-e2e-qa

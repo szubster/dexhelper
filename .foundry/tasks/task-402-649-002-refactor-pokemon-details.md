@@ -2,7 +2,7 @@
 id: task-402-649-002-refactor-pokemon-details
 type: TASK
 title: Apply Lazy Loading to Pokemon Details UI
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-18T00:21:26Z'
 updated_at: '2026-10-20'

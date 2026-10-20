@@ -2,10 +2,10 @@
 id: story-522-522-gen2-parser-refactor-e2e
 type: STORY
 title: E2E Verification of Gen 2 Parser Refactoring
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-09-03'
+updated_at: '2026-10-20'
 depends_on:
   - story-522-521-gen2-parser-refactor-impl
 jules_session_id: null
@@ -15,6 +15,8 @@ tags:
   - e2e
   - integration
   - gen2
+locks: []
+rejection_reason: ''
 ---
 
 # STORY: E2E Verification of Gen 2 Parser Refactoring

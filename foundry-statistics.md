@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-20T19:44:05.211Z*
+*Generated at: 2026-10-20T22:48:13.245Z*
 
 ## Node Statistics
 
@@ -10,29 +10,29 @@
 | ADR | 44 |
 | EPIC | 499 |
 | IDEA | 233 |
-| PRD | 206 |
+| PRD | 207 |
 | RESEARCH | 301 |
-| STORY | 1050 |
+| STORY | 1053 |
 | TASK | 2674 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3248 |
-| ACTIVE | 138 |
-| CANCELLED | 794 |
-| PENDING | 769 |
-| READY | 37 |
+| COMPLETED | 3256 |
+| ACTIVE | 143 |
+| CANCELLED | 800 |
+| PENDING | 768 |
+| READY | 27 |
 | BLOCKED | 14 |
-| FAILED | 7 |
+| FAILED | 3 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9783 |
-| Open PRs | 153 |
-| Merged PRs | 8482 |
+| Total PRs | 9796 |
+| Open PRs | 158 |
+| Merged PRs | 8490 |
 | Closed PRs | 1148 |
 
 ## Rejection Counts
@@ -140,6 +140,7 @@
 | research-517-649-investigate-mystery-gift-saves-failure.md | 3 |
 | research-523-690-investigate-gen3-move-tutor-fixtures-failure.md | 3 |
 | research-527-673-investigate-safari-zone-area-map-failure.md | 3 |
+| research-527-690-investigate-safari-zone-area-map-failure-v2.md | 3 |
 | research-531-620-investigate-mgba-memory-sync-failure.md | 3 |
 | research-534-676-investigate-idea-reverification-failure.md | 3 |
 | research-537-689-investigate-runtime-state-hydration-failure.md | 3 |
@@ -391,7 +392,6 @@
 | research-478-676-investigate-locking-failure-retry.md | 2 |
 | research-517-668-investigate-orchestrator-generic-prompt-failure.md | 2 |
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
-| research-527-690-investigate-safari-zone-area-map-failure-v2.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
@@ -771,6 +771,7 @@
 | story-397-360-gen3-roamer-integration-e2e.md | 1 |
 | story-398-433-save-state-read-write-api-e2e.md | 1 |
 | story-402-527-drive-webhook-registration.md | 1 |
+| story-402-649-refactor-ui-lazy-loading.md | 1 |
 | story-406-413-bike-requirement-heatmap.md | 1 |
 | story-407-573-item-gating-data-mapping.md | 1 |
 | story-408-490-orchestrator-themed-output-impl.md | 1 |
@@ -953,6 +954,8 @@
 | task-561-615-pokerus-e2e-uninfected-cured.md | 1 |
 | task-561-668-spinda-rendering-types.md | 1 |
 | task-561-669-spinda-rendering-ui.md | 1 |
+| task-561-690-pokerus-spread-planner-e2e-impl.md | 1 |
+| task-561-704-orchestrator-dag-graphology-impl-retry.md | 1 |
 | task-562-586-pokeblock-recommendation-logic.md | 1 |
 | task-562-590-gen3-dashboard-layout-and-routing-impl.md | 1 |
 | task-562-596-gen3-missed-items-extraction-qa.md | 1 |
@@ -978,6 +981,7 @@
 | task-618-688-multi-box-ev-filters-logic.md | 1 |
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
+| task-638-691-extract-constants-to-core-v4.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
