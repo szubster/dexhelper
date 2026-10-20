@@ -28,7 +28,7 @@ locks: []
 Implement the UI components for the "bounty board" side panel that displays uncaught rare encounters in the Safari Zone, ensuring adherence to the tactical UI aesthetics defined in ADR 024.
 
 ## Acceptance Criteria
-- [ ] Implement the `SafariBountyBoard` component
-- [ ] Strictly use tactical UI CSS utilities and avoid long strings of inline classes by leveraging `@utility` classes where appropriate
-- [ ] Integrate with the data hook built in the previous task to display uncaught rare encounters
-- [ ] Include proper unit tests to ensure components render correctly
+- [x] Implement the `SafariBountyBoard` component
+- [x] Strictly use tactical UI CSS utilities and avoid long strings of inline classes by leveraging `@utility` classes where appropriate
+- [x] Integrate with the data hook built in the previous task to display uncaught rare encounters
+- [x] Include proper unit tests to ensure components render correctly
