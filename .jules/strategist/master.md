@@ -422,3 +422,11 @@ Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing 
 **Outcome:** Merged
 **Why:** Item 2 under `## Core Directives` in `.github/agents/epic_planner.md` explicitly duplicated instructions requiring a final story for Integration and E2E Verification. This rule is already centrally defined and globally enforced for all generative personas in `.foundry/docs/knowledge_base/agents/core_policies.md` under "Orchestrator Safeguard (E2E/Integration Requirement)". Since `core_policies.md` is automatically appended to all persona prompts by the orchestrator at dispatch time, repeating this instruction in `epic_planner.md` creates token bloat and risk of prompt rot.
 **Pattern:** Regularly scrub agent persona prompts for duplicate instructions that are centrally defined in `core_policies.md` to keep prompts lean and maintain a single source of truth.
+
+---
+
+## 2026-10-20 - [Accepted] - Prompt improvement - Correct schedule maintenance boundary in Archivist prompt
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** The `.github/agents/archivist.md` schedule contained inaccurate statements in its Scope table and Boundaries section claiming that schedule prompts in `.github/agents/` are 'maintained manually'. In reality, agent schedule prompts are maintained and evolved autonomously by the `strategist` persona. Correcting these statements aligns Archivist's prompt boundaries with actual operational reality.
+**Pattern:** Ensure boundary rules and scope tables across agent prompts accurately reflect autonomous system roles and maintenance ownership.

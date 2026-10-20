@@ -26,6 +26,6 @@ locks: []
 This node investigates the permanent failure of `task-638-669-extract-constants-to-core-v3`. The previous iteration attempted to extract constants to the core package but permanently failed.
 
 ## Acceptance Criteria
-- [ ] Investigate the root cause of the failure of `task-638-669-extract-constants-to-core-v3` by checking git history, orchestrator logs, or recent commits.
-- [ ] Propose a revised, concrete strategy for successfully extracting these constants to the `core` package without causing errors.
-- [ ] Document findings in the researcher persona journal.
+- [x] Investigate the root cause of the failure of `task-638-669-extract-constants-to-core-v3` by checking git history, orchestrator logs, or recent commits.
+- [x] Propose a revised, concrete strategy for successfully extracting these constants to the `core` package without causing errors.
+- [x] Document findings in the researcher persona journal.
