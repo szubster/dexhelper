@@ -2,12 +2,12 @@
 id: story-418-676-historical-stats-git-parser
 type: STORY
 title: Historical Stats Git Parser CLI
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18160837357709487379'
 pr_number: null
 parent: epic-146-418-historical-statistics-backfilling
 tags:
