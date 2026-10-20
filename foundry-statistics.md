@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-20T00:45:19.499Z*
+*Generated at: 2026-10-20T05:29:25.169Z*
 
 ## Node Statistics
 
@@ -13,18 +13,27 @@
 | PRD | 206 |
 | RESEARCH | 295 |
 | STORY | 1044 |
-| TASK | 2657 |
+| TASK | 2658 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3226 |
-| ACTIVE | 141 |
+| COMPLETED | 3232 |
+| ACTIVE | 137 |
 | CANCELLED | 776 |
-| PENDING | 784 |
-| READY | 29 |
+| PENDING | 786 |
+| READY | 28 |
 | BLOCKED | 14 |
-| FAILED | 8 |
+| FAILED | 6 |
+
+## PR Metrics
+
+| Metric | Count |
+|---|---|
+| Total PRs | 9757 |
+| Open PRs | 155 |
+| Merged PRs | 8456 |
+| Closed PRs | 1146 |
 
 ## Rejection Counts
 
@@ -241,6 +250,7 @@
 | task-521-676-gen3-submodules-constants-impl.md | 3 |
 | task-522-549-gen3-move-tutor-compatibility-logic-coder.md | 3 |
 | task-522-680-wip-signaling-e2e-tests.md | 3 |
+| task-522-685-wip-awareness-e2e-orchestrator-tests.md | 3 |
 | task-523-676-gen3-move-tutor-e2e-fixtures.md | 3 |
 | task-526-554-pathfinder-selection-components-impl.md | 3 |
 | task-527-596-safari-zone-area-map-ui.md | 3 |
@@ -368,14 +378,18 @@
 | prd-089-054-gen3-ash-gathering-tracker.md | 2 |
 | prd-421-521-automated-schema-linting.md | 2 |
 | research-407-676-e2e-failure-investigation.md | 2 |
+| research-423-687-investigate-ai-mapping-test-failure-v4.md | 2 |
+| research-424-703-investigate-gen3-lottery-e2e-failure.md | 2 |
 | research-472-675-investigate-e2e-tests-failure-v2.md | 2 |
 | research-473-638-investigate-condition-stats-parser-failure-v2.md | 2 |
+| research-475-690-gen3-condition-stats-extraction-e2e-failure.md | 2 |
 | research-478-676-investigate-locking-failure-retry.md | 2 |
 | research-517-668-investigate-orchestrator-generic-prompt-failure.md | 2 |
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
+| research-608-690-investigate-text-search-e2e-failure-v2.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
 | story-042-081-preserve-enum-optimizations.md | 2 |
@@ -435,6 +449,7 @@
 | task-478-617-msgpack-prefetch-integration-tests.md | 2 |
 | task-478-618-msgpack-prefetch-e2e-tests.md | 2 |
 | task-478-619-msgpack-prefetch-qa.md | 2 |
+| task-478-677-aggregate-active-locks-retry-2.md | 2 |
 | task-490-502-render-persona-badges-impl.md | 2 |
 | task-495-550-hof-export-image-renderer.md | 2 |
 | task-519-546-dashboard-layouts-coder.md | 2 |
@@ -445,7 +460,6 @@
 | task-520-551-gen2-constants-qa.md | 2 |
 | task-521-528-statistics-e2e.md | 2 |
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
-| task-522-685-wip-awareness-e2e-orchestrator-tests.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-536-562-implement-mocking-utilities.md | 2 |
 | task-536-564-playwright-style-guide-mock-utils.md | 2 |
@@ -471,6 +485,7 @@
 | task-565-576-gen3-pokedex-gaps-e2e-coder.md | 2 |
 | task-565-606-hunting-progress-notifications.md | 2 |
 | task-570-618-cva-tactical-aesthetic-e2e-coder-retry.md | 2 |
+| task-574-690-item-gating-ui-components.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-619-687-multi-box-stat-filters-e2e-tests.md | 2 |
@@ -714,22 +729,19 @@
 | research-422-460-gen3-opponent-ai-data.md | 1 |
 | research-422-658-tm-inventory-extraction-failure-retry.md | 1 |
 | research-423-668-investigate-ai-mapping-test-failure-v2.md | 1 |
-| research-423-687-investigate-ai-mapping-test-failure-v4.md | 1 |
-| research-424-703-investigate-gen3-lottery-e2e-failure.md | 1 |
 | research-470-558-japanese-gen2-offsets.md | 1 |
-| research-475-690-gen3-condition-stats-extraction-e2e-failure.md | 1 |
 | research-477-506-gen3-mystery-gift-event-flag-offsets.md | 1 |
 | research-478-676-investigate-kurt-apricorn-types-failure.md | 1 |
 | research-479-608-investigate-gen3-pokeblock-e2e-failure.md | 1 |
 | research-494-495-gen3-egg-hatch-fixture.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
+| research-527-690-investigate-safari-zone-area-map-failure-v2.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
 | research-551-690-investigate-orchestrator-priority-tests-v2-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
-| research-608-690-investigate-text-search-e2e-failure-v2.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
@@ -855,7 +867,6 @@
 | task-478-507-gen2-ruins-of-alph-parsing-logic.md | 1 |
 | task-478-508-gen2-ruins-of-alph-qa.md | 1 |
 | task-478-515-impl-pokeblock-parser.md | 1 |
-| task-478-677-aggregate-active-locks-retry-2.md | 1 |
 | task-479-609-gen3-pokeblock-e2e-impl-v2.md | 1 |
 | task-479-610-gen3-pokeblock-e2e-qa-v2.md | 1 |
 | task-479-677-e2e-dynamic-bundles.md | 1 |
@@ -947,7 +958,6 @@
 | task-569-578-cva-refactor-tactical-panel-card.md | 1 |
 | task-571-578-cva-refactor-basic-inputs.md | 1 |
 | task-574-659-archival-file-move-automation-qa.md | 1 |
-| task-574-690-item-gating-ui-components.md | 1 |
 | task-578-589-visualizer-state-refactor.md | 1 |
 | task-580-595-gen3-friendship-data-extraction-e2e-coder.md | 1 |
 | task-580-649-gen3-fossil-schema-docs-impl.md | 1 |

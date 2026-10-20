@@ -2,13 +2,13 @@
 id: task-521-677-gen2-parser-refactor
 type: TASK
 title: Refactor Gen 2 Parser magic numbers
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-10-20'
 depends_on:
   - task-521-676-gen2-constants
-jules_session_id: '6430522978241097707'
+jules_session_id: null
 pr_number: null
 parent: story-522-521-gen2-parser-refactor-impl
 tags:
@@ -16,7 +16,7 @@ tags:
   - save-parsing
   - offset-mapping
   - gen2
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 locks: []
 ---
 # TASK: Refactor Gen 2 Parser magic numbers

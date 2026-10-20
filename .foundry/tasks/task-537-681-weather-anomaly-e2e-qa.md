@@ -2,13 +2,13 @@
 id: task-537-681-weather-anomaly-e2e-qa
 type: TASK
 title: QA Gen 3 Weather Anomaly Data E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-24'
 updated_at: '2026-10-20'
 depends_on:
   - task-537-680-weather-anomaly-e2e-tests
-jules_session_id: '15761550901097194252'
+jules_session_id: null
 pr_number: null
 parent: story-517-537-gen3-weather-anomaly-data-e2e
 tags:

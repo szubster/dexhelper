@@ -2,7 +2,7 @@
 id: task-522-685-wip-awareness-e2e-orchestrator-tests
 type: TASK
 title: Implement Orchestrator WIP Awareness Tests
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-13'
 updated_at: '2026-10-20'
@@ -17,8 +17,8 @@ tags:
   - wip
   - e2e
 research_references: []
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 experiment_variants: []
 locks: []

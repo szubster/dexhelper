@@ -2,10 +2,10 @@
 id: research-608-690-investigate-text-search-e2e-failure-v2
 type: RESEARCH
 title: Investigate Multi-Box Text Search Engine E2E Failure (v2)
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-15'
-updated_at: '2026-10-19'
+updated_at: '2026-10-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,8 +13,8 @@ parent: story-574-608-multi-box-text-search-engine
 tags:
   - e2e
   - search
-rejection_count: 1
-rejection_reason: 'Session terminated with state: COMPLETED'
+rejection_count: 2
+rejection_reason: ''
 notes: Spawned to investigate task-608-674 and research-608-673 permanent failures
 locks: []
 ---

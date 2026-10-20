@@ -2,10 +2,10 @@
 id: task-522-686-wip-awareness-e2e-qa
 type: TASK
 title: QA WIP Orchestrator Awareness E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-13'
-updated_at: '2026-10-17'
+updated_at: '2026-10-20'
 depends_on:
   - task-522-685-wip-awareness-e2e-orchestrator-tests
 jules_session_id: null
@@ -19,7 +19,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-522-685-wip-awareness-e2e-orchestrator-tests
 notes: ''
 experiment_variants: []
 locks: []
