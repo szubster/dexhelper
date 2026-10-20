@@ -4177,6 +4177,67 @@ Target artifact: task-completed
     stderrSpy.mockRestore();
   });
 
+  test('Phase 4.5: Auto-checking non-node criteria in generation node', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-autocheck.md', {
+      id: "epic-autocheck",
+      type: "EPIC",
+      title: "Epic with plain text tasks",
+      status: "PENDING",
+      owner_persona: "story_owner",
+    }, `
+# Epic
+Just some epic.
+
+## Acceptance Criteria
+- [ ] just a plain text checkbox
+- [ ] [some link](https://example.com)
+- [ ] story-001
+`);
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "E2E Integration Story",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      parent: "epic-autocheck",
+      tags: ["e2e"],
+    }, `
+# Story
+`);
+
+    main();
+
+    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-autocheck.md'), 'utf-8');
+    expect(parentContent).toContain('status: COMPLETED');
+    expect(parentContent).toContain('- [x] just a plain text checkbox');
+    expect(parentContent).toContain('- [x] [some link](https://example.com)');
+    expect(parentContent).toContain('- [x] story-001');
+  });
+
+  test('Phase 4.5: Does not auto-check non-node criteria if child node does not exist', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-autocheck.md', {
+      id: "epic-autocheck",
+      type: "EPIC",
+      title: "Epic with plain text tasks",
+      status: "PENDING",
+      owner_persona: "story_owner",
+    }, `
+# Epic
+Just some epic.
+
+## Acceptance Criteria
+- [ ] just a plain text checkbox
+- [ ] story-002
+`);
+
+    main();
+
+    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-autocheck.md'), 'utf-8');
+    expect(parentContent).toContain('status: READY'); // Should remain pending since child doesn't exist
+    expect(parentContent).toContain('- [ ] just a plain text checkbox');
+  });
+
   test('Phase 4.5: Non-node references in body (like adr-compliance) do not trigger unresolvable node warnings or strict mode failure', () => {
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
       id: "epic-001",
