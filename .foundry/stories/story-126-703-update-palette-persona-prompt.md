@@ -27,5 +27,6 @@ priority: 100
 Update the palette persona prompt to explicitly define its responsibility for maintaining src/index.css, enforcing the tactical hardware aesthetic, and managing custom @utility primitives.
 
 ## Acceptance Criteria
+- [ ] task-703-710-update-palette-persona-prompt
 - [ ] The palette persona prompt file is updated.
 - [ ] Responsibilities for src/index.css, tactical aesthetic, and @utility primitives are explicitly stated.
