@@ -2,13 +2,13 @@
 id: task-498-677-gen3-e-reader-ui-integration
 type: TASK
 title: Gen 3 E-Reader UI Integration
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-11'
 updated_at: '2026-10-20'
 depends_on:
   - task-498-676-gen3-e-reader-ui-presentation
-jules_session_id: null
+jules_session_id: '12235190024195317783'
 pr_number: null
 parent: story-405-498-gen3-e-reader-dashboard-components
 tags:
