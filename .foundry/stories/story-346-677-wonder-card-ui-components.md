@@ -31,7 +31,11 @@ Develop reusable UI components (e.g., TacticalPanel, TacticalCard) to display in
 ## Acceptance Criteria
 - [ ] Create Wonder Card display components.
 - [ ] Apply tactical aesthetic styling (ADR 008).
-- [ ] Tech Lead: Break this Story down into actionable Tasks.
+- [x] Tech Lead: Break this Story down into actionable Tasks.
+- [ ] task-677-712-wonder-card-primitives-impl
+- [ ] task-677-713-wonder-card-display-impl
+- [ ] task-677-714-wonder-card-integration-impl
+- [ ] task-677-715-wonder-card-ui-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
