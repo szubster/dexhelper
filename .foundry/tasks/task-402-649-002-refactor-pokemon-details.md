@@ -31,6 +31,6 @@ Refactor the UI components within `PokemonDetails.tsx` and `PokemonCaughtDetails
 - Ensure fallbacks are properly sized for the respective content blocks.
 
 ## Acceptance Criteria
-- [ ] Replace `React.Suspense` blocks in `src/components/PokemonDetails.tsx`.
-- [ ] Replace `React.Suspense` blocks in `src/components/pokemon/details/PokemonCaughtDetails.tsx`.
-- [ ] Verify that UI does not flash or block during loading.
+- [x] Replace `React.Suspense` blocks in `src/components/PokemonDetails.tsx`.
+- [x] Replace `React.Suspense` blocks in `src/components/pokemon/details/PokemonCaughtDetails.tsx`.
+- [x] Verify that UI does not flash or block during loading.
