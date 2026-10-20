@@ -2,13 +2,13 @@
 id: task-561-704-orchestrator-dag-graphology-impl-retry
 type: TASK
 title: Implement Graphology for DAG Operations (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-20'
 depends_on:
   - research-561-703-orchestrator-dag-graphology-failure
-jules_session_id: null
+jules_session_id: '17582829865892060202'
 pr_number: null
 parent: story-540-561-implement-orchestrator-state-graph-engine
 tags:
