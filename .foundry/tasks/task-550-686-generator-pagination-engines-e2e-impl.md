@@ -26,5 +26,5 @@ locks: []
 Write integration and E2E tests for the generator pagination engines. Ensure pagination is working correctly with the generator architecture.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for pagination engines using Playwright.
-- [ ] Tests must verify pagination limits, offsets, and lazy loading integration.
+- [x] Implement E2E tests for pagination engines using Playwright.
+- [x] Tests must verify pagination limits, offsets, and lazy loading integration.
