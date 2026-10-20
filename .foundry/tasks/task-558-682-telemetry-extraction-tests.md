@@ -27,4 +27,4 @@ locks: []
 Write comprehensive unit tests in `packages/foundry/utils/statistics.test.ts` to verify that `aggregateNodeStatistics` correctly parses and calculates `rejection_count` and wait times.
 
 ## Acceptance Criteria
-- [ ] Coder: Add vitest unit tests for telemetry logic.
+- [x] Coder: Add vitest unit tests for telemetry logic.
