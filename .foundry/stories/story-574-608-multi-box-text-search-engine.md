@@ -38,5 +38,7 @@ As part of the Multi-Box Search Engine epic, we need to implement the core searc
 - [x] task-608-619-multi-box-text-search-engine-e2e
 - [x] research-608-673-investigate-text-search-e2e-failure
 - [x] task-608-674-multi-box-text-search-engine-e2e-retry
-- [ ] research-608-690-investigate-text-search-e2e-failure-v2
-- [ ] task-608-691-multi-box-text-search-engine-e2e-retry-v2
+- [x] research-608-690-investigate-text-search-e2e-failure-v2
+- [x] task-608-691-multi-box-text-search-engine-e2e-retry-v2
+- [ ] research-608-712-investigate-text-search-e2e-failure-v3
+- [ ] task-608-713-multi-box-text-search-engine-e2e-retry-v3
