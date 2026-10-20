@@ -14,7 +14,7 @@ import {
   loadState,
   runChangelogEngine,
   saveState,
-  updateTaskNodeForCommit
+  updateTaskNodeForBatch
 } from './changelog-engine.ts';
 
 describe('changelog-engine', () => {
@@ -232,21 +232,41 @@ describe('changelog-engine', () => {
   });
 
   describe('task node updates & continuous node creation', () => {
-    it('updates task node status to READY and injects commit details, date, previous commit SHA, diff summary, and diff instructions', () => {
-      const commitDetails = {
-        sha: 'abcdef1234567890',
-        message: 'feat(ui): add new party analyzer widget',
-        date: '2026-08-15',
-        files: ['src/components/PartyAnalyzer.tsx'],
-        diffStat: '1 file changed, 25 insertions(+)'
-      };
-      const classification = {
-        action: 'dispatch' as const,
-        reason: 'Ad-hoc user-facing Dexhelper code modification',
-        domain: 'dexhelper' as const
-      };
+    it('updates task node status to READY and injects commit batch details and instructions', () => {
+      const batch = [
+        {
+          details: {
+            sha: 'abcdef1234567890',
+            message: 'feat(ui): add new party analyzer widget',
+            date: '2026-08-15',
+            files: ['src/components/PartyAnalyzer.tsx'],
+            diffStat: '1 file changed, 25 insertions(+)'
+          },
+          classification: {
+            action: 'dispatch' as const,
+            reason: 'Ad-hoc user-facing Dexhelper code modification',
+            domain: 'dexhelper' as const
+          },
+          previousSha: '1234567890abcdef'
+        },
+        {
+          details: {
+            sha: 'fedcba0987654321',
+            message: 'fix(ui): resolve layout overlap in party analyzer',
+            date: '2026-08-16',
+            files: ['src/components/PartyAnalyzer.tsx'],
+            diffStat: '1 file changed, 3 insertions(+), 2 deletions(-)'
+          },
+          classification: {
+            action: 'dispatch' as const,
+            reason: 'Ad-hoc user-facing Dexhelper code modification',
+            domain: 'dexhelper' as const
+          },
+          previousSha: 'abcdef1234567890'
+        }
+      ];
 
-      updateTaskNodeForCommit(commitDetails, classification, testTaskPath, '1234567890abcdef');
+      updateTaskNodeForBatch(batch, testTaskPath);
 
       expect(fs.existsSync(testTaskPath)).toBe(true);
       const raw = fs.readFileSync(testTaskPath, 'utf8');
@@ -254,15 +274,11 @@ describe('changelog-engine', () => {
 
       expect(parsed.data.status).toBe('READY');
       expect(parsed.data.owner_persona).toBe('changelogger');
+      expect(parsed.content).toContain('Batch Size:** 2');
       expect(parsed.content).toContain('abcdef1234567890');
-      expect(parsed.content).toContain('1234567890abcdef');
-      expect(parsed.content).toContain('2026-08-15');
-      expect(parsed.content).toContain('## Diff Summary');
-      expect(parsed.content).toContain('1 file changed, 25 insertions(+)');
-      expect(parsed.content).toContain('git show abcdef1234567890');
-      expect(parsed.content).toContain('git fetch --unshallow');
-      expect(parsed.content).toContain('diff link comparing previous release commit SHA to new release commit SHA');
-      expect(parsed.content).toContain('feat(ui): add new party analyzer widget');
+      expect(parsed.content).toContain('fedcba0987654321');
+      expect(parsed.content).toContain('Grouping / Merging');
+      expect(parsed.content).toContain('merge entries into a previous release header');
     });
 
     it('creates continuous maintenance idea node correctly', () => {
