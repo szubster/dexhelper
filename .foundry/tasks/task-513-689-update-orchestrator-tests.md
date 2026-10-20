@@ -2,12 +2,12 @@
 id: task-513-689-update-orchestrator-tests
 type: TASK
 title: Update Orchestrator Idempotent Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
-created_at: "2026-10-16T02:25:18.835Z"
-updated_at: "2026-10-16"
+created_at: '2026-10-16T02:25:18.835Z'
+updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16725831149726325816'
 parent: story-018-513-orchestrator-test-updates
 rejection_count: 0
 rejection_reason: ''
