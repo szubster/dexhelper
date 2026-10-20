@@ -27,4 +27,4 @@ locks: []
 Update `generateStatistics` in `packages/foundry/generate-statistics.ts` to output the new telemetry metrics inside `foundry-statistics.json` and append the telemetry data tables to `foundry-statistics.md`.
 
 ## Acceptance Criteria
-- [ ] Coder: Update JSON and Markdown output generation in `generateStatistics`.
+- [x] Coder: Update JSON and Markdown output generation in `generateStatistics`.
