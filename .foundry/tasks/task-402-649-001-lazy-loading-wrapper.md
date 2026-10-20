@@ -31,6 +31,6 @@ Create a reusable React utility (e.g., `LazyLoadWrapper` or a HOC) that handles 
 - Add unit tests verifying fallback rendering during suspension.
 
 ## Acceptance Criteria
-- [ ] Create `LazyLoadWrapper` utility in `src/components/` or `src/utils/`.
-- [ ] Write unit tests for the utility.
-- [ ] Ensure tactical aesthetic adherence in fallbacks.
+- [x] Create `LazyLoadWrapper` utility in `src/components/` or `src/utils/`.
+- [x] Write unit tests for the utility.
+- [x] Ensure tactical aesthetic adherence in fallbacks.
