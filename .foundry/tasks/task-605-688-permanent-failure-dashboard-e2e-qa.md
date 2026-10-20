@@ -33,7 +33,7 @@ Verify the E2E tests for the "Permanent Failures" dashboard view implemented by 
 A coder has just implemented Playwright E2E tests for the "Permanent Failures" view in the DAG Dashboard. We need to review and ensure the tests are robust, use correct locators, and follow our Playwright E2E Best Practices (e.g., using relative paths, handling Vite base URL correctly, targeting specific files).
 
 ## Acceptance Criteria
-- [ ] Review the Playwright E2E test file (`tests/e2e/dashboard/permanent_failures.spec.ts` or similar).
-- [ ] Ensure the tests use relative paths for navigation (e.g., `./dag`).
-- [ ] Run the tests using `xvfb-run -a pnpm test:e2e tests/e2e/dashboard/permanent_failures.spec.ts` to ensure they pass.
-- [ ] Verify that the E2E tests adequately cover the filtering logic and UI aesthetics (red border, brightness) for permanently failed nodes.
+- [x] Review the Playwright E2E test file (`tests/e2e/dashboard/permanent_failures.spec.ts` or similar).
+- [x] Ensure the tests use relative paths for navigation (e.g., `./dag`).
+- [x] Run the tests using `xvfb-run -a pnpm test:e2e tests/e2e/dashboard/permanent_failures.spec.ts` to ensure they pass.
+- [x] Verify that the E2E tests adequately cover the filtering logic and UI aesthetics (red border, brightness) for permanently failed nodes.
