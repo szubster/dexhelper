@@ -733,7 +733,12 @@ function main(): void {
   info('Phase 3.0: Checking for max rejection threshold...');
   for (const node of nodes) {
     if (node.frontmatter.status === 'FAILED' && (node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD) {
-      promoteNodeToCancelledWithReason(node, 'Max rejection count reached');
+      const reason = node.frontmatter.rejection_reason || '';
+      if (reason.includes('Session terminated with state: NOT_FOUND') || reason.includes('Session terminated with state: INTERNAL_ERROR')) {
+        warn(`Infrastructure error detected for node ${node.frontmatter.id}. Skipping max rejection threshold cancellation.`);
+      } else {
+        promoteNodeToCancelledWithReason(node, 'Max rejection count reached');
+      }
     }
   }
 
