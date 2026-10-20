@@ -36,4 +36,7 @@ Integrate the orchestrator fuzzer into the CI/CD pipeline and add assertions for
 3. This Epic acts as the overarching verification epic and MUST generate a final STORY dedicated exclusively to Integration and E2E Verification.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories.
+- [x] Break down into Stories.
+- [ ] story-416-676-fuzzer-deadlock-assertions
+- [ ] story-416-677-fuzzer-ci-integration
+- [ ] story-416-678-fuzzer-ci-e2e
