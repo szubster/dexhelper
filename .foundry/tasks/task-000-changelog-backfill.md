@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-10-20'
@@ -27,36 +27,42 @@ notes: >-
 
 Target commit details injected by `changelog-engine.ts`:
 
-- **Commit SHA:** `961413c214332bc0ff9e90bfd13630da9a04c67f`
-- **Previous Commit SHA:** `21e7285bd77b0452052de81bfa17db1405ecefa4`
+- **Commit SHA:** `edbf0c9005b78906051b1bc371acc754b0a466bd`
+- **Previous Commit SHA:** `961413c214332bc0ff9e90bfd13630da9a04c67f`
 - **Commit Date:** `2026-04-03`
 - **Classification Reason:** Ad-hoc user-facing Dexhelper code modification
 - **Recommended Domain:** dexhelper
-- **Suggested SemVer Bump:** `patch` (from `0.24.2` -> `0.24.3`)
+- **Suggested SemVer Bump:** `patch` (from `0.24.3` -> `0.24.4`)
 
 ## Commit Message
 ```text
-⚡ [Performance] Optimize StorageGrid Rendering via Map Lookup (#50)
+⚡ perf: Extract redundant .find() in PokemonLocations render map (#51)
 
-💡 **What:** Replaced the `Array.prototype.find()` call within the
-`pokemonInLocation.map()` loop with an O(1) Map lookup. The
-`pokemonList` array is converted to a `Map` wrapped in a `React.useMemo`
-hook.
-🎯 **Why:** The previous code had an O(N * M) time complexity rendering
-loops, where N is the number of Pokemon in the current storage location,
-and M is the size of the total list of Pokemon to search from. Doing
-this optimization completely removes the nested search step on each loop
-iteration, mitigating a significant rendering bottleneck especially for
-larger datasets or active storage boxes.
-📊 **Measured Improvement:** In a local Node.js benchmark simulating
-1,000 passes of finding 3,000 elements against an array of 1,000 items:
-- **Baseline (Array.find):** ~2.689s
-- **Optimized (Map):** ~320.547ms
-- **Result:** ~8x performance improvement rendering the map lookup.
+💡 **What:** Extracted the `.find()` operation that searched
+`e.version_details` inside the `.map()` loop in
+`src/components/pokemon/details/PokemonLocations.tsx` to a single local
+variable assignment per iteration.
+
+🎯 **Why:** To improve rendering performance. In the original
+implementation, the exact same `.find()` call was being executed twice
+on each iteration just to reach the `encounter_details`. This
+essentially doubled the O(N) lookup cost inside the map rendering logic.
+
+📊 **Measured Improvement:** 
+I established a benchmark (`benchmark.js`) mapping over 1,000 simulated
+encounters (with 20 versions each) to represent an extreme list
+traversal case.
+*   **Baseline:** 1122.44ms / 1092.63ms
+*   **Optimized:** 972.77ms / 951.01ms
+*   **Speedup:** ~13.33% / 12.96%
+
+The benchmark indicates an overall 13% improvement for that loop path.
+Tests ran successfully and no functional changes were introduced (the
+code handles fallback `undefined` safely).
 
 ---
 *PR created automatically by Jules for task
-[13567059532942122715](https://jules.google.com/task/13567059532942122715)
+[998594630515626759](https://jules.google.com/task/998594630515626759)
 started by @szubster*
 
 ---------
@@ -66,18 +72,18 @@ Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
 ```
 
 ## Modified Files
-- `src/components/StorageGrid.tsx`
+- `src/components/pokemon/details/PokemonLocations.tsx`
 
 ## Diff Summary
 ```text
-961413c21 ⚡ [Performance] Optimize StorageGrid Rendering via Map Lookup (#50)
- src/components/StorageGrid.tsx | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+edbf0c900 ⚡ perf: Extract redundant .find() in PokemonLocations render map (#51)
+ .../pokemon/details/PokemonLocations.tsx           | 45 ++++++++++++----------
+ 1 file changed, 24 insertions(+), 21 deletions(-)
 ```
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing `git show 961413c214332bc0ff9e90bfd13630da9a04c67f` (or `git diff 21e7285bd77b0452052de81bfa17db1405ecefa4..961413c214332bc0ff9e90bfd13630da9a04c67f`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the commit changes above by executing `git show edbf0c9005b78906051b1bc371acc754b0a466bd` (or `git diff 961413c214332bc0ff9e90bfd13630da9a04c67f..edbf0c9005b78906051b1bc371acc754b0a466bd`) in bash to analyze the actual code diff. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.24.3] - 2026-04-03` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.24.2...0.24.3`](https://github.com/${repo}/compare/21e7285...961413c)), and update `README.md` if necessary.
+If a changelog entry or `README.md` update is warranted, create a PR adding a concise bullet point under `## [Unreleased]` or new release header `## [0.24.4] - 2026-04-03` in `CHANGELOG-dexhelper.md` with diff link comparing previous release commit SHA to new release commit SHA (e.g. [`0.24.3...0.24.4`](https://github.com/${repo}/compare/961413c...edbf0c9)), and update `README.md` if necessary.
 If Keep a Changelog link references exist at the bottom of `CHANGELOG-dexhelper.md`, update/add link reference comparing the previous commit/release to current commit/release.
 If no entry or documentation update is necessary, submit an Empty PR.
