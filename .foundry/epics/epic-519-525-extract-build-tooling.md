@@ -31,9 +31,12 @@ This epic focuses on isolating build tooling and data pipelines into the `tools/
 - Relocate `.github/scripts/` into `@dexhelper/foundry`.
 
 ## Acceptance Criteria
-- [ ] story-525-641-build-tooling-e2e-verification
+- [x] story-525-641-build-tooling-e2e-verification
 - [ ] story-525-640-relocate-foundry-scripts
-- [ ] story-525-639-extract-data-generation-scripts
+- [x] story-525-639-extract-data-generation-scripts
 - [ ] story-525-638-isolate-vite-plugins
 - [x] Break this epic down into stories for each tooling package.
 - [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+- [ ] research-525-708-investigate-data-generation-scripts-failure
+- [ ] story-525-709-extract-data-generation-scripts-retry
+- [ ] story-525-710-build-tooling-e2e-verification-retry
