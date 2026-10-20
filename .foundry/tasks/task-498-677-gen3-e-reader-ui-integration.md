@@ -32,5 +32,5 @@ Integrate the Gen 3 E-Reader dashboard presentational component with the global 
 - Integrate the component into the appropriate parent view in the application's view hierarchy.
 
 ## Acceptance Criteria
-- [ ] State bindings map the mystery gift boolean flags to the presentation layer.
-- [ ] The component is fully renderable and accessible in the main application route structure.
+- [x] State bindings map the mystery gift boolean flags to the presentation layer.
+- [x] The component is fully renderable and accessible in the main application route structure.
