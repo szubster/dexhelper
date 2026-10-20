@@ -2,13 +2,13 @@
 id: task-707-711-update-palette-persona-instructions-qa
 type: TASK
 title: Update Palette Persona Instructions QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-19'
 updated_at: '2026-10-20'
 depends_on:
   - task-707-710-update-palette-persona-instructions-impl
-jules_session_id: null
+jules_session_id: '9705094817934314006'
 pr_number: null
 parent: story-126-707-update-palette-persona-instructions
 tags:
