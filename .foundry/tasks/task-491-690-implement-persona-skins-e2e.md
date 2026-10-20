@@ -31,5 +31,5 @@ Write Playwright E2E tests to verify that the persona skins (e.g. Oak, Nurse) ar
 - Ensure tests validate the updated contexts.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests covering persona skin integration.
-- [ ] Ensure all tests pass successfully.
+- [x] Implement Playwright E2E tests covering persona skin integration.
+- [x] Ensure all tests pass successfully.
