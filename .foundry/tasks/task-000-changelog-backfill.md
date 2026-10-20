@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-10-20'
@@ -29,52 +29,102 @@ Target commit batch (5 commits) injected by `changelog-engine.ts`:
 
 - **Batch Size:** 5
 - **Primary Domain:** dexhelper
-- **Suggested Overall SemVer Bump:** `patch` (from `0.24.4` -> `0.24.5`)
-- **Range:** `edbf0c9...0a51a23`
+- **Suggested Overall SemVer Bump:** `patch` (from `0.24.5` -> `0.24.6`)
+- **Range:** `18f5e2a...7389580`
 
 ## Commits in Batch
 
-### Commit 1: `714f935`
-- **Commit SHA:** `714f935853eef834083e4543b1f8997038b562fb`
-- **Previous SHA:** `edbf0c9005b78906051b1bc371acc754b0a466bd`
-- **Date:** `2026-04-03`
+### Commit 1: `b260d6d`
+- **Commit SHA:** `b260d6ddac5a0580be847e7c19c0690ba405e5ad`
+- **Previous SHA:** `18f5e2a12afbc20796f2d70fc895d4ff085cf10c`
+- **Date:** `2026-04-05`
 - **Classification:** Ad-hoc user-facing Dexhelper code modification
 - **Domain:** dexhelper
 
 #### Message
 ```text
-⚡ Optimize Pokedex Grid Shiny lookup performance (#53)
+fix: full Gen 1 PC box parsing and empty box display (#84)
 
-💡 **What:**
-The `PokedexGrid` component maps over the `filteredPokemon` array to
-render each Pokémon card. Previously, inside this loop, it scanned both
-`saveData.partyDetails` and `saveData.pcDetails` using `.some()` to
-determine if a Pokémon should be marked as shiny.
+This PR fixes the issue where only the active PC box was displayed in
+Gen 1 saves. It also updates the Storage view to always show all boxes
+(including empty ones) with an 'EMPTY' placeholder, as requested.
+Included: unit tests for the parser and component tests for the UI.
+```
 
-This optimization uses `useMemo` to construct a single `Set` of
-`speciesId`s for all shiny Pokémon found in storage *before* iterating
-over the grid. Inside the loop, it now simply performs an O(1)
-`Set.has(pokemon.id)` lookup.
+#### Modified Files
+- `src/components/StorageGrid.spec.tsx`
+- `src/components/StorageGrid.story.tsx`
+- `src/components/StorageGrid.tsx`
+- `src/engine/saveParser/index.ts`
+- `src/engine/saveParser/saveParser.test.ts`
 
-🎯 **Why:**
-The previous implementation resulted in an $O(N \cdot M)$ time
-complexity, where $N$ is the number of Pokémon displayed and $M$ is the
-number of Pokémon in the party and PC. By pre-computing the Set, we
-reduce the complexity to $O(N + M)$, drastically improving the render
-performance, especially noticeable when dealing with large numbers of
-Pokémon in a living dex.
+#### Diff Summary
+```text
+b260d6dda fix: full Gen 1 PC box parsing and empty box display (#84)
+ src/components/StorageGrid.spec.tsx      | 25 +++++++++
+ src/components/StorageGrid.story.tsx     | 69 +++++++++++++++++++++++
+ src/components/StorageGrid.tsx           | 95 ++++++++++++++++++--------------
+ src/engine/saveParser/index.ts           | 30 +++++++++-
+ src/engine/saveParser/saveParser.test.ts | 16 ++++++
+ 5 files changed, 191 insertions(+), 44 deletions(-)
+```
 
-📊 **Measured Improvement:**
-A focused benchmark was created (`benchmark.ts`) using 1000 Pokémon and
-3000 total stored Pokémon (party/PC details combined).
-- **Baseline:** ~67.82ms
-- **Optimized:** ~0.63ms
-- **Improvement:** >100x performance increase on the shiny calculation
-pass during render.
+### Commit 2: `9006548`
+- **Commit SHA:** `9006548de5c0a2f6dd75bc330314e1c672929888`
+- **Previous SHA:** `b260d6ddac5a0580be847e7c19c0690ba405e5ad`
+- **Date:** `2026-04-05`
+- **Classification:** Ad-hoc user-facing Dexhelper code modification
+- **Domain:** dexhelper
+
+#### Message
+```text
+chore: add vite-bundle-analyzer (#90)
+
+Adds the `vite-bundle-analyzer` plugin, configured to run when the
+`ANALYZE=true` environment variable is set. Added a `build:analyze`
+script for convenience.
+```
+
+#### Modified Files
+- `.bundlemonrc.json`
+- `.github/workflows/ci.yml`
+- `.gitignore`
+- `package-lock.json`
+- `package.json`
+- `vite.config.ts`
+
+#### Diff Summary
+```text
+9006548de chore: add vite-bundle-analyzer (#90)
+ .bundlemonrc.json        |   24 +
+ .github/workflows/ci.yml |    3 +
+ .gitignore               |    1 +
+ package-lock.json        | 1142 +++++++++++++++++++++++++++++++++++++++++++++-
+ package.json             |    3 +
+ vite.config.ts           |   11 +-
+ 6 files changed, 1171 insertions(+), 13 deletions(-)
+```
+
+### Commit 3: `0c620e4`
+- **Commit SHA:** `0c620e437c0e9eba1ceef8163b33b02ac55c3486`
+- **Previous SHA:** `9006548de5c0a2f6dd75bc330314e1c672929888`
+- **Date:** `2026-04-06`
+- **Classification:** Ad-hoc user-facing Dexhelper code modification
+- **Domain:** dexhelper
+
+#### Message
+```text
+Fix Playwright Test Animation Flakiness (#76)
+
+Replaces `framer-motion` with native CSS animations and configures
+Playwright to intercept and disable these animations during test runs.
+This entirely resolves the Playwright UI screenshot flakiness caused by
+the application's visual layout animations. All Vitest, Playwright
+Component Tests, and Playwright E2E tests have passed.
 
 ---
 *PR created automatically by Jules for task
-[8759655933826045259](https://jules.google.com/task/8759655933826045259)
+[6294160731904048435](https://jules.google.com/task/6294160731904048435)
 started by @szubster*
 
 ---------
@@ -84,175 +134,79 @@ Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
 ```
 
 #### Modified Files
+- `.gitignore`
+- `package-lock.json`
+- `package.json`
+- `playwright-ct.config.ts`
+- `playwright.config.ts`
+- `src/components/AppLayout.tsx`
+- `src/components/AssistantPanel.tsx`
+- `src/components/BottomNav.tsx`
 - `src/components/PokedexGrid.tsx`
-
-#### Diff Summary
-```text
-714f93585 ⚡ Optimize Pokedex Grid Shiny lookup performance (#53)
- src/components/PokedexGrid.tsx | 20 +++++++++++++++-----
- 1 file changed, 15 insertions(+), 5 deletions(-)
-```
-
-### Commit 2: `cd617bc`
-- **Commit SHA:** `cd617bca053dff6306c359f3a8306080c9029310`
-- **Previous SHA:** `714f935853eef834083e4543b1f8997038b562fb`
-- **Date:** `2026-04-03`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
-
-#### Message
-```text
-⚡ perf: Optimize array lookups in PokedexGrid (#52)
-
-💡 **What:**
-Converted `saveData.party`, `saveData.pc`, `saveData.partyDetails`, and
-`saveData.pcDetails` array lookups inside `PokedexGrid` loops to `Set`
-lookups using `React.useMemo`.
-
-🎯 **Why:**
-The component was previously doing multiple `O(N)` lookups
-(`.includes()` and `.some()`) per Pokémon rendered, which becomes
-significantly slower as the number of Pokémon increases, leading to an
-overall `O(N * M)` time complexity. Converting these arrays to `Sets`
-allows for `O(1)` lookups, optimizing the time complexity to `O(N)`.
-
-📊 **Measured Improvement:**
-Using `vitest bench` to render 1000 Pokémon with realistic sized PC
-contents, the `hz` (renders per second) improved from `10,049.34`
-ops/sec to `11,543.54` ops/sec. Wait actually the measured baseline with
-thousands of items had an execution time of `0.0995ms` and the optimized
-implementation was `0.0866ms` per operation, reflecting an improvement
-of ~13-15% on render execution times in this specific scenario.
-
----
-*PR created automatically by Jules for task
-[15562102944802426972](https://jules.google.com/task/15562102944802426972)
-started by @szubster*
-
----------
-
-Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
-Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
-```
-
-#### Modified Files
-- `src/components/PokedexGrid.tsx`
-
-#### Diff Summary
-```text
-cd617bca0 ⚡ perf: Optimize array lookups in PokedexGrid (#52)
- src/components/PokedexGrid.tsx | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
-```
-
-### Commit 3: `442bd94`
-- **Commit SHA:** `442bd9464a5bdcc78ca245355145c534ade5497f`
-- **Previous SHA:** `cd617bca053dff6306c359f3a8306080c9029310`
-- **Date:** `2026-04-03`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
-
-#### Message
-```text
-🧪 [Testing] Add unit tests for getDistanceToMap and fix map fallback logic (#57)
-
-🎯 **What:** The testing gap in map graph logic for Gen 1 distance
-calculation was addressed. Added a robust suite for `getDistanceToMap`.
-📊 **Coverage:** Now explicitly testing happy paths (distance 0, 1, 2+),
-the indoor fallback mapping, default fallback behavior, and invalid
-target scenarios. Also fixed a fallback bug in the underlying domain
-logic that mapped unknown locations to Pallet Town instead of the
-expected Saffron City.
-✨ **Result:** Increased codebase reliability for map distance
-calculations and protected the logic from regressions.
-
----
-*PR created automatically by Jules for task
-[8256411728249233184](https://jules.google.com/task/8256411728249233184)
-started by @szubster*
-
-Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
-Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
-```
-
-#### Modified Files
-- `src/engine/mapGraph/gen1Graph.test.ts`
-- `src/engine/mapGraph/gen1Graph.ts`
-
-#### Diff Summary
-```text
-442bd9464 🧪 [Testing] Add unit tests for getDistanceToMap and fix map fallback logic (#57)
- src/engine/mapGraph/gen1Graph.test.ts | 58 +++++++++++++++++++++++++++++++++++
- src/engine/mapGraph/gen1Graph.ts      |  2 +-
- 2 files changed, 59 insertions(+), 1 deletion(-)
-```
-
-### Commit 4: `ce3d10b`
-- **Commit SHA:** `ce3d10baf192464cc9a9d9cf8f52593e23c9227f`
-- **Previous SHA:** `442bd9464a5bdcc78ca245355145c534ade5497f`
-- **Date:** `2026-04-03`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
-
-#### Message
-```text
-🧹 Code Health: Refactor SettingsModal (#63)
-
-🎯 **What:** Extracted `SettingsLegend`, `SettingsControls`, and
-`ClearStorageButton` into their own functional components from the main
-`SettingsModal`.
-💡 **Why:** Reduces the complexity and length of `SettingsModal.tsx`,
-making it much easier to read, maintain, and reason about.
-✅ **Verification:** Ran `vitest` tests (all 41 passed). Created a
-temporary Playwright script to visually verify that the `SettingsModal`
-renders correctly in the browser without any visual regressions.
-Verified the code using code review.
-✨ **Result:** Improved code health with no changes to the user
-experience or underlying functionality.
-
----
-*PR created automatically by Jules for task
-[1630131782691324585](https://jules.google.com/task/1630131782691324585)
-started by @szubster*
-
-Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
-Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
-```
-
-#### Modified Files
+- `src/components/PokemonDetails.tsx`
 - `src/components/SettingsModal.tsx`
+- `src/components/StorageGrid.tsx`
+- `src/components/VersionModal.spec.tsx`
+- `src/components/VersionModal.tsx`
+- `src/components/assistant/AssistantSuggestionCard.tsx`
+- `src/components/pokemon/details/PokemonCatchProbability.tsx`
+- `src/components/pokemon/details/PokemonCaughtDetails.tsx`
+- `src/components/pokemon/details/PokemonStats.tsx`
+- `src/index.css`
+- `tests/e2e/home.spec.ts`
 
 #### Diff Summary
 ```text
-ce3d10baf 🧹 Code Health: Refactor SettingsModal (#63)
- src/components/SettingsModal.tsx | 197 ++++++++++++++++++++++++---------------
- 1 file changed, 122 insertions(+), 75 deletions(-)
+0c620e437 Fix Playwright Test Animation Flakiness (#76)
+ .gitignore                                         |  1 +
+ package-lock.json                                  | 69 ----------------------
+ package.json                                       |  1 -
+ playwright-ct.config.ts                            |  3 +
+ playwright.config.ts                               |  1 +
+ src/components/AppLayout.tsx                       | 50 ++++++----------
+ src/components/AssistantPanel.tsx                  | 37 ++++--------
+ src/components/BottomNav.tsx                       | 25 ++++----
+ src/components/PokedexGrid.tsx                     | 32 +++-------
+ src/components/PokemonDetails.tsx                  | 43 +++++---------
+ src/components/SettingsModal.tsx                   | 32 ++++------
+ src/components/StorageGrid.tsx                     | 67 ++++++++-------------
+ src/components/VersionModal.spec.tsx               |  3 -
+ src/components/VersionModal.tsx                    | 27 +++------
+ .../assistant/AssistantSuggestionCard.tsx          | 13 +---
+ .../pokemon/details/PokemonCatchProbability.tsx    | 14 +----
+ .../pokemon/details/PokemonCaughtDetails.tsx       | 20 ++-----
+ src/components/pokemon/details/PokemonStats.tsx    | 32 ++++------
+ src/index.css                                      |  9 +++
+ tests/e2e/home.spec.ts                             |  3 +
+ 20 files changed, 150 insertions(+), 332 deletions(-)
 ```
 
-### Commit 5: `0a51a23`
-- **Commit SHA:** `0a51a23e9edeb506357e599dd7dcffdbbe75c9eb`
-- **Previous SHA:** `ce3d10baf192464cc9a9d9cf8f52593e23c9227f`
-- **Date:** `2026-04-03`
+### Commit 4: `ba5110a`
+- **Commit SHA:** `ba5110a591ba4e3b885f5fc98f73539d4f91ff4a`
+- **Previous SHA:** `0c620e437c0e9eba1ceef8163b33b02ac55c3486`
+- **Date:** `2026-04-06`
 - **Classification:** Ad-hoc user-facing Dexhelper code modification
 - **Domain:** dexhelper
 
 #### Message
 ```text
-🎨 Palette: Add missing ARIA labels to icon-only buttons (#66)
+🎨 Palette: [Add accessibility properties to Living Dex toggle switch] (#94)
 
-💡 What: Added missing `aria-label` attributes to icon-only buttons
-throughout the app, including the settings button, modal close buttons,
-search clear button, and the search input.
-🎯 Why: Icon-only buttons without an `aria-label` are inaccessible to
-screen reader users, creating an accessibility barrier. This improves
-the app's overall UX by ensuring these components are semantically
-meaningful to assistive technologies.
-♿ Accessibility: Ensures that users navigating via screen reader receive
-accurate feedback on what each interactive element does.
+💡 What: Added `role="switch"`, `aria-checked`, `aria-label`, and
+`focus-visible` styles to the custom "Living Dex" toggle button in the
+SettingsModal component.
+🎯 Why: Custom UI components functioning as switches lack inherent
+semantic meaning for screen readers and can be difficult to use with
+keyboard navigation. These attributes make the toggle's state and
+purpose clear to assistive technologies while providing a visible focus
+indicator.
+📸 Before/After: Visuals verified via Playwright screenshot & video.
+♿ Accessibility: Improves screen reader compatibility and keyboard
+navigation for the Settings Modal toggle.
 
 ---
 *PR created automatically by Jules for task
-[11563553478706453207](https://jules.google.com/task/11563553478706453207)
+[7619517462023444381](https://jules.google.com/task/7619517462023444381)
 started by @szubster*
 
 Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
@@ -261,29 +215,99 @@ Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
 
 #### Modified Files
 - `.Jules/palette.md`
-- `src/components/AppLayout.tsx`
-- `src/components/PokemonDetails.tsx`
-- `src/components/SearchAndFilters.tsx`
 - `src/components/SettingsModal.tsx`
 
 #### Diff Summary
 ```text
-0a51a23e9 🎨 Palette: Add missing ARIA labels to icon-only buttons (#66)
- .Jules/palette.md                   | 3 +++
- src/components/AppLayout.tsx        | 1 +
- src/components/PokemonDetails.tsx   | 1 +
- src/components/SearchAndFilters.tsx | 2 ++
- src/components/SettingsModal.tsx    | 2 +-
- 5 files changed, 8 insertions(+), 1 deletion(-)
+ba5110a59 🎨 Palette: [Add accessibility properties to Living Dex toggle switch] (#94)
+ .Jules/palette.md                | 6 +++---
+ src/components/SettingsModal.tsx | 5 ++++-
+ 2 files changed, 7 insertions(+), 4 deletions(-)
+```
+
+### Commit 5: `7389580`
+- **Commit SHA:** `7389580e7acb3613d2e2f477c5a2a57033325be2`
+- **Previous SHA:** `d8a4d96a57f59b590e6205c5ed2f0ee8753d9f78`
+- **Date:** `2026-04-06`
+- **Classification:** Ad-hoc user-facing Dexhelper code modification
+- **Domain:** dexhelper
+
+#### Message
+```text
+build(deps-dev): Bump @types/node from 25.5.0 to 25.5.2 (#93)
+
+Bumps
+[@types/node](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/node)
+from 25.5.0 to 25.5.2.
+<details>
+<summary>Commits</summary>
+<ul>
+<li>See full diff in <a
+href="https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/node">compare
+view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility
+score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=@types/node&package-manager=npm_and_yarn&previous-version=25.5.0&new-version=25.5.2)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't
+alter it yourself. You can also trigger a rebase manually by commenting
+`@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits
+that have been made to it
+- `@dependabot show <dependency name> ignore conditions` will show all
+of the ignore conditions of the specified dependency
+- `@dependabot ignore this major version` will close this PR and stop
+Dependabot creating any more for this major version (unless you reopen
+the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop
+Dependabot creating any more for this minor version (unless you reopen
+the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop
+Dependabot creating any more for this dependency (unless you reopen the
+PR or upgrade to it yourself)
+
+
+</details>
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+```
+
+#### Modified Files
+- `package-lock.json`
+- `package.json`
+
+#### Diff Summary
+```text
+7389580e7 build(deps-dev): Bump @types/node from 25.5.0 to 25.5.2 (#93)
+ package-lock.json | 8 ++++----
+ package.json      | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
 ```
 
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the code diffs for this batch by running `git show <sha>` or `git diff edbf0c9005b78906051b1bc371acc754b0a466bd..0a51a23e9edeb506357e599dd7dcffdbbe75c9eb` in bash. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the code diffs for this batch by running `git show <sha>` or `git diff 18f5e2a12afbc20796f2d70fc895d4ff085cf10c..7389580e7acb3613d2e2f477c5a2a57033325be2` in bash. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 
 Synthesize the technical changes across all commits in this batch:
 1. **Grouping / Merging**: Based on your judgment of the diffs, decide whether to group multiple commits into a single changelog entry or release version, split them into separate releases, or merge entries into a previous release header in `CHANGELOG-dexhelper.md`.
 2. **Selective Inclusion**: Omit internal/trivial changes that do not warrant a user-facing or system maintainer changelog entry.
 3. **Documentation**: Update `README.md` if any commit in the batch alters setup, features, or architecture.
-4. **Link References**: If a changelog entry is added, include diff links (e.g. [`0.24.4...0.24.5`](https://github.com/${repo}/compare/edbf0c9...0a51a23)) and update link references at the bottom of `CHANGELOG-dexhelper.md`.
+4. **Link References**: If a changelog entry is added, include diff links (e.g. [`0.24.5...0.24.6`](https://github.com/${repo}/compare/18f5e2a...7389580)) and update link references at the bottom of `CHANGELOG-dexhelper.md`.
 5. **No Changes Needed**: If no commits in the batch warrant changelog or README updates, submit an Empty PR.
