@@ -2,10 +2,10 @@
 id: task-562-690-gen2-wild-item-extraction-qa-v3
 type: TASK
 title: QA Verification for Gen 2 Wild Encounter Extraction (v3)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-15'
-updated_at: '2026-10-18'
+updated_at: '2026-10-20'
 depends_on:
   - task-562-689-gen2-wild-item-extraction-tests-v3
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-562-687-investigate-gen2-wild-encounter-extraction-failure-retry
 notes: ''
 locks: []
 priority: 50

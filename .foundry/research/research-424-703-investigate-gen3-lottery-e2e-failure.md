@@ -2,12 +2,12 @@
 id: research-424-703-investigate-gen3-lottery-e2e-failure
 type: RESEARCH
 title: Investigate Gen3 Lottery E2E Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-18'
 updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: '4043223602388786523'
+jules_session_id: null
 pr_number: null
 parent: story-133-424-gen3-lottery-e2e-verification
 tags:
@@ -16,7 +16,7 @@ tags:
   - gen3
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

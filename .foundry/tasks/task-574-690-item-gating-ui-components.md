@@ -2,12 +2,12 @@
 id: task-574-690-item-gating-ui-components
 type: TASK
 title: Item Gating UI Components
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-15'
-updated_at: '2026-10-19'
+updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: '15295961923026030395'
+jules_session_id: null
 pr_number: null
 parent: story-407-574-item-gating-ui-filter
 tags:
@@ -15,7 +15,7 @@ tags:
   - map
   - ui
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
