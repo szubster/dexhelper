@@ -27,6 +27,6 @@ locks: []
 - Execute the E2E verification locally to confirm it passes.
 
 ## Acceptance Criteria
-- [ ] Verify the script creates realistic valid and invalid nodes for testing.
-- [ ] Confirm the script correctly captures success and failure exit codes.
-- [ ] Verify the script is clean and leaves no side effects after execution (e.g., using `mktemp` and cleaning up on exit).
+- [x] Verify the script creates realistic valid and invalid nodes for testing.
+- [x] Confirm the script correctly captures success and failure exit codes.
+- [x] Verify the script is clean and leaves no side effects after execution (e.g., using `mktemp` and cleaning up on exit).
