@@ -2,7 +2,7 @@
 id: research-564-690-investigate-gen3-pokedex-gaps-ui-failure
 type: RESEARCH
 title: Investigate Gen 3 Pokédex Gaps UI Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-16T12:48:02.109Z'
 updated_at: '2026-10-20'
@@ -17,7 +17,8 @@ tags:
   - ui
 research_references: []
 locks: []
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_reason: ''
+rejection_count: 1
 ---
 
 # Investigate Gen 3 Pokédex Gaps UI Failure

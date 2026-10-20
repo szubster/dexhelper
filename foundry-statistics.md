@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-20T15:28:13.563Z*
+*Generated at: 2026-10-20T19:44:05.211Z*
 
 ## Node Statistics
 
@@ -13,26 +13,26 @@
 | PRD | 206 |
 | RESEARCH | 301 |
 | STORY | 1050 |
-| TASK | 2668 |
+| TASK | 2674 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3247 |
-| ACTIVE | 130 |
-| CANCELLED | 778 |
-| PENDING | 787 |
-| READY | 32 |
+| COMPLETED | 3248 |
+| ACTIVE | 138 |
+| CANCELLED | 794 |
+| PENDING | 769 |
+| READY | 37 |
 | BLOCKED | 14 |
-| FAILED | 13 |
+| FAILED | 7 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9773 |
-| Open PRs | 144 |
-| Merged PRs | 8481 |
+| Total PRs | 9783 |
+| Open PRs | 153 |
+| Merged PRs | 8482 |
 | Closed PRs | 1148 |
 
 ## Rejection Counts
@@ -112,6 +112,7 @@
 | epic-092-116-gen3-ev-data-extraction.md | 3 |
 | research-081-575-investigate-retry-failure.md | 3 |
 | research-336-567-investigate-runtime-interfaces-keys-failure.md | 3 |
+| research-336-690-investigate-runtime-interfaces-keys-failure-v2.md | 3 |
 | research-360-471-investigate-gen3-roamer-e2e-failure.md | 3 |
 | research-404-495-kurt-apricorn-offsets.md | 3 |
 | research-422-638-tm-inventory-extraction-failure.md | 3 |
@@ -142,6 +143,7 @@
 | research-531-620-investigate-mgba-memory-sync-failure.md | 3 |
 | research-534-676-investigate-idea-reverification-failure.md | 3 |
 | research-537-689-investigate-runtime-state-hydration-failure.md | 3 |
+| research-551-690-investigate-orchestrator-priority-tests-v2-failure.md | 3 |
 | research-562-668-investigate-gen2-wild-encounter-extraction-failure.md | 3 |
 | research-562-680-investigate-moms-savings-ui-failure.md | 3 |
 | research-562-687-investigate-gen2-wild-encounter-extraction-failure-retry.md | 3 |
@@ -383,7 +385,6 @@
 | prd-071-044-gen3-roamer-tracker.md | 2 |
 | prd-089-054-gen3-ash-gathering-tracker.md | 2 |
 | prd-421-521-automated-schema-linting.md | 2 |
-| research-336-690-investigate-runtime-interfaces-keys-failure-v2.md | 2 |
 | research-407-676-e2e-failure-investigation.md | 2 |
 | research-472-675-investigate-e2e-tests-failure-v2.md | 2 |
 | research-473-638-investigate-condition-stats-parser-failure-v2.md | 2 |
@@ -391,7 +392,6 @@
 | research-517-668-investigate-orchestrator-generic-prompt-failure.md | 2 |
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
 | research-527-690-investigate-safari-zone-area-map-failure-v2.md | 2 |
-| research-551-690-investigate-orchestrator-priority-tests-v2-failure.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
@@ -738,12 +738,16 @@
 | research-478-676-investigate-kurt-apricorn-types-failure.md | 1 |
 | research-479-608-investigate-gen3-pokeblock-e2e-failure.md | 1 |
 | research-494-495-gen3-egg-hatch-fixture.md | 1 |
+| research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
+| research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
+| research-564-690-investigate-gen3-pokedex-gaps-ui-failure.md | 1 |
+| research-567-690-investigate-shoal-cave-e2e-failure.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
@@ -913,6 +917,7 @@
 | task-527-669-pathfinder-chain-viz-ui.md | 1 |
 | task-527-674-webhook-renewal-impl.md | 1 |
 | task-527-675-drive-webhook-qa.md | 1 |
+| task-528-692-wip-banner-e2e-tests.md | 1 |
 | task-530-549-isavedatareader-interface-impl.md | 1 |
 | task-530-551-savedatareader-bounds-tests.md | 1 |
 | task-532-655-savedatareader-tests-qa.md | 1 |

@@ -2,10 +2,10 @@
 id: task-402-649-004-qa-lazy-loading
 type: TASK
 title: QA - Verify Lazy Loading Refactor
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-18T00:21:45Z'
-updated_at: '2026-10-18T00:21:45Z'
+updated_at: '2026-10-20'
 depends_on:
   - task-402-649-002-refactor-pokemon-details
   - task-402-649-003-refactor-dashboard-ui

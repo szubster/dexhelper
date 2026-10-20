@@ -2,15 +2,17 @@
 id: task-551-692-qa-orchestrator-priority-v3
 type: TASK
 title: QA Verification for Priority Sorting in Orchestrator v3
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-15T23:50:21.048Z'
-updated_at: '2026-10-15'
+updated_at: '2026-10-20'
 depends_on:
   - task-551-691-update-orchestrator-priority-tests-v3
 jules_session_id: null
 parent: story-540-551-priority-engine-dispatch
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-551-690-investigate-orchestrator-priority-tests-v2-failure
 locks: []
 ---
 

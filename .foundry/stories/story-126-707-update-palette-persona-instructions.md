@@ -2,12 +2,12 @@
 id: story-126-707-update-palette-persona-instructions
 type: STORY
 title: Update Palette Persona Instructions
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-19'
-updated_at: '2026-10-19'
+updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: '17961534092150331165'
+jules_session_id: null
 pr_number: null
 parent: epic-071-126-tailwind-designer-persona-v2
 tags:
