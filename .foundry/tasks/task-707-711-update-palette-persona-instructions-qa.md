@@ -28,5 +28,5 @@ priority: 100
 Verify that the `palette` persona instructions file `.github/agents/palette.md` has been correctly updated to explicitly define its responsibility for maintaining `src/index.css`, enforcing the tactical hardware aesthetic, and managing custom `@utility` primitives.
 
 ## Acceptance Criteria
-- [ ] Ensure the prompt explicitly mentions maintaining `src/index.css` and custom `@utility` primitives.
-- [ ] Ensure the prompt explicitly mentions enforcing the tactical hardware aesthetic.
+- [x] Ensure the prompt explicitly mentions maintaining `src/index.css` and custom `@utility` primitives.
+- [x] Ensure the prompt explicitly mentions enforcing the tactical hardware aesthetic.
