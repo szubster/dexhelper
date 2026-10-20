@@ -12,6 +12,8 @@
  * has been battled, defeated, or caught.
  */
 
+import { SaveDataReader } from '../saveParser/SaveDataReader';
+
 /** The starting offset of the event flags block relative to SaveBlock1 (Section 1). */
 export const EVENT_FLAGS_START = 0x1270;
 
@@ -145,19 +147,6 @@ export interface Gen3RSStaticEncounters {
 export type Gen3StaticEncounters = Gen3EmeraldStaticEncounters | Gen3FRLGStaticEncounters | Gen3RSStaticEncounters;
 
 /**
- * Evaluates whether a specific bit is set within a byte in the DataView.
- *
- * @param dataView - The DataView wrapping the raw binary save file buffer.
- * @param offset - Absolute byte offset in the DataView.
- * @param bitPosition - Bit index (0-7) to test.
- * @returns True if the bit is 1 (flag set), false if 0.
- */
-function getBit(dataView: DataView, offset: number, bitPosition: number): boolean {
-  // Bitwise AND against single bit mask (1 shifted left by bitPosition)
-  return (dataView.getUint8(offset) & (1 << bitPosition)) !== 0;
-}
-
-/**
  * Extracts static encounter event flags from a Gen 3 save file buffer.
  *
  * **Architecture Note:**
@@ -196,53 +185,54 @@ export function extractGen3StaticEncounterFlags(
   section1Offset: number,
 ): Gen3StaticEncounters | undefined {
   try {
+    const reader = new SaveDataReader(saveData);
     // SaveBlock1 event flags array starts at section1Offset + EVENT_FLAGS_START
     const baseOffset = section1Offset + EVENT_FLAGS_START;
 
     if (gameVersion === 'emerald') {
       return {
-        deoxys: getBit(saveData, baseOffset + EMERALD_DEOXYS_BYTE, EMERALD_DEOXYS_BIT),
-        regirock: getBit(saveData, baseOffset + EMERALD_REGIROCK_BYTE, EMERALD_REGIROCK_BIT),
-        regice: getBit(saveData, baseOffset + EMERALD_REGICE_BYTE, EMERALD_REGICE_BIT),
-        registeel: getBit(saveData, baseOffset + EMERALD_REGISTEEL_BYTE, EMERALD_REGISTEEL_BIT),
-        kyogre: getBit(saveData, baseOffset + EMERALD_KYOGRE_BYTE, EMERALD_KYOGRE_BIT),
-        groudon: getBit(saveData, baseOffset + EMERALD_GROUDON_BYTE, EMERALD_GROUDON_BIT),
-        rayquaza: getBit(saveData, baseOffset + EMERALD_RAYQUAZA_BYTE, EMERALD_RAYQUAZA_BIT),
-        voltorb1: getBit(saveData, baseOffset + EMERALD_VOLTORB_1_BYTE, EMERALD_VOLTORB_1_BIT),
-        voltorb2: getBit(saveData, baseOffset + EMERALD_VOLTORB_2_BYTE, EMERALD_VOLTORB_2_BIT),
-        voltorb3: getBit(saveData, baseOffset + EMERALD_VOLTORB_3_BYTE, EMERALD_VOLTORB_3_BIT),
-        electrode1: getBit(saveData, baseOffset + EMERALD_ELECTRODE_1_BYTE, EMERALD_ELECTRODE_1_BIT),
-        electrode2: getBit(saveData, baseOffset + EMERALD_ELECTRODE_2_BYTE, EMERALD_ELECTRODE_2_BIT),
-        sudowoodo: getBit(saveData, baseOffset + EMERALD_SUDOWOODO_BYTE, EMERALD_SUDOWOODO_BIT),
-        mewDefeated: getBit(saveData, baseOffset + EMERALD_MEW_DEFEATED_BYTE, EMERALD_MEW_DEFEATED_BIT),
-        mewCaught: getBit(saveData, baseOffset + EMERALD_MEW_CAUGHT_BYTE, EMERALD_MEW_CAUGHT_BIT),
-        hoOh: getBit(saveData, baseOffset + EMERALD_HO_OH_BYTE, EMERALD_HO_OH_BIT),
-        lugia: getBit(saveData, baseOffset + EMERALD_LUGIA_BYTE, EMERALD_LUGIA_BIT),
+        deoxys: reader.readFlag(baseOffset + EMERALD_DEOXYS_BYTE, EMERALD_DEOXYS_BIT),
+        regirock: reader.readFlag(baseOffset + EMERALD_REGIROCK_BYTE, EMERALD_REGIROCK_BIT),
+        regice: reader.readFlag(baseOffset + EMERALD_REGICE_BYTE, EMERALD_REGICE_BIT),
+        registeel: reader.readFlag(baseOffset + EMERALD_REGISTEEL_BYTE, EMERALD_REGISTEEL_BIT),
+        kyogre: reader.readFlag(baseOffset + EMERALD_KYOGRE_BYTE, EMERALD_KYOGRE_BIT),
+        groudon: reader.readFlag(baseOffset + EMERALD_GROUDON_BYTE, EMERALD_GROUDON_BIT),
+        rayquaza: reader.readFlag(baseOffset + EMERALD_RAYQUAZA_BYTE, EMERALD_RAYQUAZA_BIT),
+        voltorb1: reader.readFlag(baseOffset + EMERALD_VOLTORB_1_BYTE, EMERALD_VOLTORB_1_BIT),
+        voltorb2: reader.readFlag(baseOffset + EMERALD_VOLTORB_2_BYTE, EMERALD_VOLTORB_2_BIT),
+        voltorb3: reader.readFlag(baseOffset + EMERALD_VOLTORB_3_BYTE, EMERALD_VOLTORB_3_BIT),
+        electrode1: reader.readFlag(baseOffset + EMERALD_ELECTRODE_1_BYTE, EMERALD_ELECTRODE_1_BIT),
+        electrode2: reader.readFlag(baseOffset + EMERALD_ELECTRODE_2_BYTE, EMERALD_ELECTRODE_2_BIT),
+        sudowoodo: reader.readFlag(baseOffset + EMERALD_SUDOWOODO_BYTE, EMERALD_SUDOWOODO_BIT),
+        mewDefeated: reader.readFlag(baseOffset + EMERALD_MEW_DEFEATED_BYTE, EMERALD_MEW_DEFEATED_BIT),
+        mewCaught: reader.readFlag(baseOffset + EMERALD_MEW_CAUGHT_BYTE, EMERALD_MEW_CAUGHT_BIT),
+        hoOh: reader.readFlag(baseOffset + EMERALD_HO_OH_BYTE, EMERALD_HO_OH_BIT),
+        lugia: reader.readFlag(baseOffset + EMERALD_LUGIA_BYTE, EMERALD_LUGIA_BIT),
       };
     } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
       return {
-        mewtwo: getBit(saveData, baseOffset + FRLG_MEWTWO_BYTE, FRLG_MEWTWO_BIT),
-        moltres: getBit(saveData, baseOffset + FRLG_MOLTRES_BYTE, FRLG_MOLTRES_BIT),
-        articuno: getBit(saveData, baseOffset + FRLG_ARTICUNO_BYTE, FRLG_ARTICUNO_BIT),
-        zapdos: getBit(saveData, baseOffset + FRLG_ZAPDOS_BYTE, FRLG_ZAPDOS_BIT),
-        deoxys: getBit(saveData, baseOffset + FRLG_DEOXYS_BYTE, FRLG_DEOXYS_BIT),
-        lugia: getBit(saveData, baseOffset + FRLG_LUGIA_BYTE, FRLG_LUGIA_BIT),
-        hoOh: getBit(saveData, baseOffset + FRLG_HO_OH_BYTE, FRLG_HO_OH_BIT),
-        snorlaxRoute12: getBit(saveData, baseOffset + FRLG_SNORLAX_ROUTE_12_BYTE, FRLG_SNORLAX_ROUTE_12_BIT),
-        snorlaxRoute16: getBit(saveData, baseOffset + FRLG_SNORLAX_ROUTE_16_BYTE, FRLG_SNORLAX_ROUTE_16_BIT),
+        mewtwo: reader.readFlag(baseOffset + FRLG_MEWTWO_BYTE, FRLG_MEWTWO_BIT),
+        moltres: reader.readFlag(baseOffset + FRLG_MOLTRES_BYTE, FRLG_MOLTRES_BIT),
+        articuno: reader.readFlag(baseOffset + FRLG_ARTICUNO_BYTE, FRLG_ARTICUNO_BIT),
+        zapdos: reader.readFlag(baseOffset + FRLG_ZAPDOS_BYTE, FRLG_ZAPDOS_BIT),
+        deoxys: reader.readFlag(baseOffset + FRLG_DEOXYS_BYTE, FRLG_DEOXYS_BIT),
+        lugia: reader.readFlag(baseOffset + FRLG_LUGIA_BYTE, FRLG_LUGIA_BIT),
+        hoOh: reader.readFlag(baseOffset + FRLG_HO_OH_BYTE, FRLG_HO_OH_BIT),
+        snorlaxRoute12: reader.readFlag(baseOffset + FRLG_SNORLAX_ROUTE_12_BYTE, FRLG_SNORLAX_ROUTE_12_BIT),
+        snorlaxRoute16: reader.readFlag(baseOffset + FRLG_SNORLAX_ROUTE_16_BYTE, FRLG_SNORLAX_ROUTE_16_BIT),
       };
     } else if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
       return {
-        groudonKyogre: getBit(saveData, baseOffset + RS_GROUDON_KYOGRE_BYTE, RS_GROUDON_KYOGRE_BIT),
-        rayquaza: getBit(saveData, baseOffset + RS_RAYQUAZA_BYTE, RS_RAYQUAZA_BIT),
-        regirock: getBit(saveData, baseOffset + RS_REGIROCK_BYTE, RS_REGIROCK_BIT),
-        regice: getBit(saveData, baseOffset + RS_REGICE_BYTE, RS_REGICE_BIT),
-        registeel: getBit(saveData, baseOffset + RS_REGISTEEL_BYTE, RS_REGISTEEL_BIT),
-        voltorb1: getBit(saveData, baseOffset + RS_VOLTORB_1_BYTE, RS_VOLTORB_1_BIT),
-        voltorb2: getBit(saveData, baseOffset + RS_VOLTORB_2_BYTE, RS_VOLTORB_2_BIT),
-        voltorb3: getBit(saveData, baseOffset + RS_VOLTORB_3_BYTE, RS_VOLTORB_3_BIT),
-        electrode1: getBit(saveData, baseOffset + RS_ELECTRODE_1_BYTE, RS_ELECTRODE_1_BIT),
-        electrode2: getBit(saveData, baseOffset + RS_ELECTRODE_2_BYTE, RS_ELECTRODE_2_BIT),
+        groudonKyogre: reader.readFlag(baseOffset + RS_GROUDON_KYOGRE_BYTE, RS_GROUDON_KYOGRE_BIT),
+        rayquaza: reader.readFlag(baseOffset + RS_RAYQUAZA_BYTE, RS_RAYQUAZA_BIT),
+        regirock: reader.readFlag(baseOffset + RS_REGIROCK_BYTE, RS_REGIROCK_BIT),
+        regice: reader.readFlag(baseOffset + RS_REGICE_BYTE, RS_REGICE_BIT),
+        registeel: reader.readFlag(baseOffset + RS_REGISTEEL_BYTE, RS_REGISTEEL_BIT),
+        voltorb1: reader.readFlag(baseOffset + RS_VOLTORB_1_BYTE, RS_VOLTORB_1_BIT),
+        voltorb2: reader.readFlag(baseOffset + RS_VOLTORB_2_BYTE, RS_VOLTORB_2_BIT),
+        voltorb3: reader.readFlag(baseOffset + RS_VOLTORB_3_BYTE, RS_VOLTORB_3_BIT),
+        electrode1: reader.readFlag(baseOffset + RS_ELECTRODE_1_BYTE, RS_ELECTRODE_1_BIT),
+        electrode2: reader.readFlag(baseOffset + RS_ELECTRODE_2_BYTE, RS_ELECTRODE_2_BIT),
       };
     }
     return undefined;
