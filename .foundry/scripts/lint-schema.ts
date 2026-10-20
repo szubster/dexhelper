@@ -46,7 +46,7 @@ async function main() {
 
   const validTypes = ["IDEA", "PRD", "EPIC", "STORY", "TASK", "RESEARCH", "ADR", "EXPERIMENT"];
   const validStatuses = ["DRAFT", "WIP", "PENDING", "READY", "ACTIVE", "VERIFYING", "COMPLETED", "FAILED", "BLOCKED", "CANCELLED"];
-  const validOwnerPersonas = ["canvas", "palette", "product_manager", "epic_planner", "story_owner", "architect", "tech_lead", "coder", "qa", "human", "tpm", "agile_coach", "researcher", "auditor", "librarian", "curator"];
+  const validOwnerPersonas = ["canvas", "palette", "product_manager", "epic_planner", "story_owner", "architect", "tech_lead", "coder", "qa", "human", "tpm", "agile_coach", "researcher", "auditor", "librarian", "curator", "changelogger"];
 
   const requiredFields = [
     'id',

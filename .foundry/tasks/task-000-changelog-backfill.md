@@ -3,7 +3,7 @@ id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
 status: ACTIVE
-owner_persona: curator
+owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-10-18'
 depends_on: []
