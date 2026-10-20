@@ -61,4 +61,7 @@ Currently, such cycles result in `BLOCKED` nodes that indefinitely halt pipeline
 This PRD scopes the creation of the detection mechanism and logging within the orchestrator script (`.github/scripts/foundry-orchestrator.ts`).
 
 ## Acceptance Criteria (Parent Idea linkage)
-- [ ] Break down into EPIC
+- [x] Break down into EPIC
+- [ ] epic-583-690-cycle-detection-algorithm-core
+- [ ] epic-583-691-diagnostics-and-orchestrator-integration
+- [ ] epic-583-692-e2e-verification
