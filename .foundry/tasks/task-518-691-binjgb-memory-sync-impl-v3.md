@@ -30,7 +30,7 @@ locks: []
 Implement a synchronization layer that takes the extracted `saveStateBuffer` from `binjgb` and passes it to the DexHelper parsing engine, saving it via `SaveHistoryDB` for real-time stat tracking and suggestions. This version should incorporate learnings from the research investigation.
 
 ## Acceptance Criteria
-- [ ] Implement a synchronization mechanism to periodically fetch the `saveStateBuffer`.
-- [ ] Pass the extracted data into the DexHelper save parser.
-- [ ] Save the parsed state to `SaveHistoryDB`.
-- [ ] Write integration tests for the memory synchronization flow.
+- [x] Implement a synchronization mechanism to periodically fetch the `saveStateBuffer`.
+- [x] Pass the extracted data into the DexHelper save parser.
+- [x] Save the parsed state to `SaveHistoryDB`.
+- [x] Write integration tests for the memory synchronization flow.
