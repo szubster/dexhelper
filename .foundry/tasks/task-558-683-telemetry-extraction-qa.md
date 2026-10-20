@@ -27,4 +27,4 @@ locks: []
 Perform QA review on the telemetry extraction and generation scripts to ensure correct execution, parsing, and integration.
 
 ## Acceptance Criteria
-- [ ] QA: Verify telemetry output structure and tests pass.
+- [x] QA: Verify telemetry output structure and tests pass.
