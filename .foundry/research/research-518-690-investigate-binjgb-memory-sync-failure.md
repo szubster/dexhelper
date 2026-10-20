@@ -2,12 +2,12 @@
 id: research-518-690-investigate-binjgb-memory-sync-failure
 type: RESEARCH
 title: Investigate failure of binjgb memory synchronization
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-16T12:43:11.000Z'
 updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14594208171563202988'
 pr_number: null
 parent: story-426-518-binjgb-memory-sync
 tags:
