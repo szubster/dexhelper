@@ -33,7 +33,7 @@ As part of the Wild Item Inventory Tracker, we need to extract the Bag inventory
 - Write unit tests for the parsing logic.
 
 ## Acceptance Criteria
-- [ ] Gen 3 Bag parsing logic is implemented.
-- [ ] Relative memory offsets are used.
-- [ ] Constants are properly defined.
-- [ ] Unit tests pass.
+- [x] Gen 3 Bag parsing logic is implemented.
+- [x] Relative memory offsets are used.
+- [x] Constants are properly defined.
+- [x] Unit tests pass.
