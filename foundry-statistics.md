@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-20T05:29:25.169Z*
+*Generated at: 2026-10-20T10:31:54.781Z*
 
 ## Node Statistics
 
@@ -11,29 +11,29 @@
 | EPIC | 499 |
 | IDEA | 233 |
 | PRD | 206 |
-| RESEARCH | 295 |
-| STORY | 1044 |
-| TASK | 2658 |
+| RESEARCH | 300 |
+| STORY | 1045 |
+| TASK | 2668 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3232 |
-| ACTIVE | 137 |
-| CANCELLED | 776 |
-| PENDING | 786 |
-| READY | 28 |
+| COMPLETED | 3237 |
+| ACTIVE | 132 |
+| CANCELLED | 778 |
+| PENDING | 785 |
+| READY | 41 |
 | BLOCKED | 14 |
-| FAILED | 6 |
+| FAILED | 8 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9757 |
-| Open PRs | 155 |
-| Merged PRs | 8456 |
-| Closed PRs | 1146 |
+| Total PRs | 9764 |
+| Open PRs | 149 |
+| Merged PRs | 8468 |
+| Closed PRs | 1147 |
 
 ## Rejection Counts
 
@@ -377,6 +377,7 @@
 | prd-071-044-gen3-roamer-tracker.md | 2 |
 | prd-089-054-gen3-ash-gathering-tracker.md | 2 |
 | prd-421-521-automated-schema-linting.md | 2 |
+| research-336-690-investigate-runtime-interfaces-keys-failure-v2.md | 2 |
 | research-407-676-e2e-failure-investigation.md | 2 |
 | research-423-687-investigate-ai-mapping-test-failure-v4.md | 2 |
 | research-424-703-investigate-gen3-lottery-e2e-failure.md | 2 |
@@ -386,6 +387,7 @@
 | research-478-676-investigate-locking-failure-retry.md | 2 |
 | research-517-668-investigate-orchestrator-generic-prompt-failure.md | 2 |
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
+| research-551-690-investigate-orchestrator-priority-tests-v2-failure.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
@@ -461,6 +463,7 @@
 | task-521-528-statistics-e2e.md | 2 |
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
+| task-528-677-safari-zone-bounty-board-ui.md | 2 |
 | task-536-562-implement-mocking-utilities.md | 2 |
 | task-536-564-playwright-style-guide-mock-utils.md | 2 |
 | task-550-563-implement-idea-matrix-updater.md | 2 |
@@ -718,7 +721,6 @@
 | prd-535-586-false-permanent-failure-detection.md | 1 |
 | research-136-530-investigate-kanban-ui-timeout.md | 1 |
 | research-246-244-gen3-box-parsing.md | 1 |
-| research-336-690-investigate-runtime-interfaces-keys-failure-v2.md | 1 |
 | research-338-556-investigate-unown-parsing-timeout.md | 1 |
 | research-348-506-investigate-ui-impl-failure.md | 1 |
 | research-360-568-investigate-gen3-roamer-e2e-failure-v2.md | 1 |
@@ -738,12 +740,12 @@
 | research-527-690-investigate-safari-zone-area-map-failure-v2.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
-| research-551-690-investigate-orchestrator-priority-tests-v2-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
+| research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
@@ -795,6 +797,7 @@
 | story-554-562-gen3-dashboard-layout-and-routing.md | 1 |
 | story-554-563-inventory-item-tracker.md | 1 |
 | story-555-564-lint-schema-frontmatter-validation.md | 1 |
+| story-565-567-lazy-load-e2e-verification.md | 1 |
 | story-566-570-cva-theme-variables-e2e-verification.md | 1 |
 | story-568-644-cva-visual-regression-tests.md | 1 |
 | story-577-586-multi-box-integration-e2e.md | 1 |
@@ -895,6 +898,7 @@
 | task-521-550-refactor-gen1-tests.md | 1 |
 | task-521-578-restrict-wip-dependencies-impl.md | 1 |
 | task-521-619-box-analyzer-matrix-qa.md | 1 |
+| task-521-677-gen2-parser-refactor.md | 1 |
 | task-522-529-update-root-package-json.md | 1 |
 | task-522-668-quota-handling-impl.md | 1 |
 | task-522-684-wip-awareness-e2e-agent-tests.md | 1 |
@@ -907,7 +911,6 @@
 | task-527-669-pathfinder-chain-viz-ui.md | 1 |
 | task-527-674-webhook-renewal-impl.md | 1 |
 | task-527-675-drive-webhook-qa.md | 1 |
-| task-528-677-safari-zone-bounty-board-ui.md | 1 |
 | task-530-549-isavedatareader-interface-impl.md | 1 |
 | task-530-551-savedatareader-bounds-tests.md | 1 |
 | task-532-655-savedatareader-tests-qa.md | 1 |

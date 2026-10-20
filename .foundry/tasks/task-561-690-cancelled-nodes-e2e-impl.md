@@ -2,12 +2,12 @@
 id: task-561-690-cancelled-nodes-e2e-impl
 type: TASK
 title: Implement E2E Test for Cancelled Nodes on Permanent Failure Dashboard
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-16T02:41:40.764Z'
 updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: '13526979399637356819'
+jules_session_id: null
 pr_number: null
 parent: story-530-561-e2e-verify-cancelled-nodes
 tags:

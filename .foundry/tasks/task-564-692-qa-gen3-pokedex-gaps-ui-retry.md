@@ -2,10 +2,10 @@
 id: task-564-692-qa-gen3-pokedex-gaps-ui-retry
 type: TASK
 title: QA Gen 3 Pokédex Gaps UI Retry
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-16T12:48:02.109Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on:
   - task-564-691-gen3-pokedex-gaps-ui-impl-retry
 jules_session_id: null
@@ -18,6 +18,7 @@ tags:
   - ui
 research_references: []
 locks: []
+rejection_reason: ''
 ---
 
 # QA Gen 3 Pokédex Gaps UI Retry

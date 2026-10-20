@@ -2,10 +2,10 @@
 id: task-567-691-shoal-cave-e2e-coder-retry
 type: TASK
 title: Retry Write Playwright E2E Tests for Shoal Cave Dashboard
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-16T12:53:56.587Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on:
   - research-567-690-investigate-shoal-cave-e2e-failure
 jules_session_id: null

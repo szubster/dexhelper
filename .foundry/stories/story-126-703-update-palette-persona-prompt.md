@@ -2,7 +2,7 @@
 id: story-126-703-update-palette-persona-prompt
 type: STORY
 title: Update Palette Persona Prompt
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2025-01-01T00:00:00Z'
 updated_at: '2026-10-20'
@@ -27,6 +27,6 @@ priority: 100
 Update the palette persona prompt to explicitly define its responsibility for maintaining src/index.css, enforcing the tactical hardware aesthetic, and managing custom @utility primitives.
 
 ## Acceptance Criteria
-- [ ] task-703-710-update-palette-persona-prompt
-- [ ] The palette persona prompt file is updated.
-- [ ] Responsibilities for src/index.css, tactical aesthetic, and @utility primitives are explicitly stated.
+- [x] task-703-710-update-palette-persona-prompt
+- [x] The palette persona prompt file is updated.
+- [x] Responsibilities for src/index.css, tactical aesthetic, and @utility primitives are explicitly stated.

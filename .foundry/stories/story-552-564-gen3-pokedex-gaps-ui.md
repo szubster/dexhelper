@@ -2,12 +2,12 @@
 id: story-552-564-gen3-pokedex-gaps-ui
 type: STORY
 title: Gen 3 Pokédex Gaps UI
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: '13857902559880725168'
+jules_session_id: null
 pr_number: null
 parent: epic-520-552-gen3-pokedex-gaps-tracker
 tags:

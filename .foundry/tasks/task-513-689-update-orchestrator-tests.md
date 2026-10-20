@@ -2,15 +2,15 @@
 id: task-513-689-update-orchestrator-tests
 type: TASK
 title: Update Orchestrator Idempotent Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-16T02:25:18.835Z'
 updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: '16725831149726325816'
+jules_session_id: null
 parent: story-018-513-orchestrator-test-updates
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

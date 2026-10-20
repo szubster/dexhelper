@@ -5,7 +5,7 @@ title: Implement Gen 3 Pokédex Gaps UI
 status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-13'
-updated_at: '2026-10-12'
+updated_at: '2026-10-20'
 depends_on:
   - story-552-563-gen3-pokedex-version-exclusive-mapping
 jules_session_id: null
@@ -18,7 +18,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 locks: []
 ---
 

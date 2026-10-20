@@ -2,14 +2,14 @@
 id: task-558-683-telemetry-extraction-qa
 type: TASK
 title: QA Verification for Telemetry Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-11'
 updated_at: '2026-10-20'
 depends_on:
   - task-558-681-telemetry-generator-update
   - task-558-682-telemetry-extraction-tests
-jules_session_id: '1416443012199009382'
+jules_session_id: null
 pr_number: null
 parent: story-534-558-telemetry-data-extraction-impl
 tags:
