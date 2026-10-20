@@ -34,4 +34,4 @@ As part of the Multi-Box Stat Filters Epic, we need to implement EV (Effort Valu
 - Implement filter state interfaces defining what can be filtered (e.g., target EV values, comparison operators, specific stats).
 
 ## Acceptance Criteria
-- [ ] Appropriate TypeScript interfaces are defined for the filter state.
+- [x] Appropriate TypeScript interfaces are defined for the filter state.
