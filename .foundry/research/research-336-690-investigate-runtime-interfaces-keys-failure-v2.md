@@ -2,12 +2,12 @@
 id: research-336-690-investigate-runtime-interfaces-keys-failure-v2
 type: RESEARCH
 title: Investigate Runtime Interfaces Keys Permanent Failure (v2)
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-15T18:56:26.100Z'
 updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: '18290980884688010073'
+jules_session_id: null
 pr_number: null
 parent: story-043-336-update-runtime-interfaces-keys
 tags:
@@ -15,7 +15,7 @@ tags:
   - feature
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

@@ -2,10 +2,10 @@
 id: epic-343-518-gen3-weather-anomaly-ui
 type: EPIC
 title: Gen 3 Weather Anomaly UI & Map Integration
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-04'
+updated_at: '2026-10-20'
 depends_on:
   - epic-343-517-gen3-weather-anomaly-data
 jules_session_id: null

@@ -2,7 +2,7 @@
 id: task-574-690-item-gating-ui-components
 type: TASK
 title: Item Gating UI Components
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-15'
 updated_at: '2026-10-20'
@@ -14,8 +14,8 @@ tags:
   - gen3
   - map
   - ui
-rejection_count: 2
-rejection_reason: 'Session terminated with state: FAILED'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

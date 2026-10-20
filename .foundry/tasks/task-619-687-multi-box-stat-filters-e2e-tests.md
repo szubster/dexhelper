@@ -2,7 +2,7 @@
 id: task-619-687-multi-box-stat-filters-e2e-tests
 type: TASK
 title: Multi-Box Stat Filters E2E Tests
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-14'
 updated_at: '2026-10-20'
@@ -17,8 +17,8 @@ tags:
   - pc-box
   - e2e
   - playwright
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

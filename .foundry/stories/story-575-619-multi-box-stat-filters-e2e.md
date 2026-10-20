@@ -2,10 +2,10 @@
 id: story-575-619-multi-box-stat-filters-e2e
 type: STORY
 title: Multi-Box Stat Filters E2E
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

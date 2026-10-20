@@ -2,10 +2,10 @@
 id: story-525-710-build-tooling-e2e-verification-retry
 type: STORY
 title: Integration and E2E Verification - Retry
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-19'
-updated_at: '2026-10-19'
+updated_at: '2026-10-20'
 depends_on:
   - story-525-638-isolate-vite-plugins
   - story-525-709-extract-data-generation-scripts-retry

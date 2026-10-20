@@ -2,12 +2,12 @@
 id: story-402-649-refactor-ui-lazy-loading
 type: STORY
 title: Refactor UI Components for Lazy Loading
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-12T16:56:51Z'
-updated_at: '2026-10-18'
+updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: '9629875446302817463'
+jules_session_id: null
 pr_number: null
 parent: epic-337-402-ui-component-splitting
 tags:

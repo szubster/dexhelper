@@ -2,13 +2,12 @@
 id: task-574-691-item-gating-ui-state
 type: TASK
 title: Item Gating UI State and Integration
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-15'
-updated_at: '2026-10-15'
+updated_at: '2026-10-20'
 depends_on:
   - task-574-690-item-gating-ui-components
-
 jules_session_id: null
 pr_number: null
 parent: story-407-574-item-gating-ui-filter
@@ -17,8 +16,11 @@ tags:
   - map
   - ui
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-574-690-item-gating-ui-components
+notes: ''
+locks: []
 ---
 
 # Item Gating UI State and Integration

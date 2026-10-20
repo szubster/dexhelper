@@ -2,10 +2,10 @@
 id: story-418-677-historical-stats-aggregation
 type: STORY
 title: Historical Stats Data Aggregation and Output
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-20'
 depends_on:
   - story-418-676-historical-stats-git-parser
 jules_session_id: null

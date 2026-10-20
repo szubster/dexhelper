@@ -2,13 +2,13 @@
 id: task-521-677-gen2-parser-refactor
 type: TASK
 title: Refactor Gen 2 Parser magic numbers
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-09-03'
 updated_at: '2026-10-20'
 depends_on:
   - task-521-676-gen2-constants
-jules_session_id: '14612754331386137095'
+jules_session_id: null
 pr_number: null
 parent: story-522-521-gen2-parser-refactor-impl
 tags:

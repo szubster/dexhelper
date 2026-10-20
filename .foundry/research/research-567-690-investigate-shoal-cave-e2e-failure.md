@@ -2,12 +2,12 @@
 id: research-567-690-investigate-shoal-cave-e2e-failure
 type: RESEARCH
 title: Investigate Root Cause of Shoal Cave Dashboard E2E Tests Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-16T12:53:44.101Z'
 updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: '10745313870423856727'
+jules_session_id: null
 pr_number: null
 parent: story-412-567-shoal-cave-e2e-verification
 tags:
@@ -16,7 +16,7 @@ tags:
   - playwright
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

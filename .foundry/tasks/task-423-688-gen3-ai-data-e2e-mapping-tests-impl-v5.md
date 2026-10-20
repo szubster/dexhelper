@@ -2,10 +2,10 @@
 id: task-423-688-gen3-ai-data-e2e-mapping-tests-impl-v5
 type: TASK
 title: Write Playwright E2E Tests for Gen 3 AI Script Mapping (V5)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-15'
-updated_at: '2026-10-19'
+updated_at: '2026-10-20'
 depends_on:
   - research-423-687-investigate-ai-mapping-test-failure-v4
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - save-engine
   - e2e
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-423-687-investigate-ai-mapping-test-failure-v4
 notes: ''
 locks: []
 ---

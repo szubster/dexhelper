@@ -2,10 +2,10 @@
 id: task-619-688-multi-box-stat-filters-e2e-qa
 type: TASK
 title: Multi-Box Stat Filters E2E QA Verification
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-14'
-updated_at: '2026-10-18'
+updated_at: '2026-10-20'
 depends_on:
   - task-619-687-multi-box-stat-filters-e2e-tests
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - qa
   - e2e
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-619-687-multi-box-stat-filters-e2e-tests
 notes: ''
 locks: []
 ---
