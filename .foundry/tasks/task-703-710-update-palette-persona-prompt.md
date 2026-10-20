@@ -24,7 +24,7 @@ rejection_reason: ''
 Update the palette persona prompt to explicitly define its responsibility for maintaining `src/index.css`, enforcing the tactical hardware aesthetic, and managing custom `@utility` primitives.
 
 ## Acceptance Criteria
-- [ ] The palette persona prompt (`.github/agents/palette.md`) is updated.
-- [ ] Responsibilities for `src/index.css` are explicitly stated.
-- [ ] Enforcement of the tactical hardware aesthetic (ADR 008 / ADR 024) is explicitly stated.
-- [ ] Management of custom `@utility` primitives is explicitly stated.
+- [x] The palette persona prompt (`.github/agents/palette.md`) is updated.
+- [x] Responsibilities for `src/index.css` are explicitly stated.
+- [x] Enforcement of the tactical hardware aesthetic (ADR 008 / ADR 024) is explicitly stated.
+- [x] Management of custom `@utility` primitives is explicitly stated.
