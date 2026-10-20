@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
 
+## [0.24.5] - 2026-04-03
+### Changed
+- Optimize rendering performance in the Pokédex grid by replacing array lookups with O(1) Set operations.
+- Improve accessibility by adding ARIA labels to icon-only buttons across the application.
+
+### Fixed
+- Fix map graph distance calculation bug by properly falling back unknown starting locations to Saffron City.
+
 ## [0.24.4] - 2026-04-03
 ### Changed
 - Optimize rendering performance in the Pokémon locations view by eliminating redundant array lookups.
@@ -277,3 +285,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.24.2]: https://github.com/szubster/dexhelper/compare/6c0ade13ea7ddb818007bad462788077595b34e1...70b3ca6ea7f9788b3ea04d7a352acb8ad5706bed
 [0.24.3]: https://github.com/szubster/dexhelper/compare/70b3ca6ea7f9788b3ea04d7a352acb8ad5706bed...961413c214332bc0ff9e90bfd13630da9a04c67f
 [0.24.4]: https://github.com/szubster/dexhelper/compare/961413c214332bc0ff9e90bfd13630da9a04c67f...edbf0c9005b78906051b1bc371acc754b0a466bd
+[0.24.5]: https://github.com/szubster/dexhelper/compare/edbf0c9005b78906051b1bc371acc754b0a466bd...0a51a23e9edeb506357e599dd7dcffdbbe75c9eb
