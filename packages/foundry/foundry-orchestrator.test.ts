@@ -3165,6 +3165,40 @@ Target artifact: task-completed
     expect(storyContent).toContain("status: PENDING");
   });
 
+  test('Lock Aggregation: Prevents PENDING node from promotion when its locks overlap with an ACTIVE node', () => {
+    // Task 1: ACTIVE with a lock
+    createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
+      id: "task-001",
+      type: "TASK",
+      title: "Task 1",
+      status: "ACTIVE",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      locks: ["db-migration"],
+    });
+
+    // Task 2: PENDING with the same lock
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task 2",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      locks: ["db-migration"],
+    });
+
+    main();
+
+    // Task 2 should remain PENDING because Task 1 has the same active lock
+    const task2Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-002.md'), 'utf-8');
+    expect(task2Content).toContain('status: PENDING');
+  });
+
   test('Deadlock Prevention: Handles circular dependencies safely and correctly prevents deadlocks', () => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-a.md', {
       id: "task-a",
