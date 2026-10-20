@@ -25,5 +25,5 @@ locks: []
 Investigate the root cause for the permanent failure (Max rejection count reached) of `task-518-603-binjgb-memory-sync-impl-v2`. Ensure to check if this was a system-level crash or an implementation rejection, and document findings to guide the v3 implementation.
 
 ## Acceptance Criteria
-- [ ] Determine why the memory synchronization task failed.
-- [ ] Document the findings in the journal.
+- [x] Determine why the memory synchronization task failed.
+- [x] Document the findings in the journal.
