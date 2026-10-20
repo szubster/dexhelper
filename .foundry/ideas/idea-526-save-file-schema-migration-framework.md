@@ -46,3 +46,4 @@ Introduce a lightweight, versioned Schema Migration Framework for parsed save st
 - [ ] Implement `SaveSchemaMigrator` with version tag support for parsed save data payloads.
 - [ ] Integrate migration pipeline into save parsing/hydration and `SaveHistoryDB` retrieval methods.
 - [ ] Write unit tests verifying sequential migration from legacy schema payloads to `CURRENT_SCHEMA_VERSION`.
+- [ ] prd-526-587-save-file-schema-migration-framework
