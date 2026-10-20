@@ -246,4 +246,34 @@ describe('NodeFrontmatterSchema', () => {
     };
     expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
   });
+
+  it('validates a node with DRAFT status', () => {
+    const node = {
+      id: "task-003-draft",
+      type: "TASK",
+      title: "Draft Task",
+      status: "DRAFT",
+      owner_persona: "coder",
+      created_at: "2026-08-14",
+      updated_at: "2026-08-14",
+      depends_on: [],
+      jules_session_id: null
+    };
+    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
+  });
+
+  it('validates a node with WIP status', () => {
+    const node = {
+      id: "task-004-wip",
+      type: "TASK",
+      title: "WIP Task",
+      status: "WIP",
+      owner_persona: "coder",
+      created_at: "2026-08-14",
+      updated_at: "2026-08-14",
+      depends_on: [],
+      jules_session_id: null
+    };
+    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
+  });
 });

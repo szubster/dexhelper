@@ -27,4 +27,4 @@ locks: []
 Write integration tests verifying that `DRAFT` and `WIP` statuses are correctly parsed by the schema validator.
 
 ## Acceptance Criteria
-- [ ] Write integration tests for schema parsing of `DRAFT` and `WIP` statuses
+- [x] Write integration tests for schema parsing of `DRAFT` and `WIP` statuses
