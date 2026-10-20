@@ -306,3 +306,49 @@ Date: 2026-10-11 03:45:00
 ## Rule Reminders and Observations
 - Retained all trees with non-terminal statuses (`PENDING`, `READY`, `ACTIVE`, `VERIFYING`, `BLOCKED`, `DRAFT`) to preserve active execution context.
 - Frontmatter `parent` and `depends_on` fields strictly remain as pure Node IDs, satisfying DAG ID strictness rules.
+
+---
+
+# TPM Archiving Journal
+Date: 2026-10-14 04:50:00
+
+---
+
+## Archiving Activity
+- Identified 2 terminal DAG trees across `.foundry/` comprising 5 total nodes where all nodes in the tree hierarchy reached terminal states (`COMPLETED`).
+- Safely relocated 5 node markdown files into their corresponding `.foundry/archive/` subdirectories (`stories/`, `tasks/`).
+- Verified that no active nodes reference these archived nodes or have filepath dependencies in YAML frontmatter.
+
+---
+
+## Archivable Trees Archived
+1. `story-572-645-agent-capability-integration-e2e` tree (3 nodes: COMPLETED)
+   - `.foundry/stories/story-572-645-agent-capability-integration-e2e.md` -> `.foundry/archive/stories/story-572-645-agent-capability-integration-e2e.md`
+   - `.foundry/tasks/task-645-665-agent-capability-integration-e2e-impl.md` -> `.foundry/archive/tasks/task-645-665-agent-capability-integration-e2e-impl.md`
+   - `.foundry/tasks/task-645-666-qa-agent-capability-integration-e2e.md` -> `.foundry/archive/tasks/task-645-666-qa-agent-capability-integration-e2e.md`
+
+2. `task-585-601-schema-e2e-linters` tree (2 nodes: COMPLETED)
+   - `.foundry/tasks/task-585-601-schema-e2e-linters.md` -> `.foundry/archive/tasks/task-585-601-schema-e2e-linters.md`
+   - `.foundry/tasks/task-585-602-schema-e2e-tests.md` -> `.foundry/archive/tasks/task-585-602-schema-e2e-tests.md`
+
+---
+
+## Rule Reminders and Observations
+- Retained all trees with non-terminal statuses (`PENDING`, `READY`, `ACTIVE`, `VERIFYING`, `BLOCKED`, `DRAFT`) to preserve active execution context.
+- Frontmatter `parent` and `depends_on` fields strictly remain as pure Node IDs, satisfying DAG ID strictness rules.
+
+---
+
+# TPM Session Journal
+Date: 2026-10-17 02:16:36
+
+## Architectural Findings and Lessons Learned
+
+### DAG Integrity and Deadlock Resolution
+- Verified all active nodes across `.foundry/` for schema compliance and dependency structure.
+- No DAG deadlocks, invalid path-based `depends_on` or `parent` fields, or missing node linkage were detected in active nodes.
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving strictly operates at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`. A completed node cannot be archived if any descendant or parent in its hierarchy is in a non-terminal state (e.g., PENDING, READY, ACTIVE, VERIFYING, BLOCKED, DRAFT).
+- **Archival Evaluation**: Evaluated 171 active DAG tree hierarchies across 2,873 active nodes. Currently, 0 active trees have reached 100% terminal status across their entire root-to-leaf hierarchy.
+- **Conservative Retention Policy**: Prioritized retention over aggressive removal in accordance with core TPM duties. Retained all active nodes to preserve context for ongoing workflows.
