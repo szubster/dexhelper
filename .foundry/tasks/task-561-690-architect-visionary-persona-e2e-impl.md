@@ -34,4 +34,4 @@ We need to implement E2E tests for the newly added `architect_visionary` persona
 - Ensure the tests run reliably and do not introduce flakiness.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E test file for the `architect_visionary` persona integration.
+- [x] Implement Playwright E2E test file for the `architect_visionary` persona integration.
