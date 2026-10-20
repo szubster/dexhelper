@@ -31,7 +31,12 @@ Implement a UI filter that allows users to toggle or see which items on the curr
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks for Coder and QA.
-- [ ] task-574-690-item-gating-ui-components
-- [ ] task-574-691-item-gating-ui-state
-- [ ] task-574-692-item-gating-ui-tests
-- [ ] task-574-693-item-gating-ui-qa
+- [x] task-574-690-item-gating-ui-components
+- [x] task-574-691-item-gating-ui-state
+- [x] task-574-692-item-gating-ui-tests
+- [x] task-574-693-item-gating-ui-qa
+- [ ] research-574-712-investigate-item-gating-ui-failure
+- [ ] task-574-713-item-gating-ui-components-retry
+- [ ] task-574-714-item-gating-ui-state-retry
+- [ ] task-574-715-item-gating-ui-tests-retry
+- [ ] task-574-716-item-gating-ui-qa-retry
