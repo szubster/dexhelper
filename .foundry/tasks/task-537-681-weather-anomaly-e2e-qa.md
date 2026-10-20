@@ -28,5 +28,5 @@ locks: []
 Review and verify the Playwright E2E tests implemented for the Gen 3 weather anomaly extraction.
 
 ## Acceptance Criteria
-- [ ] Review E2E test implementation.
-- [ ] Run E2E tests locally to ensure they pass.
+- [x] Review E2E test implementation.
+- [x] Run E2E tests locally to ensure they pass.
