@@ -27,4 +27,4 @@ locks: []
 QA E2E tests for Daycare extraction engine across supported generations to verify offline save parsing engine implementation.
 
 ## Acceptance Criteria
-- [ ] Verify E2E tests for Daycare save parsing engine.
+- [x] Verify E2E tests for Daycare save parsing engine.
