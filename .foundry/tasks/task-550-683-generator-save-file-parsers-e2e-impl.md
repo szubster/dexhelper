@@ -26,5 +26,5 @@ locks: []
 Write integration and E2E tests for the generator save file parsers. Ensure they correctly parse save files using the new generator architecture.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for save file parsers using Playwright.
-- [ ] Tests must verify correct integration within the generator architecture.
+- [x] Implement E2E tests for save file parsers using Playwright.
+- [x] Tests must verify correct integration within the generator architecture.
