@@ -33,5 +33,7 @@ Ensure end-to-end integration of the Lottery Matching Logic Module.
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [x] task-424-676-gen3-lottery-e2e-tests
-- [ ] research-424-703-investigate-gen3-lottery-e2e-failure
-- [ ] task-424-704-gen3-lottery-e2e-tests-retry
+- [x] research-424-703-investigate-gen3-lottery-e2e-failure
+- [x] task-424-704-gen3-lottery-e2e-tests-retry
+- [ ] research-424-712-investigate-gen3-lottery-e2e-failure-retry
+- [ ] task-424-713-gen3-lottery-e2e-tests-retry-2
