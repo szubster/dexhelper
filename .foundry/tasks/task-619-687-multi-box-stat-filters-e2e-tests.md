@@ -2,12 +2,12 @@
 id: task-619-687-multi-box-stat-filters-e2e-tests
 type: TASK
 title: Multi-Box Stat Filters E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-19'
+updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9857597617546220497'
 pr_number: null
 parent: story-575-619-multi-box-stat-filters-e2e
 tags:
