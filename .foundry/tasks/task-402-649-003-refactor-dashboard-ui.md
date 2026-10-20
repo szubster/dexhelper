@@ -31,5 +31,5 @@ Refactor the Dashboard components in `src/routes/dashboard.tsx` to utilize the n
 - Ensure fallbacks use the tactical skeleton styling.
 
 ## Acceptance Criteria
-- [ ] Replace `React.Suspense` blocks in `src/routes/dashboard.tsx`.
-- [ ] Ensure tactical aesthetic adherence in fallbacks.
+- [x] Replace `React.Suspense` blocks in `src/routes/dashboard.tsx`.
+- [x] Ensure tactical aesthetic adherence in fallbacks.
