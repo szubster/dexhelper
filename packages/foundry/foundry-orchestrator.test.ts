@@ -1856,6 +1856,29 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(storyContent).toContain('status: READY');
   });
 
+  test('Phase 3.0: Skips max rejection threshold cancellation for infrastructure errors', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-infra-error.md', {
+      id: "task-infra-error",
+      type: "TASK",
+      title: "Infra Error Task",
+      status: "FAILED",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      parent: ".foundry/stories/story-001.md",
+      depends_on: [],
+      jules_session_id: null,
+      rejection_count: 3,
+      rejection_reason: "Session terminated with state: INTERNAL_ERROR",
+    });
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-infra-error.md'), 'utf-8');
+    expect(result).toContain('status: FAILED');
+    expect(result).toContain('Session terminated with state: INTERNAL_ERROR');
+  });
+
   test('Impossible Loop: Auto-cancels node when max rejection count is reached', async () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
       id: "story-001",
@@ -3821,7 +3844,7 @@ Target artifact: task-completed
     expect(parsedOutput[0].compiled_prompt).toContain('As the coder of The Foundry, your task is described in the provided node file.');
 
     expect(stderrSpy).toHaveBeenCalled();
-    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('Base persona prompt not found for: coder, using default generic prompt.'));
+    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('::warning::Base persona prompt not found for: coder, using default generic prompt.'));
     expect(warningMsg).toBeDefined();
 
     consoleSpy.mockRestore();
@@ -3936,7 +3959,7 @@ Target artifact: task-completed
     expect(compiledOutput).toContain('As the tpm of The Foundry, your task is to execute your scheduled responsibilities.');
 
     expect(stderrSpy).toHaveBeenCalled();
-    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('Scheduled agent persona prompt not found for: tpm, using default generic prompt.'));
+    const warningMsg = stderrSpy.mock.calls.find(call => typeof call[0] === 'string' && call[0].includes('::warning::Scheduled agent persona prompt not found for: tpm, using default generic prompt.'));
     expect(warningMsg).toBeDefined();
 
     stdoutSpy.mockRestore();

@@ -2,6 +2,7 @@
 
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
+import matter from '@11ty/gray-matter';
 
 const TARGET_DIRECTORIES = [
   '.foundry/ideas',
@@ -42,6 +43,36 @@ async function main() {
     }
   }
   console.log(`Found ${allFiles.length} files to lint.`);
+
+  const requiredFields = [
+    'id',
+    'type',
+    'title',
+    'status',
+    'owner_persona',
+    'created_at',
+    'updated_at',
+    'depends_on',
+    'jules_session_id',
+  ];
+
+  let hasErrors = false;
+
+  for (const file of allFiles) {
+    const content = await fs.readFile(file, 'utf-8');
+    const parsed = matter(content);
+
+    for (const field of requiredFields) {
+      if (parsed.data[field] === undefined) {
+        console.error(`Error: File '${file}' is missing required frontmatter field '${field}'.`);
+        hasErrors = true;
+      }
+    }
+  }
+
+  if (hasErrors) {
+    process.exit(1);
+  }
 }
 
 main().catch((err) => {

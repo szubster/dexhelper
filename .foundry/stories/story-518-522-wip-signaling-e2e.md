@@ -2,10 +2,10 @@
 id: story-518-522-wip-signaling-e2e
 type: STORY
 title: Integration and E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-17'
+updated_at: '2026-10-19'
 depends_on:
   - story-518-520-enforce-feature-flags
   - story-518-521-experimental-namespace

@@ -364,3 +364,24 @@ Analyzed session 2897712216952814014 and discovered a QA agent asking the user w
 - **Observation**: During system test runs (`pnpm test`), Vitest flagged an unhandled error (`browserType.launch: Executable doesn't exist at /home/jules/.cache/ms-playwright/chromium_headless_shell-1243/...`) caused by missing Playwright browser binaries in headless test runner contexts.
 - **Impact**: Unhandled browser launch errors pollute test output logs and can cause false-positive session failures during automated component and E2E verification cycles.
 - **Action Taken**: Autonomously created `idea-536-playwright-browsers-preinstall-guard.md` assigned to `product_manager` to propose an automated check/fallback in test scripts or pre-test hooks that ensures Playwright binaries are validated or gracefully handled prior to running Vitest browser tests.
+
+---
+
+# Agile Coach Journal Entry - 2026-10-14-04-30-00
+
+## Session Analysis & System Improvements
+
+### 1. Journal & Rejection Scan
+- Analyzed recent session journals across `.foundry/journals/` (QA, Coder, Tech Lead, Auditor) and commit history.
+- Evaluated friction patterns resulting in transient QA rejections and generative scope violations.
+
+### 2. Core System Policy Updates
+Updated `.foundry/docs/knowledge_base/agents/core_policies.md` with three key system rules:
+1. **Artifact Presence Verification (Coder Delivery Guard)**: Explicitly mandates that Coder agents verify on-disk file presence (`git status` / `read_file`) for all promised deliverable files before marking a task as COMPLETED, preventing empty PRs and omitted test files (as observed in `task-478-617`).
+2. **React Context Application Root Wiring**: Requires implementation tasks creating new global React Context providers to explicitly wire the Provider into `src/main.tsx` or application root wrapper within the same or linked task, preventing runtime undefined context exceptions (as observed in `task-520-552`).
+3. **Generative Task Scope & Macro Acceptance Criteria Boundaries**: Enforces strict file scope during generative sessions (restricting changes to `.foundry/` node markdowns) and explicitly prohibits checking off macro node functional acceptance criteria during decomposition phases.
+
+### 3. Proactive Idea Generation
+Autonomously spawned two new proactive `IDEA` nodes assigned to `product_manager`:
+- `idea-537-artifact-presence-precommit-validator.md`: Proposes an automated pre-commit validator in `.github/scripts/` to ensure modified files match expected deliverables before QA dispatch.
+- `idea-538-context-provider-root-wiring-linter.md`: Proposes a static AST linter rule verifying custom React Context Providers are wrapped in `src/main.tsx`.

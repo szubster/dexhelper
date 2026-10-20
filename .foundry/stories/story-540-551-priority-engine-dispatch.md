@@ -2,13 +2,13 @@
 id: story-540-551-priority-engine-dispatch
 type: STORY
 title: Implement Priority Engine Dispatch Logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-06'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on:
   - story-540-550-priority-field-schema
-jules_session_id: '1529319570043791251'
+jules_session_id: null
 parent: epic-521-540-orchestrator-priority-scheduling
 rejection_reason: ''
 locks: []
@@ -19,6 +19,9 @@ locks: []
 - [ ] task-551-564-update-orchestrator-priority-logic
 - [x] task-551-565-update-orchestrator-priority-tests
 - [x] task-551-566-qa-orchestrator-priority
-- [ ] research-551-668-investigate-orchestrator-priority-tests-failure
-- [ ] task-551-669-update-orchestrator-priority-tests-v2
-- [ ] task-551-670-qa-orchestrator-priority-v2
+- [x] research-551-668-investigate-orchestrator-priority-tests-failure
+- [x] task-551-669-update-orchestrator-priority-tests-v2
+- [x] task-551-670-qa-orchestrator-priority-v2
+- [ ] research-551-690-investigate-orchestrator-priority-tests-v2-failure
+- [ ] task-551-691-update-orchestrator-priority-tests-v3
+- [ ] task-551-692-qa-orchestrator-priority-v3

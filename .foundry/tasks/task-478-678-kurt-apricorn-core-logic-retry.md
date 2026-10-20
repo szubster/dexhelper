@@ -2,20 +2,20 @@
 id: task-478-678-kurt-apricorn-core-logic-retry
 type: TASK
 title: Kurt Apricorn Core Parsing Logic Retry
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-10'
 updated_at: '2026-10-18'
 depends_on:
   - task-478-677-kurt-apricorn-types-retry
-jules_session_id: '12559525059392139117'
+jules_session_id: null
 pr_number: null
 parent: story-404-478-kurt-apricorn-parsing-logic
 tags:
   - gen2
   - items
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

@@ -5,7 +5,7 @@ title: Gen 3 Move Tutor E2E Fixtures
 status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-11'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - integration
 research_references: []
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 priority: 50

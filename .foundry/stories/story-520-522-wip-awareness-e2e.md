@@ -2,10 +2,10 @@
 id: story-520-522-wip-awareness-e2e
 type: STORY
 title: WIP Orchestrator Awareness E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-17'
+updated_at: '2026-10-20'
 depends_on:
   - story-520-521-restrict-downstream-dependencies
 jules_session_id: null

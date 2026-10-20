@@ -2,15 +2,15 @@
 id: prd-086-520-fix-gen3save-mock
 type: PRD
 title: Fix isGen3Save heuristic mock for E2E tests
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-08-25T00:00:00.000Z'
-updated_at: '2026-09-05'
+updated_at: '2026-10-20'
 depends_on: []
 jules_session_id: null
-locks: []
-rejection_reason: ''
 parent: idea-086-fix-gen3save-mock
+rejection_reason: ''
+locks: []
 ---
 
 ## Context
@@ -33,4 +33,4 @@ However, in tests, it is mocked, and tests bypass it. The goal is to remove this
 
 ## Acceptance Criteria
 - [x] Break down into Epics
-- [ ] epic-520-536-remove-gen3save-mock
+- [x] epic-520-536-remove-gen3save-mock

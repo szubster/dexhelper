@@ -2,12 +2,12 @@
 id: epic-585-587-implement-macro-node-subtree-completeness-validator
 type: EPIC
 title: Implement Macro Node Subtree Completeness Validator Tool
-status: READY
-owner_persona: "story_owner"
-created_at: "2026-10-16T18:04:19.673Z"
-updated_at: "2026-10-16"
+status: ACTIVE
+owner_persona: story_owner
+created_at: '2026-10-16T18:04:19.673Z'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7680343253248997459'
 locks: []
 pr_number: null
 parent: prd-527-585-macro-node-subtree-completeness-validator
@@ -19,8 +19,8 @@ tags:
   - validation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Implement Macro Node Subtree Completeness Validator Tool

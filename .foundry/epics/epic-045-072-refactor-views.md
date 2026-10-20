@@ -2,13 +2,13 @@
 id: epic-045-072-refactor-views
 type: EPIC
 title: Refactor DagDashboard Views to consume DagContext
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on:
   - epic-045-071-refactor-data-parsing-layer
-jules_session_id: '9357572952968118621'
+jules_session_id: null
 pr_number: null
 parent: prd-073-045-refactor-dag-dashboard-context
 tags:
@@ -33,4 +33,7 @@ With \`DagContext\` in place, the existing React Flow DAG visualizer (and any ot
 - Verify that there are no performance regressions due to the context refactoring.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-072-676-refactor-dag-visualizer
+- [ ] story-072-677-refactor-dashboard-views
+- [ ] story-072-678-dag-dashboard-context-e2e

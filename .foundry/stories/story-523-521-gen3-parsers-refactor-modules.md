@@ -2,13 +2,13 @@
 id: story-523-521-gen3-parsers-refactor-modules
 type: STORY
 title: Refactor Gen 3 Submodule Parsers for ADR 028
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-17'
+updated_at: '2026-10-18'
 depends_on:
   - story-523-520-gen3-parsers-refactor-core
-jules_session_id: null
+jules_session_id: '8545201573905388825'
 pr_number: null
 parent: epic-517-523-gen3-parser-refactor-adr-028
 tags:

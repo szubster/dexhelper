@@ -2,12 +2,12 @@
 id: task-543-683-benchmarking-setup-integration-tests
 type: TASK
 title: Benchmarking Setup Integration Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-13T04:52:00Z'
-updated_at: '2026-10-13T04:52:00Z'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4339159934379742309'
 pr_number: null
 parent: story-536-543-integration-e2e-verification
 tags:

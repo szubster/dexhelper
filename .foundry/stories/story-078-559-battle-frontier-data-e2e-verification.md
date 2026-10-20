@@ -2,10 +2,10 @@
 id: story-078-559-battle-frontier-data-e2e-verification
 type: STORY
 title: Battle Frontier Data E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-08'
-updated_at: '2026-10-16'
+updated_at: '2026-10-19'
 depends_on:
   - story-078-558-rs-battle-tower-data-parsing
 jules_session_id: null
@@ -28,8 +28,8 @@ locks: []
 Perform integration and end-to-end verification of the Battle Frontier and Battle Tower data extraction. This is to ensure both the Emerald and Ruby/Sapphire parsing functionality correctly integrates into the application and UI, fulfilling the Epic's orchestrator E2E requirement.
 
 ## Acceptance Criteria
-- [ ] Create and run E2E tests verifying Battle Frontier data is accurately extracted and displayed for Emerald.
-- [ ] Create and run E2E tests verifying Battle Tower data is accurately extracted and displayed for Ruby/Sapphire.
-- [ ] Ensure no regressions are introduced into other Gen 3 parsing processes.
-- [ ] task-559-680-battle-frontier-data-e2e-tests
-- [ ] task-559-681-battle-frontier-data-e2e-qa
+- [x] Create and run E2E tests verifying Battle Frontier data is accurately extracted and displayed for Emerald.
+- [x] Create and run E2E tests verifying Battle Tower data is accurately extracted and displayed for Ruby/Sapphire.
+- [x] Ensure no regressions are introduced into other Gen 3 parsing processes.
+- [x] task-559-680-battle-frontier-data-e2e-tests
+- [x] task-559-681-battle-frontier-data-e2e-qa

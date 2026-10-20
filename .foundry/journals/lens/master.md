@@ -191,3 +191,44 @@ Whenever `TacticalInput` is used with a `label` prop inside compact grid rows or
 ## DiagnosticCard Grid Responsiveness
 * **Issue Identified**: In `AssistantDebugView.tsx`, diagnostic telemetry cards rendered in a `grid-cols-2 md:grid-cols-4` grid layout. When a 5th card (`ASH.CNT` for Volcanic Ash in Gen 3 saves) rendered, it created an asymmetric 3rd row on mobile and desktop viewports (`123.5x131.5` vs `123.5x118`).
 * **Fix Applied**: Refactored grid breakpoints to `grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5`. This allows all 5 telemetry cards to fit cleanly onto a single row on desktop and adapt smoothly across intermediate screen sizes.
+
+---
+
+# Lens Journal - Visual QA & Exploratory Inspection
+
+## Key Learnings & Architectural Constraints
+
+### Tactical Bracket Label Integrity
+When rendering inline data points and telemetry labels (`InlineDataPoint.tsx`) using tactical bracket notation (`[ LABEL ]`), compact flex containers (such as `TelemetryMatrix` in mobile headers) can trigger undesired line wrapping on the label string. When wrapping occurs, bracket pairs become visually split or orphaned across lines, violating the ADR 008 tactical hardware design specification.
+
+#### Enforcement Rule
+All tactical bracket labels and metadata indicators rendered via reusable primitives (such as `InlineDataPoint`) must strictly apply `whitespace-nowrap` to their label container element. This guarantees that brackets (`[ ]`) and enclosed label text remain atomically bound on a single line regardless of screen size or container constraints.
+
+---
+
+# Lens Visual & Layout Audit Journal — 2026-10-19
+
+## Tactical Bracket Non-Wrapping Guarantee & EdgeLabel Layout Safeguards
+
+### Findings & Architectural Constraints
+During exploratory visual inspection of component layout primitives across responsive viewports, `EdgeLabel` was identified as rendering absolute-positioned tactical bracket overlays (`[ Label ]`).
+
+Under constrained parent container widths or tight flex/grid layouts, components using `EdgeLabel` or inline tactical badges risk having ASCII brackets or label text wrap onto separate lines if `whitespace-nowrap` is omitted from the component's container element.
+
+### Remediation & Rule Enforcement
+* **Component Safeguard**: Updated `EdgeLabel.tsx` to include `whitespace-nowrap` on its container div.
+* **Non-Wrapping Policy**: All tactical bracket primitives, edge labels, and status badges must enforce `whitespace-nowrap` to preserve single-line rendering and maintain tactical hardware aesthetic compliance (ADR 008) across all device viewports.
+
+---
+
+# Lens Visual QA & Layout Audit Journal — 2026-10-20
+
+## Discoveries & Remediation
+
+### Sticky Header Collision & Pointer Event Interception
+* **Issue**: `SearchAndFilters.tsx` contained `sticky top-0 z-30 -mt-6`, which collided with `AppHeader` (`sticky top-0 z-50`). On scroll, `SearchAndFilters` stuck directly behind `AppHeader`, causing filter controls to be hidden and top grid items to be occluded while intercepting pointer clicks on mobile viewports.
+* **Fix**: Updated `SearchAndFilters.tsx` to `relative z-30 mb-6`, allowing smooth scrolling with the page document while `AppHeader` remains the single sticky header.
+
+### Mobile Title Text Scaling
+* **Issue**: `PokemonDetails.tsx` header used `text-5xl` for Pokemon names on 393px mobile viewports, forcing long entity names (`VICTREEBEL`, `EXEGGCUTE`) to break mid-word across lines.
+* **Fix**: Scaled heading text to `text-3xl sm:text-6xl lg:text-7xl` for clean mobile rendering.
