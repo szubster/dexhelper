@@ -2,13 +2,13 @@
 id: task-521-678-gen2-parser-qa
 type: TASK
 title: QA Refactored Gen 2 Parser magic numbers
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-09-03'
 updated_at: '2026-10-20'
 depends_on:
   - task-521-677-gen2-parser-refactor
-jules_session_id: null
+jules_session_id: '8607612669422293014'
 pr_number: null
 parent: story-522-521-gen2-parser-refactor-impl
 tags:
