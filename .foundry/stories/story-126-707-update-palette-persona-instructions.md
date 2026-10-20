@@ -27,4 +27,6 @@ priority: 100
 Update the relevant agent prompts or system configurations to explicitly define the `palette` persona's responsibility for maintaining `src/index.css`, enforcing the tactical hardware aesthetic, and managing custom `@utility` primitives.
 
 ## Acceptance Criteria
+- [ ] task-707-710-update-palette-persona-instructions-impl
+- [ ] task-707-711-update-palette-persona-instructions-qa
 - [ ] The `palette` persona prompt or configuration is updated with the new responsibilities.
