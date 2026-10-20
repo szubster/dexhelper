@@ -2,12 +2,12 @@
 id: task-528-690-wip-schema-integration-tests
 type: TASK
 title: Implement Schema Validator Integration Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-16T02:19:15.Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5157679641252668580'
 pr_number: null
 parent: story-517-528-wip-documentation-e2e
 tags:
