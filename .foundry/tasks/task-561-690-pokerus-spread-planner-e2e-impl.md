@@ -2,12 +2,12 @@
 id: task-561-690-pokerus-spread-planner-e2e-impl
 type: TASK
 title: Pokerus Spread Planner E2E Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-16T02:37:32.062Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1599195635104342267'
 pr_number: null
 parent: story-413-561-pokerus-spread-planner-e2e
 tags:
