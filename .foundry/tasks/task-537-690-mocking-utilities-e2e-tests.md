@@ -2,13 +2,13 @@
 id: task-537-690-mocking-utilities-e2e-tests
 type: TASK
 title: Write Mocking Utilities E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-16T02:21:33.859Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on:
   - story-530-536-mocking-utility-functions
-jules_session_id: null
+jules_session_id: '7276769012058935522'
 pr_number: null
 parent: story-530-537-mocking-utilities-e2e
 tags:
