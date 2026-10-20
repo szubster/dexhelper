@@ -2,13 +2,13 @@
 id: task-677-678-adr-compliance-lefthook-integration-impl
 type: TASK
 title: Implement ADR Compliance Lefthook Integration
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-18T19:00:00.000Z'
-updated_at: '2026-10-18'
+updated_at: '2026-10-20'
 depends_on: []
 parent: story-418-677-adr-compliance-lefthook-integration
-jules_session_id: '3355379518708574393'
+jules_session_id: '16436828992430789557'
 pr_number: null
 rejection_count: 0
 rejection_reason: ''
