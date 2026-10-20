@@ -27,5 +27,5 @@ locks: []
 Based on ADR 571 and the findings from the research task, implement Graphology as the graph processing library for DAG operations in the Foundry orchestrator.
 
 ## Acceptance Criteria
-- [ ] Integrate Graphology into \`packages/foundry/foundry-orchestrator.ts\`.
-- [ ] Replace custom DAG algorithms with Graphology implementations based on research findings.
+- [x] Integrate Graphology into \`packages/foundry/foundry-orchestrator.ts\`.
+- [x] Replace custom DAG algorithms with Graphology implementations based on research findings.
