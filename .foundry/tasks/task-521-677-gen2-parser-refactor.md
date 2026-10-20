@@ -26,4 +26,4 @@ rejection_count: 1
 Per ADR 028, inline magic numbers must be replaced. Replace `0x0f` with `CURRENT_BOX_NUM_MASK` and `0x00` with `GEN2_EMPTY_SLOT_00` in `src/engine/saveParser/parsers/gen2.ts`, importing these new constants from `src/engine/saveParser/parsers/gen2Constants.ts`.
 
 ## Acceptance Criteria
-- [ ] Refactor `0x0f` and `0x00` in `gen2.ts` to use new constants defined in `gen2Constants.ts`.
+- [x] Refactor `0x0f` and `0x00` in `gen2.ts` to use new constants defined in `gen2Constants.ts`.
