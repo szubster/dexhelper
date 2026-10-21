@@ -39,3 +39,5 @@ This proposal introduces an automated linter guard within `.github/scripts/verif
 - [ ] Extend `.github/scripts/verify-dag-refs.ts` to inspect E2E tasks for mandatory `depends_on` implementation task linkages.
 - [ ] Add unit tests verifying that unlinked E2E tasks fail DAG verification during `pnpm test`.
 - [ ] Integrate E2E dependency assertions into Orchestrator node dispatch logic.
+
+- [ ] prd-532-588-e2e-dependency-validator-lint
