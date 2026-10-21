@@ -51,4 +51,7 @@ Refactor `src/store.ts` into a modular, slice-based Zustand architecture:
 - **Enhanced Maintainability & DX**: Clean separation of state concerns across domain slices simplifies feature development and reduces merge conflicts for developer personas.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [ ] epic-707-693-domain-logic-extraction
+- [ ] epic-707-694-store-slice-decomposition
+- [ ] epic-707-695-memoized-selectors-migration
+- [x] Break down into Epics
