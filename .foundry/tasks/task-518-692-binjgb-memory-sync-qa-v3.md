@@ -29,6 +29,6 @@ locks: []
 Verify that the `binjgb` memory synchronization correctly extracts the save state during gameplay and that the DexHelper application updates real-time suggestions accordingly, without performance degradation.
 
 ## Acceptance Criteria
-- [ ] Verify that starting a Gen 1/2 game in the emulator correctly tracks live stats in the UI.
-- [ ] Verify that saving the game in-emulator properly syncs with `SaveHistoryDB`.
-- [ ] Ensure the emulator maintains performance during the polling/synchronization cycle.
+- [x] Verify that starting a Gen 1/2 game in the emulator correctly tracks live stats in the UI.
+- [x] Verify that saving the game in-emulator properly syncs with `SaveHistoryDB`.
+- [x] Ensure the emulator maintains performance during the polling/synchronization cycle.
