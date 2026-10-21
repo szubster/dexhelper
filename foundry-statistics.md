@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-21T17:47:13.886Z*
+*Generated at: 2026-10-21T21:00:26.718Z*
 
 ## Node Statistics
 
@@ -18,20 +18,20 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3271 |
-| ACTIVE | 177 |
-| CANCELLED | 805 |
-| PENDING | 752 |
-| FAILED | 2 |
+| COMPLETED | 3272 |
+| ACTIVE | 176 |
+| CANCELLED | 807 |
+| PENDING | 751 |
+| READY | 1 |
 | BLOCKED | 14 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9846 |
+| Total PRs | 9847 |
 | Open PRs | 197 |
-| Merged PRs | 8501 |
+| Merged PRs | 8502 |
 | Closed PRs | 1148 |
 
 ## Rejection Counts
@@ -699,6 +699,7 @@
 | idea-064-smart-route-radar.md | 1 |
 | idea-071-tailwind-v4-utilities-migration.md | 1 |
 | idea-083-daycare-egg-tracker.md | 1 |
+| idea-086-fix-gen3save-mock.md | 1 |
 | idea-116-gen3-pc-box-wallpaper-customizer.md | 1 |
 | idea-117-split-bundles-and-data.md | 1 |
 | idea-122-foundry-lead-time-metrics.md | 1 |

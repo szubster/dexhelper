@@ -2,14 +2,15 @@
 id: idea-086-fix-gen3save-mock
 type: IDEA
 title: Fix isGen3Save heuristic mock for E2E tests
-status: FAILED
+status: READY
 owner_persona: curator
 created_at: '2026-08-25T00:00:00.000Z'
 updated_at: '2026-10-21'
 depends_on: []
 jules_session_id: null
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_reason: ''
 locks: []
+rejection_count: 1
 ---
 
 ## Context

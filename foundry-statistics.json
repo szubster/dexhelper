@@ -10,11 +10,11 @@
       "TASK": 2676
     },
     "byStatus": {
-      "COMPLETED": 3271,
-      "ACTIVE": 177,
-      "CANCELLED": 805,
-      "PENDING": 752,
-      "FAILED": 2,
+      "COMPLETED": 3272,
+      "ACTIVE": 176,
+      "CANCELLED": 807,
+      "PENDING": 751,
+      "READY": 1,
       "BLOCKED": 14
     },
     "rejectionCounts": {
@@ -2015,6 +2015,7 @@
       "idea-084-standardize-relative-offsets.md": 0,
       "idea-085-hidden-power-calculator.md": 0,
       "idea-086-box-duplicate-analyzer.md": 0,
+      "idea-086-fix-gen3save-mock.md": 1,
       "idea-089-gen3-ash-gathering-tracker.md": 0,
       "idea-091-smart-egg-move-path-finder.md": 0,
       "idea-094-move-tutor-tracker.md": 0,
@@ -7747,7 +7748,7 @@
       "story-525-641-build-tooling-e2e-verification.md": 1641600000,
       "story-525-709-extract-data-generation-scripts-retry.md": 86400000,
       "story-525-710-build-tooling-e2e-verification-retry.md": 86400000,
-      "story-526-638-extract-constants.md": 1641600000,
+      "story-526-638-extract-constants.md": 1814400000,
       "story-526-639-extract-parsers.md": 259200000,
       "story-526-640-extract-domain-logic.md": 1468800000,
       "story-526-641-core-domain-integration-e2e.md": 0,
@@ -9501,7 +9502,7 @@
       "task-638-669-extract-constants-to-core-v3.md": 691200000,
       "task-638-670-qa-extract-constants-to-core-v3.md": 691200000,
       "task-638-691-extract-constants-to-core-v4.md": 407929636,
-      "task-638-692-qa-extract-constants-to-core-v4.md": 321529628,
+      "task-638-692-qa-extract-constants-to-core-v4.md": 407929628,
       "task-639-641-extract-base-save-parsers.md": 172800000,
       "task-639-641-extract-data-generation-scripts.md": 172800000,
       "task-639-642-extract-generation-parsers.md": 172800000,
@@ -9616,10 +9617,10 @@
     }
   },
   "prs": {
-    "totalPRs": 9846,
+    "totalPRs": 9847,
     "openPRs": 197,
-    "mergedPRs": 8501,
+    "mergedPRs": 8502,
     "closedPRs": 1148
   },
-  "timestamp": "2026-10-21T17:47:13.886Z"
+  "timestamp": "2026-10-21T21:00:26.718Z"
 }
