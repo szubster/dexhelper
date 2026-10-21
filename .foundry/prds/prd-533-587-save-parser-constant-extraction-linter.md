@@ -2,12 +2,12 @@
 id: prd-533-587-save-parser-constant-extraction-linter
 type: PRD
 title: Automated Save Parser Magic Constant Extraction Linter
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-10-16T18:48:27.600Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9313919347117292451'
 parent: idea-533-save-parser-constant-extraction-linter
 rejection_count: 0
 rejection_reason: ''
