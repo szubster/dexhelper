@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
 
+## [0.24.6] - 2026-04-06
+### Changed
+- Replace `framer-motion` with native CSS animations to improve UI performance and resolve visual test flakiness.
+- Improve accessibility for the Living Dex toggle switch by adding proper ARIA attributes, switch role, and focus styles.
+
+### Fixed
+- Fix Gen 1 save file parsing to correctly read all 12 PC boxes (instead of just the active box) and accurately display empty boxes in the Storage view.
+
 ## [0.24.5] - 2026-04-03
 ### Changed
 - Optimize rendering performance in the Pokédex grid by replacing array lookups with O(1) Set operations.
@@ -286,3 +294,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.24.3]: https://github.com/szubster/dexhelper/compare/70b3ca6ea7f9788b3ea04d7a352acb8ad5706bed...961413c214332bc0ff9e90bfd13630da9a04c67f
 [0.24.4]: https://github.com/szubster/dexhelper/compare/961413c214332bc0ff9e90bfd13630da9a04c67f...edbf0c9005b78906051b1bc371acc754b0a466bd
 [0.24.5]: https://github.com/szubster/dexhelper/compare/edbf0c9005b78906051b1bc371acc754b0a466bd...0a51a23e9edeb506357e599dd7dcffdbbe75c9eb
+[0.24.6]: https://github.com/szubster/dexhelper/compare/18f5e2a12afbc20796f2d70fc895d4ff085cf10c...7389580e7acb3613d2e2f477c5a2a57033325be2
