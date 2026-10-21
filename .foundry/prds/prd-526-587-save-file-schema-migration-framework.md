@@ -2,12 +2,12 @@
 id: prd-526-587-save-file-schema-migration-framework
 type: PRD
 title: Versioned Save State Schema Migration Pipeline PRD
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-10-16T18:07:24.084Z'
-updated_at: '2026-10-16T18:07:24.084Z'
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: '16960194378758863441'
+jules_session_id: '13707715488682706294'
 pr_number: null
 parent: idea-526-save-file-schema-migration-framework
 tags:
