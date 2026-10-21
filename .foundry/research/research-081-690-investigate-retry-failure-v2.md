@@ -2,16 +2,18 @@
 id: research-081-690-investigate-retry-failure-v2
 type: RESEARCH
 title: Investigate Enum Optimizations Retry Failure (v2)
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-16T17:44:50.687Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4481274982287450069'
 parent: story-042-081-preserve-enum-optimizations
 rejection_count: 0
 rejection_reason: ''
-notes: 'Investigating the failure of task-081-144-preserve-enum-optimizations-retry-impl.'
+notes: >-
+  Investigating the failure of
+  task-081-144-preserve-enum-optimizations-retry-impl.
 locks: []
 ---
 
