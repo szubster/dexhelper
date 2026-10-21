@@ -2,12 +2,12 @@
 id: prd-537-707-zustand-store-slice-decomposition-and-selectors
 type: PRD
 title: Modular Zustand Store Slice Decomposition and Memoized State Selectors
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-10-19'
-updated_at: '2026-10-19'
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18039306591300909121'
 pr_number: null
 parent: idea-537-zustand-store-slice-decomposition-and-selectors
 tags:
