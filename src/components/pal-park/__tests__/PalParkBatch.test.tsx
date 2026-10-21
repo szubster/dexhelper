@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { PalParkBatch } from '../PalParkBatch';
 import type { PokemonInstance } from '../../../engine/saveParser/parsers/common';
+import { PalParkBatch } from '../PalParkBatch';
 
 describe('PalParkBatch', () => {
   const mockPokemon: PokemonInstance = {
@@ -16,10 +16,12 @@ describe('PalParkBatch', () => {
   };
 
   it('renders full batch of 6 pokemon', async () => {
-    const batch = Array(6).fill(null).map((_, i) => ({
-      pokemon: { ...mockPokemon, speciesId: mockPokemon.speciesId + i, hash: `hash-${i}`, nickname: `SPARKY_${i}` },
-      location: { box: 1, slot: i + 1 }
-    }));
+    const batch = Array(6)
+      .fill(null)
+      .map((_, i) => ({
+        pokemon: { ...mockPokemon, speciesId: mockPokemon.speciesId + i, hash: `hash-${i}`, nickname: `SPARKY_${i}` },
+        location: { box: 1, slot: i + 1 },
+      }));
 
     await render(<PalParkBatch batch={batch} batchIndex={0} />);
 
@@ -33,9 +35,7 @@ describe('PalParkBatch', () => {
   });
 
   it('renders empty slots when batch has fewer than 6 pokemon', async () => {
-    const batch = [
-      { pokemon: { ...mockPokemon, nickname: undefined, otName: 'ASH' }, location: { box: 2, slot: 5 } }
-    ];
+    const batch = [{ pokemon: { ...mockPokemon, nickname: undefined, otName: 'ASH' }, location: { box: 2, slot: 5 } }];
 
     await render(<PalParkBatch batch={batch} batchIndex={1} />);
 
