@@ -2,13 +2,13 @@
 id: epic-343-513-score-calculation-logic
 type: EPIC
 title: Gen 2 Bug-Catching Contest Score Calculation
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-01'
-updated_at: '2026-10-20'
+updated_at: '2026-10-21'
 depends_on:
   - epic-343-512-save-data-extraction
-jules_session_id: null
+jules_session_id: '5665830579784939796'
 pr_number: null
 parent: prd-144-343-gen2-bug-catching-contest-analyzer
 tags:
