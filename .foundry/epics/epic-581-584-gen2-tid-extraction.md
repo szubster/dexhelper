@@ -33,4 +33,6 @@ Extract the 16-bit Trainer ID from Generation 2 save files to enable player-spec
 - Ensure extraction logic matches Gen 2 save block structures.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into implementation stories and ensure a final E2E verification story is included.
+- [x] Story Owner: Break down this Epic into implementation stories and ensure a final E2E verification story is included.
+- [ ] story-584-711-gen2-tid-extraction-core
+- [ ] story-584-712-gen2-tid-extraction-e2e
