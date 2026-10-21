@@ -29,5 +29,5 @@ Write Playwright E2E tests to verify that the curator correctly spawns remediati
 - Assert correct metadata (parent, depends_on) in spawned nodes.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for remediation spawning
-- [ ] Ensure tests pass successfully
+- [x] Implement Playwright E2E tests for remediation spawning
+- [x] Ensure tests pass successfully
