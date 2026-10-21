@@ -4,6 +4,7 @@
 | --- | --- | --- | --- | --- |
 | [adr-675-676-cloudflare-monorepo-functions](.foundry/docs/adrs/adr-675-676-cloudflare-monorepo-functions.md) | ADR | Cloudflare Pages Functions Structure in pnpm Monorepo | architect | [3512910946165607263](https://jules.google.com/session/3512910946165607263) |
 | [epic-031-037-inter-save-trading](.foundry/epics/epic-031-037-inter-save-trading.md) | EPIC | Pokémon Trading (Inter-Save) | story_owner | [2088562123749152428](https://jules.google.com/session/2088562123749152428) |
+| [epic-046-080-gen3-battle-frontier-data-integration](.foundry/epics/epic-046-080-gen3-battle-frontier-data-integration.md) | EPIC | Gen 3 Battle Frontier Data Integration | story_owner | [4151448448695639123](https://jules.google.com/session/4151448448695639123) |
 | [epic-056-350-in-game-trade-dashboard-ui-v2](.foundry/epics/epic-056-350-in-game-trade-dashboard-ui-v2.md) | EPIC | In-Game Trade Dashboard UI v2 | story_owner | [1136558579059356814](https://jules.google.com/session/1136558579059356814) |
 | [epic-111-401-gen3-trainer-card-dashboard-ui](.foundry/epics/epic-111-401-gen3-trainer-card-dashboard-ui.md) | EPIC | Epic - Gen 3 Trainer Card Dashboard UI | story_owner | [5766298822696588215](https://jules.google.com/session/5766298822696588215) |
 | [epic-116-337-gen3-wallpaper-dashboard-ui](.foundry/epics/epic-116-337-gen3-wallpaper-dashboard-ui.md) | EPIC | Gen 3 Wallpaper Dashboard UI | story_owner | [12926215205113932074](https://jules.google.com/session/12926215205113932074) |
