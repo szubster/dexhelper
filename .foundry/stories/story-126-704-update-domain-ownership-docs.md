@@ -30,3 +30,7 @@ Update .foundry/docs/schema.md and/or .foundry/docs/knowledge_base/agents/core_p
 ## Acceptance Criteria
 - [ ] core_policies.md is updated to include the styling ownership rules for palette.
 - [ ] schema.md is updated if necessary.
+- [ ] task-704-712-update-core-policies-palette
+- [ ] task-704-713-qa-core-policies-palette
+- [ ] task-704-714-update-schema-palette
+- [ ] task-704-715-qa-schema-palette
