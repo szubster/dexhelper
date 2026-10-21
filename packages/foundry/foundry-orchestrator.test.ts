@@ -2297,6 +2297,34 @@ Target artifact: task-completed
     });
   });
 
+  describe('Macro Node Completion (Idempotent Generation Check)', () => {
+    test('Macro node cannot complete if it has unchecked descendant references', () => {
+      createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+        id: "epic-001",
+        type: "EPIC",
+        title: "Epic 1",
+        status: "PENDING",
+        owner_persona: "story_owner",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      }, `## Acceptance Criteria
+- [ ] story-001
+- [x] story-002`);
+
+      main();
+
+      // Idempotent check should not bypass and auto-complete because of the unchecked box
+      // The status should be promoted to READY (because it has no depends_on blocking it)
+      // rather than being bypassed to COMPLETED by the idempotent logic.
+      const content = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+      expect(content).toContain('status: READY');
+      // And the checkbox should remain unchecked
+      expect(content).toContain('- [ ] story-001');
+    });
+  });
+
   test('Leaf task: bypasses dispatch and marks COMPLETED if all acceptance criteria checkboxes are checked', () => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-checked-leaf.md', {
       id: "task-checked-leaf",
@@ -3430,6 +3458,47 @@ Target artifact: task-completed
     const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
     expect(epicContent).toContain('status: FAILED');
     expect(epicContent).toContain('Missing E2E/integration story');
+  });
+
+  describe('Phase 4.8 Mapping Validation', () => {
+    test('fails invalid mapping (TASK -> product_manager)', () => {
+      createValidTestNode(tmpDir, '.foundry/tasks/task-invalid.md', {
+        id: "task-invalid",
+        type: "TASK",
+        title: "Task Invalid",
+        status: "PENDING",
+        owner_persona: "product_manager", // Invalid for TASK
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      });
+
+      main();
+
+      const taskContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-invalid.md'), 'utf-8');
+      expect(taskContent).toContain('status: FAILED');
+      expect(taskContent).toContain('Invalid owner_persona mapping');
+    });
+
+    test('succeeds valid mapping (TASK -> coder)', () => {
+      createValidTestNode(tmpDir, '.foundry/tasks/task-valid.md', {
+        id: "task-valid",
+        type: "TASK",
+        title: "Task Valid",
+        status: "PENDING",
+        owner_persona: "coder", // Valid for TASK
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      });
+
+      main();
+
+      const taskContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-valid.md'), 'utf-8');
+      expect(taskContent).toContain('status: READY');
+    });
   });
 
   test('Late-Binding Completion: EPIC completes if it has E2E story', () => {
