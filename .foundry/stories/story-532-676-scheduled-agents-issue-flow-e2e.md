@@ -2,12 +2,12 @@
 id: story-532-676-scheduled-agents-issue-flow-e2e
 type: STORY
 title: Scheduled Agents Issue Flow E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-17'
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7357406673096465690'
 pr_number: null
 parent: epic-516-532-e2e-verification
 tags:
