@@ -32,4 +32,4 @@ Write integration E2E tests using Playwright for the newly created Gen 3 Volcani
 - Playwright tests and code examples must use relative paths (e.g., `./dashboard`) for navigation rather than absolute paths.
 
 ## Acceptance Criteria
-- [ ] Write integration E2E tests for the new Ash Tracker UI component.
+- [x] Write integration E2E tests for the new Ash Tracker UI component.
