@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-21T12:33:26.617Z*
+*Generated at: 2026-10-21T17:47:13.886Z*
 
 ## Node Statistics
 
@@ -19,19 +19,18 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3271 |
-| ACTIVE | 174 |
-| CANCELLED | 803 |
-| PENDING | 756 |
-| READY | 1 |
-| BLOCKED | 14 |
+| ACTIVE | 177 |
+| CANCELLED | 805 |
+| PENDING | 752 |
 | FAILED | 2 |
+| BLOCKED | 14 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9843 |
-| Open PRs | 194 |
+| Total PRs | 9846 |
+| Open PRs | 197 |
 | Merged PRs | 8501 |
 | Closed PRs | 1148 |
 
@@ -302,6 +301,7 @@
 | task-638-641-extract-constants-to-core.md | 3 |
 | task-638-666-extract-constants-to-core-retry.md | 3 |
 | task-638-669-extract-constants-to-core-v3.md | 3 |
+| task-638-691-extract-constants-to-core-v4.md | 3 |
 | task-639-641-extract-base-save-parsers.md | 3 |
 | task-639-641-extract-data-generation-scripts.md | 3 |
 | task-639-658-migrate-buttons-impl.md | 3 |
@@ -497,7 +497,6 @@
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
-| task-638-691-extract-constants-to-core-v4.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |

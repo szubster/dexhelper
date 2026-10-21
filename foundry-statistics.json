@@ -11,12 +11,11 @@
     },
     "byStatus": {
       "COMPLETED": 3271,
-      "ACTIVE": 174,
-      "CANCELLED": 803,
-      "PENDING": 756,
-      "READY": 1,
-      "BLOCKED": 14,
-      "FAILED": 2
+      "ACTIVE": 177,
+      "CANCELLED": 805,
+      "PENDING": 752,
+      "FAILED": 2,
+      "BLOCKED": 14
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -4503,7 +4502,7 @@
       "task-638-667-extract-constants-tests-qa-retry.md": 0,
       "task-638-669-extract-constants-to-core-v3.md": 3,
       "task-638-670-qa-extract-constants-to-core-v3.md": 0,
-      "task-638-691-extract-constants-to-core-v4.md": 2,
+      "task-638-691-extract-constants-to-core-v4.md": 3,
       "task-638-692-qa-extract-constants-to-core-v4.md": 0,
       "task-639-641-extract-base-save-parsers.md": 3,
       "task-639-641-extract-data-generation-scripts.md": 3,
@@ -6852,7 +6851,7 @@
       "idea-084-standardize-relative-offsets.md": 345600000,
       "idea-085-hidden-power-calculator.md": -432000000,
       "idea-086-box-duplicate-analyzer.md": 518400000,
-      "idea-086-fix-gen3save-mock.md": 4838400000,
+      "idea-086-fix-gen3save-mock.md": 4924800000,
       "idea-089-gen3-ash-gathering-tracker.md": 172800000,
       "idea-091-smart-egg-move-path-finder.md": 172800000,
       "idea-092-gen3-ev-training-dashboard.md": 4492800000,
@@ -6874,7 +6873,7 @@
       "idea-111-safari-zone-tracker.md": 86400000,
       "idea-112-gen3-split-variable-extraction-strategy.md": 4665600000,
       "idea-113-gen3-pokeblock-stats-viewer.md": 172800000,
-      "idea-114-update-permanent-failure-dashboard-ui.md": 4579200000,
+      "idea-114-update-permanent-failure-dashboard-ui.md": 8726400000,
       "idea-115-gen3-fame-checker-assistant.md": 259200000,
       "idea-116-gen3-pc-box-wallpaper-customizer.md": 259200000,
       "idea-117-split-bundles-and-data.md": 32313600000,
@@ -7692,7 +7691,7 @@
       "story-425-496-reactive-ui-e2e.md": 3715200000,
       "story-426-517-binjgb-wasm-wrapper.md": 3542400000,
       "story-426-518-binjgb-memory-sync.md": 4233600000,
-      "story-426-519-binjgb-integration-e2e.md": 86400000,
+      "story-426-519-binjgb-integration-e2e.md": 4233600000,
       "story-427-530-mgba-wasm-wrapper.md": 2246400000,
       "story-427-531-mgba-memory-sync.md": 4838400000,
       "story-427-532-mgba-integration-e2e.md": 5616000000,
@@ -7707,7 +7706,7 @@
       "story-513-538-gen3-berry-tracker-integration-e2e.md": 3283200000,
       "story-517-526-schema-wip-support.md": 1123200000,
       "story-517-527-markdown-banner.md": 3542400000,
-      "story-517-528-wip-documentation-e2e.md": 4060800000,
+      "story-517-528-wip-documentation-e2e.md": 4233600000,
       "story-517-536-gen3-weather-anomaly-data-parsing.md": 1382400000,
       "story-517-537-gen3-weather-anomaly-data-e2e.md": 3974400000,
       "story-517-550-implement-node-age-filtering.md": 1641600000,
@@ -9617,10 +9616,10 @@
     }
   },
   "prs": {
-    "totalPRs": 9843,
-    "openPRs": 194,
+    "totalPRs": 9846,
+    "openPRs": 197,
     "mergedPRs": 8501,
     "closedPRs": 1148
   },
-  "timestamp": "2026-10-21T12:33:26.617Z"
+  "timestamp": "2026-10-21T17:47:13.886Z"
 }

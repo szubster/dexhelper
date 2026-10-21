@@ -2,7 +2,7 @@
 id: story-517-528-wip-documentation-e2e
 type: STORY
 title: E2E Verification for WIP Documentation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
 updated_at: '2026-10-21'
