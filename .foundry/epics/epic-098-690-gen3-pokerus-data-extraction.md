@@ -33,5 +33,7 @@ Extract the Pokerus status byte from the decrypted Gen 3 Pokémon Miscellaneous 
 - Produce a final integration and E2E verification story.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into implementation stories.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break down this Epic into implementation stories.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-690-711-gen3-pokerus-parsing-and-mapping
+- [ ] story-690-712-gen3-pokerus-integration-e2e
