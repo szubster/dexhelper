@@ -620,14 +620,27 @@ for (const cid of uniqueChainIds) {
   const cData = readJson(chainFilePath);
   if (!cData) continue;
 
-  const mapLink = (link: PokeApiChainLink, ef?: number): CompactChainLink => {
+  const getGen1To3Roots = (link: PokeApiChainLink): PokeApiChainLink[] => {
+    const id = parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10);
+    if (id <= POKEMON_COUNT) {
+      return [link];
+    }
+    return link.evolves_to.flatMap(child => getGen1To3Roots(child));
+  };
+
+  const mapLink = (link: PokeApiChainLink, isRoot = false, ef?: number): CompactChainLink => {
     const id = parseInt(link.species.url.split('/').filter(Boolean).pop() || '0', 10);
 
-    const validEvolutionDetails = link.evolution_details.filter((ed: any) => !ed.evolved_form);
+    const validEvolutionDetails = isRoot ? [] : link.evolution_details.filter((ed: any) => !ed.evolved_form);
+
+    const gen1To3EvolvesTo = link.evolves_to.filter(l => {
+      const targetId = parseInt(l.species.url.split('/').filter(Boolean).pop() || '0', 10);
+      return targetId <= POKEMON_COUNT;
+    });
 
     return {
       id,
-      eto: link.evolves_to.map(l => mapLink(l, id)),
+      eto: gen1To3EvolvesTo.map(l => mapLink(l, false, id)),
       det: validEvolutionDetails.map((ed) => ({
         tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
         ml: ed.min_level ?? undefined,
@@ -639,24 +652,27 @@ for (const cid of uniqueChainIds) {
         time: ed.time_of_day === 'day' ? 1 : ed.time_of_day === 'night' ? 2 : undefined,
         rps: ed.relative_physical_stats ?? undefined,
       })),
-      ef,
+      ef: isRoot ? undefined : ef,
     };
   };
 
-  const fullChain = mapLink(cData.chain);
+  const roots = getGen1To3Roots(cData.chain);
+  for (const rootLink of roots) {
+    const fullChain = mapLink(rootLink, true);
 
-  const registerChain = (node: CompactChainLink, ancestors: number[]) => {
-    const p = pokemon.find(p => p.id === node.id);
-    if (p) {
-      p.eto = node.eto;
-      p.efrm = ancestors;
-      p.det = node.det;
-    }
+    const registerChain = (node: CompactChainLink, ancestors: number[]) => {
+      const p = pokemon.find(p => p.id === node.id);
+      if (p) {
+        p.eto = node.eto;
+        p.efrm = ancestors;
+        p.det = node.det;
+      }
 
-    node.eto.forEach(child => registerChain(child, [node.id, ...ancestors]));
-  };
+      node.eto.forEach(child => registerChain(child, [node.id, ...ancestors]));
+    };
 
-  registerChain(fullChain, []);
+    registerChain(fullChain, []);
+  }
 }
 
 console.log('\nProcessing Moves...');
