@@ -2,17 +2,14 @@
 id: epic-581-584-gen2-tid-extraction
 type: EPIC
 title: Gen 2 TID Extraction
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-10-16T17:53:10.106Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-21'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: prd-157-581-gen2-headbutt-tree-predictor
-priority: 50
-confidence_score: null
 tags:
   - dexhelper
   - feature
@@ -20,8 +17,10 @@ tags:
   - save-engine
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Epic: Gen 2 TID Extraction

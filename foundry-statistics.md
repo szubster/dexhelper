@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-20T22:48:13.245Z*
+*Generated at: 2026-10-21T01:07:45.228Z*
 
 ## Node Statistics
 
@@ -8,31 +8,31 @@
 | Type | Count |
 |---|---|
 | ADR | 44 |
-| EPIC | 499 |
+| EPIC | 506 |
 | IDEA | 233 |
-| PRD | 207 |
+| PRD | 208 |
 | RESEARCH | 301 |
 | STORY | 1053 |
-| TASK | 2674 |
+| TASK | 2676 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3256 |
-| ACTIVE | 143 |
-| CANCELLED | 800 |
+| COMPLETED | 3260 |
+| ACTIVE | 148 |
+| CANCELLED | 803 |
 | PENDING | 768 |
 | READY | 27 |
 | BLOCKED | 14 |
-| FAILED | 3 |
+| FAILED | 1 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9796 |
-| Open PRs | 158 |
-| Merged PRs | 8490 |
+| Total PRs | 9810 |
+| Open PRs | 163 |
+| Merged PRs | 8499 |
 | Closed PRs | 1148 |
 
 ## Rejection Counts
@@ -394,6 +394,7 @@
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
+| research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
@@ -467,6 +468,7 @@
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-528-677-safari-zone-bounty-board-ui.md | 2 |
+| task-528-692-wip-banner-e2e-tests.md | 2 |
 | task-536-562-implement-mocking-utilities.md | 2 |
 | task-536-564-playwright-style-guide-mock-utils.md | 2 |
 | task-550-563-implement-idea-matrix-updater.md | 2 |
@@ -747,7 +749,6 @@
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
 | research-564-690-investigate-gen3-pokedex-gaps-ui-failure.md | 1 |
-| research-567-690-investigate-shoal-cave-e2e-failure.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
@@ -918,7 +919,6 @@
 | task-527-669-pathfinder-chain-viz-ui.md | 1 |
 | task-527-674-webhook-renewal-impl.md | 1 |
 | task-527-675-drive-webhook-qa.md | 1 |
-| task-528-692-wip-banner-e2e-tests.md | 1 |
 | task-530-549-isavedatareader-interface-impl.md | 1 |
 | task-530-551-savedatareader-bounds-tests.md | 1 |
 | task-532-655-savedatareader-tests-qa.md | 1 |
@@ -1003,9 +1003,9 @@
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |
 | task-550-685-generator-tree-traversals-e2e-impl.md | 76291200000 |
 | task-550-687-generator-architecture-e2e-qa.md | 76204800000 |
+| story-325-527-safari-zone-area-highlighting.md | 75945600000 |
 | task-528-677-safari-zone-bounty-board-ui.md | 75945600000 |
 | epic-339-406-jules-agent-skins.md | 75859200000 |
-| story-325-527-safari-zone-area-highlighting.md | 75859200000 |
 | task-528-676-safari-zone-bounty-board-data.md | 75859200000 |
 | story-325-528-safari-zone-bounty-board.md | 75513600000 |
 | task-528-678-safari-zone-bounty-board-e2e.md | 75513600000 |

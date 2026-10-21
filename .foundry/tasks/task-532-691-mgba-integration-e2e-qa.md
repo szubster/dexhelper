@@ -2,10 +2,10 @@
 id: task-532-691-mgba-integration-e2e-qa
 type: TASK
 title: QA E2E Tests for mGBA Integration
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-16T13:09:57.479Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-21'
 depends_on:
   - task-532-690-mgba-integration-e2e-impl
 jules_session_id: null

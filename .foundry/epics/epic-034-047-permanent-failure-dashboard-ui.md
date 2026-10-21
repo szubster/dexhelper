@@ -2,10 +2,10 @@
 id: epic-034-047-permanent-failure-dashboard-ui
 type: EPIC
 title: Implement Permanent Failure Dashboard UI
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-05-22'
-updated_at: '2026-09-22'
+updated_at: '2026-10-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,4 +36,4 @@ As per ADR 017 and PRD `prd-063-034-permanent-failure-dashboard`, we need a "Per
 
 ### Generated Stories
 - [x] story-047-136-permanent-failure-dashboard-ui
-- [ ] story-047-605-permanent-failure-dashboard-e2e
+- [x] story-047-605-permanent-failure-dashboard-e2e

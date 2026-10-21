@@ -2,10 +2,10 @@
 id: prd-063-034-permanent-failure-dashboard
 type: PRD
 title: Permanent Failure Dashboard View
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-05-22'
-updated_at: '2026-09-21'
+updated_at: '2026-10-21'
 depends_on: []
 jules_session_id: '18124105386347002229'
 pr_number: null
@@ -36,4 +36,4 @@ Create a dedicated "Permanent Failures" view or filter within the DAG Dashboard.
 
 ### Downstream Epics
 - [x] `.foundry/archive/epics/epic-034-046-dag-data-parsing-rejection-count.md`
-- [ ] `.foundry/epics/epic-034-047-permanent-failure-dashboard-ui.md`
+- [x] `.foundry/epics/epic-034-047-permanent-failure-dashboard-ui.md`

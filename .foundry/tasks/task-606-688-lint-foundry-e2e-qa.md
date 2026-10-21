@@ -2,13 +2,13 @@
 id: task-606-688-lint-foundry-e2e-qa
 type: TASK
 title: 'QA E2E Verification of lint:foundry package script'
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-14T20:10:00.000Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-21'
 depends_on:
   - task-606-687-lint-foundry-e2e-impl
-jules_session_id: '11396189395151113237'
+jules_session_id: null
 parent: story-553-606-package-scripts-e2e
 tags:
   - foundry

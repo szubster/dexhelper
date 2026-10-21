@@ -2,10 +2,10 @@
 id: epic-583-692-e2e-verification
 type: EPIC
 title: EPIC - DAG Cycle Detection Integration and E2E Verification
-status: READY
+status: PENDING
 owner_persona: story_owner
-created_at: 2026-10-16T18:06:01.113Z
-updated_at: 2026-10-16
+created_at: '2026-10-16T18:06:01.113Z'
+updated_at: '2026-10-21'
 depends_on:
   - epic-583-690-cycle-detection-algorithm-core
   - epic-583-691-diagnostics-and-orchestrator-integration
@@ -18,8 +18,8 @@ tags:
   - orchestrator
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 locks: []
 priority: 50
 ---
