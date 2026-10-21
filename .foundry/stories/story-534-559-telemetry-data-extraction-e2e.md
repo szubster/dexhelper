@@ -30,4 +30,6 @@ locks: []
 Write end-to-end tests to verify that node telemetry data (rejection counts and wait times) is correctly extracted and exposed.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks
+- [x] Tech Lead: Break down into Tasks
+- [ ] task-559-712-heatmap-rejection-e2e-tests
+- [ ] task-559-713-heatmap-waittime-e2e-tests
