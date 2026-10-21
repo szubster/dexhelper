@@ -22,6 +22,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [idea-086-fix-gen3save-mock](.foundry/ideas/idea-086-fix-gen3save-mock.md) | IDEA | Fix isGen3Save heuristic mock for E2E tests | curator | [10746952883857376949](https://jules.google.com/session/10746952883857376949) |
 | [idea-114-update-permanent-failure-dashboard-ui](.foundry/ideas/idea-114-update-permanent-failure-dashboard-ui.md) | IDEA | Update Permanent Failure Dashboard UI for Cancelled Nodes | curator | [16352372609842648252](https://jules.google.com/session/16352372609842648252) |
 | [idea-129-epic-level-distillation-archival](.foundry/ideas/idea-129-epic-level-distillation-archival.md) | IDEA | Epic-Level Distillation and Cold Storage Archival | curator | [11914054102843343933](https://jules.google.com/session/11914054102843343933) |
 | [idea-531-web-worker-save-parser](.foundry/ideas/idea-531-web-worker-save-parser.md) | IDEA | Offload Binary Save File Parsing to Web Worker | product_manager | [12203050612493749836](https://jules.google.com/session/12203050612493749836) |
