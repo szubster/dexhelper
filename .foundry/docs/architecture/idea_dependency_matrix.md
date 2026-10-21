@@ -122,7 +122,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-085-hidden-power-calculator` | Hidden Power Type and Base Power Calculator | feature, mechanics, gen2, gen3 |  | ACTIVE |
 | `idea-085-lift-rejection-count-state` | Lift rejection_count state to DagContext | refactor, dashboard |  | COMPLETED |
 | `idea-086-box-duplicate-analyzer` | PC Box Duplicate Analyzer & Release Assistant | feature, ui, ux, gen2, gen3 |  | PENDING |
-| `idea-086-fix-gen3save-mock` | Fix isGen3Save heuristic mock for E2E tests | Uncategorized |  | PENDING |
+| `idea-086-fix-gen3save-mock` | Fix isGen3Save heuristic mock for E2E tests | Uncategorized |  | COMPLETED |
 | `idea-086-fix-orchestrator-phase-3-6` | Fix orchestrator phase 3.6 for CANCELLED nodes | foundry, orchestrator, resilience |  | COMPLETED |
 | `idea-088-trick-house-tracker` | Gen 3 Trick House Progression Tracker | feature, gen3, mechanics |  | COMPLETED |
 | `idea-089-gen3-ash-gathering-tracker` | Gen 3 Volcanic Ash Gathering Tracker | feature, gen3, mechanics |  | PENDING |
