@@ -29,6 +29,6 @@ locks: []
 Implement Playwright tests to verify the end-to-end functionality of the mGBA WASM emulator.
 
 ## Acceptance Criteria
-- [ ] Write integration/unit tests for the mGBA WASM wrapper and React component (if not covered by existing tests).
-- [ ] Write E2E tests using Playwright to verify emulator loading and rendering.
-- [ ] Write E2E tests to verify real-time memory synchronization and parsing for Gen 3.
+- [x] Write integration/unit tests for the mGBA WASM wrapper and React component (if not covered by existing tests).
+- [x] Write E2E tests using Playwright to verify emulator loading and rendering.
+- [x] Write E2E tests to verify real-time memory synchronization and parsing for Gen 3.
