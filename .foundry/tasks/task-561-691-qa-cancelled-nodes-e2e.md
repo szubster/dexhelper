@@ -27,5 +27,5 @@ locks: []
 Verify the E2E test accurately checks that CANCELLED nodes with `rejection_count >= 3` are visible and properly highlighted in the Permanent Failure Dashboard.
 
 ## Acceptance Criteria
-- [ ] Code review passes on the E2E implementation.
-- [ ] E2E tests are verified to pass via `pnpm lint && pnpm test && xvfb-run -a pnpm test:e2e`.
+- [x] Code review passes on the E2E implementation.
+- [x] E2E tests are verified to pass via `pnpm lint && pnpm test && xvfb-run -a pnpm test:e2e`.
