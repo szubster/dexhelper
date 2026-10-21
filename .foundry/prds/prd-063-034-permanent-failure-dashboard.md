@@ -7,7 +7,7 @@ owner_persona: epic_planner
 created_at: '2026-05-22'
 updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: '18124105386347002229'
+jules_session_id: null
 pr_number: null
 parent: idea-063-permanent-failure-dashboard
 tags:

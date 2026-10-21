@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-21T01:07:45.228Z*
+*Generated at: 2026-10-21T06:43:11.704Z*
 
 ## Node Statistics
 
@@ -18,11 +18,11 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3260 |
-| ACTIVE | 148 |
+| COMPLETED | 3267 |
+| ACTIVE | 160 |
 | CANCELLED | 803 |
-| PENDING | 768 |
-| READY | 27 |
+| PENDING | 762 |
+| READY | 14 |
 | BLOCKED | 14 |
 | FAILED | 1 |
 
@@ -30,9 +30,9 @@
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9810 |
-| Open PRs | 163 |
-| Merged PRs | 8499 |
+| Total PRs | 9829 |
+| Open PRs | 180 |
+| Merged PRs | 8501 |
 | Closed PRs | 1148 |
 
 ## Rejection Counts
@@ -497,6 +497,7 @@
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
+| task-638-691-extract-constants-to-core-v4.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
@@ -981,7 +982,6 @@
 | task-618-688-multi-box-ev-filters-logic.md | 1 |
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
-| task-638-691-extract-constants-to-core-v4.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
