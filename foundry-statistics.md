@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-21T06:43:11.704Z*
+*Generated at: 2026-10-21T12:33:26.617Z*
 
 ## Node Statistics
 
@@ -18,20 +18,20 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3267 |
-| ACTIVE | 160 |
+| COMPLETED | 3271 |
+| ACTIVE | 174 |
 | CANCELLED | 803 |
-| PENDING | 762 |
-| READY | 14 |
+| PENDING | 756 |
+| READY | 1 |
 | BLOCKED | 14 |
-| FAILED | 1 |
+| FAILED | 2 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9829 |
-| Open PRs | 180 |
+| Total PRs | 9843 |
+| Open PRs | 194 |
 | Merged PRs | 8501 |
 | Closed PRs | 1148 |
 
@@ -261,6 +261,7 @@
 | task-523-676-gen3-move-tutor-e2e-fixtures.md | 3 |
 | task-526-554-pathfinder-selection-components-impl.md | 3 |
 | task-527-596-safari-zone-area-map-ui.md | 3 |
+| task-528-692-wip-banner-e2e-tests.md | 3 |
 | task-531-568-mgba-memory-sync-core.md | 3 |
 | task-533-536-orchestrator-curator-trigger-logic-impl.md | 3 |
 | task-533-617-orchestrator-curator-trigger-logic-retry.md | 3 |
@@ -468,7 +469,6 @@
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-528-677-safari-zone-bounty-board-ui.md | 2 |
-| task-528-692-wip-banner-e2e-tests.md | 2 |
 | task-536-562-implement-mocking-utilities.md | 2 |
 | task-536-564-playwright-style-guide-mock-utils.md | 2 |
 | task-550-563-implement-idea-matrix-updater.md | 2 |

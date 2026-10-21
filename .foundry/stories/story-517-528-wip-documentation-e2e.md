@@ -2,10 +2,10 @@
 id: story-517-528-wip-documentation-e2e
 type: STORY
 title: E2E Verification for WIP Documentation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-10-19'
+updated_at: '2026-10-21'
 depends_on:
   - story-517-527-markdown-banner
 jules_session_id: null
