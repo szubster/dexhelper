@@ -27,5 +27,5 @@ locks: []
 Write Playwright E2E tests to verify the integration of the Pokerus Spread Planner. This includes testing party configurations, suggestions, and warnings before a cure. Ensure tests interact with the rendered React components correctly.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for the Pokerus Spread Planner.
-- [ ] Ensure tests cover UI interactions, suggestions, and state validation.
++ [x] Implement Playwright E2E tests for the Pokerus Spread Planner.
++ [x] Ensure tests cover UI interactions, suggestions, and state validation.
