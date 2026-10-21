@@ -31,5 +31,8 @@ This story is dedicated exclusively to the integration and end-to-end verificati
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-522-680-wip-signaling-e2e-tests
-- [ ] task-522-681-wip-signaling-e2e-tests-qa
+- [x] task-522-680-wip-signaling-e2e-tests
+- [x] task-522-681-wip-signaling-e2e-tests-qa
+- [ ] research-522-712-investigate-wip-signaling-e2e-failure
+- [ ] task-522-713-wip-signaling-e2e-tests-retry
+- [ ] task-522-714-wip-signaling-e2e-tests-retry-qa
