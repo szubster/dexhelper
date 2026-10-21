@@ -9,6 +9,7 @@
 | [epic-116-337-gen3-wallpaper-dashboard-ui](.foundry/epics/epic-116-337-gen3-wallpaper-dashboard-ui.md) | EPIC | Gen 3 Wallpaper Dashboard UI | story_owner | [12926215205113932074](https://jules.google.com/session/12926215205113932074) |
 | [epic-520-535-acceptance-criteria-adr](.foundry/epics/epic-520-535-acceptance-criteria-adr.md) | EPIC | Architecture Decision Phase: Acceptance Criteria Structure | story_owner | [10119125683127650897](https://jules.google.com/session/10119125683127650897) |
 | [epic-564-567-e2e-integration](.foundry/epics/epic-564-567-e2e-integration.md) | EPIC | Virtualization E2E Integration and Verification | story_owner | [5468991194714480218](https://jules.google.com/session/5468991194714480218) |
+| [epic-581-584-gen2-tid-extraction](.foundry/epics/epic-581-584-gen2-tid-extraction.md) | EPIC | Gen 2 TID Extraction | story_owner | [16494303868447171332](https://jules.google.com/session/16494303868447171332) |
 | [epic-585-587-implement-macro-node-subtree-completeness-validator](.foundry/epics/epic-585-587-implement-macro-node-subtree-completeness-validator.md) | EPIC | Implement Macro Node Subtree Completeness Validator Tool | story_owner | [7680343253248997459](https://jules.google.com/session/7680343253248997459) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |

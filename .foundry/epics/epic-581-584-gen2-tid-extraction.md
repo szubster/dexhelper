@@ -2,12 +2,12 @@
 id: epic-581-584-gen2-tid-extraction
 type: EPIC
 title: Gen 2 TID Extraction
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-10-16T17:53:10.106Z'
 updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16494303868447171332'
 pr_number: null
 parent: prd-157-581-gen2-headbutt-tree-predictor
 tags:
