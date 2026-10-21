@@ -8,6 +8,7 @@ import type { PokemonInstance } from '../engine/saveParser/index';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { getTimeCapsuleValidation } from '../utils/timeCapsule';
 import { CapacitySegmentedBar } from './CapacitySegmentedBar';
+import { HexStreamDecoration } from './HexStreamDecoration';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { PokerusBadge } from './PokerusBadge';
@@ -109,9 +110,7 @@ export const StorageCard = React.memo(
           <div className="relative flex flex-1 flex-col justify-between overflow-hidden p-2">
             {/* Data stream overlay on hover */}
             <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-end p-1 opacity-0 transition-opacity duration-300 group-hover/card:opacity-[0.03]">
-              <div className="break-all font-mono text-[6px] text-cyan-400 leading-tight">
-                {'0123456789ABCDEF'.repeat(10)}
-              </div>
+              <HexStreamDecoration active={true} />
             </div>
 
             <div className="relative z-10 flex flex-col gap-1">
