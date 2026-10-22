@@ -20,6 +20,7 @@
 | [epic-585-587-implement-macro-node-subtree-completeness-validator](.foundry/epics/epic-585-587-implement-macro-node-subtree-completeness-validator.md) | EPIC | Implement Macro Node Subtree Completeness Validator Tool | story_owner | [7680343253248997459](https://jules.google.com/session/7680343253248997459) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
+| [idea-072-strict-macro-node-completion](.foundry/ideas/idea-072-strict-macro-node-completion.md) | IDEA | Strict Macro Node Completion Enforcement | curator | [14119406573712675437](https://jules.google.com/session/14119406573712675437) |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [idea-531-web-worker-save-parser](.foundry/ideas/idea-531-web-worker-save-parser.md) | IDEA | Offload Binary Save File Parsing to Web Worker | product_manager | [12203050612493749836](https://jules.google.com/session/12203050612493749836) |
 | [idea-537-artifact-presence-precommit-validator](.foundry/ideas/idea-537-artifact-presence-precommit-validator.md) | IDEA | Automated Pre-Commit Deliverable Artifact Presence Validator | product_manager | [16252117326750849648](https://jules.google.com/session/16252117326750849648) |
