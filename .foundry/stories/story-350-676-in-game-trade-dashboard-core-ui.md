@@ -37,4 +37,8 @@ Build the core layout and component for the In-Game Trade Dashboard, listing NPC
 - [ ] The dashboard displays a list of NPC trades relevant to the loaded game version.
 - [ ] Trades are visually tagged with their completion status ("Available", "Claimed", "Incomplete").
 - [ ] The UI adheres strictly to the "tactical hardware" design system guidelines.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-676-716-in-game-trade-logic-hook
+- [ ] task-676-717-in-game-trade-ui-component
+- [ ] task-676-718-in-game-trade-dashboard-route
+- [ ] task-676-719-in-game-trade-dashboard-qa
