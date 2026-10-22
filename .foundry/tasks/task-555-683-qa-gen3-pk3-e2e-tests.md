@@ -25,4 +25,4 @@ locks: []
 Verify the Gen 3 PK3 extraction E2E tests implemented by the coder.
 
 ## Acceptance Criteria
-- [ ] Verify the Gen 3 E2E tests pass correctly in the CI/headless Playwright environment.
+- [x]  Verify the Gen 3 E2E tests pass correctly in the CI/headless Playwright environment.
