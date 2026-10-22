@@ -22,6 +22,7 @@
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-072-strict-macro-node-completion](.foundry/ideas/idea-072-strict-macro-node-completion.md) | IDEA | Strict Macro Node Completion Enforcement | curator | [14119406573712675437](https://jules.google.com/session/14119406573712675437) |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [idea-086-fix-gen3save-mock](.foundry/ideas/idea-086-fix-gen3save-mock.md) | IDEA | Fix isGen3Save heuristic mock for E2E tests | auditor | [8034232954256161207](https://jules.google.com/session/8034232954256161207) |
 | [idea-531-web-worker-save-parser](.foundry/ideas/idea-531-web-worker-save-parser.md) | IDEA | Offload Binary Save File Parsing to Web Worker | product_manager | [12203050612493749836](https://jules.google.com/session/12203050612493749836) |
 | [idea-537-artifact-presence-precommit-validator](.foundry/ideas/idea-537-artifact-presence-precommit-validator.md) | IDEA | Automated Pre-Commit Deliverable Artifact Presence Validator | product_manager | [16252117326750849648](https://jules.google.com/session/16252117326750849648) |
 | [idea-538-context-provider-root-wiring-linter](.foundry/ideas/idea-538-context-provider-root-wiring-linter.md) | IDEA | Static AST Linter Rule for React Context Application Root Wiring | product_manager | [2661175344611483787](https://jules.google.com/session/2661175344611483787) |
