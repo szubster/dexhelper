@@ -32,7 +32,7 @@ Perform QA verification for the Curator Historical Backtracking E2E tests.
 - Ensure all E2E tests correctly assert matrix updates, domain overlaps, and remediation node spawning.
 
 ## Acceptance Criteria
-- [ ] Verify matrix update tests
-- [ ] Verify domain overlap tests
-- [ ] Verify remediation node tests
-- [ ] Approve PRs for all test tasks
+- [x]  Verify matrix update tests
+- [x]  Verify domain overlap tests
+- [x]  Verify remediation node tests
+- [x]  Approve PRs for all test tasks
