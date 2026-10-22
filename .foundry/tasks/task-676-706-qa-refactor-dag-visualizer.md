@@ -30,6 +30,6 @@ Verify the refactor of the React Flow DAG visualizer component to consume data f
 - Run tests and verify they pass.
 
 ## Acceptance Criteria
-- [ ] Verify refactoring
-- [ ] Verify duplicate state logic is removed
-- [ ] Verify tests pass
+- [x] Verify refactoring
+- [x] Verify duplicate state logic is removed
+- [x] Verify tests pass
