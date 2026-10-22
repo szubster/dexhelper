@@ -2,12 +2,12 @@
 id: research-522-712-investigate-orchestrator-wip-tests-failure
 type: RESEARCH
 title: Investigate Orchestrator WIP Awareness E2E Tests Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-21'
 updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2750347799670802492'
 pr_number: null
 parent: story-520-522-wip-awareness-e2e
 tags:
