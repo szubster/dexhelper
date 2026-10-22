@@ -30,6 +30,6 @@ locks: []
 Set up the Playwright test harness and mock directory structure for orchestrator archival E2E verification.
 
 ## Acceptance Criteria
-- [ ] Create test setup/teardown logic for temporary \`.foundry\` directory
-- [ ] Implement utility to mock active and verifying nodes
-- [ ] Verify test harness cleans up temp files via \`afterEach\` hooks
+- [x]  Create test setup/teardown logic for temporary \`.foundry\` directory
+- [x]  Implement utility to mock active and verifying nodes
+- [x]  Verify test harness cleans up temp files via \`afterEach\` hooks
