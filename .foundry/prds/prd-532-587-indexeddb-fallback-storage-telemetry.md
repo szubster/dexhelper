@@ -59,4 +59,5 @@ This feature aims to introduce a Fallback Storage Manager and Telemetry system t
 - After a successful flush, the fallback maps MUST be cleared and the UI badge removed.
 
 ## Acceptance Criteria
-- [ ] Draft an EPIC for the IndexedDB Fallback Storage Synchronization and Telemetry implementation.
+- [x] Draft an EPIC for the IndexedDB Fallback Storage Synchronization and Telemetry implementation.
+- [ ] epic-587-693-fallback-storage-telemetry
