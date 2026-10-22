@@ -26,6 +26,6 @@ locks: []
 Verify the Gen 3 Volcanic Ash Tracker Dashboard UI implementation and E2E tests created by the Coder.
 
 ## Acceptance Criteria
-- [ ] Verify the Volcanic Ash count correctly displays the extracted save file data.
-- [ ] Ensure the component adheres to the tactical UI aesthetics defined in ADR 024.
-- [ ] Verify that E2E tests pass and correctly test the rendered React components.
+- [x] Verify the Volcanic Ash count correctly displays the extracted save file data.
+- [x] Ensure the component adheres to the tactical UI aesthetics defined in ADR 024.
+- [x] Verify that E2E tests pass and correctly test the rendered React components.
