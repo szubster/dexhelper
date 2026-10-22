@@ -31,4 +31,6 @@ Ensure that StorageGrid properly integrates and passes its end-to-end integratio
 2. Break it down into modular TASK nodes for the \`coder\` and \`qa\` personas.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-677-716-implement-storage-grid-e2e-tests
+- [ ] task-677-717-qa-storage-grid-e2e-tests
