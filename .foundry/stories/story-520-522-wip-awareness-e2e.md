@@ -35,5 +35,8 @@ Perform end-to-end verification of the orchestrator and agent awareness regardin
 - [x] Decompose into actionable TASK nodes.
 - [ ] task-522-683-wip-awareness-e2e-fixtures
 - [ ] task-522-684-wip-awareness-e2e-agent-tests
-- [ ] task-522-685-wip-awareness-e2e-orchestrator-tests
-- [ ] task-522-686-wip-awareness-e2e-qa
+- [x] task-522-685-wip-awareness-e2e-orchestrator-tests
+- [x] task-522-686-wip-awareness-e2e-qa
+- [ ] research-522-712-investigate-orchestrator-wip-tests-failure
+- [ ] task-522-713-wip-awareness-e2e-orchestrator-tests-retry
+- [ ] task-522-714-wip-awareness-e2e-qa-retry
