@@ -2,13 +2,13 @@
 id: task-650-696-dynamic-import-assistant-strategies-tests
 type: TASK
 title: Dynamic Import Assistant Strategies - Tests Update
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-17T02:22:00.000Z'
 updated_at: '2026-10-22'
 depends_on:
   - task-650-694-dynamic-import-assistant-strategies-impl
-jules_session_id: null
+jules_session_id: '13478961333447106826'
 pr_number: null
 parent: story-401-650-dynamic-import-assistant-strategies
 tags:
