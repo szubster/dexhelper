@@ -28,6 +28,6 @@ locks: []
 Implement E2E test cases to verify systematic archival file moves preserve subdirectories correctly.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for systematic file moves to the archive directory
-- [ ] Verify subdirectories and nested paths are properly preserved during moves
-- [ ] Confirm archival script correctly manages file state transitions
+- [x] Implement E2E tests for systematic file moves to the archive directory
+- [x] Verify subdirectories and nested paths are properly preserved during moves
+- [x] Confirm archival script correctly manages file state transitions
