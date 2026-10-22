@@ -27,4 +27,4 @@ priority: 100
 Verify that `.foundry/docs/knowledge_base/agents/core_policies.md` correctly documents the `palette` persona's styling ownership rules.
 
 ## Acceptance Criteria
-- [ ] Verified `core_policies.md` includes styling ownership rules for `palette`.
+- [x] Verified `core_policies.md` includes styling ownership rules for `palette`.
