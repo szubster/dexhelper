@@ -2,7 +2,7 @@
 id: task-522-684-wip-awareness-e2e-agent-tests
 type: TASK
 title: Implement Agent WIP Awareness Tests
-status: FAILED
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-13'
 updated_at: '2026-10-18'
@@ -17,8 +17,8 @@ tags:
   - wip
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 experiment_variants: []
 locks: []
@@ -30,4 +30,4 @@ locks: []
 Write E2E tests validating that agents avoid depending on Draft/WIP artifacts when parsing nodes.
 
 ## Acceptance Criteria
-- [ ] Write tests verifying agent prompts and dependencies exclude DRAFT/WIP.
+- [x] Write tests verifying agent prompts and dependencies exclude DRAFT/WIP.

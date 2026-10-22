@@ -253,3 +253,5 @@ export const GEN2_MONEY_BYTE_SHIFT_8 = 8;
 export const GEN2_HOF_POKEMON_NICKNAME_LENGTH = 10;
 export const DECIMAL_RADIX = 10;
 export const MOM_SAVING_MONEY_ACTIVE_BIT = 7;
+export const CURRENT_BOX_NUM_MASK = 0x0f;
+export const GEN2_EMPTY_SLOT_00 = 0x00;

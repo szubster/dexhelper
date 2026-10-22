@@ -2,13 +2,13 @@
 id: story-063-606-mirage-island-state-hydration-e2e
 type: STORY
 title: Mirage Island State Hydration E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-08'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on:
   - story-063-605-mirage-island-unified-state-hydration
-jules_session_id: '13128342896362892996'
+jules_session_id: null
 pr_number: null
 parent: epic-038-063-mirage-island-data-hydration
 tags:
@@ -31,4 +31,6 @@ Ensure the Mirage Island state hydration works without regressions.
 1. **E2E Tests**: Write e2e tests to verify that the Mirage island state is hydrated.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks.
+- [ ] task-606-690-mirage-island-state-hydration-e2e-impl
+- [ ] task-606-691-mirage-island-state-hydration-e2e-qa
+- [x] Tech Lead: Break down into tasks.

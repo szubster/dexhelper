@@ -43,3 +43,34 @@ test('HeatmapOverlay handles interaction', async () => {
 
   expect(onClick).toHaveBeenCalledWith(30, 95);
 });
+
+test('HeatmapOverlay does not render zero density or below low threshold', async () => {
+  const mockData = {
+    40: { density: 5, requiresMachBike: false, requiresAcroBike: false }, // below low threshold (10)
+  };
+
+  await render(<HeatmapOverlay heatmapData={mockData} config={{ showDensityLabels: true }} />);
+
+  // The element should not be rendered, so getByText should throw or not be found
+  await expect.element(page.getByText('5')).not.toBeInTheDocument();
+});
+
+test('HeatmapOverlay renders empty when data is empty', async () => {
+  await render(<HeatmapOverlay heatmapData={{}} config={{ showDensityLabels: true }} />);
+
+  // It should just render the grid container but no inner density boxes
+  await expect.element(page.getByText('0')).not.toBeInTheDocument();
+});
+
+test('HeatmapOverlay displays bike requirements indicators', async () => {
+  const mockData = {
+    50: { density: 75, requiresMachBike: true, requiresAcroBike: true },
+  };
+
+  await render(<HeatmapOverlay heatmapData={mockData} config={{ showDensityLabels: true }} />);
+
+  // The Mach Bike indicator is yellow-400
+  // The Acro Bike indicator is blue-400
+  await expect.element(page.getByTitle('Requires Mach Bike')).toBeInTheDocument();
+  await expect.element(page.getByTitle('Requires Acro Bike')).toBeInTheDocument();
+});

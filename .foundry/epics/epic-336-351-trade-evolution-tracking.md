@@ -2,21 +2,22 @@
 id: epic-336-351-trade-evolution-tracking
 type: EPIC
 title: Trade Evolution Tracking
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
-created_at: "2026-08-04"
-updated_at: "2026-08-04"
+created_at: '2026-08-04'
+updated_at: '2026-10-22'
 depends_on:
   - epic-336-350-cross-save-synergy-analysis
-jules_session_id: null
+jules_session_id: '3378358929197985249'
 pr_number: null
 parent: prd-059-336-multi-save-trade-planner
 tags:
   - backend
   - evolution
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Epic: Trade Evolution Tracking
