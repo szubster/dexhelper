@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
 
+## [0.25.2] - 2026-04-07
+### Changed
+- Optimize rendering overhead in `StorageGrid` by grouping Pokémon by location.
+- Improve rendering performance in `PokedexGrid` by removing unused shiny set calculations.
+- Improve UX by adding an inline two-step confirmation for save deletion in the settings modal.
+
+### Fixed
+- Prevent assistant from suggesting redundant evolutions for already owned Pokémon.
+- Fix Gen 1 NPC trade data and redundant version-exclusive suggestions, specifically fixing double suggestions in Pokémon Yellow.
+
 ## [0.25.1] - 2026-04-06
 ### Added
 - Enhance Assistant algorithm to intelligently suggest in-game NPC trades dynamically based on save file state and collection.
@@ -317,3 +327,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.24.6]: https://github.com/szubster/dexhelper/compare/18f5e2a12afbc20796f2d70fc895d4ff085cf10c...7389580e7acb3613d2e2f477c5a2a57033325be2
 [0.25.0]: https://github.com/szubster/dexhelper/compare/7389580e7acb3613d2e2f477c5a2a57033325be2...a18cf2a547687991de4af3b100e4d45e528ebe19
 [0.25.1]: https://github.com/szubster/dexhelper/compare/a18cf2a547687991de4af3b100e4d45e528ebe19...8ed973e2e6c042bd60543dee85e822baeba4f9bf
+[0.25.2]: https://github.com/szubster/dexhelper/compare/8ed973e2e6c042bd60543dee85e822baeba4f9bf...a19062bfa5babacd61b75ef13b5115d63c620c81
