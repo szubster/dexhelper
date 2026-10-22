@@ -2,13 +2,13 @@
 id: task-563-681-gen3-dashboard-widgets-ui
 type: TASK
 title: Gen 3 Dashboard Widgets UI Integration
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-02'
 updated_at: '2026-10-22'
 depends_on:
   - task-563-680-gen3-dashboard-data-state
-jules_session_id: null
+jules_session_id: '13786283721481531836'
 pr_number: null
 parent: story-554-563-gen3-dashboard-data-integration
 tags:

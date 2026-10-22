@@ -2,13 +2,13 @@
 id: task-574-673-heatmap-ui-overlay-qa
 type: TASK
 title: QA Heatmap UI Overlay Component
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-11T00:00:00Z'
 updated_at: '2026-10-22'
 depends_on:
   - task-574-672-heatmap-ui-overlay-tests
-jules_session_id: null
+jules_session_id: '13901988612705786062'
 pr_number: null
 parent: story-049-574-heatmap-ui-overlay-component
 tags:

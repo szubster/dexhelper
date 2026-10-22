@@ -2,12 +2,12 @@
 id: task-617-700-iv-filters-state-logic
 type: TASK
 title: Implement State and Logic for Multi-Box IV Filters
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-16T21:13:54.689Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16793917152821494557'
 pr_number: null
 parent: story-575-617-multi-box-iv-filters
 tags:
