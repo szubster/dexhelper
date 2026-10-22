@@ -24,5 +24,5 @@ Update test cases in `.github/scripts/foundry-orchestrator.test.ts` to cover the
 - Verify that a parent node is auto-fulfilled if its only unchecked criteria are plain text checkboxes.
 
 ## Acceptance Criteria
-- [ ] Test cases added/updated for Phase 4.5 auto-checking behavior.
-- [ ] Tests pass cleanly with `npx vitest run`.
+- [x] Test cases added/updated for Phase 4.5 auto-checking behavior.
+- [x] Tests pass cleanly with `npx vitest run`.
