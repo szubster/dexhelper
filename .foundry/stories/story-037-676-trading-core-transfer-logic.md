@@ -30,4 +30,8 @@ As part of the Inter-Save Trading Epic, this story focuses on implementing the f
 - Ensure the underlying game save blobs are correctly updated.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into tasks.
+- [x] Tech Lead: Break down into tasks.
+- [ ] task-676-716-transfer-logic-types
+- [ ] task-676-717-transfer-logic-impl
+- [ ] task-676-718-transfer-logic-tests
+- [ ] task-676-719-transfer-logic-qa
