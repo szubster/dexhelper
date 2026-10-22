@@ -29,6 +29,8 @@ priority: 50
 - The script should return a non-zero exit code if any unauthorized ephemeral files are found, printing their paths to the console.
 
 ## Acceptance Criteria
+- [ ] story-584-714-implement-detect-scratchpads-script
+- [ ] story-584-715-detect-scratchpads-integration-e2e
 - [ ] Implement `.github/scripts/detect-scratchpads.js` to detect unauthorized scratchpad files at the root.
 - [ ] Ensure the script exits with an error code if scratchpads are detected.
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
