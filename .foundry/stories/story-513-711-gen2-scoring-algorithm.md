@@ -2,12 +2,12 @@
 id: story-513-711-gen2-scoring-algorithm
 type: STORY
 title: Gen 2 Bug-Catching Scoring Algorithm Implementation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
-created_at: "2026-10-21"
-updated_at: "2026-10-21"
+created_at: '2026-10-21'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9781620787498797475'
 locks: []
 pr_number: null
 parent: epic-343-513-score-calculation-logic
@@ -17,8 +17,8 @@ tags:
   - score-calculation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 ---
 
 # Gen 2 Bug-Catching Scoring Algorithm Implementation
