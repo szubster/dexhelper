@@ -18,7 +18,6 @@
     "functions/api/saves/[id].ts",
     "src/engine/saveParser/utils/index.ts",
     "packages/foundry/aggregate-journals.ts",
-    "packages/foundry/update-idea-matrix.ts",
     "packages/foundry/schema.ts",
     "packages/foundry/session-api.ts",
     "packages/foundry/blocked-diagnosis.ts",
