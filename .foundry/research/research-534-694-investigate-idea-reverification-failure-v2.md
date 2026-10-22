@@ -28,5 +28,5 @@ locks: []
 The previous research node `research-534-676-investigate-idea-reverification-failure` reached its maximum rejection count and failed permanently. We need to re-investigate the orchestrator logs, QA journals, or auditor journals to identify the root cause of the initial failure in `task-534-668-orchestrator-idea-reverification-impl` and why the subsequent research failed, in order to define how the replacement task should correctly implement it.
 
 ## Acceptance Criteria
-- [ ] Determine the root cause of the failure in `task-534-668-orchestrator-idea-reverification-impl` and the subsequent research failure.
-- [ ] Document findings and write any missing constants, logic, or architectural requirements needed.
+- [x]  Determine the root cause of the failure in `task-534-668-orchestrator-idea-reverification-impl` and the subsequent research failure.
+- [x]  Document findings and write any missing constants, logic, or architectural requirements needed.
