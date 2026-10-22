@@ -2,12 +2,12 @@
 id: research-564-690-investigate-gen3-pokedex-gaps-ui-failure
 type: RESEARCH
 title: Investigate Gen 3 Pokédex Gaps UI Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-16T12:48:02.109Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '5416913080232965017'
+jules_session_id: null
 pr_number: null
 parent: story-552-564-gen3-pokedex-gaps-ui
 tags:

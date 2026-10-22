@@ -1,11 +1,11 @@
 ---
 id: task-650-695-dynamic-import-assistant-strategies-qa
 type: TASK
-title: "Dynamic Import Assistant Strategies - QA"
-status: READY
+title: Dynamic Import Assistant Strategies - QA
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-17T02:22:00.000Z'
-updated_at: '2026-10-17T02:22:00.000Z'
+updated_at: '2026-10-22'
 depends_on:
   - task-650-696-dynamic-import-assistant-strategies-tests
   - task-650-694-dynamic-import-assistant-strategies-impl
@@ -17,7 +17,7 @@ tags:
   - architecture
   - bundles
 rejection_count: 0
-rejection_reason: ""
+rejection_reason: ''
 locks: []
 ---
 

@@ -2,10 +2,10 @@
 id: task-704-713-qa-core-policies-palette
 type: TASK
 title: QA Core Policies with Palette Ownership Rules
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2025-01-01T00:00:00Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-22'
 depends_on:
   - task-704-712-update-core-policies-palette
 jules_session_id: null

@@ -2,12 +2,12 @@
 id: idea-114-update-permanent-failure-dashboard-ui
 type: IDEA
 title: Update Permanent Failure Dashboard UI for Cancelled Nodes
-status: ACTIVE
+status: PENDING
 owner_persona: curator
 created_at: '2026-07-12'
-updated_at: '2026-10-21'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '16352372609842648252'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

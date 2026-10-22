@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-22T00:20:52.970Z*
+*Generated at: 2026-10-22T05:33:11.383Z*
 
 ## Node Statistics
 
@@ -11,28 +11,29 @@
 | EPIC | 506 |
 | IDEA | 233 |
 | PRD | 213 |
-| RESEARCH | 306 |
+| RESEARCH | 307 |
 | STORY | 1056 |
-| TASK | 2697 |
+| TASK | 2704 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3280 |
-| ACTIVE | 152 |
+| COMPLETED | 3291 |
+| ACTIVE | 151 |
 | CANCELLED | 807 |
-| PENDING | 771 |
+| PENDING | 781 |
 | VERIFYING | 1 |
 | BLOCKED | 14 |
-| READY | 30 |
+| READY | 15 |
+| FAILED | 3 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9849 |
-| Open PRs | 171 |
-| Merged PRs | 8528 |
+| Total PRs | 9864 |
+| Open PRs | 169 |
+| Merged PRs | 8545 |
 | Closed PRs | 1150 |
 
 ## Rejection Counts
@@ -88,6 +89,7 @@
 | task-116-169-battle-frontier-dashboard-impl.md | 3 |
 | task-121-309-gen3-tv-block-parser-retry6-impl.md | 3 |
 | task-128-181-implement-item-list-parsing.md | 3 |
+| task-136-491-permanent-failure-kanban-ui-impl.md | 3 |
 | task-254-261-shiny-carrier-breeding-view-qa.md | 3 |
 | task-261-331-npc-trade-state-integration-impl.md | 3 |
 | task-267-261-gen3-ash-dataview-extraction-impl.md | 3 |
@@ -164,7 +166,6 @@
 | story-553-563-gen3-map-data-extraction.md | 3 |
 | task-081-130-preserve-enum-optimizations-impl.md | 3 |
 | task-081-144-preserve-enum-optimizations-retry-impl.md | 3 |
-| task-136-491-permanent-failure-kanban-ui-impl.md | 3 |
 | task-152-258-gen3-friendship-impl.md | 3 |
 | task-152-470-gen3-friendship-impl-v2.md | 3 |
 | task-241-440-daycare-gen3-parsing-impl.md | 3 |
@@ -326,6 +327,7 @@
 | epic-071-100-tailwind-designer-persona-retry.md | 2 |
 | epic-100-130-rng-tid-sid-display.md | 2 |
 | epic-106-136-pc-box-sorting-algorithms.md | 2 |
+| prd-063-034-permanent-failure-dashboard.md | 2 |
 | story-028-045-cross-region-distance.md | 2 |
 | story-031-050-enforce-acceptance-criteria-completion.md | 2 |
 | story-032-062-gen3-data-generation-scripts.md | 2 |
@@ -384,7 +386,6 @@
 | idea-066-rom-hack-support.md | 2 |
 | idea-066-save-file-health-scanner.md | 2 |
 | idea-157-gen2-headbutt-tree-predictor.md | 2 |
-| prd-063-034-permanent-failure-dashboard.md | 2 |
 | prd-071-044-gen3-roamer-tracker.md | 2 |
 | prd-089-054-gen3-ash-gathering-tracker.md | 2 |
 | prd-421-521-automated-schema-linting.md | 2 |
@@ -505,6 +506,7 @@
 | epic-018-028-migrate-heartbeat-to-gray-matter.md | 1 |
 | epic-019-030-orchestrator-test-factories.md | 1 |
 | epic-031-036-progression-tracking.md | 1 |
+| epic-034-047-permanent-failure-dashboard-ui.md | 1 |
 | epic-037-058-hidden-items-save-parsing.md | 1 |
 | epic-037-058-unown-tracker-engine.md | 1 |
 | epic-041-065-individual-contest-stats-view.md | 1 |
@@ -535,6 +537,7 @@
 | research-101-157-gen3-condition-stats-offsets.md | 1 |
 | research-103-157-gen3-ribbon-offsets.md | 1 |
 | research-109-262-secret-base-party-offsets.md | 1 |
+| research-136-530-investigate-kanban-ui-timeout.md | 1 |
 | research-157-369-gen3-party-box-offsets.md | 1 |
 | research-283-336-gen2-phone-memory-offsets.md | 1 |
 | research-327-385-gen3-pc-box-offsets.md | 1 |
@@ -658,7 +661,6 @@
 | task-644-649-orchestrator-confidence-intervention-impl.md | 1 |
 | task-645-665-agent-capability-integration-e2e-impl.md | 1 |
 | adr-479-032-adr-008-exceptions.md | 1 |
-| epic-034-047-permanent-failure-dashboard-ui.md | 1 |
 | epic-035-048-smart-radar-data-unification.md | 1 |
 | epic-036-058-feebas-backend-parsing.md | 1 |
 | epic-038-061-gen2-event-flag-parsing.md | 1 |
@@ -725,7 +727,6 @@
 | prd-113-114-gen3-pokeblock-stats-viewer.md | 1 |
 | prd-114-516-update-permanent-failure-dashboard-ui.md | 1 |
 | prd-535-586-false-permanent-failure-detection.md | 1 |
-| research-136-530-investigate-kanban-ui-timeout.md | 1 |
 | research-246-244-gen3-box-parsing.md | 1 |
 | research-338-556-investigate-unown-parsing-timeout.md | 1 |
 | research-348-506-investigate-ui-impl-failure.md | 1 |
@@ -999,7 +1000,7 @@
 | task-563-641-map-data-extraction-logic-v2.md | 92620800000 |
 | task-563-642-map-data-tests-v2.md | 92620800000 |
 | task-563-643-map-data-qa-v2.md | 92620800000 |
-| task-676-702-add-adr-compliance-scripts.md | 77025600000 |
+| task-676-702-add-adr-compliance-scripts.md | 77284800000 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |

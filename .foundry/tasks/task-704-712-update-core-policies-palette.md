@@ -2,12 +2,12 @@
 id: task-704-712-update-core-policies-palette
 type: TASK
 title: Update Core Policies with Palette Ownership Rules
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2025-01-01T00:00:00Z'
 updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '15626768708814569923'
+jules_session_id: null
 pr_number: null
 parent: story-126-704-update-domain-ownership-docs
 tags:

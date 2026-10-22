@@ -2,10 +2,10 @@
 id: research-114-709-permanent-failure-dashboard-overlap
 type: RESEARCH
 title: Investigate Permanent Failure Dashboard Node Interactions
-status: READY
+status: PENDING
 owner_persona: researcher
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-22'
 depends_on: []
 jules_session_id: null
 pr_number: null

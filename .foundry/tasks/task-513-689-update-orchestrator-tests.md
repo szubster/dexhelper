@@ -2,15 +2,15 @@
 id: task-513-689-update-orchestrator-tests
 type: TASK
 title: Update Orchestrator Idempotent Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-16T02:25:18.835Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '16904394413964993079'
+jules_session_id: null
 parent: story-018-513-orchestrator-test-updates
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 locks: []
 ---

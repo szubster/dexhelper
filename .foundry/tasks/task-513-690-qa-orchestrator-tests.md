@@ -2,16 +2,18 @@
 id: task-513-690-qa-orchestrator-tests
 type: TASK
 title: QA Update Orchestrator Idempotent Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-16T02:25:33.642Z'
-updated_at: '2026-10-19'
+updated_at: '2026-10-22'
 depends_on:
   - task-513-689-update-orchestrator-tests
 jules_session_id: null
 parent: story-018-513-orchestrator-test-updates
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-513-689-update-orchestrator-tests
 notes: ''
 locks: []
 ---
