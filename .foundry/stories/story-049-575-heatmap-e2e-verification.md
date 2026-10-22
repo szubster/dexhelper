@@ -2,13 +2,13 @@
 id: story-049-575-heatmap-e2e-verification
 type: STORY
 title: Heatmap E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-16T06:24:57Z'
 updated_at: '2026-10-22'
 depends_on:
   - story-049-574-heatmap-ui-overlay-component
-jules_session_id: null
+jules_session_id: '1604394343257414275'
 pr_number: null
 parent: epic-035-049-smart-radar-heatmap-generation
 tags:
