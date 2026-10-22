@@ -26,4 +26,4 @@ priority: 100
 Update `.foundry/docs/knowledge_base/agents/core_policies.md` to formally document the `palette` persona styling ownership rules.
 
 ## Acceptance Criteria
-- [ ] `core_policies.md` includes the styling ownership rules for the `palette` persona.
+- [x]  `core_policies.md` includes the styling ownership rules for the `palette` persona.
