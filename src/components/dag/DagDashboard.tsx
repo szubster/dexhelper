@@ -37,47 +37,25 @@ const nodeTypes = {
 };
 
 export function DagDashboard() {
-  const { nodes, edges, isLoading, maxRejectionThreshold, showHeatmap, setShowHeatmap, onNodesChange, onEdgesChange } =
-    useDagContext();
+  const {
+    nodes,
+    edges,
+    isLoading,
+    maxRejectionThreshold,
+    showHeatmap,
+    setShowHeatmap,
+    onNodesChange,
+    onEdgesChange,
+    activeTypes,
+    activeStatuses,
+    showPermanentFailures,
+    toggleActiveType,
+    toggleActiveStatus,
+    toggleShowPermanentFailures,
+  } = useDagContext();
 
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
-
-  const [activeTypes, setActiveTypes] = useState<Set<string>>(
-    new Set(['RESEARCH', 'IDEA', 'ADR', 'PRD', 'EPIC', 'STORY', 'TASK']),
-  );
-  const [activeStatuses, setActiveStatuses] = useState<Set<string>>(
-    new Set(['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED']),
-  );
-
-  // Get URL search parameters to check for permanent_failures_only
-  const [showPermanentFailures, setShowPermanentFailures] = useState(
-    new URLSearchParams(window.location.search).has('permanent_failures_only'),
-  );
-
-  const handleTypeToggle = (type: string) => {
-    setActiveTypes((prev) => {
-      const next = new Set(prev);
-      if (next.has(type)) {
-        next.delete(type);
-      } else {
-        next.add(type);
-      }
-      return next;
-    });
-  };
-
-  const handleStatusToggle = (status: string) => {
-    setActiveStatuses((prev) => {
-      const next = new Set(prev);
-      if (next.has(status)) {
-        next.delete(status);
-      } else {
-        next.add(status);
-      }
-      return next;
-    });
-  };
 
   const activeNodeId = hoveredNodeId || selectedNodeId;
   const highlightSet = useMemo(() => getHighlightPath(activeNodeId, edges), [activeNodeId, edges]);
@@ -181,9 +159,9 @@ export function DagDashboard() {
         activeStatuses={activeStatuses}
         showPermanentFailures={showPermanentFailures}
         showHeatmap={showHeatmap}
-        onTypeToggle={handleTypeToggle}
-        onStatusToggle={handleStatusToggle}
-        onTogglePermanentFailures={() => setShowPermanentFailures((prev) => !prev)}
+        onTypeToggle={toggleActiveType}
+        onStatusToggle={toggleActiveStatus}
+        onTogglePermanentFailures={toggleShowPermanentFailures}
         onToggleHeatmap={() => setShowHeatmap((prev) => !prev)}
       />
       <ReactFlow

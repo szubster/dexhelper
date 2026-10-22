@@ -12,6 +12,9 @@ vi.mock('../../DagContext', () => ({
 test('DagKanbanBoard renders permanently failed nodes correctly', async () => {
   mockUseDagContext.mockReturnValue({
     maxRejectionThreshold: 3,
+    activeTypes: new Set(['TASK', 'STORY', 'EPIC', 'PRD', 'ADR', 'IDEA', 'RESEARCH']),
+    activeStatuses: new Set(['PENDING', 'READY', 'ACTIVE', 'BLOCKED', 'COMPLETED', 'FAILED', 'CANCELLED']),
+    showPermanentFailures: false,
     nodes: [
       { data: { id: 'node-1', status: 'FAILED', type: 'TASK', owner_persona: 'coder', rejection_count: 3 } },
       { data: { id: 'node-2', status: 'FAILED', type: 'TASK', owner_persona: 'coder', rejection_count: 1 } },
