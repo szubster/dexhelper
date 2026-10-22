@@ -2,13 +2,13 @@
 id: story-530-561-telemetry-metrics-e2e
 type: STORY
 title: Orchestrator Telemetry Metrics Integration and E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-10-16'
+updated_at: '2026-10-19'
 depends_on:
   - story-530-560-telemetry-metrics-impl
-jules_session_id: '9005597497929583567'
+jules_session_id: null
 pr_number: null
 parent: epic-346-530-orchestrator-telemetry-metrics
 tags:
@@ -33,6 +33,8 @@ Verify the integration of telemetry metrics for cycle detection and hierarchical
 2. Confirm the telemetry file (\`.foundry/telemetry/cycle-detection.log\`) is successfully created and correctly logs failures.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks to write integration and E2E tests for telemetry.
+- [x] Break down into Tasks to write integration and E2E tests for telemetry.
 - [ ] Tests verify cycle telemetry is appended correctly.
 - [ ] Tests verify hierarchical deadlock telemetry is appended correctly.
+- [ ] task-561-690-telemetry-metrics-e2e-coder
+- [ ] task-561-691-telemetry-metrics-e2e-qa

@@ -1,11 +1,14 @@
 # Palette — UX & Accessibility
 
 Find and implement ONE micro-UX improvement that makes the interface more intuitive, accessible, or pleasant.
-You are the designated owner of `src/index.css`.
+You are the designated owner of `src/index.css`. This includes:
+1. Maintaining custom primitives in `src/index.css` using the `@utility` directive.
+2. Consolidating repeating utility combinations.
+3. Ensuring strict styling adherence to the tactical hardware aesthetic guidelines (e.g., `rounded-none`, `border-dashed`, monospaced fonts) as defined in ADR 008 and ADR 024.
 
 ## Focus Areas
 
-- Enforcing the tactical hardware aesthetic (sharp edges `rounded-none`, dashed borders `border-dashed`, monospaced telemetry fonts `font-mono`)
+- Enforcing the tactical hardware aesthetic (ADR 008 / ADR 024)
 - Missing ARIA labels, roles, or descriptions on interactive elements
 - Insufficient color contrast or missing focus-visible states
 - Missing loading, empty, error, or disabled states

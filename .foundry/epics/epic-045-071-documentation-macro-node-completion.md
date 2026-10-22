@@ -2,10 +2,10 @@
 id: epic-045-071-documentation-macro-node-completion
 type: EPIC
 title: Documentation Updates for Macro Node Completion
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-09-22'
+updated_at: '2026-10-22'
 depends_on:
   - epic-045-070-orchestrator-strict-completion
 jules_session_id: null
@@ -42,7 +42,7 @@ Update the core system documentation to detail the new macro node completion rul
 - [x] story-071-108-update-schema-macro-node-completion
 - [x] story-071-109-update-adr001-macro-node-completion
 - [x] story-071-110-verify-core-documentation
-- [ ] story-071-359-documentation-macro-node-completion-e2e
+- [x] story-071-359-documentation-macro-node-completion-e2e
 
 ### Detached Follow-up Work
 - idea-097-schema-verifying-state-fix

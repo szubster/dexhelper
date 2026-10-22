@@ -2,10 +2,10 @@
 id: story-536-551-integration-e2e-verification
 type: STORY
 title: E2E and Integration Testing for Gen3 Heuristic
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-10-16'
+updated_at: '2026-10-19'
 depends_on:
   - story-536-550-remove-mock-and-fix-heuristic
 jules_session_id: null
@@ -13,8 +13,8 @@ parent: epic-520-536-remove-gen3save-mock
 tags:
   - e2e
   - integration
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # E2E and Integration Testing for Gen3 Heuristic
@@ -28,5 +28,5 @@ As required by the E2E verification mandate, this story is dedicated to running 
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-551-683-gen3-heuristic-integration-e2e-impl
-- [ ] task-551-684-gen3-heuristic-integration-e2e-qa
+- [x] task-551-683-gen3-heuristic-integration-e2e-impl
+- [x] task-551-684-gen3-heuristic-integration-e2e-qa

@@ -3,35 +3,50 @@ import type { PokemonInstance, SaveData } from '../saveParser/parsers/common';
 import { extractHeldItems } from './heldItemExtractor';
 
 describe('extractHeldItems', () => {
-  it('extracts held items from party and pc details without duplicates and sorts them', () => {
-    const mockSaveData = {
-      partyDetails: [{ item: 5 }, { item: 2 }, { item: undefined }, { item: 0 }] as PokemonInstance[],
-      pcDetails: [
-        { item: 10 },
-        { item: 5 }, // duplicate
-        { item: undefined },
-      ] as PokemonInstance[],
-    } as SaveData;
-
-    const items = extractHeldItems(mockSaveData);
-    expect(items).toEqual([2, 5, 10]);
+  it('should extract held items from party', () => {
+    const saveData = {
+      partyDetails: [
+        { item: 1 } as PokemonInstance,
+        { item: 2 } as PokemonInstance,
+        { item: 0 } as PokemonInstance,
+        { item: undefined } as unknown as PokemonInstance,
+      ],
+      pcDetails: [],
+    } as unknown as SaveData;
+    const result = extractHeldItems(saveData);
+    expect(result).toEqual([1, 2]);
   });
 
-  it('returns empty array if no items are held', () => {
-    const mockSaveData = {
-      partyDetails: [{ item: 0 }, { item: undefined }] as PokemonInstance[],
-      pcDetails: [{ item: 0 }] as PokemonInstance[],
-    } as SaveData;
-
-    expect(extractHeldItems(mockSaveData)).toEqual([]);
+  it('should extract held items from PC boxes', () => {
+    const saveData = {
+      partyDetails: [],
+      pcDetails: [{ item: 3 } as PokemonInstance, { item: 4 } as PokemonInstance, { item: 5 } as PokemonInstance],
+    } as unknown as SaveData;
+    const result = extractHeldItems(saveData);
+    expect(result).toEqual([3, 4, 5]);
   });
 
-  it('returns empty array if no pokemon exist', () => {
-    const mockSaveData = {
-      partyDetails: [] as PokemonInstance[],
-      pcDetails: [] as PokemonInstance[],
-    } as SaveData;
+  it('should extract unique held items from both party and PC boxes', () => {
+    const saveData = {
+      partyDetails: [{ item: 1 } as PokemonInstance, { item: 2 } as PokemonInstance, { item: 3 } as PokemonInstance],
+      pcDetails: [{ item: 2 } as PokemonInstance, { item: 4 } as PokemonInstance],
+    } as unknown as SaveData;
+    const result = extractHeldItems(saveData);
+    expect(result).toEqual([1, 2, 3, 4]);
+  });
 
-    expect(extractHeldItems(mockSaveData)).toEqual([]);
+  it('should handle undefined party and boxes', () => {
+    const saveData = {} as SaveData;
+    const result = extractHeldItems(saveData);
+    expect(result).toEqual([]);
+  });
+
+  it('should handle null pokemon instances', () => {
+    const saveData = {
+      partyDetails: [null as unknown as PokemonInstance],
+      pcDetails: [null as unknown as PokemonInstance],
+    } as unknown as SaveData;
+    const result = extractHeldItems(saveData);
+    expect(result).toEqual([]);
   });
 });

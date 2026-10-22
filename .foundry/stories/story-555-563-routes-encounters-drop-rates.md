@@ -2,13 +2,13 @@
 id: story-555-563-routes-encounters-drop-rates
 type: STORY
 title: 'Display Routes, Encounters, and Drop Rates'
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-15'
+updated_at: '2026-10-18'
 depends_on:
   - story-555-562-wild-item-selection-ui
-jules_session_id: '16737342756498904530'
+jules_session_id: '10244318115569988833'
 pr_number: null
 parent: epic-521-555-wild-item-hunting-ui
 tags:

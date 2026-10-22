@@ -2,10 +2,10 @@
 id: story-109-522-box-analyzer-highlighting-logic
 type: STORY
 title: Box Analyzer Stat Highlighting Logic
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-06-28'
-updated_at: '2026-10-08'
+updated_at: '2026-10-18'
 depends_on:
   - story-109-521-box-analyzer-matrix-component
 jules_session_id: null
@@ -31,9 +31,9 @@ Implement the visual highlighting logic for the comparison matrix to indicate th
 - Apply tactical highlighting styles (e.g., green text, specific borders) to the winning cells.
 
 ## Acceptance Criteria
-- [ ] Implement utility functions to calculate and identify best stats across a group.
-- [ ] Apply visual highlights to the matrix UI for the identified stats.
+- [x] Implement utility functions to calculate and identify best stats across a group.
+- [x] Apply visual highlights to the matrix UI for the identified stats.
 - [x] Break down into Tasks.
-- [ ] task-522-668-box-analyzer-highlight-utils
-- [ ] task-522-669-box-analyzer-highlight-ui
-- [ ] task-522-670-box-analyzer-highlight-qa
+- [x] task-522-668-box-analyzer-highlight-utils
+- [x] task-522-669-box-analyzer-highlight-ui
+- [x] task-522-670-box-analyzer-highlight-qa

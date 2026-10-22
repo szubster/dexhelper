@@ -2,10 +2,10 @@
 id: task-640-688-extract-utils-to-core-retry-v2
 type: TASK
 title: Migrate pure JS/TS logic from src/utils to packages/core (Retry v2)
-status: PENDING
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on:
   - research-640-687-investigate-extract-utils-timeout-v3
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

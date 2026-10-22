@@ -39,10 +39,10 @@ describe('statistics utility', () => {
     vi.mocked(fs.readFileSync).mockImplementation((p: fs.PathOrFileDescriptor | fs.PathLike, _options?: any): any => {
         const filePath = p as string;
         if (filePath.endsWith('task1.md')) {
-            return '---\ntype: TASK\nstatus: COMPLETED\n---\nBody';
+            return '---\ntype: TASK\nstatus: COMPLETED\nrejection_count: 2\ncreated_at: 2024-01-01T00:00:00Z\nupdated_at: 2024-01-02T00:00:00Z\n---\nBody';
         }
         if (filePath.endsWith('task2.md')) {
-            return '---\ntype: TASK\nstatus: ACTIVE\n---\nBody';
+            return '---\ntype: TASK\nstatus: ACTIVE\nrejection_count: 0\n---\nBody';
         }
         if (filePath.endsWith('idea1.md')) {
             return '---\ntype: IDEA\nstatus: COMPLETED\n---\nBody';
@@ -66,6 +66,77 @@ describe('statistics utility', () => {
         'ACTIVE': 1,
         'FAILED': 1
     });
+
+    expect(stats.rejectionCounts).toEqual({
+        'task1.md': 2,
+        'task2.md': 0
+    });
+
+    expect(stats.waitTimes).toEqual({
+        'task1.md': 86400000
+    });
+  });
+
+  it('should correctly parse rejection_count when 0, undefined or missing', () => {
+    const mockRepoRoot = '/mock-repo';
+
+    vi.mocked(fs.existsSync).mockReturnValue(true);
+    vi.mocked(fs.readdirSync).mockImplementation((_p: any, _options?: any): any => {
+      return [
+        { name: 'task_zero.md', isDirectory: () => false, isFile: () => true },
+        { name: 'task_missing.md', isDirectory: () => false, isFile: () => true },
+      ] as fs.Dirent[];
+    });
+
+    vi.mocked(fs.readFileSync).mockImplementation((p: fs.PathOrFileDescriptor | fs.PathLike): any => {
+      const filePath = p as string;
+      if (filePath.endsWith('task_zero.md')) {
+        return '---\ntype: TASK\nstatus: ACTIVE\nrejection_count: 0\n---\nBody';
+      }
+      if (filePath.endsWith('task_missing.md')) {
+        return '---\ntype: TASK\nstatus: ACTIVE\n---\nBody';
+      }
+      return '';
+    });
+
+    const stats = aggregateNodeStatistics(mockRepoRoot);
+
+    expect(stats.rejectionCounts).toEqual({
+      'task_zero.md': 0
+    });
+    expect(stats.rejectionCounts).not.toHaveProperty('task_missing.md');
+  });
+
+  it('should gracefully handle invalid dates and missing dates without adding NaN to waitTimes', () => {
+    const mockRepoRoot = '/mock-repo';
+
+    vi.mocked(fs.existsSync).mockReturnValue(true);
+    vi.mocked(fs.readdirSync).mockImplementation((_p: any, _options?: any): any => {
+      return [
+        { name: 'task_invalid_date.md', isDirectory: () => false, isFile: () => true },
+        { name: 'task_missing_date.md', isDirectory: () => false, isFile: () => true },
+        { name: 'task_malformed.md', isDirectory: () => false, isFile: () => true },
+      ] as fs.Dirent[];
+    });
+
+    vi.mocked(fs.readFileSync).mockImplementation((p: fs.PathOrFileDescriptor | fs.PathLike): any => {
+      const filePath = p as string;
+      if (filePath.endsWith('task_invalid_date.md')) {
+        return '---\ntype: TASK\nstatus: ACTIVE\ncreated_at: not_a_date\nupdated_at: 2024-01-02T00:00:00Z\n---\nBody';
+      }
+      if (filePath.endsWith('task_missing_date.md')) {
+        return '---\ntype: TASK\nstatus: ACTIVE\ncreated_at: 2024-01-01T00:00:00Z\n---\nBody';
+      }
+      if (filePath.endsWith('task_malformed.md')) {
+        return 'not a real file';
+      }
+      return '';
+    });
+
+    const stats = aggregateNodeStatistics(mockRepoRoot);
+
+    // waitTimes should be completely empty (or empty object) since no valid wait time can be calculated
+    expect(stats.waitTimes).toEqual({});
   });
 });
 

@@ -2,10 +2,10 @@
 id: story-419-479-data-splitting-e2e
 type: STORY
 title: Data splitting integration and E2E verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-13'
+updated_at: '2026-10-19'
 depends_on:
   - story-419-478-pokedb-sync-refactor
 jules_session_id: null
@@ -31,5 +31,5 @@ A final story exclusively dedicated to Integration and E2E Verification of the s
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-479-676-e2e-core-fetch
-- [ ] task-479-677-e2e-dynamic-bundles
+- [x] task-479-676-e2e-core-fetch
+- [x] task-479-677-e2e-dynamic-bundles

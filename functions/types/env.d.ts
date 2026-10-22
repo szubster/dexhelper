@@ -1,6 +1,7 @@
-import type { R2Bucket } from '@cloudflare/workers-types';
+import type { R2Bucket, Fetcher } from '@cloudflare/workers-types';
 
 export interface Env {
+  ASSETS?: Fetcher;
   SAVES_BUCKET: R2Bucket;
   GOOGLE_DRIVE_CLIENT_ID: string;
   GOOGLE_DRIVE_CLIENT_SECRET: string;
