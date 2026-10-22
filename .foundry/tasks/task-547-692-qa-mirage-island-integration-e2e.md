@@ -30,5 +30,5 @@ locks: []
 Verify that the Mirage Island tracker component integration and E2E tests satisfy all functional and aesthetic requirements.
 
 ## Acceptance Criteria
-- [ ] UI integration verified manually or via E2E test review.
-- [ ] E2E tests confirmed to be passing in the CI/headless environment.
+- [x]  UI integration verified manually or via E2E test review.
+- [x]  E2E tests confirmed to be passing in the CI/headless environment.
