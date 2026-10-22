@@ -1,5 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { LayoutGrid, ShieldAlert } from 'lucide-react';
+import {
+  MissedMilestonesWidget,
+  PokedexGapVisualizerWidget,
+  TrainerCardStatusWidget,
+} from '../components/dashboard/gen3';
 
 import { EmptyState } from '../components/EmptyState';
 import { Gen3PokeblocksDashboard, PokeblockOptimizerPanel } from '../components/pokeblocks';
@@ -31,6 +36,9 @@ function Gen3DashboardPage() {
           />
           <div className="flex flex-col gap-4">
             <FeebasMapComponent />
+            <TrainerCardStatusWidget />
+            <MissedMilestonesWidget />
+            <PokedexGapVisualizerWidget />
             <Gen3PokeblocksDashboard />
             <PokeblockOptimizerPanel />
           </div>

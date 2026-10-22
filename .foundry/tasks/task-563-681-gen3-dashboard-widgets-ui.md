@@ -27,8 +27,8 @@ locks: []
 Implement and integrate the Pokédex gap, Missed Milestones, and Trainer Card visualizer widgets into the Gen 3 dashboard layout using the established data state layer. Ensure adherence to tactical hardware UI aesthetics.
 
 ## Acceptance Criteria
-- [ ] Implement Pokédex gap visualizer widget.
-- [ ] Implement Missed Milestones visualizer widget.
-- [ ] Implement Trainer Card status widget.
-- [ ] Integrate widgets into the main Gen 3 dashboard layout.
-- [ ] Write component integration tests for the new widgets.
+- [x]  Implement Pokédex gap visualizer widget.
+- [x]  Implement Missed Milestones visualizer widget.
+- [x]  Implement Trainer Card status widget.
+- [x]  Integrate widgets into the main Gen 3 dashboard layout.
+- [x]  Write component integration tests for the new widgets.
