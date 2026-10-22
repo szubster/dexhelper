@@ -30,6 +30,6 @@ As part of STORY `story-582-673-yaml-schema-validation-impl`, we need to track i
 Update the schema tests in `packages/foundry/schema.test.ts` to verify that `system_failure_count` is properly parsed and validated as an optional integer.
 
 ## Acceptance Criteria
-- [ ] Add tests ensuring `system_failure_count` is accepted when it's an integer.
-- [ ] Add tests ensuring `system_failure_count` is accepted when omitted (optional).
-- [ ] Add tests ensuring validation fails if `system_failure_count` is not an integer (e.g. string or float).
+- [x] Add tests ensuring `system_failure_count` is accepted when it's an integer.
+- [x] Add tests ensuring `system_failure_count` is accepted when omitted (optional).
+- [x] Add tests ensuring validation fails if `system_failure_count` is not an integer (e.g. string or float).
