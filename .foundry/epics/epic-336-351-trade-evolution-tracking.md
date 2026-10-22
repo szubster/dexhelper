@@ -30,5 +30,8 @@ With the analysis engine in place, this Epic focuses on specifically tracking an
 - Support Pokémon requiring specific held items for trade evolution, warning if the item is missing or available in the other save.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Stories.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-351-714-base-trade-evolution-tracking
+- [ ] story-351-715-item-trade-evolution-tracking
+- [ ] story-351-716-trade-evolution-integration-e2e
+- [x]  Story Owner: Break this Epic down into Stories.
+- [x]  Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
