@@ -29,5 +29,5 @@ locks: []
 Write Playwright E2E tests to verify the functionality of the Mirage Island tracker component, including correct reporting of matching Pokémon and adherence to aesthetic constraints.
 
 ## Acceptance Criteria
-- [ ] Playwright E2E tests verify the tracker's functionality.
-- [ ] Playwright E2E tests verify the tracker's aesthetic constraints (e.g. ADR 008).
+- [x] Playwright E2E tests verify the tracker's functionality.
+- [x] Playwright E2E tests verify the tracker's aesthetic constraints (e.g. ADR 008).
