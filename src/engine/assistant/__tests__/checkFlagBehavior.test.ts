@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { SaveData } from '../../saveParser/index';
-import { gen1Strategy } from '../strategies/gen1Strategy';
+import { getStrategy } from '../strategies';
 import { generateSuggestions } from '../suggestionEngine';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 
@@ -31,7 +31,7 @@ describe('suggestionEngine - checkFlag Edge Cases', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, await getStrategy(1));
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeDefined();
   });
@@ -62,7 +62,7 @@ describe('suggestionEngine - checkFlag Edge Cases', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, await getStrategy(1));
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeDefined();
   });
