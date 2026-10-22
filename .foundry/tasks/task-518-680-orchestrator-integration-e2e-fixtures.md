@@ -30,7 +30,7 @@ locks: []
 Create the necessary test fixtures representing valid base persona prompts, specific context layers, core system policies, and missing/invalid prompt fragments to be used in the orchestrator composite prompt generation E2E tests.
 
 ## Acceptance Criteria
-- [ ] Define fixture files or mocked file structures for a valid base persona prompt.
-- [ ] Define fixture files for specific context layers.
-- [ ] Define fixture files representing missing prompt fragments for testing fallback mechanisms.
-- [ ] Provide utility functions to load or mock these fixtures during testing.
+- [x] Define fixture files or mocked file structures for a valid base persona prompt.
+- [x] Define fixture files for specific context layers.
+- [x] Define fixture files representing missing prompt fragments for testing fallback mechanisms.
+- [x] Provide utility functions to load or mock these fixtures during testing.
