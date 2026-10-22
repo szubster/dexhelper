@@ -1,13 +1,15 @@
 ---
 id: prd-532-588-e2e-dependency-validator-lint
-title: PRD - Automated E2E Task Dependency Linter Guard in Orchestrator DAG Validation
+title: >-
+  PRD - Automated E2E Task Dependency Linter Guard in Orchestrator DAG
+  Validation
 type: PRD
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-10-17T20:29:56.382Z'
-updated_at: '2026-10-17T20:29:56.382Z'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6245252915850538541'
 pr_number: null
 parent: idea-532-e2e-dependency-validator-lint
 tags:
