@@ -32,4 +32,4 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 - Utilize realistic mock data for Gen 3 save states.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for Gen 3 wild encounter and held item parsing.
+- [x] Write unit tests for Gen 3 wild encounter and held item parsing.
