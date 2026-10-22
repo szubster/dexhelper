@@ -15,6 +15,7 @@
 | [epic-581-584-gen2-tid-extraction](.foundry/epics/epic-581-584-gen2-tid-extraction.md) | EPIC | Gen 2 TID Extraction | story_owner | [16494303868447171332](https://jules.google.com/session/16494303868447171332) |
 | [epic-583-690-cycle-detection-algorithm-core](.foundry/epics/epic-583-690-cycle-detection-algorithm-core.md) | EPIC | EPIC - Cycle Detection Algorithm Core Implementation | story_owner | [2501728465895153574](https://jules.google.com/session/2501728465895153574) |
 | [epic-583-691-diagnostics-and-orchestrator-integration](.foundry/epics/epic-583-691-diagnostics-and-orchestrator-integration.md) | EPIC | EPIC - Cycle Detection Diagnostics and Pre-Dispatch Integration | story_owner | [4343641534241186910](https://jules.google.com/session/4343641534241186910) |
+| [epic-587-584-root-scratchpad-detector-script](.foundry/epics/epic-587-584-root-scratchpad-detector-script.md) | EPIC | Root Scratchpad Detector Implementation | story_owner | [600001366480174821](https://jules.google.com/session/600001366480174821) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
