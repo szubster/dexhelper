@@ -2,10 +2,10 @@
 id: task-617-702-iv-filters-qa
 type: TASK
 title: QA Verification for Multi-Box IV Filters
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-16T21:13:54.714Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on:
   - task-617-701-iv-filters-ui
 jules_session_id: null

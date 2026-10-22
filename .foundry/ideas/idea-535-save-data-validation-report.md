@@ -2,12 +2,12 @@
 id: idea-535-save-data-validation-report
 type: IDEA
 title: Save File Corruption & Data Structure Integrity Diagnostic Report
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-04-20'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '16778633172909851429'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

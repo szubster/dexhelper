@@ -2,10 +2,10 @@
 id: task-647-675-gen3-ash-dashboard-qa
 type: TASK
 title: 'Task: QA for Gen 3 Volcanic Ash Tracker Dashboard UI'
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-03T19:33:53.000Z'
-updated_at: '2026-10-13'
+updated_at: '2026-10-22'
 depends_on:
   - task-647-674-gen3-ash-dashboard-e2e
 jules_session_id: null

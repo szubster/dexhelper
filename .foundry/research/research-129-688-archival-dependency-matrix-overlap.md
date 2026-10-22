@@ -2,10 +2,10 @@
 id: research-129-688-archival-dependency-matrix-overlap
 type: RESEARCH
 title: Investigate Archival Cleanup and Retention Policy Overlaps
-status: READY
+status: PENDING
 owner_persona: researcher
-created_at: "2026-10-16T18:37:42.610Z"
-updated_at: "2026-10-16"
+created_at: '2026-10-16T18:37:42.610Z'
+updated_at: '2026-10-22'
 depends_on: []
 jules_session_id: null
 pr_number: null

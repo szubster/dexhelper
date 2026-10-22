@@ -2,10 +2,10 @@
 id: task-522-714-wip-signaling-e2e-tests-retry-qa
 type: TASK
 title: Verify E2E Tests for WIP Signaling System (Retry)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-22'
 depends_on:
   - task-522-713-wip-signaling-e2e-tests-retry
 jules_session_id: null

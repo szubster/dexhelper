@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-21T21:00:26.718Z*
+*Generated at: 2026-10-22T00:20:52.970Z*
 
 ## Node Statistics
 
@@ -10,29 +10,30 @@
 | ADR | 44 |
 | EPIC | 506 |
 | IDEA | 233 |
-| PRD | 208 |
-| RESEARCH | 301 |
-| STORY | 1053 |
-| TASK | 2676 |
+| PRD | 213 |
+| RESEARCH | 306 |
+| STORY | 1056 |
+| TASK | 2697 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3272 |
-| ACTIVE | 176 |
+| COMPLETED | 3280 |
+| ACTIVE | 152 |
 | CANCELLED | 807 |
-| PENDING | 751 |
-| READY | 1 |
+| PENDING | 771 |
+| VERIFYING | 1 |
 | BLOCKED | 14 |
+| READY | 30 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9847 |
-| Open PRs | 197 |
-| Merged PRs | 8502 |
-| Closed PRs | 1148 |
+| Total PRs | 9849 |
+| Open PRs | 171 |
+| Merged PRs | 8528 |
+| Closed PRs | 1150 |
 
 ## Rejection Counts
 
@@ -824,6 +825,7 @@
 | task-358-426-gen3-contest-museum-parsing-impl.md | 1 |
 | task-405-486-gen3-mixed-record-parser-qa-v2.md | 1 |
 | task-406-526-gen3-rematch-parser-impl.md | 1 |
+| task-407-679-qa-e2e-secret-base-retry.md | 1 |
 | task-408-417-gen3-trainer-flags-testing-qa.md | 1 |
 | task-408-431-gen1-tm-hm-parsing-qa.md | 1 |
 | task-411-512-tm-hm-integration-e2e-impl-v2.md | 1 |
@@ -998,8 +1000,8 @@
 | task-563-642-map-data-tests-v2.md | 92620800000 |
 | task-563-643-map-data-qa-v2.md | 92620800000 |
 | task-676-702-add-adr-compliance-scripts.md | 77025600000 |
+| task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
-| task-550-686-generator-pagination-engines-e2e-impl.md | 76464000000 |
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |
 | task-550-685-generator-tree-traversals-e2e-impl.md | 76291200000 |
 | task-550-687-generator-architecture-e2e-qa.md | 76204800000 |

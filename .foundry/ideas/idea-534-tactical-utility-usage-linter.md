@@ -2,12 +2,12 @@
 id: idea-534-tactical-utility-usage-linter
 type: IDEA
 title: Automated Tactical Utility Usage Linter Rule
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-10-03'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '10070737211803980459'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

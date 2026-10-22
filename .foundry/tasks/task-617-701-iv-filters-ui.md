@@ -2,10 +2,10 @@
 id: task-617-701-iv-filters-ui
 type: TASK
 title: Update UI components for Multi-Box IV Filters
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-16T21:13:54.702Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on:
   - task-617-700-iv-filters-state-logic
 jules_session_id: null

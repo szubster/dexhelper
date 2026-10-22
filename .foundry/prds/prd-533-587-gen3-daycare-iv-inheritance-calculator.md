@@ -2,17 +2,14 @@
 id: prd-533-587-gen3-daycare-iv-inheritance-calculator
 type: PRD
 title: Gen 3 Daycare IV & Egg Inheritance Calculator
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-10-16T18:44:42.869Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: idea-533-gen3-daycare-iv-inheritance-calculator
-priority: 50
-confidence_score: null
 tags:
   - dexhelper
   - gen3
@@ -22,6 +19,8 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
+priority: 50
 ---
 
 # Gen 3 Daycare IV & Egg Inheritance Calculator PRD

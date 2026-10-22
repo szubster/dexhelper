@@ -2,14 +2,13 @@
 id: story-513-713-gen2-scoring-integration-e2e
 type: STORY
 title: Gen 2 Bug-Catching Score Calculation Integration and E2E
-status: READY
+status: PENDING
 owner_persona: tech_lead
-created_at: "2026-10-21"
-updated_at: "2026-10-21"
+created_at: '2026-10-21'
+updated_at: '2026-10-22'
 depends_on:
   - story-513-712-gen2-win-probability
 jules_session_id: null
-locks: []
 pr_number: null
 parent: epic-343-513-score-calculation-logic
 tags:
@@ -19,8 +18,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Gen 2 Bug-Catching Score Calculation Integration and E2E

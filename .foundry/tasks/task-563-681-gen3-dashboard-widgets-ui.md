@@ -2,10 +2,10 @@
 id: task-563-681-gen3-dashboard-widgets-ui
 type: TASK
 title: Gen 3 Dashboard Widgets UI Integration
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-02'
-updated_at: '2026-10-02'
+updated_at: '2026-10-22'
 depends_on:
   - task-563-680-gen3-dashboard-data-state
 jules_session_id: null

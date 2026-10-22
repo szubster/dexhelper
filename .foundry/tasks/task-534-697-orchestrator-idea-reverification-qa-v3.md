@@ -2,10 +2,10 @@
 id: task-534-697-orchestrator-idea-reverification-qa-v3
 type: TASK
 title: Orchestrator IDEA Re-Verification Stage QA (v3)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-17'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on:
   - task-534-696-orchestrator-idea-reverification-tests-v3
 jules_session_id: null

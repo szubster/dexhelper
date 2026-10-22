@@ -2,13 +2,13 @@
 id: task-563-669-gen3-wild-item-data-parsing-logic-retry
 type: TASK
 title: Implement Gen 3 Wild Encounter and Held Item Parsing Logic (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on:
   - research-563-668-investigate-wild-item-parsing-failure
-jules_session_id: '17524836455577164056'
+jules_session_id: null
 pr_number: null
 parent: story-552-563-gen3-wild-item-parsing
 tags:

@@ -2,12 +2,12 @@
 id: task-563-680-gen3-missed-items-context-layer
 type: TASK
 title: Gen 3 Missed Items Context Layer
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '12874540424542643615'
+jules_session_id: null
 parent: story-553-563-gen3-missed-items-ui
 locks: []
 rejection_reason: ''

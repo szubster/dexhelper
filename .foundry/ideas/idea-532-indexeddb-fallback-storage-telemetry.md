@@ -2,12 +2,12 @@
 id: idea-532-indexeddb-fallback-storage-telemetry
 type: IDEA
 title: IndexedDB Fallback Storage Synchronization and Telemetry Strategy
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-29'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '5692694314936396624'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

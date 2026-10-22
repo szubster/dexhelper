@@ -2,10 +2,10 @@
 id: task-575-693-archival-tree-e2e-qa
 type: TASK
 title: Archival Tree Evaluation E2E Verification QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-16T21:02:21.588Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on:
   - task-575-691-archival-tree-completeness-e2e-tests
   - task-575-692-archival-file-move-e2e-tests
