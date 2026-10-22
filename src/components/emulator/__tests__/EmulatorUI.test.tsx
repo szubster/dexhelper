@@ -22,19 +22,21 @@ describe('EmulatorUI', () => {
 
     const file = new File(['dummy content'], 'test.gba', { type: 'application/octet-stream' });
 
-    const inputElement = container.querySelector('[data-testid="file-input"]') as HTMLInputElement;
+    const inputElement = container.querySelector('[data-testid="file-input"]');
 
     const dataTransfer = new DataTransfer();
     dataTransfer.items.add(file);
 
-    Object.defineProperty(inputElement, 'files', {
-      value: dataTransfer.files,
-      configurable: true,
-      writable: true,
-    });
+    if (inputElement) {
+      Object.defineProperty(inputElement, 'files', {
+        value: dataTransfer.files,
+        configurable: true,
+        writable: true,
+      });
 
-    const changeEvent = new Event('change', { bubbles: true, cancelable: true });
-    inputElement.dispatchEvent(changeEvent);
+      const changeEvent = new Event('change', { bubbles: true, cancelable: true });
+      inputElement.dispatchEvent(changeEvent);
+    }
 
     // Wait for React state to update after async handleFile
     await new Promise((resolve) => setTimeout(resolve, 50));

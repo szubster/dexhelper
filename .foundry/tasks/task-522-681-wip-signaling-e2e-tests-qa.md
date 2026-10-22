@@ -2,10 +2,10 @@
 id: task-522-681-wip-signaling-e2e-tests-qa
 type: TASK
 title: Verify E2E Tests for WIP Signaling System
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-12'
-updated_at: '2026-10-17'
+updated_at: '2026-10-19'
 depends_on:
   - task-522-680-wip-signaling-e2e-tests
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-522-680-wip-signaling-e2e-tests
 notes: ''
 locks: []
 ---

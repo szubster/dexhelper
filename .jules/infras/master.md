@@ -122,3 +122,9 @@
 
 ## Critical Learnings
 - **Knip Configuration Hint Maintenance**: Stale entries in `knip.json` (such as files that exist and are properly imported or tsconfig dependencies auto-detected by Knip) trigger configuration hint warnings. Cleaning up stale entries keeps the static analysis pipeline completely warning-free.
+
+---
+
+## Critical Learnings
+
+- **Knip Configuration Hint Maintenance**: Stale ignore entries in `knip.json` (such as files that exist and are properly imported or refactored) trigger Knip CLI configuration hint warnings. Cleaning up these stale entries and removing duplicate keys keeps the static analysis and linting pipeline warning-free.

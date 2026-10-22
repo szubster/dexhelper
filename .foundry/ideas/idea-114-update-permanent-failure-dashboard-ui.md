@@ -2,12 +2,12 @@
 id: idea-114-update-permanent-failure-dashboard-ui
 type: IDEA
 title: Update Permanent Failure Dashboard UI for Cancelled Nodes
-status: PENDING
-owner_persona: product_manager
+status: ACTIVE
+owner_persona: curator
 created_at: '2026-07-12'
-updated_at: '2026-09-03'
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16352372609842648252'
 pr_number: null
 parent: null
 tags:
@@ -29,4 +29,5 @@ Previously, the Permanent Failure Dashboard UI (`src/components/dag/DagDashboard
 Update the filtering logic in the DAG UI components to include nodes that are `status === 'CANCELLED'` and have `rejection_count >= 3` (or check for the specific `rejection_reason`) so they are correctly highlighted as permanent failures.
 
 ## Acceptance Criteria
-- [ ] prd-114-516-update-permanent-failure-dashboard-ui
+- [ ] research-114-709-permanent-failure-dashboard-overlap
+- [x] prd-114-516-update-permanent-failure-dashboard-ui

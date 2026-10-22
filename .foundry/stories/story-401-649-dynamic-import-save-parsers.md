@@ -25,4 +25,8 @@ locks: []
 Move generation-specific Save Parsers behind dynamic imports. This will help split bundles and reduce initial payload.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into coder TASK nodes for implementation.
+- [x] Break down this Story into coder TASK nodes for implementation.
+- [ ] task-649-694-impl-dynamic-import-gen1-parser
+- [ ] task-649-695-impl-dynamic-import-gen2-parser
+- [ ] task-649-696-impl-dynamic-import-gen3-parser
+- [ ] task-649-697-qa-dynamic-import-save-parsers

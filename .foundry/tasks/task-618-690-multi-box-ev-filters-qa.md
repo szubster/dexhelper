@@ -2,7 +2,7 @@
 id: task-618-690-multi-box-ev-filters-qa
 type: TASK
 title: 'QA: Multi-Box EV Filters'
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-14'
 updated_at: '2026-10-18'
@@ -18,8 +18,8 @@ tags:
   - pc-box
   - ev
   - qa
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '3139315712772187218'
+jules_session_id: null
 parent: story-534-559-rag-dynamic-querying-retrieval
 tags:
   - query
