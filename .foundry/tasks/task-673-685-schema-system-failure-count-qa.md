@@ -30,5 +30,5 @@ As part of STORY `story-582-673-yaml-schema-validation-impl`, the new `system_fa
 Verify that the `system_failure_count` property in the YAML frontmatter schema is correctly defined as an optional integer and that tests adequately cover it.
 
 ## Acceptance Criteria
-- [ ] Verify `system_failure_count` is correctly added to `NodeFrontmatterSchema` in `packages/foundry/schema.ts`.
-- [ ] Verify tests in `packages/foundry/schema.test.ts` properly validate `system_failure_count`.
+- [x] Verify `system_failure_count` is correctly added to `NodeFrontmatterSchema` in `packages/foundry/schema.ts`.
+- [x] Verify tests in `packages/foundry/schema.test.ts` properly validate `system_failure_count`.
