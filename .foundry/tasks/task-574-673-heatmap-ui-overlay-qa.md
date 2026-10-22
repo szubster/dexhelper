@@ -31,5 +31,5 @@ QA review for the implemented Heatmap UI Overlay component, types, and tests.
 Review the implemented types, UI components, and unit tests for Heatmap UI overlay functionality based on `.foundry/stories/story-049-574-heatmap-ui-overlay-component.md`.
 
 ## Acceptance Criteria
-- [ ] Verify Heatmap UI Overlay component implementation and types.
-- [ ] Verify test coverage and run `pnpm test` to confirm all tests pass.
+- [x]  Verify Heatmap UI Overlay component implementation and types.
+- [x]  Verify test coverage and run `pnpm test` to confirm all tests pass.
