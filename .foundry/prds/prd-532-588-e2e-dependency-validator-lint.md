@@ -41,6 +41,9 @@ Generative personas break down features into stories, which are then split into 
 3. **Automated Testing**: Robust unit testing must be added to cover the new linter rules, ensuring that tasks missing dependencies fail the verification steps locally via `pnpm test`.
 
 ## 4. Acceptance Criteria
+- [ ] epic-588-693-dag-validation-script-extension
+- [ ] epic-588-694-orchestrator-dispatch-integration
+- [ ] epic-588-695-dependency-validation-test-suite
 - [ ] Implement the E2E dependency linter rule in `.github/scripts/verify-dag-refs.ts`.
 - [ ] Add the dependency validation rule to the Orchestrator's node dispatch validation step.
 - [ ] Write unit tests to cover passing and failing E2E dependency scenarios.
