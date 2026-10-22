@@ -34,5 +34,8 @@ Players need a dedicated dashboard to view the NPC trainer data extracted from m
 - Show the daily rematch status.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into actionable Stories.
-- [ ] Ensure the final generated STORY is dedicated exclusively to Integration and E2E Verification.
+- [ ] story-399-714-gen3-secret-base-dashboard-state
+- [ ] story-399-715-gen3-secret-base-dashboard-components
+- [ ] story-399-716-gen3-secret-base-dashboard-e2e
+- [x]  Story Owner: Break this Epic down into actionable Stories.
+- [x]  Ensure the final generated STORY is dedicated exclusively to Integration and E2E Verification.
