@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-22T05:33:11.383Z*
+*Generated at: 2026-10-22T10:45:30.835Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3291 |
-| ACTIVE | 151 |
-| CANCELLED | 807 |
-| PENDING | 781 |
+| COMPLETED | 3300 |
+| ACTIVE | 161 |
+| CANCELLED | 808 |
+| PENDING | 772 |
 | VERIFYING | 1 |
 | BLOCKED | 14 |
-| READY | 15 |
-| FAILED | 3 |
+| READY | 5 |
+| FAILED | 2 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9864 |
-| Open PRs | 169 |
-| Merged PRs | 8545 |
+| Total PRs | 9877 |
+| Open PRs | 179 |
+| Merged PRs | 8548 |
 | Closed PRs | 1150 |
 
 ## Rejection Counts
@@ -461,6 +461,7 @@
 | task-478-677-aggregate-active-locks-retry-2.md | 2 |
 | task-490-502-render-persona-badges-impl.md | 2 |
 | task-495-550-hof-export-image-renderer.md | 2 |
+| task-513-689-update-orchestrator-tests.md | 2 |
 | task-519-546-dashboard-layouts-coder.md | 2 |
 | task-520-530-statistics-report-integration-impl.md | 2 |
 | task-520-549-define-gen2-constants-impl.md | 2 |
@@ -748,6 +749,7 @@
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
+| research-562-703-investigate-moms-savings-ui-failure-v2.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
@@ -881,6 +883,7 @@
 | task-478-507-gen2-ruins-of-alph-parsing-logic.md | 1 |
 | task-478-508-gen2-ruins-of-alph-qa.md | 1 |
 | task-478-515-impl-pokeblock-parser.md | 1 |
+| task-478-688-orchestrator-cloning-logic-retry-4.md | 1 |
 | task-479-609-gen3-pokeblock-e2e-impl-v2.md | 1 |
 | task-479-610-gen3-pokeblock-e2e-qa-v2.md | 1 |
 | task-479-677-e2e-dynamic-bundles.md | 1 |
@@ -898,7 +901,6 @@
 | task-499-615-tpm-distillation-e2e-implementation.md | 1 |
 | task-512-517-implement-idempotent-bypass.md | 1 |
 | task-512-618-qa-idempotent-bypass-retry.md | 1 |
-| task-513-689-update-orchestrator-tests.md | 1 |
 | task-518-680-orchestrator-integration-e2e-fixtures.md | 1 |
 | task-520-531-statistics-generation-qa.md | 1 |
 | task-520-540-refactor-gen3-items-and-trades-parsers.md | 1 |

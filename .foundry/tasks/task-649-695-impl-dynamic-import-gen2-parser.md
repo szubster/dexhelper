@@ -2,12 +2,12 @@
 id: task-649-695-impl-dynamic-import-gen2-parser
 type: TASK
 title: Implement Dynamic Import for Gen 2 Parser
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-17T02:26:24.000Z'
 updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '3627985032093941083'
+jules_session_id: null
 pr_number: null
 parent: story-401-649-dynamic-import-save-parsers
 tags:

@@ -2,10 +2,10 @@
 id: idea-072-strict-macro-node-completion
 type: IDEA
 title: Strict Macro Node Completion Enforcement
-status: PENDING
-owner_persona: product_manager
+status: READY
+owner_persona: curator
 created_at: '2026-06-09'
-updated_at: '2026-06-10'
+updated_at: '2026-10-22'
 depends_on: []
 jules_session_id: '5225755495517265083'
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Strict Macro Node Completion Enforcement

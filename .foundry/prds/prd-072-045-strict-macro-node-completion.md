@@ -7,7 +7,7 @@ owner_persona: epic_planner
 created_at: '2026-06-10'
 updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '16381290464964185201'
+jules_session_id: null
 pr_number: null
 parent: idea-072-strict-macro-node-completion
 tags:

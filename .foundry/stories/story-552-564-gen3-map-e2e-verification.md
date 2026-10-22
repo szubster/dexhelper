@@ -2,11 +2,12 @@
 id: story-552-564-gen3-map-e2e-verification
 type: STORY
 title: Gen 3 Map Integration and E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-10'
-depends_on: ["story-552-563-gen3-map-state-management"]
+updated_at: '2026-10-22'
+depends_on:
+  - story-552-563-gen3-map-state-management
 jules_session_id: null
 pr_number: null
 parent: epic-424-552-gen3-map-core-ui
