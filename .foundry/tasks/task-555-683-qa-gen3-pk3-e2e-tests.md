@@ -2,14 +2,13 @@
 id: task-555-683-qa-gen3-pk3-e2e-tests
 type: TASK
 title: QA Gen 3 PK3 Extraction E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-11'
-updated_at: '2026-10-11'
+updated_at: '2026-10-22'
 depends_on:
   - task-555-682-gen3-pk3-e2e-tests-impl
 jules_session_id: null
-locks: []
 parent: story-530-555-pkm-data-integration-e2e
 tags:
   - qa
@@ -17,6 +16,7 @@ tags:
   - data
   - integration
 rejection_reason: ''
+locks: []
 ---
 
 # QA Gen 3 PK3 Extraction E2E Tests

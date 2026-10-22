@@ -2,10 +2,10 @@
 id: epic-045-399-gen3-secret-base-dashboard-v3
 type: EPIC
 title: Gen 3 Secret Base NPC Trainer Dashboard (v3)
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-08-04'
+updated_at: '2026-10-22'
 depends_on:
   - epic-045-397-gen3-secret-base-parsing-v3
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # EPIC: Gen 3 Secret Base NPC Trainer Dashboard (v3)

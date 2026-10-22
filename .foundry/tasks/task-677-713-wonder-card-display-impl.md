@@ -2,10 +2,10 @@
 id: task-677-713-wonder-card-display-impl
 type: TASK
 title: Wonder Card Display Implementation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-20T23:38:11.000Z'
-updated_at: '2026-10-20T23:38:11.000Z'
+updated_at: '2026-10-22'
 depends_on:
   - task-677-712-wonder-card-primitives-impl
 jules_session_id: null

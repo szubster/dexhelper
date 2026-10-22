@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-22T10:45:30.835Z*
+*Generated at: 2026-10-22T15:45:51.290Z*
 
 ## Node Statistics
 
@@ -11,30 +11,29 @@
 | EPIC | 506 |
 | IDEA | 233 |
 | PRD | 213 |
-| RESEARCH | 307 |
-| STORY | 1056 |
-| TASK | 2704 |
+| RESEARCH | 308 |
+| STORY | 1069 |
+| TASK | 2712 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3300 |
-| ACTIVE | 161 |
+| COMPLETED | 3308 |
+| ACTIVE | 156 |
 | CANCELLED | 808 |
-| PENDING | 772 |
-| VERIFYING | 1 |
+| PENDING | 775 |
 | BLOCKED | 14 |
-| READY | 5 |
 | FAILED | 2 |
+| READY | 22 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9877 |
-| Open PRs | 179 |
-| Merged PRs | 8548 |
-| Closed PRs | 1150 |
+| Total PRs | 9884 |
+| Open PRs | 173 |
+| Merged PRs | 8560 |
+| Closed PRs | 1151 |
 
 ## Rejection Counts
 
@@ -971,6 +970,7 @@
 | task-563-682-gen3-bag-inventory-parsing-impl.md | 1 |
 | task-564-578-e2e-navigation-and-selection.md | 1 |
 | task-564-619-pokeblock-e2e-implementation-retry.md | 1 |
+| task-564-691-gen3-pokedex-gaps-ui-impl-retry.md | 1 |
 | task-566-583-shoal-dashboard-layout.md | 1 |
 | task-566-584-shoal-ui-qa.md | 1 |
 | task-569-578-cva-refactor-tactical-panel-card.md | 1 |
@@ -991,6 +991,7 @@
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
 | task-640-653-relocate-foundry-scripts-replacement.md | 1 |
+| task-640-688-extract-utils-to-core-retry-v2.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 

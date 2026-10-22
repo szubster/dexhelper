@@ -2,14 +2,14 @@
 id: epic-116-337-gen3-wallpaper-dashboard-ui
 type: EPIC
 title: Gen 3 Wallpaper Dashboard UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-19'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on:
   - epic-116-335-gen3-wallpaper-phrase-generation-engine
   - epic-116-336-gen3-wallpaper-app-state-tracking
-jules_session_id: '12926215205113932074'
+jules_session_id: null
 parent: prd-116-049-gen3-pc-box-wallpaper-customizer
 tags:
   - gen3

@@ -2,26 +2,25 @@
 id: story-587-708-integrate-validator-with-orchestrator
 type: STORY
 title: Integrate Validator with Orchestrator
-status: READY
+status: PENDING
 owner_persona: tech_lead
-created_at: "2026-10-18T18:43:00Z"
-updated_at: "2026-10-18"
+created_at: '2026-10-18T18:43:00Z'
+updated_at: '2026-10-22'
 depends_on:
   - story-587-707-implement-validator-core-logic
 jules_session_id: null
-locks: []
 pr_number: null
 parent: epic-585-587-implement-macro-node-subtree-completeness-validator
-priority: 50
-confidence_score: null
 tags:
   - foundry
   - orchestrator
   - validation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Integrate Validator with Orchestrator

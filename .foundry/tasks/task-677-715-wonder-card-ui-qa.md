@@ -2,10 +2,10 @@
 id: task-677-715-wonder-card-ui-qa
 type: TASK
 title: Wonder Card UI QA Verification
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-20T23:38:11.000Z'
-updated_at: '2026-10-20T23:38:11.000Z'
+updated_at: '2026-10-22'
 depends_on:
   - task-677-714-wonder-card-integration-impl
 jules_session_id: null

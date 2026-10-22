@@ -2,10 +2,10 @@
 id: story-401-679-gen3-trainer-card-integration-e2e
 type: STORY
 title: Story - Gen 3 Trainer Card Dashboard Integration E2E
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on:
   - story-401-678-gen3-trainer-card-progress-components
 jules_session_id: null

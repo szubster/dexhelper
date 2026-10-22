@@ -2,12 +2,14 @@
 id: task-565-695-qa-execute-migration-verification
 type: TASK
 title: QA - Execute Migration Verification
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-22'
 depends_on:
   - task-565-694-execute-migration-verification
+jules_session_id: null
+pr_number: null
 parent: story-335-565-migration-e2e-verification
 tags:
   - e2e
@@ -18,8 +20,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
-jules_session_id: null
-pr_number: null
 ---
 
 # Task: QA - Execute Migration Verification
