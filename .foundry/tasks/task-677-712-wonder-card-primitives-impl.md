@@ -28,7 +28,7 @@ locks: []
 Develop the low-level reusable UI primitives (e.g., TacticalCard) to form the foundation for Wonder Card displays.
 
 ## Acceptance Criteria
-- [ ] Create a reusable `TacticalCard` React component in `src/components/` (or an appropriate feature folder).
-- [ ] The component should serve as a generic wrapper to display Wonder Card data.
-- [ ] The UI must implement the tactical aesthetic (ADR 008) utilizing `@utility` classes like `tactical-panel` where appropriate, along with sharp edges (`rounded-none`) and monospaced fonts.
-- [ ] Write unit tests to verify the `TacticalCard` renders correctly.
+- [x]  Create a reusable `TacticalCard` React component in `src/components/` (or an appropriate feature folder).
+- [x]  The component should serve as a generic wrapper to display Wonder Card data.
+- [x]  The UI must implement the tactical aesthetic (ADR 008) utilizing `@utility` classes like `tactical-panel` where appropriate, along with sharp edges (`rounded-none`) and monospaced fonts.
+- [x]  Write unit tests to verify the `TacticalCard` renders correctly.
