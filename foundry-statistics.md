@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-22T19:38:26.719Z*
+*Generated at: 2026-10-22T22:52:27.942Z*
 
 ## Node Statistics
 
@@ -18,22 +18,21 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3314 |
-| ACTIVE | 155 |
+| COMPLETED | 3318 |
+| ACTIVE | 162 |
 | CANCELLED | 808 |
-| PENDING | 793 |
-| VERIFYING | 1 |
+| PENDING | 792 |
+| FAILED | 5 |
 | BLOCKED | 14 |
-| READY | 14 |
-| FAILED | 4 |
+| READY | 4 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9895 |
-| Open PRs | 172 |
-| Merged PRs | 8572 |
+| Total PRs | 9905 |
+| Open PRs | 179 |
+| Merged PRs | 8575 |
 | Closed PRs | 1151 |
 
 ## Rejection Counts
@@ -496,12 +495,14 @@
 | task-564-602-pokemon-held-item-tracker-extraction.md | 2 |
 | task-564-604-pokemon-held-item-tracker-qa.md | 2 |
 | task-564-680-thief-covet-ui-integration-components.md | 2 |
+| task-564-691-gen3-pokedex-gaps-ui-impl-retry.md | 2 |
 | task-565-576-gen3-pokedex-gaps-e2e-coder.md | 2 |
 | task-565-606-hunting-progress-notifications.md | 2 |
 | task-570-618-cva-tactical-aesthetic-e2e-coder-retry.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
+| task-640-688-extract-utils-to-core-retry-v2.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
@@ -747,6 +748,7 @@
 | research-479-608-investigate-gen3-pokeblock-e2e-failure.md | 1 |
 | research-494-495-gen3-egg-hatch-fixture.md | 1 |
 | research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |
+| research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
@@ -758,6 +760,7 @@
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
+| research-638-712-investigate-constants-extraction-v4-failure.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
@@ -971,7 +974,6 @@
 | task-563-682-gen3-bag-inventory-parsing-impl.md | 1 |
 | task-564-578-e2e-navigation-and-selection.md | 1 |
 | task-564-619-pokeblock-e2e-implementation-retry.md | 1 |
-| task-564-691-gen3-pokedex-gaps-ui-impl-retry.md | 1 |
 | task-566-583-shoal-dashboard-layout.md | 1 |
 | task-566-584-shoal-ui-qa.md | 1 |
 | task-569-578-cva-refactor-tactical-panel-card.md | 1 |
@@ -992,7 +994,6 @@
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
 | task-640-653-relocate-foundry-scripts-replacement.md | 1 |
-| task-640-688-extract-utils-to-core-retry-v2.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 

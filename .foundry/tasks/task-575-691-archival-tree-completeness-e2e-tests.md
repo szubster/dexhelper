@@ -2,13 +2,13 @@
 id: task-575-691-archival-tree-completeness-e2e-tests
 type: TASK
 title: Archival Tree Completeness E2E Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-16T21:02:21.588Z'
 updated_at: '2026-10-22'
 depends_on:
   - task-575-690-archival-tree-e2e-harness
-jules_session_id: '13567635515351223121'
+jules_session_id: null
 pr_number: null
 parent: story-550-575-archival-tree-evaluation-e2e
 tags:
@@ -17,7 +17,7 @@ tags:
   - orchestrator
   - e2e
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

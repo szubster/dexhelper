@@ -2,12 +2,12 @@
 id: idea-072-strict-macro-node-completion
 type: IDEA
 title: Strict Macro Node Completion Enforcement
-status: ACTIVE
+status: COMPLETED
 owner_persona: auditor
 created_at: '2026-06-09'
 updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '17744996866724062906'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

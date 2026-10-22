@@ -2,10 +2,10 @@
 id: task-673-685-schema-system-failure-count-qa
 type: TASK
 title: QA Schema system_failure_count Implementation
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-13T19:46:42Z'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on:
   - task-673-684-schema-system-failure-count-tests
 jules_session_id: null

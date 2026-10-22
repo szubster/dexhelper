@@ -2,12 +2,12 @@
 id: idea-118-centralize-prompt-reminders
 type: IDEA
 title: Centralize Coder and QA Task Prompt Reminders
-status: ACTIVE
+status: FAILED
 owner_persona: curator
 created_at: '2026-07-17'
 updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '7612729378452309631'
+jules_session_id: null
 pr_number: null
 tags:
   - foundry
@@ -15,7 +15,7 @@ tags:
   - prompts
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

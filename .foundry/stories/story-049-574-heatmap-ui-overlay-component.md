@@ -8,7 +8,7 @@ created_at: '2026-09-16T06:24:34Z'
 updated_at: '2026-10-22'
 depends_on:
   - story-049-573-heatmap-data-processing-layer
-jules_session_id: '14958454030772780477'
+jules_session_id: null
 pr_number: null
 parent: epic-035-049-smart-radar-heatmap-generation
 tags:

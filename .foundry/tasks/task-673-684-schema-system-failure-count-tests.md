@@ -2,13 +2,13 @@
 id: task-673-684-schema-system-failure-count-tests
 type: TASK
 title: Update Schema Tests for system_failure_count
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-13T19:46:42Z'
 updated_at: '2026-10-22'
 depends_on:
   - task-673-683-schema-system-failure-count
-jules_session_id: '15268317058892187372'
+jules_session_id: null
 pr_number: null
 parent: story-582-673-yaml-schema-validation-impl
 tags:
