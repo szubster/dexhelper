@@ -27,6 +27,9 @@ locks: []
 Implement the core React state management and data fetching hooks for the Gen 3 Trainer Card dashboard. This layer will retrieve the extracted save file data regarding Hall of Fame, Pokedexes, Contests, and Battle Frontier completion, mapping it to a unified state structure ready for UI consumption.
 
 ## Acceptance Criteria
+- [ ] task-676-716-trainer-card-types
+- [ ] task-676-717-trainer-card-state-layer
+- [ ] task-676-718-qa-trainer-card-state
 - [ ] Define TypeScript interfaces for the Trainer Card state.
 - [ ] Implement data fetching hooks/context for Gen 3 Trainer Card achievements.
 - [ ] Ensure state shape matches Section 14 of `.foundry/docs/schema.md`.
