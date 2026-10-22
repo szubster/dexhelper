@@ -20,6 +20,6 @@ rejection_reason: ''
 Develop the React UI components for the Gen 3 Missed Milestones & Items Tracker dashboard. These components consume the data from the context layer and visualize the missed items and their requirements.
 
 ## Acceptance Criteria
-- [ ] Create UI components rendering the missed items list and details.
-- [ ] Adhere strictly to the tactical hardware aesthetic (ADR 008, `rounded-none`, dashed borders, `@utility` tactical primitives).
-- [ ] Integrate with the missed items context layer.
+- [x]  Create UI components rendering the missed items list and details.
+- [x]  Adhere strictly to the tactical hardware aesthetic (ADR 008, `rounded-none`, dashed borders, `@utility` tactical primitives).
+- [x]  Integrate with the missed items context layer.
