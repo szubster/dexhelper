@@ -30,5 +30,7 @@ Ensure the heatmap data processing and UI overlay features work correctly end-to
 Write Playwright E2E tests verifying the heatmap generation and overlay display.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks for E2E tests.
+- [x] Break down into Tasks for E2E tests.
 - [ ] Complete child tasks for E2E verification.
+- [ ] task-575-716-implement-heatmap-e2e-tests
+- [ ] task-575-717-qa-heatmap-e2e-tests
