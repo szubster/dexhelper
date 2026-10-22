@@ -102,7 +102,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-070-roamer-tracking-dashboard` | Roaming Pokémon Tracking Dashboard | feature, ux, map, exploration |  | PENDING |
 | `idea-071-gen3-roamer-tracker` | Gen 3 Roaming Legendary Tracker and IV Glitch Inspector | feature, gen3, roamer |  | PENDING |
 | `idea-071-tailwind-v4-utilities-migration` | Tailwind v4 @utility Consolidation | tech-debt, styling, refactor |  | PENDING |
-| `idea-072-strict-macro-node-completion` | Strict Macro Node Completion Enforcement | orchestrator, architecture |  | PENDING |
+| `idea-072-strict-macro-node-completion` | Strict Macro Node Completion Enforcement | orchestrator, architecture |  | COMPLETED |
 | `idea-073-gen3-secret-base-viewer` | Gen 3 Secret Base and Mixed Record Viewer | feature, gen3, secret-base |  | PENDING |
 | `idea-073-refactor-dag-dashboard-context` | Refactor DagDashboard to use React Context (ADR 013/017) | architecture, ui, dashboard |  | PENDING |
 | `idea-074-gen3-battle-frontier-tracker` | Gen 3 Battle Frontier Dashboard | feature, gen3, endgame |  | PENDING |
