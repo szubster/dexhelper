@@ -31,6 +31,6 @@ locks: []
 Implement the E2E tests validating the successful composite prompt generation process in the orchestrator, ensuring it accurately resolves and combines the 3-tier layered composition (Base, Specific Layers, Core Policies) at dispatch time.
 
 ## Acceptance Criteria
-- [ ] Write E2E test cases to verify the orchestrator generates the expected composite prompt.
-- [ ] Ensure that core policies are appended correctly without duplication.
-- [ ] Verify that specific context layers are included based on the node's frontmatter tags.
+- [x]  Write E2E test cases to verify the orchestrator generates the expected composite prompt.
+- [x]  Ensure that core policies are appended correctly without duplication.
+- [x]  Verify that specific context layers are included based on the node's frontmatter tags.
