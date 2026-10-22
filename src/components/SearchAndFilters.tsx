@@ -195,11 +195,26 @@ export const SearchAndFilters = React.memo(function SearchAndFilters() {
                     />
                     <FilterBadge
                       isActive={filtersSet.has(f)}
-                      label={f === 'secured' ? 'SECURED' : f === 'missing' ? 'MISSING' : 'DEX_ONLY'}
+                      label={
+                        f === 'secured'
+                          ? 'SECURED'
+                          : f === 'missing'
+                            ? 'MISSING'
+                            : f === 'perfect-ivs'
+                              ? 'PERFECT_IVS'
+                              : 'DEX_ONLY'
+                      }
                     />
                   </div>
                 ),
-                ariaLabel: f === 'secured' ? 'Secured filter' : f === 'missing' ? 'Missing filter' : 'Dex Only filter',
+                ariaLabel:
+                  f === 'secured'
+                    ? 'Secured filter'
+                    : f === 'missing'
+                      ? 'Missing filter'
+                      : f === 'perfect-ivs'
+                        ? 'Perfect IVs filter'
+                        : 'Dex Only filter',
                 testId: `filter-${f}`,
               }))}
             />
