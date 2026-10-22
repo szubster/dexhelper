@@ -25,7 +25,7 @@ export type GameVersion = GameVersionType;
  * The array of valid UI filter strings used to restrict which Pokémon
  * are currently visible in the Dex grids.
  */
-export const FILTER_TYPES = ['secured', 'missing', 'dex-only'] as const;
+export const FILTER_TYPES = ['secured', 'missing', 'dex-only', 'perfect-ivs'] as const;
 
 /** Union type representing an active UI filter mode. */
 export type FilterType = (typeof FILTER_TYPES)[number];
