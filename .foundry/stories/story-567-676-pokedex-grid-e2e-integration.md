@@ -2,13 +2,13 @@
 id: story-567-676-pokedex-grid-e2e-integration
 type: STORY
 title: Pokedex Grid E2E Integration tests
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on:
   - epic-564-565-pokedex-grid-virtualization
-jules_session_id: null
+jules_session_id: '14029463387698030034'
 pr_number: null
 parent: epic-564-567-e2e-integration
 tags:
