@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
 
+## [0.25.1] - 2026-04-06
+### Added
+- Enhance Assistant algorithm to intelligently suggest in-game NPC trades dynamically based on save file state and collection.
+
+### Changed
+- Bump `@tanstack/react-query` to `5.96.2`.
+
+### Fixed
+- Fix Pokémon Yellow save detection by analyzing Original Trainer names and checking for definitive Yellow markers.
+- Resolve 1-byte offset shift in English Pokémon Yellow saves that corrupted Pokedex data and incorrect map detection.
+
 ## [0.25.0] - 2026-04-06
 ### Added
 - Implement mapping for internal map IDs to general area names for Gen 1 and Gen 2, enhancing location display readability.
@@ -305,3 +316,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.24.5]: https://github.com/szubster/dexhelper/compare/edbf0c9005b78906051b1bc371acc754b0a466bd...0a51a23e9edeb506357e599dd7dcffdbbe75c9eb
 [0.24.6]: https://github.com/szubster/dexhelper/compare/18f5e2a12afbc20796f2d70fc895d4ff085cf10c...7389580e7acb3613d2e2f477c5a2a57033325be2
 [0.25.0]: https://github.com/szubster/dexhelper/compare/7389580e7acb3613d2e2f477c5a2a57033325be2...a18cf2a547687991de4af3b100e4d45e528ebe19
+[0.25.1]: https://github.com/szubster/dexhelper/compare/a18cf2a547687991de4af3b100e4d45e528ebe19...8ed973e2e6c042bd60543dee85e822baeba4f9bf
