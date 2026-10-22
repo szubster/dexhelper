@@ -2,10 +2,10 @@
 id: task-521-704-gen3-submodules-constants-impl-retry
 type: TASK
 title: Extract Gen 3 Submodule Constants (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-22'
 depends_on:
   - research-521-703-gen3-submodules-constants-failure
 jules_session_id: null

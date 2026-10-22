@@ -2,12 +2,12 @@
 id: task-673-683-schema-system-failure-count
 type: TASK
 title: Update Schema Definition for system_failure_count
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-13T19:46:42Z'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '8253522635187369368'
+jules_session_id: null
 pr_number: null
 parent: story-582-673-yaml-schema-validation-impl
 tags:

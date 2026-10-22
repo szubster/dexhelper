@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-22T15:45:51.290Z*
+*Generated at: 2026-10-22T19:38:26.719Z*
 
 ## Node Statistics
 
@@ -8,31 +8,32 @@
 | Type | Count |
 |---|---|
 | ADR | 44 |
-| EPIC | 506 |
+| EPIC | 509 |
 | IDEA | 233 |
-| PRD | 213 |
-| RESEARCH | 308 |
-| STORY | 1069 |
-| TASK | 2712 |
+| PRD | 214 |
+| RESEARCH | 310 |
+| STORY | 1075 |
+| TASK | 2718 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3308 |
-| ACTIVE | 156 |
+| COMPLETED | 3314 |
+| ACTIVE | 155 |
 | CANCELLED | 808 |
-| PENDING | 775 |
+| PENDING | 793 |
+| VERIFYING | 1 |
 | BLOCKED | 14 |
-| FAILED | 2 |
-| READY | 22 |
+| READY | 14 |
+| FAILED | 4 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9884 |
-| Open PRs | 173 |
-| Merged PRs | 8560 |
+| Total PRs | 9895 |
+| Open PRs | 172 |
+| Merged PRs | 8572 |
 | Closed PRs | 1151 |
 
 ## Rejection Counts
@@ -395,6 +396,7 @@
 | research-517-668-investigate-orchestrator-generic-prompt-failure.md | 2 |
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
+| research-562-703-investigate-moms-savings-ui-failure-v2.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
@@ -458,6 +460,7 @@
 | task-478-618-msgpack-prefetch-e2e-tests.md | 2 |
 | task-478-619-msgpack-prefetch-qa.md | 2 |
 | task-478-677-aggregate-active-locks-retry-2.md | 2 |
+| task-478-688-orchestrator-cloning-logic-retry-4.md | 2 |
 | task-490-502-render-persona-badges-impl.md | 2 |
 | task-495-550-hof-export-image-renderer.md | 2 |
 | task-513-689-update-orchestrator-tests.md | 2 |
@@ -748,7 +751,6 @@
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
-| research-562-703-investigate-moms-savings-ui-failure-v2.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
@@ -882,7 +884,6 @@
 | task-478-507-gen2-ruins-of-alph-parsing-logic.md | 1 |
 | task-478-508-gen2-ruins-of-alph-qa.md | 1 |
 | task-478-515-impl-pokeblock-parser.md | 1 |
-| task-478-688-orchestrator-cloning-logic-retry-4.md | 1 |
 | task-479-609-gen3-pokeblock-e2e-impl-v2.md | 1 |
 | task-479-610-gen3-pokeblock-e2e-qa-v2.md | 1 |
 | task-479-677-e2e-dynamic-bundles.md | 1 |

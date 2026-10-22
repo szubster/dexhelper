@@ -2,10 +2,10 @@
 id: research-522-712-investigate-orchestrator-wip-tests-failure
 type: RESEARCH
 title: Investigate Orchestrator WIP Awareness E2E Tests Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,7 +16,7 @@ tags:
   - wip
   - e2e
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 notes: ''
 locks: []
 ---

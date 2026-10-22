@@ -2,10 +2,10 @@
 id: story-049-574-heatmap-ui-overlay-component
 type: STORY
 title: Heatmap UI Overlay Component
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-16T06:24:34Z'
-updated_at: '2026-10-11'
+updated_at: '2026-10-22'
 depends_on:
   - story-049-573-heatmap-data-processing-layer
 jules_session_id: '14958454030772780477'
@@ -32,8 +32,8 @@ Implement the React components and styling required to overlay the heatmap data 
 
 ## Acceptance Criteria
 - [x] Break down into Tasks for implementing the UI overlay components.
-- [ ] Complete child tasks for the UI overlay.
-- [ ] task-574-670-heatmap-ui-overlay-types
-- [ ] task-574-671-heatmap-ui-overlay-impl
-- [ ] task-574-672-heatmap-ui-overlay-tests
-- [ ] task-574-673-heatmap-ui-overlay-qa
+- [x] Complete child tasks for the UI overlay.
+- [x] task-574-670-heatmap-ui-overlay-types
+- [x] task-574-671-heatmap-ui-overlay-impl
+- [x] task-574-672-heatmap-ui-overlay-tests
+- [x] task-574-673-heatmap-ui-overlay-qa

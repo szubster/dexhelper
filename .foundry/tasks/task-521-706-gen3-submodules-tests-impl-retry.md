@@ -2,10 +2,10 @@
 id: task-521-706-gen3-submodules-tests-impl-retry
 type: TASK
 title: Update Gen 3 Submodule Parser Tests (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-22'
 depends_on:
   - task-521-705-gen3-submodules-logic-impl-retry
 jules_session_id: null

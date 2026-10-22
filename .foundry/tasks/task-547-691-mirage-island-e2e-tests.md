@@ -2,13 +2,13 @@
 id: task-547-691-mirage-island-e2e-tests
 type: TASK
 title: Mirage Island E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-16T02:30:47.009Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-22'
 depends_on:
   - task-547-690-mirage-island-ui-integration
-jules_session_id: '8639060126700251305'
+jules_session_id: null
 pr_number: null
 parent: story-062-547-mirage-island-ui-integration-e2e
 tags:

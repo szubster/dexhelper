@@ -1,23 +1,25 @@
 ---
 id: epic-587-584-root-scratchpad-detector-script
 type: EPIC
-title: "Root Scratchpad Detector Implementation"
-status: PENDING
-owner_persona: "story_owner"
-created_at: "2026-10-17"
-updated_at: "2026-10-17"
+title: Root Scratchpad Detector Implementation
+status: READY
+owner_persona: story_owner
+created_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: prd-531-587-automatic-scratchpad-cleanup-guard
-priority: 50
-confidence_score: null
-tags: ["foundry", "process", "lint"]
+tags:
+  - foundry
+  - process
+  - lint
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Root Scratchpad Detector Implementation
