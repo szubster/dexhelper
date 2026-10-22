@@ -18,6 +18,7 @@
 | [epic-587-584-root-scratchpad-detector-script](.foundry/epics/epic-587-584-root-scratchpad-detector-script.md) | EPIC | Root Scratchpad Detector Implementation | story_owner | [600001366480174821](https://jules.google.com/session/600001366480174821) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
+| [idea-072-strict-macro-node-completion](.foundry/ideas/idea-072-strict-macro-node-completion.md) | IDEA | Strict Macro Node Completion Enforcement | auditor | [17744996866724062906](https://jules.google.com/session/17744996866724062906) |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [idea-537-artifact-presence-precommit-validator](.foundry/ideas/idea-537-artifact-presence-precommit-validator.md) | IDEA | Automated Pre-Commit Deliverable Artifact Presence Validator | product_manager | [16252117326750849648](https://jules.google.com/session/16252117326750849648) |
 | [idea-538-context-provider-root-wiring-linter](.foundry/ideas/idea-538-context-provider-root-wiring-linter.md) | IDEA | Static AST Linter Rule for React Context Application Root Wiring | product_manager | [2661175344611483787](https://jules.google.com/session/2661175344611483787) |
