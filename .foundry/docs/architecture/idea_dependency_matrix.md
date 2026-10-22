@@ -154,7 +154,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-111-safari-zone-tracker` | Gen 1 & Gen 3 Safari Zone Tracking Dashboard | feature, ui, safari-zone |  | PENDING |
 | `idea-112-gen3-split-variable-extraction-strategy` | Gen3 Split Variable Extraction Strategy | gen3, architecture |  | PENDING |
 | `idea-113-gen3-pokeblock-stats-viewer` | Gen 3 Pokéblock Exact Stats Viewer | gen3, contests, pokeblocks, quality-of-life |  | PENDING |
-| `idea-114-update-permanent-failure-dashboard-ui` | Update Permanent Failure Dashboard UI for Cancelled Nodes | foundry, ui |  | PENDING |
+| `idea-114-update-permanent-failure-dashboard-ui` | Update Permanent Failure Dashboard UI for Cancelled Nodes | foundry, ui | `idea-063-permanent-failure-dashboard`, `idea-079-automated-max-rejection-cancellation` | PENDING |
 | `idea-115-gen3-fame-checker-assistant` | Gen 3 Fame Checker Progress & Assistant | gen3, firered, leafgreen, fame-checker |  | PENDING |
 | `idea-115-remove-obsolete-orphaned-node-manual-cancellation` | Remove Obsolete Orphaned Node Manual Cancellation Rule | foundry, orchestrator, agile-coach |  | COMPLETED |
 | `idea-116-gen3-pc-box-wallpaper-customizer` | Gen 3 PC Box Wallpaper Customizer | gen3, pc-box, customization, endgame |  | PENDING |
