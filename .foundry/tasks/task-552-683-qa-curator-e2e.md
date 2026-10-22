@@ -2,7 +2,7 @@
 id: task-552-683-qa-curator-e2e
 type: TASK
 title: QA Verification for Curator Historical Backtracking E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-01'
 updated_at: '2026-10-22'
@@ -10,7 +10,7 @@ depends_on:
   - task-552-680-curator-e2e-matrix-tests
   - task-552-681-curator-e2e-domain-overlap-tests
   - task-552-682-curator-e2e-remediation-tests
-jules_session_id: null
+jules_session_id: '9674991951270481337'
 parent: story-532-552-curator-integration-e2e-verification
 tags:
   - qa
