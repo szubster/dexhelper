@@ -85,9 +85,9 @@ test('renders grid with pokemon', async () => {
 
   // Check box pokemon
   await expect.element(page.getByText('Charmander')).toBeInTheDocument();
-  await expect.element(page.getByText('BLUE')).toBeInTheDocument();
+  await expect.element(page.getByText('[BLUE]')).toBeInTheDocument();
   await expect.element(page.getByText('Squirtle')).toBeInTheDocument();
-  await expect.element(page.getByText('GREEN')).toBeInTheDocument();
+  await expect.element(page.getByText('[GREEN]')).toBeInTheDocument();
 
   // Click navigation
   const btn = page.getByText('Bulbasaur');

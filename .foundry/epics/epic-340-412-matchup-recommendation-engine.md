@@ -2,13 +2,13 @@
 id: epic-340-412-matchup-recommendation-engine
 type: EPIC
 title: Active Party Matchup - Recommendation Engine
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-11'
-updated_at: '2026-08-11'
+updated_at: '2026-10-21'
 depends_on:
   - epic-340-411-save-data-extraction
-jules_session_id: null
+jules_session_id: '16844266816833654639'
 pr_number: null
 parent: prd-134-340-active-party-matchup-analyzer
 tags:
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Active Party Matchup - Recommendation Engine

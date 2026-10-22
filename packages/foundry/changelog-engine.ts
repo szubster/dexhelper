@@ -137,6 +137,31 @@ export function classifyCommit(details: CommitDetails): CommitClassification {
     return { action: 'skip', reason: 'Non-idea Foundry sub-node lifecycle update' };
   }
 
+  // Check if touched files are strictly test files or test coverage improvements
+  const isOnlyTestFiles =
+    files.length > 0 &&
+    files.every(
+      (f) =>
+        f.includes('.test.') ||
+        f.includes('.spec.') ||
+        f.startsWith('tests/') ||
+        f.includes('/__tests__/')
+    );
+
+  if (isOnlyTestFiles) {
+    return { action: 'skip', reason: 'Test-only modification' };
+  }
+
+  // Check if commit message explicitly indicates test coverage or test-only changes
+  const isTestMessage =
+    /^test(\([a-z0-9_.-]+\))?:/i.test(message) ||
+    message.toLowerCase().includes('test coverage') ||
+    message.toLowerCase().includes('coverage improvement');
+
+  if (isTestMessage) {
+    return { action: 'skip', reason: 'Test or coverage commit message' };
+  }
+
   // Check if files are exclusively trivial maintenance/chore config files
   const trivialPatterns = [
     'pnpm-lock.yaml',
@@ -262,21 +287,26 @@ export function bumpVersion(currentVersion: string, bump: 'major' | 'minor' | 'p
   return `${major}.${minor}.${patch}`;
 }
 
-export function updateTaskNodeForCommit(
-  commitDetails: CommitDetails,
-  classification: CommitClassification,
-  taskPath: string = TASK_NODE_PATH,
-  previousCommitSha: string | null = null
-): void {
-  const today = new Date().toISOString().split('T')[0]!;
-  const commitDate = commitDetails.date || today;
+export interface BatchCommitEntry {
+  details: CommitDetails;
+  classification: CommitClassification;
+  previousSha: string | null;
+}
 
+export function updateTaskNodeForBatch(
+  batch: BatchCommitEntry[],
+  taskPath: string = TASK_NODE_PATH
+): void {
+  if (batch.length === 0) return;
+
+  const today = new Date().toISOString().split('T')[0]!;
   let rawContent = '';
   if (fs.existsSync(taskPath)) {
     rawContent = fs.readFileSync(taskPath, 'utf8');
   }
 
-  const domain = classification.domain || 'dexhelper';
+  const primaryEntry = batch[batch.length - 1]!;
+  const domain = primaryEntry.classification.domain || 'dexhelper';
   const changelogFilename = domain === 'foundry' ? 'CHANGELOG-foundry.md' : 'CHANGELOG-dexhelper.md';
   const changelogPath = path.join(process.cwd(), changelogFilename);
   let latestVersion = '0.1.0';
@@ -284,8 +314,21 @@ export function updateTaskNodeForCommit(
     latestVersion = getLatestVersion(fs.readFileSync(changelogPath, 'utf8'));
   }
 
-  const bumpType = determineSemverBump(commitDetails.message);
-  const nextVersion = bumpVersion(latestVersion, bumpType);
+  let overallBump: 'major' | 'minor' | 'patch' = 'patch';
+  for (const entry of batch) {
+    const bump = determineSemverBump(entry.details.message);
+    if (bump === 'major') overallBump = 'major';
+    else if (bump === 'minor' && overallBump !== 'major') overallBump = 'minor';
+  }
+  const nextVersion = bumpVersion(latestVersion, overallBump);
+
+  const firstEntry = batch[0]!;
+  const firstPrevSha = firstEntry.previousSha;
+  const lastSha = primaryEntry.details.sha;
+
+  const diffLinkExample = firstPrevSha
+    ? `[\`${latestVersion}...${nextVersion}\`](https://github.com/\${repo}/compare/${firstPrevSha.slice(0, 7)}...${lastSha.slice(0, 7)})`
+    : `[\`${lastSha.slice(0, 7)}\`](https://github.com/\${repo}/commit/${lastSha})`;
 
   const parsed = matter(rawContent);
   parsed.data.status = 'READY';
@@ -293,40 +336,54 @@ export function updateTaskNodeForCommit(
   parsed.data.updated_at = today;
   parsed.data.owner_persona = 'changelogger';
 
-  const diffLinkExample = previousCommitSha
-    ? `[\`${latestVersion}...${nextVersion}\`](https://github.com/\${repo}/compare/${previousCommitSha.slice(0, 7)}...${commitDetails.sha.slice(0, 7)})`
-    : `[\`${commitDetails.sha.slice(0, 7)}\`](https://github.com/\${repo}/commit/${commitDetails.sha})`;
+  const commitsOverview = batch
+    .map(
+      (entry, idx) =>
+        `### Commit ${idx + 1}: \`${entry.details.sha.slice(0, 7)}\`
+- **Commit SHA:** \`${entry.details.sha}\`
+- **Previous SHA:** ${entry.previousSha ? `\`${entry.previousSha}\`` : 'N/A'}
+- **Date:** \`${entry.details.date}\`
+- **Classification:** ${entry.classification.reason}
+- **Domain:** ${entry.classification.domain || 'dexhelper'}
 
-  const body = `# Changelog Backfill Commit Evaluation
-
-Target commit details injected by \`changelog-engine.ts\`:
-
-- **Commit SHA:** \`${commitDetails.sha}\`
-- **Previous Commit SHA:** ${previousCommitSha ? `\`${previousCommitSha}\`` : 'N/A'}
-- **Commit Date:** \`${commitDate}\`
-- **Classification Reason:** ${classification.reason}
-- **Recommended Domain:** ${domain}
-- **Suggested SemVer Bump:** \`${bumpType}\` (from \`${latestVersion}\` -> \`${nextVersion}\`)
-
-## Commit Message
+#### Message
 \`\`\`text
-${commitDetails.message}
+${entry.details.message}
 \`\`\`
 
-## Modified Files
-${commitDetails.files.map((f) => `- \`${f}\``).join('\n')}
+#### Modified Files
+${entry.details.files.map((f) => `- \`${f}\``).join('\n')}
 
-## Diff Summary
+#### Diff Summary
 \`\`\`text
-${commitDetails.diffStat || 'N/A'}
+${entry.details.diffStat || 'N/A'}
 \`\`\`
+`
+    )
+    .join('\n');
+
+  const body = `# Changelog Backfill Batch Commit Evaluation
+
+Target commit batch (${batch.length} commit${batch.length > 1 ? 's' : ''}) injected by \`changelog-engine.ts\`:
+
+- **Batch Size:** ${batch.length}
+- **Primary Domain:** ${domain}
+- **Suggested Overall SemVer Bump:** \`${overallBump}\` (from \`${latestVersion}\` -> \`${nextVersion}\`)
+- **Range:** ${firstPrevSha ? `\`${firstPrevSha.slice(0, 7)}...${lastSha.slice(0, 7)}\`` : `\`${lastSha.slice(0, 7)}\``}
+
+## Commits in Batch
+
+${commitsOverview}
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the commit changes above by executing \`git show ${commitDetails.sha}\` (or \`git diff ${previousCommitSha || commitDetails.sha + '~1'}..${commitDetails.sha}\`) in bash to analyze the actual code diff. If the clone is shallow (\`git rev-parse --is-shallow-repository\` returns \`true\`), run \`git fetch --unshallow\` first.
-Synthesize the technical changes (functions added/modified, UI updates, bug fixes, parser logic) alongside the commit message to create intelligent descriptions.
-If a changelog entry or \`README.md\` update is warranted, create a PR adding a concise bullet point under \`## [Unreleased]\` or new release header \`## [${nextVersion}] - ${commitDate}\` in \`${changelogFilename}\` with diff link comparing previous release commit SHA to new release commit SHA (e.g. ${diffLinkExample}), and update \`README.md\` if necessary.
-If Keep a Changelog link references exist at the bottom of \`${changelogFilename}\`, update/add link reference comparing the previous commit/release to current commit/release.
-If no entry or documentation update is necessary, submit an Empty PR.
+As Changelogger, independently inspect the code diffs for this batch by running \`git show <sha>\` or \`git diff ${firstPrevSha || lastSha + '~1'}..${lastSha}\` in bash. If the clone is shallow (\`git rev-parse --is-shallow-repository\` returns \`true\`), run \`git fetch --unshallow\` first.
+
+Synthesize the technical changes across all commits in this batch:
+1. **Grouping / Merging**: Based on your judgment of the diffs, decide whether to group multiple commits into a single changelog entry or release version, split them into separate releases, or merge entries into a previous release header in \`${changelogFilename}\`.
+2. **Selective Inclusion**: Omit internal/trivial changes that do not warrant a user-facing or system maintainer changelog entry.
+3. **Documentation**: Update \`README.md\` if any commit in the batch alters setup, features, or architecture.
+4. **Link References**: If a changelog entry is added, include diff links (e.g. ${diffLinkExample}) and update link references at the bottom of \`${changelogFilename}\`.
+5. **No Changes Needed**: If no commits in the batch warrant changelog or README updates, submit an Empty PR.
 `;
 
   const newContent = matter.stringify(body, parsed.data);
@@ -335,6 +392,15 @@ If no entry or documentation update is necessary, submit an Empty PR.
     fs.mkdirSync(dir, { recursive: true });
   }
   fs.writeFileSync(taskPath, newContent, 'utf8');
+}
+
+export function updateTaskNodeForCommit(
+  commitDetails: CommitDetails,
+  classification: CommitClassification,
+  taskPath: string = TASK_NODE_PATH,
+  previousCommitSha: string | null = null
+): void {
+  updateTaskNodeForBatch([{ details: commitDetails, classification, previousSha: previousCommitSha }], taskPath);
 }
 
 export function generateContinuousMaintenanceIdeaNode(): void {
@@ -382,7 +448,8 @@ Whenever an \`IDEA\` node is completed in the Foundry Engine (via \`foundry-hear
 
 export async function runChangelogEngine(
   statePath: string = STATE_FILE_PATH,
-  taskPath: string = TASK_NODE_PATH
+  taskPath: string = TASK_NODE_PATH,
+  batchSize: number = 5
 ): Promise<void> {
   const state = loadState(statePath);
 
@@ -404,19 +471,19 @@ export async function runChangelogEngine(
         return;
       }
 
-      // If task was completed, check if task node body has a commit SHA ahead of state.last_processed_commit
-      const taskShaMatch = taskRaw.match(/- \*\*Commit SHA:\*\* `([a-f0-9]+)`/i);
-      if (taskShaMatch?.[1]) {
-        const taskSha = taskShaMatch[1];
+      // If task was completed, check if task node body has commit SHAs ahead of state.last_processed_commit
+      const taskShaMatches = [...taskRaw.matchAll(/- \*\*Commit SHA:\*\* `([a-f0-9]+)`/gi)];
+      if (taskShaMatches.length > 0) {
+        const lastTaskSha = taskShaMatches[taskShaMatches.length - 1]![1]!;
         const commits = getCommitList();
-        const taskIdx = commits.findIndex((c) => c === taskSha || c.startsWith(taskSha));
+        const taskIdx = commits.findIndex((c) => c === lastTaskSha || c.startsWith(lastTaskSha));
         const lastCommit = state.last_processed_commit;
         const stateIdx = lastCommit
           ? commits.findIndex((c) => c === lastCommit || c.startsWith(lastCommit))
           : -1;
 
         if (taskIdx > stateIdx) {
-          state.last_processed_commit = taskSha;
+          state.last_processed_commit = lastTaskSha;
           saveState(state, statePath);
         }
       }
@@ -447,6 +514,9 @@ export async function runChangelogEngine(
     `[changelog-engine] Running in '${state.mode}' mode. Processing from index ${startIndex}/${commits.length}.\n`
   );
 
+  const batch: BatchCommitEntry[] = [];
+  let currentPrevSha = state.last_processed_commit;
+
   for (let i = startIndex; i < commits.length; i++) {
     const sha = commits[i]!;
     const details = getCommitDetails(sha);
@@ -456,20 +526,30 @@ export async function runChangelogEngine(
       process.stdout.write(`[changelog-engine] Auto-skipping commit ${sha.slice(0, 7)}: ${classification.reason}\n`);
       state.last_processed_commit = sha;
       saveState(state, statePath);
+      currentPrevSha = sha;
       continue;
     }
 
     process.stdout.write(`[changelog-engine] Evaluating commit ${sha.slice(0, 7)}: ${classification.reason}\n`);
+    batch.push({ details, classification, previousSha: currentPrevSha });
+    currentPrevSha = sha;
 
-    // Re-open task node as READY for this commit
-    const prevSha = state.last_processed_commit;
-    updateTaskNodeForCommit(details, classification, taskPath, prevSha);
+    if (batch.length >= batchSize) {
+      break;
+    }
+  }
 
-    state.last_processed_commit = sha;
+  if (batch.length > 0) {
+    const lastShaInBatch = batch[batch.length - 1]!.details.sha;
+    updateTaskNodeForBatch(batch, taskPath);
+
+    state.last_processed_commit = lastShaInBatch;
     state.status = 'pending_jules';
     saveState(state, statePath);
 
-    process.stdout.write(`[changelog-engine] Set task-000-changelog-backfill to READY for commit ${sha.slice(0, 7)}. Exiting cycle.\n`);
+    process.stdout.write(
+      `[changelog-engine] Set task-000-changelog-backfill to READY for batch of ${batch.length} commit(s) (up to ${lastShaInBatch.slice(0, 7)}). Exiting cycle.\n`
+    );
     return;
   }
 

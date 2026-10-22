@@ -31,4 +31,8 @@ Following the implementation of progression tracking across multiple concurrent 
 - Maintain offline-first capability.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Stories.
+- [x] Story Owner: Break this Epic down into Stories.
+- [ ] story-037-676-trading-core-transfer-logic
+- [ ] story-037-677-trading-validation-rules
+- [ ] story-037-678-trading-offline-ui
+- [ ] story-037-679-trading-integration-e2e

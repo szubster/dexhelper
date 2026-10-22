@@ -5,7 +5,7 @@ title: Gen 2 Mom's Savings Tracker UI Core
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,6 +36,9 @@ Implement the UI logic in `Gen2SavingsDashboard` to display progression toward t
 - [ ] task-562-581-gen2-moms-savings-logic
 - [x] task-562-582-gen2-moms-savings-ui
 - [x] task-562-583-gen2-moms-savings-qa
-- [ ] research-562-680-investigate-moms-savings-ui-failure
-- [ ] task-562-681-gen2-moms-savings-ui-retry
-- [ ] task-562-682-gen2-moms-savings-qa-retry
+- [x] research-562-680-investigate-moms-savings-ui-failure
+- [x] task-562-681-gen2-moms-savings-ui-retry
+- [x] task-562-682-gen2-moms-savings-qa-retry
+- [ ] research-562-703-investigate-moms-savings-ui-failure-v2
+- [ ] task-562-704-gen2-moms-savings-ui-v2
+- [ ] task-562-705-gen2-moms-savings-qa-v2

@@ -2,25 +2,24 @@
 id: task-563-681-gen2-bag-inventory-parsing-qa
 type: TASK
 title: Gen 2 Bag Inventory Parsing QA
-status: PENDING
+status: ACTIVE
 owner_persona: qa
-created_at: "2026-10-12"
-updated_at: "2026-10-12"
+created_at: '2026-10-12'
+updated_at: '2026-10-18'
 depends_on:
   - task-563-680-gen2-bag-inventory-parsing-impl
-jules_session_id: null
-locks: []
+jules_session_id: '5697539995035961202'
 pr_number: null
 parent: story-554-563-inventory-item-tracker
-priority: 50
-confidence_score: null
 tags:
   - dexhelper
   - gen2
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Gen 2 Bag Inventory Parsing QA

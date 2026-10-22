@@ -8,7 +8,7 @@ created_at: '2026-10-02'
 updated_at: '2026-10-17'
 depends_on:
   - story-568-644-cva-visual-regression-tests
-jules_session_id: '4388500454750306179'
+jules_session_id: null
 pr_number: null
 parent: epic-565-568-theming-e2e-verification
 tags:

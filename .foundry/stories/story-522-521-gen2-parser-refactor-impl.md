@@ -2,10 +2,10 @@
 id: story-522-521-gen2-parser-refactor-impl
 type: STORY
 title: Update Gen 2 Parsers for ADR 028
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on:
   - story-522-520-gen2-constants-extraction
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - save-parsing
   - offset-mapping
   - gen2
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # STORY: Update Gen 2 Parsers for ADR 028
@@ -27,6 +27,6 @@ Per ADR 028, inline magic numbers must be replaced. This story focuses on updati
 
 ## Acceptance Criteria
 - [x] Decompose this Story into actionable Tasks to refactor Gen 2 parsers.
-- [ ] task-521-676-gen2-constants
-- [ ] task-521-677-gen2-parser-refactor
-- [ ] task-521-678-gen2-parser-qa
+- [x] task-521-676-gen2-constants
+- [x] task-521-677-gen2-parser-refactor
+- [x] task-521-678-gen2-parser-qa

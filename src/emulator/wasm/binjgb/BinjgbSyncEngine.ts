@@ -60,7 +60,7 @@ export class BinjgbSyncEngine {
     this.intervalId = setInterval(() => {
       if (this.saveId !== null) {
         this.syncSaveData(this.saveId, this.forcedVersion).catch((err) => {
-          console.error('BinjgbSyncEngine polling error:', err);
+          console.error('BinjgbSyncEngine polling error:', err instanceof Error ? err.message : 'Unknown error');
         });
       }
     }, intervalMs);

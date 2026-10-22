@@ -2,10 +2,10 @@
 id: task-563-682-gen3-bag-inventory-parsing-impl
 type: TASK
 title: Gen 3 Bag Inventory Parsing Implementation
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-17'
+updated_at: '2026-10-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - dexhelper
   - gen3
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -33,7 +33,7 @@ As part of the Wild Item Inventory Tracker, we need to extract the Bag inventory
 - Write unit tests for the parsing logic.
 
 ## Acceptance Criteria
-- [ ] Gen 3 Bag parsing logic is implemented.
-- [ ] Relative memory offsets are used.
-- [ ] Constants are properly defined.
-- [ ] Unit tests pass.
+- [x] Gen 3 Bag parsing logic is implemented.
+- [x] Relative memory offsets are used.
+- [x] Constants are properly defined.
+- [x] Unit tests pass.

@@ -2,10 +2,10 @@
 id: task-558-681-telemetry-generator-update
 type: TASK
 title: Update Telemetry Generator Output
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-11'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on:
   - task-558-680-telemetry-extraction-logic
 jules_session_id: null
@@ -27,4 +27,4 @@ locks: []
 Update `generateStatistics` in `packages/foundry/generate-statistics.ts` to output the new telemetry metrics inside `foundry-statistics.json` and append the telemetry data tables to `foundry-statistics.md`.
 
 ## Acceptance Criteria
-- [ ] Coder: Update JSON and Markdown output generation in `generateStatistics`.
+- [x] Coder: Update JSON and Markdown output generation in `generateStatistics`.

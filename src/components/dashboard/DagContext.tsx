@@ -37,6 +37,15 @@ export type DagEdge = Edge;
 export type ViewMode = 'graph' | 'board';
 
 export interface DagContextState {
+  activeTypes: Set<string>;
+  setActiveTypes: React.Dispatch<React.SetStateAction<Set<string>>>;
+  activeStatuses: Set<string>;
+  setActiveStatuses: React.Dispatch<React.SetStateAction<Set<string>>>;
+  showPermanentFailures: boolean;
+  setShowPermanentFailures: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleActiveType: (type: string) => void;
+  toggleActiveStatus: (status: string) => void;
+  toggleShowPermanentFailures: () => void;
   nodes: DagNode[];
   maxRejectionThreshold: number;
   edges: DagEdge[];
@@ -121,6 +130,47 @@ export function DagProvider({ children }: { children: ReactNode }) {
   const [activeView, setActiveView] = useState<ViewMode>('graph');
   const [showHeatmap, setShowHeatmap] = useState<boolean>(false);
 
+  const [activeTypes, setActiveTypes] = useState<Set<string>>(
+    new Set(['RESEARCH', 'IDEA', 'ADR', 'PRD', 'EPIC', 'STORY', 'TASK']),
+  );
+  const [activeStatuses, setActiveStatuses] = useState<Set<string>>(
+    new Set(['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED']),
+  );
+  const [showPermanentFailures, setShowPermanentFailures] = useState(
+    new URLSearchParams(window.location.search).has('permanent_failures_only'),
+  );
+
+  const toggleActiveType = useMemo(
+    () => (type: string) => {
+      setActiveTypes((prev) => {
+        const next = new Set(prev);
+        if (next.has(type)) next.delete(type);
+        else next.add(type);
+        return next;
+      });
+    },
+    [],
+  );
+
+  const toggleActiveStatus = useMemo(
+    () => (status: string) => {
+      setActiveStatuses((prev) => {
+        const next = new Set(prev);
+        if (next.has(status)) next.delete(status);
+        else next.add(status);
+        return next;
+      });
+    },
+    [],
+  );
+
+  const toggleShowPermanentFailures = useMemo(
+    () => () => {
+      setShowPermanentFailures((prev) => !prev);
+    },
+    [],
+  );
+
   const value = useMemo(
     () => ({
       maxRejectionThreshold: MAX_REJECTION_THRESHOLD,
@@ -130,6 +180,15 @@ export function DagProvider({ children }: { children: ReactNode }) {
       isPending,
       activeView,
       setActiveView: (view: React.SetStateAction<ViewMode>) => startTransition(() => setActiveView(view)),
+      activeTypes,
+      setActiveTypes,
+      activeStatuses,
+      setActiveStatuses,
+      showPermanentFailures,
+      setShowPermanentFailures,
+      toggleActiveType,
+      toggleActiveStatus,
+      toggleShowPermanentFailures,
       showHeatmap,
       setShowHeatmap: (show: React.SetStateAction<boolean>) => startTransition(() => setShowHeatmap(show)),
       setNodes: (newNodes: React.SetStateAction<DagNode[]>) => startTransition(() => setNodes(newNodes)),
@@ -138,7 +197,24 @@ export function DagProvider({ children }: { children: ReactNode }) {
       onEdgesChange,
       setIsLoading,
     }),
-    [nodes, edges, isLoading, isPending, activeView, showHeatmap, onNodesChange, onEdgesChange, setNodes, setEdges],
+    [
+      nodes,
+      edges,
+      isLoading,
+      isPending,
+      activeView,
+      showHeatmap,
+      activeTypes,
+      activeStatuses,
+      showPermanentFailures,
+      onNodesChange,
+      onEdgesChange,
+      setNodes,
+      setEdges,
+      toggleActiveType,
+      toggleActiveStatus,
+      toggleShowPermanentFailures,
+    ],
   );
 
   useEffect(() => {

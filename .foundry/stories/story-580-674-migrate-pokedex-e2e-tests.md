@@ -5,9 +5,9 @@ title: Migrate Pokedex E2E Tests to COM Pattern
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-09'
-updated_at: '2026-10-13'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '3923617810079718721'
+jules_session_id: '14765118996840553089'
 pr_number: null
 parent: epic-566-580-e2e-test-migration
 tags:
@@ -34,4 +34,6 @@ Refactor existing Pokedex grid-related E2E tests (e.g. `tests/e2e/pokedex-grid-v
 ## Acceptance Criteria
 - [ ] Pokedex tests are refactored to use `PokedexGridModel`.
 - [ ] Tests use semantic locators via the COM.
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-674-700-migrate-pokedex-e2e-tests-coder
+- [ ] task-674-701-migrate-pokedex-e2e-tests-qa

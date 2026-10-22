@@ -2,13 +2,13 @@
 id: task-528-677-safari-zone-bounty-board-ui
 type: TASK
 title: Safari Zone Bounty Board UI Components
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2024-05-24'
-updated_at: '2026-10-15'
+updated_at: '2026-10-20'
 depends_on:
   - task-528-676-safari-zone-bounty-board-data
-jules_session_id: null
+jules_session_id: '11263454802294725849'
 pr_number: null
 parent: story-325-528-safari-zone-bounty-board
 tags:
@@ -16,7 +16,7 @@ tags:
   - ui
   - safari-zone
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

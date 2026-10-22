@@ -43,6 +43,7 @@ Offload binary save file parsing to a dedicated Web Worker pipeline:
 - **Developer Experience**: Standardizes async save parsing interfaces across React components and Zustand state managers.
 
 ## Acceptance Criteria
+- [ ] prd-531-588-web-worker-save-parser
 - [ ] Implement a Web Worker parser module for `parseSaveFile` using Vite's native Web Worker support and Transferable `ArrayBuffer` objects.
 - [ ] Create an asynchronous client interface with graceful fallback to main-thread execution when Web Workers are unavailable or in test environments.
 - [ ] Update `useStore` save loading procedures to use non-blocking background parsing.

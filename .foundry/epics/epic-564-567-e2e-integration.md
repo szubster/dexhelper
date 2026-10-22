@@ -31,4 +31,6 @@ As defined in `prd-517-564-optimize-pokedex-grid-rendering`, the `PokedexGrid` a
 1. Run and verify E2E integration tests for `PokedexGrid` and `StorageGrid` rendering.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-567-676-pokedex-grid-e2e-integration
+- [ ] story-567-677-storage-grid-e2e-integration
