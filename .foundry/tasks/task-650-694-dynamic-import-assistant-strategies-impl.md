@@ -25,5 +25,5 @@ locks: []
 Move generation-specific Assistant Strategies behind dynamic imports to minimize the bundle size. The `getStrategy` function in `src/engine/assistant/strategies/index.ts` has already been updated to dynamically import generation-specific strategies. This task ensures any remaining synchronous imports of strategies are replaced or the core dynamic import logic is properly validated and implemented.
 
 ## Acceptance Criteria
-- [ ] Ensure that `gen1Strategy`, `gen2Strategy`, and `gen3Strategy` are exclusively dynamically imported in the application flow.
-- [ ] Make sure that the bundle size minimizes code splitting properly by verifying Vite build output.
+- [x] Ensure that `gen1Strategy`, `gen2Strategy`, and `gen3Strategy` are exclusively dynamically imported in the application flow.
+- [x] Make sure that the bundle size minimizes code splitting properly by verifying Vite build output.
