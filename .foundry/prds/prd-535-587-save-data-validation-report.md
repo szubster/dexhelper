@@ -2,12 +2,12 @@
 id: prd-535-587-save-data-validation-report
 type: PRD
 title: Save File Corruption & Data Structure Integrity Diagnostic Report
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
-created_at: "2026-10-16T18:14:49.553Z"
-updated_at: "2026-10-16"
+created_at: '2026-10-16T18:14:49.553Z'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12533772543462586666'
 pr_number: null
 parent: idea-535-save-data-validation-report
 tags:
@@ -17,6 +17,7 @@ tags:
   - ui
 locks: []
 confidence_score: 90
+rejection_reason: ''
 ---
 
 # Save File Corruption & Data Structure Integrity Diagnostic Report
