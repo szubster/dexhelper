@@ -244,12 +244,30 @@ if (typeof window !== 'undefined' && (import.meta.env.DEV || import.meta.env.MOD
 
 // ─── Store ───────────────────────────────────────────────────────────
 /**
- * React hook exposing the global application store.
- * Subscribing components will re-render automatically when accessed state changes.
+ * Main React hook exposing the central Zustand application store.
+ *
+ * **Architecture & Invariants:**
+ * 1. **Transient vs. Persisted State Separation:**
+ *    - Persistent user preferences (e.g. `filters`, `manualVersion`, `isLivingDex`, `globalPokeball`, `unlockedWallpapers`)
+ *      are automatically synchronized to `localStorage` under the `'dexhelper-settings'` key via Zustand's `persist` middleware.
+ *    - Heavy runtime binary data (`saveData`, `saves`), transient search queries (`searchTerm`, `attributeFilters`),
+ *      and active modals (`isSettingsOpen`, `isVersionModalOpen`) are **strictly excluded** from `localStorage` using `partialize`.
+ * 2. **Storage Quota Preservation:**
+ *    - Direct `localStorage` writes of raw binary saves cause browser quota crashes (5MB limit). Save data is kept in IndexedDB
+ *      (`SaveDB`) and optional cloud storage (`r2Client`), with `useStore` holding only the active transient `SaveData` memory cache.
+ * 3. **Selector Performance Best Practices:**
+ *    - Subscribing components re-render whenever their selected state slice changes reference.
+ *    - Always pass atomic inline selectors (e.g., `useStore((state) => state.filters)`) rather than referencing the whole store
+ *      to avoid triggering unnecessary full-tree re-renders when unrelated state updates occur.
  *
  * @example
+ * // Subscribing to an atomic state slice:
  * const filters = useStore((state) => state.filters);
- * const setSaveData = useStore((state) => state.setSaveData);
+ * const toggleFilter = useStore((state) => state.toggleFilter);
+ *
+ * @example
+ * // Accessing transient save data:
+ * const saveData = useStore((state) => state.saveData);
  */
 export const useStore = create<AppStore>()(
   persist(
