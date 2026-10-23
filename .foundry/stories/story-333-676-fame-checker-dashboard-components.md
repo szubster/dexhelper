@@ -36,4 +36,8 @@ To visualize the Fame Checker data from FireRed and LeafGreen, we need a set of 
 - Provide mock data structures to render these components in isolation.
 
 ## Acceptance Criteria
+- [ ] task-676-710-fame-checker-base-ui
+- [ ] task-676-711-qa-fame-checker-base-ui
+- [ ] task-676-712-fame-checker-dashboard
+- [ ] task-676-713-qa-fame-checker-dashboard
 - [ ] Components are built and adhere to the tactical hardware aesthetic.
