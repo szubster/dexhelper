@@ -11,12 +11,12 @@
     },
     "byStatus": {
       "COMPLETED": 3320,
-      "ACTIVE": 167,
-      "CANCELLED": 815,
-      "PENDING": 782,
+      "ACTIVE": 171,
+      "CANCELLED": 823,
+      "PENDING": 773,
       "BLOCKED": 14,
-      "FAILED": 3,
-      "READY": 2
+      "READY": 1,
+      "FAILED": 1
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -2413,7 +2413,7 @@
       "research-519-601-investigate-tracker-refactoring-failure.md": 2,
       "research-520-535-gen3-fossil-offsets.md": 0,
       "research-520-623-zombie-node-detection-impl-failure.md": 0,
-      "research-521-703-gen3-submodules-constants-failure.md": 1,
+      "research-521-703-gen3-submodules-constants-failure.md": 2,
       "research-522-654-gen2-bug-catching-contest-dvs-offsets.md": 0,
       "research-522-712-investigate-orchestrator-wip-tests-failure.md": 1,
       "research-522-712-investigate-wip-signaling-e2e-failure.md": 0,
@@ -7898,7 +7898,7 @@
       "story-525-710-build-tooling-e2e-verification-retry.md": 86400000,
       "story-526-638-extract-constants.md": 1900800000,
       "story-526-639-extract-parsers.md": 259200000,
-      "story-526-640-extract-domain-logic.md": 1468800000,
+      "story-526-640-extract-domain-logic.md": 1987200000,
       "story-526-641-core-domain-integration-e2e.md": 0,
       "story-527-638-setup-ui-package.md": 259200000,
       "story-527-639-migrate-tactical-primitives.md": 1468800000,
@@ -7994,7 +7994,7 @@
       "story-552-563-schema-linter-section-tracking.md": 2678400000,
       "story-552-563-story-to-task-complexity-validation.md": 3024000000,
       "story-552-564-gen3-map-e2e-verification.md": 3628800000,
-      "story-552-564-gen3-pokedex-gaps-ui.md": 3456000000,
+      "story-552-564-gen3-pokedex-gaps-ui.md": 3715200000,
       "story-552-564-schema-linter-checkbox-e2e.md": 0,
       "story-552-564-task-breakdown-e2e.md": 172800000,
       "story-552-564-wild-item-unified-data-layer.md": 0,
@@ -8080,7 +8080,7 @@
       "story-581-674-orchestrator-resurrection-logic.md": 0,
       "story-581-675-orchestrator-rejection-processing-e2e.md": 0,
       "story-582-673-yaml-schema-validation-impl.md": 1209600000,
-      "story-582-674-yaml-schema-e2e-verification.md": 0,
+      "story-582-674-yaml-schema-e2e-verification.md": 1209600000,
       "story-587-707-implement-validator-core-logic.md": 278220000,
       "story-587-708-integrate-validator-with-orchestrator.md": 278220000,
       "story-587-709-e2e-verification-macro-node-completeness.md": 278220000,
@@ -9486,7 +9486,7 @@
       "task-564-691-gen2-room-decoration-e2e-tests-retry.md": 299851682,
       "task-564-691-gen3-pokedex-gaps-ui-impl-retry.md": 558717891,
       "task-564-692-gen2-room-decoration-integration-qa-retry.md": 299851675,
-      "task-564-692-qa-gen3-pokedex-gaps-ui-retry.md": 299517891,
+      "task-564-692-qa-gen3-pokedex-gaps-ui-retry.md": 558717891,
       "task-565-576-gen3-pokedex-gaps-e2e-coder.md": 777600000,
       "task-565-604-hunting-progress-state-definitions.md": 3456000000,
       "task-565-605-hunting-progress-detection-logic.md": 4060800000,
@@ -9711,11 +9711,11 @@
       "task-640-677-relocate-foundry-scripts-replacement-v3.md": 604800000,
       "task-640-678-qa-relocate-foundry-scripts-replacement-v3.md": 259200000,
       "task-640-688-extract-utils-to-core-retry-v2.md": 777600000,
-      "task-640-689-update-app-imports-utils-retry-v2.md": 259200000,
-      "task-640-690-qa-extract-utils-retry-v2.md": 259200000,
-      "task-640-691-extract-engine-data-to-core-retry-v2.md": 259200000,
-      "task-640-692-update-app-imports-engine-data-retry-v2.md": 259200000,
-      "task-640-693-qa-extract-engine-data-retry-v2.md": 259200000,
+      "task-640-689-update-app-imports-utils-retry-v2.md": 777600000,
+      "task-640-690-qa-extract-utils-retry-v2.md": 777600000,
+      "task-640-691-extract-engine-data-to-core-retry-v2.md": 777600000,
+      "task-640-692-update-app-imports-engine-data-retry-v2.md": 777600000,
+      "task-640-693-qa-extract-engine-data-retry-v2.md": 777600000,
       "task-641-658-migrate-scanline-crosshairs.md": 518400000,
       "task-641-659-migrate-hexstream-telemetry.md": 259200000,
       "task-641-660-qa-migrate-decorations.md": 259200000,
@@ -9782,10 +9782,10 @@
     }
   },
   "prs": {
-    "totalPRs": 9916,
-    "openPRs": 188,
+    "totalPRs": 9920,
+    "openPRs": 192,
     "mergedPRs": 8577,
     "closedPRs": 1151
   },
-  "timestamp": "2026-10-23T06:39:05.570Z"
+  "timestamp": "2026-10-23T12:17:07.218Z"
 }

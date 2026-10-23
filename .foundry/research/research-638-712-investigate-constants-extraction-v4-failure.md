@@ -2,12 +2,12 @@
 id: research-638-712-investigate-constants-extraction-v4-failure
 type: RESEARCH
 title: Investigate Constants Extraction V4 Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-21T17:50:37.000Z'
 updated_at: '2026-10-23'
 depends_on: []
-jules_session_id: '17072550461600924264'
+jules_session_id: null
 pr_number: null
 parent: story-526-638-extract-constants
 tags:
@@ -15,7 +15,7 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

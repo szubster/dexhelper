@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-23T06:39:05.570Z*
+*Generated at: 2026-10-23T12:17:07.218Z*
 
 ## Node Statistics
 
@@ -19,19 +19,19 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3320 |
-| ACTIVE | 167 |
-| CANCELLED | 815 |
-| PENDING | 782 |
+| ACTIVE | 171 |
+| CANCELLED | 823 |
+| PENDING | 773 |
 | BLOCKED | 14 |
-| FAILED | 3 |
-| READY | 2 |
+| READY | 1 |
+| FAILED | 1 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9916 |
-| Open PRs | 188 |
+| Total PRs | 9920 |
+| Open PRs | 192 |
 | Merged PRs | 8577 |
 | Closed PRs | 1151 |
 
@@ -398,6 +398,7 @@
 | research-478-676-investigate-locking-failure-retry.md | 2 |
 | research-517-668-investigate-orchestrator-generic-prompt-failure.md | 2 |
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
+| research-521-703-gen3-submodules-constants-failure.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
@@ -750,7 +751,6 @@
 | research-479-608-investigate-gen3-pokeblock-e2e-failure.md | 1 |
 | research-494-495-gen3-egg-hatch-fixture.md | 1 |
 | research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |
-| research-521-703-gen3-submodules-constants-failure.md | 1 |
 | research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
