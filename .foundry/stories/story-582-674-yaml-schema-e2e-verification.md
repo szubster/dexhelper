@@ -31,4 +31,6 @@ This story covers the end-to-end verification and integration testing required f
 - Provide integration and E2E tests for the updated YAML schema validation logic.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-674-716-e2e-schema-system-failure-count
+- [ ] task-674-717-e2e-schema-system-failure-count-qa
