@@ -19,18 +19,14 @@ rejection_reason: ''
 notes: ''
 locks: []
 ---
-
 # Story: Gen 2 Mom's Savings Tracker UI Core
-
 ## Overview
 Implement the UI logic in `Gen2SavingsDashboard` to display progression toward the next room decoration threshold unlocked via Mom's savings.
-
 ## Requirements
 - Define the constant thresholds for decorations unlocked via Mom's savings ($10,000 for Charmander Doll, $30,000 for Clefairy Doll, $50,000 for Pikachu Doll, $100,000 for Big Snorlax).
 - Determine the next threshold based on the current `money`.
 - Render a UI element showing the progress (e.g., amount remaining) toward the next unlock.
 - Handle the case where all thresholds have been reached.
-
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] task-562-581-gen2-moms-savings-logic
@@ -39,6 +35,9 @@ Implement the UI logic in `Gen2SavingsDashboard` to display progression toward t
 - [x] research-562-680-investigate-moms-savings-ui-failure
 - [x] task-562-681-gen2-moms-savings-ui-retry
 - [x] task-562-682-gen2-moms-savings-qa-retry
-- [ ] research-562-703-investigate-moms-savings-ui-failure-v2
-- [ ] task-562-704-gen2-moms-savings-ui-v2
-- [ ] task-562-705-gen2-moms-savings-qa-v2
+- [x] research-562-703-investigate-moms-savings-ui-failure-v2
+- [x] task-562-704-gen2-moms-savings-ui-v2
+- [x] task-562-705-gen2-moms-savings-qa-v2
+- [ ] research-562-716-investigate-moms-savings-ui-failure-v3
+- [ ] task-562-717-gen2-moms-savings-ui-v3
+- [ ] task-562-718-gen2-moms-savings-qa-v3
