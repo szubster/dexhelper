@@ -11,11 +11,10 @@
     },
     "byStatus": {
       "COMPLETED": 3320,
-      "ACTIVE": 172,
-      "CANCELLED": 823,
-      "PENDING": 773,
-      "BLOCKED": 14,
-      "FAILED": 1
+      "ACTIVE": 173,
+      "CANCELLED": 826,
+      "PENDING": 770,
+      "BLOCKED": 14
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -7895,7 +7894,7 @@
       "story-525-641-build-tooling-e2e-verification.md": 1641600000,
       "story-525-709-extract-data-generation-scripts-retry.md": 86400000,
       "story-525-710-build-tooling-e2e-verification-retry.md": 86400000,
-      "story-526-638-extract-constants.md": 1900800000,
+      "story-526-638-extract-constants.md": 1987200000,
       "story-526-639-extract-parsers.md": 259200000,
       "story-526-640-extract-domain-logic.md": 1987200000,
       "story-526-641-core-domain-integration-e2e.md": 0,
@@ -9650,8 +9649,8 @@
       "task-638-670-qa-extract-constants-to-core-v3.md": 691200000,
       "task-638-691-extract-constants-to-core-v4.md": 407929636,
       "task-638-692-qa-extract-constants-to-core-v4.md": 407929628,
-      "task-638-713-extract-constants-to-core-v5.md": 22163000,
-      "task-638-714-qa-extract-constants-to-core-v5.md": 22163000,
+      "task-638-713-extract-constants-to-core-v5.md": 108563000,
+      "task-638-714-qa-extract-constants-to-core-v5.md": 108563000,
       "task-639-641-extract-base-save-parsers.md": 172800000,
       "task-639-641-extract-data-generation-scripts.md": 172800000,
       "task-639-642-extract-generation-parsers.md": 172800000,
@@ -9781,10 +9780,10 @@
     }
   },
   "prs": {
-    "totalPRs": 9921,
-    "openPRs": 193,
+    "totalPRs": 9922,
+    "openPRs": 194,
     "mergedPRs": 8577,
     "closedPRs": 1151
   },
-  "timestamp": "2026-10-23T17:35:19.042Z"
+  "timestamp": "2026-10-23T20:45:34.817Z"
 }
