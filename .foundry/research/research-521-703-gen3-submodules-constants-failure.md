@@ -2,10 +2,10 @@
 id: research-521-703-gen3-submodules-constants-failure
 type: RESEARCH
 title: Investigate Gen 3 Submodule Constants Refactoring Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-18'
-updated_at: '2026-10-22'
+updated_at: '2026-10-23'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - offset-mapping
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

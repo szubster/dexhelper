@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-22T22:52:27.942Z*
+*Generated at: 2026-10-23T01:06:12.473Z*
 
 ## Node Statistics
 
@@ -18,21 +18,21 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3318 |
-| ACTIVE | 162 |
+| COMPLETED | 3319 |
+| ACTIVE | 164 |
 | CANCELLED | 808 |
-| PENDING | 792 |
-| FAILED | 5 |
+| PENDING | 790 |
+| READY | 3 |
 | BLOCKED | 14 |
-| READY | 4 |
+| FAILED | 5 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9905 |
-| Open PRs | 179 |
-| Merged PRs | 8575 |
+| Total PRs | 9908 |
+| Open PRs | 181 |
+| Merged PRs | 8576 |
 | Closed PRs | 1151 |
 
 ## Rejection Counts
@@ -149,6 +149,7 @@
 | research-562-668-investigate-gen2-wild-encounter-extraction-failure.md | 3 |
 | research-562-680-investigate-moms-savings-ui-failure.md | 3 |
 | research-562-687-investigate-gen2-wild-encounter-extraction-failure-retry.md | 3 |
+| research-562-703-investigate-moms-savings-ui-failure-v2.md | 3 |
 | research-563-640-investigate-map-data-extraction-failure.md | 3 |
 | research-566-668-investigate-orchestrator-diagnosis-failure.md | 3 |
 | research-566-676-investigate-orchestrator-diagnosis-failure-v2.md | 3 |
@@ -232,6 +233,7 @@
 | task-478-667-kurt-apricorn-types.md | 3 |
 | task-478-669-orchestrator-cloning-logic-retry-3.md | 3 |
 | task-478-678-kurt-apricorn-core-logic-retry.md | 3 |
+| task-478-688-orchestrator-cloning-logic-retry-4.md | 3 |
 | task-479-576-gen3-pokeblock-e2e-impl.md | 3 |
 | task-479-676-gen2-unown-dex-e2e-tests.md | 3 |
 | task-490-504-visualize-dag-statuses-impl.md | 3 |
@@ -395,7 +397,6 @@
 | research-517-668-investigate-orchestrator-generic-prompt-failure.md | 2 |
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
-| research-562-703-investigate-moms-savings-ui-failure-v2.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
@@ -459,7 +460,6 @@
 | task-478-618-msgpack-prefetch-e2e-tests.md | 2 |
 | task-478-619-msgpack-prefetch-qa.md | 2 |
 | task-478-677-aggregate-active-locks-retry-2.md | 2 |
-| task-478-688-orchestrator-cloning-logic-retry-4.md | 2 |
 | task-490-502-render-persona-badges-impl.md | 2 |
 | task-495-550-hof-export-image-renderer.md | 2 |
 | task-513-689-update-orchestrator-tests.md | 2 |
@@ -709,6 +709,7 @@
 | idea-086-fix-gen3save-mock.md | 1 |
 | idea-116-gen3-pc-box-wallpaper-customizer.md | 1 |
 | idea-117-split-bundles-and-data.md | 1 |
+| idea-118-centralize-prompt-reminders.md | 1 |
 | idea-122-foundry-lead-time-metrics.md | 1 |
 | idea-122-pokemon-themed-foundry-personas.md | 1 |
 | idea-137-builtin-emulator.md | 1 |
@@ -748,6 +749,7 @@
 | research-479-608-investigate-gen3-pokeblock-e2e-failure.md | 1 |
 | research-494-495-gen3-egg-hatch-fixture.md | 1 |
 | research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |
+| research-521-703-gen3-submodules-constants-failure.md | 1 |
 | research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
@@ -979,6 +981,7 @@
 | task-569-578-cva-refactor-tactical-panel-card.md | 1 |
 | task-571-578-cva-refactor-basic-inputs.md | 1 |
 | task-574-659-archival-file-move-automation-qa.md | 1 |
+| task-575-691-archival-tree-completeness-e2e-tests.md | 1 |
 | task-578-589-visualizer-state-refactor.md | 1 |
 | task-580-595-gen3-friendship-data-extraction-e2e-coder.md | 1 |
 | task-580-649-gen3-fossil-schema-docs-impl.md | 1 |
