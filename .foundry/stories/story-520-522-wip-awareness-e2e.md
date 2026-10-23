@@ -2,13 +2,13 @@
 id: story-520-522-wip-awareness-e2e
 type: STORY
 title: WIP Orchestrator Awareness E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-21'
+updated_at: '2026-10-22'
 depends_on:
   - story-520-521-restrict-downstream-dependencies
-jules_session_id: '16582500057861039471'
+jules_session_id: null
 pr_number: null
 parent: epic-346-520-wip-orchestrator-awareness
 tags:
@@ -35,5 +35,8 @@ Perform end-to-end verification of the orchestrator and agent awareness regardin
 - [x] Decompose into actionable TASK nodes.
 - [ ] task-522-683-wip-awareness-e2e-fixtures
 - [ ] task-522-684-wip-awareness-e2e-agent-tests
-- [ ] task-522-685-wip-awareness-e2e-orchestrator-tests
-- [ ] task-522-686-wip-awareness-e2e-qa
+- [x] task-522-685-wip-awareness-e2e-orchestrator-tests
+- [x] task-522-686-wip-awareness-e2e-qa
+- [ ] research-522-712-investigate-orchestrator-wip-tests-failure
+- [ ] task-522-713-wip-awareness-e2e-orchestrator-tests-retry
+- [ ] task-522-714-wip-awareness-e2e-qa-retry

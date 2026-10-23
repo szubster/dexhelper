@@ -2,13 +2,13 @@
 id: epic-045-398-gen3-secret-base-radar-integration-v3
 type: EPIC
 title: Gen 3 Secret Base Smart Route Radar Integration (v3)
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-08-04'
 updated_at: '2026-10-22'
 depends_on:
   - epic-045-397-gen3-secret-base-parsing-v3
-jules_session_id: null
+jules_session_id: '2215876257629875026'
 pr_number: null
 parent: prd-073-045-gen3-secret-base-viewer
 tags:

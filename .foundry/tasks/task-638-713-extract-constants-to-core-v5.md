@@ -2,10 +2,10 @@
 id: task-638-713-extract-constants-to-core-v5
 type: TASK
 title: Extract Constants to Core Package V5
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-21T17:50:37.000Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-23'
 depends_on:
   - research-638-712-investigate-constants-extraction-v4-failure
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-638-712-investigate-constants-extraction-v4-failure
 notes: ''
 locks: []
 ---

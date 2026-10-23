@@ -2,13 +2,13 @@
 id: task-575-691-archival-tree-completeness-e2e-tests
 type: TASK
 title: Archival Tree Completeness E2E Tests
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-16T21:02:21.588Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-23'
 depends_on:
   - task-575-690-archival-tree-e2e-harness
-jules_session_id: null
+jules_session_id: '8672998680655300654'
 pr_number: null
 parent: story-550-575-archival-tree-evaluation-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - infrastructure
   - orchestrator
   - e2e
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

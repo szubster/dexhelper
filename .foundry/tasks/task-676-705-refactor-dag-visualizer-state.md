@@ -2,13 +2,13 @@
 id: task-676-705-refactor-dag-visualizer-state
 type: TASK
 title: Remove duplicate state from React Flow DAG Visualizer
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-19'
+updated_at: '2026-10-22'
 depends_on:
   - task-676-704-refactor-dag-visualizer-context
-jules_session_id: '8777128268429999210'
+jules_session_id: null
 pr_number: null
 parent: story-072-676-refactor-dag-visualizer
 tags:
@@ -31,5 +31,5 @@ Remove duplicate state management and data fetching logic within the DAG visuali
 - Update relevant state-related tests.
 
 ## Acceptance Criteria
-- [ ] Remove duplicate state logic
-- [ ] Ensure state-related tests pass
+- [x] Remove duplicate state logic
+- [x] Ensure state-related tests pass
