@@ -43,4 +43,7 @@ Introduce a lightweight, versioned Schema Migration Framework for parsed save st
 - **Future Extensibility**: Provides a clean foundation for upcoming Gen 4/5 save parser additions and offline diff storage.
 
 ## Acceptance Criteria
-- [ ] Break down into Epic to implement the `SaveSchemaMigrator` architecture and integrate it into the application pipeline.
+- [x] Break down into Epic to implement the `SaveSchemaMigrator` architecture and integrate it into the application pipeline.
+- [ ] epic-587-693-schema-migration-registry
+- [ ] epic-587-694-indexeddb-hydration-integration
+- [ ] epic-587-695-schema-migration-e2e
