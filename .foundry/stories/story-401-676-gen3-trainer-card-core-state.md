@@ -2,12 +2,12 @@
 id: story-401-676-gen3-trainer-card-core-state
 type: STORY
 title: Story - Gen 3 Trainer Card Core State Management
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-22'
+updated_at: '2026-10-23'
 depends_on: []
-jules_session_id: '2492054327600686729'
+jules_session_id: null
 pr_number: null
 parent: epic-111-401-gen3-trainer-card-dashboard-ui
 tags:

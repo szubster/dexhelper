@@ -2,10 +2,10 @@
 id: epic-587-695-schema-migration-e2e
 type: EPIC
 title: Schema Migration Framework Verification
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-21T07:29:22.000Z'
-updated_at: '2026-10-21T07:29:22.000Z'
+updated_at: '2026-10-23'
 depends_on:
   - epic-587-693-schema-migration-registry
   - epic-587-694-indexeddb-hydration-integration

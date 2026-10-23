@@ -2,10 +2,10 @@
 id: task-564-602-pokemon-held-item-tracker-extraction
 type: TASK
 title: Pokemon Held Item Tracker Data Extraction
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-09-19'
-updated_at: '2026-10-19'
+updated_at: '2026-10-23'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - dexhelper
   - tracker
 rejection_count: 3
-rejection_reason: 'The implementation of extractHeldItems uses a Set which incorrectly drops duplicate held items. This breaks downstream diffing logic.'
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

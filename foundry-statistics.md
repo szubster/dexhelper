@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-23T20:45:34.817Z*
+*Generated at: 2026-10-23T23:38:56.759Z*
 
 ## Node Statistics
 
@@ -8,29 +8,31 @@
 | Type | Count |
 |---|---|
 | ADR | 44 |
-| EPIC | 509 |
+| EPIC | 512 |
 | IDEA | 233 |
 | PRD | 214 |
-| RESEARCH | 310 |
+| RESEARCH | 311 |
 | STORY | 1075 |
-| TASK | 2718 |
+| TASK | 2730 |
 
 ### By Status
 | Status | Count |
 |---|---|
 | COMPLETED | 3320 |
-| ACTIVE | 173 |
+| ACTIVE | 166 |
 | CANCELLED | 826 |
-| PENDING | 770 |
+| PENDING | 778 |
+| READY | 13 |
 | BLOCKED | 14 |
+| FAILED | 2 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 9922 |
-| Open PRs | 194 |
-| Merged PRs | 8577 |
+| Open PRs | 187 |
+| Merged PRs | 8584 |
 | Closed PRs | 1151 |
 
 ## Rejection Counts
@@ -292,6 +294,7 @@
 | task-564-571-gen3-pokedex-gaps-ui-impl.md | 3 |
 | task-564-581-pokeblock-e2e-fixtures.md | 3 |
 | task-564-587-gen2-room-decoration-e2e-tests.md | 3 |
+| task-564-602-pokemon-held-item-tracker-extraction.md | 3 |
 | task-564-691-gen3-pokedex-gaps-ui-impl-retry.md | 3 |
 | task-566-582-orchestrator-diagnosis-logic.md | 3 |
 | task-566-602-progress-tracker-e2e-implementation.md | 3 |
@@ -494,7 +497,6 @@
 | task-563-586-develop-migration-script.md | 2 |
 | task-563-669-gen3-wild-item-data-parsing-logic-retry.md | 2 |
 | task-564-565-gen3-trainer-card-e2e-tests.md | 2 |
-| task-564-602-pokemon-held-item-tracker-extraction.md | 2 |
 | task-564-604-pokemon-held-item-tracker-qa.md | 2 |
 | task-564-680-thief-covet-ui-integration-components.md | 2 |
 | task-565-576-gen3-pokedex-gaps-e2e-coder.md | 2 |

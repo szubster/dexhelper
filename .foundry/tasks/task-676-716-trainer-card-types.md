@@ -2,10 +2,10 @@
 id: task-676-716-trainer-card-types
 type: TASK
 title: Task - Define Trainer Card State TypeScript Interfaces
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-22'
-updated_at: '2026-10-22'
+updated_at: '2026-10-23'
 depends_on: []
 jules_session_id: null
 pr_number: null

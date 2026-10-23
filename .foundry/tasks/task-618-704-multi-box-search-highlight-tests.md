@@ -2,10 +2,10 @@
 id: task-618-704-multi-box-search-highlight-tests
 type: TASK
 title: Multi-Box Search Visual Highlighting Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-23'
 depends_on:
   - task-618-703-multi-box-search-highlight-impl
 jules_session_id: null

@@ -2,13 +2,13 @@
 id: task-638-718-qa-extract-constants-to-core-v6
 type: TASK
 title: Verify Constants Extraction to Core Package V6
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-23'
 updated_at: '2026-10-23'
-jules_session_id: null
 depends_on:
   - task-638-717-extract-constants-to-core-v6
+jules_session_id: null
 parent: story-526-638-extract-constants
 tags:
   - architecture
@@ -16,6 +16,7 @@ tags:
   - pnpm
 rejection_count: 0
 rejection_reason: ''
+locks: []
 ---
 
 # Verify Constants Extraction to Core Package V6
