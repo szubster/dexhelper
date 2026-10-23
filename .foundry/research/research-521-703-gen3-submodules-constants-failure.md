@@ -2,12 +2,12 @@
 id: research-521-703-gen3-submodules-constants-failure
 type: RESEARCH
 title: Investigate Gen 3 Submodule Constants Refactoring Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-18'
 updated_at: '2026-10-23'
 depends_on: []
-jules_session_id: '13568059379770244334'
+jules_session_id: null
 pr_number: null
 parent: story-523-521-gen3-parsers-refactor-modules
 tags:
@@ -17,7 +17,7 @@ tags:
   - gen3
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 priority: 50

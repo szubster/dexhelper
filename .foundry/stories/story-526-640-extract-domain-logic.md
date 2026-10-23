@@ -2,10 +2,10 @@
 id: story-526-640-extract-domain-logic
 type: STORY
 title: Extract pure JS/TS domain logic to core package
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-17'
+updated_at: '2026-10-23'
 depends_on: []
 jules_session_id: '4798996806165639293'
 pr_number: null

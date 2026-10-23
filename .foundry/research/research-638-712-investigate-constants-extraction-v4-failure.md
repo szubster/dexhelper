@@ -2,7 +2,7 @@
 id: research-638-712-investigate-constants-extraction-v4-failure
 type: RESEARCH
 title: Investigate Constants Extraction V4 Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-21T17:50:37.000Z'
 updated_at: '2026-10-23'
@@ -14,8 +14,8 @@ tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
