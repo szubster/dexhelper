@@ -32,4 +32,7 @@ When searching or filtering through boxes, non-matching Pokémon should be visua
 - Ensure that the spatial organization of Pokémon within their boxes is preserved (empty slots and dimmed Pokémon remain in their correct position on the grid).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into implementation tasks for the visual highlighting logic.
+- [x] Tech Lead: Break down into implementation tasks for the visual highlighting logic.
+- [ ] task-618-703-multi-box-search-highlight-impl
+- [ ] task-618-704-multi-box-search-highlight-tests
+- [ ] task-618-705-multi-box-search-highlight-qa
