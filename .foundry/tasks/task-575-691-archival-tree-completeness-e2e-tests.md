@@ -28,6 +28,6 @@ locks: []
 Implement E2E test cases to verify entire parent/descendant chain evaluation for completion logic.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for tree completeness evaluation
-- [ ] Verify node states are deterministic through the orchestrator execution
-- [ ] Ensure nested DAG dependencies are fully completed before parent verification
+- [x]  Implement E2E tests for tree completeness evaluation
+- [x]  Verify node states are deterministic through the orchestrator execution
+- [x]  Ensure nested DAG dependencies are fully completed before parent verification
