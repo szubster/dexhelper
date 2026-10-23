@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-23T12:17:07.218Z*
+*Generated at: 2026-10-23T17:35:19.042Z*
 
 ## Node Statistics
 
@@ -19,19 +19,18 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3320 |
-| ACTIVE | 171 |
+| ACTIVE | 172 |
 | CANCELLED | 823 |
 | PENDING | 773 |
 | BLOCKED | 14 |
-| READY | 1 |
 | FAILED | 1 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9920 |
-| Open PRs | 192 |
+| Total PRs | 9921 |
+| Open PRs | 193 |
 | Merged PRs | 8577 |
 | Closed PRs | 1151 |
 
@@ -156,6 +155,7 @@
 | research-566-676-investigate-orchestrator-diagnosis-failure-v2.md | 3 |
 | research-608-673-investigate-text-search-e2e-failure.md | 3 |
 | research-608-690-investigate-text-search-e2e-failure-v2.md | 3 |
+| research-638-712-investigate-constants-extraction-v4-failure.md | 3 |
 | research-639-658-investigate-extract-data-scripts-failure.md | 3 |
 | research-639-668-investigate-primitives-migration-failures.md | 3 |
 | research-639-675-investigate-primitives-migration-failures-v2.md | 3 |
@@ -403,7 +403,6 @@
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
-| research-638-712-investigate-constants-extraction-v4-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
 | story-042-081-preserve-enum-optimizations.md | 2 |
