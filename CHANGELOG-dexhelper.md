@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
 
+## [0.26.0] - 2026-04-08
+### Added
+- Add support for trade evolution suggestions in the Assistant engine.
+
+### Changed
+- Optimize Assistant API performance by batching and deduplicating ancestor fetch requests.
+
 ## [0.25.2] - 2026-04-07
 ### Changed
 - Optimize rendering overhead in `StorageGrid` by grouping Pokémon by location.
@@ -328,3 +335,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.25.0]: https://github.com/szubster/dexhelper/compare/7389580e7acb3613d2e2f477c5a2a57033325be2...a18cf2a547687991de4af3b100e4d45e528ebe19
 [0.25.1]: https://github.com/szubster/dexhelper/compare/a18cf2a547687991de4af3b100e4d45e528ebe19...8ed973e2e6c042bd60543dee85e822baeba4f9bf
 [0.25.2]: https://github.com/szubster/dexhelper/compare/8ed973e2e6c042bd60543dee85e822baeba4f9bf...a19062bfa5babacd61b75ef13b5115d63c620c81
+[0.26.0]: https://github.com/szubster/dexhelper/compare/a19062bfa5babacd61b75ef13b5115d63c620c81...eee0a28dd252701243ddbcb259b987a947d7afb0
