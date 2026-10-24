@@ -2,7 +2,7 @@
 id: task-527-669-pathfinder-chain-viz-ui
 type: TASK
 title: Pathfinder Chain Visualization UI Presentation Component
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-06'
 updated_at: '2026-10-24'
@@ -15,8 +15,8 @@ tags:
   - feature
   - ui
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'Implementation fails to adhere to ADR 008 and ADR 024. It uses raw inline Tailwind typography classes instead of the required tactical-text utility in src/features/pathfinder/components/PathfinderChainViz.tsx. Additionally, the speciesName div completely misses font-mono.'
 notes: ''
 locks: []
 ---
