@@ -2,6 +2,7 @@ import { describe, expect, test, vi } from 'vitest';
 import {
   checkShiny,
   checkShinyGene,
+  decodeGen3String,
   decodeGen12String,
   isGen2Save,
   isGen3Save,
@@ -139,6 +140,59 @@ describe('common parsers', () => {
         throw new Error('Custom Error');
       });
       expect(() => decodeGen12String(view, 0)).toThrow('Custom Error');
+    });
+  });
+
+  describe('decodeGen3String', () => {
+    test('decodes character map, numbers, uppercase, and lowercase characters', () => {
+      // 0x00 -> space (GEN3_CHAR_MAP)
+      // 0xa1 -> '0' (0xa1 - 0xa1 + 48)
+      // 0xbb -> 'A' (0xbb - 0xbb + 65)
+      // 0xd5 -> 'a' (0xd5 - 0xd5 + 97)
+      // 0xff -> terminator
+      const buffer = new ArrayBuffer(5);
+      const view = new DataView(buffer);
+      view.setUint8(0, 0xbb); // 'A'
+      view.setUint8(1, 0xd5); // 'a'
+      view.setUint8(2, 0xa1); // '0'
+      view.setUint8(3, 0x00); // ' '
+      view.setUint8(4, 0xff); // terminator
+      expect(decodeGen3String(view, 0, 5)).toBe('Aa0');
+    });
+
+    test('replaces unmapped character codes with ?', () => {
+      // 0x18 is not in GEN3_CHAR_MAP and outside range blocks
+      const buffer = new ArrayBuffer(2);
+      const view = new DataView(buffer);
+      view.setUint8(0, 0x18);
+      view.setUint8(1, 0xff);
+      expect(decodeGen3String(view, 0, 2)).toBe('?');
+    });
+
+    test('stops at terminator 0xff', () => {
+      const buffer = new ArrayBuffer(3);
+      const view = new DataView(buffer);
+      view.setUint8(0, 0xbb); // 'A'
+      view.setUint8(1, 0xff);
+      view.setUint8(2, 0xbc); // 'B'
+      expect(decodeGen3String(view, 0, 3)).toBe('A');
+    });
+
+    test('handles RangeError gracefully by breaking loop', () => {
+      const buffer = new ArrayBuffer(2);
+      const view = new DataView(buffer);
+      view.setUint8(0, 0xbb); // 'A'
+      // Reading past buffer bounds (offset 0, maxLength 5)
+      expect(decodeGen3String(view, 0, 5)).toBe('A');
+    });
+
+    test('rethrows non-RangeError exceptions', () => {
+      const buffer = new ArrayBuffer(4);
+      const view = new DataView(buffer);
+      vi.spyOn(view, 'getUint8').mockImplementation(() => {
+        throw new Error('DataView Error');
+      });
+      expect(() => decodeGen3String(view, 0, 4)).toThrow('DataView Error');
     });
   });
 

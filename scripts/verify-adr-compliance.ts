@@ -42,7 +42,7 @@ export function checkAdr013ComplianceInFile(filePath: string): Violation[] {
                     violations.push({
                         file: filePath,
                         line: imp.getStartLineNumber(),
-                        class: 'useState (Import) - ADR 013 Violation: Use shared React Context instead of local state'
+                        class: 'useState - ADR 013 Violation: Use shared React Context instead of local state'
                     });
                 }
             });
@@ -57,7 +57,7 @@ export function checkAdr013ComplianceInFile(filePath: string): Violation[] {
             violations.push({
                 file: filePath,
                 line: callExpr.getStartLineNumber(),
-                class: 'useState (Hook) - ADR 013 Violation: Use shared React Context instead of local state'
+                class: 'useState - ADR 013 Violation: Use shared React Context instead of local state'
             });
         }
     });

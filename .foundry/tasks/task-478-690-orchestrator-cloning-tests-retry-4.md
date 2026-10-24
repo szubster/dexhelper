@@ -2,10 +2,10 @@
 id: task-478-690-orchestrator-cloning-tests-retry-4
 type: TASK
 title: Write Tests for DAG Node Cloning Logic (Retry 4)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-15'
-updated_at: '2026-10-17'
+updated_at: '2026-10-23'
 depends_on:
   - task-478-689-orchestrator-prompt-adaptation-retry-4
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - tests
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-478-688-orchestrator-cloning-logic-retry-4
 notes: ''
 locks: []
 ---

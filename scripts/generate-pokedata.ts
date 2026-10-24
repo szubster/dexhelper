@@ -832,7 +832,6 @@ function compact(obj: any): any {
     for (const [key, value] of Object.entries(obj)) {
       if (Array.isArray(value) && value.length === 0) continue;
       if (key === 'baby' && value === false) continue;
-      if (key === 'm' && value === 1) continue;
       if (value !== null && typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) continue;
       
       if (key === 'gr' && value === 4) continue;

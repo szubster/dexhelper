@@ -1,10 +1,14 @@
 import type React from 'react';
 import { TacticalBlockHeader } from '../../../components/TacticalBlockHeader';
 import { TacticalPanel } from '../../../components/TacticalPanel';
+import { usePathfinderStore } from '../store';
 import { EggMoveSelector } from './EggMoveSelector';
+import { PathfinderChainViz } from './PathfinderChainViz';
 import { TargetPokemonSelector } from './TargetPokemonSelector';
 
 export const PathfinderSelectionPanel: React.FC = () => {
+  const eggMove = usePathfinderStore((state) => state.eggMove);
+
   return (
     <div className="flex flex-col gap-6">
       <TacticalPanel
@@ -17,6 +21,7 @@ export const PathfinderSelectionPanel: React.FC = () => {
           <EggMoveSelector />
         </div>
       </TacticalPanel>
+      <PathfinderChainViz chain={[]} targetMoveId={eggMove} />
     </div>
   );
 };

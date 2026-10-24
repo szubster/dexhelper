@@ -2,13 +2,13 @@
 id: task-403-674-playwright-e2e-retry-impl-v4
 type: TASK
 title: Retry Playwright E2E Tests for DV/IV Extraction V4
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-08'
-updated_at: '2026-10-17'
+updated_at: '2026-10-18'
 depends_on:
   - research-403-673-investigate-e2e-timeout-v4
-jules_session_id: '8802234990761718669'
+jules_session_id: null
 pr_number: null
 parent: story-112-403-integration-e2e
 tags:
@@ -17,8 +17,8 @@ tags:
   - testing
   - playwright
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

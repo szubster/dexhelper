@@ -2,10 +2,10 @@
 id: task-564-681-thief-covet-ui-integration-tests
 type: TASK
 title: UI Integration Tests for Thief/Covet Optimizer
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-16'
+updated_at: '2026-10-24'
 depends_on:
   - task-564-680-thief-covet-ui-integration-components
 jules_session_id: null

@@ -2,13 +2,13 @@
 id: story-569-582-gen3-secret-base-party-extraction
 type: STORY
 title: Gen 3 Secret Base NPC Party Extraction
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-16'
-updated_at: '2026-09-30'
+updated_at: '2026-10-19'
 depends_on:
   - story-569-581-gen3-secret-base-array-extraction
-jules_session_id: null
+jules_session_id: '669392002882619083'
 pr_number: null
 parent: epic-565-569-gen3-secret-base-parsing
 tags:

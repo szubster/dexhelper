@@ -2,12 +2,12 @@
 id: task-673-683-schema-system-failure-count
 type: TASK
 title: Update Schema Definition for system_failure_count
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-13T19:46:42Z'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '8253522635187369368'
+jules_session_id: null
 pr_number: null
 parent: story-582-673-yaml-schema-validation-impl
 tags:
@@ -29,5 +29,5 @@ As part of STORY `story-582-673-yaml-schema-validation-impl`, we need to track i
 Update the YAML frontmatter schema definition in `packages/foundry/schema.ts` to include `system_failure_count` as an optional integer.
 
 ## Acceptance Criteria
-- [ ] Add `system_failure_count: z.number().int().optional()` to `NodeFrontmatterSchema` in `packages/foundry/schema.ts`.
-- [ ] Ensure type inference correctly picks up the new field.
+- [x] Add `system_failure_count: z.number().int().optional()` to `NodeFrontmatterSchema` in `packages/foundry/schema.ts`.
+- [x] Ensure type inference correctly picks up the new field.

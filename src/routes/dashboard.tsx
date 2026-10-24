@@ -22,6 +22,18 @@ const Gen3SecretBaseDashboard = React.lazy(() =>
   })),
 );
 
+const MysteryEventTracker = React.lazy(() =>
+  import('../components/dashboard/e-reader/MysteryEventTracker').then((m) => ({
+    default: m.MysteryEventTracker,
+  })),
+);
+
+const Gen3AshTrackerDashboard = React.lazy(() =>
+  import('../components/dashboard/ash-tracker/Gen3AshTrackerDashboard').then((m) => ({
+    default: m.Gen3AshTrackerDashboard,
+  })),
+);
+
 const Gen3MirageIslandTracker = React.lazy(() =>
   import('../components/dashboard/mirage-island/Gen3MirageIslandTracker').then((m) => ({
     default: m.Gen3MirageIslandTracker,
@@ -76,6 +88,12 @@ const Gen3TrainerCardDashboard = React.lazy(() =>
 const GlobalRibbonChecklistDashboard = React.lazy(() =>
   import('../components/dashboard/ribbons/GlobalRibbonChecklistDashboard').then((m) => ({
     default: m.GlobalRibbonChecklistDashboard,
+  })),
+);
+
+const ThiefCovetOptimizerPanel = React.lazy(() =>
+  import('../components/dashboard/optimizer/ThiefCovetOptimizerPanel').then((m) => ({
+    default: m.ThiefCovetOptimizerPanel,
   })),
 );
 
@@ -143,9 +161,14 @@ function DashboardPage() {
             <Gen3RoamerDossier saveData={saveData} />
             <RngCalculatorDashboard />
             <WildItemSelector />
+            <ThiefCovetOptimizerPanel saveData={saveData} />
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
+            {saveData.gen3VolcanicAsh !== undefined && (
+              <Gen3AshTrackerDashboard gen3VolcanicAsh={saveData.gen3VolcanicAsh} />
+            )}
             <Gen3MirageIslandTracker saveData={saveData} />
+            <MysteryEventTracker mysteryGiftData={saveData.gen3MysteryGift} />
             <Gen3SecretBaseDashboard saveData={saveData} />
             <Gen3EventItemsDashboard saveData={saveData} />
             <Gen3StaticEncountersDashboard saveData={saveData} />
