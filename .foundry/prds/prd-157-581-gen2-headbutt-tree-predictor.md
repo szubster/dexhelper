@@ -2,12 +2,12 @@
 id: prd-157-581-gen2-headbutt-tree-predictor
 type: PRD
 title: Gen 2 Headbutt Tree Predictor
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-15T20:19:40Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: '16322687615654404924'
+jules_session_id: null
 pr_number: null
 parent: idea-157-gen2-headbutt-tree-predictor
 tags:
@@ -38,4 +38,7 @@ This feature provides a dynamic overlay on the Johto map in DexHelper to reveal 
 3. **Interactive Map Integration:** Render Headbutt trees on the map UI, color-coding them (e.g., Green = Rare, Yellow = Good, Gray = Bad) based on the calculated score.
 
 ## Acceptance Criteria
-- [ ] Epic Planner: Break down this PRD into specific EPIC nodes.
+- [x] Epic Planner: Break down this PRD into specific EPIC nodes.
+- [ ] epic-581-584-gen2-tid-extraction
+- [ ] epic-581-585-gen2-tree-score-engine
+- [ ] epic-581-586-gen2-interactive-map-integration

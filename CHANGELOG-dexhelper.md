@@ -9,6 +9,84 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
 
+## [0.26.1] - 2026-04-09
+### Changed
+- Improve filter buttons and target status segmented control accessibility by adopting ARIA roles.
+- Optimize AssistantPanel Pokémon name lookup performance by utilizing Record structure instead of Map.
+
+## [0.26.0] - 2026-04-08
+### Added
+- Add support for trade evolution suggestions in the Assistant engine.
+
+### Changed
+- Optimize Assistant API performance by batching and deduplicating ancestor fetch requests.
+
+## [0.25.2] - 2026-04-07
+### Changed
+- Optimize rendering overhead in `StorageGrid` by grouping Pokémon by location.
+- Improve rendering performance in `PokedexGrid` by removing unused shiny set calculations.
+- Improve UX by adding an inline two-step confirmation for save deletion in the settings modal.
+
+### Fixed
+- Prevent assistant from suggesting redundant evolutions for already owned Pokémon.
+- Fix Gen 1 NPC trade data and redundant version-exclusive suggestions, specifically fixing double suggestions in Pokémon Yellow.
+
+## [0.25.1] - 2026-04-06
+### Added
+- Enhance Assistant algorithm to intelligently suggest in-game NPC trades dynamically based on save file state and collection.
+
+### Changed
+- Bump `@tanstack/react-query` to `5.96.2`.
+
+### Fixed
+- Fix Pokémon Yellow save detection by analyzing Original Trainer names and checking for definitive Yellow markers.
+- Resolve 1-byte offset shift in English Pokémon Yellow saves that corrupted Pokedex data and incorrect map detection.
+
+## [0.25.0] - 2026-04-06
+### Added
+- Implement mapping for internal map IDs to general area names for Gen 1 and Gen 2, enhancing location display readability.
+
+### Changed
+- Optimize performance of Pokemon name lookups and suggestion engine data iterations by using Map data structures, reducing array lookup overhead.
+- Add proper ARIA accessibility attributes to interactive elements in the Settings Modal and Bottom Navigation.
+- Bump Vite development dependency.
+
+## [0.24.6] - 2026-04-06
+### Changed
+- Replace `framer-motion` with native CSS animations to improve UI performance and resolve visual test flakiness.
+- Improve accessibility for the Living Dex toggle switch by adding proper ARIA attributes, switch role, and focus styles.
+
+### Fixed
+- Fix Gen 1 save file parsing to correctly read all 12 PC boxes (instead of just the active box) and accurately display empty boxes in the Storage view.
+
+## [0.24.5] - 2026-04-03
+### Changed
+- Optimize rendering performance in the Pokédex grid by replacing array lookups with O(1) Set operations.
+- Improve accessibility by adding ARIA labels to icon-only buttons across the application.
+
+### Fixed
+- Fix map graph distance calculation bug by properly falling back unknown starting locations to Saffron City.
+
+## [0.24.4] - 2026-04-03
+### Changed
+- Optimize rendering performance in the Pokémon locations view by eliminating redundant array lookups.
+
+## [0.24.3] - 2026-04-03
+### Changed
+- Optimize StorageGrid rendering performance by replacing O(N*M) array find loops with O(1) Map lookups, significantly mitigating rendering bottlenecks for large datasets.
+
+## [0.24.2] - 2026-04-03
+### Fixed
+- Fix router base path configuration to use Vite's dynamic BASE_URL environment variable for robust deployments.
+
+## [0.24.1] - 2026-04-03
+### Changed
+- Optimize PokeAPI requests by implementing React Query caching to deduplicate identical concurrent network calls.
+
+## [0.24.0] - 2026-04-03
+### Added
+- Add dynamic base path configuration for Vite to support seamless deployment on Cloudflare Pages.
+
 ## [0.23.9] - 2026-04-03
 ### Added
 - Improve test coverage and consolidate unit tests for the `decodeGen12String` extraction utility to prevent regressions in Generation 1 and 2 save file parsing.
@@ -252,3 +330,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.23.7]: https://github.com/szubster/dexhelper/compare/7184ba35ce6641a67e1f3003403e22e4d39b5913...5feaa6ef2b2ad4fc2df304b0b2f0ee026b2e70af
 [0.23.8]: https://github.com/szubster/dexhelper/compare/5feaa6ef2b2ad4fc2df304b0b2f0ee026b2e70af...f3e1743b567af90ec93b9445ec3ec92ed7eb2952
 [0.23.9]: https://github.com/szubster/dexhelper/compare/f3e1743b567af90ec93b9445ec3ec92ed7eb2952...20ca1be20e3522bede6b25bd0589217cbf668385
+[0.24.0]: https://github.com/szubster/dexhelper/compare/a6a53c17ebde6858a331450305b6ea43f0474aa2...5617da6f34388d20bbeec8a2b1ff419e5b3b724c
+[0.24.1]: https://github.com/szubster/dexhelper/compare/5617da6f34388d20bbeec8a2b1ff419e5b3b724c...6c0ade13ea7ddb818007bad462788077595b34e1
+[0.24.2]: https://github.com/szubster/dexhelper/compare/6c0ade13ea7ddb818007bad462788077595b34e1...70b3ca6ea7f9788b3ea04d7a352acb8ad5706bed
+[0.24.3]: https://github.com/szubster/dexhelper/compare/70b3ca6ea7f9788b3ea04d7a352acb8ad5706bed...961413c214332bc0ff9e90bfd13630da9a04c67f
+[0.24.4]: https://github.com/szubster/dexhelper/compare/961413c214332bc0ff9e90bfd13630da9a04c67f...edbf0c9005b78906051b1bc371acc754b0a466bd
+[0.24.5]: https://github.com/szubster/dexhelper/compare/edbf0c9005b78906051b1bc371acc754b0a466bd...0a51a23e9edeb506357e599dd7dcffdbbe75c9eb
+[0.24.6]: https://github.com/szubster/dexhelper/compare/18f5e2a12afbc20796f2d70fc895d4ff085cf10c...7389580e7acb3613d2e2f477c5a2a57033325be2
+[0.25.0]: https://github.com/szubster/dexhelper/compare/7389580e7acb3613d2e2f477c5a2a57033325be2...a18cf2a547687991de4af3b100e4d45e528ebe19
+[0.25.1]: https://github.com/szubster/dexhelper/compare/a18cf2a547687991de4af3b100e4d45e528ebe19...8ed973e2e6c042bd60543dee85e822baeba4f9bf
+[0.25.2]: https://github.com/szubster/dexhelper/compare/8ed973e2e6c042bd60543dee85e822baeba4f9bf...a19062bfa5babacd61b75ef13b5115d63c620c81
+[0.26.0]: https://github.com/szubster/dexhelper/compare/a19062bfa5babacd61b75ef13b5115d63c620c81...eee0a28dd252701243ddbcb259b987a947d7afb0
+[0.26.1]: https://github.com/szubster/dexhelper/compare/eee0a28dd252701243ddbcb259b987a947d7afb0...ae6a6a4361c2085f7d8cf13300045933367ab0f8

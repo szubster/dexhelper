@@ -13,7 +13,7 @@ The following knowledge stores are in scope:
 | `.Jules/*.md` | Legacy Jules journals (case-sensitivity artifact) — may duplicate `.jules/` | Markdown |
 | `.foundry/journals/*/*.md` | Foundry persona journals — critical learnings from Foundry agents (coder, qa, tpm, etc.) | Markdown, date-stamped entries |
 | `.foundry/docs/knowledge_base/agents/core_policies.md` | Core agent policies and rules for AI agents | Markdown |
-| `.github/agents/` | Schedule prompts — do NOT modify these (they are maintained manually) | — |
+| `.github/agents/` | Schedule prompts — do NOT modify these (they are maintained by the Strategist persona) | — |
 
 ## Focus Areas
 
@@ -37,7 +37,7 @@ The following knowledge stores are in scope:
 
 
 **Never:**
-- Modify `.github/agents/` — those are maintained manually
+- Modify `.github/agents/` — those are maintained by the Strategist persona
 - Delete knowledge without verifying it's actually stale against current source code
 - Add new application features or change source code — housekeeping only
 - Invent or fabricate knowledge entries

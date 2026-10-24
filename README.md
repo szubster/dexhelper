@@ -7,6 +7,10 @@ Dexhelper is a React-based web application designed as a Pokédex helper, likely
 - Node.js >=24.0.0
 - pnpm >=11.21.0
 
+## Code Quality
+
+This project uses [Biome](https://biomejs.dev/) for linting and formatting. A pre-commit hook is enforced via [Lefthook](https://github.com/evilmartians/lefthook) to ensure code quality before pushing.
+
 ## Getting Started
 
 1. Install dependencies:
@@ -19,12 +23,19 @@ Dexhelper is a React-based web application designed as a Pokédex helper, likely
    pnpm dev
    ```
 
+
+## Deployment
+
+Dexhelper is configured to be seamlessly deployed on Cloudflare Pages. The Vite configuration dynamically adjusts the base path to `/` when deployed via Cloudflare Pages (`CF_PAGES='true'`), overriding the default `/dexhelper/` base path used for GitHub Pages.
+
+
 ## Development and Testing
 
 - Run unit tests: `pnpm test`
 - Run Playwright E2E tests: `pnpm test:e2e`
 - Run Playwright component tests: `pnpm test:ct`
 - Run Playwright tests with UI: `pnpm test:e2e:ui`
+- Format code using Biome: `pnpm format`
 - Run linting and type checking: `pnpm lint`
 - Build the project: `pnpm build`
 # Dependency Cruiser Configuration

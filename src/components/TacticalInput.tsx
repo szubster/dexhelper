@@ -33,7 +33,10 @@ export const TacticalInput = React.forwardRef<HTMLInputElement, TacticalInputPro
     return (
       <div className={cn('group relative', containerClassName)}>
         {icon && (
-          <div className="absolute top-1/2 left-4 flex -translate-y-1/2 items-center justify-center bg-[var(--theme-primary)]/10 p-1.5 text-[var(--theme-primary)] transition-all duration-300 group-focus-within:bg-[var(--theme-primary)] group-focus-within:text-zinc-950">
+          <div
+            aria-hidden="true"
+            className="absolute top-1/2 left-4 flex -translate-y-1/2 items-center justify-center bg-[var(--theme-primary)]/10 p-1.5 text-[var(--theme-primary)] transition-all duration-300 group-focus-within:bg-[var(--theme-primary)] group-focus-within:text-zinc-950"
+          >
             {React.isValidElement<{ className?: string }>(icon)
               ? React.cloneElement(icon, {
                   className: cn(icon.props.className, 'transition-transform group-focus-within:scale-110'),

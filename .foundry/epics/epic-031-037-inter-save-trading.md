@@ -2,13 +2,13 @@
 id: epic-031-037-inter-save-trading
 type: EPIC
 title: Pokémon Trading (Inter-Save)
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-05-20'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on:
   - epic-031-036-progression-tracking
-jules_session_id: '2088562123749152428'
+jules_session_id: null
 pr_number: null
 parent: prd-055-031-future-progression-trading
 tags:
@@ -31,4 +31,8 @@ Following the implementation of progression tracking across multiple concurrent 
 - Maintain offline-first capability.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break this Epic down into Stories.
+- [x] Story Owner: Break this Epic down into Stories.
+- [ ] story-037-676-trading-core-transfer-logic
+- [ ] story-037-677-trading-validation-rules
+- [ ] story-037-678-trading-offline-ui
+- [ ] story-037-679-trading-integration-e2e

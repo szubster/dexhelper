@@ -2,10 +2,10 @@
 id: task-606-687-lint-foundry-e2e-impl
 type: TASK
 title: 'Implement E2E Verification of lint:foundry package script'
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-14T20:10:00.000Z'
-updated_at: '2026-10-14T20:10:00.000Z'
+updated_at: '2026-10-19'
 depends_on: []
 jules_session_id: null
 parent: story-553-606-package-scripts-e2e
@@ -28,6 +28,6 @@ locks: []
 - Integrate this script into the test suite or CI verification if applicable, or just ensure it exists as an integration test.
 
 ## Acceptance Criteria
-- [ ] Create an E2E verification script for `pnpm lint:foundry`.
-- [ ] The script verifies that validation passes correctly on valid files.
-- [ ] The script verifies that validation fails correctly on malformed files.
+- [x] Create an E2E verification script for `pnpm lint:foundry`.
+- [x] The script verifies that validation passes correctly on valid files.
+- [x] The script verifies that validation fails correctly on malformed files.

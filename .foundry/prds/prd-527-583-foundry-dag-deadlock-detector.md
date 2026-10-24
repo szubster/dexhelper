@@ -2,12 +2,12 @@
 id: prd-527-583-foundry-dag-deadlock-detector
 type: PRD
 title: PRD - Automated Foundry DAG Circular Dependency & Deadlock Detector
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-20'
-updated_at: '2026-10-16'
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: '12504048714092400693'
+jules_session_id: null
 pr_number: null
 parent: idea-527-foundry-dag-deadlock-detector
 tags:
@@ -61,4 +61,7 @@ Currently, such cycles result in `BLOCKED` nodes that indefinitely halt pipeline
 This PRD scopes the creation of the detection mechanism and logging within the orchestrator script (`.github/scripts/foundry-orchestrator.ts`).
 
 ## Acceptance Criteria (Parent Idea linkage)
-- [ ] Break down into EPIC
+- [x] Break down into EPIC
+- [ ] epic-583-690-cycle-detection-algorithm-core
+- [ ] epic-583-691-diagnostics-and-orchestrator-integration
+- [ ] epic-583-692-e2e-verification

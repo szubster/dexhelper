@@ -868,8 +868,8 @@
 {"id":919,"name":"Bike","category":23,"effect":"XXX new effect for bike--green","sprite":"bike--green.png"}
 {"id":920,"name":"Storage Key","category":23,"effect":"XXX new effect for storage-key--galactic-warehouse","sprite":"storage-key--galactic-warehouse.png"}
 {"id":921,"name":"Basement Key","category":23,"effect":"XXX new effect for basement-key--goldenrod","sprite":"basement-key--goldenrod.png"}
-{"id":922,"name":"Xtransceiver","category":23,"effect":"XXX new effect for xtranceiver--red"}
-{"id":923,"name":"Xtransceiver","category":23,"effect":"XXX new effect for xtranceiver--yellow"}
+{"id":922,"name":"Xtransceiver","category":23,"effect":"XXX new effect for xtranceiver--red","sprite":"xtransceiver--red.png"}
+{"id":923,"name":"Xtransceiver","category":23,"effect":"XXX new effect for xtranceiver--yellow","sprite":"xtransceiver--yellow.png"}
 {"id":924,"name":"DNA Splicers","category":23,"effect":"XXX new effect for dna-splicers--merge","sprite":"dna-splicers--merge.png"}
 {"id":925,"name":"DNA Splicers","category":23,"effect":"XXX new effect for dna-splicers--split","sprite":"dna-splicers--split.png"}
 {"id":926,"name":"Dropped Item","category":23,"effect":"XXX new effect for dropped-item--red","sprite":"dropped-item--red.png"}
@@ -952,943 +952,943 @@
 {"id":1003,"name":"Roto PP Restore","category":23,"effect":"XXX new effect for roto-pp-restore","sprite":"roto-pp-restore.png"}
 {"id":1004,"name":"Roto Boost","category":23,"effect":"XXX new effect for roto-boost","sprite":"roto-boost.png"}
 {"id":1005,"name":"Roto Catch","category":23,"effect":"XXX new effect for roto-catch","sprite":"roto-catch.png"}
-{"id":1006,"name":"Autograph","category":23}
-{"id":1007,"name":"Pokémon Box Link","category":23}
-{"id":1008,"name":"Medicine Pocket","category":23}
-{"id":1009,"name":"Candy Jar","category":23}
-{"id":1010,"name":"Power-Up Pocket","category":23}
-{"id":1011,"name":"Clothing Trunk","category":23}
-{"id":1012,"name":"Catching Pocket","category":23}
-{"id":1013,"name":"Battle Pocket","category":23}
-{"id":1014,"name":"Silver Razz Berry","category":48,"fling_p":10}
-{"id":1015,"name":"Golden Razz Berry","category":48,"fling_p":10}
-{"id":1016,"name":"Silver Nanab Berry","category":48,"fling_p":10}
-{"id":1017,"name":"Golden Nanab Berry","category":48,"fling_p":10}
-{"id":1018,"name":"Silver Pinap Berry","category":48,"fling_p":10}
-{"id":1019,"name":"Golden Pinap Berry","category":48,"fling_p":10}
-{"id":1020,"name":"Secret Key","category":22}
-{"id":1021,"name":"S.S. Ticket","category":22}
-{"id":1022,"name":"Parcel","category":22}
-{"id":1023,"name":"Card Key","category":22}
-{"id":1024,"name":"Stretchy Spring","category":24,"fling_p":30}
-{"id":1025,"name":"Chalky Stone","category":24,"fling_p":30}
-{"id":1026,"name":"Marble","category":24,"fling_p":30}
-{"id":1027,"name":"Lone Earring","category":24,"fling_p":30}
-{"id":1028,"name":"Beach Glass","category":24,"fling_p":30}
-{"id":1029,"name":"Gold Leaf","category":24,"fling_p":30,"gen2_id":75}
-{"id":1030,"name":"Silver Leaf","category":24,"fling_p":30,"gen2_id":60}
-{"id":1031,"name":"Polished Mud Ball","category":24,"fling_p":30}
-{"id":1032,"name":"Tropical Shell","category":24,"fling_p":30}
-{"id":1033,"name":"Leaf Letter","category":24,"fling_p":30}
-{"id":1034,"name":"Leaf Letter","category":24,"fling_p":30}
-{"id":1035,"name":"Small Bouquet","category":24,"fling_p":30}
-{"id":1036,"name":"Lure","category":11,"fling_p":30}
-{"id":1037,"name":"Super Lure","category":11,"fling_p":30}
-{"id":1038,"name":"Max Lure","category":11,"fling_p":30}
-{"id":1039,"name":"Pewter Crunchies","category":30,"fling_p":30}
-{"id":1040,"name":"Health Candy","category":26}
-{"id":1041,"name":"Mighty Candy","category":26}
-{"id":1042,"name":"Tough Candy","category":26}
-{"id":1043,"name":"Smart Candy","category":26}
-{"id":1044,"name":"Courage Candy","category":26}
-{"id":1045,"name":"Quick Candy","category":26}
-{"id":1046,"name":"Health Candy L","category":26}
-{"id":1047,"name":"Mighty Candy L","category":26}
-{"id":1048,"name":"Tough Candy L","category":26}
-{"id":1049,"name":"Smart Candy L","category":26}
-{"id":1050,"name":"Courage Candy L","category":26}
-{"id":1051,"name":"Quick Candy L","category":26}
-{"id":1052,"name":"Health Candy XL","category":26}
-{"id":1053,"name":"Mighty Candy XL","category":26}
-{"id":1054,"name":"Tough Candy XL","category":26}
-{"id":1055,"name":"Smart Candy XL","category":26}
-{"id":1056,"name":"Courage Candy XL","category":26}
-{"id":1057,"name":"Quick Candy XL","category":26}
-{"id":1058,"name":"Bulbasaur Candy","category":47}
-{"id":1059,"name":"Charmander Candy","category":47}
-{"id":1060,"name":"Squirtle Candy","category":47}
-{"id":1061,"name":"Caterpie Candy","category":47}
-{"id":1062,"name":"Weedle Candy","category":47}
-{"id":1063,"name":"Pidgey Candy","category":47}
-{"id":1064,"name":"Rattata Candy","category":47}
-{"id":1065,"name":"Spearow Candy","category":47}
-{"id":1066,"name":"Ekans Candy","category":47}
-{"id":1067,"name":"Pikachu Candy","category":47}
-{"id":1068,"name":"Sandshrew Candy","category":47}
-{"id":1069,"name":"Nidoran♀ Candy","category":47}
-{"id":1070,"name":"Nidoran♂ Candy","category":47}
-{"id":1071,"name":"Clefairy Candy","category":47}
-{"id":1072,"name":"Vulpix Candy","category":47}
-{"id":1073,"name":"Jigglypuff Candy","category":47}
-{"id":1074,"name":"Zubat Candy","category":47}
-{"id":1075,"name":"Oddish Candy","category":47}
-{"id":1076,"name":"Paras Candy","category":47}
-{"id":1077,"name":"Venonat Candy","category":47}
-{"id":1078,"name":"Diglett Candy","category":47}
-{"id":1079,"name":"Meowth Candy","category":47}
-{"id":1080,"name":"Psyduck Candy","category":47}
-{"id":1081,"name":"Mankey Candy","category":47}
-{"id":1082,"name":"Growlithe Candy","category":47}
-{"id":1083,"name":"Poliwag Candy","category":47}
-{"id":1084,"name":"Abra Candy","category":47}
-{"id":1085,"name":"Machop Candy","category":47}
-{"id":1086,"name":"Bellsprout Candy","category":47}
-{"id":1087,"name":"Tentacool Candy","category":47}
-{"id":1088,"name":"Geodude Candy","category":47}
-{"id":1089,"name":"Ponyta Candy","category":47}
-{"id":1090,"name":"Slowpoke Candy","category":47}
-{"id":1091,"name":"Magnemite Candy","category":47}
-{"id":1092,"name":"Farfetch’d Candy","category":47}
-{"id":1093,"name":"Doduo Candy","category":47}
-{"id":1094,"name":"Seel Candy","category":47}
-{"id":1095,"name":"Grimer Candy","category":47}
-{"id":1096,"name":"Shellder Candy","category":47}
-{"id":1097,"name":"Gastly Candy","category":47}
-{"id":1098,"name":"Onix Candy","category":47}
-{"id":1099,"name":"Drowzee Candy","category":47}
-{"id":1100,"name":"Krabby Candy","category":47}
-{"id":1101,"name":"Voltorb Candy","category":47}
-{"id":1102,"name":"Exeggcute Candy","category":47}
-{"id":1103,"name":"Cubone Candy","category":47}
-{"id":1104,"name":"Hitmonlee Candy","category":47}
-{"id":1105,"name":"Hitmonchan Candy","category":47}
-{"id":1106,"name":"Lickitung Candy","category":47}
-{"id":1107,"name":"Koffing Candy","category":47}
-{"id":1108,"name":"Rhyhorn Candy","category":47}
-{"id":1109,"name":"Chansey Candy","category":47}
-{"id":1110,"name":"Tangela Candy","category":47}
-{"id":1111,"name":"Kangaskhan Candy","category":47}
-{"id":1112,"name":"Horsea Candy","category":47}
-{"id":1113,"name":"Goldeen Candy","category":47}
-{"id":1114,"name":"Staryu Candy","category":47}
-{"id":1115,"name":"Mr. Mime Candy","category":47}
-{"id":1116,"name":"Scyther Candy","category":47}
-{"id":1117,"name":"Jynx Candy","category":47}
-{"id":1118,"name":"Electabuzz Candy","category":47}
-{"id":1119,"name":"Pinsir Candy","category":47}
-{"id":1120,"name":"Tauros Candy","category":47}
-{"id":1121,"name":"Magikarp Candy","category":47}
-{"id":1122,"name":"Lapras Candy","category":47}
-{"id":1123,"name":"Ditto Candy","category":47}
-{"id":1124,"name":"Eevee Candy","category":47}
-{"id":1125,"name":"Porygon Candy","category":47}
-{"id":1126,"name":"Omanyte Candy","category":47}
-{"id":1127,"name":"Kabuto Candy","category":47}
-{"id":1128,"name":"Aerodactyl Candy","category":47}
-{"id":1129,"name":"Snorlax Candy","category":47}
-{"id":1130,"name":"Articuno Candy","category":47}
-{"id":1131,"name":"Zapdos Candy","category":47}
-{"id":1132,"name":"Moltres Candy","category":47}
-{"id":1133,"name":"Dratini Candy","category":47}
-{"id":1134,"name":"Mewtwo Candy","category":47}
-{"id":1135,"name":"Mew Candy","category":47}
-{"id":1136,"name":"Meltan Candy","category":47}
-{"id":1137,"name":"Magmar Candy","category":47}
-{"id":1138,"name":"Endorsement","category":22}
-{"id":1139,"name":"Pokémon Box Link","category":21}
-{"id":1140,"name":"Wishing Star","category":22}
-{"id":1141,"name":"Dynamax Band","category":22}
-{"id":1142,"name":"Fishing Rod","category":21}
-{"id":1143,"name":"Rotom Bike","category":21}
-{"id":1144,"name":"Sausages","category":51,"fling_p":10}
-{"id":1145,"name":"Bob’s Food Tin","category":51,"fling_p":80}
-{"id":1146,"name":"Bach’s Food Tin","category":51,"fling_p":80}
-{"id":1147,"name":"Tin of Beans","category":51,"fling_p":80}
-{"id":1148,"name":"Bread","category":51,"fling_p":10}
-{"id":1149,"name":"Pasta","category":51,"fling_p":10}
-{"id":1150,"name":"Mixed Mushrooms","category":51,"fling_p":10}
-{"id":1151,"name":"Smoke-Poke Tail","category":51,"fling_p":10}
-{"id":1152,"name":"Large Leek","category":51,"fling_p":20}
-{"id":1153,"name":"Fancy Apple","category":51,"fling_p":20}
-{"id":1154,"name":"Brittle Bones","category":51,"fling_p":30}
-{"id":1155,"name":"Pack of Potatoes","category":51,"fling_p":10}
-{"id":1156,"name":"Pungent Root","category":51,"fling_p":10}
-{"id":1157,"name":"Salad Mix","category":51,"fling_p":10}
-{"id":1158,"name":"Fried Food","category":51,"fling_p":10}
-{"id":1159,"name":"Boiled Egg","category":51,"fling_p":20}
-{"id":1160,"name":"Camping Gear","category":21}
-{"id":1161,"name":"Rusted Sword","category":18}
-{"id":1162,"name":"Rusted Shield","category":18}
-{"id":1163,"name":"Fossilized Bird","category":35,"fling_p":100}
-{"id":1164,"name":"Fossilized Fish","category":35,"fling_p":100}
-{"id":1165,"name":"Fossilized Drake","category":35,"fling_p":100}
-{"id":1166,"name":"Fossilized Dino","category":35,"fling_p":100}
-{"id":1167,"name":"Strawberry Sweet","category":10,"fling_p":10}
-{"id":1168,"name":"Love Sweet","category":10,"fling_p":10}
-{"id":1169,"name":"Berry Sweet","category":10,"fling_p":10}
-{"id":1170,"name":"Clover Sweet","category":10,"fling_p":10}
-{"id":1171,"name":"Flower Sweet","category":10,"fling_p":10}
-{"id":1172,"name":"Star Sweet","category":10,"fling_p":10}
-{"id":1173,"name":"Ribbon Sweet","category":10,"fling_p":10}
-{"id":1174,"name":"Sweet Apple","category":10,"fling_p":30}
-{"id":1175,"name":"Tart Apple","category":10,"fling_p":30}
-{"id":1176,"name":"Throat Spray","category":12,"fling_p":30}
-{"id":1177,"name":"Eject Pack","category":12,"fling_p":50}
-{"id":1178,"name":"Heavy-Duty Boots","category":12,"fling_p":80}
-{"id":1179,"name":"Blunder Policy","category":12,"fling_p":80}
-{"id":1180,"name":"Room Service","category":12,"fling_p":100}
-{"id":1181,"name":"Utility Umbrella","category":12,"fling_p":60}
-{"id":1182,"name":"Exp. Candy XS","category":26,"fling_p":30}
-{"id":1183,"name":"Exp. Candy S","category":26,"fling_p":30}
-{"id":1184,"name":"Exp. Candy M","category":26,"fling_p":30}
-{"id":1185,"name":"Exp. Candy L","category":26,"fling_p":30}
-{"id":1186,"name":"Exp. Candy XL","category":26,"fling_p":30}
-{"id":1187,"name":"Dynamax Candy","category":26,"fling_p":30}
-{"id":1188,"name":"TR00","category":37,"fling_p":10}
-{"id":1189,"name":"TR01","category":37,"fling_p":85}
-{"id":1190,"name":"TR02","category":37,"fling_p":90}
-{"id":1191,"name":"TR03","category":37,"fling_p":110}
-{"id":1192,"name":"TR04","category":37,"fling_p":90}
-{"id":1193,"name":"TR05","category":37,"fling_p":90}
-{"id":1194,"name":"TR06","category":37,"fling_p":110}
-{"id":1195,"name":"TR07","category":37,"fling_p":10}
-{"id":1196,"name":"TR08","category":37,"fling_p":90}
-{"id":1197,"name":"TR09","category":37,"fling_p":110}
-{"id":1198,"name":"TR10","category":37,"fling_p":100}
-{"id":1199,"name":"TR11","category":37,"fling_p":90}
-{"id":1200,"name":"TR12","category":37,"fling_p":10}
-{"id":1201,"name":"TR13","category":37,"fling_p":10}
-{"id":1202,"name":"TR14","category":37,"fling_p":10}
-{"id":1203,"name":"TR15","category":37,"fling_p":110}
-{"id":1204,"name":"TR16","category":37,"fling_p":80}
-{"id":1205,"name":"TR17","category":37,"fling_p":10}
-{"id":1206,"name":"TR18","category":37,"fling_p":80}
-{"id":1207,"name":"TR19","category":37,"fling_p":80}
-{"id":1208,"name":"TR20","category":37,"fling_p":10}
-{"id":1209,"name":"TR21","category":37,"fling_p":10}
-{"id":1210,"name":"TR22","category":37,"fling_p":90}
-{"id":1211,"name":"TR23","category":37,"fling_p":10}
-{"id":1212,"name":"TR24","category":37,"fling_p":120}
-{"id":1213,"name":"TR25","category":37,"fling_p":80}
-{"id":1214,"name":"TR26","category":37,"fling_p":10}
-{"id":1215,"name":"TR27","category":37,"fling_p":10}
-{"id":1216,"name":"TR28","category":37,"fling_p":120}
-{"id":1217,"name":"TR29","category":37,"fling_p":10}
-{"id":1218,"name":"TR30","category":37,"fling_p":10}
-{"id":1219,"name":"TR31","category":37,"fling_p":100}
-{"id":1220,"name":"TR32","category":37,"fling_p":80}
-{"id":1221,"name":"TR33","category":37,"fling_p":80}
-{"id":1222,"name":"TR34","category":37,"fling_p":120}
-{"id":1223,"name":"TR35","category":37,"fling_p":90}
-{"id":1224,"name":"TR36","category":37,"fling_p":95}
-{"id":1225,"name":"TR37","category":37,"fling_p":10}
-{"id":1226,"name":"TR38","category":37,"fling_p":10}
-{"id":1227,"name":"TR39","category":37,"fling_p":120}
-{"id":1228,"name":"TR40","category":37,"fling_p":10}
-{"id":1229,"name":"TR41","category":37,"fling_p":85}
-{"id":1230,"name":"TR42","category":37,"fling_p":90}
-{"id":1231,"name":"TR43","category":37,"fling_p":130}
-{"id":1232,"name":"TR44","category":37,"fling_p":10}
-{"id":1233,"name":"TR45","category":37,"fling_p":90}
-{"id":1234,"name":"TR46","category":37,"fling_p":10}
-{"id":1235,"name":"TR47","category":37,"fling_p":80}
-{"id":1236,"name":"TR48","category":37,"fling_p":10}
-{"id":1237,"name":"TR49","category":37,"fling_p":10}
-{"id":1238,"name":"TR50","category":37,"fling_p":90}
-{"id":1239,"name":"TR51","category":37,"fling_p":10}
-{"id":1240,"name":"TR52","category":37,"fling_p":10}
-{"id":1241,"name":"TR53","category":37,"fling_p":120}
-{"id":1242,"name":"TR54","category":37,"fling_p":10}
-{"id":1243,"name":"TR55","category":37,"fling_p":120}
-{"id":1244,"name":"TR56","category":37,"fling_p":80}
-{"id":1245,"name":"TR57","category":37,"fling_p":80}
-{"id":1246,"name":"TR58","category":37,"fling_p":80}
-{"id":1247,"name":"TR59","category":37,"fling_p":80}
-{"id":1248,"name":"TR60","category":37,"fling_p":80}
-{"id":1249,"name":"TR61","category":37,"fling_p":90}
-{"id":1250,"name":"TR62","category":37,"fling_p":85}
-{"id":1251,"name":"TR63","category":37,"fling_p":80}
-{"id":1252,"name":"TR64","category":37,"fling_p":120}
-{"id":1253,"name":"TR65","category":37,"fling_p":90}
-{"id":1254,"name":"TR66","category":37,"fling_p":120}
-{"id":1255,"name":"TR67","category":37,"fling_p":90}
-{"id":1256,"name":"TR68","category":37,"fling_p":10}
-{"id":1257,"name":"TR69","category":37,"fling_p":80}
-{"id":1258,"name":"TR70","category":37,"fling_p":80}
-{"id":1259,"name":"TR71","category":37,"fling_p":130}
-{"id":1260,"name":"TR72","category":37,"fling_p":120}
-{"id":1261,"name":"TR73","category":37,"fling_p":120}
-{"id":1262,"name":"TR74","category":37,"fling_p":80}
-{"id":1263,"name":"TR75","category":37,"fling_p":100}
-{"id":1264,"name":"TR76","category":37,"fling_p":10}
-{"id":1265,"name":"TR77","category":37,"fling_p":10}
-{"id":1266,"name":"TR78","category":37,"fling_p":95}
-{"id":1267,"name":"TR79","category":37,"fling_p":10}
-{"id":1268,"name":"TR80","category":37,"fling_p":10}
-{"id":1269,"name":"TR81","category":37,"fling_p":95}
-{"id":1270,"name":"TR82","category":37,"fling_p":20}
-{"id":1271,"name":"TR83","category":37,"fling_p":10}
-{"id":1272,"name":"TR84","category":37,"fling_p":80}
-{"id":1273,"name":"TR85","category":37,"fling_p":10}
-{"id":1274,"name":"TR86","category":37,"fling_p":90}
-{"id":1275,"name":"TR87","category":37,"fling_p":80}
-{"id":1276,"name":"TR88","category":37,"fling_p":10}
-{"id":1277,"name":"TR89","category":37,"fling_p":110}
-{"id":1278,"name":"TR90","category":37,"fling_p":90}
-{"id":1279,"name":"TR91","category":37,"fling_p":10}
-{"id":1280,"name":"TR92","category":37,"fling_p":80}
-{"id":1281,"name":"TR93","category":37,"fling_p":85}
-{"id":1282,"name":"TR94","category":37,"fling_p":95}
-{"id":1283,"name":"TR95","category":37,"fling_p":80}
-{"id":1284,"name":"TR96","category":37,"fling_p":90}
-{"id":1285,"name":"TR97","category":37,"fling_p":85}
-{"id":1286,"name":"TR98","category":37,"fling_p":85}
-{"id":1287,"name":"TR99","category":37,"fling_p":80}
+{"id":1006,"name":"Autograph","category":23,"sprite":"autograph.png"}
+{"id":1007,"name":"Pokémon Box Link","category":23,"sprite":"pokemon-box.png"}
+{"id":1008,"name":"Medicine Pocket","category":23,"sprite":"medicine-pocket.png"}
+{"id":1009,"name":"Candy Jar","category":23,"sprite":"candy-jar.png"}
+{"id":1010,"name":"Power-Up Pocket","category":23,"sprite":"power-up-pocket.png"}
+{"id":1011,"name":"Clothing Trunk","category":23,"sprite":"clothing-trunk.png"}
+{"id":1012,"name":"Catching Pocket","category":23,"sprite":"catching-pocket.png"}
+{"id":1013,"name":"Battle Pocket","category":23,"sprite":"battle-pocket.png"}
+{"id":1014,"name":"Silver Razz Berry","category":48,"fling_p":10,"sprite":"silver-razz-berry.png"}
+{"id":1015,"name":"Golden Razz Berry","category":48,"fling_p":10,"sprite":"golden-razz-berry.png"}
+{"id":1016,"name":"Silver Nanab Berry","category":48,"fling_p":10,"sprite":"silver-nanab-berry.png"}
+{"id":1017,"name":"Golden Nanab Berry","category":48,"fling_p":10,"sprite":"golden-nanab-berry.png"}
+{"id":1018,"name":"Silver Pinap Berry","category":48,"fling_p":10,"sprite":"silver-pinap-berry.png"}
+{"id":1019,"name":"Golden Pinap Berry","category":48,"fling_p":10,"sprite":"golden-pinap-berry.png"}
+{"id":1020,"name":"Secret Key","category":22,"sprite":"secret-key--letsgo.png"}
+{"id":1021,"name":"S.S. Ticket","category":22,"sprite":"ss-ticket--letsgo.png"}
+{"id":1022,"name":"Parcel","category":22,"sprite":"parcel--letsgo.png"}
+{"id":1023,"name":"Card Key","category":22,"sprite":"card-key--letsgo.png"}
+{"id":1024,"name":"Stretchy Spring","category":24,"fling_p":30,"sprite":"stretchy-spring.png"}
+{"id":1025,"name":"Chalky Stone","category":24,"fling_p":30,"sprite":"chalky-stone.png"}
+{"id":1026,"name":"Marble","category":24,"fling_p":30,"sprite":"marble.png"}
+{"id":1027,"name":"Lone Earring","category":24,"fling_p":30,"sprite":"lone-earring.png"}
+{"id":1028,"name":"Beach Glass","category":24,"fling_p":30,"sprite":"beach-glass.png"}
+{"id":1029,"name":"Gold Leaf","category":24,"fling_p":30,"sprite":"gold-leaf.png","gen2_id":75}
+{"id":1030,"name":"Silver Leaf","category":24,"fling_p":30,"sprite":"silver-leaf.png","gen2_id":60}
+{"id":1031,"name":"Polished Mud Ball","category":24,"fling_p":30,"sprite":"polished-mud-ball.png"}
+{"id":1032,"name":"Tropical Shell","category":24,"fling_p":30,"sprite":"tropical-shell.png"}
+{"id":1033,"name":"Leaf Letter","category":24,"fling_p":30,"sprite":"leaf-letter--pikachu.png"}
+{"id":1034,"name":"Leaf Letter","category":24,"fling_p":30,"sprite":"leaf-letter--eevee.png"}
+{"id":1035,"name":"Small Bouquet","category":24,"fling_p":30,"sprite":"small-bouquet.png"}
+{"id":1036,"name":"Lure","category":11,"fling_p":30,"sprite":"lure.png"}
+{"id":1037,"name":"Super Lure","category":11,"fling_p":30,"sprite":"super-lure.png"}
+{"id":1038,"name":"Max Lure","category":11,"fling_p":30,"sprite":"max-lure.png"}
+{"id":1039,"name":"Pewter Crunchies","category":30,"fling_p":30,"sprite":"pewter-crunchies.png"}
+{"id":1040,"name":"Health Candy","category":26,"sprite":"health-candy.png"}
+{"id":1041,"name":"Mighty Candy","category":26,"sprite":"mighty-candy.png"}
+{"id":1042,"name":"Tough Candy","category":26,"sprite":"tough-candy.png"}
+{"id":1043,"name":"Smart Candy","category":26,"sprite":"smart-candy.png"}
+{"id":1044,"name":"Courage Candy","category":26,"sprite":"courage-candy.png"}
+{"id":1045,"name":"Quick Candy","category":26,"sprite":"quick-candy.png"}
+{"id":1046,"name":"Health Candy L","category":26,"sprite":"health-candy-l.png"}
+{"id":1047,"name":"Mighty Candy L","category":26,"sprite":"mighty-candy-l.png"}
+{"id":1048,"name":"Tough Candy L","category":26,"sprite":"tough-candy-l.png"}
+{"id":1049,"name":"Smart Candy L","category":26,"sprite":"smart-candy-l.png"}
+{"id":1050,"name":"Courage Candy L","category":26,"sprite":"courage-candy-l.png"}
+{"id":1051,"name":"Quick Candy L","category":26,"sprite":"quick-candy-l.png"}
+{"id":1052,"name":"Health Candy XL","category":26,"sprite":"health-candy-xl.png"}
+{"id":1053,"name":"Mighty Candy XL","category":26,"sprite":"mighty-candy-xl.png"}
+{"id":1054,"name":"Tough Candy XL","category":26,"sprite":"tough-candy-xl.png"}
+{"id":1055,"name":"Smart Candy XL","category":26,"sprite":"smart-candy-xl.png"}
+{"id":1056,"name":"Courage Candy XL","category":26,"sprite":"courage-candy-xl.png"}
+{"id":1057,"name":"Quick Candy XL","category":26,"sprite":"quick-candy-xl.png"}
+{"id":1058,"name":"Bulbasaur Candy","category":47,"sprite":"bulbasaur-candy.png"}
+{"id":1059,"name":"Charmander Candy","category":47,"sprite":"charmander-candy.png"}
+{"id":1060,"name":"Squirtle Candy","category":47,"sprite":"squirtle-candy.png"}
+{"id":1061,"name":"Caterpie Candy","category":47,"sprite":"caterpie-candy.png"}
+{"id":1062,"name":"Weedle Candy","category":47,"sprite":"weedle-candy.png"}
+{"id":1063,"name":"Pidgey Candy","category":47,"sprite":"pidgey-candy.png"}
+{"id":1064,"name":"Rattata Candy","category":47,"sprite":"rattata-candy.png"}
+{"id":1065,"name":"Spearow Candy","category":47,"sprite":"spearow-candy.png"}
+{"id":1066,"name":"Ekans Candy","category":47,"sprite":"ekans-candy.png"}
+{"id":1067,"name":"Pikachu Candy","category":47,"sprite":"pikachu-candy.png"}
+{"id":1068,"name":"Sandshrew Candy","category":47,"sprite":"sandshrew-candy.png"}
+{"id":1069,"name":"Nidoran♀ Candy","category":47,"sprite":"nidoran-f-candy.png"}
+{"id":1070,"name":"Nidoran♂ Candy","category":47,"sprite":"nidoran-m-candy.png"}
+{"id":1071,"name":"Clefairy Candy","category":47,"sprite":"clefairy-candy.png"}
+{"id":1072,"name":"Vulpix Candy","category":47,"sprite":"vulpix-candy.png"}
+{"id":1073,"name":"Jigglypuff Candy","category":47,"sprite":"jigglypuff-candy.png"}
+{"id":1074,"name":"Zubat Candy","category":47,"sprite":"zubat-candy.png"}
+{"id":1075,"name":"Oddish Candy","category":47,"sprite":"oddish-candy.png"}
+{"id":1076,"name":"Paras Candy","category":47,"sprite":"paras-candy.png"}
+{"id":1077,"name":"Venonat Candy","category":47,"sprite":"venonat-candy.png"}
+{"id":1078,"name":"Diglett Candy","category":47,"sprite":"diglett-candy.png"}
+{"id":1079,"name":"Meowth Candy","category":47,"sprite":"meowth-candy.png"}
+{"id":1080,"name":"Psyduck Candy","category":47,"sprite":"psyduck-candy.png"}
+{"id":1081,"name":"Mankey Candy","category":47,"sprite":"mankey-candy.png"}
+{"id":1082,"name":"Growlithe Candy","category":47,"sprite":"growlithe-candy.png"}
+{"id":1083,"name":"Poliwag Candy","category":47,"sprite":"poliwag-candy.png"}
+{"id":1084,"name":"Abra Candy","category":47,"sprite":"abra-candy.png"}
+{"id":1085,"name":"Machop Candy","category":47,"sprite":"machop-candy.png"}
+{"id":1086,"name":"Bellsprout Candy","category":47,"sprite":"bellsprout-candy.png"}
+{"id":1087,"name":"Tentacool Candy","category":47,"sprite":"tentacool-candy.png"}
+{"id":1088,"name":"Geodude Candy","category":47,"sprite":"geodude-candy.png"}
+{"id":1089,"name":"Ponyta Candy","category":47,"sprite":"ponyta-candy.png"}
+{"id":1090,"name":"Slowpoke Candy","category":47,"sprite":"slowpoke-candy.png"}
+{"id":1091,"name":"Magnemite Candy","category":47,"sprite":"magnemite-candy.png"}
+{"id":1092,"name":"Farfetch’d Candy","category":47,"sprite":"farfetchd-candy.png"}
+{"id":1093,"name":"Doduo Candy","category":47,"sprite":"doduo-candy.png"}
+{"id":1094,"name":"Seel Candy","category":47,"sprite":"seel-candy.png"}
+{"id":1095,"name":"Grimer Candy","category":47,"sprite":"grimer-candy.png"}
+{"id":1096,"name":"Shellder Candy","category":47,"sprite":"shellder-candy.png"}
+{"id":1097,"name":"Gastly Candy","category":47,"sprite":"gastly-candy.png"}
+{"id":1098,"name":"Onix Candy","category":47,"sprite":"onix-candy.png"}
+{"id":1099,"name":"Drowzee Candy","category":47,"sprite":"drowzee-candy.png"}
+{"id":1100,"name":"Krabby Candy","category":47,"sprite":"krabby-candy.png"}
+{"id":1101,"name":"Voltorb Candy","category":47,"sprite":"voltorb-candy.png"}
+{"id":1102,"name":"Exeggcute Candy","category":47,"sprite":"exeggcute-candy.png"}
+{"id":1103,"name":"Cubone Candy","category":47,"sprite":"cubone-candy.png"}
+{"id":1104,"name":"Hitmonlee Candy","category":47,"sprite":"hitmonlee-candy.png"}
+{"id":1105,"name":"Hitmonchan Candy","category":47,"sprite":"hitmonchan-candy.png"}
+{"id":1106,"name":"Lickitung Candy","category":47,"sprite":"lickitung-candy.png"}
+{"id":1107,"name":"Koffing Candy","category":47,"sprite":"koffing-candy.png"}
+{"id":1108,"name":"Rhyhorn Candy","category":47,"sprite":"rhyhorn-candy.png"}
+{"id":1109,"name":"Chansey Candy","category":47,"sprite":"chansey-candy.png"}
+{"id":1110,"name":"Tangela Candy","category":47,"sprite":"tangela-candy.png"}
+{"id":1111,"name":"Kangaskhan Candy","category":47,"sprite":"kangaskhan-candy.png"}
+{"id":1112,"name":"Horsea Candy","category":47,"sprite":"horsea-candy.png"}
+{"id":1113,"name":"Goldeen Candy","category":47,"sprite":"goldeen-candy.png"}
+{"id":1114,"name":"Staryu Candy","category":47,"sprite":"staryu-candy.png"}
+{"id":1115,"name":"Mr. Mime Candy","category":47,"sprite":"mr-mime-candy.png"}
+{"id":1116,"name":"Scyther Candy","category":47,"sprite":"scyther-candy.png"}
+{"id":1117,"name":"Jynx Candy","category":47,"sprite":"jynx-candy.png"}
+{"id":1118,"name":"Electabuzz Candy","category":47,"sprite":"electabuzz-candy.png"}
+{"id":1119,"name":"Pinsir Candy","category":47,"sprite":"pinsir-candy.png"}
+{"id":1120,"name":"Tauros Candy","category":47,"sprite":"tauros-candy.png"}
+{"id":1121,"name":"Magikarp Candy","category":47,"sprite":"magikarp-candy.png"}
+{"id":1122,"name":"Lapras Candy","category":47,"sprite":"lapras-candy.png"}
+{"id":1123,"name":"Ditto Candy","category":47,"sprite":"ditto-candy.png"}
+{"id":1124,"name":"Eevee Candy","category":47,"sprite":"eevee-candy.png"}
+{"id":1125,"name":"Porygon Candy","category":47,"sprite":"porygon-candy.png"}
+{"id":1126,"name":"Omanyte Candy","category":47,"sprite":"omanyte-candy.png"}
+{"id":1127,"name":"Kabuto Candy","category":47,"sprite":"kabuto-candy.png"}
+{"id":1128,"name":"Aerodactyl Candy","category":47,"sprite":"aerodactyl-candy.png"}
+{"id":1129,"name":"Snorlax Candy","category":47,"sprite":"snorlax-candy.png"}
+{"id":1130,"name":"Articuno Candy","category":47,"sprite":"articuno-candy.png"}
+{"id":1131,"name":"Zapdos Candy","category":47,"sprite":"zapdos-candy.png"}
+{"id":1132,"name":"Moltres Candy","category":47,"sprite":"moltres-candy.png"}
+{"id":1133,"name":"Dratini Candy","category":47,"sprite":"dratini-candy.png"}
+{"id":1134,"name":"Mewtwo Candy","category":47,"sprite":"mewtwo-candy.png"}
+{"id":1135,"name":"Mew Candy","category":47,"sprite":"mew-candy.png"}
+{"id":1136,"name":"Meltan Candy","category":47,"sprite":"meltan-candy.png"}
+{"id":1137,"name":"Magmar Candy","category":47,"sprite":"magmar-candy.png"}
+{"id":1138,"name":"Endorsement","category":22,"sprite":"endorsement.png"}
+{"id":1139,"name":"Pokémon Box Link","category":21,"sprite":"pokemon-box-link.png"}
+{"id":1140,"name":"Wishing Star","category":22,"sprite":"wishing-star.png"}
+{"id":1141,"name":"Dynamax Band","category":22,"sprite":"dynamax-band.png"}
+{"id":1142,"name":"Fishing Rod","category":21,"sprite":"fishing-rod--galar.png"}
+{"id":1143,"name":"Rotom Bike","category":21,"sprite":"rotom-bike.png"}
+{"id":1144,"name":"Sausages","category":51,"fling_p":10,"sprite":"sausages.png"}
+{"id":1145,"name":"Bob’s Food Tin","category":51,"fling_p":80,"sprite":"bobs-food-tin.png"}
+{"id":1146,"name":"Bach’s Food Tin","category":51,"fling_p":80,"sprite":"bachs-food-tin.png"}
+{"id":1147,"name":"Tin of Beans","category":51,"fling_p":80,"sprite":"tin-of-beans.png"}
+{"id":1148,"name":"Bread","category":51,"fling_p":10,"sprite":"bread.png"}
+{"id":1149,"name":"Pasta","category":51,"fling_p":10,"sprite":"pasta.png"}
+{"id":1150,"name":"Mixed Mushrooms","category":51,"fling_p":10,"sprite":"mixed-mushrooms.png"}
+{"id":1151,"name":"Smoke-Poke Tail","category":51,"fling_p":10,"sprite":"smoke-poke-tail.png"}
+{"id":1152,"name":"Large Leek","category":51,"fling_p":20,"sprite":"large-leek.png"}
+{"id":1153,"name":"Fancy Apple","category":51,"fling_p":20,"sprite":"fancy-apple.png"}
+{"id":1154,"name":"Brittle Bones","category":51,"fling_p":30,"sprite":"brittle-bones.png"}
+{"id":1155,"name":"Pack of Potatoes","category":51,"fling_p":10,"sprite":"pack-of-potatoes.png"}
+{"id":1156,"name":"Pungent Root","category":51,"fling_p":10,"sprite":"pungent-root.png"}
+{"id":1157,"name":"Salad Mix","category":51,"fling_p":10,"sprite":"salad-mix.png"}
+{"id":1158,"name":"Fried Food","category":51,"fling_p":10,"sprite":"fried-food.png"}
+{"id":1159,"name":"Boiled Egg","category":51,"fling_p":20,"sprite":"boiled-egg.png"}
+{"id":1160,"name":"Camping Gear","category":21,"sprite":"camping-gear.png"}
+{"id":1161,"name":"Rusted Sword","category":18,"sprite":"rusted-sword.png"}
+{"id":1162,"name":"Rusted Shield","category":18,"sprite":"rusted-shield.png"}
+{"id":1163,"name":"Fossilized Bird","category":35,"fling_p":100,"sprite":"fossilized-bird.png"}
+{"id":1164,"name":"Fossilized Fish","category":35,"fling_p":100,"sprite":"fossilized-fish.png"}
+{"id":1165,"name":"Fossilized Drake","category":35,"fling_p":100,"sprite":"fossilized-drake.png"}
+{"id":1166,"name":"Fossilized Dino","category":35,"fling_p":100,"sprite":"fossilized-dino.png"}
+{"id":1167,"name":"Strawberry Sweet","category":10,"fling_p":10,"sprite":"strawberry-sweet.png"}
+{"id":1168,"name":"Love Sweet","category":10,"fling_p":10,"sprite":"love-sweet.png"}
+{"id":1169,"name":"Berry Sweet","category":10,"fling_p":10,"sprite":"berry-sweet.png"}
+{"id":1170,"name":"Clover Sweet","category":10,"fling_p":10,"sprite":"clover-sweet.png"}
+{"id":1171,"name":"Flower Sweet","category":10,"fling_p":10,"sprite":"flower-sweet.png"}
+{"id":1172,"name":"Star Sweet","category":10,"fling_p":10,"sprite":"star-sweet.png"}
+{"id":1173,"name":"Ribbon Sweet","category":10,"fling_p":10,"sprite":"ribbon-sweet.png"}
+{"id":1174,"name":"Sweet Apple","category":10,"fling_p":30,"sprite":"sweet-apple.png"}
+{"id":1175,"name":"Tart Apple","category":10,"fling_p":30,"sprite":"tart-apple.png"}
+{"id":1176,"name":"Throat Spray","category":12,"fling_p":30,"sprite":"throat-spray.png"}
+{"id":1177,"name":"Eject Pack","category":12,"fling_p":50,"sprite":"eject-pack.png"}
+{"id":1178,"name":"Heavy-Duty Boots","category":12,"fling_p":80,"sprite":"heavy-duty-boots.png"}
+{"id":1179,"name":"Blunder Policy","category":12,"fling_p":80,"sprite":"blunder-policy.png"}
+{"id":1180,"name":"Room Service","category":12,"fling_p":100,"sprite":"room-service.png"}
+{"id":1181,"name":"Utility Umbrella","category":12,"fling_p":60,"sprite":"utility-umbrella.png"}
+{"id":1182,"name":"Exp. Candy XS","category":26,"fling_p":30,"sprite":"exp-candy-xs.png"}
+{"id":1183,"name":"Exp. Candy S","category":26,"fling_p":30,"sprite":"exp-candy-s.png"}
+{"id":1184,"name":"Exp. Candy M","category":26,"fling_p":30,"sprite":"exp-candy-m.png"}
+{"id":1185,"name":"Exp. Candy L","category":26,"fling_p":30,"sprite":"exp-candy-l.png"}
+{"id":1186,"name":"Exp. Candy XL","category":26,"fling_p":30,"sprite":"exp-candy-xl.png"}
+{"id":1187,"name":"Dynamax Candy","category":26,"fling_p":30,"sprite":"dynamax-candy.png"}
+{"id":1188,"name":"TR00","category":37,"fling_p":10,"sprite":"tr00.png"}
+{"id":1189,"name":"TR01","category":37,"fling_p":85,"sprite":"tr01.png"}
+{"id":1190,"name":"TR02","category":37,"fling_p":90,"sprite":"tr02.png"}
+{"id":1191,"name":"TR03","category":37,"fling_p":110,"sprite":"tr03.png"}
+{"id":1192,"name":"TR04","category":37,"fling_p":90,"sprite":"tr04.png"}
+{"id":1193,"name":"TR05","category":37,"fling_p":90,"sprite":"tr05.png"}
+{"id":1194,"name":"TR06","category":37,"fling_p":110,"sprite":"tr06.png"}
+{"id":1195,"name":"TR07","category":37,"fling_p":10,"sprite":"tr07.png"}
+{"id":1196,"name":"TR08","category":37,"fling_p":90,"sprite":"tr08.png"}
+{"id":1197,"name":"TR09","category":37,"fling_p":110,"sprite":"tr09.png"}
+{"id":1198,"name":"TR10","category":37,"fling_p":100,"sprite":"tr10.png"}
+{"id":1199,"name":"TR11","category":37,"fling_p":90,"sprite":"tr11.png"}
+{"id":1200,"name":"TR12","category":37,"fling_p":10,"sprite":"tr12.png"}
+{"id":1201,"name":"TR13","category":37,"fling_p":10,"sprite":"tr13.png"}
+{"id":1202,"name":"TR14","category":37,"fling_p":10,"sprite":"tr14.png"}
+{"id":1203,"name":"TR15","category":37,"fling_p":110,"sprite":"tr15.png"}
+{"id":1204,"name":"TR16","category":37,"fling_p":80,"sprite":"tr16.png"}
+{"id":1205,"name":"TR17","category":37,"fling_p":10,"sprite":"tr17.png"}
+{"id":1206,"name":"TR18","category":37,"fling_p":80,"sprite":"tr18.png"}
+{"id":1207,"name":"TR19","category":37,"fling_p":80,"sprite":"tr19.png"}
+{"id":1208,"name":"TR20","category":37,"fling_p":10,"sprite":"tr20.png"}
+{"id":1209,"name":"TR21","category":37,"fling_p":10,"sprite":"tr21.png"}
+{"id":1210,"name":"TR22","category":37,"fling_p":90,"sprite":"tr22.png"}
+{"id":1211,"name":"TR23","category":37,"fling_p":10,"sprite":"tr23.png"}
+{"id":1212,"name":"TR24","category":37,"fling_p":120,"sprite":"tr24.png"}
+{"id":1213,"name":"TR25","category":37,"fling_p":80,"sprite":"tr25.png"}
+{"id":1214,"name":"TR26","category":37,"fling_p":10,"sprite":"tr26.png"}
+{"id":1215,"name":"TR27","category":37,"fling_p":10,"sprite":"tr27.png"}
+{"id":1216,"name":"TR28","category":37,"fling_p":120,"sprite":"tr28.png"}
+{"id":1217,"name":"TR29","category":37,"fling_p":10,"sprite":"tr29.png"}
+{"id":1218,"name":"TR30","category":37,"fling_p":10,"sprite":"tr30.png"}
+{"id":1219,"name":"TR31","category":37,"fling_p":100,"sprite":"tr31.png"}
+{"id":1220,"name":"TR32","category":37,"fling_p":80,"sprite":"tr32.png"}
+{"id":1221,"name":"TR33","category":37,"fling_p":80,"sprite":"tr33.png"}
+{"id":1222,"name":"TR34","category":37,"fling_p":120,"sprite":"tr34.png"}
+{"id":1223,"name":"TR35","category":37,"fling_p":90,"sprite":"tr35.png"}
+{"id":1224,"name":"TR36","category":37,"fling_p":95,"sprite":"tr36.png"}
+{"id":1225,"name":"TR37","category":37,"fling_p":10,"sprite":"tr37.png"}
+{"id":1226,"name":"TR38","category":37,"fling_p":10,"sprite":"tr38.png"}
+{"id":1227,"name":"TR39","category":37,"fling_p":120,"sprite":"tr39.png"}
+{"id":1228,"name":"TR40","category":37,"fling_p":10,"sprite":"tr40.png"}
+{"id":1229,"name":"TR41","category":37,"fling_p":85,"sprite":"tr41.png"}
+{"id":1230,"name":"TR42","category":37,"fling_p":90,"sprite":"tr42.png"}
+{"id":1231,"name":"TR43","category":37,"fling_p":130,"sprite":"tr43.png"}
+{"id":1232,"name":"TR44","category":37,"fling_p":10,"sprite":"tr44.png"}
+{"id":1233,"name":"TR45","category":37,"fling_p":90,"sprite":"tr45.png"}
+{"id":1234,"name":"TR46","category":37,"fling_p":10,"sprite":"tr46.png"}
+{"id":1235,"name":"TR47","category":37,"fling_p":80,"sprite":"tr47.png"}
+{"id":1236,"name":"TR48","category":37,"fling_p":10,"sprite":"tr48.png"}
+{"id":1237,"name":"TR49","category":37,"fling_p":10,"sprite":"tr49.png"}
+{"id":1238,"name":"TR50","category":37,"fling_p":90,"sprite":"tr50.png"}
+{"id":1239,"name":"TR51","category":37,"fling_p":10,"sprite":"tr51.png"}
+{"id":1240,"name":"TR52","category":37,"fling_p":10,"sprite":"tr52.png"}
+{"id":1241,"name":"TR53","category":37,"fling_p":120,"sprite":"tr53.png"}
+{"id":1242,"name":"TR54","category":37,"fling_p":10,"sprite":"tr54.png"}
+{"id":1243,"name":"TR55","category":37,"fling_p":120,"sprite":"tr55.png"}
+{"id":1244,"name":"TR56","category":37,"fling_p":80,"sprite":"tr56.png"}
+{"id":1245,"name":"TR57","category":37,"fling_p":80,"sprite":"tr57.png"}
+{"id":1246,"name":"TR58","category":37,"fling_p":80,"sprite":"tr58.png"}
+{"id":1247,"name":"TR59","category":37,"fling_p":80,"sprite":"tr59.png"}
+{"id":1248,"name":"TR60","category":37,"fling_p":80,"sprite":"tr60.png"}
+{"id":1249,"name":"TR61","category":37,"fling_p":90,"sprite":"tr61.png"}
+{"id":1250,"name":"TR62","category":37,"fling_p":85,"sprite":"tr62.png"}
+{"id":1251,"name":"TR63","category":37,"fling_p":80,"sprite":"tr63.png"}
+{"id":1252,"name":"TR64","category":37,"fling_p":120,"sprite":"tr64.png"}
+{"id":1253,"name":"TR65","category":37,"fling_p":90,"sprite":"tr65.png"}
+{"id":1254,"name":"TR66","category":37,"fling_p":120,"sprite":"tr66.png"}
+{"id":1255,"name":"TR67","category":37,"fling_p":90,"sprite":"tr67.png"}
+{"id":1256,"name":"TR68","category":37,"fling_p":10,"sprite":"tr68.png"}
+{"id":1257,"name":"TR69","category":37,"fling_p":80,"sprite":"tr69.png"}
+{"id":1258,"name":"TR70","category":37,"fling_p":80,"sprite":"tr70.png"}
+{"id":1259,"name":"TR71","category":37,"fling_p":130,"sprite":"tr71.png"}
+{"id":1260,"name":"TR72","category":37,"fling_p":120,"sprite":"tr72.png"}
+{"id":1261,"name":"TR73","category":37,"fling_p":120,"sprite":"tr73.png"}
+{"id":1262,"name":"TR74","category":37,"fling_p":80,"sprite":"tr74.png"}
+{"id":1263,"name":"TR75","category":37,"fling_p":100,"sprite":"tr75.png"}
+{"id":1264,"name":"TR76","category":37,"fling_p":10,"sprite":"tr76.png"}
+{"id":1265,"name":"TR77","category":37,"fling_p":10,"sprite":"tr77.png"}
+{"id":1266,"name":"TR78","category":37,"fling_p":95,"sprite":"tr78.png"}
+{"id":1267,"name":"TR79","category":37,"fling_p":10,"sprite":"tr79.png"}
+{"id":1268,"name":"TR80","category":37,"fling_p":10,"sprite":"tr80.png"}
+{"id":1269,"name":"TR81","category":37,"fling_p":95,"sprite":"tr81.png"}
+{"id":1270,"name":"TR82","category":37,"fling_p":20,"sprite":"tr82.png"}
+{"id":1271,"name":"TR83","category":37,"fling_p":10,"sprite":"tr83.png"}
+{"id":1272,"name":"TR84","category":37,"fling_p":80,"sprite":"tr84.png"}
+{"id":1273,"name":"TR85","category":37,"fling_p":10,"sprite":"tr85.png"}
+{"id":1274,"name":"TR86","category":37,"fling_p":90,"sprite":"tr86.png"}
+{"id":1275,"name":"TR87","category":37,"fling_p":80,"sprite":"tr87.png"}
+{"id":1276,"name":"TR88","category":37,"fling_p":10,"sprite":"tr88.png"}
+{"id":1277,"name":"TR89","category":37,"fling_p":110,"sprite":"tr89.png"}
+{"id":1278,"name":"TR90","category":37,"fling_p":90,"sprite":"tr90.png"}
+{"id":1279,"name":"TR91","category":37,"fling_p":10,"sprite":"tr91.png"}
+{"id":1280,"name":"TR92","category":37,"fling_p":80,"sprite":"tr92.png"}
+{"id":1281,"name":"TR93","category":37,"fling_p":85,"sprite":"tr93.png"}
+{"id":1282,"name":"TR94","category":37,"fling_p":95,"sprite":"tr94.png"}
+{"id":1283,"name":"TR95","category":37,"fling_p":80,"sprite":"tr95.png"}
+{"id":1284,"name":"TR96","category":37,"fling_p":90,"sprite":"tr96.png"}
+{"id":1285,"name":"TR97","category":37,"fling_p":85,"sprite":"tr97.png"}
+{"id":1286,"name":"TR98","category":37,"fling_p":85,"sprite":"tr98.png"}
+{"id":1287,"name":"TR99","category":37,"fling_p":80,"sprite":"tr99.png"}
 {"id":1288,"name":"TM00","category":37,"sprite":"tm-normal.png"}
-{"id":1289,"name":"Lonely Mint","category":50,"fling_p":10}
-{"id":1290,"name":"Adamant Mint","category":50,"fling_p":10}
-{"id":1291,"name":"Naughty Mint","category":50,"fling_p":10}
-{"id":1292,"name":"Brave Mint","category":50,"fling_p":10}
-{"id":1293,"name":"Bold Mint","category":50,"fling_p":10}
-{"id":1294,"name":"Impish Mint","category":50,"fling_p":10}
-{"id":1295,"name":"Lax Mint","category":50,"fling_p":10}
-{"id":1296,"name":"Relaxed Mint","category":50,"fling_p":10}
-{"id":1297,"name":"Modest Mint","category":50,"fling_p":10}
-{"id":1298,"name":"Mild Mint","category":50,"fling_p":10}
-{"id":1299,"name":"Rash Mint","category":50,"fling_p":10}
-{"id":1300,"name":"Quiet Mint","category":50,"fling_p":10}
-{"id":1301,"name":"Calm Mint","category":50,"fling_p":10}
-{"id":1302,"name":"Gentle Mint","category":50,"fling_p":10}
-{"id":1303,"name":"Careful Mint","category":50,"fling_p":10}
-{"id":1304,"name":"Sassy Mint","category":50,"fling_p":10}
-{"id":1305,"name":"Timid Mint","category":50,"fling_p":10}
-{"id":1306,"name":"Hasty Mint","category":50,"fling_p":10}
-{"id":1307,"name":"Jolly Mint","category":50,"fling_p":10}
-{"id":1308,"name":"Naive Mint","category":50,"fling_p":10}
-{"id":1309,"name":"Serious Mint","category":50,"fling_p":10}
-{"id":1310,"name":"Wishing Piece","category":9,"fling_p":50}
-{"id":1311,"name":"Cracked Pot","category":10,"fling_p":80}
-{"id":1312,"name":"Chipped Pot","category":10,"fling_p":80}
-{"id":1313,"name":"Hi-tech Earbuds","category":21}
-{"id":1314,"name":"Fruit Bunch","category":51,"fling_p":10}
-{"id":1315,"name":"Moomoo Cheese","category":51,"fling_p":20}
-{"id":1316,"name":"Spice Mix","category":51,"fling_p":50}
-{"id":1317,"name":"Fresh Cream","category":51,"fling_p":10}
-{"id":1318,"name":"Packaged Curry","category":51,"fling_p":10}
-{"id":1319,"name":"Coconut Milk","category":51,"fling_p":10}
-{"id":1320,"name":"Instant Noodles","category":51,"fling_p":10}
-{"id":1321,"name":"Precooked Burger","category":51,"fling_p":10}
-{"id":1322,"name":"Gigantamix","category":51,"fling_p":50}
-{"id":1323,"name":"Wishing Chip","category":23}
-{"id":1324,"name":"Rotom Bike","category":23}
-{"id":1325,"name":"Catching Charm","category":21}
-{"id":1326,"name":"Old Letter","category":22}
-{"id":1327,"name":"Band Autograph","category":23}
-{"id":1328,"name":"Sonia’s Book","category":22}
-{"id":1329,"name":"Rotom Catalog","category":21}
-{"id":1330,"name":"★And458","category":49}
-{"id":1331,"name":"★And15","category":49}
-{"id":1332,"name":"★And337","category":49}
-{"id":1333,"name":"★And603","category":49}
-{"id":1334,"name":"★And390","category":49}
-{"id":1335,"name":"★Sgr6879","category":49}
-{"id":1336,"name":"★Sgr6859","category":49}
-{"id":1337,"name":"★Sgr6913","category":49}
-{"id":1338,"name":"★Sgr7348","category":49}
-{"id":1339,"name":"★Sgr7121","category":49}
-{"id":1340,"name":"★Sgr6746","category":49}
-{"id":1341,"name":"★Sgr7194","category":49}
-{"id":1342,"name":"★Sgr7337","category":49}
-{"id":1343,"name":"★Sgr7343","category":49}
-{"id":1344,"name":"★Sgr6812","category":49}
-{"id":1345,"name":"★Sgr7116","category":49}
-{"id":1346,"name":"★Sgr7264","category":49}
-{"id":1347,"name":"★Sgr7597","category":49}
-{"id":1348,"name":"★Del7882","category":49}
-{"id":1349,"name":"★Del7906","category":49}
-{"id":1350,"name":"★Del7852","category":49}
-{"id":1351,"name":"★Psc596","category":49}
-{"id":1352,"name":"★Psc361","category":49}
-{"id":1353,"name":"★Psc510","category":49}
-{"id":1354,"name":"★Psc437","category":49}
-{"id":1355,"name":"★Psc8773","category":49}
-{"id":1356,"name":"★Lep1865","category":49}
-{"id":1357,"name":"★Lep1829","category":49}
-{"id":1358,"name":"★Boo5340","category":49}
-{"id":1359,"name":"★Boo5506","category":49}
-{"id":1360,"name":"★Boo5435","category":49}
-{"id":1361,"name":"★Boo5602","category":49}
-{"id":1362,"name":"★Boo5733","category":49}
-{"id":1363,"name":"★Boo5235","category":49}
-{"id":1364,"name":"★Boo5351","category":49}
-{"id":1365,"name":"★Hya3748","category":49}
-{"id":1366,"name":"★Hya3903","category":49}
-{"id":1367,"name":"★Hya3418","category":49}
-{"id":1368,"name":"★Hya3482","category":49}
-{"id":1369,"name":"★Hya3845","category":49}
-{"id":1370,"name":"★Eri1084","category":49}
-{"id":1371,"name":"★Eri472","category":49}
-{"id":1372,"name":"★Eri1666","category":49}
-{"id":1373,"name":"★Eri897","category":49}
-{"id":1374,"name":"★Eri1231","category":49}
-{"id":1375,"name":"★Eri874","category":49}
-{"id":1376,"name":"★Eri1298","category":49}
-{"id":1377,"name":"★Eri1325","category":49}
-{"id":1378,"name":"★Eri984","category":49}
-{"id":1379,"name":"★Eri1464","category":49}
-{"id":1380,"name":"★Eri1393","category":49}
-{"id":1381,"name":"★Eri850","category":49}
-{"id":1382,"name":"★Tau1409","category":49}
-{"id":1383,"name":"★Tau1457","category":49}
-{"id":1384,"name":"★Tau1165","category":49}
-{"id":1385,"name":"★Tau1791","category":49}
-{"id":1386,"name":"★Tau1910","category":49}
-{"id":1387,"name":"★Tau1346","category":49}
-{"id":1388,"name":"★Tau1373","category":49}
-{"id":1389,"name":"★Tau1412","category":49}
-{"id":1390,"name":"★CMa2491","category":49}
-{"id":1391,"name":"★CMa2693","category":49}
-{"id":1392,"name":"★CMa2294","category":49}
-{"id":1393,"name":"★CMa2827","category":49}
-{"id":1394,"name":"★CMa2282","category":49}
-{"id":1395,"name":"★CMa2618","category":49}
-{"id":1396,"name":"★CMa2657","category":49}
-{"id":1397,"name":"★CMa2646","category":49}
-{"id":1398,"name":"★UMa4905","category":49}
-{"id":1399,"name":"★UMa4301","category":49}
-{"id":1400,"name":"★UMa5191","category":49}
-{"id":1401,"name":"★UMa5054","category":49}
-{"id":1402,"name":"★UMa4295","category":49}
-{"id":1403,"name":"★UMa4660","category":49}
-{"id":1404,"name":"★UMa4554","category":49}
-{"id":1405,"name":"★UMa4069","category":49}
-{"id":1406,"name":"★UMa3569","category":49}
-{"id":1407,"name":"★UMa3323","category":49}
-{"id":1408,"name":"★UMa4033","category":49}
-{"id":1409,"name":"★UMa4377","category":49}
-{"id":1410,"name":"★UMa4375","category":49}
-{"id":1411,"name":"★UMa4518","category":49}
-{"id":1412,"name":"★UMa3594","category":49}
-{"id":1413,"name":"★Vir5056","category":49}
-{"id":1414,"name":"★Vir4825","category":49}
-{"id":1415,"name":"★Vir4932","category":49}
-{"id":1416,"name":"★Vir4540","category":49}
-{"id":1417,"name":"★Vir4689","category":49}
-{"id":1418,"name":"★Vir5338","category":49}
-{"id":1419,"name":"★Vir4910","category":49}
-{"id":1420,"name":"★Vir5315","category":49}
-{"id":1421,"name":"★Vir5359","category":49}
-{"id":1422,"name":"★Vir5409","category":49}
-{"id":1423,"name":"★Vir5107","category":49}
-{"id":1424,"name":"★Ari617","category":49}
-{"id":1425,"name":"★Ari553","category":49}
-{"id":1426,"name":"★Ari546","category":49}
-{"id":1427,"name":"★Ari951","category":49}
-{"id":1428,"name":"★Ori1713","category":49}
-{"id":1429,"name":"★Ori2061","category":49}
-{"id":1430,"name":"★Ori1790","category":49}
-{"id":1431,"name":"★Ori1903","category":49}
-{"id":1432,"name":"★Ori1948","category":49}
-{"id":1433,"name":"★Ori2004","category":49}
-{"id":1434,"name":"★Ori1852","category":49}
-{"id":1435,"name":"★Ori1879","category":49}
-{"id":1436,"name":"★Ori1899","category":49}
-{"id":1437,"name":"★Ori1543","category":49}
-{"id":1438,"name":"★Cas21","category":49}
-{"id":1439,"name":"★Cas168","category":49}
-{"id":1440,"name":"★Cas403","category":49}
-{"id":1441,"name":"★Cas153","category":49}
-{"id":1442,"name":"★Cas542","category":49}
-{"id":1443,"name":"★Cas219","category":49}
-{"id":1444,"name":"★Cas265","category":49}
-{"id":1445,"name":"★Cnc3572","category":49}
-{"id":1446,"name":"★Cnc3208","category":49}
-{"id":1447,"name":"★Cnc3461","category":49}
-{"id":1448,"name":"★Cnc3449","category":49}
-{"id":1449,"name":"★Cnc3429","category":49}
-{"id":1450,"name":"★Cnc3627","category":49}
-{"id":1451,"name":"★Cnc3268","category":49}
-{"id":1452,"name":"★Cnc3249","category":49}
-{"id":1453,"name":"★Com4968","category":49}
-{"id":1454,"name":"★Crv4757","category":49}
-{"id":1455,"name":"★Crv4623","category":49}
-{"id":1456,"name":"★Crv4662","category":49}
-{"id":1457,"name":"★Crv4786","category":49}
-{"id":1458,"name":"★Aur1708","category":49}
-{"id":1459,"name":"★Aur2088","category":49}
-{"id":1460,"name":"★Aur1605","category":49}
-{"id":1461,"name":"★Aur2095","category":49}
-{"id":1462,"name":"★Aur1577","category":49}
-{"id":1463,"name":"★Aur1641","category":49}
-{"id":1464,"name":"★Aur1612","category":49}
-{"id":1465,"name":"★Pav7790","category":49}
-{"id":1466,"name":"★Cet911","category":49}
-{"id":1467,"name":"★Cet681","category":49}
-{"id":1468,"name":"★Cet188","category":49}
-{"id":1469,"name":"★Cet539","category":49}
-{"id":1470,"name":"★Cet804","category":49}
-{"id":1471,"name":"★Cep8974","category":49}
-{"id":1472,"name":"★Cep8162","category":49}
-{"id":1473,"name":"★Cep8238","category":49}
-{"id":1474,"name":"★Cep8417","category":49}
-{"id":1475,"name":"★Cen5267","category":49}
-{"id":1476,"name":"★Cen5288","category":49}
-{"id":1477,"name":"★Cen551","category":49}
-{"id":1478,"name":"★Cen5459","category":49}
-{"id":1479,"name":"★Cen5460","category":49}
-{"id":1480,"name":"★CMi2943","category":49}
-{"id":1481,"name":"★CMi2845","category":49}
-{"id":1482,"name":"★Equ8131","category":49}
-{"id":1483,"name":"★Vul7405","category":49}
-{"id":1484,"name":"★UMi424","category":49}
-{"id":1485,"name":"★UMi5563","category":49}
-{"id":1486,"name":"★UMi5735","category":49}
-{"id":1487,"name":"★UMi6789","category":49}
-{"id":1488,"name":"★Crt4287","category":49}
-{"id":1489,"name":"★Lyr7001","category":49}
-{"id":1490,"name":"★Lyr7178","category":49}
-{"id":1491,"name":"★Lyr7106","category":49}
-{"id":1492,"name":"★Lyr7298","category":49}
-{"id":1493,"name":"★Ara6585","category":49}
-{"id":1494,"name":"★Sco6134","category":49}
-{"id":1495,"name":"★Sco6527","category":49}
-{"id":1496,"name":"★Sco6553","category":49}
-{"id":1497,"name":"★Sco5953","category":49}
-{"id":1498,"name":"★Sco5984","category":49}
-{"id":1499,"name":"★Sco6508","category":49}
-{"id":1500,"name":"★Sco6084","category":49}
-{"id":1501,"name":"★Sco5944","category":49}
-{"id":1502,"name":"★Sco6630","category":49}
-{"id":1503,"name":"★Sco6027","category":49}
-{"id":1504,"name":"★Sco6247","category":49}
-{"id":1505,"name":"★Sco6252","category":49}
-{"id":1506,"name":"★Sco5928","category":49}
-{"id":1507,"name":"★Sco6241","category":49}
-{"id":1508,"name":"★Sco6165","category":49}
-{"id":1509,"name":"★Tri544","category":49}
-{"id":1510,"name":"★Leo3982","category":49}
-{"id":1511,"name":"★Leo4534","category":49}
-{"id":1512,"name":"★Leo4357","category":49}
-{"id":1513,"name":"★Leo4057","category":49}
-{"id":1514,"name":"★Leo4359","category":49}
-{"id":1515,"name":"★Leo4031","category":49}
-{"id":1516,"name":"★Leo3852","category":49}
-{"id":1517,"name":"★Leo3905","category":49}
-{"id":1518,"name":"★Leo3773","category":49}
-{"id":1519,"name":"★Gru8425","category":49}
-{"id":1520,"name":"★Gru8636","category":49}
-{"id":1521,"name":"★Gru8353","category":49}
-{"id":1522,"name":"★Lib5685","category":49}
-{"id":1523,"name":"★Lib5531","category":49}
-{"id":1524,"name":"★Lib5787","category":49}
-{"id":1525,"name":"★Lib5603","category":49}
-{"id":1526,"name":"★Pup3165","category":49}
-{"id":1527,"name":"★Pup3185","category":49}
-{"id":1528,"name":"★Pup3045","category":49}
-{"id":1529,"name":"★Cyg7924","category":49}
-{"id":1530,"name":"★Cyg7417","category":49}
-{"id":1531,"name":"★Cyg7796","category":49}
-{"id":1532,"name":"★Cyg8301","category":49}
-{"id":1533,"name":"★Cyg7949","category":49}
-{"id":1534,"name":"★Cyg7528","category":49}
-{"id":1535,"name":"★Oct7228","category":49}
-{"id":1536,"name":"★Col1956","category":49}
-{"id":1537,"name":"★Col2040","category":49}
-{"id":1538,"name":"★Col2177","category":49}
-{"id":1539,"name":"★Gem2990","category":49}
-{"id":1540,"name":"★Gem2891","category":49}
-{"id":1541,"name":"★Gem2421","category":49}
-{"id":1542,"name":"★Gem2473","category":49}
-{"id":1543,"name":"★Gem2216","category":49}
-{"id":1544,"name":"★Gem2777","category":49}
-{"id":1545,"name":"★Gem2650","category":49}
-{"id":1546,"name":"★Gem2286","category":49}
-{"id":1547,"name":"★Gem2484","category":49}
-{"id":1548,"name":"★Gem2930","category":49}
-{"id":1549,"name":"★Peg8775","category":49}
-{"id":1550,"name":"★Peg8781","category":49}
-{"id":1551,"name":"★Peg39","category":49}
-{"id":1552,"name":"★Peg8308","category":49}
-{"id":1553,"name":"★Peg8650","category":49}
-{"id":1554,"name":"★Peg8634","category":49}
-{"id":1555,"name":"★Peg8684","category":49}
-{"id":1556,"name":"★Peg8450","category":49}
-{"id":1557,"name":"★Peg8880","category":49}
-{"id":1558,"name":"★Peg8905","category":49}
-{"id":1559,"name":"★Oph6556","category":49}
-{"id":1560,"name":"★Oph6378","category":49}
-{"id":1561,"name":"★Oph6603","category":49}
-{"id":1562,"name":"★Oph6149","category":49}
-{"id":1563,"name":"★Oph6056","category":49}
-{"id":1564,"name":"★Oph6075","category":49}
-{"id":1565,"name":"★Ser5854","category":49}
-{"id":1566,"name":"★Ser7141","category":49}
-{"id":1567,"name":"★Ser5879","category":49}
-{"id":1568,"name":"★Her6406","category":49}
-{"id":1569,"name":"★Her6148","category":49}
-{"id":1570,"name":"★Her6410","category":49}
-{"id":1571,"name":"★Her6526","category":49}
-{"id":1572,"name":"★Her6117","category":49}
-{"id":1573,"name":"★Her6008","category":49}
-{"id":1574,"name":"★Per936","category":49}
-{"id":1575,"name":"★Per1017","category":49}
-{"id":1576,"name":"★Per1131","category":49}
-{"id":1577,"name":"★Per1228","category":49}
-{"id":1578,"name":"★Per834","category":49}
-{"id":1579,"name":"★Per941","category":49}
-{"id":1580,"name":"★Phe99","category":49}
-{"id":1581,"name":"★Phe338","category":49}
-{"id":1582,"name":"★Vel3634","category":49}
-{"id":1583,"name":"★Vel3485","category":49}
-{"id":1584,"name":"★Vel3734","category":49}
-{"id":1585,"name":"★Aqr8232","category":49}
-{"id":1586,"name":"★Aqr8414","category":49}
-{"id":1587,"name":"★Aqr8709","category":49}
-{"id":1588,"name":"★Aqr8518","category":49}
-{"id":1589,"name":"★Aqr7950","category":49}
-{"id":1590,"name":"★Aqr8499","category":49}
-{"id":1591,"name":"★Aqr8610","category":49}
-{"id":1592,"name":"★Aqr8264","category":49}
-{"id":1593,"name":"★Cru4853","category":49}
-{"id":1594,"name":"★Cru4730","category":49}
-{"id":1595,"name":"★Cru4763","category":49}
-{"id":1596,"name":"★Cru4700","category":49}
-{"id":1597,"name":"★Cru4656","category":49}
-{"id":1598,"name":"★PsA8728","category":49}
-{"id":1599,"name":"★TrA6217","category":49}
-{"id":1600,"name":"★Cap7776","category":49}
-{"id":1601,"name":"★Cap7754","category":49}
-{"id":1602,"name":"★Cap8278","category":49}
-{"id":1603,"name":"★Cap8322","category":49}
-{"id":1604,"name":"★Cap7773","category":49}
-{"id":1605,"name":"★Sge7479","category":49}
-{"id":1606,"name":"★Car2326","category":49}
-{"id":1607,"name":"★Car3685","category":49}
-{"id":1608,"name":"★Car3307","category":49}
-{"id":1609,"name":"★Car3699","category":49}
-{"id":1610,"name":"★Dra5744","category":49}
-{"id":1611,"name":"★Dra5291","category":49}
-{"id":1612,"name":"★Dra6705","category":49}
-{"id":1613,"name":"★Dra6536","category":49}
-{"id":1614,"name":"★Dra7310","category":49}
-{"id":1615,"name":"★Dra6688","category":49}
-{"id":1616,"name":"★Dra4434","category":49}
-{"id":1617,"name":"★Dra6370","category":49}
-{"id":1618,"name":"★Dra7462","category":49}
-{"id":1619,"name":"★Dra6396","category":49}
-{"id":1620,"name":"★Dra6132","category":49}
-{"id":1621,"name":"★Dra6636","category":49}
-{"id":1622,"name":"★CVn4915","category":49}
-{"id":1623,"name":"★CVn4785","category":49}
-{"id":1624,"name":"★CVn4846","category":49}
-{"id":1625,"name":"★Aql7595","category":49}
-{"id":1626,"name":"★Aql7557","category":49}
-{"id":1627,"name":"★Aql7525","category":49}
-{"id":1628,"name":"★Aql7602","category":49}
-{"id":1629,"name":"★Aql7235","category":49}
-{"id":1630,"name":"Max Honey","category":29,"fling_p":30}
-{"id":1631,"name":"Max Mushrooms","category":1,"fling_p":30}
-{"id":1632,"name":"Galarica Twig","category":9,"fling_p":30}
-{"id":1633,"name":"Galarica Cuff","category":9,"fling_p":30}
-{"id":1634,"name":"Style Card","category":21}
-{"id":1635,"name":"Armor Pass","category":22}
-{"id":1636,"name":"Rotom Bike","category":23}
-{"id":1637,"name":"Rotom Bike","category":23}
-{"id":1638,"name":"Exp. Charm","category":21}
-{"id":1639,"name":"Armorite Ore","category":9,"fling_p":30}
-{"id":1640,"name":"Mark Charm","category":21}
-{"id":1641,"name":"Reins of Unity","category":23}
-{"id":1642,"name":"Reins of Unity","category":23}
-{"id":1643,"name":"Galarica Wreath","category":9,"fling_p":30}
-{"id":1644,"name":"Legendary Clue 1","category":22}
-{"id":1645,"name":"Legendary Clue 2","category":22}
-{"id":1646,"name":"Legendary Clue 3","category":22}
-{"id":1647,"name":"Legendary Clue?","category":22}
-{"id":1648,"name":"Crown Pass","category":22}
-{"id":1649,"name":"Wooden Crown","category":22}
-{"id":1650,"name":"Radiant Petal","category":22}
-{"id":1651,"name":"White Mane Hair","category":22}
-{"id":1652,"name":"Black Mane Hair","category":22}
-{"id":1653,"name":"Iceroot Carrot","category":22}
-{"id":1654,"name":"Shaderoot Carrot","category":22}
-{"id":1655,"name":"Dynite Ore","category":9,"fling_p":30}
-{"id":1656,"name":"Carrot Seeds","category":22}
-{"id":1657,"name":"Ability Patch","category":26}
-{"id":1658,"name":"Reins of Unity","category":22}
-{"id":1659,"name":"Adamant Crystal","category":21}
-{"id":1660,"name":"Lustrous Globe","category":21}
-{"id":1661,"name":"Griseous Core","category":21}
-{"id":1662,"name":"Blank Plate","category":17}
-{"id":1663,"name":"Strange Ball","category":20}
-{"id":1664,"name":"Legend Plate","category":17}
-{"id":1665,"name":"Rotom Phone","category":20}
-{"id":1666,"name":"Sandwich","category":20}
-{"id":1667,"name":"Koraidon’s Poké Ball","category":20}
-{"id":1668,"name":"Miraidon’s Poké Ball","category":20}
-{"id":1669,"name":"Tera Orb","category":20}
-{"id":1670,"name":"Scarlet Book","category":20}
-{"id":1671,"name":"Violet Book","category":20}
-{"id":1672,"name":"Kofu’s Wallet","category":22}
-{"id":1673,"name":"Tiny Bamboo Shoot","category":24}
-{"id":1674,"name":"Big Bamboo Shoot","category":24}
-{"id":1675,"name":"Scroll of Darkness","category":21}
-{"id":1676,"name":"Scroll of Waters","category":21}
-{"id":1677,"name":"Malicious Armor","category":10}
-{"id":1678,"name":"Normal Tera Shard","category":52}
-{"id":1679,"name":"Fire Tera Shard","category":52}
-{"id":1680,"name":"Water Tera Shard","category":52}
-{"id":1681,"name":"Electric Tera Shard","category":52}
-{"id":1682,"name":"Grass Tera Shard","category":52}
-{"id":1683,"name":"Ice Tera Shard","category":52}
-{"id":1684,"name":"Fighting Tera Shard","category":52}
-{"id":1685,"name":"Poison Tera Shard","category":52}
-{"id":1686,"name":"Ground Tera Shard","category":52}
-{"id":1687,"name":"Flying Tera Shard","category":52}
-{"id":1688,"name":"Psychic Tera Shard","category":52}
-{"id":1689,"name":"Bug Tera Shard","category":52}
-{"id":1690,"name":"Rock Tera Shard","category":52}
-{"id":1691,"name":"Ghost Tera Shard","category":52}
-{"id":1692,"name":"Dragon Tera Shard","category":52}
-{"id":1693,"name":"Dark Tera Shard","category":52}
-{"id":1694,"name":"Steel Tera Shard","category":52}
-{"id":1695,"name":"Fairy Tera Shard","category":52}
-{"id":1696,"name":"Booster Energy","category":12}
-{"id":1697,"name":"Ability Shield","category":12}
-{"id":1698,"name":"Clear Amulet","category":12}
-{"id":1699,"name":"Mirror Herb","category":12}
-{"id":1700,"name":"Punching Glove","category":12}
-{"id":1701,"name":"Covert Cloak","category":12}
-{"id":1702,"name":"Loaded Dice","category":12}
-{"id":1703,"name":"Baguette","category":53}
-{"id":1704,"name":"Mayonnaise","category":53}
-{"id":1705,"name":"Ketchup","category":53}
-{"id":1706,"name":"Mustard","category":53}
-{"id":1707,"name":"Butter","category":53}
-{"id":1708,"name":"Peanut Butter","category":53}
-{"id":1709,"name":"Chili Sauce","category":53}
-{"id":1710,"name":"Salt","category":53}
-{"id":1711,"name":"Pepper","category":53}
-{"id":1712,"name":"Yogurt","category":53}
-{"id":1713,"name":"Whipped Cream","category":53}
-{"id":1714,"name":"Cream Cheese","category":53}
-{"id":1715,"name":"Jam","category":53}
-{"id":1716,"name":"Marmalade","category":53}
-{"id":1717,"name":"Olive Oil","category":53}
-{"id":1718,"name":"Vinegar","category":53}
-{"id":1719,"name":"Sweet Herba Mystica","category":53}
-{"id":1720,"name":"Salty Herba Mystica","category":53}
-{"id":1721,"name":"Sour Herba Mystica","category":53}
-{"id":1722,"name":"Bitter Herba Mystica","category":53}
-{"id":1723,"name":"Spicy Herba Mystica","category":53}
-{"id":1724,"name":"Lettuce","category":53}
-{"id":1725,"name":"Tomato","category":53}
-{"id":1726,"name":"Cherry Tomatoes","category":53}
-{"id":1727,"name":"Cucumber","category":53}
-{"id":1728,"name":"Pickle","category":53}
-{"id":1729,"name":"Onion","category":53}
-{"id":1730,"name":"Red Onion","category":53}
-{"id":1731,"name":"Green Bell Pepper","category":53}
-{"id":1732,"name":"Red Bell Pepper","category":53}
-{"id":1733,"name":"Yellow Bell Pepper","category":53}
-{"id":1734,"name":"Avocado","category":53}
-{"id":1735,"name":"Bacon","category":53}
-{"id":1736,"name":"Ham","category":53}
-{"id":1737,"name":"Prosciutto","category":53}
-{"id":1738,"name":"Chorizo","category":53}
-{"id":1739,"name":"Herbed Sausage","category":53}
-{"id":1740,"name":"Hamburger","category":53}
-{"id":1741,"name":"Klawf Stick","category":53}
-{"id":1742,"name":"Smoked Fillet","category":53}
-{"id":1743,"name":"Fried Fillet","category":53}
-{"id":1744,"name":"Egg","category":53}
-{"id":1745,"name":"Potato Tortilla","category":53}
-{"id":1746,"name":"Tofu","category":53}
-{"id":1747,"name":"Rice","category":53}
-{"id":1748,"name":"Noodles","category":53}
-{"id":1749,"name":"Potato Salad","category":53}
-{"id":1750,"name":"Cheese","category":53}
-{"id":1751,"name":"Banana","category":53}
-{"id":1752,"name":"Strawberry","category":53}
-{"id":1753,"name":"Apple","category":53}
-{"id":1754,"name":"Kiwi","category":53}
-{"id":1755,"name":"Pineapple","category":53}
-{"id":1756,"name":"Jalapeño","category":53}
-{"id":1757,"name":"Horseradish","category":53}
-{"id":1758,"name":"Curry Powder","category":53}
-{"id":1759,"name":"Wasabi","category":53}
-{"id":1760,"name":"Watercress","category":53}
-{"id":1761,"name":"Basil","category":53}
-{"id":1762,"name":"Venonat Fang","category":54}
-{"id":1763,"name":"Diglett Dirt","category":54}
-{"id":1764,"name":"Meowth Fur","category":54}
-{"id":1765,"name":"Psyduck Down","category":54}
-{"id":1766,"name":"Mankey Fur","category":54}
-{"id":1767,"name":"Growlithe Fur","category":54}
-{"id":1768,"name":"Slowpoke Claw","category":54}
-{"id":1769,"name":"Magnemite Screw","category":54}
-{"id":1770,"name":"Grimer Toxin","category":54}
-{"id":1771,"name":"Shellder Pearl","category":54}
-{"id":1772,"name":"Gastly Gas","category":54}
-{"id":1773,"name":"Drowzee Fur","category":54}
-{"id":1774,"name":"Voltorb Sparks","category":54}
-{"id":1775,"name":"Scyther Claw","category":54}
-{"id":1776,"name":"Tauros Hair","category":54}
-{"id":1777,"name":"Magikarp Scales","category":54}
-{"id":1778,"name":"Ditto Goo","category":54}
-{"id":1779,"name":"Eevee Fur","category":54}
-{"id":1780,"name":"Dratini Scales","category":54}
-{"id":1781,"name":"Pichu Fur","category":54}
-{"id":1782,"name":"Igglybuff Fluff","category":54}
-{"id":1783,"name":"Mareep Wool","category":54}
-{"id":1784,"name":"Hoppip Leaf","category":54}
-{"id":1785,"name":"Sunkern Leaf","category":54}
-{"id":1786,"name":"Murkrow Bauble","category":54}
-{"id":1787,"name":"Misdreavus Tears","category":54}
-{"id":1788,"name":"Girafarig Fur","category":54}
-{"id":1789,"name":"Pineco Husk","category":54}
-{"id":1790,"name":"Dunsparce Scales","category":54}
-{"id":1791,"name":"Qwilfish Spines","category":54}
-{"id":1792,"name":"Heracross Claw","category":54}
-{"id":1793,"name":"Sneasel Claw","category":54}
-{"id":1794,"name":"Teddiursa Claw","category":54}
-{"id":1795,"name":"Delibird Parcel","category":54}
-{"id":1796,"name":"Houndour Fang","category":54}
-{"id":1797,"name":"Phanpy Nail","category":54}
-{"id":1798,"name":"Stantler Hair","category":54}
-{"id":1799,"name":"Larvitar Claw","category":54}
-{"id":1800,"name":"Wingull Feather","category":54}
-{"id":1801,"name":"Ralts Dust","category":54}
-{"id":1802,"name":"Surskit Syrup","category":54}
-{"id":1803,"name":"Shroomish Spores","category":54}
-{"id":1804,"name":"Slakoth Fur","category":54}
-{"id":1805,"name":"Makuhita Sweat","category":54}
-{"id":1806,"name":"Azurill Fur","category":54}
-{"id":1807,"name":"Sableye Gem","category":54}
-{"id":1808,"name":"Meditite Sweat","category":54}
-{"id":1809,"name":"Gulpin Mucus","category":54}
-{"id":1810,"name":"Numel Lava","category":54}
-{"id":1811,"name":"Torkoal Coal","category":54}
-{"id":1812,"name":"Spoink Pearl","category":54}
-{"id":1813,"name":"Cacnea Needle","category":54}
-{"id":1814,"name":"Swablu Fluff","category":54}
-{"id":1815,"name":"Zangoose Claw","category":54}
-{"id":1816,"name":"Seviper Fang","category":54}
-{"id":1817,"name":"Barboach Slime","category":54}
-{"id":1818,"name":"Shuppet Scrap","category":54}
-{"id":1819,"name":"Tropius Leaf","category":54}
-{"id":1820,"name":"Snorunt Fur","category":54}
-{"id":1821,"name":"Luvdisc Scales","category":54}
-{"id":1822,"name":"Bagon Scales","category":54}
-{"id":1823,"name":"Starly Feather","category":54}
-{"id":1824,"name":"Kricketot Shell","category":54}
-{"id":1825,"name":"Shinx Fang","category":54}
-{"id":1826,"name":"Combee Honey","category":54}
-{"id":1827,"name":"Pachirisu Fur","category":54}
-{"id":1828,"name":"Buizel Fur","category":54}
-{"id":1829,"name":"Shellos Mucus","category":54}
-{"id":1830,"name":"Drifloon Gas","category":54}
-{"id":1831,"name":"Stunky Fur","category":54}
-{"id":1832,"name":"Bronzor Fragment","category":54}
-{"id":1833,"name":"Bonsly Tears","category":54}
-{"id":1834,"name":"Happiny Dust","category":54}
-{"id":1835,"name":"Spiritomb Fragment","category":54}
-{"id":1836,"name":"Gible Scales","category":54}
-{"id":1837,"name":"Riolu Fur","category":54}
-{"id":1838,"name":"Hippopotas Sand","category":54}
-{"id":1839,"name":"Croagunk Poison","category":54}
-{"id":1840,"name":"Finneon Scales","category":54}
-{"id":1841,"name":"Snover Berries","category":54}
-{"id":1842,"name":"Rotom Sparks","category":54}
-{"id":1843,"name":"Petilil Leaf","category":54}
-{"id":1844,"name":"Basculin Fang","category":54}
-{"id":1845,"name":"Sandile Claw","category":54}
-{"id":1846,"name":"Zorua Fur","category":54}
-{"id":1847,"name":"Gothita Eyelash","category":54}
-{"id":1848,"name":"Deerling Hair","category":54}
-{"id":1849,"name":"Foongus Spores","category":54}
-{"id":1850,"name":"Alomomola Mucus","category":54}
-{"id":1851,"name":"Tynamo Slime","category":54}
-{"id":1852,"name":"Axew Scales","category":54}
-{"id":1853,"name":"Cubchoo Fur","category":54}
-{"id":1854,"name":"Cryogonal Ice","category":54}
-{"id":1855,"name":"Pawniard Blade","category":54}
-{"id":1856,"name":"Rufflet Feather","category":54}
-{"id":1857,"name":"Deino Scales","category":54}
-{"id":1858,"name":"Larvesta Fuzz","category":54}
-{"id":1859,"name":"Fletchling Feather","category":54}
-{"id":1860,"name":"Scatterbug Powder","category":54}
-{"id":1861,"name":"Litleo Tuft","category":54}
-{"id":1862,"name":"Flabébé Pollen","category":54}
-{"id":1863,"name":"Skiddo Leaf","category":54}
-{"id":1864,"name":"Skrelp Kelp","category":54}
-{"id":1865,"name":"Clauncher Claw","category":54}
-{"id":1866,"name":"Hawlucha Down","category":54}
-{"id":1867,"name":"Dedenne Fur","category":54}
-{"id":1868,"name":"Goomy Goo","category":54}
-{"id":1869,"name":"Klefki Key","category":54}
-{"id":1870,"name":"Bergmite Ice","category":54}
-{"id":1871,"name":"Noibat Fur","category":54}
-{"id":1872,"name":"Yungoos Fur","category":54}
-{"id":1873,"name":"Crabrawler Shell","category":54}
-{"id":1874,"name":"Oricorio Feather","category":54}
-{"id":1875,"name":"Rockruff Rock","category":54}
-{"id":1876,"name":"Mareanie Spike","category":54}
-{"id":1877,"name":"Mudbray Mud","category":54}
-{"id":1878,"name":"Fomantis Leaf","category":54}
-{"id":1879,"name":"Salandit Gas","category":54}
-{"id":1880,"name":"Bounsweet Sweat","category":54}
-{"id":1881,"name":"Oranguru Fur","category":54}
-{"id":1882,"name":"Passimian Fur","category":54}
-{"id":1883,"name":"Sandygast Sand","category":54}
-{"id":1884,"name":"Komala Claw","category":54}
-{"id":1885,"name":"Mimikyu Scrap","category":54}
-{"id":1886,"name":"Bruxish Tooth","category":54}
-{"id":1887,"name":"Chewtle Claw","category":54}
-{"id":1888,"name":"Skwovet Fur","category":54}
-{"id":1889,"name":"Arrokuda Scales","category":54}
-{"id":1890,"name":"Rookidee Feather","category":54}
-{"id":1891,"name":"Toxel Sparks","category":54}
-{"id":1892,"name":"Falinks Sweat","category":54}
-{"id":1893,"name":"Cufant Tarnish","category":54}
-{"id":1894,"name":"Rolycoly Coal","category":54}
-{"id":1895,"name":"Silicobra Sand","category":54}
-{"id":1896,"name":"Indeedee Fur","category":54}
-{"id":1897,"name":"Pincurchin Spines","category":54}
-{"id":1898,"name":"Snom Thread","category":54}
-{"id":1899,"name":"Impidimp Hair","category":54}
-{"id":1900,"name":"Applin Juice","category":54}
-{"id":1901,"name":"Sinistea Chip","category":54}
-{"id":1902,"name":"Hatenna Dust","category":54}
-{"id":1903,"name":"Stonjourner Stone","category":54}
-{"id":1904,"name":"Eiscue Down","category":54}
-{"id":1905,"name":"Dreepy Powder","category":54}
-{"id":1906,"name":"Lechonk Hair","category":54}
-{"id":1907,"name":"Tarountula Thread","category":54}
-{"id":1908,"name":"Nymble Claw","category":54}
-{"id":1909,"name":"Rellor Mud","category":54}
-{"id":1910,"name":"Greavard Wax","category":54}
-{"id":1911,"name":"Flittle Down","category":54}
-{"id":1912,"name":"Wiglett Sand","category":54}
-{"id":1913,"name":"Dondozo Whisker","category":54}
-{"id":1914,"name":"Veluza Fillet","category":54}
-{"id":1915,"name":"Finizen Mucus","category":54}
-{"id":1916,"name":"Smoliv Oil","category":54}
-{"id":1917,"name":"Capsakid Seed","category":54}
-{"id":1918,"name":"Tadbulb Mucus","category":54}
-{"id":1919,"name":"Varoom Fume","category":54}
-{"id":1920,"name":"Orthworm Tarnish","category":54}
-{"id":1921,"name":"Tandemaus Fur","category":54}
-{"id":1922,"name":"Cetoddle Grease","category":54}
-{"id":1923,"name":"Frigibax Scales","category":54}
-{"id":1924,"name":"Tatsugiri Scales","category":54}
-{"id":1925,"name":"Cyclizar Scales","category":54}
-{"id":1926,"name":"Pawmi Fur","category":54}
-{"id":1927,"name":"Wattrel Feather","category":54}
-{"id":1928,"name":"Bombirdier Feather","category":54}
-{"id":1929,"name":"Squawkabilly Feather","category":54}
-{"id":1930,"name":"Flamigo Down","category":54}
-{"id":1931,"name":"Klawf Claw","category":54}
-{"id":1932,"name":"Nacli Salt","category":54}
-{"id":1933,"name":"Glimmet Crystal","category":54}
-{"id":1934,"name":"Shroodle Ink","category":54}
-{"id":1935,"name":"Fidough Fur","category":54}
-{"id":1936,"name":"Maschiff Fang","category":54}
-{"id":1937,"name":"Bramblin Twig","category":54}
-{"id":1938,"name":"Gimmighoul Coin","category":54}
-{"id":1939,"name":"Tinkatink Hair","category":54}
-{"id":1940,"name":"Charcadet Soot","category":54}
-{"id":1941,"name":"Toedscool Flaps","category":54}
-{"id":1942,"name":"Wooper Slime","category":54}
+{"id":1289,"name":"Lonely Mint","category":50,"fling_p":10,"sprite":"lonely-mint.png"}
+{"id":1290,"name":"Adamant Mint","category":50,"fling_p":10,"sprite":"adamant-mint.png"}
+{"id":1291,"name":"Naughty Mint","category":50,"fling_p":10,"sprite":"naughty-mint.png"}
+{"id":1292,"name":"Brave Mint","category":50,"fling_p":10,"sprite":"brave-mint.png"}
+{"id":1293,"name":"Bold Mint","category":50,"fling_p":10,"sprite":"bold-mint.png"}
+{"id":1294,"name":"Impish Mint","category":50,"fling_p":10,"sprite":"impish-mint.png"}
+{"id":1295,"name":"Lax Mint","category":50,"fling_p":10,"sprite":"lax-mint.png"}
+{"id":1296,"name":"Relaxed Mint","category":50,"fling_p":10,"sprite":"relaxed-mint.png"}
+{"id":1297,"name":"Modest Mint","category":50,"fling_p":10,"sprite":"modest-mint.png"}
+{"id":1298,"name":"Mild Mint","category":50,"fling_p":10,"sprite":"mild-mint.png"}
+{"id":1299,"name":"Rash Mint","category":50,"fling_p":10,"sprite":"rash-mint.png"}
+{"id":1300,"name":"Quiet Mint","category":50,"fling_p":10,"sprite":"quiet-mint.png"}
+{"id":1301,"name":"Calm Mint","category":50,"fling_p":10,"sprite":"calm-mint.png"}
+{"id":1302,"name":"Gentle Mint","category":50,"fling_p":10,"sprite":"gentle-mint.png"}
+{"id":1303,"name":"Careful Mint","category":50,"fling_p":10,"sprite":"careful-mint.png"}
+{"id":1304,"name":"Sassy Mint","category":50,"fling_p":10,"sprite":"sassy-mint.png"}
+{"id":1305,"name":"Timid Mint","category":50,"fling_p":10,"sprite":"timid-mint.png"}
+{"id":1306,"name":"Hasty Mint","category":50,"fling_p":10,"sprite":"hasty-mint.png"}
+{"id":1307,"name":"Jolly Mint","category":50,"fling_p":10,"sprite":"jolly-mint.png"}
+{"id":1308,"name":"Naive Mint","category":50,"fling_p":10,"sprite":"naive-mint.png"}
+{"id":1309,"name":"Serious Mint","category":50,"fling_p":10,"sprite":"serious-mint.png"}
+{"id":1310,"name":"Wishing Piece","category":9,"fling_p":50,"sprite":"wishing-piece.png"}
+{"id":1311,"name":"Cracked Pot","category":10,"fling_p":80,"sprite":"cracked-pot.png"}
+{"id":1312,"name":"Chipped Pot","category":10,"fling_p":80,"sprite":"chipped-pot.png"}
+{"id":1313,"name":"Hi-tech Earbuds","category":21,"sprite":"hi-tech-earbuds.png"}
+{"id":1314,"name":"Fruit Bunch","category":51,"fling_p":10,"sprite":"fruit-bunch.png"}
+{"id":1315,"name":"Moomoo Cheese","category":51,"fling_p":20,"sprite":"moomoo-cheese.png"}
+{"id":1316,"name":"Spice Mix","category":51,"fling_p":50,"sprite":"spice-mix.png"}
+{"id":1317,"name":"Fresh Cream","category":51,"fling_p":10,"sprite":"fresh-cream.png"}
+{"id":1318,"name":"Packaged Curry","category":51,"fling_p":10,"sprite":"packaged-curry.png"}
+{"id":1319,"name":"Coconut Milk","category":51,"fling_p":10,"sprite":"coconut-milk.png"}
+{"id":1320,"name":"Instant Noodles","category":51,"fling_p":10,"sprite":"instant-noodles.png"}
+{"id":1321,"name":"Precooked Burger","category":51,"fling_p":10,"sprite":"precooked-burger.png"}
+{"id":1322,"name":"Gigantamix","category":51,"fling_p":50,"sprite":"gigantamix.png"}
+{"id":1323,"name":"Wishing Chip","category":23,"sprite":"wishing-chip.png"}
+{"id":1324,"name":"Rotom Bike","category":23,"sprite":"rotom-bike--water-mode.png"}
+{"id":1325,"name":"Catching Charm","category":21,"sprite":"catching-charm.png"}
+{"id":1326,"name":"Old Letter","category":22,"sprite":"old-letter.png"}
+{"id":1327,"name":"Band Autograph","category":23,"sprite":"band-autograph.png"}
+{"id":1328,"name":"Sonia’s Book","category":22,"sprite":"sonias-book.png"}
+{"id":1329,"name":"Rotom Catalog","category":21,"sprite":"rotom-catalog.png"}
+{"id":1330,"name":"★And458","category":49,"sprite":"dynamax-crystal-and458.png"}
+{"id":1331,"name":"★And15","category":49,"sprite":"dynamax-crystal-and15.png"}
+{"id":1332,"name":"★And337","category":49,"sprite":"dynamax-crystal-and337.png"}
+{"id":1333,"name":"★And603","category":49,"sprite":"dynamax-crystal-and603.png"}
+{"id":1334,"name":"★And390","category":49,"sprite":"dynamax-crystal-and390.png"}
+{"id":1335,"name":"★Sgr6879","category":49,"sprite":"dynamax-crystal-sgr6879.png"}
+{"id":1336,"name":"★Sgr6859","category":49,"sprite":"dynamax-crystal-sgr6859.png"}
+{"id":1337,"name":"★Sgr6913","category":49,"sprite":"dynamax-crystal-sgr6913.png"}
+{"id":1338,"name":"★Sgr7348","category":49,"sprite":"dynamax-crystal-sgr7348.png"}
+{"id":1339,"name":"★Sgr7121","category":49,"sprite":"dynamax-crystal-sgr7121.png"}
+{"id":1340,"name":"★Sgr6746","category":49,"sprite":"dynamax-crystal-sgr6746.png"}
+{"id":1341,"name":"★Sgr7194","category":49,"sprite":"dynamax-crystal-sgr7194.png"}
+{"id":1342,"name":"★Sgr7337","category":49,"sprite":"dynamax-crystal-sgr7337.png"}
+{"id":1343,"name":"★Sgr7343","category":49,"sprite":"dynamax-crystal-sgr7343.png"}
+{"id":1344,"name":"★Sgr6812","category":49,"sprite":"dynamax-crystal-sgr6812.png"}
+{"id":1345,"name":"★Sgr7116","category":49,"sprite":"dynamax-crystal-sgr7116.png"}
+{"id":1346,"name":"★Sgr7264","category":49,"sprite":"dynamax-crystal-sgr7264.png"}
+{"id":1347,"name":"★Sgr7597","category":49,"sprite":"dynamax-crystal-sgr7597.png"}
+{"id":1348,"name":"★Del7882","category":49,"sprite":"dynamax-crystal-del7882.png"}
+{"id":1349,"name":"★Del7906","category":49,"sprite":"dynamax-crystal-del7906.png"}
+{"id":1350,"name":"★Del7852","category":49,"sprite":"dynamax-crystal-del7852.png"}
+{"id":1351,"name":"★Psc596","category":49,"sprite":"dynamax-crystal-psc596.png"}
+{"id":1352,"name":"★Psc361","category":49,"sprite":"dynamax-crystal-psc361.png"}
+{"id":1353,"name":"★Psc510","category":49,"sprite":"dynamax-crystal-psc510.png"}
+{"id":1354,"name":"★Psc437","category":49,"sprite":"dynamax-crystal-psc437.png"}
+{"id":1355,"name":"★Psc8773","category":49,"sprite":"dynamax-crystal-psc8773.png"}
+{"id":1356,"name":"★Lep1865","category":49,"sprite":"dynamax-crystal-lep1865.png"}
+{"id":1357,"name":"★Lep1829","category":49,"sprite":"dynamax-crystal-lep1829.png"}
+{"id":1358,"name":"★Boo5340","category":49,"sprite":"dynamax-crystal-boo5340.png"}
+{"id":1359,"name":"★Boo5506","category":49,"sprite":"dynamax-crystal-boo5506.png"}
+{"id":1360,"name":"★Boo5435","category":49,"sprite":"dynamax-crystal-boo5435.png"}
+{"id":1361,"name":"★Boo5602","category":49,"sprite":"dynamax-crystal-boo5602.png"}
+{"id":1362,"name":"★Boo5733","category":49,"sprite":"dynamax-crystal-boo5733.png"}
+{"id":1363,"name":"★Boo5235","category":49,"sprite":"dynamax-crystal-boo5235.png"}
+{"id":1364,"name":"★Boo5351","category":49,"sprite":"dynamax-crystal-boo5351.png"}
+{"id":1365,"name":"★Hya3748","category":49,"sprite":"dynamax-crystal-hya3748.png"}
+{"id":1366,"name":"★Hya3903","category":49,"sprite":"dynamax-crystal-hya3903.png"}
+{"id":1367,"name":"★Hya3418","category":49,"sprite":"dynamax-crystal-hya3418.png"}
+{"id":1368,"name":"★Hya3482","category":49,"sprite":"dynamax-crystal-hya3482.png"}
+{"id":1369,"name":"★Hya3845","category":49,"sprite":"dynamax-crystal-hya3845.png"}
+{"id":1370,"name":"★Eri1084","category":49,"sprite":"dynamax-crystal-eri1084.png"}
+{"id":1371,"name":"★Eri472","category":49,"sprite":"dynamax-crystal-eri472.png"}
+{"id":1372,"name":"★Eri1666","category":49,"sprite":"dynamax-crystal-eri1666.png"}
+{"id":1373,"name":"★Eri897","category":49,"sprite":"dynamax-crystal-eri897.png"}
+{"id":1374,"name":"★Eri1231","category":49,"sprite":"dynamax-crystal-eri1231.png"}
+{"id":1375,"name":"★Eri874","category":49,"sprite":"dynamax-crystal-eri874.png"}
+{"id":1376,"name":"★Eri1298","category":49,"sprite":"dynamax-crystal-eri1298.png"}
+{"id":1377,"name":"★Eri1325","category":49,"sprite":"dynamax-crystal-eri1325.png"}
+{"id":1378,"name":"★Eri984","category":49,"sprite":"dynamax-crystal-eri984.png"}
+{"id":1379,"name":"★Eri1464","category":49,"sprite":"dynamax-crystal-eri1464.png"}
+{"id":1380,"name":"★Eri1393","category":49,"sprite":"dynamax-crystal-eri1393.png"}
+{"id":1381,"name":"★Eri850","category":49,"sprite":"dynamax-crystal-eri850.png"}
+{"id":1382,"name":"★Tau1409","category":49,"sprite":"dynamax-crystal-tau1409.png"}
+{"id":1383,"name":"★Tau1457","category":49,"sprite":"dynamax-crystal-tau1457.png"}
+{"id":1384,"name":"★Tau1165","category":49,"sprite":"dynamax-crystal-tau1165.png"}
+{"id":1385,"name":"★Tau1791","category":49,"sprite":"dynamax-crystal-tau1791.png"}
+{"id":1386,"name":"★Tau1910","category":49,"sprite":"dynamax-crystal-tau1910.png"}
+{"id":1387,"name":"★Tau1346","category":49,"sprite":"dynamax-crystal-tau1346.png"}
+{"id":1388,"name":"★Tau1373","category":49,"sprite":"dynamax-crystal-tau1373.png"}
+{"id":1389,"name":"★Tau1412","category":49,"sprite":"dynamax-crystal-tau1412.png"}
+{"id":1390,"name":"★CMa2491","category":49,"sprite":"dynamax-crystal-cma2491.png"}
+{"id":1391,"name":"★CMa2693","category":49,"sprite":"dynamax-crystal-cma2693.png"}
+{"id":1392,"name":"★CMa2294","category":49,"sprite":"dynamax-crystal-cma2294.png"}
+{"id":1393,"name":"★CMa2827","category":49,"sprite":"dynamax-crystal-cma2827.png"}
+{"id":1394,"name":"★CMa2282","category":49,"sprite":"dynamax-crystal-cma2282.png"}
+{"id":1395,"name":"★CMa2618","category":49,"sprite":"dynamax-crystal-cma2618.png"}
+{"id":1396,"name":"★CMa2657","category":49,"sprite":"dynamax-crystal-cma2657.png"}
+{"id":1397,"name":"★CMa2646","category":49,"sprite":"dynamax-crystal-cma2646.png"}
+{"id":1398,"name":"★UMa4905","category":49,"sprite":"dynamax-crystal-uma4905.png"}
+{"id":1399,"name":"★UMa4301","category":49,"sprite":"dynamax-crystal-uma4301.png"}
+{"id":1400,"name":"★UMa5191","category":49,"sprite":"dynamax-crystal-uma5191.png"}
+{"id":1401,"name":"★UMa5054","category":49,"sprite":"dynamax-crystal-uma5054.png"}
+{"id":1402,"name":"★UMa4295","category":49,"sprite":"dynamax-crystal-uma4295.png"}
+{"id":1403,"name":"★UMa4660","category":49,"sprite":"dynamax-crystal-uma4660.png"}
+{"id":1404,"name":"★UMa4554","category":49,"sprite":"dynamax-crystal-uma4554.png"}
+{"id":1405,"name":"★UMa4069","category":49,"sprite":"dynamax-crystal-uma4069.png"}
+{"id":1406,"name":"★UMa3569","category":49,"sprite":"dynamax-crystal-uma3569.png"}
+{"id":1407,"name":"★UMa3323","category":49,"sprite":"dynamax-crystal-uma3323.png"}
+{"id":1408,"name":"★UMa4033","category":49,"sprite":"dynamax-crystal-uma4033.png"}
+{"id":1409,"name":"★UMa4377","category":49,"sprite":"dynamax-crystal-uma4377.png"}
+{"id":1410,"name":"★UMa4375","category":49,"sprite":"dynamax-crystal-uma4375.png"}
+{"id":1411,"name":"★UMa4518","category":49,"sprite":"dynamax-crystal-uma4518.png"}
+{"id":1412,"name":"★UMa3594","category":49,"sprite":"dynamax-crystal-uma3594.png"}
+{"id":1413,"name":"★Vir5056","category":49,"sprite":"dynamax-crystal-vir5056.png"}
+{"id":1414,"name":"★Vir4825","category":49,"sprite":"dynamax-crystal-vir4825.png"}
+{"id":1415,"name":"★Vir4932","category":49,"sprite":"dynamax-crystal-vir4932.png"}
+{"id":1416,"name":"★Vir4540","category":49,"sprite":"dynamax-crystal-vir4540.png"}
+{"id":1417,"name":"★Vir4689","category":49,"sprite":"dynamax-crystal-vir4689.png"}
+{"id":1418,"name":"★Vir5338","category":49,"sprite":"dynamax-crystal-vir5338.png"}
+{"id":1419,"name":"★Vir4910","category":49,"sprite":"dynamax-crystal-vir4910.png"}
+{"id":1420,"name":"★Vir5315","category":49,"sprite":"dynamax-crystal-vir5315.png"}
+{"id":1421,"name":"★Vir5359","category":49,"sprite":"dynamax-crystal-vir5359.png"}
+{"id":1422,"name":"★Vir5409","category":49,"sprite":"dynamax-crystal-vir5409.png"}
+{"id":1423,"name":"★Vir5107","category":49,"sprite":"dynamax-crystal-vir5107.png"}
+{"id":1424,"name":"★Ari617","category":49,"sprite":"dynamax-crystal-ari617.png"}
+{"id":1425,"name":"★Ari553","category":49,"sprite":"dynamax-crystal-ari553.png"}
+{"id":1426,"name":"★Ari546","category":49,"sprite":"dynamax-crystal-ari546.png"}
+{"id":1427,"name":"★Ari951","category":49,"sprite":"dynamax-crystal-ari951.png"}
+{"id":1428,"name":"★Ori1713","category":49,"sprite":"dynamax-crystal-ori1713.png"}
+{"id":1429,"name":"★Ori2061","category":49,"sprite":"dynamax-crystal-ori2061.png"}
+{"id":1430,"name":"★Ori1790","category":49,"sprite":"dynamax-crystal-ori1790.png"}
+{"id":1431,"name":"★Ori1903","category":49,"sprite":"dynamax-crystal-ori1903.png"}
+{"id":1432,"name":"★Ori1948","category":49,"sprite":"dynamax-crystal-ori1948.png"}
+{"id":1433,"name":"★Ori2004","category":49,"sprite":"dynamax-crystal-ori2004.png"}
+{"id":1434,"name":"★Ori1852","category":49,"sprite":"dynamax-crystal-ori1852.png"}
+{"id":1435,"name":"★Ori1879","category":49,"sprite":"dynamax-crystal-ori1879.png"}
+{"id":1436,"name":"★Ori1899","category":49,"sprite":"dynamax-crystal-ori1899.png"}
+{"id":1437,"name":"★Ori1543","category":49,"sprite":"dynamax-crystal-ori1543.png"}
+{"id":1438,"name":"★Cas21","category":49,"sprite":"dynamax-crystal-cas21.png"}
+{"id":1439,"name":"★Cas168","category":49,"sprite":"dynamax-crystal-cas168.png"}
+{"id":1440,"name":"★Cas403","category":49,"sprite":"dynamax-crystal-cas403.png"}
+{"id":1441,"name":"★Cas153","category":49,"sprite":"dynamax-crystal-cas153.png"}
+{"id":1442,"name":"★Cas542","category":49,"sprite":"dynamax-crystal-cas542.png"}
+{"id":1443,"name":"★Cas219","category":49,"sprite":"dynamax-crystal-cas219.png"}
+{"id":1444,"name":"★Cas265","category":49,"sprite":"dynamax-crystal-cas265.png"}
+{"id":1445,"name":"★Cnc3572","category":49,"sprite":"dynamax-crystal-cnc3572.png"}
+{"id":1446,"name":"★Cnc3208","category":49,"sprite":"dynamax-crystal-cnc3208.png"}
+{"id":1447,"name":"★Cnc3461","category":49,"sprite":"dynamax-crystal-cnc3461.png"}
+{"id":1448,"name":"★Cnc3449","category":49,"sprite":"dynamax-crystal-cnc3449.png"}
+{"id":1449,"name":"★Cnc3429","category":49,"sprite":"dynamax-crystal-cnc3429.png"}
+{"id":1450,"name":"★Cnc3627","category":49,"sprite":"dynamax-crystal-cnc3627.png"}
+{"id":1451,"name":"★Cnc3268","category":49,"sprite":"dynamax-crystal-cnc3268.png"}
+{"id":1452,"name":"★Cnc3249","category":49,"sprite":"dynamax-crystal-cnc3249.png"}
+{"id":1453,"name":"★Com4968","category":49,"sprite":"dynamax-crystal-com4968.png"}
+{"id":1454,"name":"★Crv4757","category":49,"sprite":"dynamax-crystal-crv4757.png"}
+{"id":1455,"name":"★Crv4623","category":49,"sprite":"dynamax-crystal-crv4623.png"}
+{"id":1456,"name":"★Crv4662","category":49,"sprite":"dynamax-crystal-crv4662.png"}
+{"id":1457,"name":"★Crv4786","category":49,"sprite":"dynamax-crystal-crv4786.png"}
+{"id":1458,"name":"★Aur1708","category":49,"sprite":"dynamax-crystal-aur1708.png"}
+{"id":1459,"name":"★Aur2088","category":49,"sprite":"dynamax-crystal-aur2088.png"}
+{"id":1460,"name":"★Aur1605","category":49,"sprite":"dynamax-crystal-aur1605.png"}
+{"id":1461,"name":"★Aur2095","category":49,"sprite":"dynamax-crystal-aur2095.png"}
+{"id":1462,"name":"★Aur1577","category":49,"sprite":"dynamax-crystal-aur1577.png"}
+{"id":1463,"name":"★Aur1641","category":49,"sprite":"dynamax-crystal-aur1641.png"}
+{"id":1464,"name":"★Aur1612","category":49,"sprite":"dynamax-crystal-aur1612.png"}
+{"id":1465,"name":"★Pav7790","category":49,"sprite":"dynamax-crystal-pav7790.png"}
+{"id":1466,"name":"★Cet911","category":49,"sprite":"dynamax-crystal-cet911.png"}
+{"id":1467,"name":"★Cet681","category":49,"sprite":"dynamax-crystal-cet681.png"}
+{"id":1468,"name":"★Cet188","category":49,"sprite":"dynamax-crystal-cet188.png"}
+{"id":1469,"name":"★Cet539","category":49,"sprite":"dynamax-crystal-cet539.png"}
+{"id":1470,"name":"★Cet804","category":49,"sprite":"dynamax-crystal-cet804.png"}
+{"id":1471,"name":"★Cep8974","category":49,"sprite":"dynamax-crystal-cep8974.png"}
+{"id":1472,"name":"★Cep8162","category":49,"sprite":"dynamax-crystal-cep8162.png"}
+{"id":1473,"name":"★Cep8238","category":49,"sprite":"dynamax-crystal-cep8238.png"}
+{"id":1474,"name":"★Cep8417","category":49,"sprite":"dynamax-crystal-cep8417.png"}
+{"id":1475,"name":"★Cen5267","category":49,"sprite":"dynamax-crystal-cen5267.png"}
+{"id":1476,"name":"★Cen5288","category":49,"sprite":"dynamax-crystal-cen5288.png"}
+{"id":1477,"name":"★Cen551","category":49,"sprite":"dynamax-crystal-cen551.png"}
+{"id":1478,"name":"★Cen5459","category":49,"sprite":"dynamax-crystal-cen5459.png"}
+{"id":1479,"name":"★Cen5460","category":49,"sprite":"dynamax-crystal-cen5460.png"}
+{"id":1480,"name":"★CMi2943","category":49,"sprite":"dynamax-crystal-cmi2943.png"}
+{"id":1481,"name":"★CMi2845","category":49,"sprite":"dynamax-crystal-cmi2845.png"}
+{"id":1482,"name":"★Equ8131","category":49,"sprite":"dynamax-crystal-equ8131.png"}
+{"id":1483,"name":"★Vul7405","category":49,"sprite":"dynamax-crystal-vul7405.png"}
+{"id":1484,"name":"★UMi424","category":49,"sprite":"dynamax-crystal-umi424.png"}
+{"id":1485,"name":"★UMi5563","category":49,"sprite":"dynamax-crystal-umi5563.png"}
+{"id":1486,"name":"★UMi5735","category":49,"sprite":"dynamax-crystal-umi5735.png"}
+{"id":1487,"name":"★UMi6789","category":49,"sprite":"dynamax-crystal-umi6789.png"}
+{"id":1488,"name":"★Crt4287","category":49,"sprite":"dynamax-crystal-crt4287.png"}
+{"id":1489,"name":"★Lyr7001","category":49,"sprite":"dynamax-crystal-lyr7001.png"}
+{"id":1490,"name":"★Lyr7178","category":49,"sprite":"dynamax-crystal-lyr7178.png"}
+{"id":1491,"name":"★Lyr7106","category":49,"sprite":"dynamax-crystal-lyr7106.png"}
+{"id":1492,"name":"★Lyr7298","category":49,"sprite":"dynamax-crystal-lyr7298.png"}
+{"id":1493,"name":"★Ara6585","category":49,"sprite":"dynamax-crystal-ara6585.png"}
+{"id":1494,"name":"★Sco6134","category":49,"sprite":"dynamax-crystal-sco6134.png"}
+{"id":1495,"name":"★Sco6527","category":49,"sprite":"dynamax-crystal-sco6527.png"}
+{"id":1496,"name":"★Sco6553","category":49,"sprite":"dynamax-crystal-sco6553.png"}
+{"id":1497,"name":"★Sco5953","category":49,"sprite":"dynamax-crystal-sco5953.png"}
+{"id":1498,"name":"★Sco5984","category":49,"sprite":"dynamax-crystal-sco5984.png"}
+{"id":1499,"name":"★Sco6508","category":49,"sprite":"dynamax-crystal-sco6508.png"}
+{"id":1500,"name":"★Sco6084","category":49,"sprite":"dynamax-crystal-sco6084.png"}
+{"id":1501,"name":"★Sco5944","category":49,"sprite":"dynamax-crystal-sco5944.png"}
+{"id":1502,"name":"★Sco6630","category":49,"sprite":"dynamax-crystal-sco6630.png"}
+{"id":1503,"name":"★Sco6027","category":49,"sprite":"dynamax-crystal-sco6027.png"}
+{"id":1504,"name":"★Sco6247","category":49,"sprite":"dynamax-crystal-sco6247.png"}
+{"id":1505,"name":"★Sco6252","category":49,"sprite":"dynamax-crystal-sco6252.png"}
+{"id":1506,"name":"★Sco5928","category":49,"sprite":"dynamax-crystal-sco5928.png"}
+{"id":1507,"name":"★Sco6241","category":49,"sprite":"dynamax-crystal-sco6241.png"}
+{"id":1508,"name":"★Sco6165","category":49,"sprite":"dynamax-crystal-sco6165.png"}
+{"id":1509,"name":"★Tri544","category":49,"sprite":"dynamax-crystal-tri544.png"}
+{"id":1510,"name":"★Leo3982","category":49,"sprite":"dynamax-crystal-leo3982.png"}
+{"id":1511,"name":"★Leo4534","category":49,"sprite":"dynamax-crystal-leo4534.png"}
+{"id":1512,"name":"★Leo4357","category":49,"sprite":"dynamax-crystal-leo4357.png"}
+{"id":1513,"name":"★Leo4057","category":49,"sprite":"dynamax-crystal-leo4057.png"}
+{"id":1514,"name":"★Leo4359","category":49,"sprite":"dynamax-crystal-leo4359.png"}
+{"id":1515,"name":"★Leo4031","category":49,"sprite":"dynamax-crystal-leo4031.png"}
+{"id":1516,"name":"★Leo3852","category":49,"sprite":"dynamax-crystal-leo3852.png"}
+{"id":1517,"name":"★Leo3905","category":49,"sprite":"dynamax-crystal-leo3905.png"}
+{"id":1518,"name":"★Leo3773","category":49,"sprite":"dynamax-crystal-leo3773.png"}
+{"id":1519,"name":"★Gru8425","category":49,"sprite":"dynamax-crystal-gru8425.png"}
+{"id":1520,"name":"★Gru8636","category":49,"sprite":"dynamax-crystal-gru8636.png"}
+{"id":1521,"name":"★Gru8353","category":49,"sprite":"dynamax-crystal-gru8353.png"}
+{"id":1522,"name":"★Lib5685","category":49,"sprite":"dynamax-crystal-lib5685.png"}
+{"id":1523,"name":"★Lib5531","category":49,"sprite":"dynamax-crystal-lib5531.png"}
+{"id":1524,"name":"★Lib5787","category":49,"sprite":"dynamax-crystal-lib5787.png"}
+{"id":1525,"name":"★Lib5603","category":49,"sprite":"dynamax-crystal-lib5603.png"}
+{"id":1526,"name":"★Pup3165","category":49,"sprite":"dynamax-crystal-pup3165.png"}
+{"id":1527,"name":"★Pup3185","category":49,"sprite":"dynamax-crystal-pup3185.png"}
+{"id":1528,"name":"★Pup3045","category":49,"sprite":"dynamax-crystal-pup3045.png"}
+{"id":1529,"name":"★Cyg7924","category":49,"sprite":"dynamax-crystal-cyg7924.png"}
+{"id":1530,"name":"★Cyg7417","category":49,"sprite":"dynamax-crystal-cyg7417.png"}
+{"id":1531,"name":"★Cyg7796","category":49,"sprite":"dynamax-crystal-cyg7796.png"}
+{"id":1532,"name":"★Cyg8301","category":49,"sprite":"dynamax-crystal-cyg8301.png"}
+{"id":1533,"name":"★Cyg7949","category":49,"sprite":"dynamax-crystal-cyg7949.png"}
+{"id":1534,"name":"★Cyg7528","category":49,"sprite":"dynamax-crystal-cyg7528.png"}
+{"id":1535,"name":"★Oct7228","category":49,"sprite":"dynamax-crystal-oct7228.png"}
+{"id":1536,"name":"★Col1956","category":49,"sprite":"dynamax-crystal-col1956.png"}
+{"id":1537,"name":"★Col2040","category":49,"sprite":"dynamax-crystal-col2040.png"}
+{"id":1538,"name":"★Col2177","category":49,"sprite":"dynamax-crystal-col2177.png"}
+{"id":1539,"name":"★Gem2990","category":49,"sprite":"dynamax-crystal-gem2990.png"}
+{"id":1540,"name":"★Gem2891","category":49,"sprite":"dynamax-crystal-gem2891.png"}
+{"id":1541,"name":"★Gem2421","category":49,"sprite":"dynamax-crystal-gem2421.png"}
+{"id":1542,"name":"★Gem2473","category":49,"sprite":"dynamax-crystal-gem2473.png"}
+{"id":1543,"name":"★Gem2216","category":49,"sprite":"dynamax-crystal-gem2216.png"}
+{"id":1544,"name":"★Gem2777","category":49,"sprite":"dynamax-crystal-gem2777.png"}
+{"id":1545,"name":"★Gem2650","category":49,"sprite":"dynamax-crystal-gem2650.png"}
+{"id":1546,"name":"★Gem2286","category":49,"sprite":"dynamax-crystal-gem2286.png"}
+{"id":1547,"name":"★Gem2484","category":49,"sprite":"dynamax-crystal-gem2484.png"}
+{"id":1548,"name":"★Gem2930","category":49,"sprite":"dynamax-crystal-gem2930.png"}
+{"id":1549,"name":"★Peg8775","category":49,"sprite":"dynamax-crystal-peg8775.png"}
+{"id":1550,"name":"★Peg8781","category":49,"sprite":"dynamax-crystal-peg8781.png"}
+{"id":1551,"name":"★Peg39","category":49,"sprite":"dynamax-crystal-peg39.png"}
+{"id":1552,"name":"★Peg8308","category":49,"sprite":"dynamax-crystal-peg8308.png"}
+{"id":1553,"name":"★Peg8650","category":49,"sprite":"dynamax-crystal-peg8650.png"}
+{"id":1554,"name":"★Peg8634","category":49,"sprite":"dynamax-crystal-peg8634.png"}
+{"id":1555,"name":"★Peg8684","category":49,"sprite":"dynamax-crystal-peg8684.png"}
+{"id":1556,"name":"★Peg8450","category":49,"sprite":"dynamax-crystal-peg8450.png"}
+{"id":1557,"name":"★Peg8880","category":49,"sprite":"dynamax-crystal-peg8880.png"}
+{"id":1558,"name":"★Peg8905","category":49,"sprite":"dynamax-crystal-peg8905.png"}
+{"id":1559,"name":"★Oph6556","category":49,"sprite":"dynamax-crystal-oph6556.png"}
+{"id":1560,"name":"★Oph6378","category":49,"sprite":"dynamax-crystal-oph6378.png"}
+{"id":1561,"name":"★Oph6603","category":49,"sprite":"dynamax-crystal-oph6603.png"}
+{"id":1562,"name":"★Oph6149","category":49,"sprite":"dynamax-crystal-oph6149.png"}
+{"id":1563,"name":"★Oph6056","category":49,"sprite":"dynamax-crystal-oph6056.png"}
+{"id":1564,"name":"★Oph6075","category":49,"sprite":"dynamax-crystal-oph6075.png"}
+{"id":1565,"name":"★Ser5854","category":49,"sprite":"dynamax-crystal-ser5854.png"}
+{"id":1566,"name":"★Ser7141","category":49,"sprite":"dynamax-crystal-ser7141.png"}
+{"id":1567,"name":"★Ser5879","category":49,"sprite":"dynamax-crystal-ser5879.png"}
+{"id":1568,"name":"★Her6406","category":49,"sprite":"dynamax-crystal-her6406.png"}
+{"id":1569,"name":"★Her6148","category":49,"sprite":"dynamax-crystal-her6148.png"}
+{"id":1570,"name":"★Her6410","category":49,"sprite":"dynamax-crystal-her6410.png"}
+{"id":1571,"name":"★Her6526","category":49,"sprite":"dynamax-crystal-her6526.png"}
+{"id":1572,"name":"★Her6117","category":49,"sprite":"dynamax-crystal-her6117.png"}
+{"id":1573,"name":"★Her6008","category":49,"sprite":"dynamax-crystal-her6008.png"}
+{"id":1574,"name":"★Per936","category":49,"sprite":"dynamax-crystal-per936.png"}
+{"id":1575,"name":"★Per1017","category":49,"sprite":"dynamax-crystal-per1017.png"}
+{"id":1576,"name":"★Per1131","category":49,"sprite":"dynamax-crystal-per1131.png"}
+{"id":1577,"name":"★Per1228","category":49,"sprite":"dynamax-crystal-per1228.png"}
+{"id":1578,"name":"★Per834","category":49,"sprite":"dynamax-crystal-per834.png"}
+{"id":1579,"name":"★Per941","category":49,"sprite":"dynamax-crystal-per941.png"}
+{"id":1580,"name":"★Phe99","category":49,"sprite":"dynamax-crystal-phe99.png"}
+{"id":1581,"name":"★Phe338","category":49,"sprite":"dynamax-crystal-phe338.png"}
+{"id":1582,"name":"★Vel3634","category":49,"sprite":"dynamax-crystal-vel3634.png"}
+{"id":1583,"name":"★Vel3485","category":49,"sprite":"dynamax-crystal-vel3485.png"}
+{"id":1584,"name":"★Vel3734","category":49,"sprite":"dynamax-crystal-vel3734.png"}
+{"id":1585,"name":"★Aqr8232","category":49,"sprite":"dynamax-crystal-aqr8232.png"}
+{"id":1586,"name":"★Aqr8414","category":49,"sprite":"dynamax-crystal-aqr8414.png"}
+{"id":1587,"name":"★Aqr8709","category":49,"sprite":"dynamax-crystal-aqr8709.png"}
+{"id":1588,"name":"★Aqr8518","category":49,"sprite":"dynamax-crystal-aqr8518.png"}
+{"id":1589,"name":"★Aqr7950","category":49,"sprite":"dynamax-crystal-aqr7950.png"}
+{"id":1590,"name":"★Aqr8499","category":49,"sprite":"dynamax-crystal-aqr8499.png"}
+{"id":1591,"name":"★Aqr8610","category":49,"sprite":"dynamax-crystal-aqr8610.png"}
+{"id":1592,"name":"★Aqr8264","category":49,"sprite":"dynamax-crystal-aqr8264.png"}
+{"id":1593,"name":"★Cru4853","category":49,"sprite":"dynamax-crystal-cru4853.png"}
+{"id":1594,"name":"★Cru4730","category":49,"sprite":"dynamax-crystal-cru4730.png"}
+{"id":1595,"name":"★Cru4763","category":49,"sprite":"dynamax-crystal-cru4763.png"}
+{"id":1596,"name":"★Cru4700","category":49,"sprite":"dynamax-crystal-cru4700.png"}
+{"id":1597,"name":"★Cru4656","category":49,"sprite":"dynamax-crystal-cru4656.png"}
+{"id":1598,"name":"★PsA8728","category":49,"sprite":"dynamax-crystal-psa8728.png"}
+{"id":1599,"name":"★TrA6217","category":49,"sprite":"dynamax-crystal-tra6217.png"}
+{"id":1600,"name":"★Cap7776","category":49,"sprite":"dynamax-crystal-cap7776.png"}
+{"id":1601,"name":"★Cap7754","category":49,"sprite":"dynamax-crystal-cap7754.png"}
+{"id":1602,"name":"★Cap8278","category":49,"sprite":"dynamax-crystal-cap8278.png"}
+{"id":1603,"name":"★Cap8322","category":49,"sprite":"dynamax-crystal-cap8322.png"}
+{"id":1604,"name":"★Cap7773","category":49,"sprite":"dynamax-crystal-cap7773.png"}
+{"id":1605,"name":"★Sge7479","category":49,"sprite":"dynamax-crystal-sge7479.png"}
+{"id":1606,"name":"★Car2326","category":49,"sprite":"dynamax-crystal-car2326.png"}
+{"id":1607,"name":"★Car3685","category":49,"sprite":"dynamax-crystal-car3685.png"}
+{"id":1608,"name":"★Car3307","category":49,"sprite":"dynamax-crystal-car3307.png"}
+{"id":1609,"name":"★Car3699","category":49,"sprite":"dynamax-crystal-car3699.png"}
+{"id":1610,"name":"★Dra5744","category":49,"sprite":"dynamax-crystal-dra5744.png"}
+{"id":1611,"name":"★Dra5291","category":49,"sprite":"dynamax-crystal-dra5291.png"}
+{"id":1612,"name":"★Dra6705","category":49,"sprite":"dynamax-crystal-dra6705.png"}
+{"id":1613,"name":"★Dra6536","category":49,"sprite":"dynamax-crystal-dra6536.png"}
+{"id":1614,"name":"★Dra7310","category":49,"sprite":"dynamax-crystal-dra7310.png"}
+{"id":1615,"name":"★Dra6688","category":49,"sprite":"dynamax-crystal-dra6688.png"}
+{"id":1616,"name":"★Dra4434","category":49,"sprite":"dynamax-crystal-dra4434.png"}
+{"id":1617,"name":"★Dra6370","category":49,"sprite":"dynamax-crystal-dra6370.png"}
+{"id":1618,"name":"★Dra7462","category":49,"sprite":"dynamax-crystal-dra7462.png"}
+{"id":1619,"name":"★Dra6396","category":49,"sprite":"dynamax-crystal-dra6396.png"}
+{"id":1620,"name":"★Dra6132","category":49,"sprite":"dynamax-crystal-dra6132.png"}
+{"id":1621,"name":"★Dra6636","category":49,"sprite":"dynamax-crystal-dra6636.png"}
+{"id":1622,"name":"★CVn4915","category":49,"sprite":"dynamax-crystal-cvn4915.png"}
+{"id":1623,"name":"★CVn4785","category":49,"sprite":"dynamax-crystal-cvn4785.png"}
+{"id":1624,"name":"★CVn4846","category":49,"sprite":"dynamax-crystal-cvn4846.png"}
+{"id":1625,"name":"★Aql7595","category":49,"sprite":"dynamax-crystal-aql7595.png"}
+{"id":1626,"name":"★Aql7557","category":49,"sprite":"dynamax-crystal-aql7557.png"}
+{"id":1627,"name":"★Aql7525","category":49,"sprite":"dynamax-crystal-aql7525.png"}
+{"id":1628,"name":"★Aql7602","category":49,"sprite":"dynamax-crystal-aql7602.png"}
+{"id":1629,"name":"★Aql7235","category":49,"sprite":"dynamax-crystal-aql7235.png"}
+{"id":1630,"name":"Max Honey","category":29,"fling_p":30,"sprite":"max-honey.png"}
+{"id":1631,"name":"Max Mushrooms","category":1,"fling_p":30,"sprite":"max-mushrooms.png"}
+{"id":1632,"name":"Galarica Twig","category":9,"fling_p":30,"sprite":"galarica-twig.png"}
+{"id":1633,"name":"Galarica Cuff","category":9,"fling_p":30,"sprite":"galarica-cuff.png"}
+{"id":1634,"name":"Style Card","category":21,"sprite":"style-card.png"}
+{"id":1635,"name":"Armor Pass","category":22,"sprite":"armor-pass.png"}
+{"id":1636,"name":"Rotom Bike","category":23,"sprite":"rotom-bike--sparkling-white.png"}
+{"id":1637,"name":"Rotom Bike","category":23,"sprite":"rotom-bike--glistening-black.png"}
+{"id":1638,"name":"Exp. Charm","category":21,"sprite":"exp-charm.png"}
+{"id":1639,"name":"Armorite Ore","category":9,"fling_p":30,"sprite":"armorite-ore.png"}
+{"id":1640,"name":"Mark Charm","category":21,"sprite":"mark-charm.png"}
+{"id":1641,"name":"Reins of Unity","category":23,"sprite":"reins-of-unity--merge.png"}
+{"id":1642,"name":"Reins of Unity","category":23,"sprite":"reins-of-unity--split.png"}
+{"id":1643,"name":"Galarica Wreath","category":9,"fling_p":30,"sprite":"galarica-wreath.png"}
+{"id":1644,"name":"Legendary Clue 1","category":22,"sprite":"legendary-clue-1.png"}
+{"id":1645,"name":"Legendary Clue 2","category":22,"sprite":"legendary-clue-2.png"}
+{"id":1646,"name":"Legendary Clue 3","category":22,"sprite":"legendary-clue-3.png"}
+{"id":1647,"name":"Legendary Clue?","category":22,"sprite":"legendary-clue-question.png"}
+{"id":1648,"name":"Crown Pass","category":22,"sprite":"crown-pass.png"}
+{"id":1649,"name":"Wooden Crown","category":22,"sprite":"wooden-crown.png"}
+{"id":1650,"name":"Radiant Petal","category":22,"sprite":"radiant-petal.png"}
+{"id":1651,"name":"White Mane Hair","category":22,"sprite":"white-mane-hair.png"}
+{"id":1652,"name":"Black Mane Hair","category":22,"sprite":"black-mane-hair.png"}
+{"id":1653,"name":"Iceroot Carrot","category":22,"sprite":"iceroot-carrot.png"}
+{"id":1654,"name":"Shaderoot Carrot","category":22,"sprite":"shaderoot-carrot.png"}
+{"id":1655,"name":"Dynite Ore","category":9,"fling_p":30,"sprite":"dynite-ore.png"}
+{"id":1656,"name":"Carrot Seeds","category":22,"sprite":"carrot-seeds.png"}
+{"id":1657,"name":"Ability Patch","category":26,"sprite":"ability-patch.png"}
+{"id":1658,"name":"Reins of Unity","category":22,"sprite":"reins-of-unity.png"}
+{"id":1659,"name":"Adamant Crystal","category":21,"sprite":"adamant-crystal.png"}
+{"id":1660,"name":"Lustrous Globe","category":21,"sprite":"lustrous-globe.png"}
+{"id":1661,"name":"Griseous Core","category":21,"sprite":"griseous-core.png"}
+{"id":1662,"name":"Blank Plate","category":17,"sprite":"blank-plate.png"}
+{"id":1663,"name":"Strange Ball","category":20,"sprite":"strange-ball.png"}
+{"id":1664,"name":"Legend Plate","category":17,"sprite":"legend-plate.png"}
+{"id":1665,"name":"Rotom Phone","category":20,"sprite":"rotom-phone.png"}
+{"id":1666,"name":"Sandwich","category":20,"sprite":"sandwich.png"}
+{"id":1667,"name":"Koraidon’s Poké Ball","category":20,"sprite":"koraidons-poke-ball.png"}
+{"id":1668,"name":"Miraidon’s Poké Ball","category":20,"sprite":"miraidons-poke-ball.png"}
+{"id":1669,"name":"Tera Orb","category":20,"sprite":"tera-orb.png"}
+{"id":1670,"name":"Scarlet Book","category":20,"sprite":"scarlet-book.png"}
+{"id":1671,"name":"Violet Book","category":20,"sprite":"violet-book.png"}
+{"id":1672,"name":"Kofu’s Wallet","category":22,"sprite":"kofus-wallet.png"}
+{"id":1673,"name":"Tiny Bamboo Shoot","category":24,"sprite":"tiny-bamboo-shoot.png"}
+{"id":1674,"name":"Big Bamboo Shoot","category":24,"sprite":"big-bamboo-shoot.png"}
+{"id":1675,"name":"Scroll of Darkness","category":21,"sprite":"scroll-of-darkness.png"}
+{"id":1676,"name":"Scroll of Waters","category":21,"sprite":"scroll-of-waters.png"}
+{"id":1677,"name":"Malicious Armor","category":10,"sprite":"malicious-armor.png"}
+{"id":1678,"name":"Normal Tera Shard","category":52,"sprite":"normal-tera-shard.png"}
+{"id":1679,"name":"Fire Tera Shard","category":52,"sprite":"fire-tera-shard.png"}
+{"id":1680,"name":"Water Tera Shard","category":52,"sprite":"water-tera-shard.png"}
+{"id":1681,"name":"Electric Tera Shard","category":52,"sprite":"electric-tera-shard.png"}
+{"id":1682,"name":"Grass Tera Shard","category":52,"sprite":"grass-tera-shard.png"}
+{"id":1683,"name":"Ice Tera Shard","category":52,"sprite":"ice-tera-shard.png"}
+{"id":1684,"name":"Fighting Tera Shard","category":52,"sprite":"fighting-tera-shard.png"}
+{"id":1685,"name":"Poison Tera Shard","category":52,"sprite":"poison-tera-shard.png"}
+{"id":1686,"name":"Ground Tera Shard","category":52,"sprite":"ground-tera-shard.png"}
+{"id":1687,"name":"Flying Tera Shard","category":52,"sprite":"flying-tera-shard.png"}
+{"id":1688,"name":"Psychic Tera Shard","category":52,"sprite":"psychic-tera-shard.png"}
+{"id":1689,"name":"Bug Tera Shard","category":52,"sprite":"bug-tera-shard.png"}
+{"id":1690,"name":"Rock Tera Shard","category":52,"sprite":"rock-tera-shard.png"}
+{"id":1691,"name":"Ghost Tera Shard","category":52,"sprite":"ghost-tera-shard.png"}
+{"id":1692,"name":"Dragon Tera Shard","category":52,"sprite":"dragon-tera-shard.png"}
+{"id":1693,"name":"Dark Tera Shard","category":52,"sprite":"dark-tera-shard.png"}
+{"id":1694,"name":"Steel Tera Shard","category":52,"sprite":"steel-tera-shard.png"}
+{"id":1695,"name":"Fairy Tera Shard","category":52,"sprite":"fairy-tera-shard.png"}
+{"id":1696,"name":"Booster Energy","category":12,"sprite":"booster-energy.png"}
+{"id":1697,"name":"Ability Shield","category":12,"sprite":"ability-shield.png"}
+{"id":1698,"name":"Clear Amulet","category":12,"sprite":"clear-amulet.png"}
+{"id":1699,"name":"Mirror Herb","category":12,"sprite":"mirror-herb.png"}
+{"id":1700,"name":"Punching Glove","category":12,"sprite":"punching-glove.png"}
+{"id":1701,"name":"Covert Cloak","category":12,"sprite":"covert-cloak.png"}
+{"id":1702,"name":"Loaded Dice","category":12,"sprite":"loaded-dice.png"}
+{"id":1703,"name":"Baguette","category":53,"sprite":"baguette.png"}
+{"id":1704,"name":"Mayonnaise","category":53,"sprite":"mayonnaise.png"}
+{"id":1705,"name":"Ketchup","category":53,"sprite":"ketchup.png"}
+{"id":1706,"name":"Mustard","category":53,"sprite":"mustard.png"}
+{"id":1707,"name":"Butter","category":53,"sprite":"butter.png"}
+{"id":1708,"name":"Peanut Butter","category":53,"sprite":"peanut-butter.png"}
+{"id":1709,"name":"Chili Sauce","category":53,"sprite":"chili-sauce.png"}
+{"id":1710,"name":"Salt","category":53,"sprite":"salt.png"}
+{"id":1711,"name":"Pepper","category":53,"sprite":"pepper.png"}
+{"id":1712,"name":"Yogurt","category":53,"sprite":"yogurt.png"}
+{"id":1713,"name":"Whipped Cream","category":53,"sprite":"whipped-cream.png"}
+{"id":1714,"name":"Cream Cheese","category":53,"sprite":"cream-cheese.png"}
+{"id":1715,"name":"Jam","category":53,"sprite":"jam.png"}
+{"id":1716,"name":"Marmalade","category":53,"sprite":"marmalade.png"}
+{"id":1717,"name":"Olive Oil","category":53,"sprite":"olive-oil.png"}
+{"id":1718,"name":"Vinegar","category":53,"sprite":"vinegar.png"}
+{"id":1719,"name":"Sweet Herba Mystica","category":53,"sprite":"sweet-herba-mystica.png"}
+{"id":1720,"name":"Salty Herba Mystica","category":53,"sprite":"salty-herba-mystica.png"}
+{"id":1721,"name":"Sour Herba Mystica","category":53,"sprite":"sour-herba-mystica.png"}
+{"id":1722,"name":"Bitter Herba Mystica","category":53,"sprite":"bitter-herba-mystica.png"}
+{"id":1723,"name":"Spicy Herba Mystica","category":53,"sprite":"spicy-herba-mystica.png"}
+{"id":1724,"name":"Lettuce","category":53,"sprite":"lettuce.png"}
+{"id":1725,"name":"Tomato","category":53,"sprite":"tomato.png"}
+{"id":1726,"name":"Cherry Tomatoes","category":53,"sprite":"cherry-tomatoes.png"}
+{"id":1727,"name":"Cucumber","category":53,"sprite":"cucumber.png"}
+{"id":1728,"name":"Pickle","category":53,"sprite":"pickle.png"}
+{"id":1729,"name":"Onion","category":53,"sprite":"onion.png"}
+{"id":1730,"name":"Red Onion","category":53,"sprite":"red-onion.png"}
+{"id":1731,"name":"Green Bell Pepper","category":53,"sprite":"green-bell-pepper.png"}
+{"id":1732,"name":"Red Bell Pepper","category":53,"sprite":"red-bell-pepper.png"}
+{"id":1733,"name":"Yellow Bell Pepper","category":53,"sprite":"yellow-bell-pepper.png"}
+{"id":1734,"name":"Avocado","category":53,"sprite":"avocado.png"}
+{"id":1735,"name":"Bacon","category":53,"sprite":"bacon.png"}
+{"id":1736,"name":"Ham","category":53,"sprite":"ham.png"}
+{"id":1737,"name":"Prosciutto","category":53,"sprite":"prosciutto.png"}
+{"id":1738,"name":"Chorizo","category":53,"sprite":"chorizo.png"}
+{"id":1739,"name":"Herbed Sausage","category":53,"sprite":"herbed-sausage.png"}
+{"id":1740,"name":"Hamburger","category":53,"sprite":"hamburger.png"}
+{"id":1741,"name":"Klawf Stick","category":53,"sprite":"klawf-stick.png"}
+{"id":1742,"name":"Smoked Fillet","category":53,"sprite":"smoked-fillet.png"}
+{"id":1743,"name":"Fried Fillet","category":53,"sprite":"fried-fillet.png"}
+{"id":1744,"name":"Egg","category":53,"sprite":"egg.png"}
+{"id":1745,"name":"Potato Tortilla","category":53,"sprite":"potato-tortilla.png"}
+{"id":1746,"name":"Tofu","category":53,"sprite":"tofu.png"}
+{"id":1747,"name":"Rice","category":53,"sprite":"rice.png"}
+{"id":1748,"name":"Noodles","category":53,"sprite":"noodles.png"}
+{"id":1749,"name":"Potato Salad","category":53,"sprite":"potato-salad.png"}
+{"id":1750,"name":"Cheese","category":53,"sprite":"cheese.png"}
+{"id":1751,"name":"Banana","category":53,"sprite":"banana.png"}
+{"id":1752,"name":"Strawberry","category":53,"sprite":"strawberry.png"}
+{"id":1753,"name":"Apple","category":53,"sprite":"apple.png"}
+{"id":1754,"name":"Kiwi","category":53,"sprite":"kiwi.png"}
+{"id":1755,"name":"Pineapple","category":53,"sprite":"pineapple.png"}
+{"id":1756,"name":"Jalapeño","category":53,"sprite":"jalapeno.png"}
+{"id":1757,"name":"Horseradish","category":53,"sprite":"horseradish.png"}
+{"id":1758,"name":"Curry Powder","category":53,"sprite":"curry-powder.png"}
+{"id":1759,"name":"Wasabi","category":53,"sprite":"wasabi.png"}
+{"id":1760,"name":"Watercress","category":53,"sprite":"watercress.png"}
+{"id":1761,"name":"Basil","category":53,"sprite":"basil.png"}
+{"id":1762,"name":"Venonat Fang","category":54,"sprite":"venonat-fang.png"}
+{"id":1763,"name":"Diglett Dirt","category":54,"sprite":"diglett-dirt.png"}
+{"id":1764,"name":"Meowth Fur","category":54,"sprite":"meowth-fur.png"}
+{"id":1765,"name":"Psyduck Down","category":54,"sprite":"psyduck-down.png"}
+{"id":1766,"name":"Mankey Fur","category":54,"sprite":"mankey-fur.png"}
+{"id":1767,"name":"Growlithe Fur","category":54,"sprite":"growlithe-fur.png"}
+{"id":1768,"name":"Slowpoke Claw","category":54,"sprite":"slowpoke-claw.png"}
+{"id":1769,"name":"Magnemite Screw","category":54,"sprite":"magnemite-screw.png"}
+{"id":1770,"name":"Grimer Toxin","category":54,"sprite":"grimer-toxin.png"}
+{"id":1771,"name":"Shellder Pearl","category":54,"sprite":"shellder-pearl.png"}
+{"id":1772,"name":"Gastly Gas","category":54,"sprite":"gastly-gas.png"}
+{"id":1773,"name":"Drowzee Fur","category":54,"sprite":"drowzee-fur.png"}
+{"id":1774,"name":"Voltorb Sparks","category":54,"sprite":"voltorb-sparks.png"}
+{"id":1775,"name":"Scyther Claw","category":54,"sprite":"scyther-claw.png"}
+{"id":1776,"name":"Tauros Hair","category":54,"sprite":"tauros-hair.png"}
+{"id":1777,"name":"Magikarp Scales","category":54,"sprite":"magikarp-scales.png"}
+{"id":1778,"name":"Ditto Goo","category":54,"sprite":"ditto-goo.png"}
+{"id":1779,"name":"Eevee Fur","category":54,"sprite":"eevee-fur.png"}
+{"id":1780,"name":"Dratini Scales","category":54,"sprite":"dratini-scales.png"}
+{"id":1781,"name":"Pichu Fur","category":54,"sprite":"pichu-fur.png"}
+{"id":1782,"name":"Igglybuff Fluff","category":54,"sprite":"igglybuff-fluff.png"}
+{"id":1783,"name":"Mareep Wool","category":54,"sprite":"mareep-wool.png"}
+{"id":1784,"name":"Hoppip Leaf","category":54,"sprite":"hoppip-leaf.png"}
+{"id":1785,"name":"Sunkern Leaf","category":54,"sprite":"sunkern-leaf.png"}
+{"id":1786,"name":"Murkrow Bauble","category":54,"sprite":"murkrow-bauble.png"}
+{"id":1787,"name":"Misdreavus Tears","category":54,"sprite":"misdreavus-tears.png"}
+{"id":1788,"name":"Girafarig Fur","category":54,"sprite":"girafarig-fur.png"}
+{"id":1789,"name":"Pineco Husk","category":54,"sprite":"pineco-husk.png"}
+{"id":1790,"name":"Dunsparce Scales","category":54,"sprite":"dunsparce-scales.png"}
+{"id":1791,"name":"Qwilfish Spines","category":54,"sprite":"qwilfish-spines.png"}
+{"id":1792,"name":"Heracross Claw","category":54,"sprite":"heracross-claw.png"}
+{"id":1793,"name":"Sneasel Claw","category":54,"sprite":"sneasel-claw.png"}
+{"id":1794,"name":"Teddiursa Claw","category":54,"sprite":"teddiursa-claw.png"}
+{"id":1795,"name":"Delibird Parcel","category":54,"sprite":"delibird-parcel.png"}
+{"id":1796,"name":"Houndour Fang","category":54,"sprite":"houndour-fang.png"}
+{"id":1797,"name":"Phanpy Nail","category":54,"sprite":"phanpy-nail.png"}
+{"id":1798,"name":"Stantler Hair","category":54,"sprite":"stantler-hair.png"}
+{"id":1799,"name":"Larvitar Claw","category":54,"sprite":"larvitar-claw.png"}
+{"id":1800,"name":"Wingull Feather","category":54,"sprite":"wingull-feather.png"}
+{"id":1801,"name":"Ralts Dust","category":54,"sprite":"ralts-dust.png"}
+{"id":1802,"name":"Surskit Syrup","category":54,"sprite":"surskit-syrup.png"}
+{"id":1803,"name":"Shroomish Spores","category":54,"sprite":"shroomish-spores.png"}
+{"id":1804,"name":"Slakoth Fur","category":54,"sprite":"slakoth-fur.png"}
+{"id":1805,"name":"Makuhita Sweat","category":54,"sprite":"makuhita-sweat.png"}
+{"id":1806,"name":"Azurill Fur","category":54,"sprite":"azurill-fur.png"}
+{"id":1807,"name":"Sableye Gem","category":54,"sprite":"sableye-gem.png"}
+{"id":1808,"name":"Meditite Sweat","category":54,"sprite":"meditite-sweat.png"}
+{"id":1809,"name":"Gulpin Mucus","category":54,"sprite":"gulpin-mucus.png"}
+{"id":1810,"name":"Numel Lava","category":54,"sprite":"numel-lava.png"}
+{"id":1811,"name":"Torkoal Coal","category":54,"sprite":"torkoal-coal.png"}
+{"id":1812,"name":"Spoink Pearl","category":54,"sprite":"spoink-pearl.png"}
+{"id":1813,"name":"Cacnea Needle","category":54,"sprite":"cacnea-needle.png"}
+{"id":1814,"name":"Swablu Fluff","category":54,"sprite":"swablu-fluff.png"}
+{"id":1815,"name":"Zangoose Claw","category":54,"sprite":"zangoose-claw.png"}
+{"id":1816,"name":"Seviper Fang","category":54,"sprite":"seviper-fang.png"}
+{"id":1817,"name":"Barboach Slime","category":54,"sprite":"barboach-slime.png"}
+{"id":1818,"name":"Shuppet Scrap","category":54,"sprite":"shuppet-scrap.png"}
+{"id":1819,"name":"Tropius Leaf","category":54,"sprite":"tropius-leaf.png"}
+{"id":1820,"name":"Snorunt Fur","category":54,"sprite":"snorunt-fur.png"}
+{"id":1821,"name":"Luvdisc Scales","category":54,"sprite":"luvdisc-scales.png"}
+{"id":1822,"name":"Bagon Scales","category":54,"sprite":"bagon-scales.png"}
+{"id":1823,"name":"Starly Feather","category":54,"sprite":"starly-feather.png"}
+{"id":1824,"name":"Kricketot Shell","category":54,"sprite":"kricketot-shell.png"}
+{"id":1825,"name":"Shinx Fang","category":54,"sprite":"shinx-fang.png"}
+{"id":1826,"name":"Combee Honey","category":54,"sprite":"combee-honey.png"}
+{"id":1827,"name":"Pachirisu Fur","category":54,"sprite":"pachirisu-fur.png"}
+{"id":1828,"name":"Buizel Fur","category":54,"sprite":"buizel-fur.png"}
+{"id":1829,"name":"Shellos Mucus","category":54,"sprite":"shellos-mucus.png"}
+{"id":1830,"name":"Drifloon Gas","category":54,"sprite":"drifloon-gas.png"}
+{"id":1831,"name":"Stunky Fur","category":54,"sprite":"stunky-fur.png"}
+{"id":1832,"name":"Bronzor Fragment","category":54,"sprite":"bronzor-fragment.png"}
+{"id":1833,"name":"Bonsly Tears","category":54,"sprite":"bonsly-tears.png"}
+{"id":1834,"name":"Happiny Dust","category":54,"sprite":"happiny-dust.png"}
+{"id":1835,"name":"Spiritomb Fragment","category":54,"sprite":"spiritomb-fragment.png"}
+{"id":1836,"name":"Gible Scales","category":54,"sprite":"gible-scales.png"}
+{"id":1837,"name":"Riolu Fur","category":54,"sprite":"riolu-fur.png"}
+{"id":1838,"name":"Hippopotas Sand","category":54,"sprite":"hippopotas-sand.png"}
+{"id":1839,"name":"Croagunk Poison","category":54,"sprite":"croagunk-poison.png"}
+{"id":1840,"name":"Finneon Scales","category":54,"sprite":"finneon-scales.png"}
+{"id":1841,"name":"Snover Berries","category":54,"sprite":"snover-berries.png"}
+{"id":1842,"name":"Rotom Sparks","category":54,"sprite":"rotom-sparks.png"}
+{"id":1843,"name":"Petilil Leaf","category":54,"sprite":"petilil-leaf.png"}
+{"id":1844,"name":"Basculin Fang","category":54,"sprite":"basculin-fang.png"}
+{"id":1845,"name":"Sandile Claw","category":54,"sprite":"sandile-claw.png"}
+{"id":1846,"name":"Zorua Fur","category":54,"sprite":"zorua-fur.png"}
+{"id":1847,"name":"Gothita Eyelash","category":54,"sprite":"gothita-eyelash.png"}
+{"id":1848,"name":"Deerling Hair","category":54,"sprite":"deerling-hair.png"}
+{"id":1849,"name":"Foongus Spores","category":54,"sprite":"foongus-spores.png"}
+{"id":1850,"name":"Alomomola Mucus","category":54,"sprite":"alomomola-mucus.png"}
+{"id":1851,"name":"Tynamo Slime","category":54,"sprite":"tynamo-slime.png"}
+{"id":1852,"name":"Axew Scales","category":54,"sprite":"axew-scales.png"}
+{"id":1853,"name":"Cubchoo Fur","category":54,"sprite":"cubchoo-fur.png"}
+{"id":1854,"name":"Cryogonal Ice","category":54,"sprite":"cryogonal-ice.png"}
+{"id":1855,"name":"Pawniard Blade","category":54,"sprite":"pawniard-blade.png"}
+{"id":1856,"name":"Rufflet Feather","category":54,"sprite":"rufflet-feather.png"}
+{"id":1857,"name":"Deino Scales","category":54,"sprite":"deino-scales.png"}
+{"id":1858,"name":"Larvesta Fuzz","category":54,"sprite":"larvesta-fuzz.png"}
+{"id":1859,"name":"Fletchling Feather","category":54,"sprite":"fletchling-feather.png"}
+{"id":1860,"name":"Scatterbug Powder","category":54,"sprite":"scatterbug-powder.png"}
+{"id":1861,"name":"Litleo Tuft","category":54,"sprite":"litleo-tuft.png"}
+{"id":1862,"name":"Flabébé Pollen","category":54,"sprite":"flabebe-pollen.png"}
+{"id":1863,"name":"Skiddo Leaf","category":54,"sprite":"skiddo-leaf.png"}
+{"id":1864,"name":"Skrelp Kelp","category":54,"sprite":"skrelp-kelp.png"}
+{"id":1865,"name":"Clauncher Claw","category":54,"sprite":"clauncher-claw.png"}
+{"id":1866,"name":"Hawlucha Down","category":54,"sprite":"hawlucha-down.png"}
+{"id":1867,"name":"Dedenne Fur","category":54,"sprite":"dedenne-fur.png"}
+{"id":1868,"name":"Goomy Goo","category":54,"sprite":"goomy-goo.png"}
+{"id":1869,"name":"Klefki Key","category":54,"sprite":"klefki-key.png"}
+{"id":1870,"name":"Bergmite Ice","category":54,"sprite":"bergmite-ice.png"}
+{"id":1871,"name":"Noibat Fur","category":54,"sprite":"noibat-fur.png"}
+{"id":1872,"name":"Yungoos Fur","category":54,"sprite":"yungoos-fur.png"}
+{"id":1873,"name":"Crabrawler Shell","category":54,"sprite":"crabrawler-shell.png"}
+{"id":1874,"name":"Oricorio Feather","category":54,"sprite":"oricorio-feather.png"}
+{"id":1875,"name":"Rockruff Rock","category":54,"sprite":"rockruff-rock.png"}
+{"id":1876,"name":"Mareanie Spike","category":54,"sprite":"mareanie-spike.png"}
+{"id":1877,"name":"Mudbray Mud","category":54,"sprite":"mudbray-mud.png"}
+{"id":1878,"name":"Fomantis Leaf","category":54,"sprite":"fomantis-leaf.png"}
+{"id":1879,"name":"Salandit Gas","category":54,"sprite":"salandit-gas.png"}
+{"id":1880,"name":"Bounsweet Sweat","category":54,"sprite":"bounsweet-sweat.png"}
+{"id":1881,"name":"Oranguru Fur","category":54,"sprite":"oranguru-fur.png"}
+{"id":1882,"name":"Passimian Fur","category":54,"sprite":"passimian-fur.png"}
+{"id":1883,"name":"Sandygast Sand","category":54,"sprite":"sandygast-sand.png"}
+{"id":1884,"name":"Komala Claw","category":54,"sprite":"komala-claw.png"}
+{"id":1885,"name":"Mimikyu Scrap","category":54,"sprite":"mimikyu-scrap.png"}
+{"id":1886,"name":"Bruxish Tooth","category":54,"sprite":"bruxish-tooth.png"}
+{"id":1887,"name":"Chewtle Claw","category":54,"sprite":"chewtle-claw.png"}
+{"id":1888,"name":"Skwovet Fur","category":54,"sprite":"skwovet-fur.png"}
+{"id":1889,"name":"Arrokuda Scales","category":54,"sprite":"arrokuda-scales.png"}
+{"id":1890,"name":"Rookidee Feather","category":54,"sprite":"rookidee-feather.png"}
+{"id":1891,"name":"Toxel Sparks","category":54,"sprite":"toxel-sparks.png"}
+{"id":1892,"name":"Falinks Sweat","category":54,"sprite":"falinks-sweat.png"}
+{"id":1893,"name":"Cufant Tarnish","category":54,"sprite":"cufant-tarnish.png"}
+{"id":1894,"name":"Rolycoly Coal","category":54,"sprite":"rolycoly-coal.png"}
+{"id":1895,"name":"Silicobra Sand","category":54,"sprite":"silicobra-sand.png"}
+{"id":1896,"name":"Indeedee Fur","category":54,"sprite":"indeedee-fur.png"}
+{"id":1897,"name":"Pincurchin Spines","category":54,"sprite":"pincurchin-spines.png"}
+{"id":1898,"name":"Snom Thread","category":54,"sprite":"snom-thread.png"}
+{"id":1899,"name":"Impidimp Hair","category":54,"sprite":"impidimp-hair.png"}
+{"id":1900,"name":"Applin Juice","category":54,"sprite":"applin-juice.png"}
+{"id":1901,"name":"Sinistea Chip","category":54,"sprite":"sinistea-chip.png"}
+{"id":1902,"name":"Hatenna Dust","category":54,"sprite":"hatenna-dust.png"}
+{"id":1903,"name":"Stonjourner Stone","category":54,"sprite":"stonjourner-stone.png"}
+{"id":1904,"name":"Eiscue Down","category":54,"sprite":"eiscue-down.png"}
+{"id":1905,"name":"Dreepy Powder","category":54,"sprite":"dreepy-powder.png"}
+{"id":1906,"name":"Lechonk Hair","category":54,"sprite":"lechonk-hair.png"}
+{"id":1907,"name":"Tarountula Thread","category":54,"sprite":"tarountula-thread.png"}
+{"id":1908,"name":"Nymble Claw","category":54,"sprite":"nymble-claw.png"}
+{"id":1909,"name":"Rellor Mud","category":54,"sprite":"rellor-mud.png"}
+{"id":1910,"name":"Greavard Wax","category":54,"sprite":"greavard-wax.png"}
+{"id":1911,"name":"Flittle Down","category":54,"sprite":"flittle-down.png"}
+{"id":1912,"name":"Wiglett Sand","category":54,"sprite":"wiglett-sand.png"}
+{"id":1913,"name":"Dondozo Whisker","category":54,"sprite":"dondozo-whisker.png"}
+{"id":1914,"name":"Veluza Fillet","category":54,"sprite":"veluza-fillet.png"}
+{"id":1915,"name":"Finizen Mucus","category":54,"sprite":"finizen-mucus.png"}
+{"id":1916,"name":"Smoliv Oil","category":54,"sprite":"smoliv-oil.png"}
+{"id":1917,"name":"Capsakid Seed","category":54,"sprite":"capsakid-seed.png"}
+{"id":1918,"name":"Tadbulb Mucus","category":54,"sprite":"tadbulb-mucus.png"}
+{"id":1919,"name":"Varoom Fume","category":54,"sprite":"varoom-fume.png"}
+{"id":1920,"name":"Orthworm Tarnish","category":54,"sprite":"orthworm-tarnish.png"}
+{"id":1921,"name":"Tandemaus Fur","category":54,"sprite":"tandemaus-fur.png"}
+{"id":1922,"name":"Cetoddle Grease","category":54,"sprite":"cetoddle-grease.png"}
+{"id":1923,"name":"Frigibax Scales","category":54,"sprite":"frigibax-scales.png"}
+{"id":1924,"name":"Tatsugiri Scales","category":54,"sprite":"tatsugiri-scales.png"}
+{"id":1925,"name":"Cyclizar Scales","category":54,"sprite":"cyclizar-scales.png"}
+{"id":1926,"name":"Pawmi Fur","category":54,"sprite":"pawmi-fur.png"}
+{"id":1927,"name":"Wattrel Feather","category":54,"sprite":"wattrel-feather.png"}
+{"id":1928,"name":"Bombirdier Feather","category":54,"sprite":"bombirdier-feather.png"}
+{"id":1929,"name":"Squawkabilly Feather","category":54,"sprite":"squawkabilly-feather.png"}
+{"id":1930,"name":"Flamigo Down","category":54,"sprite":"flamigo-down.png"}
+{"id":1931,"name":"Klawf Claw","category":54,"sprite":"klawf-claw.png"}
+{"id":1932,"name":"Nacli Salt","category":54,"sprite":"nacli-salt.png"}
+{"id":1933,"name":"Glimmet Crystal","category":54,"sprite":"glimmet-crystal.png"}
+{"id":1934,"name":"Shroodle Ink","category":54,"sprite":"shroodle-ink.png"}
+{"id":1935,"name":"Fidough Fur","category":54,"sprite":"fidough-fur.png"}
+{"id":1936,"name":"Maschiff Fang","category":54,"sprite":"maschiff-fang.png"}
+{"id":1937,"name":"Bramblin Twig","category":54,"sprite":"bramblin-twig.png"}
+{"id":1938,"name":"Gimmighoul Coin","category":54,"sprite":"gimmighoul-coin.png"}
+{"id":1939,"name":"Tinkatink Hair","category":54,"sprite":"tinkatink-hair.png"}
+{"id":1940,"name":"Charcadet Soot","category":54,"sprite":"charcadet-soot.png"}
+{"id":1941,"name":"Toedscool Flaps","category":54,"sprite":"toedscool-flaps.png"}
+{"id":1942,"name":"Wooper Slime","category":54,"sprite":"wooper-slime.png"}
 {"id":1944,"name":"TM101","category":37,"sprite":"tm-normal.png"}
 {"id":1945,"name":"TM102","category":37,"sprite":"tm-normal.png"}
 {"id":1946,"name":"TM103","category":37,"sprite":"tm-normal.png"}
@@ -1960,148 +1960,148 @@
 {"id":2012,"name":"TM169","category":37,"sprite":"tm-normal.png"}
 {"id":2013,"name":"TM170","category":37,"sprite":"tm-normal.png"}
 {"id":2014,"name":"TM171","category":37,"sprite":"tm-normal.png"}
-{"id":2015,"name":"Picnic Set","category":55}
-{"id":2016,"name":"Academy Bottle","category":55}
-{"id":2018,"name":"Polka-Dot Bottle","category":55}
-{"id":2019,"name":"Striped Bottle","category":55}
-{"id":2020,"name":"Diamond Bottle","category":55}
-{"id":2021,"name":"Academy Cup","category":55}
-{"id":2023,"name":"Striped Cup","category":55}
-{"id":2024,"name":"Polka-Dot Cup","category":55}
-{"id":2025,"name":"Flower Pattern Cup","category":55}
-{"id":2026,"name":"Academy Tablecloth","category":55}
-{"id":2028,"name":"Whimsical Tablecloth","category":55}
-{"id":2029,"name":"Leafy Tablecloth","category":55}
-{"id":2030,"name":"Spooky Tablecloth","category":55}
-{"id":2031,"name":"Academy Ball","category":55}
-{"id":2033,"name":"Marill Ball","category":55}
-{"id":2034,"name":"Yarn Ball","category":55}
-{"id":2035,"name":"Cyber Ball","category":55}
-{"id":2036,"name":"Gold Pick","category":55}
-{"id":2037,"name":"Silver Pick","category":55}
-{"id":2038,"name":"Red-Flag Pick","category":55}
-{"id":2039,"name":"Blue-Flag Pick","category":55}
-{"id":2040,"name":"Pika-Pika Pick","category":55}
-{"id":2041,"name":"Winking Pika Pick","category":55}
-{"id":2042,"name":"Vee-Vee Pick","category":55}
-{"id":2043,"name":"Smiling Vee Pick","category":55}
-{"id":2044,"name":"Blue Poké Ball Pick","category":55}
-{"id":2045,"name":"Auspicious Armor","category":55}
-{"id":2046,"name":"Leader’s Crest","category":55}
-{"id":2047,"name":"Pink Bottle","category":55}
-{"id":2048,"name":"Blue Bottle","category":55}
-{"id":2049,"name":"Yellow Bottle","category":55}
-{"id":2050,"name":"Steel Bottle (R)","category":55}
-{"id":2051,"name":"Steel Bottle (Y)","category":55}
-{"id":2052,"name":"Steel Bottle (B)","category":55}
-{"id":2053,"name":"Silver Bottle","category":55}
-{"id":2054,"name":"Barred Cup","category":55}
-{"id":2055,"name":"Diamond Pattern Cup","category":55}
-{"id":2056,"name":"Fire Pattern Cup","category":55}
-{"id":2057,"name":"Pink Cup","category":55}
-{"id":2058,"name":"Blue Cup","category":55}
-{"id":2059,"name":"Yellow Cup","category":55}
-{"id":2060,"name":"Pikachu Cup","category":55}
-{"id":2061,"name":"Eevee Cup","category":55}
-{"id":2062,"name":"Slowpoke Cup","category":55}
-{"id":2063,"name":"Silver Cup","category":55}
-{"id":2064,"name":"Exercise Ball","category":55}
-{"id":2065,"name":"Plaid Tablecloth (Y)","category":55}
-{"id":2066,"name":"Plaid Tablecloth (B)","category":55}
-{"id":2067,"name":"Plaid Tablecloth (R)","category":55}
-{"id":2068,"name":"B&W Grass Tablecloth","category":55}
-{"id":2069,"name":"Battle Tablecloth","category":55}
-{"id":2070,"name":"Monstrous Tablecloth","category":55}
-{"id":2071,"name":"Striped Tablecloth","category":55}
-{"id":2072,"name":"Diamond Tablecloth","category":55}
-{"id":2073,"name":"Polka-Dot Tablecloth","category":55}
-{"id":2074,"name":"Lilac Tablecloth","category":55}
-{"id":2075,"name":"Mint Tablecloth","category":55}
-{"id":2076,"name":"Peach Tablecloth","category":55}
-{"id":2077,"name":"Yellow Tablecloth","category":55}
-{"id":2078,"name":"Blue Tablecloth","category":55}
-{"id":2079,"name":"Pink Tablecloth","category":55}
-{"id":2080,"name":"Gold Bottle","category":55}
-{"id":2081,"name":"Bronze Bottle","category":55}
-{"id":2082,"name":"Gold Cup","category":55}
-{"id":2083,"name":"Bronze Cup","category":55}
-{"id":2084,"name":"Green Poké Ball Pick","category":55}
-{"id":2085,"name":"Red Poké Ball Pick","category":55}
-{"id":2086,"name":"Party Sparkler Pick","category":55}
-{"id":2087,"name":"Heroic Sword Pick","category":55}
-{"id":2088,"name":"Magical Star Pick","category":55}
-{"id":2089,"name":"Magical Heart Pick","category":55}
-{"id":2090,"name":"Parasol Pick","category":55}
-{"id":2091,"name":"Blue-Sky Flower Pick","category":55}
-{"id":2092,"name":"Sunset Flower Pick","category":55}
-{"id":2093,"name":"Sunrise Flower Pick","category":55}
-{"id":2094,"name":"Blue Dish","category":55}
-{"id":2095,"name":"Green Dish","category":55}
-{"id":2096,"name":"Orange Dish","category":55}
-{"id":2097,"name":"Red Dish","category":55}
-{"id":2098,"name":"White Dish","category":55}
-{"id":2099,"name":"Yellow Dish","category":55}
-{"id":2100,"name":"Roto Stick","category":21}
-{"id":2101,"name":"Teal Style Card","category":21}
-{"id":2102,"name":"Teal Mask","category":20}
-{"id":2103,"name":"Glimmering Charm","category":21}
-{"id":2104,"name":"Crystal Cluster","category":20}
-{"id":2105,"name":"Fairy Feather","category":12}
-{"id":2106,"name":"Wellspring Mask","category":12}
-{"id":2107,"name":"Hearthflame Mask","category":12}
-{"id":2108,"name":"Cornerstone Mask","category":12}
-{"id":2109,"name":"Syrupy Apple","category":10}
-{"id":2110,"name":"Unremarkable Teacup","category":10}
-{"id":2111,"name":"Masterpiece Teacup","category":10}
-{"id":2112,"name":"Health Mochi","category":26}
-{"id":2113,"name":"Muscle Mochi","category":26}
-{"id":2114,"name":"Resist Mochi","category":26}
-{"id":2115,"name":"Genius Mochi","category":26}
-{"id":2116,"name":"Clever Mochi","category":26}
-{"id":2117,"name":"Swift Mochi","category":26}
-{"id":2118,"name":"Fresh Start Mochi","category":26}
-{"id":2119,"name":"Ekans Fang","category":54}
-{"id":2120,"name":"Sandshrew Claw","category":54}
-{"id":2121,"name":"Cleffa Fur","category":54}
-{"id":2122,"name":"Vulpix Fur","category":54}
-{"id":2123,"name":"Poliwag Slime","category":54}
-{"id":2124,"name":"Bellsprout Vine","category":54}
-{"id":2125,"name":"Geodude Fragment","category":54}
-{"id":2126,"name":"Koffing Gas","category":54}
-{"id":2127,"name":"Munchlax Fang","category":54}
-{"id":2128,"name":"Sentret Fur","category":54}
-{"id":2129,"name":"Hoothoot Feather","category":54}
-{"id":2130,"name":"Spinarak Thread","category":54}
-{"id":2131,"name":"Aipom Hair","category":54}
-{"id":2132,"name":"Yanma Spike","category":54}
-{"id":2133,"name":"Gligar Fang","category":54}
-{"id":2134,"name":"Slugma Lava","category":54}
-{"id":2135,"name":"Swinub Hair","category":54}
-{"id":2136,"name":"Poochyena Fang","category":54}
-{"id":2137,"name":"Lotad Leaf","category":54}
-{"id":2138,"name":"Seedot Stem","category":54}
-{"id":2139,"name":"Nosepass Fragment","category":54}
-{"id":2140,"name":"Volbeat Fluid","category":54}
-{"id":2141,"name":"Illumise Fluid","category":54}
-{"id":2142,"name":"Corphish Shell","category":54}
-{"id":2143,"name":"Feebas Scales","category":54}
-{"id":2144,"name":"Duskull Fragment","category":54}
-{"id":2145,"name":"Chingling Fragment","category":54}
-{"id":2146,"name":"Timburr Sweat","category":54}
-{"id":2147,"name":"Sewaddle Leaf","category":54}
-{"id":2148,"name":"Ducklett Feather","category":54}
-{"id":2149,"name":"Litwick Soot","category":54}
-{"id":2150,"name":"Mienfoo Claw","category":54}
-{"id":2151,"name":"Vullaby Feather","category":54}
-{"id":2152,"name":"Carbink Jewel","category":54}
-{"id":2153,"name":"Phantump Twig","category":54}
-{"id":2154,"name":"Grubbin Thread","category":54}
-{"id":2155,"name":"Cutiefly Powder","category":54}
-{"id":2156,"name":"Jangmo-o Scales","category":54}
-{"id":2157,"name":"Cramorant Down","category":54}
-{"id":2158,"name":"Morpeko Snack","category":54}
-{"id":2159,"name":"Poltchageist Powder","category":54}
-{"id":2160,"name":"Linking Cord","category":10,"effect":"Allows a Pokemon whose evolution is usually triggered by trading to evolve"}
+{"id":2015,"name":"Picnic Set","category":55,"sprite":"picnic-set.png"}
+{"id":2016,"name":"Academy Bottle","category":55,"sprite":"academy-bottle.png"}
+{"id":2018,"name":"Polka-Dot Bottle","category":55,"sprite":"polka-dot-bottle.png"}
+{"id":2019,"name":"Striped Bottle","category":55,"sprite":"striped-bottle.png"}
+{"id":2020,"name":"Diamond Bottle","category":55,"sprite":"diamond-bottle.png"}
+{"id":2021,"name":"Academy Cup","category":55,"sprite":"academy-cup.png"}
+{"id":2023,"name":"Striped Cup","category":55,"sprite":"striped-cup.png"}
+{"id":2024,"name":"Polka-Dot Cup","category":55,"sprite":"polka-dot-cup.png"}
+{"id":2025,"name":"Flower Pattern Cup","category":55,"sprite":"flower-pattern-cup.png"}
+{"id":2026,"name":"Academy Tablecloth","category":55,"sprite":"academy-tablecloth.png"}
+{"id":2028,"name":"Whimsical Tablecloth","category":55,"sprite":"whimsical-tablecloth.png"}
+{"id":2029,"name":"Leafy Tablecloth","category":55,"sprite":"leafy-tablecloth.png"}
+{"id":2030,"name":"Spooky Tablecloth","category":55,"sprite":"spooky-tablecloth.png"}
+{"id":2031,"name":"Academy Ball","category":55,"sprite":"academy-ball.png"}
+{"id":2033,"name":"Marill Ball","category":55,"sprite":"marill-ball.png"}
+{"id":2034,"name":"Yarn Ball","category":55,"sprite":"yarn-ball.png"}
+{"id":2035,"name":"Cyber Ball","category":55,"sprite":"cyber-ball.png"}
+{"id":2036,"name":"Gold Pick","category":55,"sprite":"gold-pick.png"}
+{"id":2037,"name":"Silver Pick","category":55,"sprite":"silver-pick.png"}
+{"id":2038,"name":"Red-Flag Pick","category":55,"sprite":"red-flag-pick.png"}
+{"id":2039,"name":"Blue-Flag Pick","category":55,"sprite":"blue-flag-pick.png"}
+{"id":2040,"name":"Pika-Pika Pick","category":55,"sprite":"pika-pika-pick.png"}
+{"id":2041,"name":"Winking Pika Pick","category":55,"sprite":"winking-pika-pick.png"}
+{"id":2042,"name":"Vee-Vee Pick","category":55,"sprite":"vee-vee-pick.png"}
+{"id":2043,"name":"Smiling Vee Pick","category":55,"sprite":"smiling-vee-pick.png"}
+{"id":2044,"name":"Blue Poké Ball Pick","category":55,"sprite":"blue-poke-ball-pick.png"}
+{"id":2045,"name":"Auspicious Armor","category":55,"sprite":"auspicious-armor.png"}
+{"id":2046,"name":"Leader’s Crest","category":55,"sprite":"leaders-crest.png"}
+{"id":2047,"name":"Pink Bottle","category":55,"sprite":"pink-bottle.png"}
+{"id":2048,"name":"Blue Bottle","category":55,"sprite":"blue-bottle.png"}
+{"id":2049,"name":"Yellow Bottle","category":55,"sprite":"yellow-bottle.png"}
+{"id":2050,"name":"Steel Bottle (R)","category":55,"sprite":"steel-bottle-r.png"}
+{"id":2051,"name":"Steel Bottle (Y)","category":55,"sprite":"steel-bottle-y.png"}
+{"id":2052,"name":"Steel Bottle (B)","category":55,"sprite":"steel-bottle-b.png"}
+{"id":2053,"name":"Silver Bottle","category":55,"sprite":"silver-bottle.png"}
+{"id":2054,"name":"Barred Cup","category":55,"sprite":"barred-cup.png"}
+{"id":2055,"name":"Diamond Pattern Cup","category":55,"sprite":"diamond-pattern-cup.png"}
+{"id":2056,"name":"Fire Pattern Cup","category":55,"sprite":"fire-pattern-cup.png"}
+{"id":2057,"name":"Pink Cup","category":55,"sprite":"pink-cup.png"}
+{"id":2058,"name":"Blue Cup","category":55,"sprite":"blue-cup.png"}
+{"id":2059,"name":"Yellow Cup","category":55,"sprite":"yellow-cup.png"}
+{"id":2060,"name":"Pikachu Cup","category":55,"sprite":"pikachu-cup.png"}
+{"id":2061,"name":"Eevee Cup","category":55,"sprite":"eevee-cup.png"}
+{"id":2062,"name":"Slowpoke Cup","category":55,"sprite":"slowpoke-cup.png"}
+{"id":2063,"name":"Silver Cup","category":55,"sprite":"silver-cup.png"}
+{"id":2064,"name":"Exercise Ball","category":55,"sprite":"exercise-ball.png"}
+{"id":2065,"name":"Plaid Tablecloth (Y)","category":55,"sprite":"plaid-tablecloth-y.png"}
+{"id":2066,"name":"Plaid Tablecloth (B)","category":55,"sprite":"plaid-tablecloth-b.png"}
+{"id":2067,"name":"Plaid Tablecloth (R)","category":55,"sprite":"plaid-tablecloth-r.png"}
+{"id":2068,"name":"B&W Grass Tablecloth","category":55,"sprite":"bw-grass-tablecloth.png"}
+{"id":2069,"name":"Battle Tablecloth","category":55,"sprite":"battle-tablecloth.png"}
+{"id":2070,"name":"Monstrous Tablecloth","category":55,"sprite":"monstrous-tablecloth.png"}
+{"id":2071,"name":"Striped Tablecloth","category":55,"sprite":"striped-tablecloth.png"}
+{"id":2072,"name":"Diamond Tablecloth","category":55,"sprite":"diamond-tablecloth.png"}
+{"id":2073,"name":"Polka-Dot Tablecloth","category":55,"sprite":"polka-dot-tablecloth.png"}
+{"id":2074,"name":"Lilac Tablecloth","category":55,"sprite":"lilac-tablecloth.png"}
+{"id":2075,"name":"Mint Tablecloth","category":55,"sprite":"mint-tablecloth.png"}
+{"id":2076,"name":"Peach Tablecloth","category":55,"sprite":"peach-tablecloth.png"}
+{"id":2077,"name":"Yellow Tablecloth","category":55,"sprite":"yellow-tablecloth.png"}
+{"id":2078,"name":"Blue Tablecloth","category":55,"sprite":"blue-tablecloth.png"}
+{"id":2079,"name":"Pink Tablecloth","category":55,"sprite":"pink-tablecloth.png"}
+{"id":2080,"name":"Gold Bottle","category":55,"sprite":"gold-bottle.png"}
+{"id":2081,"name":"Bronze Bottle","category":55,"sprite":"bronze-bottle.png"}
+{"id":2082,"name":"Gold Cup","category":55,"sprite":"gold-cup.png"}
+{"id":2083,"name":"Bronze Cup","category":55,"sprite":"bronze-cup.png"}
+{"id":2084,"name":"Green Poké Ball Pick","category":55,"sprite":"green-poke-ball-pick.png"}
+{"id":2085,"name":"Red Poké Ball Pick","category":55,"sprite":"red-poke-ball-pick.png"}
+{"id":2086,"name":"Party Sparkler Pick","category":55,"sprite":"party-sparkler-pick.png"}
+{"id":2087,"name":"Heroic Sword Pick","category":55,"sprite":"heroic-sword-pick.png"}
+{"id":2088,"name":"Magical Star Pick","category":55,"sprite":"magical-star-pick.png"}
+{"id":2089,"name":"Magical Heart Pick","category":55,"sprite":"magical-heart-pick.png"}
+{"id":2090,"name":"Parasol Pick","category":55,"sprite":"parasol-pick.png"}
+{"id":2091,"name":"Blue-Sky Flower Pick","category":55,"sprite":"blue-sky-flower-pick.png"}
+{"id":2092,"name":"Sunset Flower Pick","category":55,"sprite":"sunset-flower-pick.png"}
+{"id":2093,"name":"Sunrise Flower Pick","category":55,"sprite":"sunrise-flower-pick.png"}
+{"id":2094,"name":"Blue Dish","category":55,"sprite":"blue-dish.png"}
+{"id":2095,"name":"Green Dish","category":55,"sprite":"green-dish.png"}
+{"id":2096,"name":"Orange Dish","category":55,"sprite":"orange-dish.png"}
+{"id":2097,"name":"Red Dish","category":55,"sprite":"red-dish.png"}
+{"id":2098,"name":"White Dish","category":55,"sprite":"white-dish.png"}
+{"id":2099,"name":"Yellow Dish","category":55,"sprite":"yellow-dish.png"}
+{"id":2100,"name":"Roto Stick","category":21,"sprite":"roto-stick.png"}
+{"id":2101,"name":"Teal Style Card","category":21,"sprite":"teal-style-card.png"}
+{"id":2102,"name":"Teal Mask","category":20,"sprite":"teal-mask.png"}
+{"id":2103,"name":"Glimmering Charm","category":21,"sprite":"glimmering-charm.png"}
+{"id":2104,"name":"Crystal Cluster","category":20,"sprite":"crystal-cluster.png"}
+{"id":2105,"name":"Fairy Feather","category":12,"sprite":"fairy-feather.png"}
+{"id":2106,"name":"Wellspring Mask","category":12,"sprite":"wellspring-mask.png"}
+{"id":2107,"name":"Hearthflame Mask","category":12,"sprite":"hearthflame-mask.png"}
+{"id":2108,"name":"Cornerstone Mask","category":12,"sprite":"cornerstone-mask.png"}
+{"id":2109,"name":"Syrupy Apple","category":10,"sprite":"syrupy-apple.png"}
+{"id":2110,"name":"Unremarkable Teacup","category":10,"sprite":"unremarkable-teacup.png"}
+{"id":2111,"name":"Masterpiece Teacup","category":10,"sprite":"masterpiece-teacup.png"}
+{"id":2112,"name":"Health Mochi","category":26,"sprite":"health-mochi.png"}
+{"id":2113,"name":"Muscle Mochi","category":26,"sprite":"muscle-mochi.png"}
+{"id":2114,"name":"Resist Mochi","category":26,"sprite":"resist-mochi.png"}
+{"id":2115,"name":"Genius Mochi","category":26,"sprite":"genius-mochi.png"}
+{"id":2116,"name":"Clever Mochi","category":26,"sprite":"clever-mochi.png"}
+{"id":2117,"name":"Swift Mochi","category":26,"sprite":"swift-mochi.png"}
+{"id":2118,"name":"Fresh-Start Mochi","category":26,"sprite":"fresh-start-mochi.png"}
+{"id":2119,"name":"Ekans Fang","category":54,"sprite":"ekans-fang.png"}
+{"id":2120,"name":"Sandshrew Claw","category":54,"sprite":"sandshrew-claw.png"}
+{"id":2121,"name":"Cleffa Fur","category":54,"sprite":"cleffa-fur.png"}
+{"id":2122,"name":"Vulpix Fur","category":54,"sprite":"vulpix-fur.png"}
+{"id":2123,"name":"Poliwag Slime","category":54,"sprite":"poliwag-slime.png"}
+{"id":2124,"name":"Bellsprout Vine","category":54,"sprite":"bellsprout-vine.png"}
+{"id":2125,"name":"Geodude Fragment","category":54,"sprite":"geodude-fragment.png"}
+{"id":2126,"name":"Koffing Gas","category":54,"sprite":"koffing-gas.png"}
+{"id":2127,"name":"Munchlax Fang","category":54,"sprite":"munchlax-fang.png"}
+{"id":2128,"name":"Sentret Fur","category":54,"sprite":"sentret-fur.png"}
+{"id":2129,"name":"Hoothoot Feather","category":54,"sprite":"hoothoot-feather.png"}
+{"id":2130,"name":"Spinarak Thread","category":54,"sprite":"spinarak-thread.png"}
+{"id":2131,"name":"Aipom Hair","category":54,"sprite":"aipom-hair.png"}
+{"id":2132,"name":"Yanma Spike","category":54,"sprite":"yanma-spike.png"}
+{"id":2133,"name":"Gligar Fang","category":54,"sprite":"gligar-fang.png"}
+{"id":2134,"name":"Slugma Lava","category":54,"sprite":"slugma-lava.png"}
+{"id":2135,"name":"Swinub Hair","category":54,"sprite":"swinub-hair.png"}
+{"id":2136,"name":"Poochyena Fang","category":54,"sprite":"poochyena-fang.png"}
+{"id":2137,"name":"Lotad Leaf","category":54,"sprite":"lotad-leaf.png"}
+{"id":2138,"name":"Seedot Stem","category":54,"sprite":"seedot-stem.png"}
+{"id":2139,"name":"Nosepass Fragment","category":54,"sprite":"nosepass-fragment.png"}
+{"id":2140,"name":"Volbeat Fluid","category":54,"sprite":"volbeat-fluid.png"}
+{"id":2141,"name":"Illumise Fluid","category":54,"sprite":"illumise-fluid.png"}
+{"id":2142,"name":"Corphish Shell","category":54,"sprite":"corphish-shell.png"}
+{"id":2143,"name":"Feebas Scales","category":54,"sprite":"feebas-scales.png"}
+{"id":2144,"name":"Duskull Fragment","category":54,"sprite":"duskull-fragment.png"}
+{"id":2145,"name":"Chingling Fragment","category":54,"sprite":"chingling-fragment.png"}
+{"id":2146,"name":"Timburr Sweat","category":54,"sprite":"timburr-sweat.png"}
+{"id":2147,"name":"Sewaddle Leaf","category":54,"sprite":"sewaddle-leaf.png"}
+{"id":2148,"name":"Ducklett Feather","category":54,"sprite":"ducklett-feather.png"}
+{"id":2149,"name":"Litwick Soot","category":54,"sprite":"litwick-soot.png"}
+{"id":2150,"name":"Mienfoo Claw","category":54,"sprite":"mienfoo-claw.png"}
+{"id":2151,"name":"Vullaby Feather","category":54,"sprite":"vullaby-feather.png"}
+{"id":2152,"name":"Carbink Jewel","category":54,"sprite":"carbink-jewel.png"}
+{"id":2153,"name":"Phantump Twig","category":54,"sprite":"phantump-twig.png"}
+{"id":2154,"name":"Grubbin Thread","category":54,"sprite":"grubbin-thread.png"}
+{"id":2155,"name":"Cutiefly Powder","category":54,"sprite":"cutiefly-powder.png"}
+{"id":2156,"name":"Jangmo-o Scales","category":54,"sprite":"jangmo-o-scales.png"}
+{"id":2157,"name":"Cramorant Down","category":54,"sprite":"cramorant-down.png"}
+{"id":2158,"name":"Morpeko Snack","category":54,"sprite":"morpeko-snack.png"}
+{"id":2159,"name":"Poltchageist Powder","category":54,"sprite":"poltchageist-powder.png"}
+{"id":2160,"name":"Linking Cord","category":10,"effect":"Allows a Pokemon whose evolution is usually triggered by trading to evolve","sprite":"linking-cord.png"}
 {"id":2161,"name":"TM172","category":37,"sprite":"tm-normal.png"}
 {"id":2162,"name":"TM173","category":37,"sprite":"tm-normal.png"}
 {"id":2163,"name":"TM174","category":37,"sprite":"tm-normal.png"}

@@ -2,12 +2,12 @@
 id: idea-534-tactical-utility-usage-linter
 type: IDEA
 title: Automated Tactical Utility Usage Linter Rule
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-10-03'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '10070737211803980459'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -35,5 +35,6 @@ While `.foundry/docs/knowledge_base/agents/core_policies.md` mandates the use of
 - **Design System Consistency**: Ensures all UI components adhere strictly to ADR 008 and ADR 024 tactical hardware aesthetic primitives.
 
 ## Acceptance Criteria
-- [ ] PRD generated detailing the AST or linter rules for detecting raw inline tactical styling classes.
+- [x] PRD generated detailing the AST or linter rules for detecting raw inline tactical styling classes.
+- [ ] prd-534-587-automated-tactical-utility-usage-linter-rule
 - [ ] Linter rule integrated into `pnpm lint` static analysis pipeline.

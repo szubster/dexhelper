@@ -1342,3 +1342,21 @@ During QA verification, the required integration tests for msgpack prefetching c
 
 ## Action Taken
 The target task `task-478-617-msgpack-prefetch-integration-tests` has been marked as `FAILED` to trigger a transient rejection and allow the coder to implement the missing integration tests. The acceptance criteria for the target task have been unchecked. My QA task remains open and pending.
+
+---
+
+# QA Journal Entry - Session 2026-10-13-00-13-16
+
+## Target Task
+`task-564-602-pokemon-held-item-tracker-extraction`
+
+## Details
+During QA verification of `task-564-604-pokemon-held-item-tracker-qa`, I observed that the implementation of `extractHeldItems` in `src/engine/tracker/heldItemExtractor.ts` uses a `Set` to store extracted held items. This behavior incorrectly drops duplicate items when multiple Pokemon hold the same item. The downstream diffing logic in `diffHeldItems` relies on accurate item counts to correctly identify newly acquired items, so dropping duplicates breaks the feature.
+
+## Action Taken
+The target implementation task `task-564-602-pokemon-held-item-tracker-extraction` has been marked as `FAILED` to trigger a transient rejection and allow the coder to update the function to preserve duplicates. The acceptance criteria for the coder's task have been unchecked, and my QA task remains unchecked as well.
+
+---
+
+# QA Rejection for Coder Task
+The tests still contain raw DOM locators in tests/e2e/gen3_pokedex_gaps.spec.ts. They must be updated to use the PokedexGridModel COM.

@@ -107,3 +107,11 @@ It tightens type safety for data loaded from IndexedDB, a common source of impli
   2. Marked `TYPES` as `as const` and replaced `TYPES[typeIndex] as string` with `TYPES[typeIndex] ?? 'Dark'`, tightening the return type to the string literal union of move types.
   3. Replaced inline `as Record<...>` cast with a typed constant declaration `const locations: Record<string, Record<string, string>> = gen2MapLocations;`.
 - **Learn:** When strict `noUncheckedIndexedAccess` is enabled, array and object indexing evaluates to `T | undefined`. Rather than bypassing compiler checks with `as T` or `as string` assertions, use nullish coalescing (`array[index] ?? fallback`) or typed module bindings (`const obj: Record<...> = importedJson`) to achieve safe narrowing without casting.
+
+---
+
+# Nurse Joy Journal Entry
+
+- **Issue:** Unsafe `as Gen3SaveData` type assertion in `src/components/pokeblocks/Gen3PokeblocksDashboard.tsx`.
+- **Solution:** Replaced property check `saveData?.generation !== 3` and explicit cast `const gen3Data = saveData as Gen3SaveData;` with the existing `isGen3Save(saveData)` discriminated union type guard from `src/engine/saveParser/parsers/common.ts`.
+- **Learn:** When checking generation/save type in UI components before accessing generation-specific fields (like `gen3Pokeblocks`), prefer using established discriminated union type guards (`isGen3Save`, `isGen2Save`) rather than checking individual numeric flags (`generation === 3`) followed by unsafe `as` assertions.
