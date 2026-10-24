@@ -28,6 +28,6 @@ locks: []
 Implement End-to-End (E2E) tests for the React Flow visualizer using Playwright to ensure proper rendering, interactions, and state updates.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests verifying node rendering, edge connections, and pan/zoom capabilities.
-- [ ] Ensure tests cover state updates and conditional visibility based on the new `DagContext`.
-- [ ] Tests must use relative paths and correct locators matching the tactical aesthetic elements.
+- [x] Implement Playwright E2E tests verifying node rendering, edge connections, and pan/zoom capabilities.
+- [x] Ensure tests cover state updates and conditional visibility based on the new `DagContext`.
+- [x] Tests must use relative paths and correct locators matching the tactical aesthetic elements.
