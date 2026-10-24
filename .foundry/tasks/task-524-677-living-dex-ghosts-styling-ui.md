@@ -28,6 +28,6 @@ locks: []
 We need to visually highlight "ghosts" (missing slots) and adhere to the tactical hardware/snooping aesthetic mandated by ADR 008 in the Living Dex Grid.
 
 ## Acceptance Criteria
-- [ ] Implement the rendering logic to visually highlight missing Pokémon slots as "ghosts" (e.g. using opacity, grayscale, or specific placeholders).
-- [ ] Apply tactical styling to the Living Dex Grid components, explicitly using sharp edges (`rounded-none`), dashed borders (`border-dashed`), and monospaced telemetry fonts (`font-mono`) per ADR 008.
-- [ ] Favor using defined `@utility` tactical primitives from `src/index.css` (e.g. `tactical-panel`, `tactical-text`) over raw inline Tailwind classes where applicable.
+- [x] Implement the rendering logic to visually highlight missing Pokémon slots as "ghosts" (e.g. using opacity, grayscale, or specific placeholders).
+- [x] Apply tactical styling to the Living Dex Grid components, explicitly using sharp edges (`rounded-none`), dashed borders (`border-dashed`), and monospaced telemetry fonts (`font-mono`) per ADR 008.
+- [x] Favor using defined `@utility` tactical primitives from `src/index.css` (e.g. `tactical-panel`, `tactical-text`) over raw inline Tailwind classes where applicable.
