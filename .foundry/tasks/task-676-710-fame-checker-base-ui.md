@@ -34,7 +34,7 @@ As part of the Fame Checker dashboard, we need the core presentation components.
 - Ensure strict adherence to the tactical hardware aesthetic (sharp edges, monospaced fonts).
 
 ## Acceptance Criteria
-- [ ] `NPCList` component is implemented.
-- [ ] `FameCheckerEntryList` component is implemented, differentiating unlocked/missing entries.
-- [ ] Mock data is available.
-- [ ] Components are covered by unit tests (Vitest browser tests).
+- [x] `NPCList` component is implemented.
+- [x] `FameCheckerEntryList` component is implemented, differentiating unlocked/missing entries.
+- [x] Mock data is available.
+- [x] Components are covered by unit tests (Vitest browser tests).
