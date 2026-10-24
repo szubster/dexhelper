@@ -153,6 +153,7 @@ import { extractPokedexGaps } from '../gen3/pokedex/gaps';
 import { parseGen3Pokedex } from '../gen3/pokedex/parser';
 import { parseGen3TrainerDefeatFlags, parseGen3TrainerRematchFlags } from '../gen3/trainerFlags/parser';
 import { parseTrickHouse } from '../gen3/trickHouse/parser';
+import { extractWeatherAnomaly } from '../gen3/weatherAnomaly/extractor';
 import type {
   GameVersion,
   Gen3ActiveSwarm,
@@ -1718,6 +1719,12 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, _forcedVersion || 'ruby');
+    let gen3WeatherAnomaly: import('../gen3/weatherAnomaly/types').Gen3WeatherAnomaly | undefined;
+    try {
+      gen3WeatherAnomaly = extractWeatherAnomaly(view, section1Offset);
+    } catch {
+      // ignore error
+    }
     const gen3EventItems = parseGen3EventItems(view, section1Offset, _forcedVersion || 'ruby');
     let gen3Daycare: import('./common').Gen3DaycareData | undefined;
     try {
@@ -2020,6 +2027,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       gen3TMEventFlags,
       ...(gen3Pokeblocks ? { gen3Pokeblocks } : {}),
       gen3TrickHouse: parseTrickHouse(view, section1Offset),
+      ...(gen3WeatherAnomaly ? { gen3WeatherAnomaly } : {}),
       ...(gen3MatchCall ? { gen3MatchCall } : {}),
       gen3NarrativeFlags: narrative.flags,
       gen3MissedItemsAndMilestones: missedItems,

@@ -2,10 +2,10 @@
 id: task-522-685-wip-awareness-e2e-orchestrator-tests
 type: TASK
 title: Implement Orchestrator WIP Awareness Tests
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-13'
-updated_at: '2026-10-17'
+updated_at: '2026-10-20'
 depends_on:
   - task-522-684-wip-awareness-e2e-agent-tests
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - wip
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 experiment_variants: []
 locks: []

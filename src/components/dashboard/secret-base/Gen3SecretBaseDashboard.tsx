@@ -31,6 +31,7 @@ export const Gen3SecretBaseDashboard: React.FC<Gen3SecretBaseDashboardProps> = (
             <TacticalStatusPanelItem
               key={base.trainerName || `Trainer ${idx + 1}`}
               label={base.trainerName || `Trainer ${idx + 1}`}
+              sublabel={base.baseLocation}
               active={!isBattled}
               statusText={isBattled ? '[ ALREADY BATTLED ]' : '[ BATTLE AVAILABLE ]'}
             />

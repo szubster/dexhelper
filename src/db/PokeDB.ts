@@ -29,7 +29,9 @@ let dbPromise: Promise<IDBPDatabase<PokeDBSchema>> | null = null;
  */
 async function bulkGet<T>(store: IDBObjectStore, ids: readonly number[]): Promise<T[]> {
   return new Promise<T[]>((resolve, reject) => {
-    const res = Array.from<T>({ length: ids.length });
+    // ⚡ Bolt: Use direct fixed-length array allocation instead of Array.from({ length }) to eliminate intermediate iterator object allocation overhead on hot bulk query path.
+    // oxlint-disable-next-line unicorn/no-new-array
+    const res = new Array<T>(ids.length);
     let pending = ids.length;
     if (pending === 0) return resolve([]);
     for (let i = 0; i < ids.length; i++) {

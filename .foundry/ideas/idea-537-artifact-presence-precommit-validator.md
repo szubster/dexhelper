@@ -2,12 +2,12 @@
 id: idea-537-artifact-presence-precommit-validator
 type: IDEA
 title: Automated Pre-Commit Deliverable Artifact Presence Validator
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-10-14'
 updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16252117326750849648'
 pr_number: null
 parent: null
 tags:

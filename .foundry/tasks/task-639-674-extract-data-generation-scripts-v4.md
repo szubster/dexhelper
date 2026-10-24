@@ -2,21 +2,21 @@
 id: task-639-674-extract-data-generation-scripts-v4
 type: TASK
 title: Extract Data Generation Scripts to Workspace Package v4
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-08'
-updated_at: '2026-10-15'
+updated_at: '2026-10-18'
 depends_on:
   - research-639-673-investigate-extract-data-scripts-failure-v3
-jules_session_id: '15882651752313016652'
+jules_session_id: null
 pr_number: null
 parent: story-525-639-extract-data-generation-scripts
 tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

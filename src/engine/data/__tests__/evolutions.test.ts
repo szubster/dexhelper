@@ -39,4 +39,36 @@ describe('Evolution Data Integrity', () => {
       true,
     );
   });
+
+  it('should strictly exclude cross-generation species IDs (> 386) from eto, efrm, and det', () => {
+    const dataPath = path.join(process.cwd(), 'data/db/pokemon.jsonl');
+    const lines = fs
+      .readFileSync(dataPath, 'utf-8')
+      .split('\n')
+      .filter((l) => l.trim().length > 0);
+    const pData = lines.map((l) => JSON.parse(l));
+
+    for (const p of pData) {
+      expect(p.id).toBeLessThanOrEqual(386);
+
+      const efrmList = p.efrm || [];
+      const invalidEfrm = efrmList.filter((ancestorId: number) => ancestorId > 386);
+      expect(invalidEfrm).toEqual([]);
+
+      const etoList = p.eto || [];
+      const invalidEto = etoList.filter((link: { id: number }) => link.id > 386);
+      expect(invalidEto).toEqual([]);
+    }
+
+    // Eevee (133) should only evolve to Vaporeon, Jolteon, Flareon, Espeon, Umbreon
+    const eevee = pData.find((p: { id: number }) => p.id === 133);
+    expect(eevee).toBeDefined();
+    const eeveeEtoIds = eevee.eto.map((l: { id: number }) => l.id);
+    expect(eeveeEtoIds.sort((a: number, b: number) => a - b)).toEqual([134, 135, 136, 196, 197]);
+
+    // Snorlax (143) should have no pre-evolutions (Munchlax #446 is Gen 4) in Gen 1-3
+    const snorlax = pData.find((p: { id: number }) => p.id === 143);
+    expect(snorlax).toBeDefined();
+    expect(snorlax.efrm).toBeUndefined();
+  });
 });

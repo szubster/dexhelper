@@ -44,7 +44,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-111-valid-checkbox';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n- [ ] Unchecked\n- [x] Checked\n- [ ] `);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n- [ ] Unchecked\n- [x] Checked\n- [ ] `);
 
         let output = '';
         let error: Error | null = null;
@@ -62,7 +62,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-112-invalid-no-space';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n-[] Invalid`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n-[] Invalid`);
 
         let errorOutput = '';
         let hasThrown = false;
@@ -81,7 +81,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-113-invalid-asterisk';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n* [ ] Invalid`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n* [ ] Invalid`);
 
         let errorOutput = '';
         let hasThrown = false;
@@ -100,7 +100,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-114-invalid-uppercase-x';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n- [X] Invalid`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n- [X] Invalid`);
 
         let errorOutput = '';
         let hasThrown = false;
@@ -119,7 +119,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-115-invalid-missing-trailing-space';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n- [ ]Invalid`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n- [ ]Invalid`);
 
         let errorOutput = '';
         let hasThrown = false;
@@ -173,6 +173,8 @@ jules_session_id: null
 rejection_reason: ''
 ---
 # Test Curator Idea
+
+## Acceptance Criteria
 - [ ] AC 1
 `;
         writeFileSync(filePath, ideaFrontmatter);
@@ -187,5 +189,61 @@ rejection_reason: ''
 
         expect(error).toBeNull();
         expect(output).toContain('All Foundry nodes passed schema validation.');
+    });
+});
+
+describe('validate-foundry-schema - Markdown Section Tracking', () => {
+    const tempTasksDir = join(tempFoundryDir, 'tasks');
+
+    beforeAll(() => {
+        if (!existsSync(tempTasksDir)) {
+            mkdirSync(tempTasksDir, { recursive: true });
+        }
+    });
+
+    afterAll(() => {
+        // Do not delete the global tempFoundryDir as it causes race conditions and breaking tests
+        // Let Vitest or a global afterAll handle top-level cleanup
+    });
+
+    const runValidation = (filePath: string) => {
+        return execSync(`node --experimental-strip-types scripts/validate-foundry-schema.ts ${filePath}`, { encoding: 'utf-8' });
+    };
+
+    it('should pass with a checkbox inside Acceptance Criteria', () => {
+        expect.hasAssertions();
+        const id = 'task-000-201-valid-section';
+        const filePath = join(tempTasksDir, `${id}.md`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n- [ ] Valid task`);
+
+        let output = '';
+        let error: Error | null = null;
+        try {
+            output = runValidation(filePath);
+        } catch (e: any) {
+            error = e;
+        }
+
+        expect(error).toBeNull();
+        expect(output).toContain('All Foundry nodes passed schema validation.');
+    });
+
+    it('should fail with a checkbox outside Acceptance Criteria', () => {
+        expect.hasAssertions();
+        const id = 'task-000-202-invalid-section';
+        const filePath = join(tempTasksDir, `${id}.md`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Random Section\n- [ ] Invalid task\n## Acceptance Criteria\n- [ ] Valid task`);
+
+        let errorOutput = '';
+        let hasThrown = false;
+        try {
+            runValidation(filePath);
+        } catch (e: any) {
+            hasThrown = true;
+            errorOutput = e.stdout || e.stderr || e.message;
+        }
+
+        expect(hasThrown).toBe(true);
+        expect(errorOutput).toContain("Error: Checkbox found outside of allowed sections ('Random Section') in file");
     });
 });
