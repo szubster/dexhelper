@@ -31,5 +31,5 @@ Write comprehensive unit tests for the Gen 3 E-Reader UI components.
 - Write tests using `vitest-browser-react` to verify rendering and conditional logic based on different save states.
 
 ## Acceptance Criteria
-- [ ] All unit tests pass in `pnpm test`.
-- [ ] Tests verify both truthy and falsy states for the major event tickets (Eon Ticket, Mystic Ticket, etc.).
+- [x] All unit tests pass in `pnpm test`.
+- [x] Tests verify both truthy and falsy states for the major event tickets (Eon Ticket, Mystic Ticket, etc.).
