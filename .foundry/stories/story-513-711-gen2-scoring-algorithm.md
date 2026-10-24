@@ -27,4 +27,7 @@ notes: ''
 This story focuses on implementing the core scoring logic for the Gen 2 Bug-Catching Contest based on HP, stats, DVs, and remaining HP.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into Tasks to implement the Gen 2 Bug-Catching Contest scoring algorithm.
+- [ ] task-711-716-gen2-scoring-algorithm-impl
+- [ ] task-711-717-gen2-scoring-algorithm-tests
+- [ ] task-711-718-gen2-scoring-algorithm-qa
+- [x] Break down this Story into Tasks to implement the Gen 2 Bug-Catching Contest scoring algorithm.
