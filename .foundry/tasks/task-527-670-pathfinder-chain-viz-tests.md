@@ -2,10 +2,10 @@
 id: task-527-670-pathfinder-chain-viz-tests
 type: TASK
 title: Pathfinder Chain Visualization UI Unit Tests
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-06'
-updated_at: '2026-10-09'
+updated_at: '2026-10-24'
 depends_on:
   - task-527-669-pathfinder-chain-viz-ui
 jules_session_id: null
@@ -27,5 +27,5 @@ locks: []
 Write unit tests for the Pathfinder Chain Visualization UI component.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the component using `vitest-browser-react`.
-- [ ] Test that the correct intermediate species and moves are rendered.
+- [x] Write unit tests for the component using `vitest-browser-react`.
+- [x] Test that the correct intermediate species and moves are rendered.

@@ -191,3 +191,19 @@ Learned that running coverage reports can clutter the working directory, and ens
 
 **Result:**
 - Improved statement/branch coverage of central Zustand store without modifying any application source code.
+
+---
+
+# Sentinel Session: Gen 3 PK3 Parser Test Coverage
+
+**Target File:** `src/engine/saveParser/gen3/pokemon/parser.ts`
+
+**Observations & Actions:**
+- Identified coverage gaps in `src/engine/saveParser/gen3/pokemon/parser.ts` around non-GAEM substructure permutation orders (e.g., GAME order, where substructures are re-ordered before decryption) and non-`RangeError` exception re-throwing.
+- Added two new unit tests in `src/engine/saveParser/gen3/pokemon/parser.test.ts`:
+  1. `should decrypt non-GAEM permutation order (GAME) correctly`: Verified that Pokémon with PV mapping to `GAME` permutation order are correctly decrypted and reassembled in canonical `GAEM` order.
+  2. `should re-throw non-RangeError exceptions`: Verified that non-`RangeError` exceptions encountered during parsing are re-thrown without being transformed into generic save corruption errors.
+- Used explicit generic type parameters on `vi.fn<DataView['getUint32']>()` to satisfy strict Biome type checks.
+
+**Result:**
+- Increased statement and branch test coverage for `src/engine/saveParser/gen3/pokemon/parser.ts` without modifying application source code.

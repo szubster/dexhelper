@@ -102,7 +102,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-070-roamer-tracking-dashboard` | Roaming Pokémon Tracking Dashboard | feature, ux, map, exploration |  | PENDING |
 | `idea-071-gen3-roamer-tracker` | Gen 3 Roaming Legendary Tracker and IV Glitch Inspector | feature, gen3, roamer |  | PENDING |
 | `idea-071-tailwind-v4-utilities-migration` | Tailwind v4 @utility Consolidation | tech-debt, styling, refactor |  | PENDING |
-| `idea-072-strict-macro-node-completion` | Strict Macro Node Completion Enforcement | orchestrator, architecture |  | PENDING |
+| `idea-072-strict-macro-node-completion` | Strict Macro Node Completion Enforcement | orchestrator, architecture |  | COMPLETED |
 | `idea-073-gen3-secret-base-viewer` | Gen 3 Secret Base and Mixed Record Viewer | feature, gen3, secret-base |  | PENDING |
 | `idea-073-refactor-dag-dashboard-context` | Refactor DagDashboard to use React Context (ADR 013/017) | architecture, ui, dashboard |  | PENDING |
 | `idea-074-gen3-battle-frontier-tracker` | Gen 3 Battle Frontier Dashboard | feature, gen3, endgame |  | PENDING |
@@ -122,7 +122,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-085-hidden-power-calculator` | Hidden Power Type and Base Power Calculator | feature, mechanics, gen2, gen3 |  | ACTIVE |
 | `idea-085-lift-rejection-count-state` | Lift rejection_count state to DagContext | refactor, dashboard |  | COMPLETED |
 | `idea-086-box-duplicate-analyzer` | PC Box Duplicate Analyzer & Release Assistant | feature, ui, ux, gen2, gen3 |  | PENDING |
-| `idea-086-fix-gen3save-mock` | Fix isGen3Save heuristic mock for E2E tests | Uncategorized |  | PENDING |
+| `idea-086-fix-gen3save-mock` | Fix isGen3Save heuristic mock for E2E tests | Uncategorized |  | COMPLETED |
 | `idea-086-fix-orchestrator-phase-3-6` | Fix orchestrator phase 3.6 for CANCELLED nodes | foundry, orchestrator, resilience |  | COMPLETED |
 | `idea-088-trick-house-tracker` | Gen 3 Trick House Progression Tracker | feature, gen3, mechanics |  | COMPLETED |
 | `idea-089-gen3-ash-gathering-tracker` | Gen 3 Volcanic Ash Gathering Tracker | feature, gen3, mechanics |  | PENDING |
@@ -154,7 +154,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-111-safari-zone-tracker` | Gen 1 & Gen 3 Safari Zone Tracking Dashboard | feature, ui, safari-zone |  | PENDING |
 | `idea-112-gen3-split-variable-extraction-strategy` | Gen3 Split Variable Extraction Strategy | gen3, architecture |  | PENDING |
 | `idea-113-gen3-pokeblock-stats-viewer` | Gen 3 Pokéblock Exact Stats Viewer | gen3, contests, pokeblocks, quality-of-life |  | PENDING |
-| `idea-114-update-permanent-failure-dashboard-ui` | Update Permanent Failure Dashboard UI for Cancelled Nodes | foundry, ui |  | PENDING |
+| `idea-114-update-permanent-failure-dashboard-ui` | Update Permanent Failure Dashboard UI for Cancelled Nodes | foundry, ui | `idea-063-permanent-failure-dashboard`, `idea-079-automated-max-rejection-cancellation` | PENDING |
 | `idea-115-gen3-fame-checker-assistant` | Gen 3 Fame Checker Progress & Assistant | gen3, firered, leafgreen, fame-checker |  | PENDING |
 | `idea-115-remove-obsolete-orphaned-node-manual-cancellation` | Remove Obsolete Orphaned Node Manual Cancellation Rule | foundry, orchestrator, agile-coach |  | COMPLETED |
 | `idea-116-gen3-pc-box-wallpaper-customizer` | Gen 3 PC Box Wallpaper Customizer | gen3, pc-box, customization, endgame |  | PENDING |
@@ -176,7 +176,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-123-improved-savedata-typing` | Improve SaveData Typing with Discriminated Generation Unions | savedata, typescript, refactoring, type-safety |  | COMPLETED |
 | `idea-124-librarian-persona-context-optimizer` | Librarian Persona for Context Token Optimization | foundry, orchestrator, optimization, token-usage |  | COMPLETED |
 | `idea-128-gen3-acro-bike-route-planner` | Gen 3 Acro Bike / Mach Bike Route Requirements | gen3, map, quality-of-life |  | PENDING |
-| `idea-129-epic-level-distillation-archival` | Epic-Level Distillation and Cold Storage Archival | foundry, infrastructure, performance |  | PENDING |
+| `idea-129-epic-level-distillation-archival` | Epic-Level Distillation and Cold Storage Archival | foundry, infrastructure, performance | `idea-152-archival-cleanup-and-retention-policy`, `idea-152-deterministic-dag-tree-archival` | PENDING |
 | `idea-130-shoal-cave-tide-tracker` | Shoal Cave Tide & Item Tracker (Gen 3) | feature, gen3, time-based, item-tracker |  | PENDING |
 | `idea-131-orchestrator-resource-locking-mutex` | Implement Resource Locking (Mutex) in DAG Orchestrator | orchestrator, architecture |  | PENDING |
 | `idea-132-gen3-pal-park-migration-planner` | Gen 3 Pal Park Migration Planner | feature, gen3, migration |  | PENDING |
@@ -230,7 +230,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-423-dynamic-rag-context-hydration` | Dynamic RAG-Based Context Hydration for Agent Prompts | foundry, orchestrator, optimization, AI |  | PENDING |
 | `idea-424-gen3-interactive-map-dashboard` | Gen 3 Interactive Map Dashboard | dexhelper, feature, gen3, map |  | PENDING |
 | `idea-487-refactor-rejection-count-schema` | Refactor IDEA Node Schema to Disallow Rejection Count and Reason | Uncategorized |  | BLOCKED |
-| `idea-488-autonomous-execution-enforcement` | Implement Automated Detection of Autonomous Execution Violations | Uncategorized |  | PENDING |
+| `idea-488-autonomous-execution-enforcement` | Implement Automated Detection of Autonomous Execution Violations | Uncategorized |  | COMPLETED |
 | `idea-488-nuzlocke-level-cap-tracker` | Hardcore Nuzlocke Level Cap Tracker | feature, nuzlocke |  | BLOCKED |
 | `idea-516-gen3-pokedex-completion-tracker` | Gen 3 Pokédex Completion & Missed Achievement Tracker | dexhelper |  | PENDING |
 | `idea-517-automated-magic-number-linter` | Automated Magic Number Linter for Save Parsing | Uncategorized |  | PENDING |

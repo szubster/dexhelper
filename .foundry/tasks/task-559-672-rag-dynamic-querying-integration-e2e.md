@@ -2,10 +2,10 @@
 id: task-559-672-rag-dynamic-querying-integration-e2e
 type: TASK
 title: Integration and E2E Verification for RAG Dynamic Querying
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on:
   - task-559-670-search-extraction-impl
 jules_session_id: null
@@ -14,7 +14,9 @@ tags:
   - e2e
   - integration
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-559-668-query-formulation-impl
 locks: []
 ---
 

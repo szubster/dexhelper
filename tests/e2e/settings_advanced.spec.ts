@@ -1,10 +1,10 @@
-import { test } from '@playwright/test';
+import { test } from './fixtures';
 import { SettingsModalModel } from './models/SettingsModalModel';
-import { initializeWithSave, waitForSync } from './test-utils';
+import { waitForSync } from './test-utils';
 
 test.describe('Advanced Settings Persistence', () => {
-  test('should persist Game Version and Ball Style across reloads', async ({ page }) => {
-    await initializeWithSave(page);
+  test('should persist Game Version and Ball Style across reloads', async ({ page, loadSave }) => {
+    await loadSave();
     const settingsModal = new SettingsModalModel(page);
 
     // Open settings modal

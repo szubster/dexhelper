@@ -1,4 +1,5 @@
 export * from './components/EggMoveSelector';
+export * from './components/PathfinderChainViz';
 export * from './components/PathfinderSelectionPanel';
 export * from './components/TargetPokemonSelector';
 export * from './hooks';

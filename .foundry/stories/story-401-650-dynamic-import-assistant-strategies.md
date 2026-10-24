@@ -2,12 +2,12 @@
 id: story-401-650-dynamic-import-assistant-strategies
 type: STORY
 title: 'Story: Dynamic Import Assistant Strategies'
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-12T07:40:28.000Z'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '6835079573412954116'
+jules_session_id: null
 pr_number: null
 parent: epic-337-401-engine-code-splitting
 tags:
@@ -25,4 +25,7 @@ locks: []
 Move generation-specific Assistant Strategies behind dynamic imports to minimize the bundle size.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into coder TASK nodes for implementation.
+- [x] Break down this Story into coder TASK nodes for implementation.
+- [ ] task-650-694-dynamic-import-assistant-strategies-impl
+- [ ] task-650-696-dynamic-import-assistant-strategies-tests
+- [ ] task-650-695-dynamic-import-assistant-strategies-qa

@@ -1,10 +1,11 @@
 import { useNavigate } from '@tanstack/react-router';
 import { CircleDot, Monitor, Sparkles } from 'lucide-react';
 import React, { useCallback } from 'react';
+import type { TacticalStylingProps } from '../engine/livingDex/types';
 import { cn } from '../utils/cn';
 import { LcdGrid } from './LcdGrid';
 
-interface LivingDexCellProps {
+interface LivingDexCellProps extends TacticalStylingProps {
   id: number;
   inParty: boolean;
   inPC: boolean;
