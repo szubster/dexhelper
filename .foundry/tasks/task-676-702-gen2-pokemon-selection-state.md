@@ -2,12 +2,12 @@
 id: task-676-702-gen2-pokemon-selection-state
 type: TASK
 title: Gen 2 Pokemon Selection Interface - State Management
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-15'
 updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11059288687874601559'
 pr_number: null
 parent: story-310-676-pokemon-selection-interface
 priority: 50
