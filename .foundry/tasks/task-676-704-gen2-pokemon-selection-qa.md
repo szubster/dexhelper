@@ -33,7 +33,7 @@ locks: []
 ## Objective
 Verify the implementation of the Gen 2 Pokémon Selection Interface, including both state management and UI components.
 
-## Acceptance Criteria
+## Technical Requirements
 - [ ] Verify that the application correctly hooks into the global Gen 2 save file storage (PC and Party).
 - [ ] Verify the accuracy of the displayed species, gender (derived from Attack DV), and DVs (especially Defense and Special).
 - [ ] Verify the tactical hardware aesthetic according to ADR 008, ensuring sharp edges, dashed borders, monospaced fonts, and correct use of `@utility` primitives.

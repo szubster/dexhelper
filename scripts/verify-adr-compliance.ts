@@ -21,40 +21,8 @@ interface Violation {
     class: string;
 }
 
-
 export function checkAdr013ComplianceInFile(filePath: string): Violation[] {
-    const whitelist = [
-        'src/components/common/VirtualList.tsx',
-        'src/components/layout/Sidebar.tsx',
-        'src/components/layout/MobileNav.tsx',
-        'src/components/pokedex/PokedexGrid.tsx',
-        'src/components/emulator/EmulatorUI.tsx',
-        'src/components/tactical/TacticalInput.tsx',
-        'src/components/dashboard/inventory/InventoryDashboard.tsx',
-        'src/components/dashboard/inventory/InventoryItemSelector.tsx',
-        'src/components/dashboard/inventory/Gen2DecorationManager.tsx',
-        'src/components/dashboard/matchup/MatchupAnalyzer.tsx',
-        'src/components/dashboard/matchup/MatchupScenarioBuilder.tsx',
-        'src/components/dashboard/progression/GymBadgeGrid.tsx',
-        'src/components/dashboard/daycare/BreedingPredictor.tsx',
-        'src/components/dashboard/daycare/DaycarePanel.tsx',
-        'src/components/dashboard/save-management/SaveManagerPanel.tsx',
-        'src/components/tactical/TacticalDialog.tsx',
-        'src/components/dashboard/roamers/RoamerTracker.tsx',
-        'src/components/dashboard/ribbons/RibbonDisplay.tsx',
-        'src/components/dashboard/mystery-gift/WonderCardDisplay.tsx',
-        'src/components/dashboard/mystery-gift/WonderCardList.tsx',
-        'src/components/dashboard/hof/HallOfFameDashboard.tsx',
-        'src/components/dashboard/inventory/WildItemSelector.tsx',
-        'src/components/dashboard/progression/ProgressionTimeline.tsx'
-    ];
-
-    if (whitelist.some(item => filePath.endsWith(item))) {
-        return [];
-    }
-
     const violations: Violation[] = [];
-
     const project = new Project();
 
     // Skip the Context provider itself as it's allowed to have state
