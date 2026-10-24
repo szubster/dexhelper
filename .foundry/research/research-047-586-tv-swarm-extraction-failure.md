@@ -27,5 +27,10 @@ locks: []
 The previous epic `epic-047-081-gen3-tv-swarm-data-extraction` reached its maximum rejection count and was cancelled. Investigate the root cause of the failure and provide recommendations to ensure the replacement epic succeeds.
 
 ## Acceptance Criteria
-- [ ] Investigate the rejection reasons for `epic-047-081-gen3-tv-swarm-data-extraction` and its child stories.
-- [ ] Provide architectural recommendations or missing domain facts needed for the replacement extraction implementation.
+- [x] Investigate the rejection reasons for `epic-047-081-gen3-tv-swarm-data-extraction` and its child stories.
+- [x] Provide architectural recommendations or missing domain facts needed for the replacement extraction implementation.
+
+## Findings
+I investigated the permanent failure of `epic-047-081-gen3-tv-swarm-data-extraction`. The epic reached the max rejection count and was cancelled because it failed to comply with the Orchestrator Safeguard (E2E/Integration Requirement). Specifically, the orchestrator requires macro nodes (like EPICs) to have at least one child STORY tagged with `e2e` or `integration` before they can be marked `COMPLETED`. Since `epic-047-081-gen3-tv-swarm-data-extraction` and its child stories did not have these tags, verification failed repeatedly.
+
+The replacement epic must ensure an E2E story is created to satisfy this constraint.
