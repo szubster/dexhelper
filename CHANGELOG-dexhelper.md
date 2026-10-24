@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
 
+## [0.27.0] - 2026-04-11
+### Changed
+- Improve Assistant evolution suggestion logic to dynamically suggest evolutions based on missing final-stage evolutions, considering both Party and PC storage, as well as inventory items.
+- Optimize rendering performance across the application by reducing redundant array operations and memoizing derived state in Pokédex and Pokémon Details views.
+- Enhance keyboard navigation and screen reader accessibility by using screen-reader only classes for hidden inputs, adding standard ARIA roles to dialogs, and ensuring consistent focus-visible styles.
+
 ## [0.26.1] - 2026-04-09
 ### Changed
 - Improve filter buttons and target status segmented control accessibility by adopting ARIA roles.
@@ -346,3 +352,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.25.2]: https://github.com/szubster/dexhelper/compare/8ed973e2e6c042bd60543dee85e822baeba4f9bf...a19062bfa5babacd61b75ef13b5115d63c620c81
 [0.26.0]: https://github.com/szubster/dexhelper/compare/a19062bfa5babacd61b75ef13b5115d63c620c81...eee0a28dd252701243ddbcb259b987a947d7afb0
 [0.26.1]: https://github.com/szubster/dexhelper/compare/eee0a28dd252701243ddbcb259b987a947d7afb0...ae6a6a4361c2085f7d8cf13300045933367ab0f8
+[0.27.0]: https://github.com/szubster/dexhelper/compare/ae6a6a4361c2085f7d8cf13300045933367ab0f8...8c9667bddf112cc9f7de96ef0698e183e7153886
