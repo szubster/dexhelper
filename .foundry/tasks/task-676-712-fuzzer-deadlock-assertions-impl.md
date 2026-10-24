@@ -2,12 +2,12 @@
 id: task-676-712-fuzzer-deadlock-assertions-impl
 type: TASK
 title: Fuzzer Deadlock Detection Assertions Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-16T13:00:51.663Z'
 updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4933866080740579915'
 pr_number: null
 parent: story-416-676-fuzzer-deadlock-assertions
 tags:
