@@ -2,13 +2,13 @@
 id: story-521-533-savedatareader-e2e
 type: STORY
 title: Core SaveDataReader E2E Verification
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-03'
 updated_at: '2026-10-24'
 depends_on:
   - story-521-532-savedatareader-tests
-jules_session_id: '11025732746735794639'
+jules_session_id: null
 pr_number: null
 parent: epic-158-521-core-dataview-wrapper
 tags:
@@ -20,7 +20,7 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

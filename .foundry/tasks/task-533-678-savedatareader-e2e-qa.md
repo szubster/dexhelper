@@ -2,7 +2,7 @@
 id: task-533-678-savedatareader-e2e-qa
 type: TASK
 title: QA SaveDataReader E2E and Integration Tests
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-10'
 updated_at: '2026-10-24'
@@ -16,8 +16,8 @@ tags:
   - testing
   - e2e
   - integration
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 ---
 

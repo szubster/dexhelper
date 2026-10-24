@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-24T19:09:00.286Z*
+*Generated at: 2026-10-24T22:02:26.844Z*
 
 ## Node Statistics
 
@@ -18,21 +18,21 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3355 |
-| ACTIVE | 142 |
+| COMPLETED | 3358 |
+| ACTIVE | 151 |
 | CANCELLED | 833 |
-| PENDING | 783 |
+| PENDING | 778 |
+| READY | 18 |
 | BLOCKED | 14 |
-| READY | 22 |
-| FAILED | 9 |
+| FAILED | 6 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9949 |
-| Open PRs | 158 |
-| Merged PRs | 8634 |
+| Total PRs | 9959 |
+| Open PRs | 167 |
+| Merged PRs | 8635 |
 | Closed PRs | 1157 |
 
 ## Rejection Counts
@@ -304,6 +304,7 @@
 | task-574-690-item-gating-ui-components.md | 3 |
 | task-586-687-multi-box-integration-impl.md | 3 |
 | task-608-619-multi-box-text-search-engine-e2e.md | 3 |
+| task-618-703-multi-box-search-highlight-impl.md | 3 |
 | task-619-687-multi-box-stat-filters-e2e-tests.md | 3 |
 | task-638-641-extract-constants-to-core.md | 3 |
 | task-638-666-extract-constants-to-core-retry.md | 3 |
@@ -499,6 +500,7 @@
 | task-563-578-save-file-progress-fixtures-coder.md | 2 |
 | task-563-586-develop-migration-script.md | 2 |
 | task-563-669-gen3-wild-item-data-parsing-logic-retry.md | 2 |
+| task-563-675-complexity-validation-tests-retry.md | 2 |
 | task-563-680-gen2-bag-inventory-parsing-impl.md | 2 |
 | task-564-565-gen3-trainer-card-e2e-tests.md | 2 |
 | task-564-604-pokemon-held-item-tracker-qa.md | 2 |
@@ -508,10 +510,14 @@
 | task-570-618-cva-tactical-aesthetic-e2e-coder-retry.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
-| task-618-703-multi-box-search-highlight-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
 | task-638-717-extract-constants-to-core-v6.md | 2 |
+| task-639-688-migrate-buttons-impl-v4.md | 2 |
+| task-639-689-migrate-badges-impl-v4.md | 2 |
+| task-639-690-migrate-inputs-leds-impl-v4.md | 2 |
+| task-645-691-dashboard-metrics-integration-e2e-impl-retry-2.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
+| task-676-712-fuzzer-deadlock-assertions-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -942,6 +948,7 @@
 | task-530-551-savedatareader-bounds-tests.md | 1 |
 | task-532-655-savedatareader-tests-qa.md | 1 |
 | task-533-602-orchestrator-curator-trigger-logic-retry-impl.md | 1 |
+| task-533-678-savedatareader-e2e-qa.md | 1 |
 | task-536-538-dagtree-context-state-impl.md | 1 |
 | task-536-565-playwright-style-guide-qa.md | 1 |
 | task-537-599-gen3-berry-pipeline-integration.md | 1 |
@@ -980,7 +987,7 @@
 | task-562-621-wild-item-selection-ui-retry.md | 1 |
 | task-563-589-gen2-room-decoration-ui-impl.md | 1 |
 | task-563-594-gen3-pokeblock-optimizer-ui-components.md | 1 |
-| task-563-675-complexity-validation-tests-retry.md | 1 |
+| task-563-681-gen2-bag-inventory-parsing-qa.md | 1 |
 | task-563-682-gen3-bag-inventory-parsing-impl.md | 1 |
 | task-563-691-save-file-progress-e2e-coder-retry.md | 1 |
 | task-564-578-e2e-navigation-and-selection.md | 1 |
@@ -1004,17 +1011,12 @@
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
-| task-639-688-migrate-buttons-impl-v4.md | 1 |
-| task-639-689-migrate-badges-impl-v4.md | 1 |
-| task-639-690-migrate-inputs-leds-impl-v4.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
 | task-640-653-relocate-foundry-scripts-replacement.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
-| task-645-691-dashboard-metrics-integration-e2e-impl-retry-2.md | 1 |
 | task-649-702-priority-dispatch-coder.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
-| task-676-712-fuzzer-deadlock-assertions-impl.md | 1 |
 
 ## Wait Times
 

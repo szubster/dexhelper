@@ -2,10 +2,10 @@
 id: task-618-704-multi-box-search-highlight-tests
 type: TASK
 title: Multi-Box Search Visual Highlighting Tests
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-23'
+updated_at: '2026-10-24'
 depends_on:
   - task-618-703-multi-box-search-highlight-impl
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - ui
   - search
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-618-703-multi-box-search-highlight-impl
 notes: ''
 locks: []
 ---

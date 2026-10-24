@@ -2,7 +2,7 @@
 id: task-618-703-multi-box-search-highlight-impl
 type: TASK
 title: Multi-Box Search Visual Highlighting Implementation
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-24'
@@ -14,8 +14,8 @@ tags:
   - react
   - ui
   - search
-rejection_count: 2
-rejection_reason: 'Session terminated with state: FAILED'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

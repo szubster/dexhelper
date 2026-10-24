@@ -2,10 +2,10 @@
 id: story-540-560-trick-house-e2e
 type: STORY
 title: Trick House Tracker E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-09-05'
+updated_at: '2026-10-24'
 depends_on:
   - story-540-559-trick-house-ui
 jules_session_id: null
@@ -20,6 +20,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Trick House Tracker E2E Verification

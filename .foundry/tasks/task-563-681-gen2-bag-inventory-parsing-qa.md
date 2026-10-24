@@ -2,7 +2,7 @@
 id: task-563-681-gen2-bag-inventory-parsing-qa
 type: TASK
 title: Gen 2 Bag Inventory Parsing QA
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-12'
 updated_at: '2026-10-24'
@@ -15,8 +15,8 @@ tags:
   - dexhelper
   - gen2
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50
