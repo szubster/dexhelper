@@ -2,12 +2,12 @@
 id: prd-536-587-playwright-browsers-preinstall-guard
 type: PRD
 title: Playwright Browser Pre-Install Guard and Fallback in Test Pipeline
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-10-13'
-updated_at: '2026-10-17'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '1732323291050969362'
+jules_session_id: null
 pr_number: null
 parent: idea-536-playwright-browsers-preinstall-guard
 tags:

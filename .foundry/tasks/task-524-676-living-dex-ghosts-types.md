@@ -2,12 +2,12 @@
 id: task-524-676-living-dex-ghosts-types
 type: TASK
 title: Define Types for Living Dex Ghost Slots and Tactical Styling
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-09'
-updated_at: '2026-10-17'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '6148750470546809114'
+jules_session_id: null
 pr_number: null
 parent: story-134-524-living-dex-ghosts-and-styling
 tags:

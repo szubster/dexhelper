@@ -2,10 +2,10 @@
 id: task-519-714-binjgb-e2e-qa
 type: TASK
 title: QA for binjgb E2E Tests
-status: READY
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-24'
 depends_on:
   - task-519-712-binjgb-e2e-load-roms-impl
   - task-519-713-binjgb-e2e-memory-sync-impl
@@ -19,7 +19,9 @@ tags:
   - emulator
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-517-530-binjgb-emulator-ui-impl
 notes: ''
 locks: []
 ---

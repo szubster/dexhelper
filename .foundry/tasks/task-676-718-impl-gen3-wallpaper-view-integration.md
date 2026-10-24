@@ -2,26 +2,25 @@
 id: task-676-718-impl-gen3-wallpaper-view-integration
 type: TASK
 title: Integrate Wallpaper Dashboard into View Hierarchy
-status: READY
+status: PENDING
 owner_persona: coder
-created_at: "2026-10-22"
-updated_at: "2026-10-22"
+created_at: '2026-10-22'
+updated_at: '2026-10-24'
 depends_on:
   - task-676-717-impl-gen3-wallpaper-state-integration
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-337-676-gen3-wallpaper-ui-component
-priority: 50
-confidence_score: null
 tags:
   - gen3
   - ui
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Integrate Wallpaper Dashboard into View Hierarchy

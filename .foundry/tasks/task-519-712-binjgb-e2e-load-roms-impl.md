@@ -2,10 +2,10 @@
 id: task-519-712-binjgb-e2e-load-roms-impl
 type: TASK
 title: Implement E2E Tests for Loading binjgb ROMs
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-24'
 depends_on:
   - task-517-528-binjgb-wasm-logic-impl
   - task-517-529-binjgb-react-context-impl
@@ -21,7 +21,9 @@ tags:
   - gen2
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-517-530-binjgb-emulator-ui-impl
 notes: ''
 locks: []
 ---

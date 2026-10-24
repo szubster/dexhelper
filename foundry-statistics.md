@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-24T02:06:19.455Z*
+*Generated at: 2026-10-24T07:41:57.851Z*
 
 ## Node Statistics
 
@@ -8,32 +8,32 @@
 | Type | Count |
 |---|---|
 | ADR | 44 |
-| EPIC | 512 |
+| EPIC | 513 |
 | IDEA | 233 |
 | PRD | 214 |
 | RESEARCH | 311 |
-| STORY | 1075 |
-| TASK | 2730 |
+| STORY | 1078 |
+| TASK | 2740 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3320 |
-| ACTIVE | 171 |
+| COMPLETED | 3330 |
+| ACTIVE | 155 |
 | CANCELLED | 828 |
-| PENDING | 784 |
+| PENDING | 790 |
+| READY | 15 |
 | BLOCKED | 14 |
-| READY | 1 |
 | FAILED | 1 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9928 |
-| Open PRs | 192 |
-| Merged PRs | 8585 |
-| Closed PRs | 1151 |
+| Total PRs | 9930 |
+| Open PRs | 176 |
+| Merged PRs | 8601 |
+| Closed PRs | 1153 |
 
 ## Rejection Counts
 
@@ -490,6 +490,7 @@
 | task-558-570-rs-battle-tower-integration.md | 2 |
 | task-560-569-evaluate-state-machine-libraries.md | 2 |
 | task-560-575-pokerus-spread-planner-qa.md | 2 |
+| task-561-669-spinda-rendering-ui.md | 2 |
 | task-562-576-item-selection-route-e2e-impl.md | 2 |
 | task-562-576-schema-linter-checkbox-logic-impl.md | 2 |
 | task-562-594-gen3-missed-items-extraction-logic.md | 2 |
@@ -771,6 +772,7 @@
 | story-081-279-gen3-ignore-emulator-trailing-bytes.md | 1 |
 | story-105-649-daycare-save-parsing-e2e.md | 1 |
 | story-109-520-box-analyzer-view-layout.md | 1 |
+| story-112-403-integration-e2e.md | 1 |
 | story-133-273-living-dex-pc-mapping.md | 1 |
 | story-133-476-gen3-ribbon-e2e-verification.md | 1 |
 | story-134-475-gen3-condition-stats-extraction-e2e.md | 1 |
@@ -964,7 +966,6 @@
 | task-561-614-pokerus-e2e-infected.md | 1 |
 | task-561-615-pokerus-e2e-uninfected-cured.md | 1 |
 | task-561-668-spinda-rendering-types.md | 1 |
-| task-561-669-spinda-rendering-ui.md | 1 |
 | task-561-690-pokerus-spread-planner-e2e-impl.md | 1 |
 | task-561-704-orchestrator-dag-graphology-impl-retry.md | 1 |
 | task-562-586-pokeblock-recommendation-logic.md | 1 |
@@ -993,6 +994,7 @@
 | task-618-688-multi-box-ev-filters-logic.md | 1 |
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
+| task-618-703-multi-box-search-highlight-impl.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |

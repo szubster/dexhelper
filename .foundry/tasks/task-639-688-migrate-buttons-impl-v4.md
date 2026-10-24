@@ -2,10 +2,10 @@
 id: task-639-688-migrate-buttons-impl-v4
 type: TASK
 title: Migrate Tactical Buttons Implementation (v4)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-24'
 depends_on:
   - research-639-687-investigate-primitives-migration-failures-v3
 jules_session_id: null

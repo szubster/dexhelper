@@ -2,12 +2,12 @@
 id: story-337-676-gen3-wallpaper-ui-component
 type: STORY
 title: Gen 3 Wallpaper Dashboard UI Component
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-10-22'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '3958506681657671349'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: epic-116-337-gen3-wallpaper-dashboard-ui
