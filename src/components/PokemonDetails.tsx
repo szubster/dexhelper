@@ -200,7 +200,7 @@ export function PokemonDetails({
     if (!saveData) return [];
     const result = [];
     for (const p of saveData.partyDetails) {
-      if (p.speciesId === pokemonId) {
+      if (p && p.speciesId === pokemonId) {
         result.push({ ...p, location: 'Party' as const });
       }
     }
