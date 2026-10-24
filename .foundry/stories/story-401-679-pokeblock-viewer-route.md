@@ -31,3 +31,7 @@ As part of `epic-114-401-gen3-pokeblock-dashboard-ui-retry`, we need to create t
 - [ ] Implement the routing for the Pokéblock Viewer dashboard.
 - [ ] Create the main dashboard container component.
 - [ ] Ensure the container correctly accesses the parsed Pokéblock data from the save state context.
+- [ ] task-679-711-pokeblock-state-access-layer-impl
+- [ ] task-679-712-pokeblock-dashboard-ui-impl
+- [ ] task-679-713-pokeblock-route-integration-impl
+- [ ] task-679-714-pokeblock-viewer-qa
