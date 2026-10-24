@@ -29,7 +29,7 @@ export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, in
       data-testid="pokedex-card"
       data-pokemon-id={id}
       className={cn(
-        'group focus-visible:tactical-focus relative flex aspect-square w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-none border border-dashed text-left transition-all duration-300',
+        'group tactical-card focus-visible:tactical-focus relative flex aspect-square w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-none border border-dashed p-0 text-left transition-all duration-300',
         isSecured
           ? 'border-cyan-500/50 bg-cyan-950/20 hover:border-cyan-400 hover:bg-cyan-900/40'
           : 'border-zinc-800 bg-black/40 hover:border-zinc-700',
@@ -63,10 +63,13 @@ export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, in
           className={cn(
             'font-black font-mono text-xl tracking-tighter sm:text-2xl',
             isSecured ? 'text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]' : 'text-zinc-600',
+            !isSecured && 'opacity-30 grayscale',
           )}
         >
           {id.toString().padStart(3, '0')}
         </span>
+
+        {!isSecured && <span className="mt-1 font-mono text-[8px] text-zinc-500 uppercase tracking-widest">GHOST</span>}
       </div>
 
       {isSecured && (
