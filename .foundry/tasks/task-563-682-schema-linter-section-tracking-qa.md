@@ -25,5 +25,5 @@ locks: []
 QA needs to verify the functionality of the schema linter to ensure that markdown section tracking correctly flags checkboxes outside of the `## Acceptance Criteria` section.
 
 ## Acceptance Criteria
-- [ ] Verify that running the linter correctly identifies valid and invalid markdown checkboxes with section tracking.
-- [ ] Verify unit tests pass and test cases cover the expected behavior.
+- [x] Verify that running the linter correctly identifies valid and invalid markdown checkboxes with section tracking.
+- [x] Verify unit tests pass and test cases cover the expected behavior.
