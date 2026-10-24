@@ -32,4 +32,4 @@ The task `task-645-668-dashboard-metrics-integration-e2e-impl` permanently faile
 - Create any ADR or guidelines to fix the tests.
 
 ## Acceptance Criteria
-- [ ] Root cause identified and documented.
+- [x] Root cause identified and documented.
