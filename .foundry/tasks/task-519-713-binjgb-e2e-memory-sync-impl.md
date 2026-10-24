@@ -28,4 +28,4 @@ locks: []
 Implement Playwright E2E tests to verify that real-time memory synchronization works correctly for the `binjgb` emulator with DexHelper Save DB.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests verifying real-time memory synchronization from the emulator's memory space to the application.
+- [x] Implement Playwright E2E tests verifying real-time memory synchronization from the emulator's memory space to the application.
