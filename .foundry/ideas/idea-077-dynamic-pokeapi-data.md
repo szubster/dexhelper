@@ -2,12 +2,12 @@
 id: idea-077-dynamic-pokeapi-data
 type: IDEA
 title: Parse items and moveset PPs from repository data during build
-status: READY
+status: ACTIVE
 owner_persona: curator
 created_at: '2026-06-12'
 updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14404321961942120797'
 pr_number: null
 parent: null
 tags:
