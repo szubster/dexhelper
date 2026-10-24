@@ -36,5 +36,6 @@ Build an automated pre-commit / linter validation tool (e.g. in `.github/scripts
 Eliminates false-positive task completions, reduces transient QA rejection loops, and enforces delivery accountability across coder sessions.
 
 ## Acceptance Criteria
-- [ ] PRD generated detailing the artifact presence pre-commit validator specifications.
+- [x] PRD generated detailing the artifact presence pre-commit validator specifications.
 - [ ] Automated validation utility implemented in `.github/scripts/`.
+- [ ] prd-537-703-artifact-presence-precommit-validator

@@ -2,10 +2,10 @@
 id: epic-049-088-vite-plugin-jsonl-integration
 type: EPIC
 title: Vite Plugin Integration for JSONL Data
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-13'
-updated_at: '2026-10-05'
+updated_at: '2026-10-24'
 depends_on:
   - epic-049-086-dynamic-move-pp-parsing
   - epic-049-087-dynamic-item-list-parsing
@@ -34,11 +34,11 @@ We have successfully extracted moves and items data into `moves.jsonl` and `item
 3. Verify that the client can correctly parse and utilize the new data structures.
 
 ## Acceptance Criteria
-- [ ] story-088-637-vite-jsonl-plugin-update
+- [x] story-088-637-vite-jsonl-plugin-update
 
-- [ ] story-088-638-client-db-jsonl-loader
+- [x] story-088-638-client-db-jsonl-loader
 
-- [ ] story-088-639-jsonl-integration-e2e
-- [ ] Update Vite configuration/plugin to package `.jsonl` files for moves and items.
-- [ ] Update application runtime (e.g. `src/db/`) to load and map the newly generated dynamic lists.
-- [ ] Ensure backward compatibility or smooth transition for UI that relies on this data.
+- [x] story-088-639-jsonl-integration-e2e
+- [x] Update Vite configuration/plugin to package `.jsonl` files for moves and items.
+- [x] Update application runtime (e.g. `src/db/`) to load and map the newly generated dynamic lists.
+- [x] Ensure backward compatibility or smooth transition for UI that relies on this data.

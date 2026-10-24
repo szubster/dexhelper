@@ -2,12 +2,12 @@
 id: idea-526-save-file-schema-migration-framework
 type: IDEA
 title: Versioned Save State Schema Migration Pipeline
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-04-20'
-updated_at: '2026-10-16'
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: '16960194378758863441'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -46,3 +46,4 @@ Introduce a lightweight, versioned Schema Migration Framework for parsed save st
 - [ ] Implement `SaveSchemaMigrator` with version tag support for parsed save data payloads.
 - [ ] Integrate migration pipeline into save parsing/hydration and `SaveHistoryDB` retrieval methods.
 - [ ] Write unit tests verifying sequential migration from legacy schema payloads to `CURRENT_SCHEMA_VERSION`.
+- [ ] prd-526-587-save-file-schema-migration-framework

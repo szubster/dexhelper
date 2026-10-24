@@ -2,10 +2,10 @@
 id: epic-343-517-gen3-weather-anomaly-data
 type: EPIC
 title: Gen 3 Weather Anomaly Data Parsing
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-07'
+updated_at: '2026-10-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Gen 3 Weather Anomaly Data Parsing
@@ -26,6 +27,6 @@ This epic focuses on expanding the Gen 3 save parsing engine to extract the acti
 
 ## Acceptance Criteria
 - [x] Break down this Epic into Stories.
-- [ ] story-517-536-gen3-weather-anomaly-data-parsing
+- [x] story-517-536-gen3-weather-anomaly-data-parsing
 - [x] Explicitly generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e`) alongside regular implementation stories to satisfy the orchestrator safeguard.
-- [ ] story-517-537-gen3-weather-anomaly-data-e2e
+- [x] story-517-537-gen3-weather-anomaly-data-e2e

@@ -2,10 +2,10 @@
 id: task-586-688-multi-box-integration-e2e
 type: TASK
 title: Multi-Box Search Integration E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-17'
+updated_at: '2026-10-18'
 depends_on:
   - task-586-687-multi-box-integration-impl
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - e2e
   - pc-box
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-586-687-multi-box-integration-impl
 notes: ''
 locks: []
 ---

@@ -1,35 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import {
-  checkGen2Checksums,
-  GEN2_CRYSTAL_EN_BACKUP_END,
-  GEN2_CRYSTAL_EN_BACKUP_START,
-  GEN2_CRYSTAL_EN_BACKUP_STORED,
-  GEN2_CRYSTAL_EN_MAIN_END,
-  GEN2_CRYSTAL_EN_MAIN_START,
-  GEN2_CRYSTAL_EN_MAIN_STORED,
-  GEN2_CRYSTAL_JP_BACKUP_END,
-  GEN2_CRYSTAL_JP_BACKUP_START,
-  GEN2_CRYSTAL_JP_BACKUP_STORED,
-  GEN2_CRYSTAL_JP_MAIN_END,
-  GEN2_CRYSTAL_JP_MAIN_START,
-  GEN2_CRYSTAL_JP_MAIN_STORED,
-  GEN2_GS_EN_BACKUP_R1_END,
-  GEN2_GS_EN_BACKUP_R1_START,
-  GEN2_GS_EN_BACKUP_R2_END,
-  GEN2_GS_EN_BACKUP_R2_START,
-  GEN2_GS_EN_BACKUP_R3_END,
-  GEN2_GS_EN_BACKUP_R3_START,
-  GEN2_GS_EN_BACKUP_STORED,
-  GEN2_GS_EN_MAIN_END,
-  GEN2_GS_EN_MAIN_START,
-  GEN2_GS_EN_MAIN_STORED,
-  GEN2_GS_JP_BACKUP_END,
-  GEN2_GS_JP_BACKUP_START,
-  GEN2_GS_JP_BACKUP_STORED,
-  GEN2_GS_JP_MAIN_END,
-  GEN2_GS_JP_MAIN_START,
-  GEN2_GS_JP_MAIN_STORED,
-} from './gen2Checksum';
+import { checkGen2Checksums, getGen2ChecksumSpec } from './gen2Checksum';
 
 describe('Gen 2 Checksum Validator', () => {
   function createMockSave(
@@ -46,57 +16,24 @@ describe('Gen 2 Checksum Validator', () => {
       view.setUint8(i, i % 256);
     }
 
-    let mainRanges: [number, number][];
-    let mainStoredOffset: number;
-    let backupRanges: [number, number][];
-    let backupStoredOffset: number;
-
-    if (isCrystal) {
-      if (isJapanese) {
-        mainRanges = [[GEN2_CRYSTAL_JP_MAIN_START, GEN2_CRYSTAL_JP_MAIN_END]];
-        mainStoredOffset = GEN2_CRYSTAL_JP_MAIN_STORED;
-        backupRanges = [[GEN2_CRYSTAL_JP_BACKUP_START, GEN2_CRYSTAL_JP_BACKUP_END]];
-        backupStoredOffset = GEN2_CRYSTAL_JP_BACKUP_STORED;
-      } else {
-        mainRanges = [[GEN2_CRYSTAL_EN_MAIN_START, GEN2_CRYSTAL_EN_MAIN_END]];
-        mainStoredOffset = GEN2_CRYSTAL_EN_MAIN_STORED;
-        backupRanges = [[GEN2_CRYSTAL_EN_BACKUP_START, GEN2_CRYSTAL_EN_BACKUP_END]];
-        backupStoredOffset = GEN2_CRYSTAL_EN_BACKUP_STORED;
-      }
-    } else {
-      if (isJapanese) {
-        mainRanges = [[GEN2_GS_JP_MAIN_START, GEN2_GS_JP_MAIN_END]];
-        mainStoredOffset = GEN2_GS_JP_MAIN_STORED;
-        backupRanges = [[GEN2_GS_JP_BACKUP_START, GEN2_GS_JP_BACKUP_END]];
-        backupStoredOffset = GEN2_GS_JP_BACKUP_STORED;
-      } else {
-        mainRanges = [[GEN2_GS_EN_MAIN_START, GEN2_GS_EN_MAIN_END]];
-        mainStoredOffset = GEN2_GS_EN_MAIN_STORED;
-        backupRanges = [
-          [GEN2_GS_EN_BACKUP_R1_START, GEN2_GS_EN_BACKUP_R1_END],
-          [GEN2_GS_EN_BACKUP_R2_START, GEN2_GS_EN_BACKUP_R2_END],
-          [GEN2_GS_EN_BACKUP_R3_START, GEN2_GS_EN_BACKUP_R3_END],
-        ];
-        backupStoredOffset = GEN2_GS_EN_BACKUP_STORED;
-      }
-    }
+    const spec = getGen2ChecksumSpec(isCrystal, isJapanese);
 
     // Calculate correct sums
     let mainSum = 0;
-    for (const [start, end] of mainRanges) {
+    for (const [start, end] of spec.mainRanges) {
       for (let i = start; i <= end; i++) {
         mainSum += view.getUint8(i);
       }
     }
-    view.setUint16(mainStoredOffset, corruptMain ? 0x0000 : mainSum, true);
+    view.setUint16(spec.mainStoredOffset, corruptMain ? 0x0000 : mainSum, true);
 
     let backupSum = 0;
-    for (const [start, end] of backupRanges) {
+    for (const [start, end] of spec.backupRanges) {
       for (let i = start; i <= end; i++) {
         backupSum += view.getUint8(i);
       }
     }
-    view.setUint16(backupStoredOffset, corruptBackup ? 0x0000 : backupSum, true);
+    view.setUint16(spec.backupStoredOffset, corruptBackup ? 0x0000 : backupSum, true);
 
     return view;
   }

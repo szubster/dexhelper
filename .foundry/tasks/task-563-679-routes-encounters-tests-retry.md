@@ -2,10 +2,10 @@
 id: task-563-679-routes-encounters-tests-retry
 type: TASK
 title: 'Routes, Encounters, and Drop Rates Tests (Retry)'
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-18'
 depends_on:
   - task-563-678-routes-encounters-ui-components-retry
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-563-677-routes-encounters-data-fetching-retry
 notes: ''
 locks: []
 ---

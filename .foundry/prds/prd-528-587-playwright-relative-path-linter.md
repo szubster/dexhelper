@@ -2,12 +2,12 @@
 id: prd-528-587-playwright-relative-path-linter
 type: PRD
 title: PRD Playwright Relative Path Navigation Linter Rule
-status: READY
+status: ACTIVE
 owner_persona: epic_planner
 created_at: '2026-10-15'
 updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14095990097843965610'
 pr_number: null
 parent: idea-528-playwright-relative-path-linter
 tags:

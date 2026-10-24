@@ -26,5 +26,5 @@ locks: []
 Implement the integration and E2E tests for the benchmarking orchestration and tools (TS 7 toolchains and Node native execution benchmarks).
 
 ## Acceptance Criteria
-- [ ] Implement integration tests for the new benchmarking orchestration setups.
-- [ ] Ensure that E2E tests verify the full benchmarking execution workflow without breaking existing workflows.
+- [x] Implement integration tests for the new benchmarking orchestration setups.
+- [x] Ensure that E2E tests verify the full benchmarking execution workflow without breaking existing workflows.

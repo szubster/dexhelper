@@ -21,7 +21,7 @@ test.describe('Testing Style Guide Verification', () => {
   test('successfully fetches and renders mock DAG data', async ({ page }) => {
     await mockDagData(page);
     await page.goto('./dag');
-    const personaBadges = page.locator('.tactical-flow');
-    await expect(personaBadges).toBeVisible();
+    const p = page.getByText('idea-001').first();
+    await expect(p).toBeVisible();
   });
 });

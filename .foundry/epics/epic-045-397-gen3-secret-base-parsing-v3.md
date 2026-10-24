@@ -2,10 +2,10 @@
 id: epic-045-397-gen3-secret-base-parsing-v3
 type: EPIC
 title: Gen 3 Secret Base Save File Parsing (v3)
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-08-08'
+updated_at: '2026-10-22'
 depends_on:
   - research-045-396-investigate-secret-base-v2-failure
 jules_session_id: null
@@ -20,6 +20,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # EPIC: Gen 3 Secret Base Save File Parsing (v3)
@@ -35,7 +36,7 @@ As part of the Gen 3 Secret Base and Mixed Record Viewer, we need to parse the s
 ## Acceptance Criteria
 - [x] Story Owner: Break this Epic down into actionable Stories.
 - [x] Ensure the final generated STORY is dedicated exclusively to Integration and E2E Verification.
-- [ ] story-397-404-gen3-secret-base-parsing-core
-- [ ] story-397-405-gen3-mixed-record-npc-data
-- [ ] story-397-406-gen3-npc-rematch-status
-- [ ] story-397-407-gen3-secret-base-parsing-e2e
+- [x] story-397-404-gen3-secret-base-parsing-core
+- [x] story-397-405-gen3-mixed-record-npc-data
+- [x] story-397-406-gen3-npc-rematch-status
+- [x] story-397-407-gen3-secret-base-parsing-e2e
