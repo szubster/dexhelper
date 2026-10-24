@@ -1,7 +1,8 @@
 import type { PagesFunction } from '@cloudflare/workers-types';
 import type { Env } from '../../types/env';
+import { getActiveChannels, saveActiveChannels } from '../../utils/webhook-manager';
 
-export const onRequestPost: PagesFunction<Env> = async ({ request }) => {
+export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const resourceState = request.headers.get('x-goog-resource-state');
 
   if (resourceState === 'sync') {
@@ -41,7 +42,13 @@ export const onRequestPost: PagesFunction<Env> = async ({ request }) => {
           address: `${new URL(request.url).origin}/api/webhooks/drive`
         })
       });
-      const result = await response.json();
+      if (!response.ok) {
+        return new globalThis.Response('Failed to register', { status: response.status }) as any;
+      }
+      const result = await response.json() as any;
+      const channels = await getActiveChannels(env);
+      channels.push({ channelId: result.id, resourceId: result.resourceId, expiration: parseInt(result.expiration, 10) });
+      await saveActiveChannels(env, channels);
       return new globalThis.Response(JSON.stringify(result), { status: response.status }) as any;
     } catch {
       return new globalThis.Response('Failed to register', { status: 500 }) as any;
