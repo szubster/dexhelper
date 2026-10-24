@@ -40,9 +40,9 @@ Remove the `@xyflow/react` and `dagre` dependencies from `package.json`, clean u
 5. Remove chunking configurations for `@xyflow/react` and `dagre` in `vite.config.ts`.
 
 ## Acceptance Criteria
-- [ ] Usage of `@xyflow/react` and `dagre` is removed from `DagContext.tsx` and stale logic is cleared.
-- [ ] Redundant UI components and utils (`DagDashboard`, `DagNode`, `highlighting`) and their test files are deleted.
-- [ ] `DagWrapper.tsx` is updated.
-- [ ] `index.ts` no longer exports deleted components.
-- [ ] `@xyflow/react`, `dagre`, and `@types/dagre` are removed from dependencies.
-- [ ] `vite.config.ts` no longer references `@xyflow/`.
+- [x] Usage of `@xyflow/react` and `dagre` is removed from `DagContext.tsx` and stale logic is cleared.
+- [x] Redundant UI components and utils (`DagDashboard`, `DagNode`, `highlighting`) and their test files are deleted.
+- [x] `DagWrapper.tsx` is updated.
+- [x] `index.ts` no longer exports deleted components.
+- [x] `@xyflow/react`, `dagre`, and `@types/dagre` are removed from dependencies.
+- [x] `vite.config.ts` no longer references `@xyflow/`.
