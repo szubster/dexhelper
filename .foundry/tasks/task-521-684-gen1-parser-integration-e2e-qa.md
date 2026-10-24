@@ -28,5 +28,5 @@ locks: []
 We need to independently verify that the E2E implementation for Gen 1 save parsing is robust, passes correctly without false positives, and meets the integration requirements for ADR 028.
 
 ## Acceptance Criteria
-- [ ] Verify that `tests/e2e/gen1_save_parsing.spec.ts` and any other Gen 1 integration tests pass.
-- [ ] Verify that no new bugs or regressions have been introduced into the Gen 1 save parser integration.
+- [x] Verify that `tests/e2e/gen1_save_parsing.spec.ts` and any other Gen 1 integration tests pass.
+- [x] Verify that no new bugs or regressions have been introduced into the Gen 1 save parser integration.
