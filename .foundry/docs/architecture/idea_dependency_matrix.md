@@ -109,7 +109,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-074-refactor-dag-dashboard-context` | Refactor DagDashboard to use React Context (ADR 013/017) | architecture, ui, dashboard |  | PENDING |
 | `idea-075-gen3-tv-swarm-tracker` | Gen 3 TV Broadcast and Swarm Tracker | feature, gen3, daily-events |  | PENDING |
 | `idea-076-tpm-journal-bloat` | Investigate TPM Journal Bloat and Orchestrator Logging | architecture, logging, orchestrator |  | COMPLETED |
-| `idea-077-dynamic-pokeapi-data` | Parse items and moveset PPs from repository data during build | refactor, build, db |  | PENDING |
+| `idea-077-dynamic-pokeapi-data` | Parse items and moveset PPs from repository data during build | refactor, build, db | `idea-117-split-bundles-and-data`, `idea-136-split-bundles-and-data` | PENDING |
 | `idea-077-gen3-match-call-tracker` | Gen 3 PokéNav Match Call & Rematch Tracker | feature, gen3, tracking, endgame |  | PENDING |
 | `idea-078-settle-rtc-strategy` | Settle RTC Strategy Once and For All | feature, gen3, rtc, architecture |  | COMPLETED |
 | `idea-079-automated-max-rejection-cancellation` | Automated Max Rejection Cancellation | foundry, orchestrator, resilience |  | PENDING |
