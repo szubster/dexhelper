@@ -34,4 +34,7 @@ Following the extraction of the `SecretBase` array, we need to extract the NPC p
 - Include species, levels, and moves.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-582-707-gen3-secret-base-party-types
+- [ ] task-582-708-gen3-secret-base-party-extraction
+- [ ] task-582-709-qa-gen3-secret-base-party-extraction
