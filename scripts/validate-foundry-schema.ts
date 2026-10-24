@@ -273,7 +273,8 @@ function validateSchema() {
       'Learnings & Follow-ups',
       'High-Level Acceptance Criteria',
       'Auditor Learnings Follow-up',
-      'Benefits'
+      'Benefits',
+      'Technical Requirements'
     ];
     let currentSection = '';
     lines.forEach((line, index) => {
