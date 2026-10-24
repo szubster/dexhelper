@@ -30,4 +30,4 @@ Ensure the integrated static analysis linter works properly end-to-end.
 Verify the implementation of integration and E2E tests for the Bash static analysis linter.
 
 ## Acceptance Criteria
-- [ ] Verify E2E tests pass and correctly test that infinite-blocking commands like `tail -f` are caught and blocked before execution.
+- [x] Verify E2E tests pass and correctly test that infinite-blocking commands like `tail -f` are caught and blocked before execution.
