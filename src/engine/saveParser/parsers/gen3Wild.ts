@@ -13,9 +13,6 @@ export const GEN3_ITEM_CHANCE_RARE = 5;
 export const GEN3_ITEM_CHANCE_COMMON_COMPOUND_EYES = 60;
 export const GEN3_ITEM_CHANCE_RARE_COMPOUND_EYES = 20;
 
-export const SPECIES_INFO_ITEM_COMMON_OFFSET = 0x0c;
-export const SPECIES_INFO_ITEM_RARE_OFFSET = 0x0e;
-
 export function parseGen3WildEncounterProbabilities(
   interactionType: InteractionType,
   slots: { pokemonId: number; minLevel: number; maxLevel: number }[],
