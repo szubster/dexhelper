@@ -33,4 +33,6 @@ Implement assertions in the orchestrator fuzzer to verify that all simulated run
 - Fail the fuzzing process clearly with an actionable report if a deadlock or infinite loop is detected.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-676-712-fuzzer-deadlock-assertions-impl
+- [ ] task-676-713-fuzzer-deadlock-assertions-qa
