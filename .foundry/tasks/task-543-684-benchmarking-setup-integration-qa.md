@@ -28,5 +28,5 @@ locks: []
 Verify that the integration and E2E tests for the benchmarking orchestration and setups function correctly and thoroughly test the system.
 
 ## Acceptance Criteria
-- [ ] Verify the implemented E2E and integration tests execute successfully.
-- [ ] Confirm no regressions are introduced in existing workflows.
+- [x] Verify the implemented E2E and integration tests execute successfully.
+- [x] Confirm no regressions are introduced in existing workflows.
