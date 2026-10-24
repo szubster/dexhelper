@@ -34,7 +34,11 @@ This story focuses on creating the reusable UI component (likely Canvas or layer
 - [ ] Overlay the four spots at the precise calculated coordinates.
 - [ ] Ensure the component complies with Tactical UI aesthetic guidelines (e.g., sharp edges, `rounded-none`, dashed borders if applicable).
 
-- [ ] task-561-668-spinda-rendering-types
-- [ ] task-561-669-spinda-rendering-ui
-- [ ] task-561-670-spinda-rendering-tests
-- [ ] task-561-671-qa-spinda-rendering-component
+- [x] task-561-668-spinda-rendering-types
+- [x] task-561-669-spinda-rendering-ui
+- [x] task-561-670-spinda-rendering-tests
+- [x] task-561-671-qa-spinda-rendering-component
+- [ ] research-561-721-investigate-spinda-ui-failure
+- [ ] task-561-722-spinda-rendering-ui-retry
+- [ ] task-561-723-spinda-rendering-tests-retry
+- [ ] task-561-724-qa-spinda-rendering-component-retry
