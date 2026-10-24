@@ -24,5 +24,8 @@ locks: []
 Implement a base visual map component for Route 119 in Gen 3 that accurately reflects the water tiles layout.
 
 ## Acceptance Criteria
+- [ ] task-676-707-route-119-layout-data-impl
+- [ ] task-676-708-route-119-visual-map-impl
+- [ ] task-676-709-route-119-visual-map-qa
 - [ ] Create a static or base React component that renders the Route 119 map.
 - [ ] Follow tactical aesthetic constraints for UI components.
