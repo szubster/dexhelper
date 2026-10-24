@@ -1105,6 +1105,15 @@ function main(): void {
   info('Phase 4: Resolving DAG — finding eligible PENDING nodes...');
   const eligible: ParsedNode[] = [];
 
+  const activeLocks = new Set<string>();
+  for (const node of nodes) {
+    if (node.frontmatter.status === 'ACTIVE' && node.frontmatter.locks) {
+      for (const lock of node.frontmatter.locks) {
+        activeLocks.add(lock);
+      }
+    }
+  }
+
   for (const node of nodes) {
     if (node.frontmatter.status !== 'PENDING') continue;
 
@@ -1165,6 +1174,18 @@ function main(): void {
       if (grandParents) {
         for (const gp of grandParents) {
           queue.push(gp);
+        }
+      }
+    }
+
+    if (blocked) continue;
+
+    if (node.frontmatter.locks) {
+      for (const lock of node.frontmatter.locks) {
+        if (activeLocks.has(lock)) {
+          info(`Node ${node.repoPath} is blocked by active lock: ${lock}`);
+          blocked = true;
+          break;
         }
       }
     }
