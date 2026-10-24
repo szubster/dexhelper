@@ -1,3 +1,4 @@
+import { execSync } from 'node:child_process';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -53,5 +54,96 @@ test.describe('Archival Tree Evaluation', () => {
 
     expect(fs.existsSync(path.join(tmpDir, '.foundry/tasks/task-999.md'))).toBe(true);
     expect(fs.existsSync(path.join(tmpDir, '.foundry/tasks/task-998.md'))).toBe(true);
+  });
+
+  test('verifies entire parent/descendant chain evaluation for completion logic', async () => {
+    fs.mkdirSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents'), { recursive: true });
+    fs.writeFileSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents/core_policies.md'), 'test');
+
+    const epicId = 'epic-700';
+    const storyId = 'story-701';
+    const taskId = 'task-702';
+
+    createValidTestNode(
+      tmpDir,
+      `.foundry/epics/${epicId}.md`,
+      {
+        id: epicId,
+        type: 'EPIC',
+        status: 'PENDING',
+        owner_persona: 'epic_planner',
+        title: 'Parent Epic',
+      },
+      `Body with child link:\n- [ ] ${storyId}`,
+    );
+
+    createValidTestNode(
+      tmpDir,
+      `.foundry/stories/${storyId}.md`,
+      {
+        id: storyId,
+        type: 'STORY',
+        status: 'PENDING',
+        parent: epicId,
+        owner_persona: 'story_owner',
+        title: 'Child Story',
+        tags: ['e2e'],
+      },
+      `Body with child link:\n- [ ] ${taskId}`,
+    );
+
+    createValidTestNode(
+      tmpDir,
+      `.foundry/tasks/${taskId}.md`,
+      {
+        id: taskId,
+        type: 'TASK',
+        status: 'READY',
+        parent: storyId,
+        owner_persona: 'coder',
+        title: 'Child Task',
+      },
+      `Task is ready to be worked on.`,
+    );
+
+    const orchestratorPath = path.resolve(__dirname, '../../packages/foundry/foundry-orchestrator.ts');
+
+    execSync(`node --experimental-strip-types ${orchestratorPath}`, {
+      cwd: tmpDir,
+      env: { ...process.env, VITEST: 'true' },
+      stdio: 'pipe',
+    });
+
+    let epicContent = fs.readFileSync(path.join(tmpDir, `.foundry/epics/${epicId}.md`), 'utf-8');
+    expect(epicContent).toContain('status: PENDING');
+    let storyContent = fs.readFileSync(path.join(tmpDir, `.foundry/stories/${storyId}.md`), 'utf-8');
+    expect(storyContent).toContain('status: PENDING');
+
+    createValidTestNode(
+      tmpDir,
+      `.foundry/tasks/${taskId}.md`,
+      {
+        id: taskId,
+        type: 'TASK',
+        status: 'COMPLETED',
+        parent: storyId,
+        owner_persona: 'coder',
+        title: 'Child Task',
+      },
+      `Task is done.`,
+    );
+
+    // Run orchestrator to complete the story based on completed task
+    execSync(`node --experimental-strip-types ${orchestratorPath}`, {
+      cwd: tmpDir,
+      env: { ...process.env, VITEST: 'true' },
+      stdio: 'pipe',
+    });
+
+    storyContent = fs.readFileSync(path.join(tmpDir, `.foundry/stories/${storyId}.md`), 'utf-8');
+    expect(storyContent).toContain('status: COMPLETED');
+
+    epicContent = fs.readFileSync(path.join(tmpDir, `.foundry/epics/${epicId}.md`), 'utf-8');
+    expect(epicContent).toContain('status: COMPLETED');
   });
 });
