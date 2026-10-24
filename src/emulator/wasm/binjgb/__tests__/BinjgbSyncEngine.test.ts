@@ -101,4 +101,17 @@ describe('BinjgbSyncEngine', () => {
     // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(mockInstance.extractSaveState).toHaveBeenCalledTimes(2);
   });
+
+  it('logs sanitized error message when polling fails', async () => {
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    (mockInstance.extractSaveState as Mock).mockImplementation(() => {
+      throw new Error('Storage access error');
+    });
+
+    engine.startPolling('test-save-id', 1000);
+    await vi.advanceTimersByTimeAsync(1000);
+
+    expect(consoleSpy).toHaveBeenCalledWith('BinjgbSyncEngine polling error:', 'Storage access error');
+    engine.stopPolling();
+  });
 });

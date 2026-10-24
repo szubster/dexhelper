@@ -2,10 +2,10 @@
 id: prd-118-117-centralize-prompt-reminders
 type: PRD
 title: Centralize Coder and QA Task Prompt Reminders
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-07-18'
-updated_at: '2026-07-19'
+updated_at: '2026-10-22'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Centralize Coder and QA Task Prompt Reminders
@@ -42,5 +43,5 @@ Currently, the Tech Lead persona has explicit instructions to append a "REMINDER
 
 ## Acceptance Criteria
 - [x] Break down into Epics
-- [ ] epic-117-334-centralize-prompt-rules
-- [ ] epic-117-335-migrate-task-reminders
+- [x] epic-117-334-centralize-prompt-rules
+- [x] epic-117-335-migrate-task-reminders

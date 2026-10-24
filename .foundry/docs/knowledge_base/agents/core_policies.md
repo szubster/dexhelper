@@ -58,6 +58,8 @@ Nodes in the Foundry transition from `ACTIVE` to `VERIFYING` after work is compl
 ## Component Integration Policy
 When creating implementation tasks for UI components, explicit integration steps and tests for rendering components must be included to ensure they are properly integrated into the application's view hierarchy. Otherwise, they risk permanent failure for being unlinked and unrenderable.
 
+When creating implementation tasks for new global or application-wide React Context providers, the implementation task MUST explicitly wire the Provider component into the application root entry point (`src/main.tsx` or main App provider tree) in the same or linked task to prevent runtime undefined Context exceptions.
+
 ## Transient Logs
 System failures, node state transitions (e.g. from FAILED to READY), and "is now COMPLETED" status log entries in Foundry journals add zero value to future runs and unnecessarily expand the context window. Such logs belong in orchestrator execution logs or PR history, not long-term agent journals.
 
@@ -174,6 +176,7 @@ When writing utility scripts or tools that process `.foundry` markdown files, me
 - **Circular Dependencies**: Do NOT include the parent node in the new child's `depends_on` array to avoid circular dependency deadlocks.
 - **Premature Verification**: Do NOT submit an Empty PR to transition a parent node to VERIFYING (by checking off its acceptance criteria) until ALL of its generated child nodes have transitioned to COMPLETED. Premature verification violates the dependency graph constraints.
 - **Parent Node Syntax (Strict Checkbox Formatting)**: Parent generation nodes MUST strictly format references to generated child nodes as unchecked task checkboxes (`- [ ] <file_path>`) directly in their markdown body. You MUST use the exact format `- [ ] ` with exactly one space between the brackets. Do NOT use non-standard formatting (e.g., `-[]`, `* [ ]`, `- [  ]`), as these will fail the Orchestrator's regex parser (`/^\s*-\s*\[\s\]/m`). If the checkbox is omitted, improperly formatted as plain text, or immediately checked, the Orchestrator will prematurely transition the parent to VERIFYING before descendant nodes complete, leading to immediate rejection.
+- **Generative Task Scope & Macro Acceptance Criteria Boundaries**: During generative sessions (such as decomposing Stories into Tasks or Epics into Stories), generative personas MUST strictly restrict file modifications to `.foundry/` node markdowns. They MUST NOT modify unrelated application code or project configuration files and MUST NOT check off functional acceptance criteria checkboxes of the parent macro node during decomposition (only appending child task references as unchecked tasks).
 
 ## Bash Session Timeout Policy
 * Never execute blocking commands (e.g., `tail -f`, long-running loops) in `run_in_bash_session` as they will cause the session to hang indefinitely.
@@ -183,6 +186,7 @@ When writing utility scripts or tools that process `.foundry` markdown files, me
 
 ## Quality Assurance & Testing Policy
 Before marking a task as COMPLETED or approving it, you MUST run `pnpm lint && pnpm test` to ensure project health and that no regressions are introduced.
+**Artifact Presence Verification (Coder Delivery Guard):** Before marking an implementation task as COMPLETED, Coders MUST explicitly verify (via `git status` or `read_file`) that all promised deliverable files (e.g., implementation source files, unit/integration test files) exist and are saved on disk. Completing a task without saving promised files causes transient QA rejections.
 **Prohibited Testing Libraries:** Do NOT use `@testing-library/react` or `@testing-library/*`. Use `vitest-browser-react` for browser component testing and `@playwright/test` for E2E testing.
 To automatically fix code formatting errors flagged by Biome during lint checks, run `pnpm check:fix` or `pnpm format:biome`.
 When modifying or verifying central systems like the DAG Orchestrator (`packages/foundry/foundry-orchestrator.ts`), you MUST also explicitly run its test suite (`cd packages/foundry && pnpm install && npx vitest`) and verify that no test functionality is broken.

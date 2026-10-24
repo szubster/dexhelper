@@ -44,7 +44,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-111-valid-checkbox';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n- [ ] Unchecked\n- [x] Checked\n- [ ] `);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n- [ ] Unchecked\n- [x] Checked\n- [ ] `);
 
         let output = '';
         let error: Error | null = null;
@@ -62,7 +62,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-112-invalid-no-space';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n-[] Invalid`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n-[] Invalid`);
 
         let errorOutput = '';
         let hasThrown = false;
@@ -81,7 +81,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-113-invalid-asterisk';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n* [ ] Invalid`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n* [ ] Invalid`);
 
         let errorOutput = '';
         let hasThrown = false;
@@ -100,7 +100,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-114-invalid-uppercase-x';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n- [X] Invalid`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n- [X] Invalid`);
 
         let errorOutput = '';
         let hasThrown = false;
@@ -119,7 +119,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
         expect.hasAssertions();
         const id = 'task-000-115-invalid-missing-trailing-space';
         const filePath = join(tempTasksDir, `${id}.md`);
-        writeFileSync(filePath, `${getFrontmatter(id)}\n- [ ]Invalid`);
+        writeFileSync(filePath, `${getFrontmatter(id)}\n## Acceptance Criteria\n- [ ]Invalid`);
 
         let errorOutput = '';
         let hasThrown = false;
@@ -173,6 +173,8 @@ jules_session_id: null
 rejection_reason: ''
 ---
 # Test Curator Idea
+
+## Acceptance Criteria
 - [ ] AC 1
 `;
         writeFileSync(filePath, ideaFrontmatter);

@@ -261,6 +261,33 @@ describe('tradeGenerator', () => {
     expect(meowthSugg?.description).toContain('Breed your #301 to get #300');
   });
 
+  it('should return Gen 3 static gift suggestions when uncompleted and filter completed ones', () => {
+    const saveData = {
+      generation: 3,
+      badges: 8,
+      gen3StaticEncounters: {
+        rayquaza: true, // Already caught/defeated
+        regirock: false, // Available
+      },
+    } as unknown as SaveData;
+    const suggestions: import('../strategies/types').Suggestion[] = [];
+
+    generateGiftAndTradeSuggestions(
+      [384, 377, 374], // Rayquaza, Regirock, Beldum
+      saveData,
+      'emerald',
+      new Set<number>(),
+      { pokemonMetadata: {} } as unknown as import('../suggestionEngineTypes').AssistantApiData,
+      new Map(),
+      suggestions,
+      new Set([384, 377, 374]),
+    );
+
+    expect(suggestions.some((s) => s.pokemonId === 384)).toBe(false); // Rayquaza skipped as claimed
+    expect(suggestions.some((s) => s.pokemonId === 377)).toBe(true); // Regirock available
+    expect(suggestions.some((s) => s.pokemonId === 374)).toBe(true); // Beldum gift available
+  });
+
   it('should include storage location in description when available on instance', () => {
     const saveData = {
       generation: 1,

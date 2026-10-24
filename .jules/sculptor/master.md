@@ -239,3 +239,18 @@ Improve AI readability in `src/engine/breeding/inventoryTools.ts` by replacing i
 ## Critical Learnings
 - **Declarative collections improve LLM comprehension:** Imperative array pre-allocation with index tracking (`result.length = ...`, `result[index++] = p`, `result.length = index`) introduces verbose index arithmetic that obfuscates the core collection operation for AI models.
 - **Replacing imperative loops:** Modern high-level methods (`flat()`, `filter()`, `reduce()`) express intent clearly, reducing cognitive load and lowering error risk when AI tools inspect or modify inventory logic.
+
+---
+
+## Refactoring Goal
+Improve AI readability and reduce logic duplication in Generation 2 checksum validation by replacing nested conditional statements with a declarative specification dictionary and resolver function.
+
+## Actions Taken
+- Created `GEN2_CHECKSUM_SPECS` lookup dictionary mapping save variants (`CRYSTAL_JP`, `CRYSTAL_EN`, `GS_JP`, `GS_EN`) to region byte ranges and checksum storage offsets.
+- Implemented `getGen2ChecksumSpec(isCrystal, isJapanese)` helper function in `src/engine/healthScanner/checkers/gen2Checksum.ts`.
+- Updated `checkGen2Checksums` to use `getGen2ChecksumSpec`.
+- Refactored `createMockSave` in `src/engine/healthScanner/checkers/gen2Checksum.test.ts` to consume `getGen2ChecksumSpec`.
+
+## Critical Learnings
+- **Declarative Lookup Tables Eliminate Nested Decision Trees:** Multi-dimensional condition branching (such as checking `isCrystal` and `isJapanese`) obscures memory range definitions for AI models. Replacing nested `if-else` blocks with a typed dictionary (`GEN2_CHECKSUM_SPECS`) and a single resolver function drastically improves code readability and predictability.
+- **Deduplicating Setup Logic in Test Fixtures:** When test fixtures mirror internal region branching logic, consuming shared spec resolver helpers in test generators ensures single-source-of-truth accuracy without introducing tautology or fragile magic number drift.

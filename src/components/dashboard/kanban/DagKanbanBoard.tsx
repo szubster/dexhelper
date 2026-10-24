@@ -6,7 +6,7 @@ import { useDagContext } from '../DagContext';
 const COLUMNS = ['PENDING', 'READY', 'ACTIVE', 'BLOCKED', 'COMPLETED', 'FAILED', 'CANCELLED'];
 
 export const DagKanbanBoard: React.FC = () => {
-  const { nodes, maxRejectionThreshold } = useDagContext();
+  const { nodes, maxRejectionThreshold, activeTypes, activeStatuses, showPermanentFailures } = useDagContext();
 
   const nodesByStatus = useMemo(() => {
     const grouped: Record<string, DagNodeData[]> = {};
@@ -15,13 +15,23 @@ export const DagKanbanBoard: React.FC = () => {
     }
 
     for (const node of nodes) {
+      const type = node.data.type;
       const status = node.data.status;
-      if (grouped[status]) {
+
+      let shouldInclude = type && status && activeTypes.has(type) && activeStatuses.has(status);
+
+      if (shouldInclude && showPermanentFailures) {
+        shouldInclude =
+          (node.data.status === 'FAILED' || node.data.status === 'CANCELLED') &&
+          node.data.rejection_count >= maxRejectionThreshold;
+      }
+
+      if (shouldInclude && grouped[status]) {
         grouped[status].push(node.data);
       }
     }
     return grouped;
-  }, [nodes]);
+  }, [nodes, activeTypes, activeStatuses, showPermanentFailures, maxRejectionThreshold]);
 
   return (
     <div className="flex h-full w-full gap-4 overflow-x-auto bg-zinc-950 p-4 font-mono">

@@ -2,23 +2,25 @@
 id: task-562-682-gen2-moms-savings-qa-retry
 type: TASK
 title: QA Verification for Gen 2 Mom's Savings UI (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-12T00:00:00Z'
-updated_at: '2026-10-12T00:00:00Z'
-jules_session_id: null
-pr_number: null
-rejection_count: 0
-rejection_reason: ""
-notes: ""
-locks: []
-research_references: []
+updated_at: '2026-10-17'
 depends_on:
   - task-562-681-gen2-moms-savings-ui-retry
+jules_session_id: null
+pr_number: null
 parent: story-312-562-gen2-mom-savings-tracker-ui-core
 tags:
   - qa
   - gen2
+research_references: []
+rejection_count: 0
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-562-680-investigate-moms-savings-ui-failure
+notes: ''
+locks: []
 ---
 
 # Task: QA Verification for Gen 2 Mom's Savings UI (Retry)

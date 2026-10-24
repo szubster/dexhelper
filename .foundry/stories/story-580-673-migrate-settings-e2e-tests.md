@@ -2,12 +2,12 @@
 id: story-580-673-migrate-settings-e2e-tests
 type: STORY
 title: Migrate Settings E2E Tests to COM Pattern
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-09'
-updated_at: '2026-10-13'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '8277668133631445475'
+jules_session_id: null
 pr_number: null
 parent: epic-566-580-e2e-test-migration
 tags:
@@ -34,4 +34,6 @@ Refactor existing Settings-related E2E tests (`tests/e2e/settings.spec.ts` and `
 ## Acceptance Criteria
 - [ ] Settings tests are refactored to use `SettingsModalModel`.
 - [ ] Tests use semantic locators via the COM.
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-673-687-migrate-settings-tests-impl
+- [ ] task-673-688-migrate-settings-tests-qa

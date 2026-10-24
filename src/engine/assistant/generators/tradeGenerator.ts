@@ -235,12 +235,23 @@ export function generateGiftAndTradeSuggestions(
     if (!entry) continue;
     const { giftId, gift } = entry;
     if (gift.gen && gift.gen !== saveData.generation) continue;
+    if (gift.versions && !gift.versions.includes(displayVersion)) continue;
     if (!missingIds.has(giftId)) continue;
 
     const requiredBadges = gift.requiredBadges || 0;
     if (saveData.badges < requiredBadges) continue;
 
-    const hasClaimed = checkFlag(saveData.eventFlags, gift.eventFlag);
+    let hasClaimed = false;
+    if (saveData.generation === 3) {
+      if (gift.gen3StaticKey && saveData.gen3StaticEncounters) {
+        hasClaimed = Boolean(
+          (saveData.gen3StaticEncounters as unknown as Record<string, boolean | undefined>)[gift.gen3StaticKey],
+        );
+      }
+    } else {
+      hasClaimed = checkFlag(saveData.eventFlags, gift.eventFlag);
+    }
+
     if (hasClaimed) continue;
 
     suggestions.push({

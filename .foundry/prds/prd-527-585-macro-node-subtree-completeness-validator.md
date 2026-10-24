@@ -2,12 +2,12 @@
 id: prd-527-585-macro-node-subtree-completeness-validator
 type: PRD
 title: Macro Node Subtree Completeness Validator Tool
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-25'
-updated_at: '2026-10-16'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '3569003859701933737'
+jules_session_id: null
 pr_number: null
 parent: idea-527-macro-node-subtree-completeness-validator
 tags:
@@ -38,4 +38,5 @@ Develop an automated validator utility within `.github/scripts/` (and integrated
 - Prevents DAG state corruptions and reduces redundant Jules session dispatch cycles.
 
 ## Acceptance Criteria
-- [ ] Decompose into Epic
+- [x] Decompose into Epic
+- [ ] epic-585-587-implement-macro-node-subtree-completeness-validator

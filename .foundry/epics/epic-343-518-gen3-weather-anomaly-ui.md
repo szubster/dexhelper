@@ -2,13 +2,13 @@
 id: epic-343-518-gen3-weather-anomaly-ui
 type: EPIC
 title: Gen 3 Weather Anomaly UI & Map Integration
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-09-04'
+updated_at: '2026-10-21'
 depends_on:
   - epic-343-517-gen3-weather-anomaly-data
-jules_session_id: null
+jules_session_id: '17390253288942200975'
 pr_number: null
 parent: prd-147-343-gen3-weather-anomaly-tracker
 tags:

@@ -2,18 +2,15 @@
 id: task-521-678-gen3-submodules-tests-impl
 type: TASK
 title: Update Gen 3 Submodule Parser Tests
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-11'
-updated_at: '2026-10-11'
+updated_at: '2026-10-17'
 depends_on:
   - task-521-677-gen3-submodules-logic-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-523-521-gen3-parsers-refactor-modules
-priority: 50
-confidence_score: null
 tags:
   - architecture
   - save-parsing
@@ -21,8 +18,12 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-521-676-gen3-submodules-constants-impl
 notes: ''
+locks: []
+priority: 50
 ---
 
 # Update Gen 3 Submodule Parser Tests

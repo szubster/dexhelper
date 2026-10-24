@@ -2,13 +2,13 @@
 id: epic-146-418-historical-statistics-backfilling
 type: EPIC
 title: Historical Statistics Backfilling Engine
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-10-17'
+updated_at: '2026-10-20'
 depends_on:
   - epic-146-417-real-time-statistics-generator
-jules_session_id: '16665974068628959637'
+jules_session_id: null
 pr_number: null
 parent: prd-146-001-foundry-system-statistics
 tags:
@@ -36,4 +36,7 @@ Develop a standalone CLI utility that parses the git history of the `main` branc
 5. **Time-Series Output**: Generate a time-series dataset file (`foundry-historical-stats.json` or CSV) to facilitate trend analysis.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into Stories, ensuring the final STORY is dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Break down this Epic into Stories, ensuring the final STORY is dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-418-676-historical-stats-git-parser
+- [ ] story-418-677-historical-stats-aggregation
+- [ ] story-418-678-historical-stats-e2e-verification

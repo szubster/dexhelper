@@ -2,23 +2,23 @@
 id: story-418-676-adr-compliance-package-scripts
 type: STORY
 title: Add ADR Compliance Package Scripts
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-16T21:05:41.924Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on: []
-parent: epic-142-418-automated-adr-compliance-ci-integration
-jules_session_id: '3355379518708574393'
+jules_session_id: null
 pr_number: null
-rejection_count: 0
-rejection_reason: ''
-notes: ''
-locks: []
+parent: epic-142-418-automated-adr-compliance-ci-integration
 tags:
   - foundry
   - orchestrator
   - compliance
   - adr
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Add ADR Compliance Package Scripts
@@ -31,4 +31,5 @@ The script `scripts/verify-adr-compliance.ts` must be integrated with the system
 - Update the `lint` script in `package.json` to ensure the compliance check is run alongside other linters.
 
 ## Acceptance Criteria
-- [ ] Decompose this story into actionable TASK nodes.
+- [x] task-676-702-add-adr-compliance-scripts
+- [x] Decompose this story into actionable TASK nodes.

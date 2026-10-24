@@ -2,10 +2,10 @@
 id: story-517-537-gen3-weather-anomaly-data-e2e
 type: STORY
 title: Gen 3 Weather Anomaly Data Integration and E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on:
   - story-517-536-gen3-weather-anomaly-data-parsing
 jules_session_id: null
@@ -29,5 +29,5 @@ Perform E2E verification of the weather anomaly extraction. Since this epic is p
 
 ## Acceptance Criteria
 - [x] Break down this Story into Tasks.
-- [ ] task-537-680-weather-anomaly-e2e-tests
-- [ ] task-537-681-weather-anomaly-e2e-qa
+- [x] task-537-680-weather-anomaly-e2e-tests
+- [x] task-537-681-weather-anomaly-e2e-qa
