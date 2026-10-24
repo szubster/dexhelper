@@ -36,3 +36,6 @@ Implement a robust cycle detection algorithm (e.g., Kahn's or Tarjan's algorithm
 - [ ] Implement cycle detection algorithm in Foundry Orchestrator.
 - [ ] Add unit tests verifying both direct and indirect cyclic dependency detection in the orchestrator suite.
 - [ ] Ensure missing node dependencies do not cause the algorithm to crash or misreport cycles.
+- [ ] story-690-711-cycle-detection-algorithm
+- [ ] story-690-712-cycle-detection-integration
+- [ ] story-690-713-cycle-detection-e2e
