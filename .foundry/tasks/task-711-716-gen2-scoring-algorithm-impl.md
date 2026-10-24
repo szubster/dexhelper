@@ -28,6 +28,6 @@ locks: []
 This task implements the core scoring algorithm for the Gen 2 Bug-Catching Contest. The formula uses HP, stats, DVs, and the held item.
 
 ## Acceptance Criteria
-- [ ] Create a new module or function to calculate the score.
-- [ ] Implement the score calculation: `4 * Max HP` + `Sum of the Pokémon's other stats (Attack, Defense, Special Attack, Special Defense, Speed)` + `IV Bonus (Up to 29 points)` + `floor(Current HP / 8)` + `1 point` if the Pokémon is holding an item.
-- [ ] Implement the IV Bonus logic: `16 points` if `floor(Defense IV / 2)` is an odd number, `8 points` if `floor(Attack IV / 2)` is an odd number, `4 points` if `floor(Special IV / 2)` is an odd number, `1 point` if `floor(Speed IV / 2)` is an odd number. Shiny Pokémon automatically earn all 29 IV Bonus points.
+- [x] Create a new module or function to calculate the score.
+- [x] Implement the score calculation: `4 * Max HP` + `Sum of the Pokémon's other stats (Attack, Defense, Special Attack, Special Defense, Speed)` + `IV Bonus (Up to 29 points)` + `floor(Current HP / 8)` + `1 point` if the Pokémon is holding an item.
+- [x] Implement the IV Bonus logic: `16 points` if `floor(Defense IV / 2)` is an odd number, `8 points` if `floor(Attack IV / 2)` is an odd number, `4 points` if `floor(Special IV / 2)` is an odd number, `1 point` if `floor(Speed IV / 2)` is an odd number. Shiny Pokémon automatically earn all 29 IV Bonus points.

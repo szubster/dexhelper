@@ -6,6 +6,7 @@
     "@cloudflare/pages-plugin-cloudflare-access"
   ],
   "ignore": [
+    "src/engine/bugCatchingContest/index.ts",
     "src/test-setup.ts",
     "src/engine/data/gen2/wildModels.ts",
     "src/contexts/binjgb/index.ts",
@@ -18,7 +19,7 @@
     "functions/api/saves/[id].ts",
     "src/engine/saveParser/utils/index.ts",
     "packages/foundry/aggregate-journals.ts",
-    "packages/foundry/update-idea-matrix.ts",
+
     "packages/foundry/schema.ts",
     "packages/foundry/session-api.ts",
     "packages/foundry/blocked-diagnosis.ts",
