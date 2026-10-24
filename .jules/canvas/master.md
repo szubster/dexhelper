@@ -100,3 +100,11 @@
 **Outcome:** Merged (Optimistic execution)
 **Why:** Standard filter chips and target tags lacked tactile hardware texture and visual boundaries. The redesign aligns strictly with ADR 008 (tactical hardware / snooping aesthetic), transforming simple chips into active telemetry status modules with clear visual feedback and accessibility compliance.
 **Pattern:** Micro filter chips, selection tags, and dismissible badges should feature 4-corner corner ticks, active LED dots, and cased dismiss buttons to convey live hardware telemetry states.
+
+---
+
+## 2026-10-14 - [Accepted] - 🖼️ Canvas: Bold TacticalChip Hardware Redesign
+**What:** Transformed `TacticalChip` from a plain inline chip into an encapsulated micro tactical hardware telemetry module. Added support for optional `sublabel` and `interactive` props, 4-corner micro mounting ticks, a laser hover scanline overlay, an enhanced LED status dot indicator with glowing ping animation, and tactile remove button feedback while maintaining full backward compatibility.
+**Outcome:** Merged (Optimistic execution)
+**Why:** Inline tags and item chips (such as wild item selectors and inventory badges) lacked physical hardware depth and tactile telemetry structure. The redesign adheres strictly to the "tactical hardware/snooping" aesthetic (ADR 008) while maintaining full accessibility.
+**Pattern:** Micro tag and item chips should be cased inside dashed hardware boundaries with 4-corner mounting ticks, LED status dots, and optional sublabel badges to elevate tactile telemetry feedback.

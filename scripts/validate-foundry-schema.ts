@@ -221,10 +221,82 @@ function validateSchema() {
 
     // 2.88 Validate Markdown Checkbox Formatting (ADR 007)
     const lines = parsed.content.split('\n');
+
+    // We allow checkboxes in common actionable sections to prevent false positives in the archive.
+    const allowedSections = [
+      'Acceptance Criteria',
+      'Next Steps',
+      'Implementation Steps Completed',
+      'Generated Tasks',
+      'Painting Errors',
+      'Linting Errors',
+      'Implementation Tasks',
+      'Child Tasks',
+      'Generated Epics',
+      'Tasks',
+      'Epic Breakdown',
+      'Next Steps (To Be Spawned)',
+      'Requirements',
+      'UI Consistency',
+      'Context References',
+      'Current Behavior',
+      'Dependencies',
+      'Research Scope',
+      'Background',
+      'Value Proposition',
+      'Proposed Solution',
+      'Test Cases',
+      'Missing Items',
+      'Generated PRDs',
+      'Downstream Graph Nodes',
+      'Next Steps / Acceptance Criteria',
+      'Next Steps & Acceptance Criteria',
+      'Downstream Epics',
+      'Downstream Nodes',
+      'Generated Nodes',
+      'Breakdown Tasks',
+      'Epic Breakdown Task',
+      'Acceptance Criteria (Parent Idea linkage)',
+      'Deliverables',
+      'Child Nodes',
+      'SCHEMA',
+      'Verification Criteria',
+      'Coder Persona Reminders',
+      'Research Dependency',
+      'Verification Checklist',
+      'Suspended Pending Research',
+      'Proposal',
+      'Generated Stories',
+      'Implementation Stories',
+      'Stories',
+      'Child Stories',
+      'Learnings & Follow-ups',
+      'High-Level Acceptance Criteria',
+      'Auditor Learnings Follow-up',
+      'Benefits',
+      'Technical Requirements'
+    ];
+    let currentSection = '';
     lines.forEach((line, index) => {
+      const headingMatch = line.match(/^(#{1,6})\s+(.*)$/);
+      if (headingMatch && headingMatch[2]) {
+        // Strip out any prefix numbering (e.g. "5. Acceptance Criteria" -> "Acceptance Criteria")
+        currentSection = headingMatch[2].replace(/^[\d.]+\s*/, '').trim();
+      }
+
       if (/^\s*[-*+]\s*\[[\sXx]*\]/.test(line)) {
         if (!/^\s*- \[( |x)\] /.test(line)) {
           console.error(`Error: Invalid checkbox syntax in file ${file} at line ${index + 1}: ${line.trim()}`);
+          hasError = true;
+        }
+
+
+
+        // Skip section validation for archived nodes due to their immense variability.
+        const isArchived = file.includes('/archive/');
+
+        if (!isArchived && !allowedSections.includes(currentSection)) {
+          console.error(`Error: Checkbox found outside of allowed sections ('${currentSection}') in file ${file} at line ${index + 1}`);
           hasError = true;
         }
       }

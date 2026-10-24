@@ -2,10 +2,10 @@
 id: idea-537-zustand-store-slice-decomposition-and-selectors
 type: IDEA
 title: Modular Zustand Store Slice Decomposition and Memoized State Selectors
-status: READY
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -51,5 +51,5 @@ Refactor `src/store.ts` into a modular, slice-based Zustand architecture:
 - **Enhanced Maintainability & DX**: Clean separation of state concerns across domain slices simplifies feature development and reduces merge conflicts for developer personas.
 
 ## Acceptance Criteria
-- [ ] Product Manager: Convert this idea into a PRD detailing the slice architecture and selector strategy.
-- [ ] prd-537-586-zustand-store-slice-decomposition-and-selectors
+- [x] Product Manager: Convert this idea into a PRD detailing the slice architecture and selector strategy.
+- [ ] prd-537-707-zustand-store-slice-decomposition-and-selectors

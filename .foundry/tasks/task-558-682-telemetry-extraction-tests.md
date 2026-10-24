@@ -2,10 +2,10 @@
 id: task-558-682-telemetry-extraction-tests
 type: TASK
 title: Write Tests for Telemetry Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-11'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on:
   - task-558-680-telemetry-extraction-logic
 jules_session_id: null
@@ -27,4 +27,4 @@ locks: []
 Write comprehensive unit tests in `packages/foundry/utils/statistics.test.ts` to verify that `aggregateNodeStatistics` correctly parses and calculates `rejection_count` and wait times.
 
 ## Acceptance Criteria
-- [ ] Coder: Add vitest unit tests for telemetry logic.
+- [x] Coder: Add vitest unit tests for telemetry logic.

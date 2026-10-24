@@ -2,12 +2,12 @@
 id: idea-532-e2e-dependency-validator-lint
 title: Automated E2E Task Dependency Linter Guard in Orchestrator DAG Validation
 type: IDEA
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-09-29T06:00:00.000Z'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '7361789481551438772'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -39,3 +39,5 @@ This proposal introduces an automated linter guard within `.github/scripts/verif
 - [ ] Extend `.github/scripts/verify-dag-refs.ts` to inspect E2E tasks for mandatory `depends_on` implementation task linkages.
 - [ ] Add unit tests verifying that unlinked E2E tasks fail DAG verification during `pnpm test`.
 - [ ] Integrate E2E dependency assertions into Orchestrator node dispatch logic.
+
+- [ ] prd-532-588-e2e-dependency-validator-lint

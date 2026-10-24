@@ -2,13 +2,13 @@
 id: task-564-681-implement-enum-strictness-validation
 type: TASK
 title: Implement Enum Strictness Validation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-12'
 updated_at: '2026-10-18'
 depends_on:
   - task-564-680-implement-frontmatter-parsing
-jules_session_id: null
+jules_session_id: '3591682112798881421'
 parent: story-555-564-lint-schema-frontmatter-validation
 tags:
   - linting

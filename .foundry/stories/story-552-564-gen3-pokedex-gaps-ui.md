@@ -5,9 +5,9 @@ title: Gen 3 Pokédex Gaps UI
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-10-16'
+updated_at: '2026-10-23'
 depends_on: []
-jules_session_id: '13857902559880725168'
+jules_session_id: '7016565629119994216'
 pr_number: null
 parent: epic-520-552-gen3-pokedex-gaps-tracker
 tags:
@@ -28,5 +28,8 @@ Create the UI components to display the missing Pokémon, highlighting obtainabl
 ## Acceptance Criteria
 - [ ] Create UI to display Pokédex gaps
 - [ ] Highlight version exclusives differently from obtainable Pokémon
-- [ ] task-564-571-gen3-pokedex-gaps-ui-impl
-- [ ] task-564-572-qa-gen3-pokedex-gaps-ui
+- [x] task-564-571-gen3-pokedex-gaps-ui-impl
+- [x] task-564-572-qa-gen3-pokedex-gaps-ui
+- [ ] research-564-690-investigate-gen3-pokedex-gaps-ui-failure
+- [ ] task-564-691-gen3-pokedex-gaps-ui-impl-retry
+- [ ] task-564-692-qa-gen3-pokedex-gaps-ui-retry

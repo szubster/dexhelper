@@ -27,7 +27,7 @@ This story covers the implementation of an automated validation step during the 
 - [x] task-563-578-complexity-validation-tests
 - [x] task-563-579-implement-complexity-validation
 - [x] task-563-580-qa-complexity-validation
-- [ ] research-563-674-investigate-story-task-breakdown-failure
+- [x] research-563-674-investigate-story-task-breakdown-failure
 - [ ] task-563-675-complexity-validation-tests-retry
 - [ ] task-563-676-implement-complexity-validation-retry
 - [ ] task-563-677-qa-complexity-validation-retry

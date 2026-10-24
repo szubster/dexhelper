@@ -2,10 +2,10 @@
 id: epic-340-419-data-splitting
 type: EPIC
 title: Implement static Pokedex data splitting
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-13'
-updated_at: '2026-08-29'
+updated_at: '2026-10-19'
 depends_on: []
 jules_session_id: null
 parent: prd-136-340-split-bundles-and-data
@@ -16,6 +16,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # EPIC: Implement static Pokedex data splitting
 
@@ -29,6 +30,6 @@ Split the large static Pokedex payload into core and extension bundles, loading 
 ## Acceptance Criteria
 - [x] Break down this epic into stories.
 - [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-419-477-pokedata-plugin-refactor
-- [ ] story-419-478-pokedb-sync-refactor
-- [ ] story-419-479-data-splitting-e2e
+- [x] story-419-477-pokedata-plugin-refactor
+- [x] story-419-478-pokedb-sync-refactor
+- [x] story-419-479-data-splitting-e2e

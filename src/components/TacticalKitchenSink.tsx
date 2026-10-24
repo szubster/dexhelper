@@ -8,6 +8,7 @@ import { TacticalChip } from './TacticalChip';
 import { TacticalInput } from './TacticalInput';
 import { TacticalModal } from './TacticalModal';
 import { TacticalPanel } from './TacticalPanel';
+import { TacticalProgressBar } from './TacticalProgressBar';
 
 export const TacticalKitchenSink: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -164,6 +165,14 @@ export const TacticalKitchenSink: React.FC = () => {
         <TacticalChip variant="primary" size="sm" codeTag="MINI">
           Mini Chip
         </TacticalChip>
+      </div>
+
+      {/* TacticalProgressBar Showcase */}
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2" id="tacticalprogressbar-showcase">
+        <TacticalProgressBar label="POWER" value={210} max={255} codeTag="SYS.PWR" variant="emerald" />
+        <TacticalProgressBar label="SYNC_RATE" value={180} max={255} codeTag="NET.LNK" variant="blue" />
+        <TacticalProgressBar label="TEMP" value={230} max={255} codeTag="THERM" variant="amber" />
+        <TacticalProgressBar label="CORE_OVERLOAD" value={250} max={255} codeTag="WARN" variant="red" />
       </div>
     </div>
   );

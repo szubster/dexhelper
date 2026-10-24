@@ -38,6 +38,10 @@ With the memory offsets and constants defined, this story implements the actual 
 - [x] task-478-670-kurt-apricorn-qa
 - [ ] research-478-676-investigate-kurt-apricorn-types-failure
 - [ ] task-478-677-kurt-apricorn-types-retry
-- [ ] task-478-678-kurt-apricorn-core-logic-retry
-- [ ] task-478-679-kurt-apricorn-unit-tests-retry
-- [ ] task-478-680-kurt-apricorn-qa-retry
+- [x] task-478-678-kurt-apricorn-core-logic-retry
+- [x] task-478-679-kurt-apricorn-unit-tests-retry
+- [x] task-478-680-kurt-apricorn-qa-retry
+- [ ] research-478-703-investigate-kurt-apricorn-core-logic-failure
+- [ ] task-478-704-kurt-apricorn-core-logic-retry-2
+- [ ] task-478-705-kurt-apricorn-unit-tests-retry-2
+- [ ] task-478-706-kurt-apricorn-qa-retry-2

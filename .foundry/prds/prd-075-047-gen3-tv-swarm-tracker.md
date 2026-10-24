@@ -2,12 +2,12 @@
 id: prd-075-047-gen3-tv-swarm-tracker
 type: PRD
 title: Gen 3 TV Broadcast and Swarm Tracker
-status: ACTIVE
-owner_persona: epic_planner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-06-12'
-updated_at: '2026-10-16'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: '12967653888123270880'
+jules_session_id: null
 pr_number: null
 parent: idea-075-gen3-tv-swarm-tracker
 tags:
@@ -45,5 +45,8 @@ This feature will parse the TV event data structures and RTC from Gen 3 save fil
 
 ## 3. Acceptance Criteria
 - [x] Epic Planner: Break this PRD down into granular EPICs, ensuring separate epics for Data Parsing and UI/Dashboard implementation.
-- [ ] epic-047-081-gen3-tv-swarm-data-extraction
-- [ ] epic-047-082-gen3-tv-swarm-dashboard-ui
+- [x] epic-047-081-gen3-tv-swarm-data-extraction
+- [x] epic-047-082-gen3-tv-swarm-dashboard-ui
+- [ ] research-047-586-tv-swarm-extraction-failure
+- [ ] epic-047-584-gen3-tv-swarm-data-extraction
+- [ ] epic-047-585-gen3-tv-swarm-dashboard-ui

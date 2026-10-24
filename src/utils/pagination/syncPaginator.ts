@@ -13,10 +13,11 @@ export class SyncGeneratorPaginator<T> implements SyncPaginator<T> {
 
     // Explicit resource management setup using 'Symbol.dispose'
     let iterator: Iterator<T>;
-    if (Symbol.iterator in this.source) {
-      iterator = (this.source as Iterable<T>)[Symbol.iterator]();
-    } else if (typeof this.source === 'function') {
-      iterator = (this.source as () => Generator<T>)();
+    const source = this.source;
+    if (typeof source === 'function') {
+      iterator = source();
+    } else if (typeof source === 'object' && source !== null && Symbol.iterator in source) {
+      iterator = source[Symbol.iterator]();
     } else {
       throw new Error('Invalid iterable source provided to SyncGeneratorPaginator.');
     }

@@ -1,0 +1,46 @@
+---
+id: task-567-691-shoal-cave-e2e-coder-retry
+type: TASK
+title: Retry Write Playwright E2E Tests for Shoal Cave Dashboard
+status: PENDING
+owner_persona: coder
+created_at: '2026-10-16T12:53:56.587Z'
+updated_at: '2026-10-20'
+depends_on:
+  - research-567-690-investigate-shoal-cave-e2e-failure
+jules_session_id: null
+pr_number: null
+parent: story-412-567-shoal-cave-e2e-verification
+tags:
+  - e2e
+  - integration
+  - gen3
+  - shoal-cave
+  - playwright
+research_references: []
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+locks: []
+---
+
+# Task: Retry Write Playwright E2E Tests for Shoal Cave Dashboard
+
+## Context
+We need to retry implementing the end-to-end functionality tests for the Shoal Cave UI Dashboard. This involves ensuring that the Dashboard correctly displays the tide status (High/Low), the countdown to the next tide change, the counts for Shoal Shells and Shoal Salts, and the crafting readiness indicator for the Shell Bell.
+
+This is a retry node. The implementation must incorporate findings from the preceding RESEARCH node.
+
+## Constraints
+- Do NOT use `@testing-library/react` or `@testing-library/*`. Use `@playwright/test` for E2E testing.
+- Target the affected test files locally with `xvfb-run -a pnpm test:e2e tests/e2e/<file>.spec.ts` when testing changes locally.
+- When waiting for elements, use strict mode OR conditions if applicable (e.g., `locator.or()`).
+- Always use the `isMobile` fixture in Playwright to conditionally adjust locators for navigation elements based on screen size.
+- Incorporate findings from `research-567-690-investigate-shoal-cave-e2e-failure`.
+
+## Acceptance Criteria
+- [ ] Implement a Playwright E2E test file (e.g., `tests/e2e/shoal-cave-dashboard.spec.ts`) for the Shoal Cave UI Dashboard based on research findings.
+- [ ] Add tests verifying the display of the current tide and countdown.
+- [ ] Add tests verifying the display of Shoal Shell and Shoal Salt item counts.
+- [ ] Add tests verifying the Shell Bell crafting readiness visual indicator.
+- [ ] Verify that tests pass successfully in both desktop and mobile contexts.
