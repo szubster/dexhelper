@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-24T07:41:57.851Z*
+*Generated at: 2026-10-24T12:19:36.310Z*
 
 ## Node Statistics
 
@@ -11,29 +11,29 @@
 | EPIC | 513 |
 | IDEA | 233 |
 | PRD | 214 |
-| RESEARCH | 311 |
+| RESEARCH | 312 |
 | STORY | 1078 |
-| TASK | 2740 |
+| TASK | 2748 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3330 |
-| ACTIVE | 155 |
-| CANCELLED | 828 |
-| PENDING | 790 |
-| READY | 15 |
+| COMPLETED | 3340 |
+| ACTIVE | 148 |
+| CANCELLED | 830 |
+| PENDING | 788 |
 | BLOCKED | 14 |
-| FAILED | 1 |
+| READY | 14 |
+| FAILED | 8 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9930 |
-| Open PRs | 176 |
-| Merged PRs | 8601 |
-| Closed PRs | 1153 |
+| Total PRs | 9938 |
+| Open PRs | 169 |
+| Merged PRs | 8615 |
+| Closed PRs | 1154 |
 
 ## Rejection Counts
 
@@ -480,6 +480,7 @@
 | task-528-677-safari-zone-bounty-board-ui.md | 2 |
 | task-536-562-implement-mocking-utilities.md | 2 |
 | task-536-564-playwright-style-guide-mock-utils.md | 2 |
+| task-537-680-remove-xyflow-deps.md | 2 |
 | task-550-563-implement-idea-matrix-updater.md | 2 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 2 |
 | task-552-681-curator-e2e-domain-overlap-tests.md | 2 |
@@ -940,7 +941,6 @@
 | task-536-565-playwright-style-guide-qa.md | 1 |
 | task-537-599-gen3-berry-pipeline-integration.md | 1 |
 | task-537-624-testing-style-guide-e2e-coder.md | 1 |
-| task-537-680-remove-xyflow-deps.md | 1 |
 | task-542-550-draft-migration-plan-coder.md | 1 |
 | task-545-550-dynamic-spawning-e2e-research-adr.md | 1 |
 | task-546-562-usetransition-search-filters.md | 1 |
@@ -995,6 +995,7 @@
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
 | task-618-703-multi-box-search-highlight-impl.md | 1 |
+| task-638-717-extract-constants-to-core-v6.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
@@ -1011,10 +1012,10 @@
 | task-563-642-map-data-tests-v2.md | 92620800000 |
 | task-563-643-map-data-qa-v2.md | 92620800000 |
 | task-676-702-add-adr-compliance-scripts.md | 77284800000 |
+| task-550-685-generator-tree-traversals-e2e-impl.md | 76809600000 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |
-| task-550-685-generator-tree-traversals-e2e-impl.md | 76291200000 |
 | task-550-687-generator-architecture-e2e-qa.md | 76204800000 |
 | story-325-527-safari-zone-area-highlighting.md | 75945600000 |
 | task-528-677-safari-zone-bounty-board-ui.md | 75945600000 |

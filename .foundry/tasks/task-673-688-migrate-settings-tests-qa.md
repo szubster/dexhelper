@@ -2,10 +2,10 @@
 id: task-673-688-migrate-settings-tests-qa
 type: TASK
 title: Migrate Settings E2E Tests to COM Pattern QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-13'
-updated_at: '2026-10-13'
+updated_at: '2026-10-24'
 depends_on:
   - task-673-687-migrate-settings-tests-impl
 jules_session_id: null

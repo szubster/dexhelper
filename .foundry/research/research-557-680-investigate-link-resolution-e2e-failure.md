@@ -2,12 +2,12 @@
 id: research-557-680-investigate-link-resolution-e2e-failure
 type: RESEARCH
 title: Investigate Link Resolution E2E Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-12'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '1628050985666084991'
+jules_session_id: null
 pr_number: null
 parent: story-551-557-integration-e2e-verification
 rejection_count: 0

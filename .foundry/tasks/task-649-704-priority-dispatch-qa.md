@@ -2,10 +2,10 @@
 id: task-649-704-priority-dispatch-qa
 type: TASK
 title: priority orchestrator dispatch qa
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on:
   - task-649-702-priority-dispatch-coder
   - task-649-703-priority-dispatch-tests-coder

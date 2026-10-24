@@ -2,10 +2,10 @@
 id: task-649-703-priority-dispatch-tests-coder
 type: TASK
 title: priority orchestrator dispatch tests coder
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on:
   - task-649-702-priority-dispatch-coder
 jules_session_id: null

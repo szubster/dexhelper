@@ -2,10 +2,10 @@
 id: task-557-681-orchestrator-link-resolution-e2e-impl-retry
 type: TASK
 title: Orchestrator Link Resolution E2E Tests Implementation Retry
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-24'
 depends_on:
   - research-557-680-investigate-link-resolution-e2e-failure
 jules_session_id: null

@@ -2,12 +2,12 @@
 id: task-676-712-fuzzer-deadlock-assertions-impl
 type: TASK
 title: Fuzzer Deadlock Detection Assertions Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-16T13:00:51.663Z'
 updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '6529573305336402276'
+jules_session_id: null
 pr_number: null
 parent: story-416-676-fuzzer-deadlock-assertions
 tags:
@@ -17,7 +17,7 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

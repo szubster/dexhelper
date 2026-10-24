@@ -2,14 +2,14 @@
 id: story-338-479-gen2-unown-dex-e2e
 type: STORY
 title: Gen 2 Unown Dex Data Extraction E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on:
   - story-338-557-gen2-unown-dex-parsing-retry
   - story-338-478-gen2-ruins-of-alph-puzzle-flags
-jules_session_id: '3614456476065364756'
+jules_session_id: null
 parent: epic-118-338-gen2-unown-dex-data-extraction
 tags:
   - feature

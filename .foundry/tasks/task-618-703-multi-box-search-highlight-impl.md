@@ -2,12 +2,12 @@
 id: task-618-703-multi-box-search-highlight-impl
 type: TASK
 title: Multi-Box Search Visual Highlighting Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '6341188342667855000'
+jules_session_id: null
 pr_number: null
 parent: story-576-618-multi-box-search-visual-highlighting
 tags:
@@ -15,7 +15,7 @@ tags:
   - ui
   - search
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

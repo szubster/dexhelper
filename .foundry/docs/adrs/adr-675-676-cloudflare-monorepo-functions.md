@@ -2,12 +2,12 @@
 id: adr-675-676-cloudflare-monorepo-functions
 type: ADR
 title: Cloudflare Pages Functions Structure in pnpm Monorepo
-status: ACTIVE
+status: COMPLETED
 owner_persona: architect
 created_at: '2026-10-10'
-updated_at: '2026-10-17'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '3512910946165607263'
+jules_session_id: null
 pr_number: null
 parent: research-157-675-cloudflare-regression-analysis
 tags:

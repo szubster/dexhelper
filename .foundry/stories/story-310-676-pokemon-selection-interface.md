@@ -2,13 +2,13 @@
 id: story-310-676-pokemon-selection-interface
 type: STORY
 title: Gen 2 Shiny Breeding UI - Pokémon Selection Interface
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-15'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on:
   - epic-112-309-gen2-shiny-breeding-logic
-jules_session_id: '9776170384892283600'
+jules_session_id: null
 pr_number: null
 parent: epic-112-310-gen2-shiny-breeding-ui
 tags:
