@@ -28,6 +28,6 @@ priority: 50
 Verify that the Playwright E2E tests for JSONL integration of moves and items data (task-639-683-jsonl-integration-e2e-impl) are complete, robust, and correctly verify the application's functionality.
 
 ## Acceptance Criteria
-- [ ] Review the Playwright E2E tests written for JSONL integration.
-- [ ] Verify the tests adequately cover the rendering of move and item data in the UI.
-- [ ] Run the tests and ensure they pass consistently without flakiness.
+- [x] Review the Playwright E2E tests written for JSONL integration.
+- [x] Verify the tests adequately cover the rendering of move and item data in the UI.
+- [x] Run the tests and ensure they pass consistently without flakiness.
