@@ -91,6 +91,12 @@ const GlobalRibbonChecklistDashboard = React.lazy(() =>
   })),
 );
 
+const ThiefCovetOptimizerPanel = React.lazy(() =>
+  import('../components/dashboard/optimizer/ThiefCovetOptimizerPanel').then((m) => ({
+    default: m.ThiefCovetOptimizerPanel,
+  })),
+);
+
 const RngCalculatorDashboard = React.lazy(() =>
   import('../components/dashboard/rng/RngCalculatorDashboard').then((m) => ({ default: m.RngCalculatorDashboard })),
 );
@@ -155,6 +161,7 @@ function DashboardPage() {
             <Gen3RoamerDossier saveData={saveData} />
             <RngCalculatorDashboard />
             <WildItemSelector />
+            <ThiefCovetOptimizerPanel saveData={saveData} />
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
             {saveData.gen3VolcanicAsh !== undefined && (

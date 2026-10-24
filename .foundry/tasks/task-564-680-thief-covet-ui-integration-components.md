@@ -33,4 +33,4 @@ With the engine logic in place to find Pokemon with item-stealing moves, we need
 - Adhere to the tactical hardware aesthetic (`rounded-none`, `border-dashed`, monospaced fonts, etc.).
 
 ## Acceptance Criteria
-- [ ] coder: Implement React components and context for the Thief/Covet optimizer.
+- [x] coder: Implement React components and context for the Thief/Covet optimizer.
