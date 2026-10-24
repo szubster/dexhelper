@@ -24,10 +24,10 @@ notes: ''
 # Implement ADR 008 Linter Core Logic
 
 ## Objective
-Implement the core AST parsing logic in `scripts/verify-adr-compliance.ts` to detect violations of ADR 008.
+Implement the core AST parsing logic in `packages/foundry/scripts/verify-adr-compliance.ts` to detect violations of ADR 008.
 
 ## Technical Requirements
-- Create `scripts/verify-adr-compliance.ts`.
+- Create `packages/foundry/scripts/verify-adr-compliance.ts`.
 - The script should read all `.tsx` and `.ts` files containing UI components in `src/`.
 - Parse the files to find Tailwind CSS class strings.
 - Detect forbidden classes specifically forbidden by ADR 008 (e.g., `rounded-t`, `rounded-b`, `rounded-sm`, `rounded-md`, `rounded-lg`, `rounded-xl`, `rounded-2xl`, `rounded-3xl`, `rounded-full`).

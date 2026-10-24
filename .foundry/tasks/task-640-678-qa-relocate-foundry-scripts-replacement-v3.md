@@ -29,3 +29,6 @@ Verify that the scripts were relocated correctly and that no tests or builds are
 - [ ] Scripts are correctly located in `packages/foundry/`
 - [ ] References to the old path are updated
 - [ ] Tests and builds pass without issue
+
+### Auditor Rejection
+Target task failed verification. scripts/validate-foundry-schema.ts and scripts/verify-adr-compliance.ts remain in the scripts directory. Furthermore, they were also producing failing lint checks.

@@ -34,7 +34,7 @@ id: task-123-001-invalid
 # Invalid Task
 INNER_EOF
 
-SCRIPT_PATH="$(pwd)/scripts/validate-foundry-schema.ts"
+SCRIPT_PATH="$(pwd)/packages/foundry/scripts/validate-foundry-schema.ts"
 
 # Test valid file
 echo "Testing valid schema file..."

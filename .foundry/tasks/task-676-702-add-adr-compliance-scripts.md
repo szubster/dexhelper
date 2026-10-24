@@ -24,10 +24,10 @@ tags:
 # Add ADR Compliance Package Scripts
 
 ## Description
-The script `scripts/verify-adr-compliance.ts` must be integrated with the system's `package.json` scripts to easily run the compliance check and be included as part of the `pnpm lint` workflow.
+The script `packages/foundry/scripts/verify-adr-compliance.ts` must be integrated with the system's `package.json` scripts to easily run the compliance check and be included as part of the `pnpm lint` workflow.
 
 As a simple/low-risk change, no separate QA task is required. The coder should self-verify.
 
 ## Acceptance Criteria
-- [x] Add a new script to `package.json` that executes `node --experimental-strip-types scripts/verify-adr-compliance.ts`.
+- [x] Add a new script to `package.json` that executes `node --experimental-strip-types packages/foundry/scripts/verify-adr-compliance.ts`.
 - [x] Update the `lint` script in `package.json` to ensure the compliance check is run alongside other linters.

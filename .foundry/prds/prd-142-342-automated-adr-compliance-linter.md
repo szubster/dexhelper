@@ -27,7 +27,7 @@ notes: ''
 As the system scales and more Architectural Decision Records (ADRs) are introduced, enforcing these guidelines relies heavily on expensive QA LLM tokens. It is inefficient and error-prone to burn context window space having LLMs verify static structural rules.
 
 ## Proposed Solution
-We need an automated static analysis linter script (e.g. `scripts/verify-adr-compliance.ts`) that enforces concrete violations of ADRs before code is sent to the QA persona.
+We need an automated static analysis linter script (e.g. `packages/foundry/scripts/verify-adr-compliance.ts`) that enforces concrete violations of ADRs before code is sent to the QA persona.
 
 Specifically, this script must use tools like `biome` and `oxlint` (which are already present in the codebase) to:
 1.  **Enforce ADR 008 (UI Constraints):** Check for tactical hardware aesthetics. The script should verify the usage of sharp edges (`rounded-none`), dashed borders (`border-dashed`), and monospaced telemetry fonts (e.g., `font-mono`) and strictly flag invalid classes (like `rounded-t`, `rounded-b`, `rounded-sm`).

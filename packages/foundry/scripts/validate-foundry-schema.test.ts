@@ -37,7 +37,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
     });
 
     const runValidation = (filePath: string) => {
-        return execSync(`node --experimental-strip-types scripts/validate-foundry-schema.ts ${filePath}`, { encoding: 'utf-8' });
+        return execSync(`node --experimental-strip-types packages/foundry/scripts/validate-foundry-schema.ts ${filePath}`, { encoding: 'utf-8' });
     };
 
     it('should pass with valid checkbox syntax', () => {
@@ -153,7 +153,7 @@ describe('validate-foundry-schema - owner_persona validation', () => {
     });
 
     const runValidation = (filePath: string) => {
-        return execSync(`node --experimental-strip-types scripts/validate-foundry-schema.ts ${filePath}`, { encoding: 'utf-8' });
+        return execSync(`node --experimental-strip-types packages/foundry/scripts/validate-foundry-schema.ts ${filePath}`, { encoding: 'utf-8' });
     };
 
     it('should pass for IDEA node owned by curator persona', () => {

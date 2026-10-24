@@ -28,8 +28,8 @@ To ensure code compliance before it is committed, the ADR compliance checks need
 
 ## Proposed Solution
 - Update `lefthook.yml` to include a new pre-commit command that runs the ADR compliance script.
-- The command should be named `adr-compliance` and should run `node --experimental-strip-types scripts/verify-adr-compliance.ts`.
-- The command doesn't need `{staged_files}` since the script scans the whole `srcDir` internally, but can use it if we modify the script. Currently, `verify-adr-compliance.ts` doesn't accept arguments, so it will just run on the whole codebase. Let's just run it as `node --experimental-strip-types scripts/verify-adr-compliance.ts`.
+- The command should be named `adr-compliance` and should run `node --experimental-strip-types packages/foundry/scripts/verify-adr-compliance.ts`.
+- The command doesn't need `{staged_files}` since the script scans the whole `srcDir` internally, but can use it if we modify the script. Currently, `verify-adr-compliance.ts` doesn't accept arguments, so it will just run on the whole codebase. Let's just run it as `node --experimental-strip-types packages/foundry/scripts/verify-adr-compliance.ts`.
 
 ## Acceptance Criteria
 - [ ] Update `lefthook.yml` to run `verify-adr-compliance.ts`.

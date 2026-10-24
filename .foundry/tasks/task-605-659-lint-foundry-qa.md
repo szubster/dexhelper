@@ -23,7 +23,7 @@ confidence_score: 100
 # Verify lint:foundry package script
 
 ## Objectives
-- Verify `lint:foundry` script correctly executes `node --experimental-strip-types scripts/validate-foundry-schema.ts`.
+- Verify `lint:foundry` script correctly executes `node --experimental-strip-types packages/foundry/scripts/validate-foundry-schema.ts`.
 - Verify `lint:foundry` is appended to the main `lint` script.
 
 ## Acceptance Criteria

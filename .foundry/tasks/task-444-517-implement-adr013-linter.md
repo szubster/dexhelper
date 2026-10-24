@@ -16,7 +16,7 @@ rejection_reason: ''
 # Implement ADR 013 State Compliance Linter
 
 ## Description
-Extend `scripts/verify-adr-compliance.ts` to implement ADR 013 constraints. The script should analyze `src/components/dashboard/` to ensure Kanban and DAG visualizations utilize shared React Context instead of direct local state for data fetching. Specifically, flag the usage of `useState` imports and hooks related to maintaining data state within dashboard views, while appropriately exempting `DagContext.tsx` itself.
+Extend `packages/foundry/scripts/verify-adr-compliance.ts` to implement ADR 013 constraints. The script should analyze `src/components/dashboard/` to ensure Kanban and DAG visualizations utilize shared React Context instead of direct local state for data fetching. Specifically, flag the usage of `useState` imports and hooks related to maintaining data state within dashboard views, while appropriately exempting `DagContext.tsx` itself.
 
 ## Acceptance Criteria
 - [x] Extend `verify-adr-compliance.ts` logic to include ADR 013 checks.

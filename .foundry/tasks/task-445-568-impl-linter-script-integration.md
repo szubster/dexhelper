@@ -27,14 +27,14 @@ locks: []
 # Integrate ADR Compliance Linter Script
 
 ## Objective
-Integrate the `scripts/verify-adr-compliance.ts` script into the global `pnpm lint` flow in the CI configuration.
+Integrate the `packages/foundry/scripts/verify-adr-compliance.ts` script into the global `pnpm lint` flow in the CI configuration.
 
 ## Context
 With the implementation of the ADR compliance linter scripts for UI constraints (ADR 008) and state management constraints (ADR 013), we must ensure these checks run reliably within the CI/CD pipeline and effectively catch violations. The story `story-417-445-linter-integration-e2e` mandates this integration.
 
 ## Instructions
 1. Open `package.json`.
-2. Add a new script named `lint:adr` that executes the ADR compliance script. Since the script uses native typescript stripping, use a command like `node --experimental-strip-types scripts/verify-adr-compliance.ts`.
+2. Add a new script named `lint:adr` that executes the ADR compliance script. Since the script uses native typescript stripping, use a command like `node --experimental-strip-types packages/foundry/scripts/verify-adr-compliance.ts`.
 3. Modify the existing global `lint` script in `package.json` to include `pnpm lint:adr`. Ensure it runs alongside the other linting commands.
 4. Verify that running `pnpm lint` locally correctly invokes the ADR compliance checks.
 

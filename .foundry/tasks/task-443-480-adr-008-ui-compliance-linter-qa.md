@@ -26,7 +26,7 @@ notes: ''
 # QA Verify ADR 008 Linter
 
 ## Objective
-Verify the `scripts/verify-adr-compliance.ts` correctly detects ADR 008 violations and is integrated into the CI process.
+Verify the `packages/foundry/scripts/verify-adr-compliance.ts` correctly detects ADR 008 violations and is integrated into the CI process.
 
 ## Technical Requirements
 - Run the unit tests added for the script using `vitest`.
