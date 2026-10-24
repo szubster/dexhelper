@@ -27,7 +27,7 @@ priority: 80
 During QA verification of tasks involving new custom React Contexts, Context Provider components were defined and used via custom hooks, but omitted from the top-level application root wrapper (`src/main.tsx` or `src/App.tsx`). This resulted in runtime context errors.
 
 ## Solution
-Create a static AST analysis rule or linter utility in `.github/scripts/` or Biome/ESLint that scans `src/` for custom React Context definitions, verifies that exported Context Providers are referenced/wrapped inside `src/main.tsx` or top-level application entry trees, and reports un-wired Context Providers during `pnpm lint` or build verification checks.
+Create a static AST analysis rule or linter utility in `.github/scripts/` or Biome/ESLint that scans `src/` for custom React Context definitions, verifies that exported Context Providers are referenced/wrapped inside `src/main.tsx`, route definitions, generation-specific components, or other appropriately scoped application entry trees, and reports un-wired Context Providers during `pnpm lint` or build verification checks.
 
 ## Value
 Prevents unwrapped Context runtime errors, guarantees proper context hierarchy integration across feature implementations, and reduces QA transient rejections.
