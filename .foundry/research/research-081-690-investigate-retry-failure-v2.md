@@ -26,5 +26,13 @@ Investigate why `task-081-144-preserve-enum-optimizations-retry-impl` failed per
 Update this document with the root cause analysis and any findings that should be applied to the replacement implementation task. Check the boxes when done.
 
 ## Acceptance Criteria
-- [ ] Root cause of the failure of task 144 is identified.
-- [ ] Recommendations for the replacement implementation task are documented.
+- [x] Root cause of the failure of task 144 is identified.
+- [x] Recommendations for the replacement implementation task are documented.
+
+## Root Cause Analysis
+`task-081-144-preserve-enum-optimizations-retry-impl` failed permanently due to reaching the maximum rejection count (`[ACKNOWLEDGED] Max rejection count reached`), primarily driven by session timeouts (`[ACKNOWLEDGED] Session timed out (>7 days without PR)`).
+
+`research-081-575-investigate-retry-failure` also failed due to reaching the maximum rejection count. Its rejection history shows failures due to `[ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK` and `[ACKNOWLEDGED] ACTIVE node missing or malformed session ID`. According to the Foundry Orchestrator Triaging rule in `.foundry/docs/knowledge_base/agents/core_policies.md`, these `[ACKNOWLEDGED]` rejections are false permanent failures caused by system-level agent crashes rather than valid QA/Auditor rejections.
+
+## Recommendations
+Because the failures of both `task-081-144` and `research-081-575` were caused by system-level crashes and timeouts (false permanent failures) rather than fundamental logic flaws, the original task logic and requirements for preserving enum-to-number optimizations remain valid. The replacement implementation task (`task-081-581-preserve-enum-optimizations-retry-v2-impl`) should proceed with the original refactor as planned.
