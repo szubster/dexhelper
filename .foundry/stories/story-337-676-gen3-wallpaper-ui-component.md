@@ -41,4 +41,9 @@ As part of the Gen 3 Wallpaper Customizer Epic, we need the actual UI component 
 *   Include comprehensive unit tests using Vitest Browser Mode (`vitest-browser-react`) to verify rendering, phrase display, and checkbox interaction logic.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into TASK nodes for component implementation and verification.
+- [x] Tech Lead: Break down into TASK nodes for component implementation and verification.
+- [ ] task-676-716-impl-gen3-wallpaper-ui-base
+- [ ] task-676-717-impl-gen3-wallpaper-state-integration
+- [ ] task-676-718-impl-gen3-wallpaper-view-integration
+- [ ] task-676-719-test-gen3-wallpaper-dashboard
+- [ ] task-676-720-qa-gen3-wallpaper-dashboard
