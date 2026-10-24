@@ -29,7 +29,7 @@ Create test state hydration and utilities for Smart Radar data unification testi
 ## Context
 As part of the Smart Radar data unification story, we need reliable E2E tests. Before writing the actual rendering tests, we need utility functions to hydrate the application state with mock `suggestionEngine` data.
 
-## Core Technical Requirements
+## Core Acceptance Criteria
 - Implement functions to easily inject mock suggestionEngine data into the app state for testing.
 - The utilities should allow configuring different densities and route suggestions.
 - Ensure the utilities hook correctly into the existing state architecture for E2E tests.

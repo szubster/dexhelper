@@ -25,7 +25,7 @@ notes: ''
 ## Objective
 Write Playwright E2E tests to verify the Gen 3 Pokémon 100-byte structure extraction and parsing logic across FireRed and LeafGreen.
 
-## Technical Requirements
+## Acceptance Criteria
 - Create a new file `tests/e2e/gen3_frlg_data_extraction.spec.ts`.
 - Use `initializeWithSave` to load appropriate FRLG fixtures (you will need to generate or add a fixture).
 - Verify that the extraction logic successfully extracts party Pokémon data.
