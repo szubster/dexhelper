@@ -32,4 +32,8 @@ Develop an automated pre-commit or linter validation tool (e.g. integrated into 
 3. **Enforcement:** If a deliverable file is omitted or left unstaged, the tool must fail the pre-commit hook (exit with a non-zero status), effectively blocking the agent from submitting the empty PR and forcing them to actually write the missing files.
 
 ## Acceptance Criteria
-- [ ] EPIC breakdown generated.
+- [x] EPIC breakdown generated.
+- [ ] epic-703-696-artifact-presence-parser-engine
+- [ ] epic-703-697-artifact-presence-verification-logic
+- [ ] epic-703-698-artifact-presence-lefthook-integration
+- [ ] epic-703-699-artifact-presence-e2e
