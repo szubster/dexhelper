@@ -23,5 +23,8 @@ locks: []
 The node `task-479-676-gen2-unown-dex-e2e-tests` has permanently failed due to reaching the maximum rejection count. We need to investigate the root cause of the previous failure to inform the replacement implementation.
 
 ## Acceptance Criteria
-- [ ] Investigate the rejection reasons for `task-479-676-gen2-unown-dex-e2e-tests`.
-- [ ] Detail the findings in the markdown body.
+- [x] Investigate the rejection reasons for `task-479-676-gen2-unown-dex-e2e-tests`.
+- [x] Detail the findings in the markdown body.
+
+## Findings
+The node `task-479-676-gen2-unown-dex-e2e-tests` reached its maximum rejection count and permanently failed. After examining the git history for the task's metadata, it was found that the rejections were caused by repeated "Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK" errors. This indicates that the coder agent assigned to the task repeatedly stalled during execution, likely due to a lack of context or ambiguous requirements, and attempted to prompt the user for input, which is strictly forbidden by the system policies. The replacement tasks must ensure they have all necessary context (e.g. from the parsed flags) or use late binding to resolve ambiguities without waiting for user feedback.
