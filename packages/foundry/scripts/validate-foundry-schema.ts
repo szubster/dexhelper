@@ -272,6 +272,7 @@ function validateSchema() {
       'Child Stories',
       'Learnings & Follow-ups',
       'High-Level Acceptance Criteria',
+      'Technical Requirements',
       'Auditor Learnings Follow-up',
       'Benefits'
     ];

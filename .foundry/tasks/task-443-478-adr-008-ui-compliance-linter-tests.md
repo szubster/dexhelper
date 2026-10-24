@@ -26,7 +26,7 @@ notes: ''
 # Implement Unit Tests for ADR 008 Linter
 
 ## Objective
-Implement unit tests using `vitest` for the `scripts/verify-adr-compliance.ts` script.
+Implement unit tests using `vitest` for the `packages/foundry/scripts/verify-adr-compliance.ts` script.
 
 ## Technical Requirements
 - Create unit tests for the core logic implemented in `task-443-477-adr-008-ui-compliance-linter-logic`.

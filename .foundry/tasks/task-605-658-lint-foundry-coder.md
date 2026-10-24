@@ -22,7 +22,7 @@ confidence_score: 100
 # Add lint:foundry package script
 
 ## Objectives
-- Add a `lint:foundry` script that runs `node --experimental-strip-types scripts/validate-foundry-schema.ts`.
+- Add a `lint:foundry` script that runs `node --experimental-strip-types packages/foundry/scripts/validate-foundry-schema.ts`.
 - Append `pnpm lint:foundry` to the main `lint` script.
 
 ## Acceptance Criteria

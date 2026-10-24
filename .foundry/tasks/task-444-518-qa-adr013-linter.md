@@ -18,7 +18,7 @@ locks: []
 # QA ADR 013 State Compliance Linter
 
 ## Description
-Verify the ADR 013 linter compliance rule implemented in `scripts/verify-adr-compliance.ts`. Ensure it correctly flags violations where local state is utilized instead of shared React Context within the `src/components/dashboard/` views and exempts `DagContext.tsx` to prevent false positives.
+Verify the ADR 013 linter compliance rule implemented in `packages/foundry/scripts/verify-adr-compliance.ts`. Ensure it correctly flags violations where local state is utilized instead of shared React Context within the `src/components/dashboard/` views and exempts `DagContext.tsx` to prevent false positives.
 
 ## Acceptance Criteria
 - [x] Verify `verify-adr-compliance.ts` successfully flags ADR 013 local state violations in dashboard views.
