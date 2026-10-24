@@ -224,6 +224,7 @@ function validateSchema() {
 
     // We allow checkboxes in common actionable sections to prevent false positives in the archive.
     const allowedSections = [
+      'Technical Requirements',
       'Acceptance Criteria',
       'Next Steps',
       'Implementation Steps Completed',
