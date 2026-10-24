@@ -32,6 +32,9 @@ To help players track progress during a hunt, we need to scan Party Pokemon and 
 
 ## Acceptance Criteria
 - [x] Break down this Story into Tasks.
-- [ ] task-564-602-pokemon-held-item-tracker-extraction
-- [ ] task-564-603-pokemon-held-item-tracker-diff
-- [ ] task-564-604-pokemon-held-item-tracker-qa
+- [x] task-564-602-pokemon-held-item-tracker-extraction
+- [x] task-564-603-pokemon-held-item-tracker-diff
+- [x] task-564-604-pokemon-held-item-tracker-qa
+- [ ] research-564-719-investigate-held-item-extraction-failure
+- [ ] task-564-720-held-item-extraction-retry
+- [ ] task-564-721-held-item-tracker-qa-retry
