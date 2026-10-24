@@ -31,3 +31,6 @@ Connect the extracted save data to the new Dashboard UI, ensuring dynamic update
 ## Acceptance Criteria
 - [ ] Wire parsed Battle Frontier data to the `BattleFrontierDashboard`.
 - [ ] Ensure data syncs correctly on save file upload.
+- [ ] story-080-711-battle-frontier-react-context
+- [ ] story-080-712-battle-frontier-dashboard-wiring
+- [ ] story-080-713-battle-frontier-integration-e2e
