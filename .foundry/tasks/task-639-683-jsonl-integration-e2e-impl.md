@@ -28,6 +28,6 @@ confidence_score: null
 With the transition to using JSONL for moves and items data (as completed in story-088-638-client-db-jsonl-loader), we need to ensure that the application's UI components that rely on this data continue to render correctly. This task involves writing Playwright E2E tests to verify this integration.
 
 ## Acceptance Criteria
-- [ ] Write Playwright E2E tests in the `tests/e2e/` directory to verify that move and item data is correctly loaded and displayed in the UI.
-- [ ] Tests should verify the rendering of components that depend on moves/items (e.g., Pokémon details views, inventory views).
-- [ ] Ensure all new Playwright tests pass locally.
+- [x] Write Playwright E2E tests in the `tests/e2e/` directory to verify that move and item data is correctly loaded and displayed in the UI.
+- [x] Tests should verify the rendering of components that depend on moves/items (e.g., Pokémon details views, inventory views).
+- [x] Ensure all new Playwright tests pass locally.
