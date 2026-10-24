@@ -32,5 +32,5 @@ Refactor `tests/e2e/settings.spec.ts` and `tests/e2e/settings_advanced.spec.ts` 
 - Ensure the refactored tests pass consistently.
 
 ## Acceptance Criteria
-- [ ] Settings tests are refactored to use `SettingsModalModel`.
-- [ ] Tests use semantic locators via the COM.
+- [x] Settings tests are refactored to use `SettingsModalModel`.
+- [x] Tests use semantic locators via the COM.
