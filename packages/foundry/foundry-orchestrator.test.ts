@@ -3582,6 +3582,103 @@ Target artifact: task-completed
     expect(storyContent).not.toContain('status: COMPLETED');
   });
 
+
+  test('Two-Tasks-Max Anti-Pattern: STORY fails if broken down into <= 2 TASK nodes but has > 2 acceptance criteria', () => {
+    createValidTestNode(tmpDir, '.foundry/stories/story-complex.md', {
+      id: "story-complex",
+      type: "STORY",
+      title: "Complex Story",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, `## Acceptance Criteria
+- [x] Criteria 1
+- [x] Criteria 2
+- [x] Criteria 3`);
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-child-1.md', {
+      id: "task-child-1",
+      type: "TASK",
+      title: "Task Child 1",
+      status: "COMPLETED",
+      owner_persona: "coder",
+      parent: "story-complex",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-child-2.md', {
+      id: "task-child-2",
+      type: "TASK",
+      title: "Task Child 2",
+      status: "COMPLETED",
+      owner_persona: "coder",
+      parent: "story-complex",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const storyContent = fs.readFileSync(require('path').join(tmpDir, '.foundry/stories/story-complex.md'), 'utf-8');
+    expect(storyContent).toContain('status: FAILED');
+    expect(storyContent).toContain('Two-Tasks-Max anti-pattern detected');
+  });
+
+  test('Two-Tasks-Max Anti-Pattern: STORY completes if broken down into <= 2 TASK nodes and has <= 2 acceptance criteria', () => {
+    createValidTestNode(tmpDir, '.foundry/stories/story-simple.md', {
+      id: "story-simple",
+      type: "STORY",
+      title: "Simple Story",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, `## Acceptance Criteria
+- [x] Criteria 1
+- [x] Criteria 2`);
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-child-1.md', {
+      id: "task-child-1",
+      type: "TASK",
+      title: "Task Child 1",
+      status: "COMPLETED",
+      owner_persona: "coder",
+      parent: "story-simple",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-child-2.md', {
+      id: "task-child-2",
+      type: "TASK",
+      title: "Task Child 2",
+      status: "COMPLETED",
+      owner_persona: "coder",
+      parent: "story-simple",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const storyContent = fs.readFileSync(require('path').join(tmpDir, '.foundry/stories/story-simple.md'), 'utf-8');
+    expect(storyContent).toContain('status: COMPLETED');
+  });
+
   test('Phase 4.1: Late-Binding parent transitions to COMPLETED when at least one child is COMPLETED and remainder are CANCELLED', () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-mixed.md', {
       id: "story-mixed",
