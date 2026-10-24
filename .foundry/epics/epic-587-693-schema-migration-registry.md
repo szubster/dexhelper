@@ -33,4 +33,7 @@ Implement the core sequential migration registry (`SaveSchemaMigrator`) that pro
 3. Keep the registry decoupled from UI/React contexts for generic usage.
 
 ## Acceptance Criteria
-- [ ] Break down into Story.
+- [x] Break down into Story.
+- [ ] story-693-714-save-schema-migrator-logic
+- [ ] story-693-715-schema-versioning-payload
+- [ ] story-693-716-schema-migration-integration-e2e
