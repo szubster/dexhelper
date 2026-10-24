@@ -26,4 +26,7 @@ locks: []
 Following the schema update for the `priority` field, the orchestrator needs to intelligently leverage this field to dispatch nodes based on priority (descending) first, then `critical_weight` (descending), and finally `created_at`.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Decompose this story into implementation and QA TASK nodes.
+- [x] Tech Lead: Decompose this story into implementation and QA TASK nodes.
+- [ ] task-649-702-priority-dispatch-coder
+- [ ] task-649-703-priority-dispatch-tests-coder
+- [ ] task-649-704-priority-dispatch-qa
