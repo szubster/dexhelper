@@ -2,10 +2,10 @@
 id: story-521-533-savedatareader-e2e
 type: STORY
 title: Core SaveDataReader E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-13'
+updated_at: '2026-10-24'
 depends_on:
   - story-521-532-savedatareader-tests
 jules_session_id: null

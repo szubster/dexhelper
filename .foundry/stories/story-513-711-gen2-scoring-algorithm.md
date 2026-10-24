@@ -2,12 +2,12 @@
 id: story-513-711-gen2-scoring-algorithm
 type: STORY
 title: Gen 2 Bug-Catching Scoring Algorithm Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-10-22'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '9781620787498797475'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: epic-343-513-score-calculation-logic

@@ -2,10 +2,10 @@
 id: task-679-712-pokeblock-dashboard-ui-impl
 type: TASK
 title: Pokéblock Dashboard UI Component
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on:
   - task-679-711-pokeblock-state-access-layer-impl
 jules_session_id: null

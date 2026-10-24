@@ -2,7 +2,7 @@
 id: task-638-717-extract-constants-to-core-v6
 type: TASK
 title: Extract Constants to Core Package V6
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-23'
 updated_at: '2026-10-24'
@@ -14,8 +14,8 @@ tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 1
-rejection_reason: 'Session terminated with state: FAILED'
+rejection_count: 2
+rejection_reason: ''
 locks: []
 ---
 

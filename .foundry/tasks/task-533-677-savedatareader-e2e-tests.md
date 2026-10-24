@@ -2,10 +2,10 @@
 id: task-533-677-savedatareader-e2e-tests
 type: TASK
 title: Write E2E Tests for SaveDataReader
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-17'
+updated_at: '2026-10-24'
 depends_on: []
 jules_session_id: null
 parent: story-521-533-savedatareader-e2e
@@ -13,8 +13,8 @@ tags:
   - testing
   - e2e
   - save-parser
-rejection_count: 1
-rejection_reason: 'The E2E tests only test SaveDataReader methods directly with dummy buffers and do not validate the full application integration flow.'
+rejection_count: 2
+rejection_reason: ''
 locks: []
 ---
 

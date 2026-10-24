@@ -2,10 +2,10 @@
 id: task-563-680-gen2-bag-inventory-parsing-impl
 type: TASK
 title: Gen 2 Bag Inventory Parsing Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-17'
+updated_at: '2026-10-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - dexhelper
   - gen2
 research_references: []
-rejection_count: 1
-rejection_reason: 'Missing unit tests for Gen 2 Bag inventory parsing (Items, Key Items, Balls pockets).'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

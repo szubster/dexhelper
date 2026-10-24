@@ -2,10 +2,10 @@
 id: story-530-537-xyflow-cleanup
 type: STORY
 title: Remove xyflow dependencies and cleanup Vite config
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-10-12'
+updated_at: '2026-10-24'
 depends_on:
   - story-530-536-dagtree-ui-logic
 jules_session_id: null
@@ -33,7 +33,7 @@ Remove the `@xyflow/react`, `dagre`, and associated chunking configurations from
 
 ## Acceptance Criteria
 - [x] Break down into Tasks to cleanup dependencies and config.
-- [ ] `@xyflow/react` and `dagre` removed from `package.json`.
-- [ ] `vite.config.ts` cleanup applied.
-- [ ] Stale data logic removed from the DAG store.
-- [ ] task-537-680-remove-xyflow-deps
+- [x] `@xyflow/react` and `dagre` removed from `package.json`.
+- [x] `vite.config.ts` cleanup applied.
+- [x] Stale data logic removed from the DAG store.
+- [x] task-537-680-remove-xyflow-deps

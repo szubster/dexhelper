@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-24T16:21:40.488Z*
+*Generated at: 2026-10-24T19:09:00.286Z*
 
 ## Node Statistics
 
@@ -10,30 +10,30 @@
 | ADR | 44 |
 | EPIC | 513 |
 | IDEA | 233 |
-| PRD | 214 |
-| RESEARCH | 312 |
+| PRD | 216 |
+| RESEARCH | 314 |
 | STORY | 1078 |
-| TASK | 2748 |
+| TASK | 2760 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3345 |
-| ACTIVE | 156 |
-| CANCELLED | 830 |
-| PENDING | 781 |
+| COMPLETED | 3355 |
+| ACTIVE | 142 |
+| CANCELLED | 833 |
+| PENDING | 783 |
 | BLOCKED | 14 |
-| FAILED | 8 |
-| READY | 8 |
+| READY | 22 |
+| FAILED | 9 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9946 |
-| Open PRs | 177 |
-| Merged PRs | 8615 |
-| Closed PRs | 1154 |
+| Total PRs | 9949 |
+| Open PRs | 158 |
+| Merged PRs | 8634 |
+| Closed PRs | 1157 |
 
 ## Rejection Counts
 
@@ -479,6 +479,7 @@
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-528-677-safari-zone-bounty-board-ui.md | 2 |
+| task-533-677-savedatareader-e2e-tests.md | 2 |
 | task-536-562-implement-mocking-utilities.md | 2 |
 | task-536-564-playwright-style-guide-mock-utils.md | 2 |
 | task-537-680-remove-xyflow-deps.md | 2 |
@@ -498,6 +499,7 @@
 | task-563-578-save-file-progress-fixtures-coder.md | 2 |
 | task-563-586-develop-migration-script.md | 2 |
 | task-563-669-gen3-wild-item-data-parsing-logic-retry.md | 2 |
+| task-563-680-gen2-bag-inventory-parsing-impl.md | 2 |
 | task-564-565-gen3-trainer-card-e2e-tests.md | 2 |
 | task-564-604-pokemon-held-item-tracker-qa.md | 2 |
 | task-564-680-thief-covet-ui-integration-components.md | 2 |
@@ -508,6 +510,7 @@
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-618-703-multi-box-search-highlight-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
+| task-638-717-extract-constants-to-core-v6.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
@@ -932,6 +935,7 @@
 | task-526-567-drive-auth-qa.md | 1 |
 | task-527-582-update-generators-wip-banner.md | 1 |
 | task-527-669-pathfinder-chain-viz-ui.md | 1 |
+| task-527-671-pathfinder-chain-viz-qa.md | 1 |
 | task-527-674-webhook-renewal-impl.md | 1 |
 | task-527-675-drive-webhook-qa.md | 1 |
 | task-530-549-isavedatareader-interface-impl.md | 1 |
@@ -959,6 +963,7 @@
 | task-554-567-gen3-pk3-extraction-impl.md | 1 |
 | task-555-682-gen3-pk3-e2e-tests-impl.md | 1 |
 | task-557-581-orchestrator-link-resolution-fixtures.md | 1 |
+| task-557-681-orchestrator-link-resolution-e2e-impl-retry.md | 1 |
 | task-558-564-scheduled-workflows-batch1-impl.md | 1 |
 | task-559-680-battle-frontier-data-e2e-tests.md | 1 |
 | task-560-570-evaluate-graph-processing-libraries.md | 1 |
@@ -977,6 +982,7 @@
 | task-563-594-gen3-pokeblock-optimizer-ui-components.md | 1 |
 | task-563-675-complexity-validation-tests-retry.md | 1 |
 | task-563-682-gen3-bag-inventory-parsing-impl.md | 1 |
+| task-563-691-save-file-progress-e2e-coder-retry.md | 1 |
 | task-564-578-e2e-navigation-and-selection.md | 1 |
 | task-564-619-pokeblock-e2e-implementation-retry.md | 1 |
 | task-566-583-shoal-dashboard-layout.md | 1 |
@@ -996,7 +1002,6 @@
 | task-618-688-multi-box-ev-filters-logic.md | 1 |
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
-| task-638-717-extract-constants-to-core-v6.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
 | task-639-688-migrate-buttons-impl-v4.md | 1 |
@@ -1006,7 +1011,9 @@
 | task-640-653-relocate-foundry-scripts-replacement.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
 | task-645-691-dashboard-metrics-integration-e2e-impl-retry-2.md | 1 |
+| task-649-702-priority-dispatch-coder.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
+| task-676-702-gen2-pokemon-selection-state.md | 1 |
 | task-676-712-fuzzer-deadlock-assertions-impl.md | 1 |
 
 ## Wait Times

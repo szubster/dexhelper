@@ -2,10 +2,10 @@
 id: task-679-713-pokeblock-route-integration-impl
 type: TASK
 title: Pokéblock Route Integration
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on:
   - task-679-712-pokeblock-dashboard-ui-impl
 jules_session_id: null

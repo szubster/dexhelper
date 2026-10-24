@@ -1,22 +1,22 @@
 ---
 id: task-564-682-qa-schema-frontmatter-validation
 type: TASK
-title: "QA Schema Linter Frontmatter Validation"
-status: PENDING
+title: QA Schema Linter Frontmatter Validation
+status: READY
 owner_persona: qa
-created_at: "2026-10-12"
-updated_at: "2026-10-12"
+created_at: '2026-10-12'
+updated_at: '2026-10-24'
 depends_on:
   - task-564-681-implement-enum-strictness-validation
 jules_session_id: null
 parent: story-555-564-lint-schema-frontmatter-validation
-confidence_score: null
 tags:
   - qa
   - linting
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # QA Schema Linter Frontmatter Validation

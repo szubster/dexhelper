@@ -2,12 +2,12 @@
 id: task-649-687-define-roamer-iv-glitch-types
 type: TASK
 title: Define Gen 3 Roamer IV Glitch Types
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '8568957379925600326'
+jules_session_id: null
 pr_number: null
 parent: story-398-649-gen3-roamer-iv-glitch-types-and-tests
 tags:

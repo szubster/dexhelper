@@ -2,12 +2,12 @@
 id: task-528-683-bash-linter-e2e-tests
 type: TASK
 title: Write E2E Verification Tests for Bash Static Analysis Linter
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-13T04:49:02Z'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '9493378112520427652'
+jules_session_id: null
 pr_number: null
 parent: story-421-528-bash-static-analysis-linter-e2e
 tags:

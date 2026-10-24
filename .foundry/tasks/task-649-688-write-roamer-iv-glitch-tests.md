@@ -2,10 +2,10 @@
 id: task-649-688-write-roamer-iv-glitch-tests
 type: TASK
 title: Write Roamer IV Glitch Detection Tests
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-24'
 depends_on:
   - task-649-687-define-roamer-iv-glitch-types
 jules_session_id: null

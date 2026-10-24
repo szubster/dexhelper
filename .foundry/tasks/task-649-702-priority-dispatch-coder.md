@@ -2,7 +2,7 @@
 id: task-649-702-priority-dispatch-coder
 type: TASK
 title: priority orchestrator dispatch coder
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-24'
@@ -14,8 +14,8 @@ tags:
   - orchestrator
   - scheduling
   - logic
-rejection_count: 0
-rejection_reason: 'Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
