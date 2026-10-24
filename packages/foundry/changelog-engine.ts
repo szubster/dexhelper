@@ -394,14 +394,6 @@ Synthesize the technical changes across all commits in this batch:
   fs.writeFileSync(taskPath, newContent, 'utf8');
 }
 
-export function updateTaskNodeForCommit(
-  commitDetails: CommitDetails,
-  classification: CommitClassification,
-  taskPath: string = TASK_NODE_PATH,
-  previousCommitSha: string | null = null
-): void {
-  updateTaskNodeForBatch([{ details: commitDetails, classification, previousSha: previousCommitSha }], taskPath);
-}
 
 export function generateContinuousMaintenanceIdeaNode(): void {
   const ideaPath = path.join(process.cwd(), '.foundry', 'ideas', 'idea-000-changelog-continuous-maintenance.md');
