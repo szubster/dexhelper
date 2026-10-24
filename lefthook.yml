@@ -22,3 +22,5 @@ pre-commit:
       run: pnpm exec sort-package-json {staged_files}
       glob: "package.json"
       stage_fixed: true
+    adr-compliance:
+      run: node --experimental-strip-types scripts/verify-adr-compliance.ts
