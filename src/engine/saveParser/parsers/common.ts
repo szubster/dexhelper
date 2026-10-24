@@ -1,3 +1,4 @@
+import type { Gen3TrainerCardState as Gen3TrainerCard } from '../../../features/trainer-card/types';
 import type { Gen3StaticEncounters } from '../../gen3/staticEncounters';
 import type { PokegearPhoneData } from './gen2/phone/parser';
 
@@ -119,14 +120,6 @@ export interface Gen3MixRecord {
   kind: number;
   active: boolean;
   payload?: Uint8Array;
-}
-
-export interface Gen3TrainerCard {
-  hasHallOfFame: boolean;
-  hasHoennDex: boolean;
-  hasNationalDex: boolean;
-  hasBattleFrontier: boolean;
-  hasContestMaster: boolean;
 }
 
 export interface Gen3MysteryGift {
