@@ -237,6 +237,7 @@ function validateSchema() {
       'Epic Breakdown',
       'Next Steps (To Be Spawned)',
       'Requirements',
+      'Technical Requirements',
       'UI Consistency',
       'Context References',
       'Current Behavior',
