@@ -4351,4 +4351,97 @@ Referencing adr-compliance in body.
     stderrSpy.mockRestore();
   });
 
+
+  describe('Link Resolution', () => {
+    test('Rewrites legacy markdown links to node IDs in the body', () => {
+      createValidTestNode(tmpDir, '.foundry/tasks/task-link-legacy.md', {
+        id: "task-link-legacy",
+        type: "TASK",
+        title: "Task Link Legacy",
+        status: "PENDING",
+        owner_persona: "coder",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      }, "See [idea-123](./.foundry/ideas/idea-123.md) and [epic-456](.foundry/epics/epic-456.md) for more info.");
+
+      main();
+
+      const taskContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-link-legacy.md'), 'utf-8');
+      expect(taskContent).toContain("See idea-123 and epic-456 for more info.");
+    });
+
+    test('Strict mode exits with code 1 for unresolvable raw node IDs in body', () => {
+      createValidTestNode(tmpDir, '.foundry/epics/epic-unresolvable.md', {
+        id: "epic-unresolvable",
+        type: "EPIC",
+        title: "Epic Unresolvable Link",
+        status: "PENDING",
+        owner_persona: "story_owner",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      }, "Reference to non-existent node: idea-999-missing");
+
+      const stderrSpy = vi.spyOn(process.stderr, 'write');
+      process.argv.push('--strict');
+      try {
+        main();
+      } finally {
+        process.argv.splice(process.argv.indexOf('--strict'), 1);
+      }
+
+      const output = stderrSpy.mock.calls.map(call => call[0] as string).join('');
+      expect(output).toContain("Unresolvable node reference: 'idea-999-missing'");
+      expect(process.exitCode).toBe(1);
+
+      // cleanup
+      process.exitCode = 0;
+      stderrSpy.mockRestore();
+    });
+
+    test('Strict mode detects cyclic links and exits with code 1', () => {
+      // Node 1 depends on Node 2
+      createValidTestNode(tmpDir, '.foundry/epics/epic-cycle-a.md', {
+        id: "epic-cycle-a",
+        type: "EPIC",
+        title: "Epic Cycle A",
+        status: "PENDING",
+        owner_persona: "story_owner",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: ["epic-cycle-b"],
+        jules_session_id: null,
+      }, "This depends on B");
+
+      // Node 2 has a raw ID link to Node 1 in its body (which the idempotent generation check picks up)
+      createValidTestNode(tmpDir, '.foundry/epics/epic-cycle-b.md', {
+        id: "epic-cycle-b",
+        type: "EPIC",
+        title: "Epic Cycle B",
+        status: "PENDING",
+        owner_persona: "story_owner",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      }, "This references epic-cycle-a");
+
+      const stderrSpy = vi.spyOn(process.stderr, 'write');
+      process.argv.push('--strict');
+      try {
+        main();
+      } finally {
+        process.argv.splice(process.argv.indexOf('--strict'), 1);
+      }
+      expect(process.exitCode).toBe(1);
+
+      // cleanup
+      process.exitCode = 0;
+      stderrSpy.mockRestore();
+    });
+  });
+
 });
