@@ -2,13 +2,13 @@
 id: epic-121-346-gen3-mystery-gift-dashboard-ui
 type: EPIC
 title: Gen 3 Mystery Gift Dashboard UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-07-25'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on:
   - epic-121-345-gen3-mystery-gift-data-extraction
-jules_session_id: '1746427173490395711'
+jules_session_id: null
 pr_number: null
 parent: prd-121-336-gen3-mystery-gift-viewer
 tags:
@@ -34,4 +34,8 @@ This Epic focuses on creating a user-friendly, read-only UI dashboard to display
 - [ ] Create a read-only UI dashboard component to display Mystery Gift data.
 - [ ] Display active Wonder Cards in a visually appealing format.
 - [ ] Indicate whether corresponding special island events are accessible based on extracted event flags.
-- [ ] Story Owner: Break down this Epic into manageable Stories.
+- [x] Story Owner: Break down this Epic into manageable Stories.
+- [ ] story-346-676-mystery-gift-data-access-layer
+- [ ] story-346-677-wonder-card-ui-components
+- [ ] story-346-678-event-flags-ui-components
+- [ ] story-346-679-mystery-gift-dashboard-integration-and-e2e-verification

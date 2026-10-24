@@ -2,12 +2,12 @@
 id: research-563-690-investigate-save-file-progress-e2e-failure
 type: RESEARCH
 title: Investigate Save File Progress E2E Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-16T21:00:50.578Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16775018342452614145'
 pr_number: null
 parent: story-556-563-e2e-tests-save-file-progress-tracking
 tags:

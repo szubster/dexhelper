@@ -2,12 +2,12 @@
 id: idea-129-epic-level-distillation-archival
 type: IDEA
 title: Epic-Level Distillation and Cold Storage Archival
-status: ACTIVE
+status: PENDING
 owner_persona: curator
 created_at: '2026-07-29T12:00:00.000Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '11914054102843343933'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -38,3 +38,4 @@ This directly addresses the scalability limits of treating a Git repository as a
 
 ## Acceptance Criteria
 - [x] prd-129-339-epic-level-distillation-archival
+- [ ] research-129-688-archival-dependency-matrix-overlap

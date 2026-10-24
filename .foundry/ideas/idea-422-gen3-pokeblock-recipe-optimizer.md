@@ -1,11 +1,11 @@
 ---
 id: idea-422-gen3-pokeblock-recipe-optimizer
 type: IDEA
-status: PENDING
-owner_persona: product_manager
 title: Gen 3 Pokéblock Recipe Optimizer for Contest Conditions
+status: PENDING
+owner_persona: curator
 created_at: '2026-08-25'
-updated_at: '2026-09-05'
+updated_at: '2026-10-17'
 depends_on: []
 jules_session_id: null
 parent: null
@@ -17,6 +17,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Gen 3 Pokéblock Recipe Optimizer for Contest Conditions
@@ -41,4 +42,5 @@ In the previous session, IDEA-421 (Automated Markdown Schema Validation) was pro
 
 ## Acceptance Criteria
 - [x] Product Manager: Convert this idea into a PRD detailing the required Gen 3 berry blending formulas and Nature modifiers.
-- [ ] prd-422-518-gen3-pokeblock-recipe-optimizer
+- [x] prd-422-518-gen3-pokeblock-recipe-optimizer
+- [ ] research-422-702-remediation-legacy-conflict

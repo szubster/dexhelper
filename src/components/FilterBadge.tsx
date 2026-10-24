@@ -1,3 +1,4 @@
+import React from 'react';
 import { cn } from '../utils/cn';
 
 interface FilterBadgeProps {
@@ -5,7 +6,8 @@ interface FilterBadgeProps {
   label: string;
 }
 
-export function FilterBadge({ isActive, label }: FilterBadgeProps) {
+// ⚡ Bolt: Wrapped FilterBadge in React.memo to prevent unnecessary re-renders when parent filter controls update without badge props changing.
+export const FilterBadge = React.memo(function FilterBadge({ isActive, label }: FilterBadgeProps) {
   return (
     <span className="tactical-badge h-10 whitespace-nowrap px-2">
       <div
@@ -21,4 +23,4 @@ export function FilterBadge({ isActive, label }: FilterBadgeProps) {
       </span>
     </span>
   );
-}
+});

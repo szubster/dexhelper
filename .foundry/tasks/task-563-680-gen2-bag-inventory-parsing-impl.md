@@ -2,7 +2,7 @@
 id: task-563-680-gen2-bag-inventory-parsing-impl
 type: TASK
 title: Gen 2 Bag Inventory Parsing Implementation
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-12'
 updated_at: '2026-10-17'
@@ -32,6 +32,6 @@ As part of the Wild Item Inventory Tracker, we need to extract the Bag inventory
 - Write unit tests for the parsing logic.
 
 ## Acceptance Criteria
-- [ ] Gen 2 Bag parsing logic is implemented.
-- [ ] Constants for offsets and limits are correctly defined.
-- [ ] Unit tests pass for Gen 2 Bag parsing.
+- [x] Gen 2 Bag parsing logic is implemented.
+- [x] Constants for offsets and limits are correctly defined.
+- [x] Unit tests pass for Gen 2 Bag parsing.

@@ -11,8 +11,20 @@ describe('Gen 3 assistantData', () => {
     expect(seedotTrade?.nickname).toBe('DOTS');
   });
 
-  it('should have empty STATIC_GIFT_DATA for now', () => {
+  it('should have valid STATIC_GIFT_DATA for Gen 3 gifts and encounters', () => {
     expect(STATIC_GIFT_DATA).toBeDefined();
-    expect(Object.keys(STATIC_GIFT_DATA).length).toBe(0);
+    expect(Object.keys(STATIC_GIFT_DATA).length).toBeGreaterThan(0);
+
+    // Spot check Beldum gift in Emerald/RS
+    const beldum = STATIC_GIFT_DATA[374];
+    expect(beldum).toBeDefined();
+    expect(beldum?.name).toBe('Beldum');
+    expect(beldum?.location).toContain("Steven's House");
+
+    // Spot check Rayquaza static legendary
+    const rayquaza = STATIC_GIFT_DATA[384];
+    expect(rayquaza).toBeDefined();
+    expect(rayquaza?.name).toBe('Rayquaza');
+    expect(rayquaza?.gen3StaticKey).toBe('rayquaza');
   });
 });

@@ -2,10 +2,10 @@
 id: task-478-679-kurt-apricorn-unit-tests-retry
 type: TASK
 title: Kurt Apricorn Parsing Unit Tests Retry
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-10'
+updated_at: '2026-10-18'
 depends_on:
   - task-478-678-kurt-apricorn-core-logic-retry
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - gen2
   - testing
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-478-678-kurt-apricorn-core-logic-retry
 notes: ''
 locks: []
 ---

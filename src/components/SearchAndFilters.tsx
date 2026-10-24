@@ -1,5 +1,5 @@
 import { Crosshair, Fingerprint, Radio } from 'lucide-react';
-import { useMemo, useRef, useState, useTransition } from 'react';
+import React, { useMemo, useRef, useState, useTransition } from 'react';
 import { FILTER_TYPES, type FilterType, useStore } from '../store';
 import { cn } from '../utils/cn';
 import { ClearFiltersBadge } from './ClearFiltersBadge';
@@ -16,7 +16,9 @@ import { TacticalMultiSelectControl } from './TacticalMultiSelectControl';
 import { TacticalPanel } from './TacticalPanel';
 import { TelemetryDecoration } from './TelemetryDecoration';
 
-export function SearchAndFilters() {
+// ⚡ Bolt: Wrapped SearchAndFilters in React.memo to isolate its render cycle from parent view state updates
+// when props and selected store slices remain unchanged.
+export const SearchAndFilters = React.memo(function SearchAndFilters() {
   const inputRef = useRef<HTMLInputElement>(null);
   const saveData = useStore((s) => s.saveData);
   const searchTerm = useStore((s) => s.searchTerm);
@@ -73,7 +75,7 @@ export function SearchAndFilters() {
   };
 
   return (
-    <div className="sticky top-0 z-30 -mt-6 mb-6 border-[var(--theme-primary)]/30 border-b-2 border-dashed bg-zinc-950/95 px-4 pt-6 pb-4 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl">
+    <div className="relative z-30 mb-6 border-[var(--theme-primary)]/30 border-b-2 border-dashed bg-zinc-950/95 px-4 pt-6 pb-4 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl">
       <TacticalPanel className="p-4 sm:p-6" variant="cyan">
         <TelemetryDecoration
           label="SYS.RECON_MATRIX"
@@ -214,4 +216,4 @@ export function SearchAndFilters() {
       </TacticalPanel>
     </div>
   );
-}
+});

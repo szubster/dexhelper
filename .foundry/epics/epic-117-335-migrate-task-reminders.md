@@ -2,10 +2,10 @@
 id: epic-117-335-migrate-task-reminders
 type: EPIC
 title: Migrate and Clean Existing Task Reminders
-status: PENDING
+status: COMPLETED
 owner_persona: auditor
 created_at: '2026-07-19'
-updated_at: '2026-09-14'
+updated_at: '2026-10-22'
 depends_on:
   - epic-117-334-centralize-prompt-rules
 jules_session_id: null
@@ -36,6 +36,6 @@ This epic fulfills the optional cleanup objective of `prd-118-117-centralize-pro
 ## 3. High-Level Acceptance Criteria
 - [ ] A migration script or command is written and executed to remove `### REMINDER FOR CODER` and `### REMINDER FOR QA` blocks from existing `.foundry/tasks/`.
 - [ ] Active and pending TASK files are clean and no longer contain the redundant prompt rules.
-- [ ] story-335-563-develop-migration-script
-- [ ] story-335-564-execute-migration
-- [ ] story-335-565-migration-e2e-verification
+- [x] story-335-563-develop-migration-script
+- [x] story-335-564-execute-migration
+- [x] story-335-565-migration-e2e-verification

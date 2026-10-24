@@ -2,10 +2,10 @@
 id: task-647-674-gen3-ash-dashboard-e2e
 type: TASK
 title: 'Task: E2E Tests for Gen 3 Volcanic Ash Tracker Dashboard UI'
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-03T19:33:53.000Z'
-updated_at: '2026-10-13'
+updated_at: '2026-10-22'
 depends_on:
   - task-647-673-gen3-ash-dashboard-ui-impl
 jules_session_id: null
@@ -32,4 +32,4 @@ Write integration E2E tests using Playwright for the newly created Gen 3 Volcani
 - Playwright tests and code examples must use relative paths (e.g., `./dashboard`) for navigation rather than absolute paths.
 
 ## Acceptance Criteria
-- [ ] Write integration E2E tests for the new Ash Tracker UI component.
+- [x] Write integration E2E tests for the new Ash Tracker UI component.

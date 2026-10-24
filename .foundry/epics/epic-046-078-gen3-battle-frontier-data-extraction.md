@@ -2,10 +2,10 @@
 id: epic-046-078-gen3-battle-frontier-data-extraction
 type: EPIC
 title: Gen 3 Battle Frontier Data Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-11'
-updated_at: '2026-09-11'
+updated_at: '2026-10-19'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,5 +34,5 @@ Extend the Gen 3 save parser to extract Battle Frontier data using the offsets d
 - [x] story-078-122-gen3-parse-battle-frontier-symbols
 - [x] story-078-123-gen3-parse-battle-points
 - [x] research-078-150-rs-battle-tower-data
-- [ ] story-078-558-rs-battle-tower-data-parsing
-- [ ] story-078-559-battle-frontier-data-e2e-verification
+- [x] story-078-558-rs-battle-tower-data-parsing
+- [x] story-078-559-battle-frontier-data-e2e-verification

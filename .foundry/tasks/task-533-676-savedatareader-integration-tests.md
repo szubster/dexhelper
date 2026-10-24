@@ -2,12 +2,12 @@
 id: task-533-676-savedatareader-integration-tests
 type: TASK
 title: Write Integration Tests for SaveDataReader
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-14'
+updated_at: '2026-10-17'
 depends_on: []
-jules_session_id: '17749991930523576822'
+jules_session_id: null
 parent: story-521-533-savedatareader-e2e
 tags:
   - testing
@@ -24,6 +24,6 @@ locks: []
 Write integration tests for the `SaveDataReader` to ensure it integrates correctly with the application workflows and handles simulated save data correctly.
 
 ## Acceptance Criteria
-- [ ] Create integration test cases for `SaveDataReader`.
-- [ ] Verify core engine workflow execution against dummy/stubbed buffer files.
-- [ ] Ensure all new integration tests pass successfully (`pnpm test`).
+- [x] Create integration test cases for `SaveDataReader`.
+- [x] Verify core engine workflow execution against dummy/stubbed buffer files.
+- [x] Ensure all new integration tests pass successfully (`pnpm test`).

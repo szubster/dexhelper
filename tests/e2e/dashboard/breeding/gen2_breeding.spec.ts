@@ -32,6 +32,10 @@ test.describe('Gen 2 Breeding Mechanics E2E', () => {
     // Target the specific container for pairs
     const pairsContainer = breedingPanel.locator('..').locator('..');
 
+    // Assert that the breeding panel uses tactical aesthetics
+    await expect(pairsContainer).toHaveClass(/tactical-panel/);
+    await expect(pairsContainer).toHaveCSS('border-style', /solid|dashed/);
+
     const emptyState = page.getByText('NO SHINY CARRIER BREEDING PAIRS AVAILABLE').first();
     // Look for the specific card styles inside the panel
     const pairsCards = pairsContainer.locator('.border-dashed.bg-black\\/60').first();
@@ -41,6 +45,9 @@ test.describe('Gen 2 Breeding Mechanics E2E', () => {
 
     const isVisible = await pairsCards.isVisible();
     if (isVisible) {
+      // Validate that pair cards also have tactical styling
+      await expect(pairsCards).toHaveClass(/tactical-panel/);
+
       // Validate gender indicators are present inside the rendered cards
       const pairText = await pairsCards.textContent();
       expect(pairText).toMatch(/\([MF-]\)/);

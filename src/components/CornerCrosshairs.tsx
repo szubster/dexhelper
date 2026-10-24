@@ -19,16 +19,16 @@ export function CornerCrosshairs({ className, thickness = 1, corners = ALL_CORNE
   return (
     <>
       {corners.includes('top-left') && (
-        <div className={cn(`pointer-events-none absolute top-0 left-0 ${t} ${l}`, className)} />
+        <div aria-hidden="true" className={cn(`pointer-events-none absolute top-0 left-0 ${t} ${l}`, className)} />
       )}
       {corners.includes('top-right') && (
-        <div className={cn(`pointer-events-none absolute top-0 right-0 ${t} ${r}`, className)} />
+        <div aria-hidden="true" className={cn(`pointer-events-none absolute top-0 right-0 ${t} ${r}`, className)} />
       )}
       {corners.includes('bottom-left') && (
-        <div className={cn(`pointer-events-none absolute bottom-0 left-0 ${b} ${l}`, className)} />
+        <div aria-hidden="true" className={cn(`pointer-events-none absolute bottom-0 left-0 ${b} ${l}`, className)} />
       )}
       {corners.includes('bottom-right') && (
-        <div className={cn(`pointer-events-none absolute right-0 bottom-0 ${r} ${b}`, className)} />
+        <div aria-hidden="true" className={cn(`pointer-events-none absolute right-0 bottom-0 ${r} ${b}`, className)} />
       )}
     </>
   );

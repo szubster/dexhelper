@@ -231,6 +231,53 @@ describe('NodeFrontmatterSchema', () => {
     expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
   });
 
+  it('validates a node with system_failure_count as integer', () => {
+    const node = {
+      id: "task-sys",
+      type: "TASK",
+      title: "New Task sys",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-08-14",
+      updated_at: "2026-08-14",
+      depends_on: [],
+      jules_session_id: null,
+      system_failure_count: 5
+    };
+    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
+  });
+
+  it('validates a node with system_failure_count omitted', () => {
+    const node = {
+      id: "task-sys-omit",
+      type: "TASK",
+      title: "New Task sys",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-08-14",
+      updated_at: "2026-08-14",
+      depends_on: [],
+      jules_session_id: null
+    };
+    expect(() => NodeFrontmatterSchema.parse(node)).not.toThrow(Error);
+  });
+
+  it('fails if system_failure_count is not an integer', () => {
+    const node = {
+      id: "task-sys-fail",
+      type: "TASK",
+      title: "New Task sys",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-08-14",
+      updated_at: "2026-08-14",
+      depends_on: [],
+      jules_session_id: null,
+      system_failure_count: "five"
+    };
+    expect(() => NodeFrontmatterSchema.parse(node)).toThrow(Error);
+  });
+
   it('validates a node with priority', () => {
     const node = {
       id: "task-002",

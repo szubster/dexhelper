@@ -2,24 +2,26 @@
 id: task-562-681-gen2-moms-savings-ui-retry
 type: TASK
 title: Update Gen 2 Mom's Savings Dashboard UI (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-12T00:00:00Z'
-updated_at: '2026-10-12T00:00:00Z'
-jules_session_id: null
-pr_number: null
-rejection_count: 0
-rejection_reason: ""
-notes: ""
-locks: []
-research_references: []
+updated_at: '2026-10-17'
 depends_on:
   - research-562-680-investigate-moms-savings-ui-failure
+jules_session_id: null
+pr_number: null
 parent: story-312-562-gen2-mom-savings-tracker-ui-core
 tags:
   - gen2
   - ui
   - react
+research_references: []
+rejection_count: 0
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-562-680-investigate-moms-savings-ui-failure
+notes: ''
+locks: []
 ---
 
 # Task: Update Gen 2 Mom's Savings Dashboard UI (Retry)
