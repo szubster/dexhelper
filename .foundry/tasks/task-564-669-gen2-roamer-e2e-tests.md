@@ -2,7 +2,7 @@
 id: task-564-669-gen2-roamer-e2e-tests
 type: TASK
 title: Gen 2 Roamer E2E Tests
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-07'
 updated_at: '2026-10-19'
@@ -16,8 +16,8 @@ tags:
   - roamer
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'The Playwright tests violate the Playwright E2E Architecture Policy by using page.evaluate() to inject state instead of verifying actual interactions.'
 notes: ''
 locks: []
 ---
@@ -34,3 +34,6 @@ Write Playwright E2E tests for the Gen 2 roamer translation UI.
 ## Acceptance Criteria
 - [x] E2E tests successfully verify the rendering of roamer locations.
 - [x] Tests use relative paths and correct strict mode assertions.
+
+### Auditor Rejection
+The Playwright E2E tests violate the Playwright E2E Architecture Policy by using `page.evaluate()` to directly inject hardcoded save state into the store. You must write E2E tests that verify the UI by interacting with the application layer normally.
