@@ -272,7 +272,7 @@ function validateSchema() {
       'Child Stories',
       'Learnings & Follow-ups',
       'High-Level Acceptance Criteria',
-      'Auditor Learnings Follow-up',
+      'Auditor Learnings Follow-up', 'Technical Requirements',
       'Benefits'
     ];
     let currentSection = '';
