@@ -32,7 +32,7 @@ locks: []
 ## Objective
 Implement the UI components for selecting two Pokémon from the parsed Gen 2 save file storage (PC or Party) to evaluate for shiny breeding. This builds upon the state management implemented in task-676-702-gen2-pokemon-selection-state.
 
-## Technical Requirements
+## Acceptance Criteria
 - Consume the state exposed by the state layer (implemented in task-676-702).
 - Build a user interface allowing the selection of two Pokémon from the user's parsed Gen 2 storage.
 - Display relevant base stats for the selection, including species, gender (calculated from Attack DV), and current DVs (Defense and Special are critical).

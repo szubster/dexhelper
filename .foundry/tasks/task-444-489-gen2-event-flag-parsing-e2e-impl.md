@@ -26,7 +26,7 @@ notes: ''
 ## Objective
 Write E2E tests using Playwright to validate that mapped Gen 2 daily/weekly events appear correctly in the dynamic checklist UI.
 
-## Technical Requirements
+## Acceptance Criteria
 Create a new E2E test file (e.g., `tests/e2e/gen2_daily_events.spec.ts`) or add to an existing one. Use `initializeWithSave` to load a Gen 2 save file with known event flag states. Navigate to the relevant dashboard or checklist UI and assert that the Friday Lapras, Bug Catching Contest, Haircut Brothers, Daily Mystery Gift, Buena's Password, and Weekday Siblings events are displayed with their expected completion status.
 
 ## Acceptance Criteria

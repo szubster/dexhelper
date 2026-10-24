@@ -32,7 +32,7 @@ locks: []
 ## Objective
 Implement the state management for selecting two Pokémon from the parsed Gen 2 save file storage (PC or Party) to evaluate for shiny breeding. This task focuses strictly on the data layer and state connectivity, not the visual UI.
 
-## Technical Requirements
+## Acceptance Criteria
 - Connect to the application's global save file state to access the parsed Gen 2 Pokémon storage (PC boxes and Party).
 - Create a reusable hook or state manager (e.g., Zustand slice or React Context) that handles the selection logic for exactly two Pokémon.
 - Provide derived state exposing the species, gender (calculated from Attack DV), and current DVs (specifically Defense and Special) for the currently selected Pokémon.
