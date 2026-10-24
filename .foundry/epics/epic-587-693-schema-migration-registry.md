@@ -2,12 +2,12 @@
 id: epic-587-693-schema-migration-registry
 type: EPIC
 title: Save Schema Migration Registry & Logic
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-10-21T07:29:22.000Z'
-updated_at: '2026-10-21T07:29:22.000Z'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15137690769940717170'
 pr_number: null
 parent: prd-526-587-save-file-schema-migration-framework
 tags:
