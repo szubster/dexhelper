@@ -29,6 +29,6 @@ Ensure the integrated static analysis linter works properly end-to-end.
 Implement integration and E2E tests to ensure infinite-blocking commands like `tail -f` are properly caught and blocked before execution, and the user is provided with clear feedback.
 
 ## Acceptance Criteria
-- [ ] Write Playwright E2E tests for the Bash static analysis linter.
-- [ ] Verify infinite-blocking commands are caught.
-- [ ] Verify user feedback is clear.
+- [x] Write Playwright E2E tests for the Bash static analysis linter.
+- [x] Verify infinite-blocking commands are caught.
+- [x] Verify user feedback is clear.
