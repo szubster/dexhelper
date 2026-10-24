@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const rootDir = join(__dirname, '../../..');
+
 const tempFoundryDir = join(__dirname, '.foundry');
 const tempTasksDir = join(tempFoundryDir, 'tasks');
 
@@ -37,7 +39,7 @@ describe('validate-foundry-schema - Checkbox formatting', () => {
     });
 
     const runValidation = (filePath: string) => {
-        return execSync(`node --experimental-strip-types packages/foundry/scripts/validate-foundry-schema.ts ${filePath}`, { encoding: 'utf-8' });
+        return execSync(`node --experimental-strip-types packages/foundry/scripts/validate-foundry-schema.ts ${filePath}`, { encoding: 'utf-8', cwd: rootDir });
     };
 
     it('should pass with valid checkbox syntax', () => {
@@ -153,7 +155,7 @@ describe('validate-foundry-schema - owner_persona validation', () => {
     });
 
     const runValidation = (filePath: string) => {
-        return execSync(`node --experimental-strip-types packages/foundry/scripts/validate-foundry-schema.ts ${filePath}`, { encoding: 'utf-8' });
+        return execSync(`node --experimental-strip-types packages/foundry/scripts/validate-foundry-schema.ts ${filePath}`, { encoding: 'utf-8', cwd: rootDir });
     };
 
     it('should pass for IDEA node owned by curator persona', () => {
