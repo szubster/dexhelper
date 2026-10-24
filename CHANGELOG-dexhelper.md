@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added module-level constants for Gen 3 fossil offsets.
+- Added unit tests for Gen 3 fossil revival state constants in `src/engine/saveParser/gen3/fossil/constants.test.ts`.
+
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
 
