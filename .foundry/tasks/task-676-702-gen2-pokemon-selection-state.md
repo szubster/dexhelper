@@ -2,12 +2,12 @@
 id: task-676-702-gen2-pokemon-selection-state
 type: TASK
 title: Gen 2 Pokemon Selection Interface - State Management
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-15'
 updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '5200368088700545290'
+jules_session_id: null
 pr_number: null
 parent: story-310-676-pokemon-selection-interface
 priority: 50
@@ -22,7 +22,7 @@ research_references:
   - .foundry/docs/knowledge_base/tailwind_v4_utilities.md
 rejection_count: 0
 system_failure_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

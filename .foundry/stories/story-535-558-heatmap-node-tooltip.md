@@ -2,10 +2,10 @@
 id: story-535-558-heatmap-node-tooltip
 type: STORY
 title: Heatmap Node Hover Tooltip
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-10-10'
+updated_at: '2026-10-24'
 depends_on:
   - story-535-557-react-flow-node-styling
 jules_session_id: null

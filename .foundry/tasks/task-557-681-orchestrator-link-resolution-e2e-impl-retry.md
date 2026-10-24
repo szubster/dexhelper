@@ -2,17 +2,17 @@
 id: task-557-681-orchestrator-link-resolution-e2e-impl-retry
 type: TASK
 title: Orchestrator Link Resolution E2E Tests Implementation Retry
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-12'
 updated_at: '2026-10-24'
 depends_on:
   - research-557-680-investigate-link-resolution-e2e-failure
-jules_session_id: '16929919973825537661'
+jules_session_id: null
 pr_number: null
 parent: story-551-557-integration-e2e-verification
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

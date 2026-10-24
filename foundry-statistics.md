@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-24T12:19:36.310Z*
+*Generated at: 2026-10-24T16:21:40.488Z*
 
 ## Node Statistics
 
@@ -18,20 +18,20 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3340 |
-| ACTIVE | 148 |
+| COMPLETED | 3345 |
+| ACTIVE | 156 |
 | CANCELLED | 830 |
-| PENDING | 788 |
+| PENDING | 781 |
 | BLOCKED | 14 |
-| READY | 14 |
 | FAILED | 8 |
+| READY | 8 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9938 |
-| Open PRs | 169 |
+| Total PRs | 9946 |
+| Open PRs | 177 |
 | Merged PRs | 8615 |
 | Closed PRs | 1154 |
 
@@ -281,6 +281,7 @@
 | task-559-668-query-formulation-impl.md | 3 |
 | task-560-568-tm-hm-compatibility-matching-impl.md | 3 |
 | task-560-609-tm-hm-compatibility-matching-impl-retry.md | 3 |
+| task-561-669-spinda-rendering-ui.md | 3 |
 | task-561-680-orchestrator-dag-graphology-impl.md | 3 |
 | task-562-579-gen2-wild-item-extraction-logic-impl.md | 3 |
 | task-562-579-wild-item-selection-ui.md | 3 |
@@ -491,7 +492,6 @@
 | task-558-570-rs-battle-tower-integration.md | 2 |
 | task-560-569-evaluate-state-machine-libraries.md | 2 |
 | task-560-575-pokerus-spread-planner-qa.md | 2 |
-| task-561-669-spinda-rendering-ui.md | 2 |
 | task-562-576-item-selection-route-e2e-impl.md | 2 |
 | task-562-576-schema-linter-checkbox-logic-impl.md | 2 |
 | task-562-594-gen3-missed-items-extraction-logic.md | 2 |
@@ -506,6 +506,7 @@
 | task-570-618-cva-tactical-aesthetic-e2e-coder-retry.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
+| task-618-703-multi-box-search-highlight-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
@@ -974,6 +975,7 @@
 | task-562-621-wild-item-selection-ui-retry.md | 1 |
 | task-563-589-gen2-room-decoration-ui-impl.md | 1 |
 | task-563-594-gen3-pokeblock-optimizer-ui-components.md | 1 |
+| task-563-675-complexity-validation-tests-retry.md | 1 |
 | task-563-682-gen3-bag-inventory-parsing-impl.md | 1 |
 | task-564-578-e2e-navigation-and-selection.md | 1 |
 | task-564-619-pokeblock-e2e-implementation-retry.md | 1 |
@@ -994,14 +996,18 @@
 | task-618-688-multi-box-ev-filters-logic.md | 1 |
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
-| task-618-703-multi-box-search-highlight-impl.md | 1 |
 | task-638-717-extract-constants-to-core-v6.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
+| task-639-688-migrate-buttons-impl-v4.md | 1 |
+| task-639-689-migrate-badges-impl-v4.md | 1 |
+| task-639-690-migrate-inputs-leds-impl-v4.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
 | task-640-653-relocate-foundry-scripts-replacement.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
+| task-645-691-dashboard-metrics-integration-e2e-impl-retry-2.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
+| task-676-712-fuzzer-deadlock-assertions-impl.md | 1 |
 
 ## Wait Times
 
@@ -1013,10 +1019,10 @@
 | task-563-643-map-data-qa-v2.md | 92620800000 |
 | task-676-702-add-adr-compliance-scripts.md | 77284800000 |
 | task-550-685-generator-tree-traversals-e2e-impl.md | 76809600000 |
+| task-550-687-generator-architecture-e2e-qa.md | 76809600000 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |
-| task-550-687-generator-architecture-e2e-qa.md | 76204800000 |
 | story-325-527-safari-zone-area-highlighting.md | 75945600000 |
 | task-528-677-safari-zone-bounty-board-ui.md | 75945600000 |
 | epic-339-406-jules-agent-skins.md | 75859200000 |

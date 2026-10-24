@@ -2,13 +2,13 @@
 id: task-527-671-pathfinder-chain-viz-qa
 type: TASK
 title: QA Pathfinder Chain Visualization UI Component
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-10-06'
 updated_at: '2026-10-24'
 depends_on:
   - task-527-670-pathfinder-chain-viz-tests
-jules_session_id: '8338564337879608707'
+jules_session_id: null
 pr_number: null
 parent: story-115-527-pathfinder-chain-visualization
 tags:
@@ -16,7 +16,7 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
