@@ -1879,6 +1879,29 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(result).toContain('Session terminated with state: INTERNAL_ERROR');
   });
 
+  test('Phase 3.0: Skips max rejection threshold cancellation for NOT_FOUND infrastructure errors', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-infra-error-not-found.md', {
+      id: "task-infra-error-not-found",
+      type: "TASK",
+      title: "Infra Error Task Not Found",
+      status: "FAILED",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      parent: ".foundry/stories/story-001.md",
+      depends_on: [],
+      jules_session_id: null,
+      rejection_count: 3,
+      rejection_reason: "Session terminated with state: NOT_FOUND",
+    });
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-infra-error-not-found.md'), 'utf-8');
+    expect(result).toContain('status: FAILED');
+    expect(result).toContain('Session terminated with state: NOT_FOUND');
+  });
+
   test('Impossible Loop: Auto-cancels node when max rejection count is reached', async () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
       id: "story-001",

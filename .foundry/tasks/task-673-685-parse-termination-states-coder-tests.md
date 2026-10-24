@@ -27,3 +27,6 @@ Write unit tests to verify the DAG Orchestrator correctly parses termination sta
 ## Details
 - Write unit tests in `packages/foundry/foundry-orchestrator.test.ts` to verify that nodes failing with `Session terminated with state: NOT_FOUND` or `INTERNAL_ERROR` are processed correctly in Phase 3.0.
 - Ensure that nodes with infrastructure errors do not falsely trigger the `Max rejection count reached` domain failure.
+
+## Acceptance Criteria
+- [x] task-673-685-parse-termination-states-coder-tests
