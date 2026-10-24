@@ -23,5 +23,5 @@ locks: []
 Implement E2E test scenarios for orchestrator markdown link resolution utilizing the newly created fixtures, incorporating findings from the research investigation.
 
 ## Acceptance Criteria
-- [ ] Write integration test cases covering the link resolution process in the orchestrator.
-- [ ] Ensure that deterministic updates and edge cases (like cyclic links or unresolvable IDs) are tested.
+- [x] Write integration test cases covering the link resolution process in the orchestrator.
+- [x] Ensure that deterministic updates and edge cases (like cyclic links or unresolvable IDs) are tested.
