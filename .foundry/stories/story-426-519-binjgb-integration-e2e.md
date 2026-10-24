@@ -32,4 +32,7 @@ Implement End-to-End verification tests for the `binjgb` WASM emulator integrati
 ## Acceptance Criteria
 - [ ] Implement Playwright E2E tests for loading Gen 1 and 2 ROMs in the `binjgb` emulator.
 - [ ] Implement Playwright E2E tests for verifying real-time memory synchronization.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-519-712-binjgb-e2e-load-roms-impl
+- [ ] task-519-713-binjgb-e2e-memory-sync-impl
+- [ ] task-519-714-binjgb-e2e-qa
