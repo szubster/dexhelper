@@ -2,14 +2,15 @@
 id: research-490-703-investigate-badge-injection-failure-v2
 type: RESEARCH
 title: Investigate Badge Injection Failure (v2)
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14523198443900368793'
 parent: story-408-490-orchestrator-themed-output-impl
 locks: []
+rejection_reason: ''
 ---
 # Investigate Badge Injection Failure (v2)
 
