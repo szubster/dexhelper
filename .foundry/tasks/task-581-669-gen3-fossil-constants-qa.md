@@ -37,3 +37,5 @@ A coder task implemented constants for tracking fossil states in Generation 3 ga
 ## Acceptance Criteria
 - [ ] Constants are mathematically correct and verified against documentation.
 - [ ] Constants adhere to schema guidelines.
+
+Note: Rejected task-581-668-gen3-fossil-constants-impl due to missing flag constants.
