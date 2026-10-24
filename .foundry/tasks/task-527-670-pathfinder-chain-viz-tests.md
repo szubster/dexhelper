@@ -27,5 +27,5 @@ locks: []
 Write unit tests for the Pathfinder Chain Visualization UI component.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the component using `vitest-browser-react`.
-- [ ] Test that the correct intermediate species and moves are rendered.
+- [x] Write unit tests for the component using `vitest-browser-react`.
+- [x] Test that the correct intermediate species and moves are rendered.
