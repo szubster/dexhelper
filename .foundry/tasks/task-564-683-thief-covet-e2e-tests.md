@@ -34,4 +34,4 @@ Ensure the Thief/Covet optimizer UI integrates correctly within the broader appl
 - Follow Playwright E2E best practices (e.g., relative paths, appropriate locators).
 
 ## Acceptance Criteria
-- [ ] coder: Write Playwright E2E tests for the Thief/Covet optimizer UI.
+- [x] coder: Write Playwright E2E tests for the Thief/Covet optimizer UI.
