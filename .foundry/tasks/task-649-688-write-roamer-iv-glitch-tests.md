@@ -32,7 +32,7 @@ Write failing unit tests that verify the signature of glitched and non-glitched 
 The Roamer IV Glitch affects Gen 3 roamers. We need to implement test cases that verify if our upcoming detection logic can properly identify a glitched IV spread versus a regular one. These tests should utilize the types defined in the previous task. The tests are expected to fail until the actual detection logic is implemented in a future story.
 
 ## Acceptance Criteria
-- [ ] Write unit tests verifying glitched IV spreads.
-- [ ] Write unit tests verifying non-glitched IV spreads.
-- [ ] Ensure the tests use the newly defined glitch state types.
-- [ ] Run `pnpm lint` and `pnpm test` to verify the new test files are syntactically valid and picked up by the test runner.
+- [x] Write unit tests verifying glitched IV spreads.
+- [x] Write unit tests verifying non-glitched IV spreads.
+- [x] Ensure the tests use the newly defined glitch state types.
+- [x] Run `pnpm lint` and `pnpm test` to verify the new test files are syntactically valid and picked up by the test runner.
