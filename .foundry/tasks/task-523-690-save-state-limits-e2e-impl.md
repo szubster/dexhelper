@@ -24,6 +24,6 @@ rejection_reason: ''
 Implement End-to-End (E2E) tests using Playwright to verify the save state limits, LRU eviction logic, and quota handling for the storage engine.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for save state limits.
-- [ ] Implement Playwright E2E tests for LRU eviction logic.
-- [ ] Implement Playwright E2E tests for quota handling.
+- [x] Implement Playwright E2E tests for save state limits.
+- [x] Implement Playwright E2E tests for LRU eviction logic.
+- [x] Implement Playwright E2E tests for quota handling.
