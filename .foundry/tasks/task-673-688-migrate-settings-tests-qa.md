@@ -32,5 +32,5 @@ Verify the implementation of the `SettingsModalModel` COM migration.
 - Run E2E tests to ensure they pass consistently.
 
 ## Acceptance Criteria
-- [ ] Code properly utilizes `SettingsModalModel`.
-- [ ] E2E tests pass consistently.
+- [x] Code properly utilizes `SettingsModalModel`.
+- [x] E2E tests pass consistently.
