@@ -54,5 +54,7 @@ By adopting this architecture, we will:
 - Major UI or overarching system changes not directly tied to testing or providing the reader telemetry.
 
 ## Acceptance Criteria
-- [ ] Generate an Epic dedicated to building the `ISaveDataReader` Decorators.
-- [ ] Generate an Epic dedicated to refactoring existing parsers to use the Decorators.
+- [x] Generate an Epic dedicated to building the `ISaveDataReader` Decorators.
+- [x] Generate an Epic dedicated to refactoring existing parsers to use the Decorators.
+- [ ] epic-707-712-save-data-reader-decorator-implementation
+- [ ] epic-707-713-save-parser-decorator-refactoring
