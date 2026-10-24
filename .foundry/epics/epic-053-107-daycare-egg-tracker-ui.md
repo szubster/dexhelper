@@ -38,4 +38,7 @@ Create the frontend UI dashboard for the Daycare and Egg mechanics.
 - Ensure components align with the tactical hardware aesthetic (ADR 008, 024).
 
 ## Acceptance Criteria
-- [ ] Break down into Stories.
+- [ ] story-107-715-daycare-egg-tracker-ui-core
+- [ ] story-107-716-exact-egg-tracker-component
+- [ ] story-107-717-daycare-egg-tracker-ui-e2e
+- [x] Break down into Stories.
