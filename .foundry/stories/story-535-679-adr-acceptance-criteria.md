@@ -2,12 +2,12 @@
 id: story-535-679-adr-acceptance-criteria
 type: STORY
 title: Create ADR for Acceptance Criteria Structure
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9856065688707635085'
 pr_number: null
 parent: epic-520-535-acceptance-criteria-adr
 priority: 50
