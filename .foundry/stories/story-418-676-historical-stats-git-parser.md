@@ -33,4 +33,8 @@ As part of the Historical Statistics Backfilling Engine epic, we need a CLI scri
 - Implement git history traversal logic to check out or read the `.foundry/` directory at specific points in time.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into modular Tasks for the Coder.
+- [x] Break down this Story into modular Tasks for the Coder.
+- [ ] task-676-712-backfill-stats-cli-args-parser
+- [ ] task-676-713-qa-backfill-stats-cli-args-parser
+- [ ] task-676-714-backfill-stats-git-traversal-impl
+- [ ] task-676-715-qa-backfill-stats-git-traversal
