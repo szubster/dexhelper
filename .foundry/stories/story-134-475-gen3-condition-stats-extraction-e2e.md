@@ -35,6 +35,9 @@ Implement E2E testing to verify the end-to-end integration of the Gen 3 Conditio
 - [x] Break down story into tasks for writing E2E tests for Condition data extraction.
 - [x] task-475-680-gen3-condition-stats-extraction-e2e-tests
 - [x] task-475-681-gen3-condition-stats-extraction-e2e-qa
-- [ ] research-475-690-gen3-condition-stats-extraction-e2e-failure
-- [ ] task-475-691-gen3-condition-stats-extraction-e2e-tests-retry
-- [ ] task-475-692-gen3-condition-stats-extraction-e2e-qa-retry
+- [x] research-475-690-gen3-condition-stats-extraction-e2e-failure
+- [x] task-475-691-gen3-condition-stats-extraction-e2e-tests-retry
+- [x] task-475-692-gen3-condition-stats-extraction-e2e-qa-retry
+- [ ] research-475-712-gen3-condition-stats-extraction-e2e-failure-retry
+- [ ] task-475-713-gen3-condition-stats-extraction-e2e-tests-retry2
+- [ ] task-475-714-gen3-condition-stats-extraction-e2e-qa-retry2
