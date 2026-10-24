@@ -25,4 +25,7 @@ rejection_reason: ''
 Following the refactoring of Gen 2 parsers to adhere to ADR 028, we must ensure that all parsing functionality remains fully operational without regressions.
 
 ## Acceptance Criteria
-- [ ] Decompose this Story into actionable Tasks to run and verify E2E integration tests for the Gen 2 parsers.
+- [x] Decompose this Story into actionable Tasks to run and verify E2E integration tests for the Gen 2 parsers.
+- [ ] task-522-712-gen2-gs-parser-e2e-impl
+- [ ] task-522-713-gen2-crystal-parser-e2e-impl
+- [ ] task-522-714-gen2-parser-e2e-qa
