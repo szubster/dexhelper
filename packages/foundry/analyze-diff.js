@@ -4,6 +4,7 @@ export function analyzeDiff(diffText) {
   const lines = diffText.split('\n');
   let hasValidChanges = false;
   let currentFileIsJournal = false;
+  let hasConfidenceChange = false;
 
   let i = 0;
   while (i < lines.length) {
@@ -95,8 +96,11 @@ export function analyzeDiff(diffText) {
 
         const isCheckboxChange = (rReplaced === aReplaced) && /^\s*-\s*\[\s\]/.test(r);
 
-        if (!isCheckboxChange) return false;
-        hunkHasCheckboxChanges = true;
+        const isConfidenceChange = a.startsWith('confidence_score:') && r.startsWith('confidence_score:');
+        if (isConfidenceChange) hasConfidenceChange = true;
+
+        if (!isCheckboxChange && !isConfidenceChange) return false;
+        if (isCheckboxChange) hunkHasCheckboxChanges = true;
       }
 
       if (hunkHasCheckboxChanges || hasConfidenceChange) {

@@ -2,12 +2,12 @@
 id: task-479-676-e2e-core-fetch
 type: TASK
 title: Implement E2E test for pokedata-core.msgpack fetching
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-11'
-updated_at: '2026-10-15'
+updated_at: '2026-10-19'
 depends_on: []
-jules_session_id: '1745257068235129723'
+jules_session_id: null
 pr_number: null
 parent: story-419-479-data-splitting-e2e
 tags:
@@ -30,4 +30,4 @@ This task implements Playwright E2E tests to ensure that `pokedata-core.msgpack`
 - Integrate the test into the existing Playwright E2E test suite.
 
 ## Acceptance Criteria
-- [ ] Test verifying `pokedata-core.msgpack` fetch is implemented and passes
+- [x] Test verifying `pokedata-core.msgpack` fetch is implemented and passes

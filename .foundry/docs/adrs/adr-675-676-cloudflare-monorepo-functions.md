@@ -34,5 +34,30 @@ We need to establish a standard pattern for handling Cloudflare Pages functions 
 2. **Build-step injection:** Keep \`apps/functions\` as a separate workspace package. Create a pre-build or post-build script in \`apps/web\` that copies the contents of \`apps/functions\` into \`apps/web/functions\` or \`apps/web/dist/_worker.js\` before deployment.
 
 ## Acceptance Criteria
-- [ ] Evaluate the options and decide on the best approach for managing Cloudflare Functions in the monorepo.
-- [ ] Document the chosen solution and provide configuration instructions for \`wrangler.toml\` and GitHub Actions.
+- [x] Evaluate the options and decide on the best approach for managing Cloudflare Functions in the monorepo.
+- [x] Document the chosen solution and provide configuration instructions for \`wrangler.toml\` and GitHub Actions.
+
+## Decision
+We will proceed with **Option 2: Build-step injection**.
+
+Keeping `apps/functions` as a separate workspace package ensures a clean separation of concerns and prevents mixing backend Cloudflare dependencies (e.g., `@cloudflare/workers-types`) with frontend dependencies.
+
+### Configuration Instructions
+
+**1. Workspace Build Script:**
+Create a post-build or pre-deploy step in the `apps/web` package to copy the `apps/functions` directory into the web app's root just before Cloudflare Pages deployment.
+
+```json
+{
+  "scripts": {
+    "build": "vite build && npm run copy-functions",
+    "copy-functions": "cp -r ../functions ./functions"
+  }
+}
+```
+
+**2. `wrangler.toml`:**
+Cloudflare Pages automatically detects the `functions/` directory relative to the project root. Since the build step copies it into the web root, no path overriding is necessary in `wrangler.toml`.
+
+**3. GitHub Actions (`.github/workflows/deploy.yml`):**
+Ensure the deployment action runs from the `apps/web` directory and executes the `build` script before the `actions/upload-pages-artifact` step.

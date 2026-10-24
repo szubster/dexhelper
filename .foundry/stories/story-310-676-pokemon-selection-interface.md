@@ -39,4 +39,7 @@ This story focuses on creating the UI component that allows users to select two 
     *   Use Tailwind v4 `@utility` classes (e.g., `tactical-panel`) for consistent styling, incorporating dashed borders (`border-dashed`), sharp corners (`rounded-none`), and monospaced typography (`font-mono`).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this story down into actionable TASKS.
+- [x] Tech Lead: Break this story down into actionable TASKS.
+- [ ] task-676-702-gen2-pokemon-selection-state
+- [ ] task-676-703-gen2-pokemon-selection-ui
+- [ ] task-676-704-gen2-pokemon-selection-qa

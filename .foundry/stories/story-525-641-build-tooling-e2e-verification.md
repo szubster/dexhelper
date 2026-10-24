@@ -2,10 +2,10 @@
 id: story-525-641-build-tooling-e2e-verification
 type: STORY
 title: Integration and E2E Verification
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-01'
+updated_at: '2026-10-19'
 depends_on:
   - story-525-638-isolate-vite-plugins
   - story-525-639-extract-data-generation-scripts
@@ -17,7 +17,9 @@ tags:
   - e2e
   - integration
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  story-525-639-extract-data-generation-scripts
 notes: ''
 locks: []
 ---

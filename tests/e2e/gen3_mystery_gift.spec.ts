@@ -11,9 +11,9 @@ test.describe('Gen 3 Mystery Gift Fixtures', () => {
     await waitForSync(page);
 
     await expect(page.getByText('EVENT ITEMS')).toBeVisible();
-    await expect(page.getByText('Aurora Ticket')).toBeVisible();
-    await expect(page.getByText('Mystic Ticket')).toBeVisible();
-    await expect(page.getByText('Old Sea Map')).toBeVisible();
+    await expect(page.getByText('Aurora Ticket').first()).toBeVisible();
+    await expect(page.getByText('Mystic Ticket').first()).toBeVisible();
+    await expect(page.getByText('Old Sea Map').first()).toBeVisible();
   });
 
   test('should parse Mystery Gift data for FireRed', async ({ page }) => {
@@ -25,7 +25,7 @@ test.describe('Gen 3 Mystery Gift Fixtures', () => {
     await waitForSync(page);
 
     await expect(page.getByText('EVENT ITEMS')).toBeVisible();
-    await expect(page.getByText('Aurora Ticket')).toBeVisible();
-    await expect(page.getByText('Mystic Ticket')).toBeVisible();
+    await expect(page.getByText('Aurora Ticket').first()).toBeVisible();
+    await expect(page.getByText('Mystic Ticket').first()).toBeVisible();
   });
 });

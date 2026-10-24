@@ -26,5 +26,5 @@ locks: []
 Write integration and E2E tests for the generator tree traversals. Ensure they correctly traverse the data tree structure.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for tree traversals using Playwright.
-- [ ] Tests must verify correct tree traversal logic in integration scenarios.
+- [x] Implement E2E tests for tree traversals using Playwright.
+- [x] Tests must verify correct tree traversal logic in integration scenarios.

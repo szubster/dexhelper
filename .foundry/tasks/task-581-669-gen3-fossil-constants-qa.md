@@ -2,10 +2,10 @@
 id: task-581-669-gen3-fossil-constants-qa
 type: TASK
 title: QA Gen 3 Fossil Constants
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-08'
-updated_at: '2026-10-08'
+updated_at: '2026-10-24'
 depends_on:
   - task-581-668-gen3-fossil-constants-impl
 jules_session_id: null
