@@ -29,4 +29,7 @@ Write integration and E2E verification tests for the Gen 3 Volcanic Ash Tracker 
 
 ## Acceptance Criteria
 - [ ] Create Playwright E2E tests for the Ash Tracker UI.
-- [ ] Break down this Story into a coder TASK.
+- [x] Break down this Story into a coder TASK.
+- [ ] task-648-726-gen3-ash-dashboard-integration-tests
+- [ ] task-648-727-gen3-ash-dashboard-e2e-tests
+- [ ] task-648-728-gen3-ash-dashboard-tests-qa
