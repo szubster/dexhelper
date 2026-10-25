@@ -2,12 +2,12 @@
 id: idea-095-prevent-blocking-bash-commands
 type: IDEA
 title: Automated Timeout Wrapper for Bash Sessions
-status: READY
+status: ACTIVE
 owner_persona: curator
 created_at: '2026-06-29'
 updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17030325498781636017'
 pr_number: null
 parent: null
 tags:

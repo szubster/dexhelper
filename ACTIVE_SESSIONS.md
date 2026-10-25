@@ -21,6 +21,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [idea-095-prevent-blocking-bash-commands](.foundry/ideas/idea-095-prevent-blocking-bash-commands.md) | IDEA | Automated Timeout Wrapper for Bash Sessions | curator | [17030325498781636017](https://jules.google.com/session/17030325498781636017) |
 | [prd-528-587-playwright-relative-path-linter](.foundry/prds/prd-528-587-playwright-relative-path-linter.md) | PRD | PRD Playwright Relative Path Navigation Linter Rule | epic_planner | [14095990097843965610](https://jules.google.com/session/14095990097843965610) |
 | [prd-530-587-strict-frontmatter-yaml-parsing-rule](.foundry/prds/prd-530-587-strict-frontmatter-yaml-parsing-rule.md) | PRD | Strict Frontmatter YAML Parsing Rule implementation | epic_planner | [6978775070346721579](https://jules.google.com/session/6978775070346721579) |
 | [prd-532-587-indexeddb-fallback-storage-telemetry](.foundry/prds/prd-532-587-indexeddb-fallback-storage-telemetry.md) | PRD | PRD - IndexedDB Fallback Storage Synchronization and Telemetry Strategy | epic_planner | [11931743453398438824](https://jules.google.com/session/11931743453398438824) |
