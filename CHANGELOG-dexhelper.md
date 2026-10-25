@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.0.0] - 2026-04-17
+### Added
+- Unified Location Architecture with precomputed build-time distances using Floyd-Warshall algorithm for O(1) distance lookups.
+- React Query Devtools integration for development environments.
+- Missing special strategy suggestions (e.g., PC box full warnings) in the assistant.
+
+### Changed
+- Migrated Map Locations generation script to TypeScript and disabled allowJs.
+- Optimized Vite build configuration to produce a monolithic, offline-first bundle using Vite 8, Rolldown, and LightningCSS.
+- Optimized PokeDB Data Storage by omitting redundant default values during build-time generation and restoring them at runtime via recursive inflation.
+
+### Fixed
+- Fixed E2E hydration crashes and strict mode violations in location lookups.
+- Improved location suggestions UX and accessibility by updating the clear location filter button icon, adding an aria-label, and applying consistent keyboard focus rings.
+
 ## [0.29.0] - 2026-04-15
 ### Added
 - Localized evolution data architecture, Vite data plugin integration.
@@ -381,3 +396,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.28.0]: https://github.com/szubster/dexhelper/compare/f5ca16255b8b52e07426a27723b7d2a10a3193ce...1cf13ad37fddbdb3d46ab5f515a02c5c8614b28a
 
 [0.29.0]: https://github.com/szubster/dexhelper/compare/1cf13ad37fddbdb3d46ab5f515a02c5c8614b28a...126e65d7c93cc154473e9bebaca1e599c163f006
+[1.0.0]: https://github.com/szubster/dexhelper/compare/126e65d...0cc9b04

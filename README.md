@@ -35,6 +35,7 @@ Dexhelper is configured to be seamlessly deployed on Cloudflare Pages. The Vite 
 - Run Playwright E2E tests: `pnpm test:e2e`
 - Run Playwright component tests: `pnpm test:ct`
 - Run Playwright tests with UI: `pnpm test:e2e:ui`
+- Generate PokeDB data: `pnpm data:gen` and `pnpm data:gen-maps`
 - Format code using Biome: `pnpm format`
 - Run linting and type checking: `pnpm lint`
 - Build the project: `pnpm build`
