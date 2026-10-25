@@ -31,4 +31,19 @@ test.describe('Mirage Island Save Parsing E2E', () => {
     const hasMirageKey = allPokes.some((poke: any) => typeof poke.isMirageIslandKey === 'boolean');
     expect(hasMirageKey).toBe(true);
   });
+
+  test('renders the Mirage Island Tracker UI', async ({ page }) => {
+    await initializeWithSave(page, 'tests/fixtures/emerald.sav');
+
+    await page.goto('./dashboard');
+    await waitForSync(page);
+
+    const tracker = page.getByLabel('Mirage Island Tracker');
+    await expect(tracker).toBeVisible();
+
+    const textContent = await tracker.textContent();
+    expect(textContent).toContain('MIRAGE ISLAND TRACKER');
+    expect(textContent).toContain('STATUS');
+    expect(textContent).toContain('NO MATCH FOUND');
+  });
 });

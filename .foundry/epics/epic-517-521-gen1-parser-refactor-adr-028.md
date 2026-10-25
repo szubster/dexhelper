@@ -2,12 +2,12 @@
 id: epic-517-521-gen1-parser-refactor-adr-028
 type: EPIC
 title: Refactor Gen 1 Parsers for ADR 028
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-09-03'
-updated_at: '2026-09-05'
+updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: '14443477347319342375'
+jules_session_id: null
 pr_number: null
 parent: prd-104-517-refactor-existing-parsers-adr-028
 tags:
@@ -28,6 +28,6 @@ Following ADR 028, all inline magic numbers used for memory offsets, lengths, bi
 ## Acceptance Criteria
 - [x] Decompose this Epic into actionable Story nodes for Gen 1.
 - [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-521-520-gen1-parser-refactor-core
-- [ ] story-521-521-gen1-utils-refactor
-- [ ] story-521-522-gen1-parser-integration-e2e
+- [x] story-521-520-gen1-parser-refactor-core
+- [x] story-521-521-gen1-utils-refactor
+- [x] story-521-522-gen1-parser-integration-e2e

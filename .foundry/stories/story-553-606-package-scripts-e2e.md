@@ -2,10 +2,10 @@
 id: story-553-606-package-scripts-e2e
 type: STORY
 title: 'E2E Verification of lint:foundry package script'
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-22T02:56:19.837Z'
-updated_at: '2026-10-18'
+updated_at: '2026-10-21'
 depends_on:
   - story-553-605-package-scripts
 jules_session_id: null
@@ -27,6 +27,6 @@ locks: []
 - Run the E2E verification to ensure the linter integration works smoothly.
 
 ## Acceptance Criteria
-- [ ] Verify validation passes correctly on valid files and fails on malformed files.
-- [ ] task-606-687-lint-foundry-e2e-impl
-- [ ] task-606-688-lint-foundry-e2e-qa
+- [x] Verify validation passes correctly on valid files and fails on malformed files.
+- [x] task-606-687-lint-foundry-e2e-impl
+- [x] task-606-688-lint-foundry-e2e-qa

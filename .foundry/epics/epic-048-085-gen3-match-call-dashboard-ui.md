@@ -2,14 +2,14 @@
 id: epic-048-085-gen3-match-call-dashboard-ui
 type: EPIC
 title: 'Epic: Gen 3 Rematch Dashboard UI'
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-13'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on:
   - epic-048-083-gen3-match-call-save-parsing
   - epic-048-084-gen3-match-call-static-data
-jules_session_id: '10617233047977806906'
+jules_session_id: null
 pr_number: null
 parent: prd-077-048-gen3-match-call-tracker
 tags:
@@ -42,4 +42,10 @@ This epic involves constructing the frontend tactical UI for the "Rematch Dashbo
 - Integrate robust testing to ensure the filter logic and UI rendering work correctly with mock save states.
 
 ## Next Steps
-- [ ] Story Owner: Break this Epic down into actionable Stories (e.g., UI Component Design, State/Data Integration, Filter Logic Implementation).
+- [x] Story Owner: Break this Epic down into actionable Stories (e.g., UI Component Design, State/Data Integration, Filter Logic Implementation).
+
+## Acceptance Criteria
+- [ ] story-085-676-rematch-dashboard-layout-and-routing
+- [ ] story-085-677-rematch-trainer-card-component
+- [ ] story-085-678-rematch-filter-and-sort-logic
+- [ ] story-085-679-rematch-dashboard-integration-e2e

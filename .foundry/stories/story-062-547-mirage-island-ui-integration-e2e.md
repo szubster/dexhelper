@@ -2,13 +2,13 @@
 id: story-062-547-mirage-island-ui-integration-e2e
 type: STORY
 title: Mirage Island UI Integration and E2E Verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-10-16'
+updated_at: '2026-10-25'
 depends_on:
   - story-062-546-implement-mirage-island-tracker
-jules_session_id: '1874240351003244178'
+jules_session_id: null
 pr_number: null
 parent: epic-038-062-mirage-island-ui
 tags:
@@ -33,4 +33,7 @@ This story covers the integration of the Mirage Island tracker component into th
 - Verify end-to-end functionality including correct reporting of matching Pokémon.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [x] task-547-690-mirage-island-ui-integration
+- [x] task-547-691-mirage-island-e2e-tests
+- [x] task-547-692-qa-mirage-island-integration-e2e

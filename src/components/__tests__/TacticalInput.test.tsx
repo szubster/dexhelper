@@ -32,6 +32,7 @@ describe('TacticalInput', () => {
   it('renders with icon', async () => {
     await render(<TacticalInput icon={<Search data-testid="search-icon" size={14} />} />);
     await expect.element(page.getByTestId('search-icon')).toBeInTheDocument();
+    expect(page.getByTestId('search-icon').element().parentElement?.getAttribute('aria-hidden')).toBe('true');
   });
 
   it('calls onClear when clear button is clicked and value exists', async () => {

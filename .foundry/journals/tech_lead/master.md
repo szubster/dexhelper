@@ -1417,3 +1417,51 @@ Triggered the Impossible Loop protocol for `story-325-527-safari-zone-area-highl
 # Tech Lead Journal: 2026-10-10-03-01-04
 
 Encountered the Impossible Loop where `research-639-668-investigate-primitives-migration-failures` reached its maximum rejection count and was marked as CANCELLED. As a result, its dependent tasks for migrating UI primitives (`task-639-669-migrate-buttons-impl-retry`, `task-639-670-migrate-badges-impl-retry`, `task-639-671-migrate-inputs-leds-impl-retry`, `task-639-672-migrate-primitives-qa-retry`) were also permanently failed. To resolve this, I have spawned a new `RESEARCH` node (`research-639-675-investigate-primitives-migration-failures-v2`) to investigate the root cause, along with a new set of replacement `TASK` nodes (`task-639-676-migrate-buttons-impl-v3`, `task-639-677-migrate-badges-impl-v3`, `task-639-678-migrate-inputs-leds-impl-v3`, `task-639-679-migrate-primitives-qa-v3`) that correctly depend on the new research being completed. I also checked off the permanently failed tasks in the parent `story-527-639-migrate-tactical-primitives` to allow the orchestration to continue cleanly. This adheres to the Orchestrator Demotion Compliance Rule and Impossible Loop handling.
+
+---
+
+# Tech Lead Journal: 2026-10-11
+
+Decomposed story-530-555-pkm-data-integration-e2e into four tasks:
+- `task-555-680-gen1-gen2-pkm-e2e-tests-impl`
+- `task-555-681-qa-gen1-gen2-pkm-e2e-tests`
+- `task-555-682-gen3-pk3-e2e-tests-impl`
+- `task-555-683-qa-gen3-pk3-e2e-tests`
+
+This breakdown properly separates Gen 1 & 2 logic from Gen 3 logic, avoiding the Two-Tasks-Max anti-pattern while explicitly coupling each implementation with a dedicated QA task for robust E2E verification.
+
+---
+
+# Impossible Loop Handling: Dashboard Metrics E2E Failure
+
+The task `task-645-668-dashboard-metrics-integration-e2e-impl` permanently failed while attempting to implement E2E tests for the confidence metrics dashboard UI components. Its downstream QA verification `task-645-669-qa-dashboard-metrics-integration-e2e` was consequently cancelled.
+Following the Impossible Loop protocol, I have:
+1. Spawned a new `RESEARCH` node (`research-645-687-investigate-dashboard-metrics-e2e-failure`) to investigate the root cause of the E2E failure.
+2. Created a new replacement `TASK` node (`task-645-688-dashboard-metrics-integration-e2e-impl-retry`) that explicitly depends on the research node.
+3. Created a new replacement `TASK` node (`task-645-689-qa-dashboard-metrics-integration-e2e-retry`) for QA verification.
+4. Appended these new nodes as unchecked items in the parent `story-571-645-dashboard-metrics-integration-e2e`, and checked off the permanently failed child tasks to prevent premature verification while allowing the orchestration to progress.
+
+---
+
+# Root Cause of task-475-680-gen3-condition-stats-extraction-e2e-tests Permanent Failure
+
+Observed permanent failure of E2E test task `task-475-680-gen3-condition-stats-extraction-e2e-tests` (and subsequent cancellation of QA task `task-475-681-gen3-condition-stats-extraction-e2e-qa`). Handled the failure by creating a research task to determine root cause before reattempting implementation. Created replacement tasks:
+- `research-475-690-gen3-condition-stats-extraction-e2e-failure`
+- `task-475-691-gen3-condition-stats-extraction-e2e-tests-retry`
+- `task-475-692-gen3-condition-stats-extraction-e2e-qa-retry`
+
+---
+
+# Tech Lead Journal Entry - Save File Progress E2E Tests Retry
+
+Encountered the Impossible Loop protocol for `story-556-563-e2e-tests-save-file-progress-tracking` due to the permanent failure of `task-563-579-save-file-progress-e2e-coder` and its dependent task `task-563-580-save-file-progress-e2e-qa`.
+Spawned a new `RESEARCH` node (`research-563-690-investigate-save-file-progress-e2e-failure`) to investigate the root cause, followed by `task-563-691-save-file-progress-e2e-coder-retry` and `task-563-692-save-file-progress-e2e-qa-retry` to attempt implementation again.
+Checked off the permanently failed tasks in the parent `story-556-563-e2e-tests-save-file-progress-tracking` and appended the new ones to the acceptance criteria to prevent premature verification.
+
+---
+
+# Tech Lead Journal: 2026-10-18 Impossible Loop Execution
+
+Triggered the Impossible Loop protocol for story-133-424-gen3-lottery-e2e-verification due to the permanent failure of task-424-676-gen3-lottery-e2e-tests (Max rejection count reached). I spawned research-424-703-investigate-gen3-lottery-e2e-failure to investigate the root cause, followed by a replacement task task-424-704-gen3-lottery-e2e-tests-retry that depends on it.
+
+The permanently failed child task has been checked off in the parent story, and the new nodes have been appended to its acceptance criteria to ensure the Orchestrator continues to track them before verifying the story.

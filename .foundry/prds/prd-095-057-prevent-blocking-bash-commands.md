@@ -2,10 +2,10 @@
 id: prd-095-057-prevent-blocking-bash-commands
 type: PRD
 title: Automated Timeout Wrapper for Bash Sessions
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-06-30'
-updated_at: '2026-08-15'
+updated_at: '2026-10-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Automated Timeout Wrapper for Bash Sessions
@@ -46,6 +47,6 @@ Agent sessions executing long-running or blocking bash commands (like `tail -f`)
 - [x] research-057-346-investigate-bash-timeout-failure
 - [x] epic-057-347-bash-timeout-wrapper-retry
 - [x] epic-057-348-bash-static-analysis-linter-retry
-- [ ] research-057-417-investigate-bash-timeout-failure
-- [ ] epic-057-420-bash-timeout-wrapper-retry
-- [ ] epic-057-421-bash-static-analysis-linter-retry
+- [x] research-057-417-investigate-bash-timeout-failure
+- [x] epic-057-420-bash-timeout-wrapper-retry
+- [x] epic-057-421-bash-static-analysis-linter-retry

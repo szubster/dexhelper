@@ -33,6 +33,54 @@ export const GEN2_GS_EN_BACKUP_R2_END = 0x3f3f;
 export const GEN2_GS_EN_BACKUP_R3_START = 0x7e39;
 export const GEN2_GS_EN_BACKUP_R3_END = 0x7e6c;
 export const GEN2_GS_EN_BACKUP_STORED = 0x7e6d;
+
+export interface Gen2ChecksumRegionSpec {
+  mainRanges: [number, number][];
+  mainStoredOffset: number;
+  backupRanges: [number, number][];
+  backupStoredOffset: number;
+}
+
+export type Gen2SaveVariant = 'CRYSTAL_JP' | 'CRYSTAL_EN' | 'GS_JP' | 'GS_EN';
+
+export const GEN2_CHECKSUM_SPECS: Record<Gen2SaveVariant, Gen2ChecksumRegionSpec> = {
+  CRYSTAL_JP: {
+    mainRanges: [[GEN2_CRYSTAL_JP_MAIN_START, GEN2_CRYSTAL_JP_MAIN_END]],
+    mainStoredOffset: GEN2_CRYSTAL_JP_MAIN_STORED,
+    backupRanges: [[GEN2_CRYSTAL_JP_BACKUP_START, GEN2_CRYSTAL_JP_BACKUP_END]],
+    backupStoredOffset: GEN2_CRYSTAL_JP_BACKUP_STORED,
+  },
+  CRYSTAL_EN: {
+    mainRanges: [[GEN2_CRYSTAL_EN_MAIN_START, GEN2_CRYSTAL_EN_MAIN_END]],
+    mainStoredOffset: GEN2_CRYSTAL_EN_MAIN_STORED,
+    backupRanges: [[GEN2_CRYSTAL_EN_BACKUP_START, GEN2_CRYSTAL_EN_BACKUP_END]],
+    backupStoredOffset: GEN2_CRYSTAL_EN_BACKUP_STORED,
+  },
+  GS_JP: {
+    mainRanges: [[GEN2_GS_JP_MAIN_START, GEN2_GS_JP_MAIN_END]],
+    mainStoredOffset: GEN2_GS_JP_MAIN_STORED,
+    backupRanges: [[GEN2_GS_JP_BACKUP_START, GEN2_GS_JP_BACKUP_END]],
+    backupStoredOffset: GEN2_GS_JP_BACKUP_STORED,
+  },
+  GS_EN: {
+    mainRanges: [[GEN2_GS_EN_MAIN_START, GEN2_GS_EN_MAIN_END]],
+    mainStoredOffset: GEN2_GS_EN_MAIN_STORED,
+    backupRanges: [
+      [GEN2_GS_EN_BACKUP_R1_START, GEN2_GS_EN_BACKUP_R1_END],
+      [GEN2_GS_EN_BACKUP_R2_START, GEN2_GS_EN_BACKUP_R2_END],
+      [GEN2_GS_EN_BACKUP_R3_START, GEN2_GS_EN_BACKUP_R3_END],
+    ],
+    backupStoredOffset: GEN2_GS_EN_BACKUP_STORED,
+  },
+};
+
+export function getGen2ChecksumSpec(isCrystal: boolean, isJapanese: boolean = false): Gen2ChecksumRegionSpec {
+  const game = isCrystal ? 'CRYSTAL' : 'GS';
+  const region = isJapanese ? 'JP' : 'EN';
+  const variant = `${game}_${region}` as Gen2SaveVariant;
+  return GEN2_CHECKSUM_SPECS[variant];
+}
+
 export function checkGen2Checksums(view: DataView, isCrystal: boolean, isJapanese: boolean = false): Anomaly[] {
   const anomalies: Anomaly[] = [];
 
@@ -46,43 +94,10 @@ export function checkGen2Checksums(view: DataView, isCrystal: boolean, isJapanes
     return sum & GEN2_CHECKSUM_MASK;
   }
 
-  let mainRanges: [number, number][];
-  let mainStoredOffset: number;
-  let backupRanges: [number, number][];
-  let backupStoredOffset: number;
+  const spec = getGen2ChecksumSpec(isCrystal, isJapanese);
 
-  if (isCrystal) {
-    if (isJapanese) {
-      mainRanges = [[GEN2_CRYSTAL_JP_MAIN_START, GEN2_CRYSTAL_JP_MAIN_END]];
-      mainStoredOffset = GEN2_CRYSTAL_JP_MAIN_STORED;
-      backupRanges = [[GEN2_CRYSTAL_JP_BACKUP_START, GEN2_CRYSTAL_JP_BACKUP_END]];
-      backupStoredOffset = GEN2_CRYSTAL_JP_BACKUP_STORED;
-    } else {
-      mainRanges = [[GEN2_CRYSTAL_EN_MAIN_START, GEN2_CRYSTAL_EN_MAIN_END]];
-      mainStoredOffset = GEN2_CRYSTAL_EN_MAIN_STORED;
-      backupRanges = [[GEN2_CRYSTAL_EN_BACKUP_START, GEN2_CRYSTAL_EN_BACKUP_END]];
-      backupStoredOffset = GEN2_CRYSTAL_EN_BACKUP_STORED;
-    }
-  } else {
-    if (isJapanese) {
-      mainRanges = [[GEN2_GS_JP_MAIN_START, GEN2_GS_JP_MAIN_END]];
-      mainStoredOffset = GEN2_GS_JP_MAIN_STORED;
-      backupRanges = [[GEN2_GS_JP_BACKUP_START, GEN2_GS_JP_BACKUP_END]];
-      backupStoredOffset = GEN2_GS_JP_BACKUP_STORED;
-    } else {
-      mainRanges = [[GEN2_GS_EN_MAIN_START, GEN2_GS_EN_MAIN_END]];
-      mainStoredOffset = GEN2_GS_EN_MAIN_STORED;
-      backupRanges = [
-        [GEN2_GS_EN_BACKUP_R1_START, GEN2_GS_EN_BACKUP_R1_END],
-        [GEN2_GS_EN_BACKUP_R2_START, GEN2_GS_EN_BACKUP_R2_END],
-        [GEN2_GS_EN_BACKUP_R3_START, GEN2_GS_EN_BACKUP_R3_END],
-      ];
-      backupStoredOffset = GEN2_GS_EN_BACKUP_STORED;
-    }
-  }
-
-  const calculatedMainSum = sumBytes(mainRanges);
-  const storedMainSum = view.getUint16(mainStoredOffset, true);
+  const calculatedMainSum = sumBytes(spec.mainRanges);
+  const storedMainSum = view.getUint16(spec.mainStoredOffset, true);
   if (calculatedMainSum !== storedMainSum) {
     anomalies.push({
       code: 'ChecksumError',
@@ -92,8 +107,8 @@ export function checkGen2Checksums(view: DataView, isCrystal: boolean, isJapanes
     });
   }
 
-  const calculatedBackupSum = sumBytes(backupRanges);
-  const storedBackupSum = view.getUint16(backupStoredOffset, true);
+  const calculatedBackupSum = sumBytes(spec.backupRanges);
+  const storedBackupSum = view.getUint16(spec.backupStoredOffset, true);
   if (calculatedBackupSum !== storedBackupSum) {
     anomalies.push({
       code: 'ChecksumError',

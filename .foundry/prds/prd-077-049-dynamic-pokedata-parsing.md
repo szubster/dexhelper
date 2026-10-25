@@ -2,10 +2,10 @@
 id: prd-077-049-dynamic-pokedata-parsing
 type: PRD
 title: Dynamic Generation of Moves and Items PokeData
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-06-13'
-updated_at: '2026-06-13'
+updated_at: '2026-10-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Dynamic Generation of Moves and Items PokeData
@@ -37,12 +38,12 @@ Currently, data such as move PPs and valid item lists are either manually mainta
 - **Data Validation**: Ensure the generated files correctly map to internal types and do not contain regressions.
 
 ## Acceptance Criteria
-- [ ] Determine the precise data structure for the `moves.jsonl` and `items.jsonl` records.
-- [ ] Ensure the generation logic handles any discrepancies between the generations (e.g., Gen 1 vs. Gen 2 PP limits).
-- [ ] Write an ADR detailing the architectural approach for integrating this dynamic generation into the existing data pipeline.
+- [x] Determine the precise data structure for the `moves.jsonl` and `items.jsonl` records.
+- [x] Ensure the generation logic handles any discrepancies between the generations (e.g., Gen 1 vs. Gen 2 PP limits).
+- [x] Write an ADR detailing the architectural approach for integrating this dynamic generation into the existing data pipeline.
 
 ### Epic Breakdown
-- [ ] .foundry/docs/adrs/adr-049-025-dynamic-pokedata-parsing.md
-- [ ] .foundry/epics/epic-049-086-dynamic-move-pp-parsing.md
-- [ ] .foundry/epics/epic-049-087-dynamic-item-list-parsing.md
-- [ ] .foundry/epics/epic-049-088-vite-plugin-jsonl-integration.md
+- [x] .foundry/docs/adrs/adr-049-025-dynamic-pokedata-parsing.md
+- [x] .foundry/epics/epic-049-086-dynamic-move-pp-parsing.md
+- [x] .foundry/epics/epic-049-087-dynamic-item-list-parsing.md
+- [x] .foundry/epics/epic-049-088-vite-plugin-jsonl-integration.md

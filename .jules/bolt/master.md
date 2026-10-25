@@ -127,3 +127,11 @@ Based on feedback, the 2D canvas of nodes is also hard to parse for users trying
 - Optimized `PokemonLocations.tsx` by wrapping `PokemonLocations` and internal `GeospatialNode` in `React.memo`. This eliminates cascading render evaluations across encounter field zones when unrelated details states change.
 - Optimized `PokemonCatchProbability.tsx` by wrapping the component in `React.memo` to isolate its render cycle from parent context/state changes.
 - Annotated all changes with `// ⚡ Bolt:` comments explaining the memoization context.
+
+---
+
+# Performance Optimization Journal
+
+- Optimized `SearchAndFilters.tsx` by wrapping the component in `React.memo` to isolate its render cycle from parent view state updates when store slices and props remain unchanged.
+- Optimized `ClearFiltersBadge.tsx` and `FilterBadge.tsx` by wrapping both in `React.memo` to prevent unnecessary DOM re-renders when parent filter controls update without badge props changing.
+- Added inline `// ⚡ Bolt:` comments to document the memoization context and re-render prevention on hot execution paths.

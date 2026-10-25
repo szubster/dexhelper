@@ -2,10 +2,10 @@
 id: task-639-684-jsonl-integration-e2e-qa
 type: TASK
 title: JSONL Integration E2E Tests QA
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-12T23:32:11Z'
-updated_at: '2026-10-17'
+updated_at: '2026-10-24'
 depends_on:
   - task-639-683-jsonl-integration-e2e-impl
 jules_session_id: null
@@ -28,6 +28,6 @@ priority: 50
 Verify that the Playwright E2E tests for JSONL integration of moves and items data (task-639-683-jsonl-integration-e2e-impl) are complete, robust, and correctly verify the application's functionality.
 
 ## Acceptance Criteria
-- [ ] Review the Playwright E2E tests written for JSONL integration.
-- [ ] Verify the tests adequately cover the rendering of move and item data in the UI.
-- [ ] Run the tests and ensure they pass consistently without flakiness.
+- [x] Review the Playwright E2E tests written for JSONL integration.
+- [x] Verify the tests adequately cover the rendering of move and item data in the UI.
+- [x] Run the tests and ensure they pass consistently without flakiness.
