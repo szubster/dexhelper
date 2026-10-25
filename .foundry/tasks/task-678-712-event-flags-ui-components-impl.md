@@ -28,5 +28,5 @@ locks: []
 Develop the UI components required to display special island event flags. This should be implemented using tactical badges or segmented controls.
 
 ## Acceptance Criteria
-- [ ] Create React components to display Gen 3 event flags (e.g., Eon Ticket, Mystic Ticket).
-- [ ] Ensure the components use the tactical aesthetic styling primitives as defined in ADR 008.
+- [x] Create React components to display Gen 3 event flags (e.g., Eon Ticket, Mystic Ticket).
+- [x] Ensure the components use the tactical aesthetic styling primitives as defined in ADR 008.
