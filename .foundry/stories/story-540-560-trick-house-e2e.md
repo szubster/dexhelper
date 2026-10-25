@@ -2,13 +2,13 @@
 id: story-540-560-trick-house-e2e
 type: STORY
 title: Trick House Tracker E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-10-24'
+updated_at: '2026-10-25'
 depends_on:
   - story-540-559-trick-house-ui
-jules_session_id: null
+jules_session_id: '13442110097699807679'
 pr_number: null
 parent: epic-524-540-trick-house-tracker
 tags:
