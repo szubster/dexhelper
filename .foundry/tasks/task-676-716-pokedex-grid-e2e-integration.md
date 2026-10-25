@@ -22,4 +22,4 @@ rejection_reason: ''
 Implement integration E2E tests for PokedexGrid components using \`vitest-browser-react\` or playwright.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for PokedexGrid.
+- [x] Implement E2E tests for PokedexGrid.
