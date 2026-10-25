@@ -16,12 +16,6 @@ export const TacticalKitchenSink: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-4 p-4">
-      {/* Gen3 Event Flags */}
-      <div className="flex flex-col gap-2 border border-zinc-800 p-2">
-        <h3 className="font-mono text-[10px] text-zinc-500">Gen 3 Event Flags</h3>
-        <Gen3EventFlags eonTicket={true} mysticTicket={false} auroraTicket={true} oldSeaMap={false} />
-      </div>
-
       {/* Badges */}
       <TacticalBadge variant="primary" id="badge-primary">
         Primary
@@ -180,6 +174,11 @@ export const TacticalKitchenSink: React.FC = () => {
         <TacticalProgressBar label="SYNC_RATE" value={180} max={255} codeTag="NET.LNK" variant="blue" />
         <TacticalProgressBar label="TEMP" value={230} max={255} codeTag="THERM" variant="amber" />
         <TacticalProgressBar label="CORE_OVERLOAD" value={250} max={255} codeTag="WARN" variant="red" />
+        {/* Gen3 Event Flags */}
+        <div className="flex flex-col gap-2 border border-zinc-800 p-2">
+          <h3 className="font-mono text-[10px] text-zinc-500">Gen 3 Event Flags</h3>
+          <Gen3EventFlags eonTicket={true} mysticTicket={false} auroraTicket={true} oldSeaMap={false} />
+        </div>
       </div>
     </div>
   );
