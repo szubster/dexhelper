@@ -27,6 +27,10 @@ Following the schema update for the `priority` field, the orchestrator needs to 
 
 ## Acceptance Criteria
 - [x] Tech Lead: Decompose this story into implementation and QA TASK nodes.
-- [ ] task-649-702-priority-dispatch-coder
-- [ ] task-649-703-priority-dispatch-tests-coder
-- [ ] task-649-704-priority-dispatch-qa
+- [x] task-649-702-priority-dispatch-coder
+- [x] task-649-703-priority-dispatch-tests-coder
+- [x] task-649-704-priority-dispatch-qa
+- [ ] research-649-726-investigate-priority-dispatch-failure
+- [ ] task-649-727-priority-dispatch-coder-retry
+- [ ] task-649-728-priority-dispatch-tests-coder-retry
+- [ ] task-649-729-priority-dispatch-qa-retry
