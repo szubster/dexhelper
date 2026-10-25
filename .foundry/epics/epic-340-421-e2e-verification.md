@@ -32,5 +32,7 @@ Ensure the system functionality has not been compromised by code and data splitt
 - Validate that the correct background fetching functions seamlessly without issues.
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Break down this epic into stories.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-421-726-splitting-validation
+- [ ] story-421-727-splitting-e2e-verification
