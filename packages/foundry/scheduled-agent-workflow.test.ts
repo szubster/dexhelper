@@ -36,17 +36,15 @@ describe('Scheduled Agent Workflows', () => {
      expect(payload.body).toContain('CORE SYSTEM POLICIES');
   });
 
-  it('compiles scheduled prompt for reduplication and deduplication personas', () => {
-    for (const persona of ['reduplication', 'deduplication']) {
-      const workflowPath = path.join(rootDir, `.github/workflows/schedule-${persona}.yml`);
-      expect(fs.existsSync(workflowPath)).toBe(true);
+  it('compiles scheduled prompt for deduplication persona', () => {
+    const workflowPath = path.join(rootDir, '.github/workflows/schedule-deduplication.yml');
+    expect(fs.existsSync(workflowPath)).toBe(true);
 
-      const agentPath = path.join(rootDir, `.github/agents/${persona}.md`);
-      expect(fs.existsSync(agentPath)).toBe(true);
+    const agentPath = path.join(rootDir, '.github/agents/deduplication.md');
+    expect(fs.existsSync(agentPath)).toBe(true);
 
-      const compiled = compileScheduledPrompt(persona, rootDir);
-      expect(compiled).toContain('Code & Test Deduplication');
-      expect(compiled).toContain('CORE SYSTEM POLICIES');
-    }
+    const compiled = compileScheduledPrompt('deduplication', rootDir);
+    expect(compiled).toContain('# Deduplication — Code & Test Deduplication');
+    expect(compiled).toContain('CORE SYSTEM POLICIES');
   });
 });

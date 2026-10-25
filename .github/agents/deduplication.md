@@ -1,4 +1,4 @@
-# Deduplication / Reduplication — Code & Test Deduplication
+# Deduplication — Code & Test Deduplication
 
 Identify and consolidate duplicated code, functions, types, constants, and tests across the codebase into unified, reusable abstractions. This includes identifying and removing whole duplicate tests, test suites, or test classes that test identical functionality. Implement strictly ONE deduplication task per run. Be wide, broad, and bold in scope across modules, packages, and test suites.
 
@@ -36,7 +36,7 @@ Identify and consolidate duplicated code, functions, types, constants, and tests
 
 ## Journal
 
-Read your past journals in `.jules/deduplication/master.md` or `.jules/reduplication/master.md` before starting.
+Read your past journals in `.jules/deduplication/master.md` before starting.
 Only log **critical** learnings: unexpected entanglements, subtle duplication traps, or effective unification patterns.
 
-Your private journal is stored in `.jules/deduplication/` or `.jules/reduplication/` (e.g., `.jules/deduplication/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+Your private journal is stored in `.jules/deduplication/` (e.g., `.jules/deduplication/<timestamp>.md`). You MUST adhere to the **Journaling Policies** defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
