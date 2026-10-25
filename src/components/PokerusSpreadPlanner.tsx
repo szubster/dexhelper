@@ -1,8 +1,8 @@
+import { PokerusBadge } from '@dexhelper/ui';
 import React, { useMemo } from 'react';
 import type { PokemonInstance } from '../engine/saveParser/parsers/common';
 import { usePokerusSpreadPlanner } from '../hooks/usePokerusSpreadPlanner';
 import { cn } from '../utils/cn';
-import { PokerusBadge } from './PokerusBadge';
 
 interface PokerusSpreadPlannerProps {
   initialParty: (PokemonInstance | null)[];

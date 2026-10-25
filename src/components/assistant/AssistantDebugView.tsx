@@ -1,9 +1,9 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import { AlertCircle, Bug } from 'lucide-react';
 import type { RejectedSuggestion } from '../../engine/assistant/strategies/types';
 import type { SaveData } from '../../engine/saveParser/index';
 import { DiagnosticCard } from '../DiagnosticCard';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
-import { TacticalBadge } from '../TacticalBadge';
 import { TacticalPanel } from '../TacticalPanel';
 
 interface AssistantDebugViewProps {

@@ -1,3 +1,4 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import { Link } from '@tanstack/react-router';
 import type React from 'react';
 import { memo, useMemo } from 'react';
@@ -8,7 +9,6 @@ import { CornerCrosshairs } from '../CornerCrosshairs';
 import { HoverScanner } from '../HoverScanner';
 import { LcdGrid } from '../LcdGrid';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
-import { TacticalBadge } from '../TacticalBadge';
 import { CatchMethodSection } from './CatchMethodSection';
 import { PokemonListSection } from './PokemonListSection';
 

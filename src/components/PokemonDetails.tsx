@@ -33,8 +33,8 @@ const PokerusSpreadPlanner = React.lazy(() =>
   import('./PokerusSpreadPlanner').then((m) => ({ default: m.PokerusSpreadPlanner })),
 );
 
+import { ShinyBadge } from '@dexhelper/ui';
 import { ScanlineOverlay } from './ScanlineOverlay';
-import { ShinyBadge } from './ShinyBadge';
 import { TacticalIconButton } from './TacticalIconButton';
 import { TacticalModal } from './TacticalModal';
 

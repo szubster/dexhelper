@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { PokerusBadge } from './PokerusBadge';
+import { PokerusBadge } from '../PokerusBadge';
 
 describe('PokerusBadge', () => {
   it('renders correctly with strain 0 using TacticalBadge zinc variant', async () => {

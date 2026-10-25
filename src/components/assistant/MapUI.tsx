@@ -1,7 +1,7 @@
+import { BikeBadge } from '@dexhelper/ui';
 import { MapPin } from 'lucide-react';
 import { memo, useMemo } from 'react';
 import type { RouteRadarHeatmap } from '../../engine/radar/types';
-import { BikeBadge } from '../BikeBadge';
 import { EdgeLabel } from '../EdgeLabel';
 
 interface MapUIProps {

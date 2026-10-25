@@ -1,7 +1,7 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import type React from 'react';
 import { useState } from 'react';
 import { SubDataPoint } from './SubDataPoint';
-import { TacticalBadge } from './TacticalBadge';
 import { TacticalButton } from './TacticalButton';
 import { TacticalCard } from './TacticalCard';
 import { TacticalChip } from './TacticalChip';

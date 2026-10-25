@@ -16,7 +16,8 @@ tags:
   - components
 rejection_count: 0
 rejection_reason: ''
-notes: ''
+notes: ""
+confidence_score: 100
 locks: []
 ---
 
@@ -26,6 +27,6 @@ locks: []
 Migrate tactical Badges components to the `@dexhelper/ui` package.
 
 ## Acceptance Criteria
-- [ ] Tactical Badges components are successfully migrated to the UI package.
-- [ ] Migration strategy determined by the research node is fully implemented.
-- [ ] Unit tests pass and no regressions are introduced.
+- [x] Tactical Badges components are successfully migrated to the UI package.
+- [x] Migration strategy determined by the research node is fully implemented.
+- [x] Unit tests pass and no regressions are introduced.

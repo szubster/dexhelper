@@ -1,8 +1,8 @@
+import { PokerusBadge, ShinyBadge, TacticalBadge } from '@dexhelper/ui';
 import { useNavigate } from '@tanstack/react-router';
 import { useWindowVirtualizer } from '@tanstack/react-virtual';
 import { Skull } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
-
 import { useParsedSaveData } from '../contexts/EmulatorContext';
 import type { PokemonInstance } from '../engine/saveParser/index';
 import { getGenerationConfig } from '../utils/generationConfig';
@@ -10,12 +10,9 @@ import { getTimeCapsuleValidation } from '../utils/timeCapsule';
 import { CapacitySegmentedBar } from './CapacitySegmentedBar';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
-import { PokerusBadge } from './PokerusBadge';
 import { PokemonSprite } from './pokemon/PokemonSprite';
 import { RackHandle } from './RackHandle';
 import { ScanlineOverlay } from './ScanlineOverlay';
-import { ShinyBadge } from './ShinyBadge';
-import { TacticalBadge } from './TacticalBadge';
 import { TacticalCard } from './TacticalCard';
 import { TacticalPanel } from './TacticalPanel';
 import { TargetingRings } from './TargetingRings';
