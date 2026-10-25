@@ -2,12 +2,12 @@
 id: idea-540-tree-completeness-and-false-failure-prevention-heuristics
 type: IDEA
 title: Tree Completeness and False Failure Prevention Heuristics
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-10-25T04:30:00Z'
 updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: '10218586297513441402'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:

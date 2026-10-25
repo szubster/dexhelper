@@ -2,7 +2,7 @@
 id: prd-540-726-tree-completeness-and-false-failure-prevention-heuristics
 type: PRD
 title: Tree Completeness and False Failure Prevention Heuristics
-status: ACTIVE
+status: FAILED
 owner_persona: epic_planner
 created_at: '2026-10-25'
 updated_at: '2026-10-25'
@@ -15,7 +15,7 @@ tags:
   - process-improvement
   - dag-health
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 ---
 
 # PRD: Tree Completeness and False Failure Prevention Heuristics

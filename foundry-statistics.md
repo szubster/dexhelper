@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-25T21:20:41.398Z*
+*Generated at: 2026-10-25T23:41:28.581Z*
 
 ## Node Statistics
 
@@ -10,29 +10,29 @@
 | ADR | 44 |
 | EPIC | 513 |
 | IDEA | 234 |
-| PRD | 216 |
+| PRD | 217 |
 | RESEARCH | 320 |
-| STORY | 1078 |
+| STORY | 1080 |
 | TASK | 2782 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3386 |
-| ACTIVE | 157 |
+| COMPLETED | 3391 |
+| ACTIVE | 156 |
 | CANCELLED | 855 |
-| PENDING | 769 |
+| PENDING | 765 |
 | BLOCKED | 14 |
+| FAILED | 5 |
 | READY | 4 |
-| FAILED | 2 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 175 |
-| Merged PRs | 8666 |
+| Open PRs | 174 |
+| Merged PRs | 8667 |
 | Closed PRs | 1159 |
 
 ## Rejection Counts
@@ -418,6 +418,7 @@
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
+| research-676-721-investigate-fuzzer-deadlock-assertions-failure.md | 2 |
 | story-042-081-preserve-enum-optimizations.md | 2 |
 | story-063-605-mirage-island-unified-state-hydration.md | 2 |
 | story-088-638-client-db-jsonl-loader.md | 2 |
@@ -517,6 +518,7 @@
 | task-565-576-gen3-pokedex-gaps-e2e-coder.md | 2 |
 | task-565-606-hunting-progress-notifications.md | 2 |
 | task-570-618-cva-tactical-aesthetic-e2e-coder-retry.md | 2 |
+| task-579-687-react-flow-visualizer-e2e-tests.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
@@ -785,7 +787,6 @@
 | research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
-| research-676-721-investigate-fuzzer-deadlock-assertions-failure.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
 | story-061-473-mirage-island-engine-e2e.md | 1 |
 | story-081-121-gen3-tv-block-dataview-parser.md | 1 |
@@ -1011,7 +1012,6 @@
 | task-574-659-archival-file-move-automation-qa.md | 1 |
 | task-575-691-archival-tree-completeness-e2e-tests.md | 1 |
 | task-578-589-visualizer-state-refactor.md | 1 |
-| task-579-687-react-flow-visualizer-e2e-tests.md | 1 |
 | task-580-595-gen3-friendship-data-extraction-e2e-coder.md | 1 |
 | task-580-649-gen3-fossil-schema-docs-impl.md | 1 |
 | task-581-658-pokedex-grid-virtualization-e2e-impl.md | 1 |

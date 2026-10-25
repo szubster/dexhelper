@@ -2,20 +2,20 @@
 id: task-639-724-migrate-inputs-leds-impl-v5
 type: TASK
 title: Migrate Tactical Inputs and LEDs Implementation (v5)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-10-25'
 depends_on:
   - research-639-721-investigate-primitives-migration-failures-v4
-jules_session_id: '13099077424439824395'
+jules_session_id: null
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
 tags:
   - react
   - components
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: COMPLETED'
 notes: ''
 locks: []
 ---

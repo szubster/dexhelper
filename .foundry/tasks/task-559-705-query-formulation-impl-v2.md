@@ -2,7 +2,7 @@
 id: task-559-705-query-formulation-impl-v2
 type: TASK
 title: Implement Query Formulation Logic (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-25'

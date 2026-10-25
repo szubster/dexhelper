@@ -2,13 +2,13 @@
 id: task-639-723-migrate-badges-impl-v5
 type: TASK
 title: Migrate Tactical Badges Implementation (v5)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-10-25'
 depends_on:
   - research-639-721-investigate-primitives-migration-failures-v4
-jules_session_id: '7113676948802114248'
+jules_session_id: null
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
 tags:
@@ -16,7 +16,7 @@ tags:
   - components
 rejection_count: 0
 rejection_reason: ''
-notes: ""
+notes: ''
 confidence_score: 100
 locks: []
 ---

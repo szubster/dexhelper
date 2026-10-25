@@ -2,7 +2,7 @@
 id: epic-340-421-e2e-verification
 type: EPIC
 title: Bundle and Data splitting E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-13'
 updated_at: '2026-10-25'
@@ -11,7 +11,7 @@ depends_on:
   - epic-340-418-ui-component-splitting
   - epic-340-419-data-splitting
   - epic-340-420-background-fetching
-jules_session_id: '9001106974418474386'
+jules_session_id: null
 parent: prd-136-340-split-bundles-and-data
 tags:
   - e2e
