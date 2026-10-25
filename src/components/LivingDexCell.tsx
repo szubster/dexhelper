@@ -12,6 +12,8 @@ interface LivingDexCellProps extends TacticalStylingProps {
   isShiny: boolean;
 }
 
+// ⚡ Bolt: Wrapped LivingDexCell in React.memo and memoized handleClick with useCallback to isolate re-render
+// evaluations and prevent closure re-allocations for up to 386 living dex cards when parent grid updates.
 export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, inPC, isShiny }: LivingDexCellProps) {
   const navigate = useNavigate();
   const isSecured = inParty || inPC;
