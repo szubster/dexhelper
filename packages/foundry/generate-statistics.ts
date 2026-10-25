@@ -38,6 +38,26 @@ export function generateStatistics(repoRoot: string) {
     md += `| Closed PRs | ${data.prs.closedPRs} |\n`;
   }
 
+  if (nodeStats.rejectionCounts && Object.keys(nodeStats.rejectionCounts).length > 0) {
+    md += `\n## Rejection Counts\n\n`;
+    md += `| Node | Rejections |\n|---|---|\n`;
+    const sortedRejections = Object.entries(nodeStats.rejectionCounts).sort((a, b) => b[1] - a[1]);
+    for (const [node, count] of sortedRejections) {
+      if (count > 0) {
+         md += `| ${node} | ${count} |\n`;
+      }
+    }
+  }
+
+  if (nodeStats.waitTimes && Object.keys(nodeStats.waitTimes).length > 0) {
+    md += `\n## Wait Times\n\n`;
+    md += `| Node | Wait Time (ms) |\n|---|---|\n`;
+    const sortedWaitTimes = Object.entries(nodeStats.waitTimes).sort((a, b) => b[1] - a[1]).slice(0, 50); // top 50
+    for (const [node, time] of sortedWaitTimes) {
+      md += `| ${node} | ${time} |\n`;
+    }
+  }
+
   fs.writeFileSync(path.join(repoRoot, 'foundry-statistics.md'), md);
 }
 

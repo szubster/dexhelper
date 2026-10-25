@@ -32,3 +32,5 @@ v0.5.2.tar.gz
 # Jules scratch / session cache
 deleted_sessions.txt
 
+# Test artifacts
+scripts/.foundry/

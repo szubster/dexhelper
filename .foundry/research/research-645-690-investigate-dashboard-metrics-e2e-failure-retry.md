@@ -2,12 +2,12 @@
 id: research-645-690-investigate-dashboard-metrics-e2e-failure-retry
 type: RESEARCH
 title: Investigate E2E Test Failure for Dashboard Metrics (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-16T12:08:24.588Z'
-updated_at: '2026-10-17'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '11380950408729184965'
+jules_session_id: null
 pr_number: null
 parent: story-571-645-dashboard-metrics-integration-e2e
 tags:
@@ -32,4 +32,4 @@ The task `task-645-668-dashboard-metrics-integration-e2e-impl` permanently faile
 - Create any ADR or guidelines to fix the tests.
 
 ## Acceptance Criteria
-- [ ] Root cause identified and documented.
+- [x] Root cause identified and documented.

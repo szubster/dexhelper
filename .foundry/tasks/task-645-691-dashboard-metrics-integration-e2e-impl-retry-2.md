@@ -2,10 +2,10 @@
 id: task-645-691-dashboard-metrics-integration-e2e-impl-retry-2
 type: TASK
 title: Implement Integration and E2E Tests for Confidence Metrics Dashboard (Retry 2)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-16T12:08:24.588Z'
-updated_at: '2026-10-17'
+updated_at: '2026-10-25'
 depends_on:
   - research-645-690-investigate-dashboard-metrics-e2e-failure-retry
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - ui
   - dashboard
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 priority: 60

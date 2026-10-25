@@ -2,12 +2,12 @@
 id: idea-531-web-worker-save-parser
 type: IDEA
 title: Offload Binary Save File Parsing to Web Worker
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-04-20'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '12203050612493749836'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -43,6 +43,7 @@ Offload binary save file parsing to a dedicated Web Worker pipeline:
 - **Developer Experience**: Standardizes async save parsing interfaces across React components and Zustand state managers.
 
 ## Acceptance Criteria
+- [ ] prd-531-588-web-worker-save-parser
 - [ ] Implement a Web Worker parser module for `parseSaveFile` using Vite's native Web Worker support and Transferable `ArrayBuffer` objects.
 - [ ] Create an asynchronous client interface with graceful fallback to main-thread execution when Web Workers are unavailable or in test environments.
 - [ ] Update `useStore` save loading procedures to use non-blocking background parsing.

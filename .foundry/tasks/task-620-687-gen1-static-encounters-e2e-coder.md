@@ -2,12 +2,12 @@
 id: task-620-687-gen1-static-encounters-e2e-coder
 type: TASK
 title: Implement Gen 1 Static Encounters E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-14'
+updated_at: '2026-10-18'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10588307912653510739'
 pr_number: null
 parent: story-136-620-gen1-static-encounters-e2e
 tags:

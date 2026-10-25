@@ -28,7 +28,6 @@ import { parseGen2DailyEvents, parseGen2NarrativeFlags, parseGen2RuinsOfAlphPuzz
 import type { GameVersion, Gen2SaveData, PokemonInstance } from './common';
 import { checkShiny, checkShinyGene, decodeGen12String, parseDVs, parsePokerus } from './common';
 import { parseGen2PokegearData } from './gen2/phone/parser';
-
 import {
   ACTIVE_DECO_COUNT,
   ACTIVE_DECO_OFFSET_RELATIVE_CRYSTAL,
@@ -62,6 +61,7 @@ import {
   CAUGHT_TIME_NIGHT,
   CAUGHT_TIME_SHIFT,
   CURRENT_BOX_COUNT_OFFSET,
+  CURRENT_BOX_NUM_MASK,
   CURRENT_BOX_NUM_OFFSET_CRYSTAL,
   CURRENT_BOX_NUM_OFFSET_GS,
   CURRENT_BOX_SPECIES_OFFSET,
@@ -91,6 +91,7 @@ import {
   GEN2_EGG_CYCLE_STEPS,
   GEN2_EGG_SPECIES_ID,
   GEN2_EMPTY_SLOT,
+  GEN2_EMPTY_SLOT_00,
   GEN2_ENTEI_SPECIES_ID,
   GEN2_HOF_MAX_RECORDS,
   GEN2_HOF_POKEMON_COUNT,
@@ -523,7 +524,7 @@ export function* iterateGen2PCBoxes(
   offsets: { currentBoxNum: number; currentBoxCount: number; currentBoxSpecies: number },
   isCrystal: boolean,
 ) {
-  const currentBoxNum = view.getUint8(offsets.currentBoxNum) & 0x0f;
+  const currentBoxNum = view.getUint8(offsets.currentBoxNum) & CURRENT_BOX_NUM_MASK;
   const currentBoxCount = view.getUint8(offsets.currentBoxCount);
   const currentBoxDataOffset = offsets.currentBoxSpecies + GEN2_BOX_SPECIES_LIST_LENGTH; // After species list
 
@@ -706,7 +707,7 @@ function parseGen2HallOfFameRecords(
         const speciesId = view.getUint8(offset);
 
         // 0x00 or 0xFF usually means empty slot or terminator
-        if (speciesId === 0x00 || speciesId === GEN2_EMPTY_SLOT) {
+        if (speciesId === GEN2_EMPTY_SLOT_00 || speciesId === GEN2_EMPTY_SLOT) {
           continue;
         }
 

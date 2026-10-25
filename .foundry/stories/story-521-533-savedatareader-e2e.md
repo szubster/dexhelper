@@ -5,7 +5,7 @@ title: Core SaveDataReader E2E Verification
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-13'
+updated_at: '2026-10-25'
 depends_on:
   - story-521-532-savedatareader-tests
 jules_session_id: null
@@ -19,7 +19,7 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

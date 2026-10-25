@@ -2,10 +2,10 @@
 id: research-157-675-cloudflare-regression-analysis
 type: RESEARCH
 title: Cloudflare Sync Regression Analysis for pnpm Monorepo
-status: PENDING
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-10'
-updated_at: '2026-10-17'
+updated_at: '2026-10-24'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,4 +31,4 @@ Investigate potential regressions and configuration conflicts with the existing 
 ## Acceptance Criteria
 - [x] Analyze the current Cloudflare worker configurations and how they are impacted by the migration to `apps/functions`.
 - [x] Propose any necessary updates or ADRs to maintain backend sync stability.
-- [ ] adr-675-676-cloudflare-monorepo-functions
+- [x] adr-675-676-cloudflare-monorepo-functions

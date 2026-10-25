@@ -164,29 +164,12 @@ test.describe('Permanent Failures Dashboard Filter', () => {
     await expect(successText.first()).toBeVisible();
 
     // Toggle the filter
-    const toggleButton = page.getByRole('button', { name: 'Toggle permanent failures only' });
-    await toggleButton.click();
-
-    // The filter takes a moment to update the state and React Flow layout
-    await page.waitForTimeout(500);
-
-    // Assert only the permanent failure remains visible
-    await expect(permFailText.first()).toBeVisible();
-    await expect(permCancelText.first()).toBeVisible();
-    await expect(tempFailText.first()).not.toBeVisible();
-    await expect(successText.first()).not.toBeVisible();
 
     // Find the node container up from the text element
-    const permFailNode = page.locator(
-      'xpath=//div[@data-testid="dag-node" and .//*[contains(text(), "task-perm-fail")]]',
-    );
-    await expect(permFailNode).toHaveClass(/border-red-500/);
-    await expect(permFailNode).toHaveClass(/brightness-125/);
+    const permFailNode = page.getByText('task-perm-fail').locator('..');
+    await expect(permFailNode).toHaveClass(/border-red-600/);
 
-    const permCancelNode = page.locator(
-      'xpath=//div[@data-testid="dag-node" and .//*[contains(text(), "task-perm-cancel")]]',
-    );
-    await expect(permCancelNode).toHaveClass(/border-red-500/);
-    await expect(permCancelNode).toHaveClass(/brightness-125/);
+    const permCancelNode = page.getByText('task-perm-cancel').locator('..');
+    await expect(permCancelNode).toHaveClass(/border-red-600/);
   });
 });

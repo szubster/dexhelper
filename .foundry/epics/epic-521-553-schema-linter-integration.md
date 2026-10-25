@@ -2,10 +2,10 @@
 id: epic-521-553-schema-linter-integration
 type: EPIC
 title: 'Schema Linter Integration: Package Scripts & Verification'
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-24'
-updated_at: '2026-09-22'
+updated_at: '2026-10-21'
 depends_on: []
 jules_session_id: null
 parent: prd-421-521-automated-schema-linting
@@ -27,9 +27,9 @@ locks: []
 - Ensure the script correctly parses arguments.
 
 ## Acceptance Criteria
-- [ ] Add `"lint:foundry"` to `package.json`.
-- [ ] Integrate `"lint:foundry"` into the main `"lint"` script in `package.json`.
-- [ ] Verify validation passes correctly on valid files and fails on malformed files.
+- [x] Add `"lint:foundry"` to `package.json`.
+- [x] Integrate `"lint:foundry"` into the main `"lint"` script in `package.json`.
+- [x] Verify validation passes correctly on valid files and fails on malformed files.
 
-- [ ] story-553-605-package-scripts
-- [ ] story-553-606-package-scripts-e2e
+- [x] story-553-605-package-scripts
+- [x] story-553-606-package-scripts-e2e

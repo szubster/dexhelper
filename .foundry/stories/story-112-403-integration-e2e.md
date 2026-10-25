@@ -5,11 +5,11 @@ title: Integration and E2E Verification
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on:
   - story-112-401-gen2-dv-extraction
   - story-112-402-gen3-iv-pv-extraction
-jules_session_id: '6628447089071102044'
+jules_session_id: '16907918018409105473'
 pr_number: null
 parent: epic-112-400-npc-size-record-data-extraction
 tags:
@@ -17,7 +17,7 @@ tags:
   - integration
   - e2e
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
