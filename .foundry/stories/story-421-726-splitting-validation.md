@@ -2,12 +2,12 @@
 id: story-421-726-splitting-validation
 type: STORY
 title: Main Validation for Bundle and Data Splitting
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-25'
 updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6748220752874506863'
 parent: epic-340-421-e2e-verification
 tags: []
 rejection_count: 0
