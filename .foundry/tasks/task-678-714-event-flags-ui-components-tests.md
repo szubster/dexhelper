@@ -2,10 +2,10 @@
 id: task-678-714-event-flags-ui-components-tests
 type: TASK
 title: Event Flags UI Components Unit Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-20T23:46:53.426Z'
-updated_at: '2026-10-20T23:46:53.426Z'
+updated_at: '2026-10-25'
 depends_on:
   - task-678-712-event-flags-ui-components-impl
 jules_session_id: null

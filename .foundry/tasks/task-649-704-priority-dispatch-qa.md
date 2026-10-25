@@ -2,10 +2,10 @@
 id: task-649-704-priority-dispatch-qa
 type: TASK
 title: priority orchestrator dispatch qa
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-10-24'
+updated_at: '2026-10-25'
 depends_on:
   - task-649-702-priority-dispatch-coder
   - task-649-703-priority-dispatch-tests-coder
@@ -17,7 +17,9 @@ tags:
   - scheduling
   - logic
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-649-702-priority-dispatch-coder
 notes: ''
 locks: []
 ---

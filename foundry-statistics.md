@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-25T05:27:30.559Z*
+*Generated at: 2026-10-25T10:16:07.610Z*
 
 ## Node Statistics
 
@@ -9,30 +9,30 @@
 |---|---|
 | ADR | 44 |
 | EPIC | 513 |
-| IDEA | 233 |
+| IDEA | 234 |
 | PRD | 216 |
-| RESEARCH | 314 |
+| RESEARCH | 317 |
 | STORY | 1078 |
-| TASK | 2760 |
+| TASK | 2769 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3364 |
-| ACTIVE | 161 |
-| CANCELLED | 838 |
-| PENDING | 771 |
+| COMPLETED | 3371 |
+| ACTIVE | 159 |
+| CANCELLED | 846 |
+| PENDING | 767 |
 | BLOCKED | 14 |
-| FAILED | 7 |
-| READY | 3 |
+| FAILED | 3 |
+| READY | 11 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9979 |
-| Open PRs | 182 |
-| Merged PRs | 8640 |
+| Total PRs | 9985 |
+| Open PRs | 179 |
+| Merged PRs | 8649 |
 | Closed PRs | 1157 |
 
 ## Rejection Counts
@@ -330,6 +330,7 @@
 | task-645-668-dashboard-metrics-integration-e2e-impl.md | 3 |
 | task-645-669-tactical-aesthetics-e2e-base-qa.md | 3 |
 | task-645-691-dashboard-metrics-integration-e2e-impl-retry-2.md | 3 |
+| task-649-702-priority-dispatch-coder.md | 3 |
 | task-674-700-migrate-pokedex-e2e-tests-coder.md | 3 |
 | task-676-712-fuzzer-deadlock-assertions-impl.md | 3 |
 | epic-009-atomic-handoff-testing.md | 2 |
@@ -406,6 +407,7 @@
 | research-472-675-investigate-e2e-tests-failure-v2.md | 2 |
 | research-473-638-investigate-condition-stats-parser-failure-v2.md | 2 |
 | research-478-676-investigate-locking-failure-retry.md | 2 |
+| research-478-703-investigate-kurt-apricorn-core-logic-failure.md | 2 |
 | research-517-668-investigate-orchestrator-generic-prompt-failure.md | 2 |
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
 | research-521-703-gen3-submodules-constants-failure.md | 2 |
@@ -519,7 +521,6 @@
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
-| task-649-702-priority-dispatch-coder.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -762,7 +763,6 @@
 | research-470-558-japanese-gen2-offsets.md | 1 |
 | research-477-506-gen3-mystery-gift-event-flag-offsets.md | 1 |
 | research-478-676-investigate-kurt-apricorn-types-failure.md | 1 |
-| research-478-703-investigate-kurt-apricorn-core-logic-failure.md | 1 |
 | research-479-608-investigate-gen3-pokeblock-e2e-failure.md | 1 |
 | research-494-495-gen3-egg-hatch-fixture.md | 1 |
 | research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |

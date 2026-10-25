@@ -2,10 +2,10 @@
 id: story-531-649-priority-orchestrator-dispatch-impl
 type: STORY
 title: Priority-Based Dispatch in Orchestrator Implementation
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-13'
-updated_at: '2026-10-24'
+updated_at: '2026-10-25'
 depends_on: []
 jules_session_id: null
 pr_number: null

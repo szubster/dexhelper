@@ -2,7 +2,7 @@
 id: task-639-725-migrate-primitives-qa-v5
 type: TASK
 title: QA for Tactical Primitives Migration (v5)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-25'
 updated_at: '2026-10-25'

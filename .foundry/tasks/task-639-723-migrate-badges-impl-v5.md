@@ -2,7 +2,7 @@
 id: task-639-723-migrate-badges-impl-v5
 type: TASK
 title: Migrate Tactical Badges Implementation (v5)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-10-25'

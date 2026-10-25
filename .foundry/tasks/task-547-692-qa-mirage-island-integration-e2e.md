@@ -2,13 +2,13 @@
 id: task-547-692-qa-mirage-island-integration-e2e
 type: TASK
 title: QA Verification for Mirage Island Integration and E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-16T02:30:47.017Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-25'
 depends_on:
   - task-547-691-mirage-island-e2e-tests
-jules_session_id: '12424033960213653344'
+jules_session_id: null
 pr_number: null
 parent: story-062-547-mirage-island-ui-integration-e2e
 tags:

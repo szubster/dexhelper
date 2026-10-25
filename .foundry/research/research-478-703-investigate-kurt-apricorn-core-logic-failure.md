@@ -2,7 +2,7 @@
 id: research-478-703-investigate-kurt-apricorn-core-logic-failure
 type: RESEARCH
 title: Investigate Kurt Apricorn Core Logic Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-18'
 updated_at: '2026-10-25'
@@ -13,8 +13,8 @@ parent: story-404-478-kurt-apricorn-parsing-logic
 tags:
   - gen2
   - failure-investigation
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

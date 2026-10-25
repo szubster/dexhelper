@@ -2,10 +2,10 @@
 id: research-077-717-dynamic-pokedata-bundle-splitting-integration
 type: RESEARCH
 title: Investigate Dynamic Pokedata Parsing & Bundle Splitting Overlap
-status: READY
+status: PENDING
 owner_persona: researcher
 created_at: '2026-10-24'
-updated_at: '2026-10-24'
+updated_at: '2026-10-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
