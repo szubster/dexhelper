@@ -34,5 +34,8 @@ Implement assertions in the orchestrator fuzzer to verify that all simulated run
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-676-712-fuzzer-deadlock-assertions-impl
-- [ ] task-676-713-fuzzer-deadlock-assertions-qa
+- [x] task-676-712-fuzzer-deadlock-assertions-impl
+- [x] task-676-713-fuzzer-deadlock-assertions-qa
+- [ ] research-676-721-investigate-fuzzer-deadlock-assertions-failure
+- [ ] task-676-722-fuzzer-deadlock-assertions-impl-retry
+- [ ] task-676-723-fuzzer-deadlock-assertions-qa-retry
