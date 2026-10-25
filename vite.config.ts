@@ -56,6 +56,9 @@ export default defineConfig(() => {
                   maxEntries: 500,
                   maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
                 },
+                cacheableResponse: {
+                  statuses: [0, 200],
+                },
               },
             },
           ],
