@@ -5,9 +5,9 @@ title: Multi-Box Stat Filters E2E
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-18'
-updated_at: '2026-10-14'
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: '3792686948114926918'
+jules_session_id: '7842199483083188916'
 pr_number: null
 parent: epic-566-575-multi-box-stat-filters
 tags:
@@ -28,4 +28,6 @@ locks: []
 Verify the integration and functionality of the multi-box IV and EV stat filters end-to-end.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into E2E verification tasks.
+- [x] Tech Lead: Break down this Story into E2E verification tasks.
+- [ ] task-619-687-multi-box-stat-filters-e2e-tests
+- [ ] task-619-688-multi-box-stat-filters-e2e-qa

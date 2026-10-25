@@ -44,6 +44,10 @@ async function main() {
   }
   console.log(`Found ${allFiles.length} files to lint.`);
 
+  const validTypes = ["IDEA", "PRD", "EPIC", "STORY", "TASK", "RESEARCH", "ADR", "EXPERIMENT"];
+  const validStatuses = ["DRAFT", "WIP", "PENDING", "READY", "ACTIVE", "VERIFYING", "COMPLETED", "FAILED", "BLOCKED", "CANCELLED"];
+  const validOwnerPersonas = ["canvas", "palette", "product_manager", "epic_planner", "story_owner", "architect", "tech_lead", "coder", "qa", "human", "tpm", "agile_coach", "researcher", "auditor", "librarian", "curator", "changelogger"];
+
   const requiredFields = [
     'id',
     'type',
@@ -61,6 +65,19 @@ async function main() {
   for (const file of allFiles) {
     const content = await fs.readFile(file, 'utf-8');
     const parsed = matter(content);
+
+    if (parsed.data.type !== undefined && !validTypes.includes(parsed.data.type)) {
+      console.error(`Error: File \`${file}\` has invalid type \`${parsed.data.type}\`.`);
+      hasErrors = true;
+    }
+    if (parsed.data.status !== undefined && !validStatuses.includes(parsed.data.status)) {
+      console.error(`Error: File \`${file}\` has invalid status \`${parsed.data.status}\`.`);
+      hasErrors = true;
+    }
+    if (parsed.data.owner_persona !== undefined && !validOwnerPersonas.includes(parsed.data.owner_persona)) {
+      console.error(`Error: File \`${file}\` has invalid owner_persona \`${parsed.data.owner_persona}\`.`);
+      hasErrors = true;
+    }
 
     for (const field of requiredFields) {
       if (parsed.data[field] === undefined) {

@@ -91,3 +91,11 @@
 - **Transient Log Purging Strategy**: When aggregating scattered session files into `master.md` logs via `aggregate-journals.ts`, personas often append transient status logs (e.g. raw session IDs, temporary task breakdown traces, or lists of individual archived nodes). These entries inflate context window sizes without providing long-term value. Purging transient execution traces while explicitly preserving core rules and architectural findings (like the Tree Completeness Rule) keeps master logs token-efficient and high-signal.
 - **Cross-Component UI Rule Consolidation**: Independent sessions for related UI components (e.g. `PokemonStatusBadge` and `StorageGrid`) can produce duplicated learnings regarding decorative accessibility patterns. Synthesizing these duplicate entries into unified design rules (e.g. wrapping decorative ASCII brackets in `<span aria-hidden="true">`) ensures future agents receive clean, non-redundant guidelines.
 - **Journal Formatting Standardization**: Multiple `# Learnings` or `# Session` headers within a single `master.md` file impair LLM parsing clarity. Consolidating repeated section headers into a single clean list prevents structural clutter across persona journals.
+
+---
+
+# Archivist Journal Entry - 2026-10-20
+
+## Critical Learnings
+- **Automated Journal Aggregation**: Executing `node --experimental-strip-types packages/foundry/aggregate-journals.ts` successfully consolidates scattered individual session files from `.foundry/journals/` and `.jules/` into persona `master.md` files while safely unlinking the processed session files.
+- **Knowledge Hygiene Workflow**: Combining automated aggregation with workspace linting and testing ensures agent knowledge repositories remain clean, deduplicated, and fully compliant without disrupting codebase integrity.

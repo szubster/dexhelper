@@ -415,7 +415,7 @@ function compilePromptForNode(node: ParsedNode, repoRoot: string): string {
   } else if (fs.existsSync(fallbackPath)) {
     genericPrompt = fs.readFileSync(fallbackPath, 'utf-8');
   } else {
-    warn(`Base persona prompt not found for: ${ownerPersona}, using default generic prompt.`);
+    warn(`::warning::Base persona prompt not found for: ${ownerPersona}, using default generic prompt.`);
     genericPrompt = `As the ${ownerPersona} of The Foundry, your task is described in the provided node file.`;
   }
 
@@ -477,7 +477,7 @@ function compileScheduledPrompt(persona: string, repoRoot: string): string {
   } else if (fs.existsSync(fallbackPath)) {
     basePrompt = fs.readFileSync(fallbackPath, 'utf-8');
   } else {
-    warn(`Scheduled agent persona prompt not found for: ${persona}, using default generic prompt.`);
+    warn(`::warning::Scheduled agent persona prompt not found for: ${persona}, using default generic prompt.`);
     basePrompt = `As the ${persona} of The Foundry, your task is to execute your scheduled responsibilities.`;
   }
 
@@ -733,7 +733,12 @@ function main(): void {
   info('Phase 3.0: Checking for max rejection threshold...');
   for (const node of nodes) {
     if (node.frontmatter.status === 'FAILED' && (node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD) {
-      promoteNodeToCancelledWithReason(node, 'Max rejection count reached');
+      const reason = node.frontmatter.rejection_reason || '';
+      if (reason.includes('Session terminated with state: NOT_FOUND') || reason.includes('Session terminated with state: INTERNAL_ERROR')) {
+        warn(`Infrastructure error detected for node ${node.frontmatter.id}. Skipping max rejection threshold cancellation.`);
+      } else {
+        promoteNodeToCancelledWithReason(node, 'Max rejection count reached');
+      }
     }
   }
 

@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
+import { compileScheduledPrompt } from './foundry-orchestrator';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -33,5 +34,17 @@ describe('Scheduled Agent Workflows', () => {
      const payload = JSON.parse(fs.readFileSync(payloadPath, 'utf8'));
      expect(payload.title).toBe('Scheduled Agent: tpm');
      expect(payload.body).toContain('CORE SYSTEM POLICIES');
+  });
+
+  it('compiles scheduled prompt for deduplication persona', () => {
+    const workflowPath = path.join(rootDir, '.github/workflows/schedule-deduplication.yml');
+    expect(fs.existsSync(workflowPath)).toBe(true);
+
+    const agentPath = path.join(rootDir, '.github/agents/deduplication.md');
+    expect(fs.existsSync(agentPath)).toBe(true);
+
+    const compiled = compileScheduledPrompt('deduplication', rootDir);
+    expect(compiled).toContain('# Deduplication — Code & Test Deduplication');
+    expect(compiled).toContain('CORE SYSTEM POLICIES');
   });
 });

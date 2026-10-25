@@ -2,13 +2,13 @@
 id: story-335-565-migration-e2e-verification
 type: STORY
 title: Migration E2E Verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-11'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on:
   - story-335-564-execute-migration
-jules_session_id: '4819369374623688271'
+jules_session_id: null
 pr_number: null
 parent: epic-117-335-migrate-task-reminders
 tags:
@@ -33,3 +33,5 @@ This story provides the E2E verification for the migration executed in `epic-117
 
 ## 3. Acceptance Criteria
 - [ ] The repository passes all linting and testing after the migration.
+- [ ] task-565-694-execute-migration-verification
+- [ ] task-565-695-qa-execute-migration-verification

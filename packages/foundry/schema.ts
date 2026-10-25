@@ -65,6 +65,7 @@ export const NodeFrontmatterSchema = z.object({
   layers: z.array(z.string()).optional(),
   research_references: z.array(z.string()).optional(),
   rejection_count: z.number().int().optional(),
+  system_failure_count: z.number().int().optional(),
   rejection_reason: z.string().optional(),
   notes: z.string().optional(),
   experiment_variants: z.array(z.string()).optional(),

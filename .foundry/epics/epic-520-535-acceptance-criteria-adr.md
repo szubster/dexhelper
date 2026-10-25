@@ -2,13 +2,13 @@
 id: epic-520-535-acceptance-criteria-adr
 type: EPIC
 title: 'Architecture Decision Phase: Acceptance Criteria Structure'
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-10-17'
+updated_at: '2026-10-24'
 depends_on:
   - epic-520-534-acceptance-criteria-research
-jules_session_id: '10119125683127650897'
+jules_session_id: null
 pr_number: null
 parent: prd-149-520-reevaluate-acceptance-criteria
 tags:
@@ -32,5 +32,8 @@ Following the research phase evaluating the usage of Acceptance Criteria in the 
 - Outline the necessary updates for `.foundry/docs/schema.md` and `.github/scripts/foundry-orchestrator.ts`.
 
 ## Acceptance Criteria
-- [ ] story_owner: Break down this Epic into STORY nodes, including the creation of the required `ADR` node.
-- [ ] story_owner: Ensure this Epic generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] story_owner: Break down this Epic into STORY nodes, including the creation of the required `ADR` node.
+- [ ] story-535-679-adr-acceptance-criteria
+- [ ] story-535-680-update-schema-orchestrator-ac
+- [x] story_owner: Ensure this Epic generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-535-681-acceptance-criteria-adr-e2e

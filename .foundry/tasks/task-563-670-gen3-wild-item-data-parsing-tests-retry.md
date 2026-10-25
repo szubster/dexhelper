@@ -2,10 +2,10 @@
 id: task-563-670-gen3-wild-item-data-parsing-tests-retry
 type: TASK
 title: Write tests for Gen 3 Wild Encounter and Held Item Parsing Logic (Retry)
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-07'
-updated_at: '2026-10-10'
+updated_at: '2026-10-25'
 depends_on:
   - task-563-669-gen3-wild-item-data-parsing-logic-retry
 jules_session_id: null
@@ -32,4 +32,4 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 - Utilize realistic mock data for Gen 3 save states.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for Gen 3 wild encounter and held item parsing.
+- [x] Write unit tests for Gen 3 wild encounter and held item parsing.

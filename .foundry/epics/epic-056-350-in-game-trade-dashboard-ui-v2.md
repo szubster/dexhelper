@@ -2,13 +2,13 @@
 id: epic-056-350-in-game-trade-dashboard-ui-v2
 type: EPIC
 title: In-Game Trade Dashboard UI v2
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-04'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on:
   - epic-056-349-in-game-trade-data-extraction-v2
-jules_session_id: '1136558579059356814'
+jules_session_id: null
 pr_number: null
 parent: prd-095-056-in-game-trade-assistant
 tags:
@@ -36,5 +36,8 @@ Build a dedicated dashboard for tracking in-game NPC trades, providing real-time
 - [ ] Trades are visually tagged based on their completion status in the save file.
 - [ ] The dashboard correctly identifies if the player has the required "offered" Pokémon in their collection.
 - [ ] The UI adheres to the "tactical hardware" design system.
-- [ ] Story Owner: Break down this Epic into executable Stories.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break down this Epic into executable Stories.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-350-676-in-game-trade-dashboard-core-ui
+- [ ] story-350-677-in-game-trade-collection-cross-reference
+- [ ] story-350-678-in-game-trade-dashboard-e2e

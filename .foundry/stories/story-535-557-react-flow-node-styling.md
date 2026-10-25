@@ -2,10 +2,10 @@
 id: story-535-557-react-flow-node-styling
 type: STORY
 title: Dynamic Heatmap Node Styling
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-10-10'
+updated_at: '2026-10-24'
 depends_on:
   - story-535-556-heatmap-toggle-ui
 jules_session_id: null
@@ -28,6 +28,6 @@ Apply dynamic styling (colors, borders, gradients) to the React Flow nodes based
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this Story down into Task nodes.
-- [ ] task-557-668-heatmap-node-styling-types
-- [ ] task-557-669-heatmap-node-styling-ui
-- [ ] task-557-670-heatmap-node-styling-qa
+- [x] task-557-668-heatmap-node-styling-types
+- [x] task-557-669-heatmap-node-styling-ui
+- [x] task-557-670-heatmap-node-styling-qa

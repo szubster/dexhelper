@@ -4,10 +4,15 @@ import type { BoxDiffResult } from './boxDiff';
 import { calculateMovePlan } from './movePlanner';
 
 describe('movePlanner', () => {
-  const createMockPokemon = (hash: string, box: number, slot: number): PokemonInstance =>
+  const createMockPokemon = (
+    hash: string,
+    box: number,
+    slot: number,
+    storageLocation = `Box ${box}`,
+  ): PokemonInstance =>
     ({
       hash,
-      storageLocation: `Box ${box}`,
+      storageLocation,
       slot,
       speciesName: 'Bulbasaur',
       speciesId: 1,
@@ -104,6 +109,26 @@ describe('movePlanner', () => {
     ]);
   });
 
+  it('handles non-standard storageLocation fallback to -1 in extractBoxSlot', () => {
+    const pokemonWithNonBoxLocation = createMockPokemon('Party1', 0, 0, 'Party');
+    const pokemonWithoutSlot = {
+      ...createMockPokemon('NoSlot', 1, 1),
+      slot: undefined,
+    } as unknown as PokemonInstance;
+
+    const diff: BoxDiffResult = {
+      additions: [pokemonWithNonBoxLocation],
+      removals: [pokemonWithoutSlot],
+      relocations: [],
+    };
+
+    const plan = calculateMovePlan(diff);
+    expect(plan).toEqual([
+      { type: 'WITHDRAW', sourceBox: 1, sourceSlot: -1, targetBox: -1, targetSlot: -1 },
+      { type: 'DEPOSIT', sourceBox: -1, sourceSlot: -1, targetBox: -1, targetSlot: 0 },
+    ]);
+  });
+
   it('handles cycle resolutions (3+ Pokémon)', () => {
     const diff: BoxDiffResult = {
       additions: [],
@@ -141,6 +166,28 @@ describe('movePlanner', () => {
     expect(plan).toEqual([
       { type: 'MOVE', sourceBox: 1, sourceSlot: 1, targetBox: -1, targetSlot: -1 },
       { type: 'MOVE', sourceBox: 1, sourceSlot: 3, targetBox: 1, targetSlot: 1 },
+      { type: 'MOVE', sourceBox: 1, sourceSlot: 2, targetBox: 1, targetSlot: 3 },
+      { type: 'MOVE', sourceBox: -1, sourceSlot: -1, targetBox: 1, targetSlot: 2 },
+    ]);
+  });
+
+  it('handles large 4-node cycle resolutions', () => {
+    const diff: BoxDiffResult = {
+      additions: [],
+      removals: [],
+      relocations: [
+        { pokemon: createMockPokemon('A', 1, 2), sourceBox: 1, sourceSlot: 1, targetBox: 1, targetSlot: 2 },
+        { pokemon: createMockPokemon('B', 1, 3), sourceBox: 1, sourceSlot: 2, targetBox: 1, targetSlot: 3 },
+        { pokemon: createMockPokemon('C', 1, 4), sourceBox: 1, sourceSlot: 3, targetBox: 1, targetSlot: 4 },
+        { pokemon: createMockPokemon('D', 1, 1), sourceBox: 1, sourceSlot: 4, targetBox: 1, targetSlot: 1 },
+      ],
+    };
+
+    const plan = calculateMovePlan(diff);
+    expect(plan).toEqual([
+      { type: 'MOVE', sourceBox: 1, sourceSlot: 1, targetBox: -1, targetSlot: -1 },
+      { type: 'MOVE', sourceBox: 1, sourceSlot: 4, targetBox: 1, targetSlot: 1 },
+      { type: 'MOVE', sourceBox: 1, sourceSlot: 3, targetBox: 1, targetSlot: 4 },
       { type: 'MOVE', sourceBox: 1, sourceSlot: 2, targetBox: 1, targetSlot: 3 },
       { type: 'MOVE', sourceBox: -1, sourceSlot: -1, targetBox: 1, targetSlot: 2 },
     ]);
@@ -188,6 +235,24 @@ describe('movePlanner', () => {
     expect(plan).toEqual([
       { type: 'MOVE', sourceBox: 1, sourceSlot: 2, targetBox: 1, targetSlot: 3 },
       { type: 'MOVE', sourceBox: 1, sourceSlot: 1, targetBox: 1, targetSlot: 2 },
+    ]);
+  });
+
+  it('handles multiple incoming moves feeding into a vacated path', () => {
+    const diff: BoxDiffResult = {
+      additions: [],
+      removals: [],
+      relocations: [
+        // 1:1 -> 1:3, 1:2 -> 1:1
+        { pokemon: createMockPokemon('A', 1, 1), sourceBox: 1, sourceSlot: 1, targetBox: 1, targetSlot: 3 },
+        { pokemon: createMockPokemon('B', 1, 2), sourceBox: 1, sourceSlot: 2, targetBox: 1, targetSlot: 1 },
+      ],
+    };
+
+    const plan = calculateMovePlan(diff);
+    expect(plan).toEqual([
+      { type: 'MOVE', sourceBox: 1, sourceSlot: 1, targetBox: 1, targetSlot: 3 },
+      { type: 'MOVE', sourceBox: 1, sourceSlot: 2, targetBox: 1, targetSlot: 1 },
     ]);
   });
 

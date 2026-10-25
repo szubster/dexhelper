@@ -2,10 +2,10 @@
 id: task-478-691-orchestrator-cloning-qa-retry-4
 type: TASK
 title: QA Verification for DAG Node Cloning Logic (Retry 4)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-15'
-updated_at: '2026-10-17'
+updated_at: '2026-10-23'
 depends_on:
   - task-478-690-orchestrator-cloning-tests-retry-4
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-478-688-orchestrator-cloning-logic-retry-4
 notes: ''
 locks: []
 ---

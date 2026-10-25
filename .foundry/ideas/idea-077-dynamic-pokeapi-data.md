@@ -3,9 +3,9 @@ id: idea-077-dynamic-pokeapi-data
 type: IDEA
 title: Parse items and moveset PPs from repository data during build
 status: PENDING
-owner_persona: product_manager
+owner_persona: curator
 created_at: '2026-06-12'
-updated_at: '2026-06-13'
+updated_at: '2026-10-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Parse items and moveset PPs from repository data during build
@@ -33,4 +34,7 @@ Currently, memory offsets, base move PPs, and authoritative item lists are manua
 ## Benefits
 - Removes large static data tables from the repository.
 - Improves scalability for future generations of Pokémon data.
-- [ ] .foundry/prds/prd-077-049-dynamic-pokedata-parsing.md
+
+## Acceptance Criteria
+- [ ] prd-077-049-dynamic-pokedata-parsing
+- [ ] research-077-717-dynamic-pokedata-bundle-splitting-integration

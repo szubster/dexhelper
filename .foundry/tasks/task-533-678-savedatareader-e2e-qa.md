@@ -2,21 +2,21 @@
 id: task-533-678-savedatareader-e2e-qa
 type: TASK
 title: QA SaveDataReader E2E and Integration Tests
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-10'
-updated_at: '2026-10-17'
+updated_at: '2026-10-24'
 depends_on:
   - task-533-676-savedatareader-integration-tests
   - task-533-677-savedatareader-e2e-tests
-jules_session_id: '5482913230199958035'
+jules_session_id: null
 parent: story-521-533-savedatareader-e2e
 tags:
   - qa
   - testing
   - e2e
   - integration
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 locks: []
 ---
@@ -30,3 +30,6 @@ Perform Quality Assurance verification on the integration and E2E tests for the 
 - [ ] Verify that integration tests accurately test the core workflow using stubbed buffer files.
 - [ ] Verify that E2E tests validate the full application integration flow for reading save data.
 - [ ] Ensure all tests pass reliably (`pnpm test` and `pnpm test:e2e`).
+
+### QA Failure Note
+Rejected `task-533-677-savedatareader-e2e-tests`. The implemented E2E tests bypass the application UI and simply unit test the `SaveDataReader` class directly.

@@ -2,10 +2,10 @@
 id: story-421-528-bash-static-analysis-linter-e2e
 type: STORY
 title: E2E Verification of Bash Static Analysis Linter
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-04T05:51:36Z'
-updated_at: '2026-10-17'
+updated_at: '2026-10-25'
 depends_on:
   - story-421-527-bash-static-analysis-linter-integration
 jules_session_id: null
@@ -34,5 +34,5 @@ Perform integration and E2E verification to ensure infinite-blocking commands li
 
 ## Acceptance Criteria
 - [x] Break down this story into tasks.
-- [ ] task-528-683-bash-linter-e2e-tests
-- [ ] task-528-684-bash-linter-e2e-qa
+- [x] task-528-683-bash-linter-e2e-tests
+- [x] task-528-684-bash-linter-e2e-qa

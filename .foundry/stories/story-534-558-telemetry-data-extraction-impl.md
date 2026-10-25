@@ -2,10 +2,10 @@
 id: story-534-558-telemetry-data-extraction-impl
 type: STORY
 title: Implement Telemetry Data Extraction
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-10-16'
+updated_at: '2026-10-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -20,7 +20,6 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
-confidence_score: 100
 ---
 
 # Implement Telemetry Data Extraction
@@ -30,7 +29,7 @@ Implement the extraction and structuring of node telemetry data (rejection count
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks
-- [ ] task-558-680-telemetry-extraction-logic
-- [ ] task-558-681-telemetry-generator-update
-- [ ] task-558-682-telemetry-extraction-tests
-- [ ] task-558-683-telemetry-extraction-qa
+- [x] task-558-680-telemetry-extraction-logic
+- [x] task-558-681-telemetry-generator-update
+- [x] task-558-682-telemetry-extraction-tests
+- [x] task-558-683-telemetry-extraction-qa
