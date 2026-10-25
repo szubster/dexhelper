@@ -22,7 +22,7 @@ locks: []
 Verify that the end-to-end integration test suite for the core archival cleanup engine accurately covers the 90-day pruning rule, high-value node retention, and 50-file chunking limits.
 
 ## Acceptance Criteria
-- [ ] Verify the test suite successfully and deterministically passes.
-- [ ] Verify the test suite covers the pruning of nodes older than 90 days.
-- [ ] Verify the test suite covers the retention of high-value nodes (ADR, PRD, RESEARCH).
-- [ ] Verify the test suite covers the deletion chunking limit (max 50 files per run).
+- [x] Verify the test suite successfully and deterministically passes.
+- [x] Verify the test suite covers the pruning of nodes older than 90 days.
+- [x] Verify the test suite covers the retention of high-value nodes (ADR, PRD, RESEARCH).
+- [x] Verify the test suite covers the deletion chunking limit (max 50 files per run).
