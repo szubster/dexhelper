@@ -2,13 +2,13 @@
 id: task-521-684-gen1-parser-integration-e2e-qa
 type: TASK
 title: Gen 1 Parser Integration E2E QA Verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-13'
-updated_at: '2026-10-24'
+updated_at: '2026-10-25'
 depends_on:
   - task-521-683-gen1-parser-integration-e2e-impl
-jules_session_id: '17925495711902481627'
+jules_session_id: null
 pr_number: null
 parent: story-521-522-gen1-parser-integration-e2e
 tags:

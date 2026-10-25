@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-24T22:02:26.844Z*
+*Generated at: 2026-10-25T00:38:50.815Z*
 
 ## Node Statistics
 
@@ -18,21 +18,21 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3358 |
-| ACTIVE | 151 |
-| CANCELLED | 833 |
-| PENDING | 778 |
-| READY | 18 |
+| COMPLETED | 3361 |
+| ACTIVE | 154 |
+| CANCELLED | 836 |
+| PENDING | 776 |
+| READY | 8 |
 | BLOCKED | 14 |
-| FAILED | 6 |
+| FAILED | 9 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9959 |
-| Open PRs | 167 |
-| Merged PRs | 8635 |
+| Total PRs | 9966 |
+| Open PRs | 170 |
+| Merged PRs | 8639 |
 | Closed PRs | 1157 |
 
 ## Rejection Counts
@@ -310,6 +310,7 @@
 | task-638-666-extract-constants-to-core-retry.md | 3 |
 | task-638-669-extract-constants-to-core-v3.md | 3 |
 | task-638-691-extract-constants-to-core-v4.md | 3 |
+| task-638-717-extract-constants-to-core-v6.md | 3 |
 | task-639-641-extract-base-save-parsers.md | 3 |
 | task-639-641-extract-data-generation-scripts.md | 3 |
 | task-639-658-migrate-buttons-impl.md | 3 |
@@ -511,12 +512,12 @@
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
-| task-638-717-extract-constants-to-core-v6.md | 2 |
 | task-639-688-migrate-buttons-impl-v4.md | 2 |
 | task-639-689-migrate-badges-impl-v4.md | 2 |
 | task-639-690-migrate-inputs-leds-impl-v4.md | 2 |
 | task-645-691-dashboard-metrics-integration-e2e-impl-retry-2.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
+| task-649-702-priority-dispatch-coder.md | 2 |
 | task-676-712-fuzzer-deadlock-assertions-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
@@ -760,6 +761,7 @@
 | research-470-558-japanese-gen2-offsets.md | 1 |
 | research-477-506-gen3-mystery-gift-event-flag-offsets.md | 1 |
 | research-478-676-investigate-kurt-apricorn-types-failure.md | 1 |
+| research-478-703-investigate-kurt-apricorn-core-logic-failure.md | 1 |
 | research-479-608-investigate-gen3-pokeblock-e2e-failure.md | 1 |
 | research-494-495-gen3-egg-hatch-fixture.md | 1 |
 | research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |
@@ -806,6 +808,7 @@
 | story-513-537-gen3-berry-serialization-and-api.md | 1 |
 | story-517-537-gen3-weather-anomaly-data-e2e.md | 1 |
 | story-517-551-implement-deletion-chunking.md | 1 |
+| story-521-533-savedatareader-e2e.md | 1 |
 | story-525-640-relocate-foundry-scripts.md | 1 |
 | story-526-638-extract-constants.md | 1 |
 | story-526-639-extract-parsers.md | 1 |
@@ -1014,9 +1017,9 @@
 | task-640-642-extract-core-domain-logic.md | 1 |
 | task-640-653-relocate-foundry-scripts-replacement.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
-| task-649-702-priority-dispatch-coder.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
+| task-679-711-pokeblock-state-access-layer-impl.md | 1 |
 
 ## Wait Times
 

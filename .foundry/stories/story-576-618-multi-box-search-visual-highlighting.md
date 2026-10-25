@@ -2,13 +2,13 @@
 id: story-576-618-multi-box-search-visual-highlighting
 type: STORY
 title: Multi-Box Search Visual Highlighting
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-23'
-updated_at: '2026-10-24'
+updated_at: '2026-10-25'
 depends_on:
   - story-576-617-multi-box-search-ui-components
-jules_session_id: '16770609922560178241'
+jules_session_id: null
 pr_number: null
 parent: epic-566-576-multi-box-search-ui
 tags:
@@ -17,7 +17,7 @@ tags:
   - search
   - pc-box
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

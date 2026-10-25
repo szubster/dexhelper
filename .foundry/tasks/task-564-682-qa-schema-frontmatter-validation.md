@@ -2,19 +2,19 @@
 id: task-564-682-qa-schema-frontmatter-validation
 type: TASK
 title: QA Schema Linter Frontmatter Validation
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-10-12'
-updated_at: '2026-10-24'
+updated_at: '2026-10-25'
 depends_on:
   - task-564-681-implement-enum-strictness-validation
-jules_session_id: '14755585442982613632'
+jules_session_id: null
 parent: story-555-564-lint-schema-frontmatter-validation
 tags:
   - qa
   - linting
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

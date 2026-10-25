@@ -2,13 +2,13 @@
 id: task-563-691-save-file-progress-e2e-coder-retry
 type: TASK
 title: Implement Save File Progress E2E Tests (Retry)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-16T21:00:50.586Z'
-updated_at: '2026-10-24'
+updated_at: '2026-10-25'
 depends_on:
   - research-563-690-investigate-save-file-progress-e2e-failure
-jules_session_id: '14135306686257899751'
+jules_session_id: null
 pr_number: null
 parent: story-556-563-e2e-tests-save-file-progress-tracking
 tags:
@@ -17,7 +17,7 @@ tags:
   - integration
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
