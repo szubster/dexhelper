@@ -2,7 +2,7 @@
 id: story-567-676-pokedex-grid-e2e-integration
 type: STORY
 title: Pokedex Grid E2E Integration tests
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-17'
 updated_at: '2026-10-25'
@@ -32,5 +32,5 @@ Ensure that PokedexGrid properly integrates and passes its end-to-end integratio
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-676-716-pokedex-grid-e2e-integration
-- [ ] task-676-717-qa-pokedex-grid-e2e-integration
+- [x] task-676-716-pokedex-grid-e2e-integration
+- [x] task-676-717-qa-pokedex-grid-e2e-integration

@@ -2,10 +2,10 @@
 id: epic-346-517-archival-cleanup-core-engine
 type: EPIC
 title: Archival Cleanup Core Engine
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-10-10'
+updated_at: '2026-10-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,9 +32,9 @@ Develop the core pruning logic for the Archival Cleanup & Incremental Node Reten
 - Implement chunking logic to limit deletions to a maximum of 50 nodes per run, prioritizing the oldest files.
 
 ## Acceptance Criteria
-- [ ] Implement node age determination and filtering logic.
-- [ ] Implement chunking limit (max 50 deletions) based on oldest eligible files.
+- [x] Implement node age determination and filtering logic.
+- [x] Implement chunking limit (max 50 deletions) based on oldest eligible files.
 - [x] Ensure EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-517-550-implement-node-age-filtering
-- [ ] story-517-551-implement-deletion-chunking
-- [ ] story-517-552-archival-cleanup-core-e2e
+- [x] story-517-550-implement-node-age-filtering
+- [x] story-517-551-implement-deletion-chunking
+- [x] story-517-552-archival-cleanup-core-e2e

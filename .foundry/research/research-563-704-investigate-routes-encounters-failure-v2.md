@@ -2,7 +2,7 @@
 id: research-563-704-investigate-routes-encounters-failure-v2
 type: RESEARCH
 title: 'Investigate Routes, Encounters, and Drop Rates Data Fetching Failure (v2)'
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-18'
 updated_at: '2026-10-25'
@@ -14,8 +14,8 @@ tags:
   - dexhelper
   - data
 research_references: []
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

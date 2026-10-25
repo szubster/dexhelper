@@ -2,7 +2,7 @@
 id: research-559-704-investigate-query-formulation-failure
 type: RESEARCH
 title: Investigate Query Formulation Logic Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-18'
 updated_at: '2026-10-25'
@@ -12,8 +12,8 @@ parent: story-534-559-rag-dynamic-querying-retrieval
 tags:
   - query
   - investigation
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 ---
 

@@ -2,10 +2,10 @@
 id: epic-340-421-e2e-verification
 type: EPIC
 title: Bundle and Data splitting E2E Verification
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-08-13'
-updated_at: '2026-08-13'
+updated_at: '2026-10-25'
 depends_on:
   - epic-340-417-engine-code-splitting
   - epic-340-418-ui-component-splitting
@@ -19,6 +19,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # EPIC: Bundle and Data splitting E2E Verification
 

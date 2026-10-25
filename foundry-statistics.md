@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-25T17:58:17.495Z*
+*Generated at: 2026-10-25T21:20:41.398Z*
 
 ## Node Statistics
 
@@ -18,20 +18,20 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3383 |
-| ACTIVE | 156 |
-| CANCELLED | 851 |
-| PENDING | 776 |
+| COMPLETED | 3386 |
+| ACTIVE | 157 |
+| CANCELLED | 855 |
+| PENDING | 769 |
 | BLOCKED | 14 |
-| FAILED | 4 |
-| READY | 3 |
+| READY | 4 |
+| FAILED | 2 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9998 |
-| Open PRs | 173 |
+| Total PRs | 10000 |
+| Open PRs | 175 |
 | Merged PRs | 8666 |
 | Closed PRs | 1159 |
 
@@ -769,11 +769,14 @@
 | research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |
 | research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
+| research-527-712-investigate-safari-zone-area-map-failure-v3.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
+| research-559-704-investigate-query-formulation-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
+| research-563-704-investigate-routes-encounters-failure-v2.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
 | research-564-690-investigate-gen3-pokedex-gaps-ui-failure.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
