@@ -13,6 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
 
+## [0.28.0] - 2026-04-12
+### Changed
+- Migrate package manager from `npm` to `pnpm`, updating setup instructions in `README.md`.
+- Enhance performance of Assistant suggestion engine by optimizing Pokemon instance lookups.
+- Improve accessibility of Pokemon catch probability component by adding missing ARIA attributes and focus states.
+
+### Fixed
+- Fix missing Generation 2 specific evolution conditions (time of day and stats) in the Assistant.
+
 ## [0.27.0] - 2026-04-11
 ### Changed
 - Improve Assistant evolution suggestion logic to dynamically suggest evolutions based on missing final-stage evolutions, considering both Party and PC storage, as well as inventory items.
@@ -353,3 +362,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.26.0]: https://github.com/szubster/dexhelper/compare/a19062bfa5babacd61b75ef13b5115d63c620c81...eee0a28dd252701243ddbcb259b987a947d7afb0
 [0.26.1]: https://github.com/szubster/dexhelper/compare/eee0a28dd252701243ddbcb259b987a947d7afb0...ae6a6a4361c2085f7d8cf13300045933367ab0f8
 [0.27.0]: https://github.com/szubster/dexhelper/compare/ae6a6a4361c2085f7d8cf13300045933367ab0f8...8c9667bddf112cc9f7de96ef0698e183e7153886
+[0.28.0]: https://github.com/szubster/dexhelper/compare/f5ca16255b8b52e07426a27723b7d2a10a3193ce...1cf13ad37fddbdb3d46ab5f515a02c5c8614b28a
