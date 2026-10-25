@@ -1,4 +1,4 @@
-import type React from 'react';
+import React from 'react';
 import type { DecorationItem } from '../../features/decorations/types';
 import { TacticalBadge } from '../TacticalBadge';
 
@@ -6,7 +6,9 @@ export interface DecorationItemCardProps {
   item: DecorationItem;
 }
 
-export const DecorationItemCard: React.FC<DecorationItemCardProps> = ({ item }) => {
+// ⚡ Bolt: Wrapped DecorationItemCard in React.memo to prevent unnecessary re-renders across decoration list items
+// when parent dashboard updates without the item's state changing.
+export const DecorationItemCard: React.FC<DecorationItemCardProps> = React.memo(({ item }) => {
   return (
     <div
       className={`flex flex-col border border-dashed p-2 text-xs ${
@@ -38,4 +40,6 @@ export const DecorationItemCard: React.FC<DecorationItemCardProps> = ({ item }) 
       </div>
     </div>
   );
-};
+});
+
+DecorationItemCard.displayName = 'DecorationItemCard';
