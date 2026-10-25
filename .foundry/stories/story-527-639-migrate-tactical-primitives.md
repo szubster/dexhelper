@@ -46,8 +46,13 @@ Migrate simple tactical UI components (Buttons, Badges, Inputs, Leds) to the `@d
 - [x] task-639-689-migrate-badges-impl-v4
 - [x] task-639-690-migrate-inputs-leds-impl-v4
 - [x] task-639-691-migrate-primitives-qa-v4
-- [ ] research-639-721-investigate-primitives-migration-failures-v4
-- [ ] task-639-722-migrate-buttons-impl-v5
-- [ ] task-639-723-migrate-badges-impl-v5
-- [ ] task-639-724-migrate-inputs-leds-impl-v5
-- [ ] task-639-725-migrate-primitives-qa-v5
+- [x] research-639-721-investigate-primitives-migration-failures-v4
+- [x] task-639-722-migrate-buttons-impl-v5
+- [x] task-639-723-migrate-badges-impl-v5
+- [x] task-639-724-migrate-inputs-leds-impl-v5
+- [x] task-639-725-migrate-primitives-qa-v5
+- [ ] research-639-726-investigate-primitives-migration-failures-v5
+- [ ] task-639-727-migrate-buttons-impl-v6
+- [ ] task-639-728-migrate-badges-impl-v6
+- [ ] task-639-729-migrate-inputs-leds-impl-v6
+- [ ] task-639-730-migrate-primitives-qa-v6
