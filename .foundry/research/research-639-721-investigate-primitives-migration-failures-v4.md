@@ -26,5 +26,13 @@ locks: []
 Investigate the root cause of the permanent failures encountered during the migration of tactical primitives to the `@dexhelper/ui` package. Determine missing dependencies, test failures, or architectural issues blocking the migration.
 
 ## Acceptance Criteria
-- [ ] Determine the cause of the failures in the previous migration attempts.
-- [ ] Document findings and formulate a strategy to successfully migrate the UI components without regressions.
+- [x] Determine the cause of the failures in the previous migration attempts.
+- [x] Document findings and formulate a strategy to successfully migrate the UI components without regressions.
+
+### Findings:
+The permanent failures in the v4 migration attempts (`task-639-688`, `task-639-689`, `task-639-690`) were false permanent failures caused by an Autonomous No-Ask Policy Violation (`AWAITING_USER_FEEDBACK`). The tasks were terminated by the orchestrator after waiting on user feedback instead of performing actions autonomously.
+There are no architectural or dependency constraints blocking the migration.
+
+### Strategy:
+1. Instruct the coder in the replacement tasks (v5) to strictly follow the autonomous NO-ASK policy.
+2. Complete the implementation autonomously.
