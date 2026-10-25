@@ -31,22 +31,39 @@ export const PokemonSprite = React.memo(function PokemonSprite({
   onError,
 }: PokemonSpriteProps) {
   const genConfig = getGenerationConfig(generation);
+  const primaryUrl = genConfig.spriteUrl(pokemonId, isShiny);
+  const fallbackUrl = genConfig.fallbackSpriteUrl(pokemonId);
+
+  const [prevPrimaryUrl, setPrevPrimaryUrl] = React.useState<string>(primaryUrl);
+  const [imgSrc, setImgSrc] = React.useState<string>(primaryUrl);
+  const [hasFailedFallback, setHasFailedFallback] = React.useState<boolean>(false);
+
+  if (primaryUrl !== prevPrimaryUrl) {
+    setPrevPrimaryUrl(primaryUrl);
+    setImgSrc(primaryUrl);
+    setHasFailedFallback(false);
+  }
 
   const handleError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    // Fallback to official artwork if generation-specific sprite fails
-    e.currentTarget.src = genConfig.fallbackSpriteUrl(pokemonId);
-    // Call custom error handler if provided
-    onError?.(e);
+    if (imgSrc !== fallbackUrl && !hasFailedFallback) {
+      setImgSrc(fallbackUrl);
+      onError?.(e);
+    } else if (!hasFailedFallback) {
+      setHasFailedFallback(true);
+      setImgSrc('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>');
+      onError?.(e);
+    }
   };
 
   return (
     <img
-      src={genConfig.spriteUrl(pokemonId, isShiny)}
+      src={imgSrc}
       alt={alt ?? `Pokémon #${pokemonId}`}
       className={`pixelated ${className}`}
       style={{ imageRendering: 'pixelated', ...style }}
       loading={loading}
       onError={handleError}
+      crossOrigin="anonymous"
     />
   );
 });
