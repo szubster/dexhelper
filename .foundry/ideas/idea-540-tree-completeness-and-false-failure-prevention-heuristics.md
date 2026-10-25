@@ -31,4 +31,5 @@ Analysis of recent TPM, Curator, and Researcher session logs revealed two key or
 - Enforce whole-DAG-tree terminal status validation before allowing macro nodes to transition to `VERIFYING`.
 
 ## Acceptance Criteria
-- [ ] Draft PRD proposing Orchestrator heuristics for infrastructure crash recovery and sub-tree completeness validation
+- [x] Draft PRD proposing Orchestrator heuristics for infrastructure crash recovery and sub-tree completeness validation
+- [ ] prd-540-726-tree-completeness-and-false-failure-prevention-heuristics
