@@ -32,6 +32,8 @@ Verify the integration and functionality of the new lightweight `DagTree` UI com
 3. Validate that DAG visualization correctly matches the backend Foundry state.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks to write E2E tests.
+- [ ] task-538-721-dagtree-e2e-tests-coder
+- [ ] task-538-722-dagtree-e2e-tests-qa
+- [x] Break down into Tasks to write E2E tests.
 - [ ] Update Playwright E2E locators for DAG visualization.
 - [ ] Ensure all DAG expand/collapse user interactions are covered in tests.
