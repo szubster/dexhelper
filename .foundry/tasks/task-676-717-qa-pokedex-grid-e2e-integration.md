@@ -2,13 +2,13 @@
 id: task-676-717-qa-pokedex-grid-e2e-integration
 type: TASK
 title: QA Pokedex Grid E2E Integration tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-22'
 updated_at: '2026-10-25'
 depends_on:
   - task-676-716-pokedex-grid-e2e-integration
-jules_session_id: null
+jules_session_id: '15229124693136592247'
 pr_number: null
 parent: story-567-676-pokedex-grid-e2e-integration
 tags:
