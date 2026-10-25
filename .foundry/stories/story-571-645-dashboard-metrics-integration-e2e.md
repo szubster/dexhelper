@@ -40,6 +40,9 @@ Based on epic-565-571-agent-confidence-metrics-dashboard-ui, we need to add e2e 
 - [x] research-645-687-investigate-dashboard-metrics-e2e-failure
 - [x] task-645-688-dashboard-metrics-integration-e2e-impl-retry
 - [x] task-645-689-qa-dashboard-metrics-integration-e2e-retry
-- [ ] research-645-690-investigate-dashboard-metrics-e2e-failure-retry
-- [ ] task-645-691-dashboard-metrics-integration-e2e-impl-retry-2
-- [ ] task-645-692-qa-dashboard-metrics-integration-e2e-retry-2
+- [x] research-645-690-investigate-dashboard-metrics-e2e-failure-retry
+- [x] task-645-691-dashboard-metrics-integration-e2e-impl-retry-2
+- [x] task-645-692-qa-dashboard-metrics-integration-e2e-retry-2
+- [ ] research-645-721-investigate-dashboard-metrics-e2e-failure-retry-2
+- [ ] task-645-722-dashboard-metrics-integration-e2e-impl-retry-3
+- [ ] task-645-723-qa-dashboard-metrics-integration-e2e-retry-3
