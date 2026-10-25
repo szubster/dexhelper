@@ -2,18 +2,18 @@
 id: research-559-704-investigate-query-formulation-failure
 type: RESEARCH
 title: Investigate Query Formulation Logic Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-18'
 updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: '12596810656064689522'
+jules_session_id: null
 parent: story-534-559-rag-dynamic-querying-retrieval
 tags:
   - query
   - investigation
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 locks: []
 ---
 

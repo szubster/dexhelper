@@ -2,12 +2,12 @@
 id: research-527-712-investigate-safari-zone-area-map-failure-v3
 type: RESEARCH
 title: Investigate Safari Zone Area Map Failure V3
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2024-05-24'
 updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: '9048577097066040377'
+jules_session_id: null
 pr_number: null
 parent: story-325-527-safari-zone-area-highlighting
 tags:
@@ -16,7 +16,7 @@ tags:
   - react
   - safari-zone
 research_references: []
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: FAILED'
 ---
 
 # Investigate Safari Zone Area Map Failure V3

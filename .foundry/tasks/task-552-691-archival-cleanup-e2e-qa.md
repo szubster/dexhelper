@@ -2,13 +2,13 @@
 id: task-552-691-archival-cleanup-e2e-qa
 type: TASK
 title: QA Archival Cleanup E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-16T00:17:43.559Z'
 updated_at: '2026-10-25'
 depends_on:
   - task-552-690-archival-cleanup-e2e-tests
-jules_session_id: '511445117965618137'
+jules_session_id: null
 parent: story-517-552-archival-cleanup-core-e2e
 tags:
   - e2e

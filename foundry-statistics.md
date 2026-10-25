@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-25T14:40:24.776Z*
+*Generated at: 2026-10-25T17:58:17.495Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3375 |
-| ACTIVE | 153 |
-| CANCELLED | 849 |
-| PENDING | 780 |
+| COMPLETED | 3383 |
+| ACTIVE | 156 |
+| CANCELLED | 851 |
+| PENDING | 776 |
 | BLOCKED | 14 |
-| READY | 12 |
 | FAILED | 4 |
+| READY | 3 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9991 |
-| Open PRs | 170 |
-| Merged PRs | 8663 |
-| Closed PRs | 1158 |
+| Total PRs | 9998 |
+| Open PRs | 173 |
+| Merged PRs | 8666 |
+| Closed PRs | 1159 |
 
 ## Rejection Counts
 
@@ -134,6 +134,7 @@
 | research-477-611-investigate-apricorn-failure-v2.md | 3 |
 | research-478-638-investigate-cloning-logic-failure.md | 3 |
 | research-478-668-investigate-locking-failure.md | 3 |
+| research-478-703-investigate-kurt-apricorn-core-logic-failure.md | 3 |
 | research-485-471-source-gen1-gen2-saves-manually.md | 3 |
 | research-490-604-investigate-other-gen1-personas-failure.md | 3 |
 | research-490-676-investigate-badge-injection-failure.md | 3 |
@@ -408,7 +409,6 @@
 | research-472-675-investigate-e2e-tests-failure-v2.md | 2 |
 | research-473-638-investigate-condition-stats-parser-failure-v2.md | 2 |
 | research-478-676-investigate-locking-failure-retry.md | 2 |
-| research-478-703-investigate-kurt-apricorn-core-logic-failure.md | 2 |
 | research-517-668-investigate-orchestrator-generic-prompt-failure.md | 2 |
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
 | research-521-703-gen3-submodules-constants-failure.md | 2 |
@@ -779,8 +779,10 @@
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
+| research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
+| research-676-721-investigate-fuzzer-deadlock-assertions-failure.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
 | story-061-473-mirage-island-engine-e2e.md | 1 |
 | story-081-121-gen3-tv-block-dataview-parser.md | 1 |
@@ -1006,6 +1008,7 @@
 | task-574-659-archival-file-move-automation-qa.md | 1 |
 | task-575-691-archival-tree-completeness-e2e-tests.md | 1 |
 | task-578-589-visualizer-state-refactor.md | 1 |
+| task-579-687-react-flow-visualizer-e2e-tests.md | 1 |
 | task-580-595-gen3-friendship-data-extraction-e2e-coder.md | 1 |
 | task-580-649-gen3-fossil-schema-docs-impl.md | 1 |
 | task-581-658-pokedex-grid-virtualization-e2e-impl.md | 1 |
@@ -1038,7 +1041,10 @@
 | task-550-687-generator-architecture-e2e-qa.md | 76809600000 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
+| research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76377600000 |
 | story-325-527-safari-zone-area-highlighting.md | 76377600000 |
+| task-527-713-safari-zone-area-map-ui-v4.md | 76377600000 |
+| task-527-714-safari-zone-area-highlighting-qa-v4.md | 76377600000 |
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |
 | task-528-677-safari-zone-bounty-board-ui.md | 75945600000 |
 | epic-339-406-jules-agent-skins.md | 75859200000 |
@@ -1076,6 +1082,3 @@
 | idea-055-cloudflare-sync-and-future-features.md | 63244800000 |
 | task-323-331-pokerus-strain-ui-impl.md | 63244800000 |
 | idea-136-split-bundles-and-data.md | 63244800000 |
-| prd-121-336-gen3-mystery-gift-viewer.md | 63244800000 |
-| idea-121-gen3-mystery-gift-viewer.md | 63072000000 |
-| story-009-033-atomic-handoff-testing-e2e.md | 56937600000 |
