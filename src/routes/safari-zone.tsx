@@ -1,9 +1,9 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import { createFileRoute } from '@tanstack/react-router';
 import { ShieldAlert } from 'lucide-react';
 import React, { Suspense } from 'react';
 import { EmptyState } from '../components/EmptyState';
 import { useSafariZoneSelection } from '../components/safari-zone/useSafariZoneSelection';
-import { TacticalBadge } from '../components/TacticalBadge';
 import { useStore } from '../store';
 
 const SafariZoneEncountersList = React.lazy(() => import('../components/safari-zone/SafariZoneEncountersList'));

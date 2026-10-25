@@ -1,3 +1,4 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import { Link } from '@tanstack/react-router';
 import { Fish, Moon, Sun, Sunrise, Target, Trees, Waves } from 'lucide-react';
 import React from 'react';
@@ -5,7 +6,6 @@ import type { EncounterDetail } from '../../engine/assistant/strategies/types';
 import type { SaveData } from '../../engine/saveParser/index';
 import { getGenerationConfig } from '../../utils/generationConfig';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
-import { TacticalBadge } from '../TacticalBadge';
 
 // ⚡ Bolt: Wrap in React.memo to prevent unnecessary re-renders when parent AssistantSuggestionCard re-renders
 export const CatchMethodSection = React.memo(function CatchMethodSection({

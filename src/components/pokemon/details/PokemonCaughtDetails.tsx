@@ -1,3 +1,4 @@
+import { PokerusBadge, TacticalBadge } from '@dexhelper/ui';
 import { Activity, Dna, MapPin, Sparkles } from 'lucide-react';
 import React from 'react';
 import { useParsedSaveData } from '../../../contexts/EmulatorContext';
@@ -9,10 +10,8 @@ import { getTimeCapsuleValidation } from '../../../utils/timeCapsule';
 import { CornerCrosshairs } from '../../CornerCrosshairs';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
-import { PokerusBadge } from '../../PokerusBadge';
 import { SectionHeader } from '../../SectionHeader';
 import { SubDataPoint } from '../../SubDataPoint';
-import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 
 const ContestConditionStats = React.lazy(() =>

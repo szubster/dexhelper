@@ -1,3 +1,4 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import { AlertTriangle, ArrowUpCircle, Check, ChevronRight, Heart, RadioReceiver, Target, X } from 'lucide-react';
 import React from 'react';
 import { stadiumRewardsData } from '../../../engine/data/shared/staticData';
@@ -5,7 +6,6 @@ import type { SaveData } from '../../../engine/saveParser/index';
 import { cn } from '../../../utils/cn';
 import { DataLabel } from '../../DataLabel';
 import { InlineLink } from '../../InlineLink';
-import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalBlockHeader } from '../../TacticalBlockHeader';
 import { TacticalNode } from '../../TacticalNode';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
