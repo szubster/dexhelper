@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.1.8] - 2026-04-16
+### Changed
+- Bumped actions/setup-node from v4 to v6 in CI workflows.
+- Bumped pnpm/action-setup from v3 to v6 in CI workflows.
+
 ## [0.1.7] - 2026-04-14
 ### Changed
 - Removed redundant file paths from CI workflows.
@@ -47,3 +52,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.1.1]: https://github.com/szubster/dexhelper/compare/38365f3...02aa931
 
 [0.1.7]: https://github.com/szubster/dexhelper/compare/6b868d0...c307662
+[0.1.8]: https://github.com/szubster/dexhelper/compare/c307662...98ea107
