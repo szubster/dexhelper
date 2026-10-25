@@ -1,5 +1,6 @@
 import type React from 'react';
 import { useState } from 'react';
+import { Gen3EventFlags } from './Gen3EventFlags/Gen3EventFlags';
 import { SubDataPoint } from './SubDataPoint';
 import { TacticalBadge } from './TacticalBadge';
 import { TacticalButton } from './TacticalButton';
@@ -15,6 +16,12 @@ export const TacticalKitchenSink: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-4 p-4">
+      {/* Gen3 Event Flags */}
+      <div className="flex flex-col gap-2 border border-zinc-800 p-2">
+        <h3 className="font-mono text-[10px] text-zinc-500">Gen 3 Event Flags</h3>
+        <Gen3EventFlags eonTicket={true} mysticTicket={false} auroraTicket={true} oldSeaMap={false} />
+      </div>
+
       {/* Badges */}
       <TacticalBadge variant="primary" id="badge-primary">
         Primary
