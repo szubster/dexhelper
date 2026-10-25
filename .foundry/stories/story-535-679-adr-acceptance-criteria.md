@@ -32,4 +32,8 @@ Following the research on Acceptance Criteria usage, we need to formalize the de
 - The ADR should detail the distinction between parent node requirements and leaf node requirements.
 
 ## Acceptance Criteria
-- [ ] tech_lead: Break this story down into tasks, including creating the ADR node.
+- [x] tech_lead: Break this story down into tasks, including creating the ADR node.
+- [ ] adr-679-726-acceptance-criteria-structure
+- [ ] task-679-727-schema-updates-adr-034
+- [ ] task-679-728-orchestrator-updates-adr-034
+- [ ] task-679-729-acceptance-criteria-qa
