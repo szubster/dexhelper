@@ -2,7 +2,7 @@
 id: idea-540-tree-completeness-and-false-failure-prevention-heuristics
 type: IDEA
 title: Tree Completeness and False Failure Prevention Heuristics
-status: FAILED
+status: READY
 owner_persona: product_manager
 created_at: '2026-10-25T04:30:00Z'
 updated_at: '2026-10-25'
@@ -14,8 +14,8 @@ tags:
   - orchestrator
   - process-improvement
   - dag-health
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 ---
 
 # Tree Completeness and False Failure Prevention Heuristics

@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-25T10:16:07.610Z*
+*Generated at: 2026-10-25T14:40:24.776Z*
 
 ## Node Statistics
 
@@ -11,29 +11,29 @@
 | EPIC | 513 |
 | IDEA | 234 |
 | PRD | 216 |
-| RESEARCH | 317 |
+| RESEARCH | 320 |
 | STORY | 1078 |
-| TASK | 2769 |
+| TASK | 2782 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3371 |
-| ACTIVE | 159 |
-| CANCELLED | 846 |
-| PENDING | 767 |
+| COMPLETED | 3375 |
+| ACTIVE | 153 |
+| CANCELLED | 849 |
+| PENDING | 780 |
 | BLOCKED | 14 |
-| FAILED | 3 |
-| READY | 11 |
+| READY | 12 |
+| FAILED | 4 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9985 |
-| Open PRs | 179 |
-| Merged PRs | 8649 |
-| Closed PRs | 1157 |
+| Total PRs | 9991 |
+| Open PRs | 170 |
+| Merged PRs | 8663 |
+| Closed PRs | 1158 |
 
 ## Rejection Counts
 
@@ -292,6 +292,7 @@
 | task-563-582-map-data-extraction-logic.md | 3 |
 | task-563-667-routes-encounters-data-fetching-impl.md | 3 |
 | task-563-677-routes-encounters-data-fetching-retry.md | 3 |
+| task-563-691-save-file-progress-e2e-coder-retry.md | 3 |
 | task-564-571-gen3-pokedex-gaps-ui-impl.md | 3 |
 | task-564-581-pokeblock-e2e-fixtures.md | 3 |
 | task-564-587-gen2-room-decoration-e2e-tests.md | 3 |
@@ -510,7 +511,6 @@
 | task-563-669-gen3-wild-item-data-parsing-logic-retry.md | 2 |
 | task-563-675-complexity-validation-tests-retry.md | 2 |
 | task-563-680-gen2-bag-inventory-parsing-impl.md | 2 |
-| task-563-691-save-file-progress-e2e-coder-retry.md | 2 |
 | task-564-565-gen3-trainer-card-e2e-tests.md | 2 |
 | task-564-604-pokemon-held-item-tracker-qa.md | 2 |
 | task-564-680-thief-covet-ui-integration-components.md | 2 |
@@ -736,6 +736,7 @@
 | idea-532-e2e-dependency-validator-lint.md | 1 |
 | idea-537-artifact-presence-precommit-validator.md | 1 |
 | idea-538-context-provider-root-wiring-linter.md | 1 |
+| idea-540-tree-completeness-and-false-failure-prevention-heuristics.md | 1 |
 | prd-064-035-smart-route-radar.md | 1 |
 | prd-068-038-mirage-island-data-extraction.md | 1 |
 | prd-069-038-mirage-island-predictor.md | 1 |
@@ -822,6 +823,7 @@
 | story-534-559-rag-dynamic-querying-retrieval.md | 1 |
 | story-535-556-heatmap-toggle-ui.md | 1 |
 | story-535-557-react-flow-node-styling.md | 1 |
+| story-535-679-adr-acceptance-criteria.md | 1 |
 | story-536-540-benchmarking-ts7-toolchains.md | 1 |
 | story-536-541-benchmarking-node-native-execution.md | 1 |
 | story-536-542-migration-orchestration-plan.md | 1 |
@@ -1036,8 +1038,8 @@
 | task-550-687-generator-architecture-e2e-qa.md | 76809600000 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
+| story-325-527-safari-zone-area-highlighting.md | 76377600000 |
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |
-| story-325-527-safari-zone-area-highlighting.md | 75945600000 |
 | task-528-677-safari-zone-bounty-board-ui.md | 75945600000 |
 | epic-339-406-jules-agent-skins.md | 75859200000 |
 | task-528-676-safari-zone-bounty-board-data.md | 75859200000 |

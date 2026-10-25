@@ -2,19 +2,19 @@
 id: research-478-703-investigate-kurt-apricorn-core-logic-failure
 type: RESEARCH
 title: Investigate Kurt Apricorn Core Logic Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-18'
 updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: '8343001303002114878'
+jules_session_id: null
 pr_number: null
 parent: story-404-478-kurt-apricorn-parsing-logic
 tags:
   - gen2
   - failure-investigation
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

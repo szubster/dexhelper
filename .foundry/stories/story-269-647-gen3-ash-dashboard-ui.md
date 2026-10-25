@@ -2,10 +2,10 @@
 id: story-269-647-gen3-ash-dashboard-ui
 type: STORY
 title: 'Story: Gen 3 Volcanic Ash Tracker Dashboard UI Implementation'
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-03T19:33:53.000Z'
-updated_at: '2026-10-14'
+updated_at: '2026-10-25'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,9 +31,9 @@ Implement the Gen 3 Volcanic Ash Tracker Dashboard UI within DexHelper. The dash
 - No PokeAPI dependency.
 
 ## Acceptance Criteria
-- [ ] Implement the UI components for the Ash Tracker.
-- [ ] Write integration E2E tests for the new UI.
+- [x] Implement the UI components for the Ash Tracker.
+- [x] Write integration E2E tests for the new UI.
 - [x] Break down this Story into TASK nodes for coder and qa.
-- [ ] task-647-673-gen3-ash-dashboard-ui-impl
-- [ ] task-647-674-gen3-ash-dashboard-e2e
-- [ ] task-647-675-gen3-ash-dashboard-qa
+- [x] task-647-673-gen3-ash-dashboard-ui-impl
+- [x] task-647-674-gen3-ash-dashboard-e2e
+- [x] task-647-675-gen3-ash-dashboard-qa

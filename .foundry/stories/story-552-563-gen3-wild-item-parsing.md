@@ -2,10 +2,10 @@
 id: story-552-563-gen3-wild-item-parsing
 type: STORY
 title: Gen 3 Wild Encounter and Held Item Parsing
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-11'
+updated_at: '2026-10-25'
 depends_on: []
 jules_session_id: '13650363231904470815'
 pr_number: null
@@ -36,7 +36,7 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 - [x] task-563-578-gen3-wild-item-data-parsing-logic
 - [x] task-563-579-gen3-wild-item-data-parsing-tests
 - [x] task-563-580-gen3-wild-item-data-parsing-qa
-- [ ] research-563-668-investigate-wild-item-parsing-failure
-- [ ] task-563-669-gen3-wild-item-data-parsing-logic-retry
-- [ ] task-563-670-gen3-wild-item-data-parsing-tests-retry
-- [ ] task-563-671-gen3-wild-item-data-parsing-qa-retry
+- [x] research-563-668-investigate-wild-item-parsing-failure
+- [x] task-563-669-gen3-wild-item-data-parsing-logic-retry
+- [x] task-563-670-gen3-wild-item-data-parsing-tests-retry
+- [x] task-563-671-gen3-wild-item-data-parsing-qa-retry

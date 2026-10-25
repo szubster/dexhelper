@@ -2,10 +2,10 @@
 id: epic-038-062-mirage-island-ui
 type: EPIC
 title: Gen 3 Mirage Island Predictor UI Updates
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-08'
-updated_at: '2026-09-07'
+updated_at: '2026-10-25'
 depends_on:
   - epic-038-061-mirage-island-engine
 jules_session_id: null
@@ -16,9 +16,9 @@ tags:
   - mirage-island
   - rng
 research_references: []
+rejection_reason: ''
 notes: ''
 locks: []
-rejection_reason: ''
 ---
 
 # Gen 3 Mirage Island Predictor UI Updates
@@ -36,8 +36,8 @@ If a match is found, highlight exactly which Pokémon it is and which PC Box it 
 Must adhere strictly to the "tactical hardware/snooping" aesthetic (`rounded-none`, dashed borders, monospace fonts) as defined in ADR 008.
 
 ## Acceptance Criteria
-- [ ] Add tracker view or notification for Mirage Island status.
-- [ ] Display matching Pokémon information (name, PC Box).
-- [ ] Apply "tactical hardware/snooping" aesthetic constraints (`rounded-none`, dashed borders, monospace fonts).
-- [ ] story-062-546-implement-mirage-island-tracker
-- [ ] story-062-547-mirage-island-ui-integration-e2e
+- [x] Add tracker view or notification for Mirage Island status.
+- [x] Display matching Pokémon information (name, PC Box).
+- [x] Apply "tactical hardware/snooping" aesthetic constraints (`rounded-none`, dashed borders, monospace fonts).
+- [x] story-062-546-implement-mirage-island-tracker
+- [x] story-062-547-mirage-island-ui-integration-e2e

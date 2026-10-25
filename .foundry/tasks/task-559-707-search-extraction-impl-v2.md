@@ -2,10 +2,10 @@
 id: task-559-707-search-extraction-impl-v2
 type: TASK
 title: Implement Search and Chunk Extraction Logic (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-25'
 depends_on:
   - task-559-705-query-formulation-impl-v2
 jules_session_id: null

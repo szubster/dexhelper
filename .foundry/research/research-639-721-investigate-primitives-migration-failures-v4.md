@@ -2,12 +2,12 @@
 id: research-639-721-investigate-primitives-migration-failures-v4
 type: RESEARCH
 title: Investigate Primitives Migration Failures (v4)
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-25'
 updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: '8415220326060417398'
+jules_session_id: null
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
 tags:
@@ -15,7 +15,7 @@ tags:
   - components
   - research
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
