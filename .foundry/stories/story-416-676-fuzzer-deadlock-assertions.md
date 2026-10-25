@@ -2,10 +2,10 @@
 id: story-416-676-fuzzer-deadlock-assertions
 type: STORY
 title: Fuzzer Deadlock Detection Assertions
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-16T13:00:51.663Z'
-updated_at: '2026-10-24'
+updated_at: '2026-10-25'
 depends_on: []
 jules_session_id: null
 pr_number: null

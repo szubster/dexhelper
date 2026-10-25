@@ -2,7 +2,7 @@
 id: task-564-682-qa-schema-frontmatter-validation
 type: TASK
 title: QA Schema Linter Frontmatter Validation
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-10-12'
 updated_at: '2026-10-25'
@@ -13,8 +13,8 @@ parent: story-555-564-lint-schema-frontmatter-validation
 tags:
   - qa
   - linting
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

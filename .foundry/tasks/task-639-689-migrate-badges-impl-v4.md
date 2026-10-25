@@ -2,7 +2,7 @@
 id: task-639-689-migrate-badges-impl-v4
 type: TASK
 title: Migrate Tactical Badges Implementation (v4)
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-14'
 updated_at: '2026-10-25'
@@ -14,8 +14,8 @@ parent: story-527-639-migrate-tactical-primitives
 tags:
   - react
   - components
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---

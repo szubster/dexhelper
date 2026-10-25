@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-25T00:38:50.815Z*
+*Generated at: 2026-10-25T05:27:30.559Z*
 
 ## Node Statistics
 
@@ -18,21 +18,21 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3361 |
-| ACTIVE | 154 |
-| CANCELLED | 836 |
-| PENDING | 776 |
-| READY | 8 |
+| COMPLETED | 3364 |
+| ACTIVE | 161 |
+| CANCELLED | 838 |
+| PENDING | 771 |
 | BLOCKED | 14 |
-| FAILED | 9 |
+| FAILED | 7 |
+| READY | 3 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9966 |
-| Open PRs | 170 |
-| Merged PRs | 8639 |
+| Total PRs | 9979 |
+| Open PRs | 182 |
+| Merged PRs | 8640 |
 | Closed PRs | 1157 |
 
 ## Rejection Counts
@@ -317,6 +317,9 @@
 | task-639-659-migrate-badges-impl.md | 3 |
 | task-639-660-migrate-inputs-leds-impl.md | 3 |
 | task-639-674-extract-data-generation-scripts-v4.md | 3 |
+| task-639-688-migrate-buttons-impl-v4.md | 3 |
+| task-639-689-migrate-badges-impl-v4.md | 3 |
+| task-639-690-migrate-inputs-leds-impl-v4.md | 3 |
 | task-640-641-relocate-foundry-scripts.md | 3 |
 | task-640-646-extract-core-domain-logic-replacement.md | 3 |
 | task-640-659-extract-utils-to-core.md | 3 |
@@ -326,7 +329,9 @@
 | task-641-659-migrate-hexstream-telemetry.md | 3 |
 | task-645-668-dashboard-metrics-integration-e2e-impl.md | 3 |
 | task-645-669-tactical-aesthetics-e2e-base-qa.md | 3 |
+| task-645-691-dashboard-metrics-integration-e2e-impl-retry-2.md | 3 |
 | task-674-700-migrate-pokedex-e2e-tests-coder.md | 3 |
+| task-676-712-fuzzer-deadlock-assertions-impl.md | 3 |
 | epic-009-atomic-handoff-testing.md | 2 |
 | epic-014-025-enforce-persona-pipeline-handoffs.md | 2 |
 | epic-030-039-cloudflare-r2-save-sync.md | 2 |
@@ -503,6 +508,7 @@
 | task-563-669-gen3-wild-item-data-parsing-logic-retry.md | 2 |
 | task-563-675-complexity-validation-tests-retry.md | 2 |
 | task-563-680-gen2-bag-inventory-parsing-impl.md | 2 |
+| task-563-691-save-file-progress-e2e-coder-retry.md | 2 |
 | task-564-565-gen3-trainer-card-e2e-tests.md | 2 |
 | task-564-604-pokemon-held-item-tracker-qa.md | 2 |
 | task-564-680-thief-covet-ui-integration-components.md | 2 |
@@ -512,13 +518,8 @@
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
-| task-639-688-migrate-buttons-impl-v4.md | 2 |
-| task-639-689-migrate-badges-impl-v4.md | 2 |
-| task-639-690-migrate-inputs-leds-impl-v4.md | 2 |
-| task-645-691-dashboard-metrics-integration-e2e-impl-retry-2.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-649-702-priority-dispatch-coder.md | 2 |
-| task-676-712-fuzzer-deadlock-assertions-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -834,6 +835,7 @@
 | story-565-567-lazy-load-e2e-verification.md | 1 |
 | story-566-570-cva-theme-variables-e2e-verification.md | 1 |
 | story-568-644-cva-visual-regression-tests.md | 1 |
+| story-576-618-multi-box-search-visual-highlighting.md | 1 |
 | story-577-586-multi-box-integration-e2e.md | 1 |
 | task-094-157-moveset-inventory-validation-impl.md | 1 |
 | task-099-157-gen3-extract-pokemon-pids-impl.md | 1 |
@@ -992,9 +994,9 @@
 | task-563-594-gen3-pokeblock-optimizer-ui-components.md | 1 |
 | task-563-681-gen2-bag-inventory-parsing-qa.md | 1 |
 | task-563-682-gen3-bag-inventory-parsing-impl.md | 1 |
-| task-563-691-save-file-progress-e2e-coder-retry.md | 1 |
 | task-564-578-e2e-navigation-and-selection.md | 1 |
 | task-564-619-pokeblock-e2e-implementation-retry.md | 1 |
+| task-564-682-qa-schema-frontmatter-validation.md | 1 |
 | task-566-583-shoal-dashboard-layout.md | 1 |
 | task-566-584-shoal-ui-qa.md | 1 |
 | task-569-578-cva-refactor-tactical-panel-card.md | 1 |

@@ -2,12 +2,12 @@
 id: task-649-702-priority-dispatch-coder
 type: TASK
 title: priority orchestrator dispatch coder
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: '8463818234397793367'
+jules_session_id: null
 pr_number: null
 parent: story-531-649-priority-orchestrator-dispatch-impl
 tags:
@@ -15,7 +15,7 @@ tags:
   - scheduling
   - logic
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---

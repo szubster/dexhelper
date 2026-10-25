@@ -2,7 +2,7 @@
 id: task-639-688-migrate-buttons-impl-v4
 type: TASK
 title: Migrate Tactical Buttons Implementation (v4)
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-14'
 updated_at: '2026-10-25'
@@ -14,8 +14,8 @@ parent: story-527-639-migrate-tactical-primitives
 tags:
   - react
   - components
-rejection_count: 2
-rejection_reason: 'Session terminated with state: COMPLETED'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
