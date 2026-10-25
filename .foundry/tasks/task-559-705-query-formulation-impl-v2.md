@@ -2,13 +2,13 @@
 id: task-559-705-query-formulation-impl-v2
 type: TASK
 title: Implement Query Formulation Logic (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-25'
 depends_on:
   - research-559-704-investigate-query-formulation-failure
-jules_session_id: null
+jules_session_id: '14823929303917619686'
 parent: story-534-559-rag-dynamic-querying-retrieval
 tags:
   - query
