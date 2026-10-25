@@ -2,13 +2,13 @@
 id: epic-038-063-gen2-smart-filtering-forecasting
 type: EPIC
 title: Gen 2 Smart Filtering & Forecasting
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-06-07'
-updated_at: '2026-10-24'
+updated_at: '2026-10-25'
 depends_on:
   - epic-038-062-gen2-dynamic-checklist-ui
-jules_session_id: null
+jules_session_id: '7276142439636915520'
 pr_number: null
 parent: prd-069-038-gen2-daily-events
 tags:

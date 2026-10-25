@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [epic-038-063-gen2-smart-filtering-forecasting](.foundry/epics/epic-038-063-gen2-smart-filtering-forecasting.md) | EPIC | Gen 2 Smart Filtering & Forecasting | story_owner | [7276142439636915520](https://jules.google.com/session/7276142439636915520) |
 | [epic-045-398-gen3-secret-base-radar-integration-v3](.foundry/epics/epic-045-398-gen3-secret-base-radar-integration-v3.md) | EPIC | Gen 3 Secret Base Smart Route Radar Integration (v3) | story_owner | [2215876257629875026](https://jules.google.com/session/2215876257629875026) |
 | [epic-045-399-gen3-secret-base-dashboard-v3](.foundry/epics/epic-045-399-gen3-secret-base-dashboard-v3.md) | EPIC | Gen 3 Secret Base NPC Trainer Dashboard (v3) | story_owner | [4245006308863849997](https://jules.google.com/session/4245006308863849997) |
 | [epic-046-080-gen3-battle-frontier-data-integration](.foundry/epics/epic-046-080-gen3-battle-frontier-data-integration.md) | EPIC | Gen 3 Battle Frontier Data Integration | story_owner | [4151448448695639123](https://jules.google.com/session/4151448448695639123) |
