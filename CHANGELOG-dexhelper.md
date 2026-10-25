@@ -6,6 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.29.0] - 2026-04-15
+### Added
+- Localized evolution data architecture, Vite data plugin integration.
+- Aria-labels for icon-only buttons to improve accessibility.
+
+### Changed
+- Pre-computed mapping in StorageGrid to improve rendering performance.
+- React.memo for PokedexCard to avoid re-rendering.
+- Refactored save parser into modular files.
+
+### Fixed
+- Red/Blue starter catchable logic in suggestion engine.
+
+### Removed
+- Legacy stat and type UI components.
+
 ### Added
 - Added module-level constants for Gen 3 fossil offsets.
 - Added unit tests for Gen 3 fossil revival state constants in `src/engine/saveParser/gen3/fossil/constants.test.ts`.
@@ -363,3 +379,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.26.1]: https://github.com/szubster/dexhelper/compare/eee0a28dd252701243ddbcb259b987a947d7afb0...ae6a6a4361c2085f7d8cf13300045933367ab0f8
 [0.27.0]: https://github.com/szubster/dexhelper/compare/ae6a6a4361c2085f7d8cf13300045933367ab0f8...8c9667bddf112cc9f7de96ef0698e183e7153886
 [0.28.0]: https://github.com/szubster/dexhelper/compare/f5ca16255b8b52e07426a27723b7d2a10a3193ce...1cf13ad37fddbdb3d46ab5f515a02c5c8614b28a
+
+[0.29.0]: https://github.com/szubster/dexhelper/compare/1cf13ad37fddbdb3d46ab5f515a02c5c8614b28a...126e65d7c93cc154473e9bebaca1e599c163f006
