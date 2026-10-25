@@ -2,12 +2,12 @@
 id: story-531-649-priority-orchestrator-dispatch-impl
 type: STORY
 title: Priority-Based Dispatch in Orchestrator Implementation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-13'
 updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7217853635389167286'
 pr_number: null
 parent: epic-518-531-priority-orchestrator-dispatch
 tags:
