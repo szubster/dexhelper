@@ -23,6 +23,6 @@ locks: []
 The task `task-559-668-query-formulation-impl` reached its max rejection count and permanently failed. We need to investigate why this happened to unblock the dynamic querying logic.
 
 ## Acceptance Criteria
-- [ ] Investigate the rejection reasons for `task-559-668-query-formulation-impl`.
-- [ ] Determine the root cause of the failure.
-- [ ] Document findings and recommendations in the journal.
+- [x] Investigate the rejection reasons for `task-559-668-query-formulation-impl`.
+- [x] Determine the root cause of the failure.
+- [x] Document findings and recommendations in the journal.
