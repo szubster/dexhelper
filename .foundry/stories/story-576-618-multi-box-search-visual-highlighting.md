@@ -33,6 +33,11 @@ When searching or filtering through boxes, non-matching Pokémon should be visua
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into implementation tasks for the visual highlighting logic.
-- [ ] task-618-703-multi-box-search-highlight-impl
-- [ ] task-618-704-multi-box-search-highlight-tests
-- [ ] task-618-705-multi-box-search-highlight-qa
+- [x] task-618-703-multi-box-search-highlight-impl
+- [x] task-618-704-multi-box-search-highlight-tests
+- [x] task-618-705-multi-box-search-highlight-qa
+- [ ] research-618-721-highlight-failure-root-cause
+- [ ] task-618-722-highlight-state-layer
+- [ ] task-618-723-highlight-ui-presentation
+- [ ] task-618-724-highlight-tests
+- [ ] task-618-725-highlight-qa
