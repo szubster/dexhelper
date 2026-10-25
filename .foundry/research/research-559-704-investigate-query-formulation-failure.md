@@ -2,12 +2,12 @@
 id: research-559-704-investigate-query-formulation-failure
 type: RESEARCH
 title: Investigate Query Formulation Logic Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12596810656064689522'
 parent: story-534-559-rag-dynamic-querying-retrieval
 tags:
   - query
