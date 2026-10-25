@@ -5,7 +5,7 @@ title: Gen 3 TV Broadcast and Swarm Tracker Data Extraction
 status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-12'
-updated_at: '2026-10-12'
+updated_at: '2026-10-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,7 +17,7 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 3
-rejection_reason: Max rejection count reached
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

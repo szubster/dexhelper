@@ -2,10 +2,10 @@
 id: task-645-692-qa-dashboard-metrics-integration-e2e-retry-2
 type: TASK
 title: QA Verification for Confidence Metrics Dashboard E2E Tests (Retry 2)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-16T12:08:24.588Z'
-updated_at: '2026-10-17'
+updated_at: '2026-10-25'
 depends_on:
   - task-645-691-dashboard-metrics-integration-e2e-impl-retry-2
 jules_session_id: null
@@ -19,7 +19,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-645-691-dashboard-metrics-integration-e2e-impl-retry-2
 notes: ''
 locks: []
 priority: 60

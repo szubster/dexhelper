@@ -2,10 +2,10 @@
 id: story-521-522-gen1-parser-integration-e2e
 type: STORY
 title: Gen 1 Parser Refactor Integration and E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-17'
+updated_at: '2026-10-25'
 depends_on:
   - story-521-520-gen1-parser-refactor-core
   - story-521-521-gen1-utils-refactor
@@ -30,6 +30,6 @@ To finalize the refactoring of Gen 1 parsers for ADR 028, we must ensure that th
 
 ## Acceptance Criteria
 - [x] Decompose this Story into actionable Task nodes for verifying the Gen 1 save parser integration.
-- [ ] Ensure E2E tests for Gen 1 save parsing pass successfully.
-- [ ] task-521-683-gen1-parser-integration-e2e-impl
-- [ ] task-521-684-gen1-parser-integration-e2e-qa
+- [x] Ensure E2E tests for Gen 1 save parsing pass successfully.
+- [x] task-521-683-gen1-parser-integration-e2e-impl
+- [x] task-521-684-gen1-parser-integration-e2e-qa

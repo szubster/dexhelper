@@ -2,12 +2,12 @@
 id: task-552-682-curator-e2e-remediation-tests
 type: TASK
 title: Write E2E Tests for Curator Remediation Node Spawning
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-16'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '83551292390091272'
+jules_session_id: null
 parent: story-532-552-curator-integration-e2e-verification
 tags:
   - e2e
@@ -29,5 +29,5 @@ Write Playwright E2E tests to verify that the curator correctly spawns remediati
 - Assert correct metadata (parent, depends_on) in spawned nodes.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for remediation spawning
-- [ ] Ensure tests pass successfully
+- [x] Implement Playwright E2E tests for remediation spawning
+- [x] Ensure tests pass successfully

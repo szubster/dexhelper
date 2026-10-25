@@ -50,6 +50,20 @@ describe('getCompatiblePokemonForTMHM', () => {
   metadataMap.set(1, { id: 1, n: 'Bulbasaur', cr: 45, baby: false, eto: [], efrm: [], det: [], tm: [10, 20] });
   metadataMap.set(4, { id: 4, n: 'Charmander', cr: 45, baby: false, eto: [], efrm: [], det: [], tm: [20, 30] });
 
+  it('should return empty list if pokemonList is empty', () => {
+    const list: PokemonInstance[] = [];
+    const result = getCompatiblePokemonForTMHM(10, list, metadataMap);
+    expect(result).toHaveLength(0);
+  });
+
+  it('should handle missing metadata gracefully', () => {
+    const list: PokemonInstance[] = [
+      { speciesId: 999, level: 5, isShiny: false, moves: [50, 60], storageLocation: 'party', hash: '1' },
+    ];
+    const result = getCompatiblePokemonForTMHM(20, list, metadataMap);
+    expect(result).toHaveLength(0);
+  });
+
   it('should return pokemon that already know the move', () => {
     const list: PokemonInstance[] = [
       { speciesId: 1, level: 5, isShiny: false, moves: [10, 50, 60], storageLocation: 'party', hash: '1' },

@@ -301,7 +301,7 @@ export function PokemonDetails({
                 </div>
               </div>
 
-              <h2 className="mb-2 break-words break-all font-black font-display text-5xl text-white uppercase leading-none tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] sm:break-normal sm:text-6xl lg:text-7xl">
+              <h2 className="mb-2 break-words break-all font-black font-display text-3xl text-white uppercase leading-none tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] sm:break-normal sm:text-6xl lg:text-7xl">
                 {pokemonName}
               </h2>
 

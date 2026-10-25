@@ -2,13 +2,13 @@
 id: epic-516-532-e2e-verification
 type: EPIC
 title: E2E Verification of Scheduled Agents Issue Flow
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-07'
-updated_at: '2026-10-17'
+updated_at: '2026-10-20'
 depends_on:
   - epic-516-531-modify-scheduled-workflows
-jules_session_id: '5150304259109607505'
+jules_session_id: null
 pr_number: null
 parent: prd-419-516-scheduled-agents-dashboard
 tags:
@@ -35,4 +35,5 @@ To satisfy the Orchestrator Safeguard (E2E/Integration Requirement), we must ver
 - Verify that when the Jules PR merges, the issue is automatically closed natively.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down into STORY node(s) dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break down into STORY node(s) dedicated exclusively to Integration and E2E Verification.
+- [ ] story-532-676-scheduled-agents-issue-flow-e2e

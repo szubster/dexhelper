@@ -2,24 +2,25 @@
 id: task-563-685-inventory-diffing-logic-qa
 type: TASK
 title: Inventory Diffing Logic QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
-created_at: "2026-10-12"
-updated_at: "2026-10-12"
+created_at: '2026-10-12'
+updated_at: '2026-10-19'
 depends_on:
   - task-563-684-inventory-diffing-logic-impl
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-554-563-inventory-item-tracker
-priority: 50
-confidence_score: null
 tags:
   - dexhelper
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-563-682-gen3-bag-inventory-parsing-impl
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Inventory Diffing Logic QA

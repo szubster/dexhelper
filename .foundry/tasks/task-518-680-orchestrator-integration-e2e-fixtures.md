@@ -2,12 +2,12 @@
 id: task-518-680-orchestrator-integration-e2e-fixtures
 type: TASK
 title: Orchestrator Integration E2E Fixtures
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-17'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '10708579678940863063'
+jules_session_id: null
 pr_number: null
 parent: story-418-518-orchestrator-integration-e2e
 tags:
@@ -30,7 +30,7 @@ locks: []
 Create the necessary test fixtures representing valid base persona prompts, specific context layers, core system policies, and missing/invalid prompt fragments to be used in the orchestrator composite prompt generation E2E tests.
 
 ## Acceptance Criteria
-- [ ] Define fixture files or mocked file structures for a valid base persona prompt.
-- [ ] Define fixture files for specific context layers.
-- [ ] Define fixture files representing missing prompt fragments for testing fallback mechanisms.
-- [ ] Provide utility functions to load or mock these fixtures during testing.
+- [x] Define fixture files or mocked file structures for a valid base persona prompt.
+- [x] Define fixture files for specific context layers.
+- [x] Define fixture files representing missing prompt fragments for testing fallback mechanisms.
+- [x] Provide utility functions to load or mock these fixtures during testing.

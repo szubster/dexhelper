@@ -75,7 +75,7 @@ export const SearchAndFilters = React.memo(function SearchAndFilters() {
   };
 
   return (
-    <div className="sticky top-0 z-30 -mt-6 mb-6 border-[var(--theme-primary)]/30 border-b-2 border-dashed bg-zinc-950/95 px-4 pt-6 pb-4 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl">
+    <div className="relative z-30 mb-6 border-[var(--theme-primary)]/30 border-b-2 border-dashed bg-zinc-950/95 px-4 pt-6 pb-4 shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl">
       <TacticalPanel className="p-4 sm:p-6" variant="cyan">
         <TelemetryDecoration
           label="SYS.RECON_MATRIX"

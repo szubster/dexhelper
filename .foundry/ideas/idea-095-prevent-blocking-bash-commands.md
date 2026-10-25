@@ -2,12 +2,12 @@
 id: idea-095-prevent-blocking-bash-commands
 type: IDEA
 title: Automated Timeout Wrapper for Bash Sessions
-status: PENDING
-owner_persona: product_manager
+status: ACTIVE
+owner_persona: curator
 created_at: '2026-06-29'
-updated_at: '2026-07-01'
+updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17030325498781636017'
 pr_number: null
 parent: null
 tags:
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Automated Timeout Wrapper for Bash Sessions
@@ -35,4 +36,4 @@ To prevent this friction and improve the resilience of the Foundry ecosystem, we
 ## Acceptance Criteria
 - [x] Investigate the feasibility of wrapping bash execution with a timeout mechanism.
 - [x] Implement the timeout logic if feasible, or implement static analysis to reject commands containing known blocking flags (like `-f` on `tail`).
-- [ ] .foundry/prds/prd-095-057-prevent-blocking-bash-commands.md
+- [ ] prd-095-057-prevent-blocking-bash-commands

@@ -2,10 +2,10 @@
 id: epic-057-421-bash-static-analysis-linter-retry
 type: EPIC
 title: Static Analysis Linter for Bash Sessions (Retry)
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-09-07'
+updated_at: '2026-10-25'
 depends_on:
   - epic-057-420-bash-timeout-wrapper-retry
 jules_session_id: null
@@ -32,6 +32,6 @@ Implement a static analysis linter that optionally analyzes commands before exec
 
 ## Acceptance Criteria
 - [x] Break down this epic into stories.
-- [ ] story-421-526-bash-static-analysis-linter-impl
-- [ ] story-421-527-bash-static-analysis-linter-integration
-- [ ] story-421-528-bash-static-analysis-linter-e2e
+- [x] story-421-526-bash-static-analysis-linter-impl
+- [x] story-421-527-bash-static-analysis-linter-integration
+- [x] story-421-528-bash-static-analysis-linter-e2e

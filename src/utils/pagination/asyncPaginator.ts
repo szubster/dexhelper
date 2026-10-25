@@ -13,10 +13,11 @@ export class AsyncGeneratorPaginator<T> implements AsyncPaginator<T> {
 
     // Explicit resource management setup using 'Symbol.asyncDispose'
     let iterator: AsyncIterator<T>;
-    if (Symbol.asyncIterator in this.source) {
-      iterator = (this.source as AsyncIterable<T>)[Symbol.asyncIterator]();
-    } else if (typeof this.source === 'function') {
-      iterator = (this.source as () => AsyncGenerator<T>)();
+    const source = this.source;
+    if (typeof source === 'function') {
+      iterator = source();
+    } else if (typeof source === 'object' && source !== null && Symbol.asyncIterator in source) {
+      iterator = source[Symbol.asyncIterator]();
     } else {
       throw new Error('Invalid async iterable source provided to AsyncGeneratorPaginator.');
     }
