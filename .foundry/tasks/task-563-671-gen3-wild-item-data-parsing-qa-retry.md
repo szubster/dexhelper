@@ -33,5 +33,5 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 - Ensure all automated tests pass.
 
 ## Acceptance Criteria
-- [ ] Verify Gen 3 wild encounter locations and rates parsing.
-- [ ] Verify held item data and their respective drop rates for Gen 3 Pokémon.
+- [x] Verify Gen 3 wild encounter locations and rates parsing.
+- [x] Verify held item data and their respective drop rates for Gen 3 Pokémon.
