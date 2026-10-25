@@ -34,4 +34,7 @@ Currently, memory offsets, base move PPs, and authoritative item lists are manua
 ## Benefits
 - Removes large static data tables from the repository.
 - Improves scalability for future generations of Pokémon data.
-- [ ] .foundry/prds/prd-077-049-dynamic-pokedata-parsing.md
+
+## Acceptance Criteria
+- [ ] prd-077-049-dynamic-pokedata-parsing
+- [ ] research-077-717-dynamic-pokedata-bundle-splitting-integration
