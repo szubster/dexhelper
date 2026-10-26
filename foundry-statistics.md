@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-25T23:41:28.581Z*
+*Generated at: 2026-10-26T01:53:46.515Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3391 |
-| ACTIVE | 156 |
+| COMPLETED | 3390 |
+| ACTIVE | 159 |
 | CANCELLED | 855 |
-| PENDING | 765 |
+| PENDING | 764 |
 | BLOCKED | 14 |
-| FAILED | 5 |
-| READY | 4 |
+| READY | 6 |
+| FAILED | 2 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 174 |
-| Merged PRs | 8667 |
-| Closed PRs | 1159 |
+| Open PRs | 177 |
+| Merged PRs | 8665 |
+| Closed PRs | 1158 |
 
 ## Rejection Counts
 
@@ -412,8 +412,10 @@
 | research-517-668-investigate-orchestrator-generic-prompt-failure.md | 2 |
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
 | research-521-703-gen3-submodules-constants-failure.md | 2 |
+| research-527-712-investigate-safari-zone-area-map-failure-v3.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
+| research-563-704-investigate-routes-encounters-failure-v2.md | 2 |
 | research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
@@ -752,6 +754,7 @@
 | prd-113-114-gen3-pokeblock-stats-viewer.md | 1 |
 | prd-114-516-update-permanent-failure-dashboard-ui.md | 1 |
 | prd-535-586-false-permanent-failure-detection.md | 1 |
+| prd-540-726-tree-completeness-and-false-failure-prevention-heuristics.md | 1 |
 | research-246-244-gen3-box-parsing.md | 1 |
 | research-338-556-investigate-unown-parsing-timeout.md | 1 |
 | research-348-506-investigate-ui-impl-failure.md | 1 |
@@ -771,14 +774,12 @@
 | research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |
 | research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
-| research-527-712-investigate-safari-zone-area-map-failure-v3.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
 | research-559-704-investigate-query-formulation-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
-| research-563-704-investigate-routes-encounters-failure-v2.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
 | research-564-690-investigate-gen3-pokedex-gaps-ui-failure.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
@@ -1024,6 +1025,8 @@
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
+| task-639-722-migrate-buttons-impl-v5.md | 1 |
+| task-639-724-migrate-inputs-leds-impl-v5.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
 | task-640-653-relocate-foundry-scripts-replacement.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
@@ -1043,8 +1046,8 @@
 | task-550-685-generator-tree-traversals-e2e-impl.md | 76809600000 |
 | task-550-687-generator-architecture-e2e-qa.md | 76809600000 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
+| research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76464000000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
-| research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76377600000 |
 | story-325-527-safari-zone-area-highlighting.md | 76377600000 |
 | task-527-713-safari-zone-area-map-ui-v4.md | 76377600000 |
 | task-527-714-safari-zone-area-highlighting-qa-v4.md | 76377600000 |

@@ -2,12 +2,12 @@
 id: research-676-721-investigate-fuzzer-deadlock-assertions-failure
 type: RESEARCH
 title: Investigate Fuzzer Deadlock Assertions Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-25T05:43:39.000Z'
-updated_at: '2026-10-25'
+updated_at: '2026-10-26'
 depends_on: []
-jules_session_id: '3204216533835542148'
+jules_session_id: null
 pr_number: null
 parent: story-416-676-fuzzer-deadlock-assertions
 tags:
@@ -17,7 +17,7 @@ tags:
   - testing
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
