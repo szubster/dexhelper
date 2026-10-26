@@ -1,3 +1,5 @@
+import { formatVersionExclusiveReason } from './common';
+
 export const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
   red: [
     27,
@@ -44,20 +46,19 @@ export const GEN1_VERSION_EXCLUSIVES: Record<string, number[]> = {
   ],
 };
 
-export function getUnobtainableReason(
+/**
+ * Checks Gen 1 specific choice lockouts (starters, Eevee, hitmons, fossils, Yellow Raichu).
+ * Does not check general version exclusives.
+ */
+export function getGen1SpecialUnobtainableReason(
   pokemonId: number,
   gameVersion: string,
-  _ownedCount: number, // Total current caught count
   ownedSet: Set<number>,
 ): string | null {
   // Yellow specific - Raichu
   if (gameVersion === 'yellow' && pokemonId === 26 && !ownedSet.has(26)) {
     return `Starter Pikachu refuses Thunder Stone. Must be traded.`;
   }
-
-  // In Gen 1, you cannot breed. If you evolved your ONLY Bulbasaur into Ivysaur, you can NEVER get Bulbasaur again.
-  // We check this: if evaluating a base stage of a one-time choice, and we own an evolution, but NOT the base stage.
-  // E.g., evaluate Charmander (4). Owned: Charmeleon (5). Charmander NOT owned. -> Locked.
 
   const checkLineLock = (base: number, evos: number[]) => {
     if (pokemonId === base && !ownedSet.has(base) && evos.some((e) => ownedSet.has(e))) {
@@ -66,17 +67,12 @@ export function getUnobtainableReason(
 
     const evoIdx = evos.indexOf(pokemonId);
     if (base !== 133 && evoIdx !== -1 && !ownedSet.has(pokemonId)) {
-      // If intermediate stage is missing, and we own a later stage but not the base stage
       if (!ownedSet.has(base) && evos.some((e, i) => i > evoIdx && ownedSet.has(e))) {
         return `Pre-evolution missed. In Generation 1, you must trade to replace evolved one-time Pokémon.`;
       }
     }
 
     if (evos.length > 2 && evos.includes(pokemonId) && !ownedSet.has(pokemonId)) {
-      // Eevee branching logic vs Starter linear logic
-      // In Gen 1, Eevee (133) has 3 branches (134, 135, 136)
-      // Starters have linear evolutions (e.g. 1 -> 2 -> 3)
-      // Eevee's evolutions are all branches, so we can check if another evolution is owned
       if (base === 133) {
         if (!ownedSet.has(base) && evos.some((e) => e !== pokemonId && ownedSet.has(e))) {
           return `You evolved your one-time Pokémon into a different form. Must trade.`;
@@ -84,8 +80,6 @@ export function getUnobtainableReason(
       }
     }
 
-    // Also, if you picked the OTHER choice, you can't get this one.
-    // In Yellow, all three starters are obtainable, so they are not mutually exclusive choices.
     const allStarters = [1, 4, 7];
     if (
       gameVersion !== 'yellow' &&
@@ -93,7 +87,6 @@ export function getUnobtainableReason(
       !ownedSet.has(base) &&
       !evos.some((e) => ownedSet.has(e))
     ) {
-      // We do not own this starter line. Did we pick a different one?
       const otherBases = allStarters.filter((b) => b !== base);
       let ownOtherStarter = false;
       for (let i = 0; i < otherBases.length; i++) {
@@ -111,8 +104,6 @@ export function getUnobtainableReason(
       }
     }
 
-    // For hitmons: If evaluating 106, and you own 107 but not 106, it's locked.
-    // Actually, fossils and hitmons are mutually exclusive choices.
     return null;
   };
 
@@ -123,7 +114,6 @@ export function getUnobtainableReason(
     checkLineLock(133, [134, 135, 136]);
   if (lockObj) return lockObj;
 
-  // Mutually exclusive static choices
   const isHitmon = (id: number) => id === 106 || id === 107;
   if (isHitmon(pokemonId) && !ownedSet.has(pokemonId)) {
     const otherHitmon = pokemonId === 106 ? 107 : 106;
@@ -132,7 +122,7 @@ export function getUnobtainableReason(
     }
   }
 
-  const isFossil = (id: number) => id === 138 || id === 139 || id === 140 || id === 141; // Omanyte/star, Kabuto/tops
+  const isFossil = (id: number) => id === 138 || id === 139 || id === 140 || id === 141;
   if (isFossil(pokemonId) && !ownedSet.has(pokemonId)) {
     const otherFossilBase = pokemonId === 138 || pokemonId === 139 ? 140 : 138;
     const otherFossilEvo = pokemonId === 138 || pokemonId === 139 ? 141 : 139;
@@ -141,10 +131,22 @@ export function getUnobtainableReason(
     }
   }
 
-  // Version Exclusives
-  const exclusives = GEN1_VERSION_EXCLUSIVES[gameVersion] || [];
+  return null;
+}
+
+export function getUnobtainableReason(
+  pokemonId: number,
+  gameVersion: string,
+  _ownedCount: number,
+  ownedSet: Set<number>,
+): string | null {
+  const versionKey = gameVersion.toLowerCase();
+  const specialReason = getGen1SpecialUnobtainableReason(pokemonId, versionKey, ownedSet);
+  if (specialReason) return specialReason;
+
+  const exclusives = GEN1_VERSION_EXCLUSIVES[versionKey] || [];
   if (exclusives.includes(pokemonId) && !ownedSet.has(pokemonId)) {
-    return `This Pokémon is not available in ${gameVersion.charAt(0).toUpperCase() + gameVersion.slice(1)}. Must be traded from another version.`;
+    return formatVersionExclusiveReason(versionKey);
   }
 
   return null;

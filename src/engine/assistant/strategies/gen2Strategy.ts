@@ -1,6 +1,6 @@
 import type { UnifiedLocation } from '../../../db/schema';
 import { getGenerationConfig } from '../../../utils/generationConfig';
-import { getGen2UnobtainableReason } from '../../exclusives/gen2Exclusives';
+import { getUnobtainableReason } from '../../exclusives/index';
 import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen2Graph';
 import type { SaveData } from '../../saveParser/index';
 import {
@@ -39,7 +39,7 @@ export const gen2Strategy: AssistantStrategy = {
   },
 
   getUnobtainableReason(pokemonId: number, version: string, _ownedCount: number, ownedSet: Set<number>) {
-    return getGen2UnobtainableReason(pokemonId, version, _ownedCount, ownedSet);
+    return getUnobtainableReason(pokemonId, version, ownedSet, 2);
   },
 
   getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[] {
@@ -58,7 +58,6 @@ export const gen2Strategy: AssistantStrategy = {
       });
     }
 
-    // 1. Roamer tracking
     const roamers = [
       { id: SPECIES_RAIKOU, name: 'Raikou' },
       { id: SPECIES_ENTEI, name: 'Entei' },
@@ -66,10 +65,6 @@ export const gen2Strategy: AssistantStrategy = {
     ];
     suggestions.push(...getRoamerSuggestions(saveData, missingSet, roamers, saveData.gameVersion === 'crystal'));
 
-    // 2. Headbutt / Rock Smash
-    // TM08 (Rock Smash) is Item ID 198 (0xC6), TM02 (Headbutt) is Item ID 192 (0xC0)
-    // Actually, TMs are stored in TM pocket directly in Gen 2 parsed inventory as item IDs
-    // In Gen 2, these are single-use and do not require badges to use in the field.
     const allInstances = [...(saveData.partyDetails || []), ...(saveData.pcDetails || [])];
     const hasHeadbutt =
       saveData.inventory.some((i) => i.id === ITEM_HEADBUTT_GEN2 && i.quantity > 0) ||
@@ -102,7 +97,6 @@ export const gen2Strategy: AssistantStrategy = {
       });
     }
 
-    // Time-based tip since we skipped RTC parsing.
     suggestions.push({
       id: 'time-based-reminder',
       category: 'Utility',
@@ -112,7 +106,6 @@ export const gen2Strategy: AssistantStrategy = {
       priority: 50,
     });
 
-    // Tyrogue Stat-based Evolutions warning
     const tyrogueEvos = [SPECIES_HITMONLEE, SPECIES_HITMONCHAN, SPECIES_HITMONTOP];
     for (const evoId of tyrogueEvos) {
       if (missingSet.has(evoId) && !missingSet.has(SPECIES_TYROGUE)) {
@@ -123,7 +116,7 @@ export const gen2Strategy: AssistantStrategy = {
           description: `To evolve Tyrogue into ${evoId === SPECIES_HITMONLEE ? 'Hitmonlee' : evoId === SPECIES_HITMONCHAN ? 'Hitmonchan' : 'Hitmontop'}, its Attack must be ${evoId === SPECIES_HITMONLEE ? 'higher than' : evoId === SPECIES_HITMONCHAN ? 'lower than' : 'equal to'} its Defense at level 20!`,
           priority: 55,
         });
-        break; // Only show one general warning
+        break;
       }
     }
 
@@ -161,7 +154,6 @@ export const gen2Strategy: AssistantStrategy = {
   },
 
   isInternallyObtainable(baseId: number, _version: string): boolean {
-    // Gen 2 trade evolutions and mythicals
     const unobtainableInternally = new Set([
       SPECIES_ALAKAZAM,
       SPECIES_MACHAMP,
