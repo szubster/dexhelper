@@ -49,4 +49,6 @@ Implement two new heuristics in the Orchestrator (`packages/foundry/foundry-orch
 - Migrating the Orchestrator state machine to a different framework.
 
 ## Acceptance Criteria
-- [ ] Break down this PRD into Epics for Crash Recovery and Sub-Tree Completeness Validation.
+- [x] Break down this PRD into Epics for Crash Recovery and Sub-Tree Completeness Validation.
+- [ ] epic-726-728-crash-recovery-heuristic
+- [ ] epic-726-729-sub-tree-completeness-validator
