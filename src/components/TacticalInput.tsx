@@ -1,10 +1,9 @@
+import { CornerCrosshairs, TacticalIconButton } from '@dexhelper/ui';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { X } from 'lucide-react';
 import React from 'react';
 import { cn } from '../utils/cn';
-import { CornerCrosshairs } from './CornerCrosshairs';
 import { EdgeLabel } from './EdgeLabel';
-import { TacticalIconButton } from './TacticalIconButton';
 
 export const inputVariants = cva('tactical-input w-full', {
   variants: {

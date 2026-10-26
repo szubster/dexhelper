@@ -1,6 +1,6 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import React, { useMemo } from 'react';
 import type { SaveData } from '../engine/saveParser';
-import { CornerCrosshairs } from './CornerCrosshairs';
 import { ScanlineOverlay } from './ScanlineOverlay';
 
 interface RetroBackgroundProps {

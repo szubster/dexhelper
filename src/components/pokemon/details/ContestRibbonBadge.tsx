@@ -1,7 +1,7 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import { Award, ShieldAlert } from 'lucide-react';
 import React from 'react';
 import { cn } from '../../../utils/cn';
-import { CornerCrosshairs } from '../../CornerCrosshairs';
 import { DataLabel } from '../../DataLabel';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';

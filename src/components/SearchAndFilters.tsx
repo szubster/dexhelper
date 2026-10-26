@@ -1,10 +1,9 @@
-import { FilterBadge } from '@dexhelper/ui';
+import { CornerCrosshairs, FilterBadge } from '@dexhelper/ui';
 import { Crosshair, Fingerprint, Radio } from 'lucide-react';
 import React, { useMemo, useRef, useState, useTransition } from 'react';
 import { FILTER_TYPES, type FilterType, useStore } from '../store';
 import { cn } from '../utils/cn';
 import { ClearFiltersBadge } from './ClearFiltersBadge';
-import { CornerCrosshairs } from './CornerCrosshairs';
 import { EdgeLabel } from './EdgeLabel';
 import { HexStreamDecoration } from './HexStreamDecoration';
 import { HoverScanner } from './HoverScanner';

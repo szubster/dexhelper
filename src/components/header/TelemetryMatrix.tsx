@@ -1,5 +1,5 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import type { SaveData } from '../../engine/saveParser';
-import { CornerCrosshairs } from '../CornerCrosshairs';
 import { InlineDataPoint } from '../InlineDataPoint';
 import { RngTidSidDisplay } from '../RngTidSidDisplay';
 import { VerticalDivider } from '../VerticalDivider';

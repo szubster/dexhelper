@@ -1,6 +1,6 @@
+import { TacticalIconButton } from '@dexhelper/ui';
 import { Check, Copy } from 'lucide-react';
 import { useState } from 'react';
-import { TacticalIconButton } from './TacticalIconButton';
 
 export interface RngTidSidDisplayProps {
   tid: number;

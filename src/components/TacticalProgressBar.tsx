@@ -1,6 +1,6 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import React from 'react';
 import { cn } from '../utils/cn';
-import { CornerCrosshairs } from './CornerCrosshairs';
 import { ScanlineOverlay } from './ScanlineOverlay';
 
 export type TacticalProgressBarVariant = 'default' | 'emerald' | 'amber' | 'red' | 'blue' | 'purple';

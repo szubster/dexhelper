@@ -1,7 +1,7 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import { Check, CircleDot } from 'lucide-react';
 import React from 'react';
 import { cn } from '../utils/cn';
-import { CornerCrosshairs } from './CornerCrosshairs';
 import { LcdGrid } from './LcdGrid';
 
 export interface TacticalChecklistItemProps extends React.HTMLAttributes<HTMLDivElement> {
