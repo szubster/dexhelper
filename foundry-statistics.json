@@ -10,12 +10,11 @@
       "TASK": 2782
     },
     "byStatus": {
-      "COMPLETED": 3391,
+      "COMPLETED": 3393,
       "ACTIVE": 164,
       "CANCELLED": 860,
       "PENDING": 759,
-      "BLOCKED": 14,
-      "READY": 2
+      "BLOCKED": 14
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -9953,5 +9952,5 @@
     "mergedPRs": 8658,
     "closedPRs": 1157
   },
-  "timestamp": "2026-10-26T14:40:32.793Z"
+  "timestamp": "2026-10-26T20:16:20.969Z"
 }

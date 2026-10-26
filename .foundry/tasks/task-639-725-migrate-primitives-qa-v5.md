@@ -2,10 +2,10 @@
 id: task-639-725-migrate-primitives-qa-v5
 type: TASK
 title: QA for Tactical Primitives Migration (v5)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-10-26'
 depends_on:
   - task-639-722-migrate-buttons-impl-v5
   - task-639-723-migrate-badges-impl-v5
