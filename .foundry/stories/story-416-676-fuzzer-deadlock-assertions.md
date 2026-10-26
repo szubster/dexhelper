@@ -2,12 +2,12 @@
 id: story-416-676-fuzzer-deadlock-assertions
 type: STORY
 title: Fuzzer Deadlock Detection Assertions
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-16T13:00:51.663Z'
 updated_at: '2026-10-26'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2379554182722662974'
 pr_number: null
 parent: epic-341-416-orchestrator-fuzzer-ci
 tags:
