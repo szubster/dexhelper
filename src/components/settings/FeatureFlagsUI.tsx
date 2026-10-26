@@ -1,5 +1,5 @@
+import { TacticalButton } from '@dexhelper/ui';
 import { useFeatureFlagActions, useFeatureFlags } from '../../contexts/FeatureFlagContext';
-import { TacticalButton } from '../TacticalButton';
 
 export function FeatureFlagsUI() {
   const flags = useFeatureFlags();

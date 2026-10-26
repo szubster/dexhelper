@@ -9,3 +9,4 @@ export * from './TacticalLed';
 export * from './CornerCrosshairs';
 export * from './TacticalIconButton';
 export * from './EdgeLabel';
+export * from './TacticalButton';

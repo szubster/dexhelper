@@ -1,6 +1,6 @@
+import { TacticalButton } from '@dexhelper/ui';
 import { Trash2 } from 'lucide-react';
 import React from 'react';
-import { TacticalButton } from '../TacticalButton';
 
 export function ClearStorageButton({ onClear }: { onClear: () => void }) {
   const [isConfirming, setIsConfirming] = React.useState(false);

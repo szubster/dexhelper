@@ -26,6 +26,6 @@ locks: []
 Migrate tactical Buttons components to the `@dexhelper/ui` package.
 
 ## Acceptance Criteria
-- [ ] Tactical Buttons components are successfully migrated to the UI package.
-- [ ] Migration strategy determined by the research node is fully implemented.
-- [ ] Unit tests pass and no regressions are introduced.
+- [x] Tactical Buttons components are successfully migrated to the UI package.
+- [x] Migration strategy determined by the research node is fully implemented.
+- [x] Unit tests pass and no regressions are introduced.

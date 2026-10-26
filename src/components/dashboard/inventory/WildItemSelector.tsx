@@ -1,10 +1,9 @@
-import { TacticalInput } from '@dexhelper/ui';
+import { TacticalButton, TacticalInput } from '@dexhelper/ui';
 import { Search } from 'lucide-react';
 import React, { useEffect, useMemo, useState } from 'react';
 import { pokeDB } from '../../../db/PokeDB';
 import type { ItemMetadata } from '../../../db/schema';
 import { useStore } from '../../../store';
-import { TacticalButton } from '../../TacticalButton';
 import { TacticalChip } from '../../TacticalChip';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';

@@ -1,9 +1,9 @@
+import { TacticalButton } from '@dexhelper/ui';
 import { Download } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
 import type { SaveData } from '../../../engine/saveParser/parsers/common';
 import { renderCertificate } from '../../../utils/hof/render';
-import { TacticalButton } from '../../TacticalButton';
 import { TacticalChecklistItem } from '../../TacticalChecklistItem';
 import { TacticalHeaderDivider } from '../../TacticalHeaderDivider';
 import { TacticalPanel } from '../../TacticalPanel';

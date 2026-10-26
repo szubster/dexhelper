@@ -1,7 +1,7 @@
+import { TacticalButton } from '@dexhelper/ui';
 import { useEffect, useRef, useState } from 'react';
 import { MGBAWasmWrapper } from '../../emulator/mgba/MGBAWasmWrapper';
 import type { MGBAConfig } from '../../emulator/mgba/types';
-import { TacticalButton } from '../TacticalButton';
 
 interface MGBACanvasProps {
   romData: Uint8Array;

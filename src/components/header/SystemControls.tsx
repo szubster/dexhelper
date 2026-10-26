@@ -1,8 +1,7 @@
-import { CornerCrosshairs, TacticalFileInput } from '@dexhelper/ui';
+import { CornerCrosshairs, TacticalButton, TacticalFileInput } from '@dexhelper/ui';
 import { Activity, RefreshCw, Settings2, Zap } from 'lucide-react';
 import type React from 'react';
 import { cn } from '../../utils/cn';
-import { TacticalButton } from '../TacticalButton';
 import { VerticalDivider } from '../VerticalDivider';
 
 interface SystemControlsProps {

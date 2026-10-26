@@ -1,6 +1,6 @@
+import { TacticalButton } from '@dexhelper/ui';
 import React from 'react';
 import { cn } from '../utils/cn';
-import { TacticalButton } from './TacticalButton';
 
 interface ClearFiltersBadgeProps {
   isActive: boolean;

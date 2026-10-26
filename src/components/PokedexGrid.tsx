@@ -1,3 +1,4 @@
+import { TacticalButton } from '@dexhelper/ui';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { SearchX } from 'lucide-react';
 import React, { useMemo } from 'react';
@@ -8,7 +9,6 @@ import { getGenerationConfig } from '../utils/generationConfig';
 import type { PokemonListItem } from '../utils/pokemonQueries';
 import { usePokedexGridVirtualizer } from './hooks/usePokedexGridVirtualizer';
 import { PokedexCard } from './PokedexCard';
-import { TacticalButton } from './TacticalButton';
 import { TacticalPanel } from './TacticalPanel';
 
 export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] }) {
