@@ -1,5 +1,5 @@
 import type { UnifiedLocation } from '../../../db/schema';
-import { getGen3UnobtainableReason } from '../../exclusives/gen3Exclusives';
+import { getUnobtainableReason } from '../../exclusives/index';
 import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen3Graph';
 import type { SaveData } from '../../saveParser/index';
 import {
@@ -36,7 +36,7 @@ export const gen3Strategy: AssistantStrategy = {
   },
 
   getUnobtainableReason(pokemonId: number, version: string, _ownedCount: number, ownedSet: Set<number>) {
-    return getGen3UnobtainableReason(pokemonId, version, _ownedCount, ownedSet);
+    return getUnobtainableReason(pokemonId, version, ownedSet, 3);
   },
 
   getSpecialSuggestions(saveData: SaveData, missingIds: number[]): Suggestion[] {
