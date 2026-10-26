@@ -2,10 +2,10 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
-updated_at: '2026-10-25'
+updated_at: '2026-10-26'
 depends_on: []
 jules_session_id: null
 locks: []
@@ -29,982 +29,642 @@ Target commit batch (10 commits) injected by `changelog-engine.ts`:
 
 - **Batch Size:** 10
 - **Primary Domain:** dexhelper
-- **Suggested Overall SemVer Bump:** `major` (from `0.29.0` -> `1.0.0`)
-- **Range:** `126e65d...0cc9b04`
+- **Suggested Overall SemVer Bump:** `minor` (from `1.0.0` -> `1.1.0`)
+- **Range:** `6f834af...5898530`
 
 ## Commits in Batch
 
-### Commit 1: `c805d46`
-- **Commit SHA:** `c805d46515a939c3b4bbc62b8f362216484a8adb`
-- **Previous SHA:** `126e65d7c93cc154473e9bebaca1e599c163f006`
-- **Date:** `2026-04-15`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
-
-#### Message
-```text
-build(deps-dev): Bump @codecov/vite-plugin from 1.9.1 to 2.0.0 (#212)
-
-Bumps @codecov/vite-plugin from 1.9.1 to 2.0.0.
-<details>
-<summary>Maintainer changes</summary>
-<p>This version was pushed to npm by <a
-href="https://www.npmjs.com/~thomasrockhu">thomasrockhu</a>, a new
-releaser for <code>@​codecov/vite-plugin</code> since your current
-version.</p>
-</details>
-<br />
-
-
-[![Dependabot compatibility
-score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=@codecov/vite-plugin&package-manager=npm_and_yarn&previous-version=1.9.1&new-version=2.0.0)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
-
-Dependabot will resolve any conflicts with this PR as long as you don't
-alter it yourself. You can also trigger a rebase manually by commenting
-`@dependabot rebase`.
-
-[//]: # (dependabot-automerge-start)
-[//]: # (dependabot-automerge-end)
-
----
-
-<details>
-<summary>Dependabot commands and options</summary>
-<br />
-
-You can trigger Dependabot actions by commenting on this PR:
-- `@dependabot rebase` will rebase this PR
-- `@dependabot recreate` will recreate this PR, overwriting any edits
-that have been made to it
-- `@dependabot show <dependency name> ignore conditions` will show all
-of the ignore conditions of the specified dependency
-- `@dependabot ignore this major version` will close this PR and stop
-Dependabot creating any more for this major version (unless you reopen
-the PR or upgrade to it yourself)
-- `@dependabot ignore this minor version` will close this PR and stop
-Dependabot creating any more for this minor version (unless you reopen
-the PR or upgrade to it yourself)
-- `@dependabot ignore this dependency` will close this PR and stop
-Dependabot creating any more for this dependency (unless you reopen the
-PR or upgrade to it yourself)
-
-
-</details>
-
-Signed-off-by: dependabot[bot] <support@github.com>
-Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
-```
-
-#### Modified Files
-- `package.json`
-- `pnpm-lock.yaml`
-
-#### Diff Summary
-```text
-c805d4651 build(deps-dev): Bump @codecov/vite-plugin from 1.9.1 to 2.0.0 (#212)
- package.json   |  2 +-
- pnpm-lock.yaml | 18 +++++++++---------
- 2 files changed, 10 insertions(+), 10 deletions(-)
-```
-
-### Commit 2: `2efc03f`
-- **Commit SHA:** `2efc03f4f3a5451d1d56900f535db4bc12fc1bf6`
-- **Previous SHA:** `c805d46515a939c3b4bbc62b8f362216484a8adb`
-- **Date:** `2026-04-15`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
-
-#### Message
-```text
-feat: migrate map location script to TS and enforce strict type safety (#217)
-
-## Summary
-This PR completes the migration of the Map Locations generation script
-to TypeScript and enables a stricter project configuration by disabling
-JavaScript support in the source tree (`allowJs: false`).
-
-## Changes
-- **Migrated Script**: Ported `scripts/generateMapLocations.cjs` to
-`scripts/generateMapLocations.ts`.
-- **Infrastructure**: Added `data:gen-maps` script to `package.json` for
-easy data generation.
-- **TSConfig**: Removed `"allowJs": true` from `tsconfig.json`.
-- **Type Safety**: Fixed various "implicit any" and "possibly undefined"
-errors in scripts and core logic to align with `@tsconfig/strictest`.
-
-## Memory Context (Memories)
-- **Infrastructure (infrastructure/analysis_tools)**:
-  - `allowJs` is now disabled.
-- All source scripts are TypeScript and run with
-`--experimental-strip-types`.
-  - Stricter type checking is enforced across the board.
-- **Migration Status (status/migration_summary_april_2026)**:
-- Aligns with the "Offline-First" and "Lean Data" milestones by purging
-more legacy JS patterns.
-- Contributes to "Infrastructure Refinement" by hardening the data
-generation pipeline.
-
-## Verification
-- `npm run data:gen-maps` succeeds and generates identical data.
-- `pnpm type-check` passes project-wide.
-```
-
-#### Modified Files
-- `.serena/memories/infrastructure/analysis_tools.md`
-- `data/db/metadata.json`
-- `package.json`
-- `playwright.config.ts`
-- `pnpm-lock.yaml`
-- `scripts/generate-pokedata.ts`
-- `scripts/generateMapLocations.cjs`
-- `scripts/generateMapLocations.ts`
-- `src/components/AssistantPanel.tsx`
-- `src/components/PokedexCard.tsx`
-- `src/components/assistant/AssistantSuggestionCard.tsx`
-- `src/db/schema.ts`
-- `src/engine/assistant/__tests__/fetchAssistantApiData.test.ts`
-- `src/engine/assistant/suggestionEngine.ts`
-- `src/engine/exclusives/gen1Exclusives.ts`
-- `src/engine/saveParser/parsers/common.ts`
-- `src/routes/__root.tsx`
-- `src/routes/pokemon.$pokemonId.tsx`
-- `tsconfig.json`
-- `vite.config.ts`
-
-#### Diff Summary
-```text
-2efc03f4f feat: migrate map location script to TS and enforce strict type safety (#217)
- .serena/memories/infrastructure/analysis_tools.md  |  5 ++
- data/db/metadata.json                              |  2 +-
- package.json                                       |  3 +
- playwright.config.ts                               | 13 ++--
- pnpm-lock.yaml                                     | 16 +++++
- scripts/generate-pokedata.ts                       | 13 ++--
- ...ateMapLocations.cjs => generateMapLocations.ts} | 79 ++++++++++++++--------
- src/components/AssistantPanel.tsx                  |  4 +-
- src/components/PokedexCard.tsx                     |  1 -
- .../assistant/AssistantSuggestionCard.tsx          |  2 +-
- src/db/schema.ts                                   | 12 ++--
- .../__tests__/fetchAssistantApiData.test.ts        |  6 +-
- src/engine/assistant/suggestionEngine.ts           |  9 ---
- src/engine/exclusives/gen1Exclusives.ts            |  1 +
- src/engine/saveParser/parsers/common.ts            | 24 ++++---
- src/routes/__root.tsx                              |  2 +-
- src/routes/pokemon.$pokemonId.tsx                  |  2 +-
- tsconfig.json                                      | 29 ++------
- vite.config.ts                                     | 19 +++---
- 19 files changed, 130 insertions(+), 112 deletions(-)
-```
-
-### Commit 3: `24bc891`
-- **Commit SHA:** `24bc89190789e2013b5bd1cec3aee538ab8ee7ee`
-- **Previous SHA:** `2efc03f4f3a5451d1d56900f535db4bc12fc1bf6`
-- **Date:** `2026-04-16`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
-
-#### Message
-```text
-chore: optimize vite build into monolithic architecture with vite 8 and lightningcss (#218)
-
-## Summary
-This PR optimizes the Vite build configuration to produce a monolithic,
-offline-first bundle using **Vite 8**, **Rolldown**, and
-**LightningCSS**.
-
-### Key Changes
-- **Monolithic Bundling**: Enforced a single JS and single CSS output
-pair by disabling CSS splitting and forcing all manual chunks to
-'index'.
-- **LightningCSS Integration**: Migrated to LightningCSS for both CSS
-transformation and minification, targeting `chrome130`.
-- **Environment Stability**: Replaced `process.env` usage with
-`import.meta.env` in `src/routes/__root.tsx` to resolve browser startup
-errors.
-- **Font Optimization**: Moved Google Font imports to HTML to avoid
-build-time network request issues with LightningCSS while improving LCP.
-
-### Verification
-- `pnpm build` confirmed a single `index.js` and `style.css` output.
-- All 37 E2E tests passed on Desktop and Mobile resolutions.
-```
-
-#### Modified Files
-- `index.html`
-- `metadata.json`
-- `package.json`
-- `pnpm-lock.yaml`
-- `scripts/generate-pokedata.ts`
-- `src/engine/assistant/suggestionEngine.ts`
-- `src/index.css`
-- `src/routes/__root.tsx`
-- `vite.config.ts`
-
-#### Diff Summary
-```text
-24bc89190 chore: optimize vite build into monolithic architecture with vite 8 and lightningcss (#218)
- index.html                               |  3 ++
- metadata.json                            |  2 +-
- package.json                             |  2 ++
- pnpm-lock.yaml                           |  6 ++++
- scripts/generate-pokedata.ts             | 62 ++++++++++++++++----------------
- src/engine/assistant/suggestionEngine.ts |  4 ++-
- src/index.css                            |  1 -
- src/routes/__root.tsx                    |  2 +-
- vite.config.ts                           | 15 ++++++--
- 9 files changed, 59 insertions(+), 38 deletions(-)
-```
-
-### Commit 4: `6c75f48`
-- **Commit SHA:** `6c75f486c04668745f483b2556e8ca024be5b9e2`
-- **Previous SHA:** `24bc89190789e2013b5bd1cec3aee538ab8ee7ee`
-- **Date:** `2026-04-16`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
-
-#### Message
-```text
-feat: integrate react query devtools (#223)
-
-This pull request adds `@tanstack/react-query-devtools` as a development
-dependency and lazy-loads it inside the `src/routes/__root.tsx` layout.
-It's configured to only run in development mode, so it won't impact the
-final production bundle size, while vastly improving developer
-observability into cache reads/writes and query states. It avoids
-loading in playwrite testing environments as well.
-
----
-*PR created automatically by Jules for task
-[9222016914553098504](https://jules.google.com/task/9222016914553098504)
-started by @szubster*
-
-Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
-Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
-```
-
-#### Modified Files
-- `biome.jsonc`
-- `package.json`
-- `pnpm-lock.yaml`
-- `src/routes/__root.tsx`
-
-#### Diff Summary
-```text
-6c75f486c feat: integrate react query devtools (#223)
- biome.jsonc           |  2 +-
- package.json          |  1 +
- pnpm-lock.yaml        | 20 ++++++++++++++++++++
- src/routes/__root.tsx | 10 ++++++++++
- 4 files changed, 32 insertions(+), 1 deletion(-)
-```
-
-### Commit 5: `cd44567`
-- **Commit SHA:** `cd445673e30a95906b71753dec498276ee871583`
-- **Previous SHA:** `6c75f486c04668745f483b2556e8ca024be5b9e2`
-- **Date:** `2026-04-16`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
-
-#### Message
-```text
-🎨 Palette: Improve location suggestions UX and accessibility (#224)
-
-💡 What: The clear location filter button icon was updated from a Search
-icon to an X icon, added an aria-label, and applied consistent keyboard
-focus rings to the location suggestion elements.
-🎯 Why: The original "Search" icon for the clear action was confusing.
-Furthermore, users navigating via keyboard could not see which location
-suggestion they had focused, and the clear button lacked a
-screen-reader-friendly label.
-📸 Before/After: Verified via e2e automated screenshots showing the new X
-icon and focus rings.
-♿ Accessibility: Improved keyboard navigation by adding explicit
-`focus-visible` ring utilities to mapped location suggestion buttons,
-and improved screen reader context by adding an `aria-label` to the
-clear button.
-
----
-*PR created automatically by Jules for task
-[13214246068418361609](https://jules.google.com/task/13214246068418361609)
-started by @szubster*
-
-Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
-Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
-```
-
-#### Modified Files
-- `.Jules/palette.md`
-- `src/components/LocationSuggestions.tsx`
-
-#### Diff Summary
-```text
-cd445673e 🎨 Palette: Improve location suggestions UX and accessibility (#224)
- .Jules/palette.md                      | 4 ++++
- src/components/LocationSuggestions.tsx | 9 +++++----
- 2 files changed, 9 insertions(+), 4 deletions(-)
-```
-
-### Commit 6: `743cee3`
-- **Commit SHA:** `743cee33dbfb0b352df72e66763397710847337a`
-- **Previous SHA:** `cd445673e30a95906b71753dec498276ee871583`
-- **Date:** `2026-04-16`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
-
-#### Message
-```text
-feat: enable special strategy suggestions in assistant (#225)
-
-Adds missing special suggestions (like PC box full warnings) to the
-assistant feature by properly invoking the current generation's
-AssistantStrategy.
-
----
-*PR created automatically by Jules for task
-[5681582306130220128](https://jules.google.com/task/5681582306130220128)
-started by @szubster*
-
-Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
-Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
-```
-
-#### Modified Files
-- `src/engine/assistant/suggestionEngine.ts`
-
-#### Diff Summary
-```text
-743cee33d feat: enable special strategy suggestions in assistant (#225)
- src/engine/assistant/suggestionEngine.ts | 4 ++++
- 1 file changed, 4 insertions(+)
-```
-
-### Commit 7: `ef478c0`
-- **Commit SHA:** `ef478c0615a823f84f42d770c5e6586281e63b33`
-- **Previous SHA:** `fa2e24dc0199360c7695ced84f40d05cf8ebdd8b`
-- **Date:** `2026-04-16`
-- **Classification:** Ad-hoc Foundry system code modification
-- **Domain:** foundry
-
-#### Message
-```text
-build(deps): Bump actions/setup-node from 4 to 6 (#220)
-
-Bumps [actions/setup-node](https://github.com/actions/setup-node) from 4
-to 6.
-<details>
-<summary>Release notes</summary>
-<p><em>Sourced from <a
-href="https://github.com/actions/setup-node/releases">actions/setup-node's
-releases</a>.</em></p>
-<blockquote>
-<h2>v6.0.0</h2>
-<h2>What's Changed</h2>
-<p><strong>Breaking Changes</strong></p>
-<ul>
-<li>Limit automatic caching to npm, update workflows and documentation
-by <a
-href="https://github.com/priyagupta108"><code>@​priyagupta108</code></a>
-in <a
-href="https://redirect.github.com/actions/setup-node/pull/1374">actions/setup-node#1374</a></li>
-</ul>
-<p><strong>Dependency Upgrades</strong></p>
-<ul>
-<li>Upgrade ts-jest from 29.1.2 to 29.4.1 and document breaking changes
-in v5 by <a
-href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
-in <a
-href="https://redirect.github.com/actions/setup-node/pull/1336">#1336</a></li>
-<li>Upgrade prettier from 2.8.8 to 3.6.2 by <a
-href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
-in <a
-href="https://redirect.github.com/actions/setup-node/pull/1334">#1334</a></li>
-<li>Upgrade actions/publish-action from 0.3.0 to 0.4.0 by <a
-href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
-in <a
-href="https://redirect.github.com/actions/setup-node/pull/1362">#1362</a></li>
-</ul>
-<p><strong>Full Changelog</strong>: <a
-href="https://github.com/actions/setup-node/compare/v5...v6.0.0">https://github.com/actions/setup-node/compare/v5...v6.0.0</a></p>
-<h2>v5.0.0</h2>
-<h2>What's Changed</h2>
-<h3>Breaking Changes</h3>
-<ul>
-<li>Enhance caching in setup-node with automatic package manager
-detection by <a
-href="https://github.com/priya-kinthali"><code>@​priya-kinthali</code></a>
-in <a
-href="https://redirect.github.com/actions/setup-node/pull/1348">actions/setup-node#1348</a></li>
-</ul>
-<p>This update, introduces automatic caching when a valid
-<code>packageManager</code> field is present in your
-<code>package.json</code>. This aims to improve workflow performance and
-make dependency management more seamless.
-To disable this automatic caching, set <code>package-manager-cache:
-false</code></p>
-<pre lang="yaml"><code>steps:
-- uses: actions/checkout@v5
-- uses: actions/setup-node@v5
-  with:
-    package-manager-cache: false
-</code></pre>
-<ul>
-<li>Upgrade action to use node24 by <a
-href="https://github.com/salmanmkc"><code>@​salmanmkc</code></a> in <a
-href="https://redirect.github.com/actions/setup-node/pull/1325">actions/setup-node#1325</a></li>
-</ul>
-<p>Make sure your runner is on version v2.327.1 or later to ensure
-compatibility with this release. <a
-href="https://github.com/actions/runner/releases/tag/v2.327.1">See
-Release Notes</a></p>
-<h3>Dependency Upgrades</h3>
-<ul>
-<li>Upgrade <code>@​octokit/request-error</code> and
-<code>@​actions/github</code> by <a
-href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
-in <a
-href="https://redirect.github.com/actions/setup-node/pull/1227">actions/setup-node#1227</a></li>
-<li>Upgrade uuid from 9.0.1 to 11.1.0 by <a
-href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
-in <a
-href="https://redirect.github.com/actions/setup-node/pull/1273">actions/setup-node#1273</a></li>
-<li>Upgrade undici from 5.28.5 to 5.29.0 by <a
-href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
-in <a
-href="https://redirect.github.com/actions/setup-node/pull/1295">actions/setup-node#1295</a></li>
-<li>Upgrade form-data to bring in fix for critical vulnerability by <a
-href="https://github.com/gowridurgad"><code>@​gowridurgad</code></a> in
-<a
-href="https://redirect.github.com/actions/setup-node/pull/1332">actions/setup-node#1332</a></li>
-<li>Upgrade actions/checkout from 4 to 5 by <a
-href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
-in <a
-href="https://redirect.github.com/actions/setup-node/pull/1345">actions/setup-node#1345</a></li>
-</ul>
-<h2>New Contributors</h2>
-<ul>
-<li><a
-href="https://github.com/priya-kinthali"><code>@​priya-kinthali</code></a>
-made their first contribution in <a
-href="https://redirect.github.com/actions/setup-node/pull/1348">actions/setup-node#1348</a></li>
-<li><a href="https://github.com/salmanmkc"><code>@​salmanmkc</code></a>
-made their first contribution in <a
-href="https://redirect.github.com/actions/setup-node/pull/1325">actions/setup-node#1325</a></li>
-</ul>
-<p><strong>Full Changelog</strong>: <a
-href="https://github.com/actions/setup-node/compare/v4...v5.0.0">https://github.com/actions/setup-node/compare/v4...v5.0.0</a></p>
-<h2>v4.4.0</h2>
-<!-- raw HTML omitted -->
-</blockquote>
-<p>... (truncated)</p>
-</details>
-<details>
-<summary>Commits</summary>
-<ul>
-<li><a
-href="https://github.com/actions/setup-node/commit/53b83947a5a98c8d113130e565377fae1a50d02f"><code>53b8394</code></a>
-Bump minimatch from 3.1.2 to 3.1.5 (<a
-href="https://redirect.github.com/actions/setup-node/issues/1498">#1498</a>)</li>
-<li><a
-href="https://github.com/actions/setup-node/commit/54045abd5dcd3b0fee9ca02fa24c57545834c9cc"><code>54045ab</code></a>
-Scope test lockfiles by package manager and update cache tests (<a
-href="https://redirect.github.com/actions/setup-node/issues/1495">#1495</a>)</li>
-<li><a
-href="https://github.com/actions/setup-node/commit/c882bffdbd4df51ace6b940023952e8669c9932a"><code>c882bff</code></a>
-Replace uuid with crypto.randomUUID() (<a
-href="https://redirect.github.com/actions/setup-node/issues/1378">#1378</a>)</li>
-<li><a
-href="https://github.com/actions/setup-node/commit/774c1d62961e73038a114d59c8847023c003194d"><code>774c1d6</code></a>
-feat(node-version-file): support parsing <code>devEngines</code> field
-(<a
-href="https://redirect.github.com/actions/setup-node/issues/1283">#1283</a>)</li>
-<li><a
-href="https://github.com/actions/setup-node/commit/efcb663fc60e97218a2b2d6d827f7830f164739e"><code>efcb663</code></a>
-fix: remove hardcoded bearer (<a
-href="https://redirect.github.com/actions/setup-node/issues/1467">#1467</a>)</li>
-<li><a
-href="https://github.com/actions/setup-node/commit/d02c89dce7e1ba9ef629ce0680989b3a1cc72edb"><code>d02c89d</code></a>
-Fix npm audit issues (<a
-href="https://redirect.github.com/actions/setup-node/issues/1491">#1491</a>)</li>
-<li><a
-href="https://github.com/actions/setup-node/commit/6044e13b5dc448c55e2357c09f80417699197238"><code>6044e13</code></a>
-Docs: bump actions/checkout from v5 to v6 (<a
-href="https://redirect.github.com/actions/setup-node/issues/1468">#1468</a>)</li>
-<li><a
-href="https://github.com/actions/setup-node/commit/8e494633d082d609d1e9ff931be32f8a44f1f657"><code>8e49463</code></a>
-Fix README typo (<a
-href="https://redirect.github.com/actions/setup-node/issues/1226">#1226</a>)</li>
-<li><a
-href="https://github.com/actions/setup-node/commit/621ac41091d4227ef8fda5009c1ced96d8d36f7e"><code>621ac41</code></a>
-README.md: bump to latest released checkout version v6 (<a
-href="https://redirect.github.com/actions/setup-node/issues/1446">#1446</a>)</li>
-<li><a
-href="https://github.com/actions/setup-node/commit/2951748f4c016b747952f8ca7e75fc64f2f62b53"><code>2951748</code></a>
-Bump <code>@​actions/cache</code> to v5.0.1 (<a
-href="https://redirect.github.com/actions/setup-node/issues/1449">#1449</a>)</li>
-<li>Additional commits viewable in <a
-href="https://github.com/actions/setup-node/compare/v4...v6">compare
-view</a></li>
-</ul>
-</details>
-<br />
-
-
-[![Dependabot compatibility
-score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=actions/setup-node&package-manager=github_actions&previous-version=4&new-version=6)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
-
-Dependabot will resolve any conflicts with this PR as long as you don't
-alter it yourself. You can also trigger a rebase manually by commenting
-`@dependabot rebase`.
-
-[//]: # (dependabot-automerge-start)
-[//]: # (dependabot-automerge-end)
-
----
-
-<details>
-<summary>Dependabot commands and options</summary>
-<br />
-
-You can trigger Dependabot actions by commenting on this PR:
-- `@dependabot rebase` will rebase this PR
-- `@dependabot recreate` will recreate this PR, overwriting any edits
-that have been made to it
-- `@dependabot show <dependency name> ignore conditions` will show all
-of the ignore conditions of the specified dependency
-- `@dependabot ignore this major version` will close this PR and stop
-Dependabot creating any more for this major version (unless you reopen
-the PR or upgrade to it yourself)
-- `@dependabot ignore this minor version` will close this PR and stop
-Dependabot creating any more for this minor version (unless you reopen
-the PR or upgrade to it yourself)
-- `@dependabot ignore this dependency` will close this PR and stop
-Dependabot creating any more for this dependency (unless you reopen the
-PR or upgrade to it yourself)
-
-
-</details>
-
-Signed-off-by: dependabot[bot] <support@github.com>
-Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
-```
-
-#### Modified Files
-- `.github/workflows/sync-pokedata.yml`
-
-#### Diff Summary
-```text
-ef478c061 build(deps): Bump actions/setup-node from 4 to 6 (#220)
- .github/workflows/sync-pokedata.yml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-```
-
-### Commit 8: `98ea107`
-- **Commit SHA:** `98ea107463dc7ebeb542679b17dcfa2dab6e078e`
-- **Previous SHA:** `ef478c0615a823f84f42d770c5e6586281e63b33`
-- **Date:** `2026-04-16`
-- **Classification:** Ad-hoc Foundry system code modification
-- **Domain:** foundry
-
-#### Message
-```text
-build(deps): Bump pnpm/action-setup from 3 to 6 (#221)
-
-Bumps [pnpm/action-setup](https://github.com/pnpm/action-setup) from 3
-to 6.
-<details>
-<summary>Release notes</summary>
-<p><em>Sourced from <a
-href="https://github.com/pnpm/action-setup/releases">pnpm/action-setup's
-releases</a>.</em></p>
-<blockquote>
-<h2>v6.0.0</h2>
-<p>Added support for pnpm <a
-href="https://github.com/pnpm/pnpm/releases/tag/v11.0.0-rc.0">v11</a>.</p>
-<h2>v5.0.0</h2>
-<p>Updated the action to use Node.js 24.</p>
-<h2>v4.4.0</h2>
-<p>Updated the action to use Node.js 24.</p>
-<h2>v4.3.0</h2>
-<h2>What's Changed</h2>
-<ul>
-<li>docs: fix the run_install example in the Readme by <a
-href="https://github.com/dreyks"><code>@​dreyks</code></a> in <a
-href="https://redirect.github.com/pnpm/action-setup/pull/175">pnpm/action-setup#175</a></li>
-<li>chore: remove unused <code>@types/node-fetch</code> dependency by <a
-href="https://github.com/silverwind"><code>@​silverwind</code></a> in <a
-href="https://redirect.github.com/pnpm/action-setup/pull/186">pnpm/action-setup#186</a></li>
-<li>Clarify that package_json_file is relative to GITHUB_WORKSPACE by <a
-href="https://github.com/chris-martin"><code>@​chris-martin</code></a>
-in <a
-href="https://redirect.github.com/pnpm/action-setup/pull/184">pnpm/action-setup#184</a></li>
-<li>feat: store caching by <a
-href="https://github.com/jrmajor"><code>@​jrmajor</code></a> in <a
-href="https://redirect.github.com/pnpm/action-setup/pull/188">pnpm/action-setup#188</a></li>
-<li>refactor: remove star imports by <a
-href="https://github.com/KSXGitHub"><code>@​KSXGitHub</code></a> in <a
-href="https://redirect.github.com/pnpm/action-setup/pull/196">pnpm/action-setup#196</a></li>
-<li>fix(ci): exclude macos by <a
-href="https://github.com/KSXGitHub"><code>@​KSXGitHub</code></a> in <a
-href="https://redirect.github.com/pnpm/action-setup/pull/197">pnpm/action-setup#197</a></li>
-</ul>
-<h2>New Contributors</h2>
-<ul>
-<li><a href="https://github.com/dreyks"><code>@​dreyks</code></a> made
-their first contribution in <a
-href="https://redirect.github.com/pnpm/action-setup/pull/175">pnpm/action-setup#175</a></li>
-<li><a
-href="https://github.com/silverwind"><code>@​silverwind</code></a> made
-their first contribution in <a
-href="https://redirect.github.com/pnpm/action-setup/pull/186">pnpm/action-setup#186</a></li>
-<li><a
-href="https://github.com/chris-martin"><code>@​chris-martin</code></a>
-made their first contribution in <a
-href="https://redirect.github.com/pnpm/action-setup/pull/184">pnpm/action-setup#184</a></li>
-<li><a href="https://github.com/jrmajor"><code>@​jrmajor</code></a> made
-their first contribution in <a
-href="https://redirect.github.com/pnpm/action-setup/pull/188">pnpm/action-setup#188</a></li>
-<li><a
-href="https://github.com/Boosted-Bonobo"><code>@​Boosted-Bonobo</code></a>
-made their first contribution in <a
-href="https://redirect.github.com/pnpm/action-setup/pull/199">pnpm/action-setup#199</a></li>
-</ul>
-<p><strong>Full Changelog</strong>: <a
-href="https://github.com/pnpm/action-setup/compare/v4.2.0...v4.3.0">https://github.com/pnpm/action-setup/compare/v4.2.0...v4.3.0</a></p>
-<h2>v4.2.0</h2>
-<p>When there's a <code>.npmrc</code> file at the root of the
-repository, pnpm will be fetched from the registry that is specified in
-that <code>.npmrc</code> file <a
-href="https://redirect.github.com/pnpm/action-setup/pull/179">#179</a></p>
-<h2>v4.1.0</h2>
-<p>Add support for <code>package.yaml</code> <a
-href="https://redirect.github.com/pnpm/action-setup/pull/156">#156</a>.</p>
-<h2>v4.0.0</h2>
-<p>An error is thrown if one version of pnpm is specified in the
-<code>packageManager</code> field of <code>package.json</code> and a
-different version is specified in the action's settings <a
-href="https://redirect.github.com/pnpm/action-setup/pull/122">#122</a></p>
-</blockquote>
-</details>
-<details>
-<summary>Commits</summary>
-<ul>
-<li><a
-href="https://github.com/pnpm/action-setup/commit/08c4be7e2e672a47d11bd04269e27e5f3e8529cb"><code>08c4be7</code></a>
-docs(README): update action-setup version</li>
-<li><a
-href="https://github.com/pnpm/action-setup/commit/579891461a117d7c030d0430bbc772562374d9e1"><code>5798914</code></a>
-chore: update .gitignore</li>
-<li><a
-href="https://github.com/pnpm/action-setup/commit/ddffd667542d33325b6f1d9bda9cfcc7861fc400"><code>ddffd66</code></a>
-fix: remove accidentally committed file</li>
-<li><a
-href="https://github.com/pnpm/action-setup/commit/b43f991918ce53332dce4c15c32ae14261d12d65"><code>b43f991</code></a>
-fix: update pnpm to 11.0.0-rc.0</li>
-<li><a
-href="https://github.com/pnpm/action-setup/commit/3852509c9e55070b5aac70d0500b8772d13ed4e6"><code>3852509</code></a>
-README.md: bring versions up-to-date (<a
-href="https://redirect.github.com/pnpm/action-setup/issues/222">#222</a>)</li>
-<li><a
-href="https://github.com/pnpm/action-setup/commit/6e7bdbda5fe05107efc88b23b7ed00aa05f84ca0"><code>6e7bdbd</code></a>
-chore: bump bootstrap pnpm to 11.0.0-beta.4-1 and add update script</li>
-<li><a
-href="https://github.com/pnpm/action-setup/commit/6b87c4621a21f802115d27ffcbfb44e28abd1387"><code>6b87c46</code></a>
-fix: Windows standalone mode — bypass broken npm shims (<a
-href="https://redirect.github.com/pnpm/action-setup/issues/217">#217</a>)</li>
-<li><a
-href="https://github.com/pnpm/action-setup/commit/994d756a33d64d79175a2d721a1a1b6976958b2d"><code>994d756</code></a>
-feat: read pnpm version from devEngines.packageManager (<a
-href="https://redirect.github.com/pnpm/action-setup/issues/211">#211</a>)</li>
-<li><a
-href="https://github.com/pnpm/action-setup/commit/738f428026a1f5a72398de22aeed83d859c4a660"><code>738f428</code></a>
-docs: upgrade pnpm/action-setup from v4 to v5</li>
-<li><a
-href="https://github.com/pnpm/action-setup/commit/62bce642757454630341df504b8b9ee51f1332da"><code>62bce64</code></a>
-fix: extract pnpm version from packageManager field instead of returning
-unde...</li>
-<li>Additional commits viewable in <a
-href="https://github.com/pnpm/action-setup/compare/v3.0.0...v6">compare
-view</a></li>
-</ul>
-</details>
-<br />
-
-
-[![Dependabot compatibility
-score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=pnpm/action-setup&package-manager=github_actions&previous-version=3&new-version=6)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
-
-Dependabot will resolve any conflicts with this PR as long as you don't
-alter it yourself. You can also trigger a rebase manually by commenting
-`@dependabot rebase`.
-
-[//]: # (dependabot-automerge-start)
-[//]: # (dependabot-automerge-end)
-
----
-
-<details>
-<summary>Dependabot commands and options</summary>
-<br />
-
-You can trigger Dependabot actions by commenting on this PR:
-- `@dependabot rebase` will rebase this PR
-- `@dependabot recreate` will recreate this PR, overwriting any edits
-that have been made to it
-- `@dependabot show <dependency name> ignore conditions` will show all
-of the ignore conditions of the specified dependency
-- `@dependabot ignore this major version` will close this PR and stop
-Dependabot creating any more for this major version (unless you reopen
-the PR or upgrade to it yourself)
-- `@dependabot ignore this minor version` will close this PR and stop
-Dependabot creating any more for this minor version (unless you reopen
-the PR or upgrade to it yourself)
-- `@dependabot ignore this dependency` will close this PR and stop
-Dependabot creating any more for this dependency (unless you reopen the
-PR or upgrade to it yourself)
-
-
-</details>
-
-Signed-off-by: dependabot[bot] <support@github.com>
-Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
-```
-
-#### Modified Files
-- `.github/workflows/sync-pokedata.yml`
-
-#### Diff Summary
-```text
-98ea10746 build(deps): Bump pnpm/action-setup from 3 to 6 (#221)
- .github/workflows/sync-pokedata.yml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-```
-
-### Commit 9: `c15cc81`
-- **Commit SHA:** `c15cc81f33e510b35a6f4aaeb247da966cd0d0a6`
-- **Previous SHA:** `98ea107463dc7ebeb542679b17dcfa2dab6e078e`
-- **Date:** `2026-04-16`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
-
-#### Message
-```text
-feat: unified location architecture and precomputed distances (#226)
-
-# Unified Location Architecture & Precomputed Distances
-
-This PR finalizes the refactoring of the location data architecture,
-moving from runtime graph traversal to O(1) distance lookups via
-precomputed build-time matrices.
-
-## Key Changes
-
-### 1. Database Consolidation
-- Unified `locations`, `areas`, and `locationIndex` into a single
-`UnifiedLocation` schema.
-- Bumped database version to **7**, triggering a full client-side
-synchronization.
-- Removed obsolete stores (`AREAS`, `INDEX`) to streamline the data
-model.
-
-### 2. Build-Time Distance Computation
-- Updated `scripts/generate-pokedata.ts` to implement the Floyd-Warshall
-algorithm (APSP).
-- Precomputes distance matrices for every location in Gen 1 and Gen 2.
-- Integrated Johto (Gen 2) map connection data to support cross-game
-navigation logic.
-
-### 3. Optimized Map Graph Engine
-- Refactored `src/engine/mapGraph/gen1Graph.ts` to utilize the
-precomputed `dist` matrices.
-- Significantly reduced runtime complexity from $O(V+E)$ to $O(1)$.
-- Improved indoor-to-parent resolution logic to ensure buildings
-correctly inherit the distance profile of their outdoor parent area.
-
-### 4. Verified Stability
-- Updated all unit tests in `PokeDB.test.ts`, `gen1Graph.test.ts`, and
-`gen1Strategy.test.ts`.
-- Full E2E test suite passing with high-fidelity validation of the
-assistant suggestions.
-
-## Implementation Details
-- **Schema:** `UnifiedLocation` now holds `connections`, `pids`, and
-`dist`.
-- **Generation:** Floyd-Warshall is applied separately to Gen 1 and Gen
-2 graphs during the build pipeline.
-- **Sync:** The database now syncs a single consolidated `locations`
-store instead of managing multiple indices.
-
-**Verification Status:**
-- Unit Tests: ✅ Passed
-- E2E Tests: ✅ Passed (37/37)
-```
-
-#### Modified Files
-- `.serena/memories/architecture/locations/unified-v7.md`
-- `data/db/areas.jsonl`
-- `data/db/location_index.jsonl`
-- `data/db/locations.jsonl`
-- `data/db/metadata.json`
-- `scripts/data/gen2/mapping.ts`
-- `scripts/generate-pokedata.ts`
-- `src/db/PokeDB.ts`
-- `src/db/__tests__/PokeDB.test.ts`
-- `src/db/schema.ts`
-- `src/engine/assistant/__tests__/gen1Strategy.test.ts`
-- `src/engine/assistant/strategies/gen1Strategy.ts`
-- `src/engine/assistant/strategies/types.ts`
-- `src/engine/assistant/suggestionEngine.ts`
-- `src/engine/mapGraph/gen1Graph.test.ts`
-- `src/engine/mapGraph/gen1Graph.ts`
-- `src/engine/mapGraph/index.ts`
-- `src/engine/mapGraph/types.ts`
-- `vite-plugins/pokedata-plugin.ts`
-
-#### Diff Summary
-```text
-c15cc81f3 feat: unified location architecture and precomputed distances (#226)
- .../memories/architecture/locations/unified-v7.md  |  11 ++
- data/db/areas.jsonl                                |  76 -----------
- data/db/location_index.jsonl                       |  76 -----------
- data/db/locations.jsonl                            | 152 ++++++++++-----------
- data/db/metadata.json                              |   2 +-
- scripts/data/gen2/mapping.ts                       | 111 +++++++--------
- scripts/generate-pokedata.ts                       | 133 +++++++++++++-----
- src/db/PokeDB.ts                                   |  61 +++------
- src/db/__tests__/PokeDB.test.ts                    |  25 ++--
- src/db/schema.ts                                   |  36 ++---
- .../assistant/__tests__/gen1Strategy.test.ts       |  34 ++---
- src/engine/assistant/strategies/gen1Strategy.ts    |  17 +--
- src/engine/assistant/strategies/types.ts           |   7 +-
- src/engine/assistant/suggestionEngine.ts           |  14 +-
- src/engine/mapGraph/gen1Graph.test.ts              |  51 ++++---
- src/engine/mapGraph/gen1Graph.ts                   |  64 ++-------
- src/engine/mapGraph/index.ts                       |   9 +-
- src/engine/mapGraph/types.ts                       |  11 +-
- vite-plugins/pokedata-plugin.ts                    |   4 -
- 19 files changed, 358 insertions(+), 536 deletions(-)
-```
-
-### Commit 10: `0cc9b04`
-- **Commit SHA:** `0cc9b04ea95a8bef34b11fcb70a6b37078bd6454`
-- **Previous SHA:** `693136818cc0b4b643bdad2ecfbb9a950a68aee2`
+### Commit 1: `7e0f44d`
+- **Commit SHA:** `7e0f44dc3acf2d30d9584f0353e74c36136a5616`
+- **Previous SHA:** `6f834af7d0593d14af2cc35d6530666762529308`
 - **Date:** `2026-04-17`
 - **Classification:** Ad-hoc user-facing Dexhelper code modification
 - **Domain:** dexhelper
 
 #### Message
 ```text
-Optimize PokeDB Data Storage & Refactor Inflation (#227)
+🔒 [security fix] Add input validation to base64 decoding (#234)
 
-## Overview
-This PR optimizes the application's data layer by omitting redundant
-default values during build-time generation and restoring them at
-runtime via recursive inflation. It also stabilizes the E2E test suite
-by resolving hydration crashes and fixing strict mode violations in
-location lookups.
+🎯 **What:** Adds a strict regular expression validation to the
+`savedFile` input retrieved from `localStorage` before it is passed to
+`window.atob()` for decoding in `loadSaveFromStorage`. Also updates
+`console.error` to redact the raw error object.
+⚠️ **Risk:** The previous implementation directly passed potentially
+unvalidated, arbitrary input from `localStorage` into `window.atob()`.
+If malformed or malicious payloads are loaded into `last_save_file`, it
+could lead to unexpected behavior during the Base64 decoding process.
+Additionally, the previous implementation directly logged raw error
+objects on failure, potentially causing sensitive information leakage
+(CWE-209).
+🛡️ **Solution:** The implemented regex
+`/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/`
+strictly guarantees that the stored string matches valid Base64
+formatting criteria before proceeding. The `console.error` fallback
+inside the try-catch block was also adjusted to extract only
+`err.message` if available. Tests were updated to reflect these safer
+error handling strategies.
 
-### Changes
-- **Data Architecture**:
-- Updated build-time generation to omit field defaults (`tr`, `gr`,
-`mh`) and redundant level ranges.
-- Implemented **recursive inflation** in `PokeDB.ts` for nested
-evolution chains (`eto`) and encounter details.
-  - Added robust null/default checks to prevent hydration crashes.
-- **UI & Stabilization**:
-- Implemented **generation-based filtering** for pre-evolutions (e.g.,
-Pichu) to prevent duplicate headings in legacy views.
-- Added `data-testid` attributes to `Evolution` and `Location` sections
-for stable E2E selectors.
-- Updated E2E locators in `pokemon-details.spec.ts` to use exact text
-matches for route names (fixing collisions between `ROUTE 1` and `ROUTE
-11`).
-- **Schema**: Bumped DB version to `9` to force hydration refresh.
+---
+*PR created automatically by Jules for task
+[707548605092286037](https://jules.google.com/task/707548605092286037)
+started by @szubster*
 
-### Impact
-- Improved data efficiency by stripping redundant field defaults.
-- 100% E2E test pass rate (7/7 tests stable across Desktop and Mobile).
-
-### Verification
-- `pnpm test`: 128 Unit tests passed.
-- `pnpm test:e2e`: Verified across Desktop FullHD, 1440p, and Mobile
-Pixel 9.
+Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
+Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
 ```
 
 #### Modified Files
-- `.serena/memories/db/serialization_analysis_2026.md`
-- `data/db/encounters.jsonl`
-- `data/db/locations.jsonl`
-- `data/db/metadata.json`
-- `data/db/pokemon.jsonl`
-- `scripts/generate-pokedata.ts`
-- `src/components/AssistantPanel.tsx`
-- `src/components/PokemonDetails.tsx`
-- `src/components/pokemon/details/PokemonEvolutions.tsx`
-- `src/components/pokemon/details/PokemonLocations.tsx`
-- `src/db/DexDataLoader.ts`
-- `src/db/PokeDB.ts`
-- `src/db/__tests__/DexDataLoader.test.ts`
-- `src/db/__tests__/PokeDB.test.ts`
-- `src/db/schema.ts`
-- `src/engine/assistant/__tests__/fetchAssistantApiData.test.ts`
-- `src/engine/assistant/__tests__/gen1Strategy.test.ts`
-- `src/engine/assistant/__tests__/suggestionEngine.fix.test.ts`
-- `src/engine/assistant/__tests__/test-coverage.test.ts`
-- `src/engine/assistant/strategies/gen1Strategy.ts`
-- `src/engine/assistant/strategies/types.ts`
-- `src/engine/assistant/suggestionEngine.ts`
-- `src/engine/mapGraph/gen1Graph.test.ts`
-- `src/engine/mapGraph/gen1Graph.ts`
-- `src/engine/mapGraph/types.ts`
-- `src/hooks/useAssistant.test.ts`
-- `src/routes/pokemon.$pokemonId.tsx`
-- `tests/e2e/pokemon-details.spec.ts`
-- `tests/e2e/test-utils.ts`
-- `vite-plugins/pokedata-plugin.ts`
+- `src/store.test.ts`
+- `src/store.ts`
 
 #### Diff Summary
 ```text
-0cc9b04ea Optimize PokeDB Data Storage & Refactor Inflation (#227)
- .serena/memories/db/serialization_analysis_2026.md |   9 +
- data/db/encounters.jsonl                           | 294 ++++++------
- data/db/locations.jsonl                            | 152 +++----
- data/db/metadata.json                              |   2 +-
- data/db/pokemon.jsonl                              | 502 ++++++++++-----------
- scripts/generate-pokedata.ts                       | 278 +++++++-----
- src/components/AssistantPanel.tsx                  |   2 +
- src/components/PokemonDetails.tsx                  |  21 +-
- .../pokemon/details/PokemonEvolutions.tsx          |   4 +-
- .../pokemon/details/PokemonLocations.tsx           |   2 +-
- src/db/DexDataLoader.ts                            |  12 +-
- src/db/PokeDB.ts                                   |  71 ++-
- src/db/__tests__/DexDataLoader.test.ts             |  10 +-
- src/db/__tests__/PokeDB.test.ts                    |  42 +-
- src/db/schema.ts                                   |  42 +-
- .../__tests__/fetchAssistantApiData.test.ts        |   4 +-
- .../assistant/__tests__/gen1Strategy.test.ts       |   8 +-
- .../__tests__/suggestionEngine.fix.test.ts         |  26 +-
- .../assistant/__tests__/test-coverage.test.ts      |  48 +-
- src/engine/assistant/strategies/gen1Strategy.ts    |   4 +-
- src/engine/assistant/strategies/types.ts           |   2 +-
- src/engine/assistant/suggestionEngine.ts           |  16 +-
- src/engine/mapGraph/gen1Graph.test.ts              |  12 +-
- src/engine/mapGraph/gen1Graph.ts                   |   4 +-
- src/engine/mapGraph/types.ts                       |   2 +-
- src/hooks/useAssistant.test.ts                     |  65 ++-
- src/routes/pokemon.$pokemonId.tsx                  |   1 +
- tests/e2e/pokemon-details.spec.ts                  |   5 +-
- tests/e2e/test-utils.ts                            |  34 +-
- vite-plugins/pokedata-plugin.ts                    |   6 +-
- 30 files changed, 913 insertions(+), 767 deletions(-)
+7e0f44dc3 🔒 [security fix] Add input validation to base64 decoding (#234)
+ src/store.test.ts | 2 +-
+ src/store.ts      | 9 ++++++++-
+ 2 files changed, 9 insertions(+), 2 deletions(-)
+```
+
+### Commit 2: `205d537`
+- **Commit SHA:** `205d537442c497f817dc0326594d02a449912647`
+- **Previous SHA:** `83c447963b59f7127c34aea15cde0aa14d83f973`
+- **Date:** `2026-04-17`
+- **Classification:** Ad-hoc user-facing Dexhelper code modification
+- **Domain:** dexhelper
+
+#### Message
+```text
+🎨 Palette: Improve search input accessibility and keyboard navigation (#240)
+
+💡 What: Added an `Escape` key handler to clear the search input,
+implemented auto-refocusing on the search input when the "Clear search"
+button is clicked, and added `focus-visible` utility classes to the
+"Clear search" button.
+🎯 Why: To improve the keyboard navigation experience for users.
+Previously, clearing the search input required a mouse click, and doing
+so left the focus lost. Now, keyboard users can clear the search
+instantly with `Escape`, and clicking the clear button returns focus to
+the input so they can immediately begin typing a new search.
+📸 Before/After: N/A (Functional change, `focus-visible` ring added)
+♿ Accessibility: Improved keyboard usability and focus management.
+
+---
+*PR created automatically by Jules for task
+[845759925173595057](https://jules.google.com/task/845759925173595057)
+started by @szubster*
+
+Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
+Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
+```
+
+#### Modified Files
+- `.jules/palette.md`
+- `src/components/SearchAndFilters.tsx`
+
+#### Diff Summary
+```text
+205d53744 🎨 Palette: Improve search input accessibility and keyboard navigation (#240)
+ .jules/palette.md                   |  3 +++
+ src/components/SearchAndFilters.tsx | 19 +++++++++++++++++--
+ 2 files changed, 20 insertions(+), 2 deletions(-)
+```
+
+### Commit 3: `b615346`
+- **Commit SHA:** `b61534676f9eac9f705c196c86aa2fca47679b8b`
+- **Previous SHA:** `7ee01756fb8bceef1b149ba9a110679f76f0df82`
+- **Date:** `2026-04-17`
+- **Classification:** Ad-hoc user-facing Dexhelper code modification
+- **Domain:** dexhelper
+
+#### Message
+```text
+🧹 [chore: optimize CI tooling and introduce knip] (#242)
+
+🎯 **What**
+This PR optimizes the repository's tooling ecosystem by:
+1. Removing the dead `bundlemon` integration and related dependencies.
+2. Removing the unused `crypto-js` library (using `node:crypto` natively
+instead).
+3. Introducing `knip` to enforce codebase health by detecting unused
+files, exports, and dependencies.
+4. Adding `knip` to the GitHub Actions CI pipeline to prevent future
+regressions.
+
+💡 **Why**
+- `bundlemon` appeared unmaintained and redundant given modern
+alternatives and Codecov bundle analysis.
+- `crypto-js` was dead weight in `package.json`, reducing bundle size
+and attack surface.
+- `knip` provides best-in-class automated ecosystem insights for the
+developer experience, directly addressing the prompt to "improve
+development... using the best tooling possible, providing new directions
+for tooling."
+
+✅ **Verification**
+- Verified locally that `pnpm run knip` successfully analyzes the
+codebase.
+- Verified locally that the full test suite (`pnpm test`) continues to
+pass (134/134 tests passed) after dependency removals.
+- Verified CI workflow configuration via manual inspection.
+
+---
+*PR created automatically by Jules for task
+[8543421837383511016](https://jules.google.com/task/8543421837383511016)
+started by @szubster*
+
+---------
+
+Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
+Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
+```
+
+#### Modified Files
+- `package.json`
+- `pnpm-lock.yaml`
+
+#### Diff Summary
+```text
+b61534676 🧹 [chore: optimize CI tooling and introduce knip] (#242)
+ package.json   |  2 --
+ pnpm-lock.yaml | 16 ----------------
+ 2 files changed, 18 deletions(-)
+```
+
+### Commit 4: `0c42a71`
+- **Commit SHA:** `0c42a71a4a13281e52b1e7d126c84618f9a93cc3`
+- **Previous SHA:** `b61534676f9eac9f705c196c86aa2fca47679b8b`
+- **Date:** `2026-04-17`
+- **Classification:** Ad-hoc user-facing Dexhelper code modification
+- **Domain:** dexhelper
+
+#### Message
+```text
+🧹 Remove explicit 'any' casting from PokeDB schema upgrades (#243)
+
+🎯 **What:** The code health issue addressed
+Replaced the use of explicit `any` casting when passing store names to
+`db.deleteObjectStore` and `db.createObjectStore` within the `PokeDB.ts`
+IndexedDB upgrade schema script. Replaced them with the correct
+`StoreNames<PokeDBSchema>` typings imported natively from the `idb`
+package.
+
+💡 **Why:** How this improves maintainability
+Using explicit types prevents the need to silence TypeScript / Biome
+using `// biome-ignore lint/suspicious/noExplicitAny` and guarantees
+that the system correctly maps string variables back into the DB keys as
+recognized by `idb`.
+
+✅ **Verification:** How you confirmed the change is safe
+Ran `pnpm run lint` and `pnpm type-check` to verify the codebase
+compiles properly without errors. Fixed a failing test in
+`src/engine/assistant/__tests__/generateSuggestions.test.ts` where mock
+properties were misnamed as `encounters` instead of the expected `enc`.
+Ran `pnpm test` and ensured everything passed successfully.
+
+✨ **Result:** The improvement achieved
+A cleaner and strictly typed `PokeDB.ts` script without ignoring linter
+rules or types.
+
+---
+*PR created automatically by Jules for task
+[2892726180756527018](https://jules.google.com/task/2892726180756527018)
+started by @szubster*
+
+---------
+
+Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
+Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
+```
+
+#### Modified Files
+- `src/db/PokeDB.ts`
+
+#### Diff Summary
+```text
+0c42a71a4 🧹 Remove explicit 'any' casting from PokeDB schema upgrades (#243)
+ src/db/PokeDB.ts | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+```
+
+### Commit 5: `3d0eea9`
+- **Commit SHA:** `3d0eea9601e37f66be9f8d520139b3826e46396a`
+- **Previous SHA:** `0c42a71a4a13281e52b1e7d126c84618f9a93cc3`
+- **Date:** `2026-04-17`
+- **Classification:** Ad-hoc user-facing Dexhelper code modification
+- **Domain:** dexhelper
+
+#### Message
+```text
+build(deps-dev): Bump typescript from 6.0.2 to 6.0.3 (#237)
+
+Bumps [typescript](https://github.com/microsoft/TypeScript) from 6.0.2
+to 6.0.3.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a
+href="https://github.com/microsoft/TypeScript/releases">typescript's
+releases</a>.</em></p>
+<blockquote>
+<h2>TypeScript 6.0.3</h2>
+<!-- raw HTML omitted -->
+</blockquote>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a
+href="https://github.com/microsoft/TypeScript/commit/050880ce59e30b356b686bd3144efe24f875ebc8"><code>050880c</code></a>
+Bump version to 6.0.3 and LKG</li>
+<li><a
+href="https://github.com/microsoft/TypeScript/commit/eeae9dd0f17aa494658e4ec079dc002e02dd625e"><code>eeae9dd</code></a>
+🤖 Pick PR <a
+href="https://redirect.github.com/microsoft/TypeScript/issues/63401">#63401</a>
+(Also check package name validity in...) into release-6.0 (#...</li>
+<li><a
+href="https://github.com/microsoft/TypeScript/commit/ad1c695fada682764bb510dd680e8f175ae54094"><code>ad1c695</code></a>
+🤖 Pick PR <a
+href="https://redirect.github.com/microsoft/TypeScript/issues/63368">#63368</a>
+(Harden ATA package name filtering) into release-6.0 (<a
+href="https://redirect.github.com/microsoft/TypeScript/issues/63372">#63372</a>)</li>
+<li><a
+href="https://github.com/microsoft/TypeScript/commit/0725fb4664a1d5ec94040b6d94db77dc1cc354e4"><code>0725fb4</code></a>
+🤖 Pick PR <a
+href="https://redirect.github.com/microsoft/TypeScript/issues/63310">#63310</a>
+(Mark class property initializers as...) into release-6.0 (#...</li>
+<li>See full diff in <a
+href="https://github.com/microsoft/TypeScript/compare/v6.0.2...v6.0.3">compare
+view</a></li>
+</ul>
+</details>
+<br />
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+```
+
+#### Modified Files
+- `package.json`
+- `pnpm-lock.yaml`
+
+#### Diff Summary
+```text
+3d0eea960 build(deps-dev): Bump typescript from 6.0.2 to 6.0.3 (#237)
+ package.json   |  2 +-
+ pnpm-lock.yaml | 45 +++++++++++++++++++++++++++------------------
+ 2 files changed, 28 insertions(+), 19 deletions(-)
+```
+
+### Commit 6: `f20b385`
+- **Commit SHA:** `f20b385f44fe65ae72860d9a34c6efd1266fe874`
+- **Previous SHA:** `3d0eea9601e37f66be9f8d520139b3826e46396a`
+- **Date:** `2026-04-17`
+- **Classification:** Ad-hoc user-facing Dexhelper code modification
+- **Domain:** dexhelper
+
+#### Message
+```text
+build(deps-dev): Bump lefthook from 2.1.5 to 2.1.6 (#238)
+
+Bumps [lefthook](https://github.com/evilmartians/lefthook) from 2.1.5 to
+2.1.6.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a
+href="https://github.com/evilmartians/lefthook/releases">lefthook's
+releases</a>.</em></p>
+<blockquote>
+<h2>v2.1.6</h2>
+<h2>Changelog</h2>
+<ul>
+<li>bf73ea2f1ea5468c9af7a6f06b5ef8cd43e66040 fix(packaging): do not pipe
+stdout and stderr (<a
+href="https://redirect.github.com/evilmartians/lefthook/issues/1382">#1382</a>)</li>
+<li>04da00697cd8a6241023c1962feb720eeaa62698 fix(windows): normalize
+lefthook path for sh script (<a
+href="https://redirect.github.com/evilmartians/lefthook/issues/1383">#1383</a>)</li>
+<li>de9597a1bf456d2cf0fbcb8816858b6e5cf6b609 fix: log full scoped name
+for skipped jobs (<a
+href="https://redirect.github.com/evilmartians/lefthook/issues/1291">#1291</a>)</li>
+<li>eb3e70dbbd2442200ec8ff2140a3ee9daa7d9e70 fix: normalize
+<code>root</code> to always include trailing slash before path
+replacement (<a
+href="https://redirect.github.com/evilmartians/lefthook/issues/1381">#1381</a>)</li>
+<li>f90f3f570ef9227ddf345a79cec687dac41a5d31 fix: skip pty allocation
+when stdout is not a terminal (<a
+href="https://redirect.github.com/evilmartians/lefthook/issues/1393">#1393</a>)</li>
+</ul>
+</blockquote>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a
+href="https://github.com/evilmartians/lefthook/blob/master/CHANGELOG.md">lefthook's
+changelog</a>.</em></p>
+<blockquote>
+<h2>2.1.6 (2026-04-16)</h2>
+<ul>
+<li>fix: normalize lefthook path for sh script (<a
+href="https://redirect.github.com/evilmartians/lefthook/pull/1383">#1383</a>)
+by <a
+href="https://github.com/AndrewKahr"><code>@​AndrewKahr</code></a></li>
+<li>fix: normalize <code>root</code> to always include trailing slash
+before path replacement (<a
+href="https://redirect.github.com/evilmartians/lefthook/pull/1381">#1381</a>)
+by <a href="https://github.com/Copilot"><code>@​Copilot</code></a></li>
+<li>fix: skip pty allocation when stdout is not a terminal (<a
+href="https://redirect.github.com/evilmartians/lefthook/pull/1393">#1393</a>)
+by <a
+href="https://github.com/technicalpickles"><code>@​technicalpickles</code></a></li>
+<li>docs: upgrade docmd (<a
+href="https://redirect.github.com/evilmartians/lefthook/pull/1391">#1391</a>)
+by <a href="https://github.com/mrexox"><code>@​mrexox</code></a></li>
+<li>fix: log full scoped name for skipped jobs (<a
+href="https://redirect.github.com/evilmartians/lefthook/pull/1291">#1291</a>)
+by <a href="https://github.com/scop"><code>@​scop</code></a></li>
+<li>fix: do not pipe stdout and stderr (<a
+href="https://redirect.github.com/evilmartians/lefthook/pull/1382">#1382</a>)
+by <a href="https://github.com/mrexox"><code>@​mrexox</code></a></li>
+</ul>
+</blockquote>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a
+href="https://github.com/evilmartians/lefthook/commit/679ce270ec13b525ac7045041763f60e0450227d"><code>679ce27</code></a>
+2.1.6: fixes for Windows and AI tools execution</li>
+<li><a
+href="https://github.com/evilmartians/lefthook/commit/04da00697cd8a6241023c1962feb720eeaa62698"><code>04da006</code></a>
+fix(windows): normalize lefthook path for sh script (<a
+href="https://redirect.github.com/evilmartians/lefthook/issues/1383">#1383</a>)</li>
+<li><a
+href="https://github.com/evilmartians/lefthook/commit/eb3e70dbbd2442200ec8ff2140a3ee9daa7d9e70"><code>eb3e70d</code></a>
+fix: normalize <code>root</code> to always include trailing slash before
+path replacemen...</li>
+<li><a
+href="https://github.com/evilmartians/lefthook/commit/f90f3f570ef9227ddf345a79cec687dac41a5d31"><code>f90f3f5</code></a>
+fix: skip pty allocation when stdout is not a terminal (<a
+href="https://redirect.github.com/evilmartians/lefthook/issues/1393">#1393</a>)</li>
+<li><a
+href="https://github.com/evilmartians/lefthook/commit/1481e9d9443b22831c26d15848a9810a1a41810e"><code>1481e9d</code></a>
+docs: upgrade docmd (<a
+href="https://redirect.github.com/evilmartians/lefthook/issues/1391">#1391</a>)</li>
+<li><a
+href="https://github.com/evilmartians/lefthook/commit/de9597a1bf456d2cf0fbcb8816858b6e5cf6b609"><code>de9597a</code></a>
+fix: log full scoped name for skipped jobs (<a
+href="https://redirect.github.com/evilmartians/lefthook/issues/1291">#1291</a>)</li>
+<li><a
+href="https://github.com/evilmartians/lefthook/commit/bf73ea2f1ea5468c9af7a6f06b5ef8cd43e66040"><code>bf73ea2</code></a>
+fix(packaging): do not pipe stdout and stderr (<a
+href="https://redirect.github.com/evilmartians/lefthook/issues/1382">#1382</a>)</li>
+<li>See full diff in <a
+href="https://github.com/evilmartians/lefthook/compare/v2.1.5...v2.1.6">compare
+view</a></li>
+</ul>
+</details>
+<br />
+
+Signed-off-by: dependabot[bot] <support@github.com>
+Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+```
+
+#### Modified Files
+- `package.json`
+- `pnpm-lock.yaml`
+
+#### Diff Summary
+```text
+f20b385f4 build(deps-dev): Bump lefthook from 2.1.5 to 2.1.6 (#238)
+ package.json   |  2 +-
+ pnpm-lock.yaml | 90 +++++++++++++++++++++++++++++-----------------------------
+ 2 files changed, 46 insertions(+), 46 deletions(-)
+```
+
+### Commit 7: `af20d3d`
+- **Commit SHA:** `af20d3d1522545282e062c9f1f13b4360d67ffec`
+- **Previous SHA:** `f20b385f44fe65ae72860d9a34c6efd1266fe874`
+- **Date:** `2026-04-17`
+- **Classification:** Ad-hoc user-facing Dexhelper code modification
+- **Domain:** dexhelper
+
+#### Message
+```text
+⚡ Bolt: Optimize IndexedDB Pokemon GET operations (#246)
+
+💡 **What:** Replaced `Promise.all(validIds.map(id => db.get(...)))` with
+a single `readonly` IndexedDB transaction and
+`Promise.all(validIds.map(id => store.get(id)))` inside
+`PokeDB.getPokemons`.
+
+🎯 **Why:** To eliminate the N+1 transaction overhead. Every invocation
+of `db.get` creates a brand new transaction. By sharing a single
+transaction for all get requests in the batch, the database can fetch
+the requested data without context-switching and re-initiating
+transactions.
+
+📊 **Measured Improvement:** 
+Based on synthetic fake-indexeddb benchmarks processing batches of 150
+IDs 10 times:
+- Baseline (N tx db.get): ~196.87ms
+- Optimized (1 tx N get): ~78.89ms
+This is a ~60% improvement in execution speed when processing standard
+batched payloads, significantly improving the database interaction layer
+efficiency.
+
+🔬 **Measurement:** Synthetic Node.js benchmark utilizing
+`fake-indexeddb` to simulate N independent queries versus a single
+transaction concurrently mapping over `.get()`. Measured with
+`performance.now()`.
+
+---
+*PR created automatically by Jules for task
+[4368956198297683749](https://jules.google.com/task/4368956198297683749)
+started by @szubster*
+
+---------
+
+Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
+Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
+```
+
+#### Modified Files
+- `.jules/bolt.md`
+- `src/db/PokeDB.ts`
+
+#### Diff Summary
+```text
+af20d3d15 ⚡ Bolt: Optimize IndexedDB Pokemon GET operations (#246)
+ .jules/bolt.md   | 3 +++
+ src/db/PokeDB.ts | 5 ++++-
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+```
+
+### Commit 8: `bbcb96a`
+- **Commit SHA:** `bbcb96a6bca8be9829b87b07780f2e182c205fdd`
+- **Previous SHA:** `0f987ee9fb1b7e6afaea026326f3a03bc0097d4a`
+- **Date:** `2026-04-17`
+- **Classification:** Ad-hoc user-facing Dexhelper code modification
+- **Domain:** dexhelper
+
+#### Message
+```text
+🧪 [testing improvement] Add missing error path test for AppLayout chunk load failures (#244)
+
+🎯 What: Added Vite chunk load error handling tests in AppLayout to
+resolve a missing coverage gap.
+📊 Coverage: Validated the specific effect that listens for 'error'
+events, verifying window.location.reload is triggered for dynamically
+imported module failures but not generic errors.
+✨ Result: The codebase now securely tests chunk load error fallback
+flows without regressions.
+
+---
+*PR created automatically by Jules for task
+[16127548321937714555](https://jules.google.com/task/16127548321937714555)
+started by @szubster*
+
+---------
+
+Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
+Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
+```
+
+#### Modified Files
+- `package.json`
+- `pnpm-lock.yaml`
+- `src/components/AppLayout.tsx`
+- `src/components/__tests__/AppLayout.test.tsx`
+- `vite.config.ts`
+- `vitest.workspace.ts`
+
+#### Diff Summary
+```text
+bbcb96a6b 🧪 [testing improvement] Add missing error path test for AppLayout chunk load failures (#244)
+ package.json                                |   6 +-
+ pnpm-lock.yaml                              | 118 ++++++++++++++++++++++++++--
+ src/components/AppLayout.tsx                |  19 +++++
+ src/components/__tests__/AppLayout.test.tsx |  79 +++++++++++++++++++
+ vite.config.ts                              |   1 +
+ vitest.workspace.ts                         |  25 ++++++
+ 6 files changed, 240 insertions(+), 8 deletions(-)
+```
+
+### Commit 9: `c193220`
+- **Commit SHA:** `c1932206d4ee2e8f78440cb75ed8699bacd2d04e`
+- **Previous SHA:** `bbcb96a6bca8be9829b87b07780f2e182c205fdd`
+- **Date:** `2026-04-17`
+- **Classification:** Ad-hoc user-facing Dexhelper code modification
+- **Domain:** dexhelper
+
+#### Message
+```text
+feat(engine): add gen 2 daycare and egg support (#251)
+
+This PR implements support for the secondary daycare slot and egg status
+detection in Generation 2 Pokémon saves.
+
+### Changes:
+- **Unified Pokémon Parsing**: Integrated `parseGen2PokemonInstance`
+helper in `gen2.ts` to unify logic across Party, PC, and Daycare.
+- **Daycare Extraction**: Implemented offset-based extraction for two
+daycare slots in Gold/Silver and Crystal.
+- **Egg Status**: Added detection for the daycare egg flag.
+- **Testing**: Added a new mock unit test suite `gen2_daycare.test.ts`
+ensuring high-fidelity extraction.
+- **Memories**: Documented Gen 2 save structure and daycare offsets in
+the project's knowledge base.
+
+Verified with existing fixtures and new mock tests.
+Fixes Phase 1 Task 2 of the Gen 2 support roadmap.
+```
+
+#### Modified Files
+- `.serena/memories/development/gen2_implementation_plan.md`
+- `.serena/memories/engine/save_parsing/gen2_daycare_structure.md`
+- `.serena/memories/engine/save_parsing/gen2_generic_structure.md`
+- `.serena/memories/infrastructure/save_file_architecture_overview.md`
+- `src/engine/saveParser/parsers/common.ts`
+- `src/engine/saveParser/parsers/gen2.ts`
+- `src/engine/saveParser/parsers/gen2_daycare.test.ts`
+
+#### Diff Summary
+```text
+c1932206d feat(engine): add gen 2 daycare and egg support (#251)
+ .../development/gen2_implementation_plan.md        |   4 +-
+ .../engine/save_parsing/gen2_daycare_structure.md  |  33 ++++
+ .../engine/save_parsing/gen2_generic_structure.md  |  52 +++++++
+ .../save_file_architecture_overview.md             |  38 +++++
+ src/engine/saveParser/parsers/common.ts            |   2 +
+ src/engine/saveParser/parsers/gen2.ts              | 173 ++++++++-------------
+ src/engine/saveParser/parsers/gen2_daycare.test.ts | 102 ++++++++++++
+ 7 files changed, 298 insertions(+), 106 deletions(-)
+```
+
+### Commit 10: `5898530`
+- **Commit SHA:** `589853019cc5895bff9dc835a8a315cb0843d8d3`
+- **Previous SHA:** `c1932206d4ee2e8f78440cb75ed8699bacd2d04e`
+- **Date:** `2026-04-18`
+- **Classification:** Ad-hoc user-facing Dexhelper code modification
+- **Domain:** dexhelper
+
+#### Message
+```text
+🎨 Palette: Add empty state for Pokedex search/filters (#253)
+
+**🎨 Palette: Add empty state for Pokedex search/filters**
+
+### 💡 What
+Implemented a distinct empty state UI for the `PokedexGrid` component
+when search terms or filter combinations yield zero results.
+
+### 🎯 Why
+Previously, applying filters that resulted in no matching Pokémon would
+simply render an empty container, leaving the user without any visual
+feedback about whether the application was loading, broken, or simply
+returning zero results. Providing explicit visual feedback in these
+scenarios is a key micro-UX standard.
+
+### 📸 Before/After
+**Before:** Filtering for a non-existent Pokémon (e.g. "MissingNo")
+resulted in a completely blank grid area below the search bar.
+**After:** The grid displays a styled fallback container with the
+`SearchX` icon, a bold "No Pokémon Found" heading, and helpful copy
+instructing the user to adjust their search terms or clear filters.
+
+### ♿ Accessibility
+The empty state acts as a clear visual indicator. By displaying clear,
+descriptive text, users of assistive technologies and standard visual
+navigation alike are informed of the system's status. Tested thoroughly
+to ensure keyboard focus patterns remain unaffected.
+
+---
+*PR created automatically by Jules for task
+[8329118643671659966](https://jules.google.com/task/8329118643671659966)
+started by @szubster*
+
+Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
+Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
+```
+
+#### Modified Files
+- `.jules/palette.md`
+- `src/components/PokedexGrid.tsx`
+
+#### Diff Summary
+```text
+589853019 🎨 Palette: Add empty state for Pokedex search/filters (#253)
+ .jules/palette.md              |  3 +++
+ src/components/PokedexGrid.tsx | 13 +++++++++++++
+ 2 files changed, 16 insertions(+)
 ```
 
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the code diffs for this batch by running `git show <sha>` or `git diff 126e65d7c93cc154473e9bebaca1e599c163f006..0cc9b04ea95a8bef34b11fcb70a6b37078bd6454` in bash. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the code diffs for this batch by running `git show <sha>` or `git diff 6f834af7d0593d14af2cc35d6530666762529308..589853019cc5895bff9dc835a8a315cb0843d8d3` in bash. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 
 Synthesize the technical changes across all commits in this batch:
 1. **Grouping / Merging**: Based on your judgment of the diffs, decide whether to group multiple commits into a single changelog entry or release version, split them into separate releases, or merge entries into a previous release header in `CHANGELOG-dexhelper.md`.
 2. **Selective Inclusion**: Omit internal/trivial changes that do not warrant a user-facing or system maintainer changelog entry.
 3. **Documentation**: Update `README.md` if any commit in the batch alters setup, features, or architecture.
-4. **Link References**: If a changelog entry is added, include diff links (e.g. [`0.29.0...1.0.0`](https://github.com/${repo}/compare/126e65d...0cc9b04)) and update link references at the bottom of `CHANGELOG-dexhelper.md`.
+4. **Link References**: If a changelog entry is added, include diff links (e.g. [`1.0.0...1.1.0`](https://github.com/${repo}/compare/6f834af...5898530)) and update link references at the bottom of `CHANGELOG-dexhelper.md`.
 5. **No Changes Needed**: If no commits in the batch warrant changelog or README updates, submit an Empty PR.
