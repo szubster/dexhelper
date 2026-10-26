@@ -6,6 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.1.0] - 2026-04-18
+### Added
+- Added support for Generation 2 daycare and egg status detection.
+- Implemented a distinct empty state UI for Pokedex grid when search or filters return no results.
+
+### Changed
+- Improved IndexedDB Pokemon GET operations by utilizing a single transaction for batch queries, significantly reducing execution time.
+- Enhanced search input accessibility to clear the search instantly with the `Escape` key and improved keyboard navigation.
+- Optimized CI tooling by replacing unused `crypto-js` with native Node crypto, removing `bundlemon`, and introducing `knip` for codebase health checks.
+
+### Fixed
+- Replaced explicit `any` typings in `PokeDB` schema upgrades with strict `idb` typings.
+
+### Security
+- Added strict regular expression validation to Base64 `localStorage` payload decoding to prevent unexpected behavior from malformed input.
+
 ## [1.0.0] - 2026-04-17
 ### Added
 - Unified Location Architecture with precomputed build-time distances using Floyd-Warshall algorithm for O(1) distance lookups.
@@ -396,4 +412,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.28.0]: https://github.com/szubster/dexhelper/compare/f5ca16255b8b52e07426a27723b7d2a10a3193ce...1cf13ad37fddbdb3d46ab5f515a02c5c8614b28a
 
 [0.29.0]: https://github.com/szubster/dexhelper/compare/1cf13ad37fddbdb3d46ab5f515a02c5c8614b28a...126e65d7c93cc154473e9bebaca1e599c163f006
+[1.1.0]: https://github.com/szubster/dexhelper/compare/6f834af...5898530
 [1.0.0]: https://github.com/szubster/dexhelper/compare/126e65d...0cc9b04
