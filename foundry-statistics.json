@@ -10,12 +10,12 @@
       "TASK": 2782
     },
     "byStatus": {
-      "COMPLETED": 3392,
-      "ACTIVE": 163,
-      "CANCELLED": 855,
-      "PENDING": 764,
+      "COMPLETED": 3391,
+      "ACTIVE": 164,
+      "CANCELLED": 860,
+      "PENDING": 759,
       "BLOCKED": 14,
-      "FAILED": 2
+      "READY": 2
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -4646,7 +4646,7 @@
       "task-639-689-migrate-badges-impl-v4.md": 3,
       "task-639-690-migrate-inputs-leds-impl-v4.md": 3,
       "task-639-691-migrate-primitives-qa-v4.md": 0,
-      "task-639-722-migrate-buttons-impl-v5.md": 1,
+      "task-639-722-migrate-buttons-impl-v5.md": 2,
       "task-639-723-migrate-badges-impl-v5.md": 0,
       "task-639-724-migrate-inputs-leds-impl-v5.md": 1,
       "task-639-725-migrate-primitives-qa-v5.md": 0,
@@ -7612,7 +7612,7 @@
       "story-078-559-battle-frontier-data-e2e-verification.md": 3542400000,
       "story-079-560-battle-frontier-dashboard-e2e.md": 864000000,
       "story-079-578-react-flow-visualizer-refactor.md": 2332800000,
-      "story-079-579-react-flow-visualizer-refactor-e2e.md": 2937600000,
+      "story-079-579-react-flow-visualizer-refactor-e2e.md": 3628800000,
       "story-081-121-gen3-tv-block-dataview-parser.md": 5788800000,
       "story-081-279-gen3-ignore-emulator-trailing-bytes.md": 8380800000,
       "story-081-281-gen3-system-time-fallback.md": 4060800000,
@@ -7886,7 +7886,7 @@
       "story-415-415-fuzzer-dag-generation.md": 950400000,
       "story-415-416-fuzzer-state-simulation.md": 1814400000,
       "story-415-417-fuzzer-simulation-e2e.md": 5184000000,
-      "story-416-676-fuzzer-deadlock-assertions.md": 730748337,
+      "story-416-676-fuzzer-deadlock-assertions.md": 817148337,
       "story-416-677-fuzzer-ci-integration.md": 298748337,
       "story-416-678-fuzzer-ci-e2e.md": 298748337,
       "story-417-422-implement-semantic-evaluator-engine.md": 604800000,
@@ -9692,7 +9692,7 @@
       "task-578-591-visualizer-unit-tests.md": 1244810000,
       "task-578-592-visualizer-qa.md": 2022410000,
       "task-579-687-react-flow-visualizer-e2e-tests.md": 1036800000,
-      "task-579-688-react-flow-visualizer-e2e-qa.md": 345600000,
+      "task-579-688-react-flow-visualizer-e2e-qa.md": 1036800000,
       "task-580-594-gen2-friendship-data-extraction-e2e-coder.md": 131443000,
       "task-580-595-gen3-friendship-data-extraction-e2e-coder.md": 1081843000,
       "task-580-596-friendship-data-extraction-e2e-qa.md": 1686643000,
@@ -9920,8 +9920,8 @@
       "task-676-718-qa-trainer-card-state.md": 0,
       "task-676-719-test-gen3-wallpaper-dashboard.md": 172800000,
       "task-676-720-qa-gen3-wallpaper-dashboard.md": 172800000,
-      "task-676-722-fuzzer-deadlock-assertions-impl-retry.md": -20619000,
-      "task-676-723-fuzzer-deadlock-assertions-qa-retry.md": -20619000,
+      "task-676-722-fuzzer-deadlock-assertions-impl-retry.md": 65781000,
+      "task-676-723-fuzzer-deadlock-assertions-qa-retry.md": 65781000,
       "task-677-678-adr-compliance-lefthook-integration-impl.md": 104400000,
       "task-677-679-adr-compliance-lefthook-integration-qa.md": -68400000,
       "task-677-712-wonder-card-primitives-impl.md": 87709000,
@@ -9950,8 +9950,8 @@
   "prs": {
     "totalPRs": 10000,
     "openPRs": 185,
-    "mergedPRs": 8659,
-    "closedPRs": 1156
+    "mergedPRs": 8658,
+    "closedPRs": 1157
   },
-  "timestamp": "2026-10-26T07:11:17.584Z"
+  "timestamp": "2026-10-26T14:40:32.793Z"
 }

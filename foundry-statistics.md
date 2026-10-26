@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-26T07:11:17.584Z*
+*Generated at: 2026-10-26T14:40:32.793Z*
 
 ## Node Statistics
 
@@ -18,12 +18,12 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3392 |
-| ACTIVE | 163 |
-| CANCELLED | 855 |
-| PENDING | 764 |
+| COMPLETED | 3391 |
+| ACTIVE | 164 |
+| CANCELLED | 860 |
+| PENDING | 759 |
 | BLOCKED | 14 |
-| FAILED | 2 |
+| READY | 2 |
 
 ## PR Metrics
 
@@ -31,8 +31,8 @@
 |---|---|
 | Total PRs | 10000 |
 | Open PRs | 185 |
-| Merged PRs | 8659 |
-| Closed PRs | 1156 |
+| Merged PRs | 8658 |
+| Closed PRs | 1157 |
 
 ## Rejection Counts
 
@@ -523,6 +523,7 @@
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
+| task-639-722-migrate-buttons-impl-v5.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
@@ -1024,7 +1025,6 @@
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
-| task-639-722-migrate-buttons-impl-v5.md | 1 |
 | task-639-724-migrate-inputs-leds-impl-v5.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
 | task-640-653-relocate-foundry-scripts-replacement.md | 1 |
