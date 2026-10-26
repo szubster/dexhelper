@@ -1,3 +1,4 @@
+import { TacticalButton } from '@dexhelper/ui';
 import { X } from 'lucide-react';
 import { useState } from 'react';
 import { saveDB } from '../db/SaveDB';
@@ -7,7 +8,6 @@ import { ClearStorageButton } from './settings/ClearStorageButton';
 import { FeatureFlagsUI } from './settings/FeatureFlagsUI';
 import { SettingsControls } from './settings/SettingsControls';
 import { SettingsLegend } from './settings/SettingsLegend';
-import { TacticalButton } from './TacticalButton';
 import { TacticalModal } from './TacticalModal';
 import { TelemetryDecoration } from './TelemetryDecoration';
 

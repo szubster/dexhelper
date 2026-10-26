@@ -100,24 +100,18 @@ export default defineConfig(() => {
       rollupOptions: {
         output: {
           manualChunks(id) {
-            if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
-              return 'react';
+            if (id.includes('node_modules/')) {
+              if (id.includes('react/') || id.includes('react-dom/')) return 'react';
+              if (id.includes('@tanstack/react-router/')) return 'router';
+              if (id.includes('@tanstack/react-query/')) return 'query';
+              if (id.includes('msgpackr/')) return 'msgpackr';
+              if (id.includes('idb/')) return 'idb';
+              if (id.includes('cn/')) return 'cn';
             }
-            if (id.includes('node_modules/@tanstack/react-router/')) {
-              return 'router';
+            if (id.includes('packages/ui/')) {
+              return 'ui';
             }
-            if (id.includes('node_modules/@tanstack/react-query/')) {
-              return 'query';
-            }
-            if (id.includes('node_modules/msgpackr/')) {
-              return 'msgpackr';
-            }
-            if (id.includes('node_modules/idb/')) {
-              return 'idb';
-            }
-            if (id.includes('node_modules/cn/')) {
-              return 'cn';
-            }
+
             return undefined;
           }
         },

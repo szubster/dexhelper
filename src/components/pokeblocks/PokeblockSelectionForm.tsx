@@ -1,9 +1,8 @@
-import { EdgeLabel, TacticalInput } from '@dexhelper/ui';
+import { EdgeLabel, TacticalButton, TacticalInput } from '@dexhelper/ui';
 import type React from 'react';
 import { usePokeblock } from '../../contexts/pokeblock/PokeblockContext';
 import type { ContestCondition, Nature } from '../../engine/gen3/contests/types';
 import { TacticalBlockHeader } from '../TacticalBlockHeader';
-import { TacticalButton } from '../TacticalButton';
 import { TacticalPanel } from '../TacticalPanel';
 import { TacticalSelect } from '../TacticalSelect';
 
