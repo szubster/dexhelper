@@ -1,8 +1,8 @@
+import { TacticalLed } from '@dexhelper/ui';
 import React from 'react';
 import { cn } from '../../../utils/cn';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
-import { TacticalLed } from '../../TacticalLed';
 
 interface LocationRowProps extends React.HTMLAttributes<HTMLDivElement> {
   icon: React.ReactNode;

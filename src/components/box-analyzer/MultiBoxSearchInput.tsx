@@ -1,8 +1,8 @@
+import { TacticalInput } from '@dexhelper/ui';
 import { Fingerprint } from 'lucide-react';
 import type React from 'react';
 import { useRef, useState, useTransition } from 'react';
 import { useStore } from '../../store';
-import { TacticalInput } from '../TacticalInput';
 
 export function MultiBoxSearchInput() {
   const inputRef = useRef<HTMLInputElement>(null);

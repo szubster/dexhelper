@@ -1,7 +1,7 @@
+import { TacticalLed } from '@dexhelper/ui';
 import { cn } from '../../utils/cn';
 import { DataPoint } from '../DataPoint';
 import { TacticalHeaderDivider } from '../TacticalHeaderDivider';
-import { TacticalLed } from '../TacticalLed';
 import { TacticalPanel } from '../TacticalPanel';
 
 export interface ShoalItemTrackerProps {
