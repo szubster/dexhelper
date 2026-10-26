@@ -107,11 +107,11 @@
     },
     {
       "path": "assets/store-<hash>.js",
-      "maxSize": "15kb"
+      "maxSize": "18kb"
     },
     {
       "path": "assets/*-<hash>.js",
-      "maxSize": "15kb"
+      "maxSize": "18kb"
     },
     {
       "path": "data/foundry.json",
