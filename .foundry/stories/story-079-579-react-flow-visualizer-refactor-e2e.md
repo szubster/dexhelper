@@ -28,5 +28,8 @@ E2E verification for the React Flow visualizer refactor.
 
 ## Acceptance Criteria
 - [x] Break down into tasks.
-- [ ] task-579-687-react-flow-visualizer-e2e-tests
-- [ ] task-579-688-react-flow-visualizer-e2e-qa
+- [x] task-579-687-react-flow-visualizer-e2e-tests
+- [x] task-579-688-react-flow-visualizer-e2e-qa
+- [ ] research-579-728-investigate-react-flow-e2e-failure
+- [ ] task-579-729-react-flow-visualizer-e2e-tests-retry
+- [ ] task-579-730-react-flow-visualizer-e2e-qa-retry
