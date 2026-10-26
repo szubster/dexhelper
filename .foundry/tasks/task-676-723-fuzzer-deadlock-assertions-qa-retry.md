@@ -2,10 +2,10 @@
 id: task-676-723-fuzzer-deadlock-assertions-qa-retry
 type: TASK
 title: Fuzzer Deadlock Detection Assertions QA Retry
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-25T05:43:39.000Z'
-updated_at: '2026-10-25'
+updated_at: '2026-10-26'
 depends_on:
   - task-676-722-fuzzer-deadlock-assertions-impl-retry
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-676-721-investigate-fuzzer-deadlock-assertions-failure
 notes: ''
 locks: []
 ---

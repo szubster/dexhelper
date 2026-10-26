@@ -2,7 +2,7 @@
 id: research-676-721-investigate-fuzzer-deadlock-assertions-failure
 type: RESEARCH
 title: Investigate Fuzzer Deadlock Assertions Failure
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-25T05:43:39.000Z'
 updated_at: '2026-10-26'
@@ -16,8 +16,8 @@ tags:
   - resilience
   - testing
 research_references: []
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-26T01:53:46.515Z*
+*Generated at: 2026-10-26T07:11:17.584Z*
 
 ## Node Statistics
 
@@ -18,12 +18,11 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3390 |
-| ACTIVE | 159 |
+| COMPLETED | 3392 |
+| ACTIVE | 163 |
 | CANCELLED | 855 |
 | PENDING | 764 |
 | BLOCKED | 14 |
-| READY | 6 |
 | FAILED | 2 |
 
 ## PR Metrics
@@ -31,9 +30,9 @@
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 177 |
-| Merged PRs | 8665 |
-| Closed PRs | 1158 |
+| Open PRs | 185 |
+| Merged PRs | 8659 |
+| Closed PRs | 1156 |
 
 ## Rejection Counts
 
@@ -165,6 +164,7 @@
 | research-641-668-investigate-hexstream-telemetry-failure.md | 3 |
 | research-641-673-investigate-scanline-crosshairs-failure.md | 3 |
 | research-645-687-investigate-dashboard-metrics-e2e-failure.md | 3 |
+| research-676-721-investigate-fuzzer-deadlock-assertions-failure.md | 3 |
 | story-525-639-extract-data-generation-scripts.md | 3 |
 | story-553-563-gen3-map-data-extraction.md | 3 |
 | task-081-130-preserve-enum-optimizations-impl.md | 3 |
@@ -304,6 +304,7 @@
 | task-567-586-shoal-cave-e2e-coder.md | 3 |
 | task-570-590-cva-tactical-aesthetic-e2e-coder.md | 3 |
 | task-574-690-item-gating-ui-components.md | 3 |
+| task-579-687-react-flow-visualizer-e2e-tests.md | 3 |
 | task-586-687-multi-box-integration-impl.md | 3 |
 | task-608-619-multi-box-text-search-engine-e2e.md | 3 |
 | task-618-703-multi-box-search-highlight-impl.md | 3 |
@@ -420,7 +421,6 @@
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
-| research-676-721-investigate-fuzzer-deadlock-assertions-failure.md | 2 |
 | story-042-081-preserve-enum-optimizations.md | 2 |
 | story-063-605-mirage-island-unified-state-hydration.md | 2 |
 | story-088-638-client-db-jsonl-loader.md | 2 |
@@ -520,7 +520,6 @@
 | task-565-576-gen3-pokedex-gaps-e2e-coder.md | 2 |
 | task-565-606-hunting-progress-notifications.md | 2 |
 | task-570-618-cva-tactical-aesthetic-e2e-coder-retry.md | 2 |
-| task-579-687-react-flow-visualizer-e2e-tests.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
@@ -544,6 +543,7 @@
 | epic-055-113-egg-move-pathfinding-engine.md | 1 |
 | epic-055-116-pokegear-active-callers.md | 1 |
 | epic-055-118-pokegear-alerts.md | 1 |
+| epic-057-420-bash-timeout-wrapper-retry.md | 1 |
 | epic-071-074-define-tailwind-v4-utilities.md | 1 |
 | epic-099-397-indexeddb-schema-design-retry.md | 1 |
 | epic-106-137-gen2-static-encounters.md | 1 |
@@ -708,7 +708,6 @@
 | epic-053-105-daycare-save-parsing.md | 1 |
 | epic-053-106-egg-hatch-parsing.md | 1 |
 | epic-054-108-box-analyzer-save-parsing.md | 1 |
-| epic-057-420-bash-timeout-wrapper-retry.md | 1 |
 | epic-099-398-save-state-read-write-api-retry.md | 1 |
 | epic-099-399-save-state-lru-eviction-and-limits-retry.md | 1 |
 | epic-103-133-living-dex-data-engine.md | 1 |
