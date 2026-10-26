@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.1.1] - 2026-04-19
+### Changed
+- Improved LocationSuggestions to prevent N+1 IndexedDB queries, removing synchronous main thread blocking on keystrokes.
+- Optimized AssistantPanel by leveraging cached global query options to eliminate redundant database queries and memory allocation.
+- Enhanced AssistantPanel accessibility by adding focus-visible indicators to grid buttons for improved keyboard navigation.
+- Added comprehensive documentation and architectural comments to the suggestionEngine and saveParser modules.
+
+### Fixed
+- Fixed PokeAPI evolution item IDs not matching in-game internal item IDs, ensuring proper evaluation of evolution stones in the assistant.
+- Fixed a bug where Yellow version exclusives for Sandshrew, Sandslash, and Pinsir were incorrectly listed as unobtainable, and Electabuzz was missing.
+- Resolved type safety and compiler errors in AssistantPanel styles mapping and DexDataLoader batch functions.
+
 ## [1.1.0] - 2026-04-18
 ### Added
 - Added support for Generation 2 daycare and egg status detection.
@@ -414,3 +426,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.29.0]: https://github.com/szubster/dexhelper/compare/1cf13ad37fddbdb3d46ab5f515a02c5c8614b28a...126e65d7c93cc154473e9bebaca1e599c163f006
 [1.1.0]: https://github.com/szubster/dexhelper/compare/6f834af...5898530
 [1.0.0]: https://github.com/szubster/dexhelper/compare/126e65d...0cc9b04
+
+[1.1.1]: https://github.com/szubster/dexhelper/compare/eca8138...ca65976
