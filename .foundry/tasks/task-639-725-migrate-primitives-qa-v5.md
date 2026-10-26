@@ -28,6 +28,6 @@ locks: []
 Verify the successful migration of all tactical primitives to the `@dexhelper/ui` package.
 
 ## Acceptance Criteria
-- [ ] All tactical primitives (Buttons, Badges, Inputs, LEDs) function correctly.
-- [ ] Components render successfully in the view hierarchy without regressions.
-- [ ] Design constraints and tactical aesthetics are maintained.
+- [x] All tactical primitives (Buttons, Badges, Inputs, LEDs) function correctly.
+- [x] Components render successfully in the view hierarchy without regressions.
+- [x] Design constraints and tactical aesthetics are maintained.
