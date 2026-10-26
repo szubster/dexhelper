@@ -26,3 +26,9 @@ Provide verification logic to guarantee that generation-specific logic remains f
 - Guarantee that generation-specific logic remains functional after splitting.
 
 ## Acceptance Criteria
+- [ ] task-726-728-impl-lazy-load-tests
+- [ ] task-726-729-qa-lazy-load-tests
+- [ ] task-726-730-impl-background-fetch-tests
+- [ ] task-726-731-qa-background-fetch-tests
+- [ ] task-726-732-impl-generation-logic-tests
+- [ ] task-726-733-qa-generation-logic-tests
