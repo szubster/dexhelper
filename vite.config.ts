@@ -118,6 +118,9 @@ export default defineConfig(() => {
             if (id.includes('node_modules/cn/')) {
               return 'cn';
             }
+            if (id.includes('packages/ui/')) {
+              return 'ui';
+            }
             return undefined;
           }
         },
