@@ -38,6 +38,7 @@ Dexhelper is configured to be seamlessly deployed on Cloudflare Pages. The Vite 
 - Generate PokeDB data: `pnpm data:gen` and `pnpm data:gen-maps`
 - Format code using Biome: `pnpm format`
 - Run linting and type checking: `pnpm lint`
+- Detect unused files, exports, and dependencies: `pnpm run knip`
 - Build the project: `pnpm build`
 # Dependency Cruiser Configuration
 
