@@ -1,6 +1,6 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import { Link, type LinkProps } from '@tanstack/react-router';
 import type React from 'react';
-import { CornerCrosshairs } from './CornerCrosshairs';
 
 interface NavigationTabProps extends Omit<LinkProps, 'activeProps' | 'inactiveProps' | 'className'> {
   icon: React.ReactNode;

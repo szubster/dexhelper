@@ -1,9 +1,8 @@
+import { EdgeLabel, TacticalInput } from '@dexhelper/ui';
 import type React from 'react';
 import type { Nature } from '../../../engine/gen3/contests/types';
 import { NATURES } from '../../../engine/gen3/nature';
 import { useStore } from '../../../store';
-import { EdgeLabel } from '../../EdgeLabel';
-import { TacticalInput } from '../../TacticalInput';
 import { TacticalSegmentedControl } from '../../TacticalSegmentedControl';
 import { TacticalSelect } from '../../TacticalSelect';
 

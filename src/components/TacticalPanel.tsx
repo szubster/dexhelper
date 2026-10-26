@@ -1,7 +1,7 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
 import { cn } from '../utils/cn';
-import { CornerCrosshairs } from './CornerCrosshairs';
 import { LcdGrid } from './LcdGrid';
 import { ScanlineOverlay } from './ScanlineOverlay';
 

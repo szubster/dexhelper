@@ -1,7 +1,7 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
 import { cn } from '../utils/cn';
-import { CornerCrosshairs } from './CornerCrosshairs';
 
 const cardVariants = cva(
   'group focus-visible:tactical-focus relative w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50',

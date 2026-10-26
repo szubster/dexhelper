@@ -1,17 +1,14 @@
-import { FilterBadge } from '@dexhelper/ui';
+import { CornerCrosshairs, EdgeLabel, FilterBadge, TacticalInput } from '@dexhelper/ui';
 import { Crosshair, Fingerprint, Radio } from 'lucide-react';
 import React, { useMemo, useRef, useState, useTransition } from 'react';
 import { FILTER_TYPES, type FilterType, useStore } from '../store';
 import { cn } from '../utils/cn';
 import { ClearFiltersBadge } from './ClearFiltersBadge';
-import { CornerCrosshairs } from './CornerCrosshairs';
-import { EdgeLabel } from './EdgeLabel';
 import { HexStreamDecoration } from './HexStreamDecoration';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
 import { LocationSuggestions } from './LocationSuggestions';
 import { AttributeFilters } from './pc-box/search/AttributeFilters';
-import { TacticalInput } from './TacticalInput';
 import { TacticalMultiSelectControl } from './TacticalMultiSelectControl';
 import { TacticalPanel } from './TacticalPanel';
 import { TelemetryDecoration } from './TelemetryDecoration';

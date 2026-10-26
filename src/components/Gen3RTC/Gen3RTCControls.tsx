@@ -1,9 +1,9 @@
+import { TacticalInput } from '@dexhelper/ui';
 import type React from 'react';
 import { useState } from 'react';
 import { useGen3RTC } from '../../contexts/Gen3RTCContext';
 import { useTimeOverride } from '../../contexts/TimeOverrideContext';
 import { TacticalButton } from '../TacticalButton';
-import { TacticalInput } from '../TacticalInput';
 import { TacticalSelect } from '../TacticalSelect';
 
 const DISPLAY_DAYS_OF_WEEK = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];

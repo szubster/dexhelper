@@ -1,11 +1,10 @@
-import { TacticalBadge } from '@dexhelper/ui';
+import { CornerCrosshairs, TacticalBadge } from '@dexhelper/ui';
 import { Link } from '@tanstack/react-router';
 import type React from 'react';
 import { memo, useMemo } from 'react';
 import type { EncounterDetail, Suggestion } from '../../engine/assistant/strategies/types';
 import type { SaveData } from '../../engine/saveParser/index';
 import { objectEntries } from '../../utils/object';
-import { CornerCrosshairs } from '../CornerCrosshairs';
 import { HoverScanner } from '../HoverScanner';
 import { LcdGrid } from '../LcdGrid';
 import { PokemonSprite } from '../pokemon/PokemonSprite';

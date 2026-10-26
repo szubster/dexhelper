@@ -1,8 +1,8 @@
+import { TacticalLed } from '@dexhelper/ui';
 import type React from 'react';
 import { cn } from '../utils/cn';
 import { HoverScanner } from './HoverScanner';
 import { LcdGrid } from './LcdGrid';
-import { TacticalLed } from './TacticalLed';
 
 export interface TacticalNodeProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: 'primary' | 'red' | 'purple' | 'blue' | 'pink';

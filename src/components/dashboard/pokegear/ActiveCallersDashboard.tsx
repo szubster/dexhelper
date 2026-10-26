@@ -1,6 +1,6 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import { GEN2_PHONE_CALLER_REGISTRY } from '../../../engine/saveParser/parsers/gen2/phone/constants';
 import type { Contact, TimerState } from '../../../engine/saveParser/parsers/gen2/phone/predictor';
-import { CornerCrosshairs } from '../../CornerCrosshairs';
 import { TacticalHeaderDivider } from '../../TacticalHeaderDivider';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
