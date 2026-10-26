@@ -360,6 +360,102 @@ describe('catchGenerator', () => {
     expect(suggestionsGen3[0]?.priority).toBe(115);
     expect(suggestionsGen3[0]?.description).toContain('Shadow Tag');
   });
+
+  it('should generate high-priority suggestions for Emerald weather anomaly Marine Cave (Kyogre #382) and Terra Cave (Groudon #383)', () => {
+    const apiData = {
+      localEncounters: [],
+      localAid: undefined,
+      missingEncounters: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const myOtIds = new Set<number>();
+    const missingIds = new Set<number>([382, 383]);
+    const queryTargets = [382, 383];
+
+    // Marine Cave active on Route 105 (locationId 0)
+    const saveDataKyogre = {
+      generation: 3,
+      currentMapId: 1,
+      gen3WeatherAnomaly: { isActive: true, locationId: 0 },
+    } as unknown as SaveData;
+
+    const suggestionsKyogre: Suggestion[] = [];
+    generateCatchSuggestions(
+      apiData,
+      1,
+      myOtIds,
+      missingIds,
+      queryTargets,
+      saveDataKyogre,
+      gen1Strategy,
+      suggestionsKyogre,
+      new Set(),
+    );
+
+    expect(suggestionsKyogre).toHaveLength(1);
+    expect(suggestionsKyogre[0]).toMatchObject({
+      id: 'catch-weather-anomaly-382',
+      category: 'Catch',
+      pokemonId: 382,
+      priority: 115,
+      title: 'Weather Anomaly: Kyogre (#382)',
+    });
+    expect(suggestionsKyogre[0]?.description).toContain('Route 105');
+
+    // Terra Cave active on Route 118 (locationId 7)
+    const saveDataGroudon = {
+      generation: 3,
+      currentMapId: 1,
+      gen3WeatherAnomaly: { isActive: true, locationId: 7 },
+    } as unknown as SaveData;
+
+    const suggestionsGroudon: Suggestion[] = [];
+    generateCatchSuggestions(
+      apiData,
+      1,
+      myOtIds,
+      missingIds,
+      queryTargets,
+      saveDataGroudon,
+      gen1Strategy,
+      suggestionsGroudon,
+      new Set(),
+    );
+
+    expect(suggestionsGroudon).toHaveLength(1);
+    expect(suggestionsGroudon[0]).toMatchObject({
+      id: 'catch-weather-anomaly-383',
+      category: 'Catch',
+      pokemonId: 383,
+      priority: 115,
+      title: 'Weather Anomaly: Groudon (#383)',
+    });
+    expect(suggestionsGroudon[0]?.description).toContain('Route 118');
+
+    // Suppressed when already caught/defeated in gen3StaticEncounters
+    const saveDataCaught = {
+      generation: 3,
+      currentMapId: 1,
+      gen3WeatherAnomaly: { isActive: true, locationId: 0 },
+      gen3StaticEncounters: { kyogre: true },
+    } as unknown as SaveData;
+
+    const suggestionsCaught: Suggestion[] = [];
+    generateCatchSuggestions(
+      apiData,
+      1,
+      myOtIds,
+      missingIds,
+      queryTargets,
+      saveDataCaught,
+      gen1Strategy,
+      suggestionsCaught,
+      new Set(),
+    );
+
+    expect(suggestionsCaught).toHaveLength(0);
+  });
 });
 it('should suggest catching a pre-evolution if target is missing and pre-evolution is nearby', () => {
   const apiData = {
