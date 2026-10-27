@@ -33,5 +33,5 @@ As part of extracting the NPC party for each base owner, we need to establish th
 - Define module-level constants for memory offsets, lengths, bit locations, shifts, and array bounds checking limits. Do not use magic numbers.
 
 ## Acceptance Criteria
-- [ ] Define PokeData types for Secret Base NPC party (including species, levels, and moves) using full readable property names.
-- [ ] Define module-level constants for Gen 3 extraction offsets and lengths.
+- [x] Define PokeData types for Secret Base NPC party (including species, levels, and moves) using full readable property names.
+- [x] Define module-level constants for Gen 3 extraction offsets and lengths.
