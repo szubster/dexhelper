@@ -2,12 +2,12 @@
 id: task-620-687-gen1-static-encounters-e2e-coder
 type: TASK
 title: Implement Gen 1 Static Encounters E2E Tests
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-18'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: '10588307912653510739'
+jules_session_id: null
 pr_number: null
 parent: story-136-620-gen1-static-encounters-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - gen1
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---

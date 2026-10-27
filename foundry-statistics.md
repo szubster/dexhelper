@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-27T05:47:27.542Z*
+*Generated at: 2026-10-27T16:57:22.080Z*
 
 ## Node Statistics
 
@@ -8,20 +8,22 @@
 | Type | Count |
 |---|---|
 | ADR | 44 |
-| EPIC | 513 |
-| IDEA | 234 |
+| EPIC | 518 |
+| IDEA | 235 |
 | PRD | 217 |
-| RESEARCH | 320 |
-| STORY | 1080 |
-| TASK | 2782 |
+| RESEARCH | 323 |
+| STORY | 1083 |
+| TASK | 2801 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3395 |
-| ACTIVE | 164 |
+| COMPLETED | 3394 |
+| ACTIVE | 148 |
 | CANCELLED | 860 |
-| PENDING | 757 |
+| PENDING | 766 |
+| FAILED | 16 |
+| READY | 23 |
 | BLOCKED | 14 |
 
 ## PR Metrics
@@ -29,8 +31,8 @@
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 185 |
-| Merged PRs | 8658 |
+| Open PRs | 167 |
+| Merged PRs | 8676 |
 | Closed PRs | 1157 |
 
 ## Rejection Counts
@@ -469,6 +471,7 @@
 | task-443-490-box-analyzer-gen3-e2e-impl.md | 2 |
 | task-443-490-implement-gen2-savings-e2e.md | 2 |
 | task-470-485-source-gen1-gen2-saves.md | 2 |
+| task-472-676-implement-e2e-tests-retry-2.md | 2 |
 | task-473-493-dag-context-e2e-mock-data.md | 2 |
 | task-473-494-gen3-egg-hatch-e2e-impl.md | 2 |
 | task-473-640-gen3-condition-stats-qa-v3.md | 2 |
@@ -1044,13 +1047,13 @@
 | task-550-685-generator-tree-traversals-e2e-impl.md | 76809600000 |
 | task-550-687-generator-architecture-e2e-qa.md | 76809600000 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
+| task-528-677-safari-zone-bounty-board-ui.md | 76550400000 |
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76464000000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
 | story-325-527-safari-zone-area-highlighting.md | 76377600000 |
 | task-527-713-safari-zone-area-map-ui-v4.md | 76377600000 |
 | task-527-714-safari-zone-area-highlighting-qa-v4.md | 76377600000 |
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |
-| task-528-677-safari-zone-bounty-board-ui.md | 75945600000 |
 | epic-339-406-jules-agent-skins.md | 75859200000 |
 | task-528-676-safari-zone-bounty-board-data.md | 75859200000 |
 | story-325-528-safari-zone-bounty-board.md | 75513600000 |

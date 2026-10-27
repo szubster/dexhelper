@@ -2,16 +2,16 @@
 id: prd-530-587-strict-frontmatter-yaml-parsing-rule
 type: PRD
 title: Strict Frontmatter YAML Parsing Rule implementation
-status: ACTIVE
+status: FAILED
 owner_persona: epic_planner
 created_at: '2026-10-14'
-updated_at: '2026-10-19'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: '6978775070346721579'
+jules_session_id: null
 pr_number: null
 parent: idea-530-strict-frontmatter-yaml-parsing-rule
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 priority: 50

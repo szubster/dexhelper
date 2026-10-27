@@ -2,12 +2,12 @@
 id: story-085-676-rematch-dashboard-layout-and-routing
 type: STORY
 title: Rematch Dashboard Layout and Routing
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-10-14'
-updated_at: '2026-10-19'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: '3752380884256901576'
+jules_session_id: null
 pr_number: null
 parent: epic-048-085-gen3-match-call-dashboard-ui
 tags:
@@ -17,7 +17,7 @@ tags:
   - layout
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 priority: 50

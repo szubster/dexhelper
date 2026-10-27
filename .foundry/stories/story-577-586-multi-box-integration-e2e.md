@@ -2,12 +2,12 @@
 id: story-577-586-multi-box-integration-e2e
 type: STORY
 title: Integration and E2E Verification for Multi-Box Search
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-18'
-updated_at: '2026-10-19'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: '8020393731610035852'
+jules_session_id: null
 pr_number: null
 parent: epic-566-577-multi-box-integration
 tags:
@@ -16,7 +16,7 @@ tags:
   - e2e
   - pc-box
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---

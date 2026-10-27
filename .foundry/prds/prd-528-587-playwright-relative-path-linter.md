@@ -2,12 +2,12 @@
 id: prd-528-587-playwright-relative-path-linter
 type: PRD
 title: PRD Playwright Relative Path Navigation Linter Rule
-status: ACTIVE
+status: FAILED
 owner_persona: epic_planner
 created_at: '2026-10-15'
-updated_at: '2026-10-18'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: '14095990097843965610'
+jules_session_id: null
 pr_number: null
 parent: idea-528-playwright-relative-path-linter
 tags:
@@ -17,7 +17,7 @@ tags:
   - quality
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 priority: 50

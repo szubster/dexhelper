@@ -2,12 +2,12 @@
 id: story-580-674-migrate-pokedex-e2e-tests
 type: STORY
 title: Migrate Pokedex E2E Tests to COM Pattern
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-10-09'
-updated_at: '2026-10-18'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: '14765118996840553089'
+jules_session_id: null
 pr_number: null
 parent: epic-566-580-e2e-test-migration
 tags:
@@ -15,7 +15,7 @@ tags:
   - e2e
   - playwright
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 priority: 60

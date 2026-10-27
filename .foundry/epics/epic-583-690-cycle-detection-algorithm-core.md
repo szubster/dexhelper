@@ -2,12 +2,12 @@
 id: epic-583-690-cycle-detection-algorithm-core
 type: EPIC
 title: EPIC - Cycle Detection Algorithm Core Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: story_owner
 created_at: 2026-10-16T18:06:01.090Z
-updated_at: '2026-10-21'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: '2501728465895153574'
+jules_session_id: null
 pr_number: null
 parent: prd-527-583-foundry-dag-deadlock-detector
 tags:
@@ -16,7 +16,7 @@ tags:
   - algorithm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 priority: 50

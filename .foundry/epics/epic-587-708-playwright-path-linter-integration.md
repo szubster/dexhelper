@@ -2,10 +2,10 @@
 id: epic-587-708-playwright-path-linter-integration
 type: EPIC
 title: Epic Playwright Path Linter Integration
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-27'
 depends_on:
   - epic-587-707-playwright-path-ast-analyzer
 jules_session_id: null

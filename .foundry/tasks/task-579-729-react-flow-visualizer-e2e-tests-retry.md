@@ -2,10 +2,10 @@
 id: task-579-729-react-flow-visualizer-e2e-tests-retry
 type: TASK
 title: React Flow Visualizer E2E Tests (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-26'
-updated_at: '2026-10-26'
+updated_at: '2026-10-27'
 depends_on:
   - research-579-728-investigate-react-flow-e2e-failure
 jules_session_id: null

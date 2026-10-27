@@ -2,10 +2,10 @@
 id: task-472-676-implement-e2e-tests-retry-2
 type: TASK
 title: Implement E2E Tests for New Save Fixtures (Retry 2)
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-19'
+updated_at: '2026-10-27'
 depends_on:
   - research-472-675-investigate-e2e-tests-failure-v2
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - e2e
   - fixtures
 research_references: []
-rejection_count: 1
-rejection_reason: 'Missing E2E tests for the majority of new save fixtures (only 4 of 39 tested). Please add tests for all fixtures listed in tests/fixtures/manifest.json.'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

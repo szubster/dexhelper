@@ -2,13 +2,13 @@
 id: story-552-564-gen3-map-e2e-verification
 type: STORY
 title: Gen 3 Map Integration and E2E Verification
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-10-22'
+updated_at: '2026-10-27'
 depends_on:
   - story-552-563-gen3-map-state-management
-jules_session_id: '2799818541196803205'
+jules_session_id: null
 pr_number: null
 parent: epic-424-552-gen3-map-core-ui
 tags:
@@ -18,7 +18,7 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---

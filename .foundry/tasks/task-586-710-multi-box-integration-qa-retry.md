@@ -2,10 +2,10 @@
 id: task-586-710-multi-box-integration-qa-retry
 type: TASK
 title: QA - Multi-Box Search Integration (Retry)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-19'
-updated_at: '2026-10-19'
+updated_at: '2026-10-27'
 depends_on:
   - task-586-709-multi-box-integration-e2e-retry
 jules_session_id: null
