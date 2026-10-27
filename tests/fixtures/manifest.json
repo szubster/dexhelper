@@ -58,7 +58,7 @@
     {
       "filename": "crystal-egg-shiny-living-dex.sav",
       "version": "crystal",
-      "original_source": "./extracted_save/Egg Shiny Living Dex.sav"
+      "original_source": "./tests/fixtures/saves/gen2/Egg Shiny Living Dex.sav"
     },
     {
       "filename": "ruby-vithuang-2.sav",
