@@ -27,6 +27,6 @@ locks: []
 As part of the Gen 3 Pokéblock Viewer Route and Dashboard story, we need to create the state access layer. This involves writing hooks or selectors to cleanly extract the parsed Pokéblock data from the save state context.
 
 ## Acceptance Criteria
-- [ ] Implement a custom hook or selector (e.g., `usePokeblocks`) to access the parsed Pokéblock data from the global store or context.
-- [ ] Ensure the hook correctly handles cases where data might not be loaded yet.
-- [ ] Write unit tests to verify the hook correctly retrieves data.
+- [x] Implement a custom hook or selector (e.g., `usePokeblocks`) to access the parsed Pokéblock data from the global store or context.
+- [x] Ensure the hook correctly handles cases where data might not be loaded yet.
+- [x] Write unit tests to verify the hook correctly retrieves data.

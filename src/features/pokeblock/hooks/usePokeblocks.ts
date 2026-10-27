@@ -1,0 +1,16 @@
+import type { Gen3Pokeblock } from '../../../engine/saveParser/gen3/pokeblock/types';
+import type { Gen3SaveData } from '../../../engine/saveParser/parsers/common';
+import { useStore } from '../../../store';
+
+/**
+ * A custom hook to access the parsed Pokeblock data from the global store.
+ * Returns an array of Gen3Pokeblocks if available, or undefined if the data
+ * has not been loaded or is not applicable (e.g., non-Gen 3 save file).
+ */
+export function usePokeblocks(): Gen3Pokeblock[] | undefined {
+  const saveData = useStore((state) => state.saveData);
+  if (saveData && saveData.generation === 3) {
+    return (saveData as Gen3SaveData).gen3Pokeblocks;
+  }
+  return undefined;
+}
