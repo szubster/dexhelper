@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-26T20:16:20.969Z*
+*Generated at: 2026-10-27T00:11:05.453Z*
 
 ## Node Statistics
 
@@ -21,8 +21,9 @@
 | COMPLETED | 3393 |
 | ACTIVE | 164 |
 | CANCELLED | 860 |
-| PENDING | 759 |
+| PENDING | 758 |
 | BLOCKED | 14 |
+| READY | 1 |
 
 ## PR Metrics
 

@@ -2,10 +2,10 @@
 id: story-527-639-migrate-tactical-primitives
 type: STORY
 title: Migrate Tactical Primitives
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-25'
+updated_at: '2026-10-27'
 depends_on:
   - story-527-638-setup-ui-package
 jules_session_id: '3396703645893084582'
@@ -46,8 +46,8 @@ Migrate simple tactical UI components (Buttons, Badges, Inputs, Leds) to the `@d
 - [x] task-639-689-migrate-badges-impl-v4
 - [x] task-639-690-migrate-inputs-leds-impl-v4
 - [x] task-639-691-migrate-primitives-qa-v4
-- [ ] research-639-721-investigate-primitives-migration-failures-v4
-- [ ] task-639-722-migrate-buttons-impl-v5
-- [ ] task-639-723-migrate-badges-impl-v5
-- [ ] task-639-724-migrate-inputs-leds-impl-v5
-- [ ] task-639-725-migrate-primitives-qa-v5
+- [x] research-639-721-investigate-primitives-migration-failures-v4
+- [x] task-639-722-migrate-buttons-impl-v5
+- [x] task-639-723-migrate-badges-impl-v5
+- [x] task-639-724-migrate-inputs-leds-impl-v5
+- [x] task-639-725-migrate-primitives-qa-v5
