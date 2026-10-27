@@ -33,3 +33,7 @@ Implement a core cycle detection algorithm (e.g. Kahn's or Tarjan's algorithm) t
 3. Keep the algorithm efficient (O(V+E)).
 
 ## Acceptance Criteria
+- [ ] task-711-731-cycle-detection-algorithm-types
+- [ ] task-711-732-cycle-detection-algorithm-impl
+- [ ] task-711-733-cycle-detection-algorithm-tests
+- [ ] task-711-734-cycle-detection-algorithm-qa
