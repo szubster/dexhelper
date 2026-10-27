@@ -2,7 +2,7 @@
 id: task-000-changelog-backfill
 type: TASK
 title: Changelog Backfill Commit Evaluation
-status: COMPLETED
+status: READY
 owner_persona: changelogger
 created_at: '2026-04-20'
 updated_at: '2026-10-27'
@@ -28,39 +28,48 @@ notes: >-
 Target commit batch (10 commits) injected by `changelog-engine.ts`:
 
 - **Batch Size:** 10
-- **Primary Domain:** dexhelper
-- **Suggested Overall SemVer Bump:** `minor` (from `1.1.1` -> `1.2.0`)
-- **Range:** `ca65976...4190489`
+- **Primary Domain:** foundry
+- **Suggested Overall SemVer Bump:** `major` (from `0.2.0` -> `1.0.0`)
+- **Range:** `4190489...4b11f2e`
 
 ## Commits in Batch
 
-### Commit 1: `9d7024d`
-- **Commit SHA:** `9d7024d6850a6a248618e95d6468eb3fc4ded428`
-- **Previous SHA:** `ca659761ab2134f9514c363509b849dcd7a5d452`
-- **Date:** `2026-04-19`
+### Commit 1: `8efc6a5`
+- **Commit SHA:** `8efc6a5e257f1e7e77b0c802798196df201c57fb`
+- **Previous SHA:** `419048951c86e245ab6ba00a0d8779ac646ed98e`
+- **Date:** `2026-04-20`
 - **Classification:** Ad-hoc user-facing Dexhelper code modification
 - **Domain:** dexhelper
 
 #### Message
 ```text
-🧹 [code health improvement] remove stale comment from PokedexGrid (#276)
+🧪 Oak: fix gen1 red and blue version exclusives logic (#299)
 
-🎯 **What:** Removed a stale comment `// ⚡ Bolt: Removed redundant
-shinyPartySet and shinyPcSet...` from `src/components/PokedexGrid.tsx`.
-💡 **Why:** The comment described an optimization that was previously
-implemented (removing redundant Set creations), but the comment itself
-was no longer relevant or adding value to the current code logic, making
-it stale and cluttering. Removing it improves code readability.
-✅ **Verification:** Ran `pnpm type-check` and `pnpm lint` without
-issues. Also ran the full test suite (`pnpm test` and `pnpm test:e2e`)
-to ensure no regressions were introduced by this purely superficial
-change.
-✨ **Result:** A cleaner `PokedexGrid.tsx` with one less piece of stale
-technical debt.
+## What was wrong
+The version exclusivity arrays for Red and Blue in
+`src/engine/exclusives/gen1Exclusives.ts` were populated with the
+Pokémon *available* in those versions instead of the Pokémon *missing*
+from them. Since `getUnobtainableReason` uses these arrays as exclusion
+lists, it was incorrectly locking Red exclusives in Red and Blue
+exclusives in Blue.
+
+## Canonical source used
+Game logic requirements for Pokémon version exclusives (Red vs. Blue)
+were correctly mapped but placed in the wrong keys.
+
+## Impact on users
+Users will now correctly see suggestions for Pokémon available in their
+chosen version, and see the proper "Must be traded" reason for Pokémon
+exclusive to the opposite version.
+
+## Tests
+Added specific tests in
+`src/engine/exclusives/__tests__/gen1Exclusives.test.ts` to lock in this
+behavior.
 
 ---
 *PR created automatically by Jules for task
-[9066681691065940342](https://jules.google.com/task/9066681691065940342)
+[7490390331178158380](https://jules.google.com/task/7490390331178158380)
 started by @szubster*
 
 Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
@@ -68,200 +77,166 @@ Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
 ```
 
 #### Modified Files
-- `src/components/PokedexGrid.tsx`
+- `.jules/oak.md`
+- `data/db/metadata.json`
+- `src/engine/exclusives/__tests__/gen1Exclusives.test.ts`
+- `src/engine/exclusives/gen1Exclusives.ts`
 
 #### Diff Summary
 ```text
-9d7024d68 🧹 [code health improvement] remove stale comment from PokedexGrid (#276)
- src/components/PokedexGrid.tsx | 1 -
- 1 file changed, 1 deletion(-)
+8efc6a5e2 🧪 Oak: fix gen1 red and blue version exclusives logic (#299)
+ .jules/oak.md                                      |  3 +++
+ data/db/metadata.json                              |  2 +-
+ .../exclusives/__tests__/gen1Exclusives.test.ts    | 28 ++++++++++++++++++++++
+ src/engine/exclusives/gen1Exclusives.ts            | 26 ++++++++++----------
+ 4 files changed, 45 insertions(+), 14 deletions(-)
 ```
 
-### Commit 2: `6efd48a`
-- **Commit SHA:** `6efd48a7be97b90ab256818b7b8fb396fbd2c4ab`
-- **Previous SHA:** `5d5a1870403b26bd979d7dacb69ecc5854f89d10`
-- **Date:** `2026-04-19`
+### Commit 2: `271862a`
+- **Commit SHA:** `271862ae90a0eade4ce0f5207515e306cc150b5c`
+- **Previous SHA:** `8efc6a5e257f1e7e77b0c802798196df201c57fb`
+- **Date:** `2026-04-20`
 - **Classification:** Ad-hoc user-facing Dexhelper code modification
 - **Domain:** dexhelper
 
 #### Message
 ```text
-🧹 Clean up unused assistantData exports (#281)
+🔒 Shield: Sanitize error logging to prevent CWE-209 information leakage (#298)
 
-🎯 What: Removed `GEN1_ITEMS` and `OBEDIENCE_CAPS` from
-`src/engine/data/gen1/assistantData.ts` since they are completely unused
-in the codebase.
-💡 Why: Cleaning up dead code improves maintainability and reduces
-clutter in the codebase.
-✅ Verification: Ran `pnpm lint`, `pnpm test`, and `pnpm test:e2e` to
-ensure no functionality is broken. Tests passed successfully.
-✨ Result: The codebase is cleaner and no longer contains these unused
-exports.
+🎯 What: Updated `console.error` calls across the application and build
+scripts to log only the error message instead of the raw error object.
+⚠️ Risk: Raw error objects can inadvertently leak sensitive stack
+traces, file paths, or internal system states, violating CWE-209
+guidelines.
+🛡️ Solution: Applied the `err instanceof Error ? err.message :
+String(err)` pattern to securely handle and format thrown objects
+without crashing or leaking sensitive information.
 
 ---
 *PR created automatically by Jules for task
-[426343473040614646](https://jules.google.com/task/426343473040614646)
+[17034767233687711606](https://jules.google.com/task/17034767233687711606)
 started by @szubster*
+
+---------
 
 Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
 Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
 ```
 
 #### Modified Files
-- `.jules/sweeper.md`
-- `src/engine/data/gen1/assistantData.ts`
+- `.jules/shield.md`
+- `scripts/generate-pokedata.ts`
+- `scripts/generateMapLocations.ts`
+- `src/components/AppLayout.tsx`
+- `src/db/PokeDB.ts`
+- `src/main.tsx`
 
 #### Diff Summary
 ```text
-6efd48a7b 🧹 Clean up unused assistantData exports (#281)
- .jules/sweeper.md                     |  3 +++
- src/engine/data/gen1/assistantData.ts | 16 ----------------
- 2 files changed, 3 insertions(+), 16 deletions(-)
+271862ae9 🔒 Shield: Sanitize error logging to prevent CWE-209 information leakage (#298)
+ .jules/shield.md                | 2 ++
+ scripts/generate-pokedata.ts    | 2 +-
+ scripts/generateMapLocations.ts | 2 +-
+ src/components/AppLayout.tsx    | 2 +-
+ src/db/PokeDB.ts                | 2 +-
+ src/main.tsx                    | 2 +-
+ 6 files changed, 7 insertions(+), 5 deletions(-)
 ```
 
-### Commit 3: `c711179`
-- **Commit SHA:** `c7111799d8997f4a8be1842b283763d9933488b2`
-- **Previous SHA:** `6efd48a7be97b90ab256818b7b8fb396fbd2c4ab`
-- **Date:** `2026-04-19`
+### Commit 3: `b7ec3fe`
+- **Commit SHA:** `b7ec3fe0443884ed4f683e19057800cc71066297`
+- **Previous SHA:** `271862ae90a0eade4ce0f5207515e306cc150b5c`
+- **Date:** `2026-04-20`
 - **Classification:** Ad-hoc user-facing Dexhelper code modification
 - **Domain:** dexhelper
 
 #### Message
 ```text
-🛡️ Nurse: tighten typing and remove cast for gameVersion in Gen 2 parser (#285)
-
-### What was unsafe
-The `parseGen2` function was previously returning the `gameVersion`
-property using an explicit `as GameVersion` cast. Meanwhile, the
-`gameVersion` variable was inferred as `string` due to how the inference
-worked between its declaration and the detection function.
-
-### How it was fixed
-- Explicitly typed the local variable `gameVersion` as `GameVersion`:
-`let gameVersion: GameVersion = ...`
-- Removed the redundant `as GameVersion` cast inside the returned
-`SaveData` object, relying on the variable's strict type.
-
-### What the compiler now catches
-The TypeScript compiler now ensures that the returned `gameVersion`
-strictly satisfies the `GameVersion` type via variable flow rather than
-circumventing safety with a raw cast. If the output of
-`detectGen2GameVersion` or `isCrystal` logic changes in the future, the
-compiler will natively catch misalignments at the variable assignment
-rather than at the end of the parser execution.
-
----
-*PR created automatically by Jules for task
-[16272865263470077531](https://jules.google.com/task/16272865263470077531)
-started by @szubster*
-
-Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
-Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
-```
-
-#### Modified Files
-- `.jules/nurse.md`
-- `src/engine/saveParser/parsers/gen2.ts`
-
-#### Diff Summary
-```text
-c7111799d 🛡️ Nurse: tighten typing and remove cast for gameVersion in Gen 2 parser (#285)
- .jules/nurse.md                       | 3 +++
- src/engine/saveParser/parsers/gen2.ts | 4 ++--
- 2 files changed, 5 insertions(+), 2 deletions(-)
-```
-
-### Commit 4: `4e5ef7a`
-- **Commit SHA:** `4e5ef7a0d6b0455029bc71f9a38707eac867fe9d`
-- **Previous SHA:** `c7111799d8997f4a8be1842b283763d9933488b2`
-- **Date:** `2026-04-19`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
-
-#### Message
-```text
-🎨 Palette: Added aria-labels to icon-only interactive elements (#291)
+🎨 Palette: Add missing focus-visible rings to BottomNav elements (#297)
 
 ## What
-Added `aria-label` attributes to the following icon-only interactive
-elements:
-1.  The "Toggle Debug Mode" button in the `AssistantPanel`.
-2. The Pokémon sprite image links in the `AssistantSuggestionCard` (both
-single and grouped).
+Added `focus-visible` utility classes to the `<Link>` navigation items
+and the settings `<button>` in `BottomNav.tsx`.
 
 ## Why
-Relying solely on the `title` attribute is insufficient for screen
-reader users, leaving them with no context for what these interactive
-elements do or where they navigate to. Explicit `aria-label`s provide
-clear, programmatic descriptions.
+Previously, using keyboard `Tab` navigation on the `BottomNav`
+components yielded no visual feedback. By adding the standard
+`focus-visible:outline-none focus-visible:ring-2
+focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2
+focus-visible:ring-offset-zinc-950` classes, keyboard users can now
+clearly see when a navigation link has active focus.
 
-## Before/After
-* **Before:** Screen readers would read "button" for the debug toggle
-and "link" for the suggestion cards.
-* **After:** Screen readers now announce "Toggle Debug Mode button" and
-"View details for [Pokemon Name] link".
+## Accessibility notes
+This fixes a major keyboard navigation gap in the primary mobile
+navigation interface by supplying the missing focus states, using our
+existing consistent focus ring theme classes.
 
-## Accessibility
-Ensures compliance with WCAG guidelines for labeling icon-only buttons
-and image links, significantly improving navigation for visually
-impaired users. All added markup uses standard ARIA attributes and
-introduces no new CSS or visual changes.
+## Screenshots
+_Verified visually via Playwright script capturing the focused link:_
+![Focus Ring
+Verification](/home/jules/verification/bottomnav_focus_1.png)
 
 ---
 *PR created automatically by Jules for task
-[17103841865399006055](https://jules.google.com/task/17103841865399006055)
+[15768238473243679762](https://jules.google.com/task/15768238473243679762)
 started by @szubster*
+
+---------
 
 Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
 Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
 ```
 
 #### Modified Files
-- `src/components/AppLayout.tsx`
-- `src/components/assistant/AssistantSuggestionCard.tsx`
+- `.jules/palette.md`
+- `src/components/BottomNav.tsx`
 
 #### Diff Summary
 ```text
-4e5ef7a0d 🎨 Palette: Added aria-labels to icon-only interactive elements (#291)
- src/components/AppLayout.tsx                         | 17 +++++++++++++++--
- src/components/assistant/AssistantSuggestionCard.tsx |  2 ++
- 2 files changed, 17 insertions(+), 2 deletions(-)
+b7ec3fe04 🎨 Palette: Add missing focus-visible rings to BottomNav elements (#297)
+ .jules/palette.md            | 7 +++++++
+ src/components/BottomNav.tsx | 8 ++++----
+ 2 files changed, 11 insertions(+), 4 deletions(-)
 ```
 
-### Commit 5: `dd798f5`
-- **Commit SHA:** `dd798f5940d4ff8e4a8839e30ee0f5aba1bdec94`
-- **Previous SHA:** `60af444eb09a5b83e33b560f3031bdb7b53588b9`
-- **Date:** `2026-04-19`
+### Commit 4: `f2ba553`
+- **Commit SHA:** `f2ba553a279d1522449e572ce9b107dfd3c4c3db`
+- **Previous SHA:** `9ef576a6e9f08e18886f5648d2071f9f8f51e1a0`
+- **Date:** `2026-04-20`
 - **Classification:** Ad-hoc user-facing Dexhelper code modification
 - **Domain:** dexhelper
 
 #### Message
 ```text
-⚡ Bolt: Optimize getAreaNames to eliminate N+1 IndexedDB transactions (#284)
+⚡ Bolt: Optimize Array.includes() lookups to Set.has() in suggestion engine (#301)
 
-### 💡 What
-Optimized `getAreaNames` in `src/db/PokeDB.ts` to use a single readonly
-transaction for batch fetching instead of creating a new transaction per
-ID. Note that the issue explicitly described in
-`LocationSuggestions.tsx` was already fixed in the codebase on `main`,
-so I addressed the next biggest N+1 bottleneck I could find instead.
-
-### 🎯 Why
-Fetching multiple records individually via `db.get` creates significant
-overhead because each call initiates a new transaction. By grouping
-reads into a single `readonly` transaction, performance is massively
-improved.
-
-### 📊 Measured Improvement
-I wrote a quick script (`test-perf.test.ts`) that fetched area names 100
-times. Before the optimization it took roughly ~2250ms. After the
-optimization using a single transaction, the same 100 calls took ~200ms,
-effectively improving the performance of the operation by ~10x.
+**💡 What:** Converted the `localPids` array into a `Set` and added a
+parallel `missingIdsSet` alongside the `missingIds` array inside
+`suggestionEngine.ts`. This replaces multiple $O(n)$ `.includes()` calls
+with $O(1)$ `.has()` lookups. We map the `localPids` Set back to an
+array via `Array.from` when pushing the final object suggestion into the
+array to ensure type continuity.
+**🎯 Why:** During suggestion generation, `Array.prototype.includes` was
+being called frequently within loops iterating over `queryTargets`,
+`STATIC_NPC_TRADE_DATA`, and local encounters. Using a `Set` mitigates
+the O(n²) overhead for a noticeable performance win on large datasets or
+queries, keeping synchronous blocking of the main thread lower.
+**📊 Measured Improvement:** In synthetic performance benchmarks over
+1,000 to 10,000 iterations using mock datasets, the `Set` based approach
+was nearly 10x faster (~170ms vs 3.5ms for standalone lookup loop and
+roughly ~20% faster overall function execution) when checking against
+inputs like `missingIds`.
+**✅ How to Verify:** Check out the branch and run `pnpm run test` and
+`pnpm run test:e2e` to ensure all functionality functions completely the
+exact same. Review the `src/engine/assistant/suggestionEngine.ts` code
+for the new variables.
 
 ---
 *PR created automatically by Jules for task
-[17952387760417530836](https://jules.google.com/task/17952387760417530836)
+[6951746490551054603](https://jules.google.com/task/6951746490551054603)
 started by @szubster*
+
+---------
 
 Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
 Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
@@ -269,44 +244,48 @@ Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
 
 #### Modified Files
 - `.jules/bolt.md`
-- `src/db/PokeDB.ts`
+- `src/engine/assistant/suggestionEngine.ts`
 
 #### Diff Summary
 ```text
-dd798f594 ⚡ Bolt: Optimize getAreaNames to eliminate N+1 IndexedDB transactions (#284)
- .jules/bolt.md   | 3 +++
- src/db/PokeDB.ts | 6 +++++-
- 2 files changed, 8 insertions(+), 1 deletion(-)
+f2ba553a2 ⚡ Bolt: Optimize Array.includes() lookups to Set.has() in suggestion engine (#301)
+ .jules/bolt.md                           |  4 ++++
+ src/engine/assistant/suggestionEngine.ts | 25 +++++++++++++------------
+ 2 files changed, 17 insertions(+), 12 deletions(-)
 ```
 
-### Commit 6: `a94ea65`
-- **Commit SHA:** `a94ea65fd039c4c5c8154e3cbb11a7f15b9500cc`
-- **Previous SHA:** `e91bd4c857acbde23261909260838c52638b8546`
-- **Date:** `2026-04-19`
+### Commit 5: `740965f`
+- **Commit SHA:** `740965fcd817f52211e26f06349270a01c393649`
+- **Previous SHA:** `2fa518e7673c58e6aee06f18894408df8c080253`
+- **Date:** `2026-04-20`
 - **Classification:** Ad-hoc user-facing Dexhelper code modification
 - **Domain:** dexhelper
 
 #### Message
 ```text
-🧪 Sentinel: saveParser fallback coverage (#290)
+🛡️ Nurse: Remove unsafe store name casts in PokeDB (#307)
 
-**What:** Added tests to cover the `src/engine/saveParser/index.ts`
-module, specifically the fallback paths when save checksums are invalid
-but the structural heuristics match Gen 1 or Gen 2 Crystal formats. Also
-added specific error-throwing conditions to prevent silent failures on
-small buffers or completely unparseable structure buffers.
+### What was unsafe
+`Object.values(DB_CONFIG.STORES)` was being forcefully cast to
+`StoreNames<PokeDBSchema>[]` using an `as` cast. This bypasses
+TypeScript's safety checks regarding the specific store strings derived
+from configuration.
 
-**Coverage Before/After:** Coverage for `index.ts` increased from
-~62.06% to ~89.65%.
+### How it was fixed
+Introduced a `ValidStoreName` type derived directly from `typeof
+DB_CONFIG.STORES` values, and strongly typed `targetStores` as a
+readonly array of this type using a safe constant extraction, removing
+the unsafe assertion entirely.
 
-**Why this target matters:** The save file parsing module is part of the
-core engine and represents a critical user path. Ensuring that fallback
-mechanisms correctly evaluate the buffer data ensures better resilience
-against corrupted saves.
+### What the compiler now catches
+The TypeScript compiler now strictly verifies that the mapped
+`targetStores` variables and indexing into `keyPaths` correctly
+correspond to the valid constants directly from `DB_CONFIG.STORES`,
+preventing undefined store properties.
 
 ---
 *PR created automatically by Jules for task
-[1285154210464477757](https://jules.google.com/task/1285154210464477757)
+[1953366060100076322](https://jules.google.com/task/1953366060100076322)
 started by @szubster*
 
 Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
@@ -314,266 +293,367 @@ Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
 ```
 
 #### Modified Files
-- `.jules/sentinel.md`
-- `src/engine/saveParser/index.test.ts`
+- `src/db/PokeDB.ts`
 
 #### Diff Summary
 ```text
-a94ea65fd 🧪 Sentinel: saveParser fallback coverage (#290)
- .jules/sentinel.md                  |  5 +++++
- src/engine/saveParser/index.test.ts | 45 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 50 insertions(+)
+740965fcd 🛡️ Nurse: Remove unsafe store name casts in PokeDB (#307)
+ src/db/PokeDB.ts | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 ```
 
-### Commit 7: `48ec572`
-- **Commit SHA:** `48ec5724094e02bed364855a30aaa58bb21a7c20`
-- **Previous SHA:** `1bfb9f8bdd062fc752965eb2ae95d07937722085`
-- **Date:** `2026-04-19`
+### Commit 6: `4fff09d`
+- **Commit SHA:** `4fff09d0dac5f1b3a2ace330f3bf68d3918ce682`
+- **Previous SHA:** `7f2913d1a672c5cac9459a87bad58d2826627f7c`
+- **Date:** `2026-04-20`
+- **Classification:** IDEA node completion detected
+- **Domain:** foundry
+
+#### Message
+```text
+feat(foundry): bootstrap state store and implement orchestrator unit tests (#310)
+
+## Summary
+This PR initiates **Epic 2, Story 2.2** for **The Foundry**, acting as
+the **QA Engineer**. It bootstraps the initial state of the Foundry
+using markdown nodes and implements automated testing for the
+`foundry-orchestrator.ts` script.
+
+## Changes
+- **State Store Bootstrap**: Created initial v1.0 nodes:
+    - `.foundry/ideas/idea-001-the-foundry.md` (COMPLETED)
+    - `.foundry/epics/epic-003-actions-engine.md` (READY)
+    - `.foundry/stories/story-001-matrix-runner.md` (PENDING)
+    - `.foundry/stories/story-002-personas.md` (PENDING)
+- **Automated Testing**: Implemented 5 Vitest unit tests in
+`.github/scripts/foundry-orchestrator.test.ts` covering:
+    - Happy path DAG promotion.
+    - Blocking logic for active/failed dependencies.
+    - Resilience against malformed YAML/missing fields.
+    - Idempotency and dry-run flags.
+- **Orchestrator Refactor**: Minor refactor to `foundry-orchestrator.ts`
+to export main functions for unit testing.
+- **Dependency Management**: Added `vitest` to
+`.github/scripts/package.json`.
+- **Memory Update**: Updated
+`.serena/memories/architecture/the_foundry_system.md` with Story 2.2
+completion details.
+
+## Verification
+- **Manual**: Ran orchestrator locally; confirmed `epic-003` promotion
+and correct JSON matrix output.
+- **Automated**: All 5 tests passed via `pnpm vitest run
+.github/scripts/foundry-orchestrator.test.ts`.
+- **Lint/Types**: Verified via pre-commit hooks (Biome and TSC).
+
+Closes Epic 2, Story 2.2.
+```
+
+#### Modified Files
+- `.foundry/epics/epic-003-actions-engine.md`
+- `.foundry/ideas/idea-001-the-foundry.md`
+- `.foundry/stories/story-001-matrix-runner.md`
+- `.foundry/stories/story-002-personas.md`
+- `.github/scripts/foundry-orchestrator.test.ts`
+- `.github/scripts/foundry-orchestrator.ts`
+- `.github/scripts/package.json`
+- `.github/scripts/pnpm-lock.yaml`
+- `.serena/memories/architecture/the_foundry_system.md`
+
+#### Diff Summary
+```text
+4fff09d0d feat(foundry): bootstrap state store and implement orchestrator unit tests (#310)
+ .foundry/epics/epic-003-actions-engine.md          |  18 +
+ .foundry/ideas/idea-001-the-foundry.md             |  17 +
+ .foundry/stories/story-001-matrix-runner.md        |  17 +
+ .foundry/stories/story-002-personas.md             |  17 +
+ .github/scripts/foundry-orchestrator.test.ts       | 172 ++++
+ .github/scripts/foundry-orchestrator.ts            |   6 +-
+ .github/scripts/package.json                       |   6 +-
+ .github/scripts/pnpm-lock.yaml                     | 985 +++++++++++++++++++++
+ .../memories/architecture/the_foundry_system.md    |  17 +-
+ 9 files changed, 1241 insertions(+), 14 deletions(-)
+```
+
+### Commit 7: `4120862`
+- **Commit SHA:** `4120862ac5ee35669fab245de45169e78aba1db9`
+- **Previous SHA:** `f54146c8fe1a7f71459d63db68d075d6c111ee4e`
+- **Date:** `2026-04-20`
 - **Classification:** Ad-hoc user-facing Dexhelper code modification
 - **Domain:** dexhelper
 
 #### Message
 ```text
-feat(saveParser): migrate engine to DataView and add blue-complete.sav fixture (#292)
+feat: Implement Foundry Orchestration Engine (#312)
 
-This PR migrates the Pokémon save file parsing engine from `Uint8Array`
-to the native `DataView` API.
+### Features Implemented
 
-### Key Changes
-- **DataView Migration**: Refactored `common.ts`, `gen1.ts`, and
-`gen2.ts` to use `DataView` for all binary data access. This provides
-native bounds checking and improves robust data handling.
-- **Error Handling**: Implemented `RangeError` catching in
-`decodeGen12String` to gracefully handle corrupted or truncated files.
-- **New Test Fixture**: Integrated `blue-complete.sav` into the
-integration test suite and verified its contents.
-- **Test Compatibility**: Updated the full `saveParser` test suite to
-support the new `ArrayBuffer`-based architecture.
-- **Linting & Types**: Resolved all type-checking errors and biome lint
-warnings discovered during the refactor.
+- **Foundry Engine Action**: Implemented
+`.github/workflows/foundry-engine.yml` which automates the discovery of
+`PENDING` nodes, promotion to `READY`, and execution of `ACTIVE` nodes
+via a dynamic matrix.
+- **State Persistence**: The orchestration job now commits transitions
+directly to the repository to maintain a consistent DAG state.
+- **Jules API Integration**: Captures real Jules session IDs and injects
+them into task nodes for heartbeat monitoring.
+- **Concurrency Control**: Configured `max-parallel: 1` and implemented
+`git pull --rebase` to resolve race conditions during state updates.
+- **Validation Script**: Added `foundry-active.ts` with strict "dumb"
+diff validation to ensure surgical metadata updates.
+- **Verified with Tests**: Comprehensive unit tests for state
+transitions using Vitest.
 
-Verified with 100% pass rate in `pnpm vitest run src/engine/saveParser`.
+### Next Steps (Task 002)
+- Implement heartbeat detection to monitor session IDs stored by this
+engine.
 ```
 
 #### Modified Files
-- `.serena/memories/engine/save_parser/dataview_migration.md`
-- `src/engine/saveParser/index.ts`
-- `src/engine/saveParser/parsers/common.test.ts`
-- `src/engine/saveParser/parsers/common.ts`
-- `src/engine/saveParser/parsers/gen1.test.ts`
-- `src/engine/saveParser/parsers/gen1.ts`
-- `src/engine/saveParser/parsers/gen2.test.ts`
-- `src/engine/saveParser/parsers/gen2.ts`
-- `src/engine/saveParser/parsers/gen2_daycare.test.ts`
-- `src/engine/saveParser/parsers/saveFixtures.test.ts`
-- `src/engine/saveParser/repro.test.ts`
-- `src/engine/saveParser/saveParser.test.ts`
-- `tests/engine/saveParser/parsers/common.test.ts`
-- `tests/fixtures/blue-complete.sav`
+- `.foundry/tasks/task-001-create-engine-yaml.md`
+- `.github/scripts/foundry-active.test.ts`
+- `.github/scripts/foundry-active.ts`
+- `.github/scripts/foundry-orchestrator.test.ts`
+- `.github/scripts/foundry-orchestrator.ts`
+- `.github/scripts/vitest.config.ts`
+- `.github/workflows/foundry-engine.yml`
+- `.serena/memories/foundry/engine/architecture.md`
+- `tsconfig.json`
+- `vite.config.ts`
 
 #### Diff Summary
 ```text
-48ec57240 feat(saveParser): migrate engine to DataView and add blue-complete.sav fixture (#292)
- .../engine/save_parser/dataview_migration.md       |  13 ++
- src/engine/saveParser/index.ts                     |  81 ++++++------
- src/engine/saveParser/parsers/common.test.ts       |  86 ++++++++-----
- src/engine/saveParser/parsers/common.ts            |  23 ++--
- src/engine/saveParser/parsers/gen1.test.ts         |  14 +-
- src/engine/saveParser/parsers/gen1.ts              | 141 ++++++++++----------
- src/engine/saveParser/parsers/gen2.test.ts         | 142 +++++++++++----------
- src/engine/saveParser/parsers/gen2.ts              | 133 ++++++++++---------
- src/engine/saveParser/parsers/gen2_daycare.test.ts |  60 +++++----
- src/engine/saveParser/parsers/saveFixtures.test.ts |  14 +-
- src/engine/saveParser/repro.test.ts                |   3 +-
- src/engine/saveParser/saveParser.test.ts           |  54 +++++---
- tests/engine/saveParser/parsers/common.test.ts     |  90 -------------
- tests/fixtures/blue-complete.sav                   | Bin 0 -> 32768 bytes
- 14 files changed, 436 insertions(+), 418 deletions(-)
+4120862ac feat: Implement Foundry Orchestration Engine (#312)
+ .foundry/tasks/task-001-create-engine-yaml.md   |   2 +-
+ .github/scripts/foundry-active.test.ts          |  91 +++++++++++++++
+ .github/scripts/foundry-active.ts               | 133 ++++++++++++++++++++++
+ .github/scripts/foundry-orchestrator.test.ts    |  10 +-
+ .github/scripts/foundry-orchestrator.ts         |  11 +-
+ .github/scripts/vitest.config.ts                |   9 ++
+ .github/workflows/foundry-engine.yml            | 145 ++++++++++++++++++++++++
+ .serena/memories/foundry/engine/architecture.md |  27 +++++
+ tsconfig.json                                   |   3 +-
+ vite.config.ts                                  |   2 +-
+ 10 files changed, 422 insertions(+), 11 deletions(-)
 ```
 
-### Commit 8: `0e9589d`
-- **Commit SHA:** `0e9589dae46c593a00e8801fba897b39f65dbd2d`
-- **Previous SHA:** `3310401464ccd8d8cd032ec62ca126ccca8de569`
+### Commit 8: `4e0c86e`
+- **Commit SHA:** `4e0c86e56a3379988c2c530d15c19857d9881629`
+- **Previous SHA:** `4120862ac5ee35669fab245de45169e78aba1db9`
 - **Date:** `2026-04-20`
 - **Classification:** Ad-hoc Foundry system code modification
 - **Domain:** foundry
 
 #### Message
 ```text
-Update jules-agents.yml
+fix(foundry): run orchestrator from repo root
 ```
 
 #### Modified Files
-- `.github/workflows/jules-agents.yml`
+- `.github/workflows/foundry-engine.yml`
 
 #### Diff Summary
 ```text
-0e9589dae Update jules-agents.yml
- .github/workflows/jules-agents.yml | 3 +--
+4e0c86e56 fix(foundry): run orchestrator from repo root
+ .github/workflows/foundry-engine.yml | 3 +--
  1 file changed, 1 insertion(+), 2 deletions(-)
 ```
 
-### Commit 9: `922da2b`
-- **Commit SHA:** `922da2bbfee54e78612a13355d7d2c561d863fcb`
-- **Previous SHA:** `0e9589dae46c593a00e8801fba897b39f65dbd2d`
+### Commit 9: `6b41247`
+- **Commit SHA:** `6b412475398a8cd120ec0cc0b1274126e1884e9f`
+- **Previous SHA:** `64d1100249f79e9ad00cad64c1884f25c27b6aa6`
 - **Date:** `2026-04-20`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
+- **Classification:** Ad-hoc Foundry system code modification
+- **Domain:** foundry
 
 #### Message
 ```text
-build(deps): Bump the tanstack group with 2 updates (#295)
+fix(foundry): checkout main branch in execute job
+```
 
-Bumps the tanstack group with 2 updates:
-[@tanstack/react-query](https://github.com/TanStack/query/tree/HEAD/packages/react-query)
-and
-[@tanstack/react-query-devtools](https://github.com/TanStack/query/tree/HEAD/packages/react-query-devtools).
+#### Modified Files
+- `.github/workflows/foundry-engine.yml`
 
-Updates `@tanstack/react-query` from 5.99.1 to 5.99.2
+#### Diff Summary
+```text
+6b4124753 fix(foundry): checkout main branch in execute job
+ .github/workflows/foundry-engine.yml | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+### Commit 10: `4b11f2e`
+- **Commit SHA:** `4b11f2e54ae369a5abfbdf83a6bc945b9ecba3d5`
+- **Previous SHA:** `8a02dfc2ff58178b9ad1d00636b86ba13f23b985`
+- **Date:** `2026-04-21`
+- **Classification:** Ad-hoc Foundry system code modification
+- **Domain:** foundry
+
+#### Message
+```text
+build(deps): Bump actions/setup-node from 4 to 6 (#316)
+
+Bumps [actions/setup-node](https://github.com/actions/setup-node) from 4
+to 6.
 <details>
 <summary>Release notes</summary>
 <p><em>Sourced from <a
-href="https://github.com/TanStack/query/releases"><code>@​tanstack/react-query</code>'s
+href="https://github.com/actions/setup-node/releases">actions/setup-node's
 releases</a>.</em></p>
 <blockquote>
-<h2><code>@​tanstack/react-query-devtools</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</h2>
-<h3>Patch Changes</h3>
+<h2>v6.0.0</h2>
+<h2>What's Changed</h2>
+<p><strong>Breaking Changes</strong></p>
 <ul>
-<li>Updated dependencies []:
+<li>Limit automatic caching to npm, update workflows and documentation
+by <a
+href="https://github.com/priyagupta108"><code>@​priyagupta108</code></a>
+in <a
+href="https://redirect.github.com/actions/setup-node/pull/1374">actions/setup-node#1374</a></li>
+</ul>
+<p><strong>Dependency Upgrades</strong></p>
 <ul>
-<li><code>@​tanstack/query-devtools</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</li>
-<li><code>@​tanstack/react-query</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</li>
+<li>Upgrade ts-jest from 29.1.2 to 29.4.1 and document breaking changes
+in v5 by <a
+href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
+in <a
+href="https://redirect.github.com/actions/setup-node/pull/1336">#1336</a></li>
+<li>Upgrade prettier from 2.8.8 to 3.6.2 by <a
+href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
+in <a
+href="https://redirect.github.com/actions/setup-node/pull/1334">#1334</a></li>
+<li>Upgrade actions/publish-action from 0.3.0 to 0.4.0 by <a
+href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
+in <a
+href="https://redirect.github.com/actions/setup-node/pull/1362">#1362</a></li>
 </ul>
-</li>
-</ul>
-<h2><code>@​tanstack/react-query-next-experimental</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</h2>
-<h3>Patch Changes</h3>
+<p><strong>Full Changelog</strong>: <a
+href="https://github.com/actions/setup-node/compare/v5...v6.0.0">https://github.com/actions/setup-node/compare/v5...v6.0.0</a></p>
+<h2>v5.0.0</h2>
+<h2>What's Changed</h2>
+<h3>Breaking Changes</h3>
 <ul>
-<li>Updated dependencies []:
+<li>Enhance caching in setup-node with automatic package manager
+detection by <a
+href="https://github.com/priya-kinthali"><code>@​priya-kinthali</code></a>
+in <a
+href="https://redirect.github.com/actions/setup-node/pull/1348">actions/setup-node#1348</a></li>
+</ul>
+<p>This update, introduces automatic caching when a valid
+<code>packageManager</code> field is present in your
+<code>package.json</code>. This aims to improve workflow performance and
+make dependency management more seamless.
+To disable this automatic caching, set <code>package-manager-cache:
+false</code></p>
+<pre lang="yaml"><code>steps:
+- uses: actions/checkout@v5
+- uses: actions/setup-node@v5
+  with:
+    package-manager-cache: false
+</code></pre>
 <ul>
-<li><code>@​tanstack/react-query</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</li>
+<li>Upgrade action to use node24 by <a
+href="https://github.com/salmanmkc"><code>@​salmanmkc</code></a> in <a
+href="https://redirect.github.com/actions/setup-node/pull/1325">actions/setup-node#1325</a></li>
 </ul>
-</li>
-</ul>
-<h2><code>@​tanstack/react-query-persist-client</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</h2>
-<h3>Patch Changes</h3>
+<p>Make sure your runner is on version v2.327.1 or later to ensure
+compatibility with this release. <a
+href="https://github.com/actions/runner/releases/tag/v2.327.1">See
+Release Notes</a></p>
+<h3>Dependency Upgrades</h3>
 <ul>
-<li>Updated dependencies []:
+<li>Upgrade <code>@​octokit/request-error</code> and
+<code>@​actions/github</code> by <a
+href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
+in <a
+href="https://redirect.github.com/actions/setup-node/pull/1227">actions/setup-node#1227</a></li>
+<li>Upgrade uuid from 9.0.1 to 11.1.0 by <a
+href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
+in <a
+href="https://redirect.github.com/actions/setup-node/pull/1273">actions/setup-node#1273</a></li>
+<li>Upgrade undici from 5.28.5 to 5.29.0 by <a
+href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
+in <a
+href="https://redirect.github.com/actions/setup-node/pull/1295">actions/setup-node#1295</a></li>
+<li>Upgrade form-data to bring in fix for critical vulnerability by <a
+href="https://github.com/gowridurgad"><code>@​gowridurgad</code></a> in
+<a
+href="https://redirect.github.com/actions/setup-node/pull/1332">actions/setup-node#1332</a></li>
+<li>Upgrade actions/checkout from 4 to 5 by <a
+href="https://github.com/dependabot"><code>@​dependabot</code></a>[bot]
+in <a
+href="https://redirect.github.com/actions/setup-node/pull/1345">actions/setup-node#1345</a></li>
+</ul>
+<h2>New Contributors</h2>
 <ul>
-<li><code>@​tanstack/query-persist-client-core</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</li>
-<li><code>@​tanstack/react-query</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</li>
+<li><a
+href="https://github.com/priya-kinthali"><code>@​priya-kinthali</code></a>
+made their first contribution in <a
+href="https://redirect.github.com/actions/setup-node/pull/1348">actions/setup-node#1348</a></li>
+<li><a href="https://github.com/salmanmkc"><code>@​salmanmkc</code></a>
+made their first contribution in <a
+href="https://redirect.github.com/actions/setup-node/pull/1325">actions/setup-node#1325</a></li>
 </ul>
-</li>
-</ul>
-<h2><code>@​tanstack/react-query</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</h2>
-<h3>Patch Changes</h3>
-<ul>
-<li>Updated dependencies []:
-<ul>
-<li><code>@​tanstack/query-core</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</li>
-</ul>
-</li>
-</ul>
+<p><strong>Full Changelog</strong>: <a
+href="https://github.com/actions/setup-node/compare/v4...v5.0.0">https://github.com/actions/setup-node/compare/v4...v5.0.0</a></p>
+<h2>v4.4.0</h2>
+<!-- raw HTML omitted -->
 </blockquote>
-</details>
-<details>
-<summary>Changelog</summary>
-<p><em>Sourced from <a
-href="https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md"><code>@​tanstack/react-query</code>'s
-changelog</a>.</em></p>
-<blockquote>
-<h2>5.99.2</h2>
-<h3>Patch Changes</h3>
-<ul>
-<li>Updated dependencies []:
-<ul>
-<li><code>@​tanstack/query-core</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</li>
-</ul>
-</li>
-</ul>
-</blockquote>
+<p>... (truncated)</p>
 </details>
 <details>
 <summary>Commits</summary>
 <ul>
 <li><a
-href="https://github.com/TanStack/query/commit/a3ec7b30cc4c18b2c5aefe608638ecadce732b81"><code>a3ec7b3</code></a>
-ci: Version Packages (<a
-href="https://github.com/TanStack/query/tree/HEAD/packages/react-query/issues/10520">#10520</a>)</li>
-<li>See full diff in <a
-href="https://github.com/TanStack/query/commits/@tanstack/react-query@5.99.2/packages/react-query">compare
-view</a></li>
-</ul>
-</details>
-<br />
-
-Updates `@tanstack/react-query-devtools` from 5.99.1 to 5.99.2
-<details>
-<summary>Release notes</summary>
-<p><em>Sourced from <a
-href="https://github.com/TanStack/query/releases"><code>@​tanstack/react-query-devtools</code>'s
-releases</a>.</em></p>
-<blockquote>
-<h2><code>@​tanstack/react-query-devtools</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</h2>
-<h3>Patch Changes</h3>
-<ul>
-<li>Updated dependencies []:
-<ul>
-<li><code>@​tanstack/query-devtools</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</li>
-<li><code>@​tanstack/react-query</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-</details>
-<details>
-<summary>Changelog</summary>
-<p><em>Sourced from <a
-href="https://github.com/TanStack/query/blob/main/packages/react-query-devtools/CHANGELOG.md"><code>@​tanstack/react-query-devtools</code>'s
-changelog</a>.</em></p>
-<blockquote>
-<h2>5.99.2</h2>
-<h3>Patch Changes</h3>
-<ul>
-<li>Updated dependencies []:
-<ul>
-<li><code>@​tanstack/query-devtools</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</li>
-<li><code>@​tanstack/react-query</code><a
-href="https://github.com/5"><code>@​5</code></a>.99.2</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-</details>
-<details>
-<summary>Commits</summary>
-<ul>
+href="https://github.com/actions/setup-node/commit/48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e"><code>48b55a0</code></a>
+Update Node.js versions in versions.yml and bump package to v6.4.0 (<a
+href="https://redirect.github.com/actions/setup-node/issues/1533">#1533</a>)</li>
 <li><a
-href="https://github.com/TanStack/query/commit/a3ec7b30cc4c18b2c5aefe608638ecadce732b81"><code>a3ec7b3</code></a>
-ci: Version Packages (<a
-href="https://github.com/TanStack/query/tree/HEAD/packages/react-query-devtools/issues/10520">#10520</a>)</li>
-<li>See full diff in <a
-href="https://github.com/TanStack/query/commits/@tanstack/react-query-devtools@5.99.2/packages/react-query-devtools">compare
+href="https://github.com/actions/setup-node/commit/ab72c7e7eba0eaa11f8cab0f5679243900c2cac9"><code>ab72c7e</code></a>
+Upgrade <a href="https://github.com/actions"><code>@​actions</code></a>
+dependencies (<a
+href="https://redirect.github.com/actions/setup-node/issues/1525">#1525</a>)</li>
+<li><a
+href="https://github.com/actions/setup-node/commit/53b83947a5a98c8d113130e565377fae1a50d02f"><code>53b8394</code></a>
+Bump minimatch from 3.1.2 to 3.1.5 (<a
+href="https://redirect.github.com/actions/setup-node/issues/1498">#1498</a>)</li>
+<li><a
+href="https://github.com/actions/setup-node/commit/54045abd5dcd3b0fee9ca02fa24c57545834c9cc"><code>54045ab</code></a>
+Scope test lockfiles by package manager and update cache tests (<a
+href="https://redirect.github.com/actions/setup-node/issues/1495">#1495</a>)</li>
+<li><a
+href="https://github.com/actions/setup-node/commit/c882bffdbd4df51ace6b940023952e8669c9932a"><code>c882bff</code></a>
+Replace uuid with crypto.randomUUID() (<a
+href="https://redirect.github.com/actions/setup-node/issues/1378">#1378</a>)</li>
+<li><a
+href="https://github.com/actions/setup-node/commit/774c1d62961e73038a114d59c8847023c003194d"><code>774c1d6</code></a>
+feat(node-version-file): support parsing <code>devEngines</code> field
+(<a
+href="https://redirect.github.com/actions/setup-node/issues/1283">#1283</a>)</li>
+<li><a
+href="https://github.com/actions/setup-node/commit/efcb663fc60e97218a2b2d6d827f7830f164739e"><code>efcb663</code></a>
+fix: remove hardcoded bearer (<a
+href="https://redirect.github.com/actions/setup-node/issues/1467">#1467</a>)</li>
+<li><a
+href="https://github.com/actions/setup-node/commit/d02c89dce7e1ba9ef629ce0680989b3a1cc72edb"><code>d02c89d</code></a>
+Fix npm audit issues (<a
+href="https://redirect.github.com/actions/setup-node/issues/1491">#1491</a>)</li>
+<li><a
+href="https://github.com/actions/setup-node/commit/6044e13b5dc448c55e2357c09f80417699197238"><code>6044e13</code></a>
+Docs: bump actions/checkout from v5 to v6 (<a
+href="https://redirect.github.com/actions/setup-node/issues/1468">#1468</a>)</li>
+<li><a
+href="https://github.com/actions/setup-node/commit/8e494633d082d609d1e9ff931be32f8a44f1f657"><code>8e49463</code></a>
+Fix README typo (<a
+href="https://redirect.github.com/actions/setup-node/issues/1226">#1226</a>)</li>
+<li>Additional commits viewable in <a
+href="https://github.com/actions/setup-node/compare/v4...v6">compare
 view</a></li>
 </ul>
 </details>
 <br />
 
+
+[![Dependabot compatibility
+score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=actions/setup-node&package-manager=github_actions&previous-version=4&new-version=6)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
 
 Dependabot will resolve any conflicts with this PR as long as you don't
 alter it yourself. You can also trigger a rebase manually by commenting
@@ -594,22 +674,15 @@ You can trigger Dependabot actions by commenting on this PR:
 that have been made to it
 - `@dependabot show <dependency name> ignore conditions` will show all
 of the ignore conditions of the specified dependency
-- `@dependabot ignore <dependency name> major version` will close this
-group update PR and stop Dependabot creating any more for the specific
-dependency's major version (unless you unignore this specific
-dependency's major version or upgrade to it yourself)
-- `@dependabot ignore <dependency name> minor version` will close this
-group update PR and stop Dependabot creating any more for the specific
-dependency's minor version (unless you unignore this specific
-dependency's minor version or upgrade to it yourself)
-- `@dependabot ignore <dependency name>` will close this group update PR
-and stop Dependabot creating any more for the specific dependency
-(unless you unignore this specific dependency or upgrade to it yourself)
-- `@dependabot unignore <dependency name>` will remove all of the ignore
-conditions of the specified dependency
-- `@dependabot unignore <dependency name> <ignore condition>` will
-remove the ignore condition of the specified dependency and ignore
-conditions
+- `@dependabot ignore this major version` will close this PR and stop
+Dependabot creating any more for this major version (unless you reopen
+the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop
+Dependabot creating any more for this minor version (unless you reopen
+the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop
+Dependabot creating any more for this dependency (unless you reopen the
+PR or upgrade to it yourself)
 
 
 </details>
@@ -619,77 +692,22 @@ Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.c
 ```
 
 #### Modified Files
-- `package.json`
-- `pnpm-lock.yaml`
+- `.github/workflows/foundry-engine.yml`
 
 #### Diff Summary
 ```text
-922da2bbf build(deps): Bump the tanstack group with 2 updates (#295)
- package.json   |  4 ++--
- pnpm-lock.yaml | 58 +++++++++++++++++++++++++++++-----------------------------
- 2 files changed, 31 insertions(+), 31 deletions(-)
-```
-
-### Commit 10: `4190489`
-- **Commit SHA:** `419048951c86e245ab6ba00a0d8779ac646ed98e`
-- **Previous SHA:** `7090313b25940c8fd6d24514b8a43002263c6eaf`
-- **Date:** `2026-04-20`
-- **Classification:** Ad-hoc user-facing Dexhelper code modification
-- **Domain:** dexhelper
-
-#### Message
-```text
-📜 Scribe: Added JSDoc for Gen 1 save parsing functions (#296)
-
-**What:**
-Added detailed JSDoc documentation to `detectGen1GameVersion`,
-`isGen1Save`, and `parseGen1` within
-`src/engine/saveParser/parsers/gen1.ts`.
-
-**Why this module needed docs:**
-The `parseGen1` module implements critical, yet obscure domain logic.
-Gen 1 save files lack native version identifiers and strong checksums,
-necessitating complex heuristic version detection and reliance on
-padding/structural checks. Additionally, versions like Yellow shift
-memory offsets dynamically. The codebase lacked comments explaining
-*why* these non-intuitive workarounds existed.
-
-**Summary of additions:**
-* Documented heuristic version detection strategies (Pokedex checks, OT
-names).
-* Documented structural sanity checks used instead of checksums for file
-validation.
-* Documented the dynamic memory offset probing required for
-Yellow/Japanese versions.
-
----
-*PR created automatically by Jules for task
-[5428320841129423949](https://jules.google.com/task/5428320841129423949)
-started by @szubster*
-
-Co-authored-by: google-labs-jules[bot] <161369871+google-labs-jules[bot]@users.noreply.github.com>
-Co-authored-by: szubster <603853+szubster@users.noreply.github.com>
-```
-
-#### Modified Files
-- `.jules/scribe.md`
-- `src/engine/saveParser/parsers/gen1.ts`
-
-#### Diff Summary
-```text
-419048951 📜 Scribe: Added JSDoc for Gen 1 save parsing functions (#296)
- .jules/scribe.md                      |  2 +-
- src/engine/saveParser/parsers/gen1.ts | 35 +++++++++++++++++++++++------------
- 2 files changed, 24 insertions(+), 13 deletions(-)
+4b11f2e54 build(deps): Bump actions/setup-node from 4 to 6 (#316)
+ .github/workflows/foundry-engine.yml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 ```
 
 
 ## Evaluation Instructions
-As Changelogger, independently inspect the code diffs for this batch by running `git show <sha>` or `git diff ca659761ab2134f9514c363509b849dcd7a5d452..419048951c86e245ab6ba00a0d8779ac646ed98e` in bash. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
+As Changelogger, independently inspect the code diffs for this batch by running `git show <sha>` or `git diff 419048951c86e245ab6ba00a0d8779ac646ed98e..4b11f2e54ae369a5abfbdf83a6bc945b9ecba3d5` in bash. If the clone is shallow (`git rev-parse --is-shallow-repository` returns `true`), run `git fetch --unshallow` first.
 
 Synthesize the technical changes across all commits in this batch:
-1. **Grouping / Merging**: Based on your judgment of the diffs, decide whether to group multiple commits into a single changelog entry or release version, split them into separate releases, or merge entries into a previous release header in `CHANGELOG-dexhelper.md`.
+1. **Grouping / Merging**: Based on your judgment of the diffs, decide whether to group multiple commits into a single changelog entry or release version, split them into separate releases, or merge entries into a previous release header in `CHANGELOG-foundry.md`.
 2. **Selective Inclusion**: Omit internal/trivial changes that do not warrant a user-facing or system maintainer changelog entry.
 3. **Documentation**: Update `README.md` if any commit in the batch alters setup, features, or architecture.
-4. **Link References**: If a changelog entry is added, include diff links (e.g. [`1.1.1...1.2.0`](https://github.com/${repo}/compare/ca65976...4190489)) and update link references at the bottom of `CHANGELOG-dexhelper.md`.
+4. **Link References**: If a changelog entry is added, include diff links (e.g. [`0.2.0...1.0.0`](https://github.com/${repo}/compare/4190489...4b11f2e)) and update link references at the bottom of `CHANGELOG-foundry.md`.
 5. **No Changes Needed**: If no commits in the batch warrant changelog or README updates, submit an Empty PR.
