@@ -4,11 +4,14 @@ import type { SaveData } from '../../saveParser/index';
 import { gen2Strategy } from './gen2Strategy';
 
 // Mock the dependencies
-vi.mock('../../mapGraph/gen2Graph', () => ({
+vi.mock('../../mapGraph/index', () => ({
   resolveOutdoorMapId: vi.fn<(allLocations: UnifiedLocation[], id: number) => number>((_, id) => id),
   getDistanceToMap: vi.fn<
     (allLocations: UnifiedLocation[], start: number, target: number) => { distance: number; name: string } | null
   >(() => ({ distance: 5, name: 'Target Area' })),
+  getGen2MapName: vi.fn<(allLocations: UnifiedLocation[], mapGroup: number, mapId: number) => string>(
+    () => 'Goldenrod City',
+  ),
 }));
 
 vi.mock('../../exclusives/gen2Exclusives', () => ({
@@ -18,7 +21,7 @@ vi.mock('../../exclusives/gen2Exclusives', () => ({
 }));
 
 import { getGen2UnobtainableReason } from '../../exclusives/gen2Exclusives';
-import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen2Graph';
+import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/index';
 
 describe('gen2Strategy', () => {
   const mockLocations: UnifiedLocation[] = [];
@@ -39,7 +42,7 @@ describe('gen2Strategy', () => {
 
   it('delegates getMapDistance to getDistanceToMap', () => {
     const result = gen2Strategy.getMapDistance(0x0306, 0x0a04, mockLocations);
-    expect(getDistanceToMap).toHaveBeenCalledWith(mockLocations, 0x0306, 0x0a04);
+    expect(getDistanceToMap).toHaveBeenCalledWith(mockLocations, 0x0306, 0x0a04, 2);
     expect(result).toEqual({ distance: 5, name: 'Target Area' });
   });
 
