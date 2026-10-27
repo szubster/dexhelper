@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.3.0] - 2026-04-20
+### Changed
+- Converted Array.includes() to Set.has() in suggestion engine to optimize performance.
+- Enhanced BottomNav accessibility by adding focus-visible rings to navigation elements.
+
+### Fixed
+- Fixed Gen 1 Red and Blue version exclusive Pokemon parsing logic to correctly handle unobtainable Pokemon.
+- Removed unsafe store name casts in PokeDB to ensure type safety in data transactions.
+
+### Security
+- Sanitized error logging by only outputting error messages to prevent CWE-209 information leakage.
+
 ## [1.2.0] - 2026-04-20
 ### Added
 - Migrated the Pokémon save file parsing engine to the native DataView API for better bounds checking and robust data handling.
@@ -438,3 +450,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [1.1.1]: https://github.com/szubster/dexhelper/compare/eca8138...ca65976
 [1.2.0]: https://github.com/szubster/dexhelper/compare/ca65976...4190489
+[1.3.0]: https://github.com/szubster/dexhelper/compare/4190489...4b11f2e
