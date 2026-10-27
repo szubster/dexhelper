@@ -63,7 +63,6 @@ export const PokemonSprite = React.memo(function PokemonSprite({
       style={{ imageRendering: 'pixelated', ...style }}
       loading={loading}
       onError={handleError}
-      crossOrigin="anonymous"
     />
   );
 });
