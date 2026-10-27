@@ -37,6 +37,6 @@ Refactor existing Pokedex grid-related E2E tests (e.g. `tests/e2e/pokedex-grid-v
 - [x] Tech Lead: Break down into Tasks.
 - [x] task-674-700-migrate-pokedex-e2e-tests-coder
 - [x] task-674-701-migrate-pokedex-e2e-tests-qa
-- [ ] research-674-707-investigate-pokedex-e2e-failure
+- [x] research-674-707-investigate-pokedex-e2e-failure
 - [ ] task-674-708-migrate-pokedex-e2e-tests-retry-impl
 - [ ] task-674-709-migrate-pokedex-e2e-tests-retry-qa
