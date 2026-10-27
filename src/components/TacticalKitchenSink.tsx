@@ -1,6 +1,8 @@
 import { TacticalBadge, TacticalButton, TacticalInput } from '@dexhelper/ui';
 import type React from 'react';
 import { useState } from 'react';
+import { Gen3MapProvider } from '../contexts/Gen3MapContext';
+import { Gen3MapDashboard } from './map/gen3/Gen3MapDashboard';
 import { SubDataPoint } from './SubDataPoint';
 import { TacticalCard } from './TacticalCard';
 import { TacticalChip } from './TacticalChip';
@@ -172,6 +174,11 @@ export const TacticalKitchenSink: React.FC = () => {
         <TacticalProgressBar label="TEMP" value={230} max={255} codeTag="THERM" variant="amber" />
         <TacticalProgressBar label="CORE_OVERLOAD" value={250} max={255} codeTag="WARN" variant="red" />
       </div>
+
+      {/* Gen 3 Map */}
+      <Gen3MapProvider>
+        <Gen3MapDashboard />
+      </Gen3MapProvider>
     </div>
   );
 };
