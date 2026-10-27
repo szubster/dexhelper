@@ -1,6 +1,6 @@
 import type React from 'react';
 import { createContext, useContext, useMemo } from 'react';
-import type { Gen3TrainerCard } from '../engine/saveParser/parsers/common';
+import type { Gen3TrainerCardState as Gen3TrainerCard } from '../features/trainer-card/types';
 import { useStore } from '../store';
 
 export interface Gen3DashboardData {
