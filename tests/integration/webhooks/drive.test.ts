@@ -3,6 +3,12 @@ import { describe, expect, it, vi } from 'vitest';
 import { onRequestPost } from '../../../functions/api/webhooks/drive';
 import { onRequestGet } from '../../../functions/google-verification';
 import type { Env } from '../../../functions/types/env';
+import { getActiveChannels, saveActiveChannels } from '../../../functions/utils/webhook-manager';
+
+vi.mock('../../../functions/utils/webhook-manager', () => ({
+  getActiveChannels: vi.fn<() => void>(),
+  saveActiveChannels: vi.fn<() => void>(),
+}));
 
 describe('Drive Webhooks API', () => {
   it('handles sync state correctly', async () => {
@@ -15,7 +21,7 @@ describe('Drive Webhooks API', () => {
 
     const ctx = {
       request,
-      env: {} as Env,
+      env: { SAVES_BUCKET: { get: vi.fn<() => void>(), put: vi.fn<() => void>() } } as unknown as Env,
       waitUntil: vi.fn<() => void>(),
       next: vi.fn<() => void>(),
       data: {},
@@ -36,7 +42,7 @@ describe('Drive Webhooks API', () => {
 
     const ctx = {
       request,
-      env: {} as Env,
+      env: { SAVES_BUCKET: { get: vi.fn<() => void>(), put: vi.fn<() => void>() } } as unknown as Env,
       waitUntil: vi.fn<() => void>(),
       next: vi.fn<() => void>(),
       data: {},
@@ -54,7 +60,7 @@ describe('Drive Webhooks API', () => {
 
     const ctx = {
       request,
-      env: {} as Env,
+      env: { SAVES_BUCKET: { get: vi.fn<() => void>(), put: vi.fn<() => void>() } } as unknown as Env,
       waitUntil: vi.fn<() => void>(),
       next: vi.fn<() => void>(),
       data: {},
@@ -69,8 +75,13 @@ describe('Drive Webhooks API', () => {
     // Mock global fetch
     global.fetch = vi.fn<typeof fetch>().mockResolvedValue({
       status: 200,
-      json: () => Promise.resolve({ id: 'channel-id' }),
+      ok: true,
+      json: () => Promise.resolve({ id: 'channel-id', resourceId: 'test-resource', expiration: '123456' }),
     } as unknown as Response) as unknown as typeof fetch;
+
+    vi.mocked(getActiveChannels).mockResolvedValue([]);
+
+    vi.mocked(saveActiveChannels).mockResolvedValue();
 
     const request = new Request('http://localhost/api/webhooks/drive', {
       method: 'POST',
@@ -86,7 +97,7 @@ describe('Drive Webhooks API', () => {
 
     const ctx = {
       request,
-      env: {} as Env,
+      env: { SAVES_BUCKET: { get: vi.fn<() => void>(), put: vi.fn<() => void>() } } as unknown as Env,
       waitUntil: vi.fn<() => void>(),
       next: vi.fn<() => void>(),
       data: {},
@@ -104,5 +115,7 @@ describe('Drive Webhooks API', () => {
         }),
       }),
     );
+    expect(getActiveChannels).toHaveBeenCalled();
+    expect(saveActiveChannels).toHaveBeenCalled();
   });
 });
