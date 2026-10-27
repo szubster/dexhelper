@@ -34,4 +34,6 @@ Verify the Gen 3 Map core UI and state management work flawlessly together throu
 - Ensure tactical hardware styling (ADR 008) is not compromised on different screen sizes using Playwright's mobile configurations.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes.
+- [ ] task-564-716-gen3-map-e2e-tests-impl
+- [ ] task-564-717-gen3-map-e2e-tests-qa
+- [x] Break down into TASK nodes.
