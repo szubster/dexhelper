@@ -2,7 +2,7 @@
 id: idea-540-multi-save-diffing-and-trade-simulation
 type: IDEA
 title: Real-Time Multi-Save Diffing Engine and Cross-Save Trade Simulation Pipeline
-status: FAILED
+status: READY
 owner_persona: product_manager
 created_at: '2026-10-19'
 updated_at: '2026-10-27'
@@ -17,8 +17,8 @@ tags:
   - architecture
   - gen3
   - gen2
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

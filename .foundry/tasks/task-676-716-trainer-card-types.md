@@ -2,7 +2,7 @@
 id: task-676-716-trainer-card-types
 type: TASK
 title: Task - Define Trainer Card State TypeScript Interfaces
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-22'
 updated_at: '2026-10-27'
@@ -16,8 +16,8 @@ tags:
   - typescript
   - gen3
 research_references: []
-rejection_count: 0
-rejection_reason: 'Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

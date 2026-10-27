@@ -2,7 +2,7 @@
 id: task-527-675-drive-webhook-qa
 type: TASK
 title: Drive Webhook Logic QA
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-10-09'
 updated_at: '2026-10-27'
@@ -19,8 +19,8 @@ tags:
   - sync
 research_references:
   - adr-336-033-server-side-drive-sync
-rejection_count: 1
-rejection_reason: 'Session terminated with state: NOT_FOUND'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

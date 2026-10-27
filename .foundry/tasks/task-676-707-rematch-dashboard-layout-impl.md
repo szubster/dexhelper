@@ -2,12 +2,12 @@
 id: task-676-707-rematch-dashboard-layout-impl
 type: TASK
 title: Rematch Dashboard Layout Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: '1593520199715441003'
+jules_session_id: null
 pr_number: null
 parent: story-085-676-rematch-dashboard-layout-and-routing
 tags:
@@ -17,7 +17,7 @@ tags:
   - layout
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 priority: 50

@@ -2,7 +2,7 @@
 id: prd-528-587-playwright-relative-path-linter
 type: PRD
 title: PRD Playwright Relative Path Navigation Linter Rule
-status: FAILED
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-10-15'
 updated_at: '2026-10-27'
@@ -16,8 +16,8 @@ tags:
   - linting
   - quality
 research_references: []
-rejection_count: 0
-rejection_reason: 'Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

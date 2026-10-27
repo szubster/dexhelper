@@ -2,7 +2,7 @@
 id: story-569-582-gen3-secret-base-party-extraction
 type: STORY
 title: Gen 3 Secret Base NPC Party Extraction
-status: FAILED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-16'
 updated_at: '2026-10-27'
@@ -17,8 +17,8 @@ tags:
   - secret-base
   - map
 research_references: []
-rejection_count: 0
-rejection_reason: 'Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 30

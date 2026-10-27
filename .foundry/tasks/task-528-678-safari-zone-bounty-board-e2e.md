@@ -2,10 +2,10 @@
 id: task-528-678-safari-zone-bounty-board-e2e
 type: TASK
 title: Safari Zone Bounty Board E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2024-05-24'
-updated_at: '2026-10-15'
+updated_at: '2026-10-27'
 depends_on:
   - task-528-677-safari-zone-bounty-board-ui
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - safari-zone
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-528-677-safari-zone-bounty-board-ui
 notes: ''
 locks: []
 ---

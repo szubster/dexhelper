@@ -2,7 +2,7 @@
 id: research-047-586-tv-swarm-extraction-failure
 type: RESEARCH
 title: Investigate Gen 3 TV Swarm Data Extraction Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-16T18:00:00.000Z'
 updated_at: '2026-10-27'
@@ -15,8 +15,8 @@ tags:
   - gen3
   - data-parsing
 research_references: []
-rejection_count: 0
-rejection_reason: 'Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

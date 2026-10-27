@@ -2,9 +2,9 @@
 id: epic-583-690-cycle-detection-algorithm-core
 type: EPIC
 title: EPIC - Cycle Detection Algorithm Core Implementation
-status: FAILED
+status: PENDING
 owner_persona: story_owner
-created_at: 2026-10-16T18:06:01.090Z
+created_at: '2026-10-16T18:06:01.090Z'
 updated_at: '2026-10-27'
 depends_on: []
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - dag
   - algorithm
 research_references: []
-rejection_count: 0
-rejection_reason: 'Session terminated with state: NOT_FOUND'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

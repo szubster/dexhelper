@@ -2,7 +2,7 @@
 id: task-528-677-safari-zone-bounty-board-ui
 type: TASK
 title: Safari Zone Bounty Board UI Components
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2024-05-24'
 updated_at: '2026-10-27'
@@ -16,8 +16,8 @@ tags:
   - ui
   - safari-zone
 research_references: []
-rejection_count: 2
-rejection_reason: 'Session terminated with state: NOT_FOUND'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
