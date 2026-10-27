@@ -15,7 +15,7 @@ describe('PokemonSprite', () => {
     const img = page.getByAltText('Pikachu');
     await expect.element(img).toBeInTheDocument();
     await expect.element(img).toHaveAttribute('src', expectedPrimaryUrl);
-    await expect.element(img).toHaveAttribute('crossorigin', 'anonymous');
+    await expect.element(img).not.toHaveAttribute('crossorigin');
   });
 
   it('falls back to official artwork on first load error', async () => {
