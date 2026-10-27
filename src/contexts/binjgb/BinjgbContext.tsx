@@ -55,8 +55,6 @@ export function BinjgbProvider({ children, moduleFactory }: BinjgbProviderProps)
 
     return () => {
       mounted = false;
-      // Depending on Binjgb's lifecycle needs, you might want to call something on unmount
-      // if (emulator) { ... }
     };
   }, [moduleFactory, emulator]);
 
