@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.2.0] - 2026-04-20
+### Added
+- Migrated the Pokémon save file parsing engine to the native DataView API for better bounds checking and robust data handling.
+
+### Changed
+- Improved accessibility by adding explicit `aria-label` attributes to icon-only interactive elements in the UI.
+- Optimized `getAreaNames` in IndexedDB to use a single readonly transaction, eliminating N+1 overhead and improving fetch performance by ~10x.
+- Updated `@tanstack/react-query` and related DevTools to 5.99.2.
+
 ## [1.1.1] - 2026-04-19
 ### Changed
 - Improved LocationSuggestions to prevent N+1 IndexedDB queries, removing synchronous main thread blocking on keystrokes.
@@ -428,3 +437,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.0]: https://github.com/szubster/dexhelper/compare/126e65d...0cc9b04
 
 [1.1.1]: https://github.com/szubster/dexhelper/compare/eca8138...ca65976
+[1.2.0]: https://github.com/szubster/dexhelper/compare/ca65976...4190489
