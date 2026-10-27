@@ -55,8 +55,8 @@ export function TacticalMultiSelectControl<T extends string | number | readonly 
   legendLabel,
   containerClassName,
   buttonBaseClassName,
-  defaultActiveClassName = 'bg-zinc-950 shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)] text-[var(--theme-primary)] translate-y-[2px] border-t-zinc-950 border-b-zinc-800',
-  defaultInactiveClassName = 'bg-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300 border-t-zinc-700 border-b-zinc-950',
+  defaultActiveClassName,
+  defaultInactiveClassName,
   renderPrefixItem,
 }: TacticalMultiSelectControlProps<T>) {
   return (
@@ -77,18 +77,9 @@ export function TacticalMultiSelectControl<T extends string | number | readonly 
           {items.map((item) => {
             const isActive = selectedValues.has(item.id);
 
-            const defaultActive =
-              'bg-zinc-950 shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)] text-[var(--theme-primary)] translate-y-[2px] border-t-zinc-950 border-b-zinc-800';
-            const defaultInactive =
-              'bg-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300 border-t-zinc-700 border-b-zinc-950';
-
-            const activeClass =
-              item.activeClassName ?? (defaultActiveClassName !== defaultActive ? defaultActiveClassName : undefined);
-            const inactiveClass =
-              item.inactiveClassName ??
-              (defaultInactiveClassName !== defaultInactive ? defaultInactiveClassName : undefined);
-
-            const customOverrideClass = isActive ? activeClass : inactiveClass;
+            const customOverrideClass = isActive
+              ? (item.activeClassName ?? defaultActiveClassName)
+              : (item.inactiveClassName ?? defaultInactiveClassName);
 
             return (
               <button
