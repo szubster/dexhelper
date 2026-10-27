@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.2.0] - 2026-04-20
+### Changed
+- Adjusted cron schedules for daily agents in the `jules-agents.yml` workflow.
+
 ## [0.1.8] - 2026-04-16
 ### Changed
 - Bumped actions/setup-node from v4 to v6 in CI workflows.
@@ -53,3 +57,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [0.1.7]: https://github.com/szubster/dexhelper/compare/6b868d0...c307662
 [0.1.8]: https://github.com/szubster/dexhelper/compare/c307662...98ea107
+[0.2.0]: https://github.com/szubster/dexhelper/compare/98ea107...0e9589d
