@@ -10,12 +10,11 @@
       "TASK": 2782
     },
     "byStatus": {
-      "COMPLETED": 3393,
+      "COMPLETED": 3395,
       "ACTIVE": 164,
       "CANCELLED": 860,
-      "PENDING": 758,
-      "BLOCKED": 14,
-      "READY": 1
+      "PENDING": 757,
+      "BLOCKED": 14
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -8006,7 +8005,7 @@
       "story-526-640-extract-domain-logic.md": 1987200000,
       "story-526-641-core-domain-integration-e2e.md": 0,
       "story-527-638-setup-ui-package.md": 259200000,
-      "story-527-639-migrate-tactical-primitives.md": 2160000000,
+      "story-527-639-migrate-tactical-primitives.md": 2332800000,
       "story-527-640-migrate-complex-components.md": 1123200000,
       "story-527-641-migrate-decorations.md": 1123200000,
       "story-527-642-refactor-app-imports.md": 1123200000,
@@ -8193,7 +8192,7 @@
       "story-587-708-integrate-validator-with-orchestrator.md": 278220000,
       "story-587-709-e2e-verification-macro-node-completeness.md": 278220000,
       "task-000-001-fix-assistant-route-lens-audit.md": 762600000,
-      "task-000-changelog-backfill.md": 16329600000,
+      "task-000-changelog-backfill.md": 16416000000,
       "task-004-001-dv-inheritance-logic-impl.md": 86400000,
       "task-004-002-dv-inheritance-logic-qa.md": 259200000,
       "task-004-003-shiny-odds-calculation-impl.md": 172800000,
@@ -9953,5 +9952,5 @@
     "mergedPRs": 8658,
     "closedPRs": 1157
   },
-  "timestamp": "2026-10-27T00:11:05.453Z"
+  "timestamp": "2026-10-27T05:47:27.542Z"
 }
