@@ -1,7 +1,7 @@
 import type { UnifiedLocation } from '../../../db/schema';
 import { getGenerationConfig } from '../../../utils/generationConfig';
 import { getUnobtainableReason } from '../../exclusives/index';
-import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen1Graph';
+import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/index';
 import type { SaveData } from '../../saveParser/index';
 import type { AssistantStrategy, Suggestion } from './types';
 
@@ -13,7 +13,7 @@ export const gen1Strategy: AssistantStrategy = {
   },
 
   getMapDistance(currentMapId: number, targetAid: number, allLocations: UnifiedLocation[]) {
-    return getDistanceToMap(allLocations, currentMapId, targetAid);
+    return getDistanceToMap(allLocations, currentMapId, targetAid, 1);
   },
 
   getUnobtainableReason(pokemonId: number, version: string, _ownedCount: number, ownedSet: Set<number>) {

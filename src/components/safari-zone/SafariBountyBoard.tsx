@@ -1,3 +1,4 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useSafariZoneMissingEncounters } from '../../hooks/safariZone/useSafariZoneMissingEncounters';
@@ -5,7 +6,6 @@ import { useStore } from '../../store';
 import { pokemonListQueryOptions } from '../../utils/pokemonQueries';
 import { EmptyState } from '../EmptyState';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
-import { TacticalBadge } from '../TacticalBadge';
 import { TacticalCard } from '../TacticalCard';
 import { TacticalPanel } from '../TacticalPanel';
 
