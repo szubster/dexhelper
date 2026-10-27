@@ -2,12 +2,12 @@
 id: research-586-707-investigate-multi-box-integration-failure
 type: RESEARCH
 title: Investigate Multi-Box Search Integration Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-19'
-updated_at: '2026-10-19'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6597197837526714571'
 pr_number: null
 parent: story-577-586-multi-box-integration-e2e
 tags:
