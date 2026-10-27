@@ -2,12 +2,12 @@
 id: task-582-707-gen3-secret-base-party-types
 type: TASK
 title: Define Gen 3 Secret Base Party Types and Constants
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-09-30'
-updated_at: '2026-09-30'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18345966039281414004'
 pr_number: null
 parent: story-569-582-gen3-secret-base-party-extraction
 tags:
