@@ -46,5 +46,6 @@ describe('Scheduled Agent Workflows', () => {
     const compiled = compileScheduledPrompt('deduplication', rootDir);
     expect(compiled).toContain('# Deduplication — Code & Test Deduplication');
     expect(compiled).toContain('CORE SYSTEM POLICIES');
+    expect(compiled).toContain('parameterized tests');
   });
 });
