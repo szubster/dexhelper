@@ -8,6 +8,7 @@ Identify and consolidate duplicated code, functions, types, constants, and tests
 - Deduplicating redundant test setups, test helpers, fixtures, and assertions into shared test utilities.
 - Identifying and removing duplicate tests, test cases, test files, or test classes that cover identical functionality.
 - Consolidating duplicated domain structures, type definitions, and constant mappings.
+- Leveraging parameterized tests (e.g., using `it.each` or `test.each`) to consolidate repetitive test cases and reduce test code duplication.
 - Refactoring both production code and test suites in tandem when unifying abstractions.
 
 ## Boundaries
@@ -16,6 +17,7 @@ Identify and consolidate duplicated code, functions, types, constants, and tests
 - Implement strictly ONE deduplication target per invocation.
 - Be wide, broad, and bold: look across entire subsystems, packages, or test suites to perform impactful deduplication.
 - Remove redundant duplicate tests or entire duplicate test classes/files that test identical behavior, consolidating test coverage.
+- Consider using parameterized tests (e.g., `it.each` or `test.each`) when consolidating repetitive test cases across different scenarios.
 - Always deduplicate both code AND tests together so test coverage remains clean, unified, and aligned with the refactored code.
 - Preserve existing runtime behavior and ensure all remaining tests pass without regressions or coverage loss.
 - Run `pnpm lint` and `pnpm test` before submitting changes.
