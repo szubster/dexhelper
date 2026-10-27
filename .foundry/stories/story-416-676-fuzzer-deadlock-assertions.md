@@ -36,6 +36,9 @@ Implement assertions in the orchestrator fuzzer to verify that all simulated run
 - [x] Break down into Tasks
 - [x] task-676-712-fuzzer-deadlock-assertions-impl
 - [x] task-676-713-fuzzer-deadlock-assertions-qa
-- [ ] research-676-721-investigate-fuzzer-deadlock-assertions-failure
-- [ ] task-676-722-fuzzer-deadlock-assertions-impl-retry
-- [ ] task-676-723-fuzzer-deadlock-assertions-qa-retry
+- [x] research-676-721-investigate-fuzzer-deadlock-assertions-failure
+- [x] task-676-722-fuzzer-deadlock-assertions-impl-retry
+- [x] task-676-723-fuzzer-deadlock-assertions-qa-retry
+- [ ] research-676-728-investigate-fuzzer-deadlock-assertions-failure-v2
+- [ ] task-676-729-fuzzer-deadlock-assertions-impl-v3
+- [ ] task-676-730-fuzzer-deadlock-assertions-qa-v3
