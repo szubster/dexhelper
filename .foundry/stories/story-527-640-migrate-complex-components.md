@@ -26,4 +26,10 @@ locks: []
 Migrate complex components like TacticalModal, TacticalSegmentedControl, and TacticalSelect to the `@dexhelper/ui` package.
 
 ## Acceptance Criteria
-- [ ] Break this story down into tasks for migrating complex components.
+- [x] Break this story down into tasks for migrating complex components.
+- [ ] task-640-728-migrate-tacticalmodal-impl
+- [ ] task-640-729-migrate-tacticalmodal-qa
+- [ ] task-640-730-migrate-tacticalsegmentedcontrol-impl
+- [ ] task-640-731-migrate-tacticalsegmentedcontrol-qa
+- [ ] task-640-732-migrate-tacticalselect-impl
+- [ ] task-640-733-migrate-tacticalselect-qa
