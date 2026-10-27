@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { LayoutGrid, ShieldAlert } from 'lucide-react';
 
 import { EmptyState } from '../components/EmptyState';
+import { WallpaperDashboard } from '../components/gen3/WallpaperDashboard';
 import { Gen3PokeblocksDashboard, PokeblockOptimizerPanel } from '../components/pokeblocks';
 import { TacticalBlockHeader } from '../components/TacticalBlockHeader';
 import { TacticalPanel } from '../components/TacticalPanel';
@@ -31,6 +32,7 @@ function Gen3DashboardPage() {
           />
           <div className="flex flex-col gap-4">
             <FeebasMapComponent />
+            <WallpaperDashboard />
             <Gen3PokeblocksDashboard />
             <PokeblockOptimizerPanel />
           </div>
