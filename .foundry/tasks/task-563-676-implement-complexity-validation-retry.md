@@ -26,6 +26,6 @@ The Tech Lead persona is responsible for breaking down a `STORY` into `TASK` nod
 This task requires modifying the dag evaluation logic in `.github/scripts/foundry-orchestrator.ts`. When a `STORY` transitions or has its generated child links validated, the orchestrator should check the number of generated `TASK` nodes against the complexity of the story. If a violation is detected, it should log warnings or promote the task breakdown generation to `FAILED`.
 
 ## Acceptance Criteria
-- [ ] Implement logic in `.github/scripts/foundry-orchestrator.ts` to analyze the generated child `TASK` nodes for a `STORY`.
-- [ ] Add a heuristic to flag the "Two-Tasks-Max" anti-pattern (e.g., checking the number of tasks vs number of acceptance criteria).
-- [ ] Ensure violations are handled by failing the `STORY` node verification.
+- [x] Implement logic in `.github/scripts/foundry-orchestrator.ts` to analyze the generated child `TASK` nodes for a `STORY`.
+- [x] Add a heuristic to flag the "Two-Tasks-Max" anti-pattern (e.g., checking the number of tasks vs number of acceptance criteria).
+- [x] Ensure violations are handled by failing the `STORY` node verification.
