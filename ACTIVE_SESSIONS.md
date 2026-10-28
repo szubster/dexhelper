@@ -19,6 +19,7 @@
 | [epic-587-693-schema-migration-registry](.foundry/epics/epic-587-693-schema-migration-registry.md) | EPIC | Save Schema Migration Registry & Logic | story_owner | [15137690769940717170](https://jules.google.com/session/15137690769940717170) |
 | [epic-587-694-indexeddb-hydration-integration](.foundry/epics/epic-587-694-indexeddb-hydration-integration.md) | EPIC | IndexedDB Hydration & Save Intercept Integration | story_owner | [1333907728289558652](https://jules.google.com/session/1333907728289558652) |
 | [epic-587-707-playwright-path-ast-analyzer](.foundry/epics/epic-587-707-playwright-path-ast-analyzer.md) | EPIC | Epic Playwright Path AST Analyzer | story_owner | [11592020458311993671](https://jules.google.com/session/11592020458311993671) |
+| [epic-587-707-yaml-parsing-utility](.foundry/epics/epic-587-707-yaml-parsing-utility.md) | EPIC | Core YAML Parsing Utility Implementation | story_owner | [7076501360977388145](https://jules.google.com/session/7076501360977388145) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
