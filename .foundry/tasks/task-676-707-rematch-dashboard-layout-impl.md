@@ -2,10 +2,10 @@
 id: task-676-707-rematch-dashboard-layout-impl
 type: TASK
 title: Rematch Dashboard Layout Implementation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-27'
+updated_at: '2026-10-28'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -16,8 +16,8 @@ tags:
   - ui
   - layout
 research_references: []
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

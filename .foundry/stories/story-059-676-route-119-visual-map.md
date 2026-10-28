@@ -2,12 +2,12 @@
 id: story-059-676-route-119-visual-map
 type: STORY
 title: Route 119 Visual Map Component
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-16T21:14:46.222Z'
-updated_at: '2026-10-18'
+updated_at: '2026-10-28'
 depends_on: []
-jules_session_id: '8532187076979505524'
+jules_session_id: null
 pr_number: null
 parent: epic-036-059-feebas-frontend-visualization
 tags:

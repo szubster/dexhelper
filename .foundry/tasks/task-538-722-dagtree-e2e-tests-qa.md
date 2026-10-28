@@ -1,11 +1,11 @@
 ---
 id: task-538-722-dagtree-e2e-tests-qa
 type: TASK
-title: "QA DagTree E2E Tests"
-status: READY
+title: QA DagTree E2E Tests
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-24'
-updated_at: '2026-10-24'
+updated_at: '2026-10-28'
 depends_on:
   - task-538-721-dagtree-e2e-tests-coder
 jules_session_id: null

@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-27T21:34:30.024Z*
+*Generated at: 2026-10-28T00:51:09.603Z*
 
 ## Node Statistics
 
@@ -11,20 +11,20 @@
 | EPIC | 518 |
 | IDEA | 235 |
 | PRD | 217 |
-| RESEARCH | 323 |
+| RESEARCH | 325 |
 | STORY | 1083 |
-| TASK | 2801 |
+| TASK | 2810 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3397 |
-| ACTIVE | 153 |
-| CANCELLED | 860 |
-| PENDING | 777 |
-| READY | 15 |
+| COMPLETED | 3400 |
+| ACTIVE | 145 |
+| CANCELLED | 862 |
+| PENDING | 785 |
+| READY | 25 |
 | BLOCKED | 14 |
-| FAILED | 5 |
+| FAILED | 1 |
 
 ## PR Metrics
 
@@ -32,8 +32,8 @@
 |---|---|
 | Total PRs | 10000 |
 | Open PRs | 170 |
-| Merged PRs | 8673 |
-| Closed PRs | 1157 |
+| Merged PRs | 8677 |
+| Closed PRs | 1153 |
 
 ## Rejection Counts
 
@@ -791,6 +791,7 @@
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
 | research-564-690-investigate-gen3-pokedex-gaps-ui-failure.md | 1 |
+| research-579-728-investigate-react-flow-e2e-failure.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
@@ -962,6 +963,7 @@
 | task-522-529-update-root-package-json.md | 1 |
 | task-522-668-quota-handling-impl.md | 1 |
 | task-522-684-wip-awareness-e2e-agent-tests.md | 1 |
+| task-523-707-box-analyzer-matrix-e2e-tabular-data.md | 1 |
 | task-524-568-setup-oxlint-rules.md | 1 |
 | task-524-676-living-dex-ghosts-types.md | 1 |
 | task-526-555-safari-zone-layout-qa.md | 1 |
@@ -1045,8 +1047,10 @@
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
+| task-676-707-rematch-dashboard-layout-impl.md | 1 |
 | task-676-716-trainer-card-types.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
+| task-679-712-pokeblock-dashboard-ui-impl.md | 1 |
 
 ## Wait Times
 
@@ -1060,7 +1064,9 @@
 | task-550-685-generator-tree-traversals-e2e-impl.md | 76809600000 |
 | task-550-687-generator-architecture-e2e-qa.md | 76809600000 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
+| story-325-528-safari-zone-bounty-board.md | 76550400000 |
 | task-528-677-safari-zone-bounty-board-ui.md | 76550400000 |
+| task-528-678-safari-zone-bounty-board-e2e.md | 76550400000 |
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76464000000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
 | story-325-527-safari-zone-area-highlighting.md | 76377600000 |
@@ -1069,8 +1075,6 @@
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |
 | epic-339-406-jules-agent-skins.md | 75859200000 |
 | task-528-676-safari-zone-bounty-board-data.md | 75859200000 |
-| story-325-528-safari-zone-bounty-board.md | 75513600000 |
-| task-528-678-safari-zone-bounty-board-e2e.md | 75513600000 |
 | task-531-634-savedatareader-bitwise-tests.md | 74390400000 |
 | task-531-635-savedatareader-bitwise-qa.md | 74390400000 |
 | task-531-633-savedatareader-bitwise-impl.md | 74304000000 |

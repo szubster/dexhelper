@@ -2,12 +2,12 @@
 id: story-554-564-pokemon-held-item-tracker
 type: STORY
 title: Pokemon Held Item Tracker
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-15'
-updated_at: '2026-10-23'
+updated_at: '2026-10-28'
 depends_on: []
-jules_session_id: '15262513296655320223'
+jules_session_id: null
 pr_number: null
 parent: epic-521-554-hunting-progress-tracker
 tags:

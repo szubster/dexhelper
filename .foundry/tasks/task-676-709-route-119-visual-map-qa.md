@@ -2,10 +2,10 @@
 id: task-676-709-route-119-visual-map-qa
 type: TASK
 title: Route 119 Visual Map Component QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-18T18:41:32.085Z'
-updated_at: '2026-10-18'
+updated_at: '2026-10-28'
 depends_on:
   - task-676-708-route-119-visual-map-impl
 jules_session_id: null
