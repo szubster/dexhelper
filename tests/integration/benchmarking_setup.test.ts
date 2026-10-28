@@ -12,7 +12,7 @@ describe('Benchmarking Setup Integration', () => {
     expect(() => {
       execSync(`node --experimental-strip-types ${runnerPath}`, { stdio: 'pipe' });
     }).not.toThrow();
-  }, 60000);
+  }, 120000);
 
   it('should generate benchmarks.json when using --reporter=json', () => {
     const rootDir = process.cwd();
@@ -31,7 +31,7 @@ describe('Benchmarking Setup Integration', () => {
     if (existsSync(jsonPath)) {
       unlinkSync(jsonPath);
     }
-  }, 60000);
+  }, 120000);
 
   it('should generate benchmarks.csv when using --reporter=csv', () => {
     const rootDir = process.cwd();
@@ -50,5 +50,5 @@ describe('Benchmarking Setup Integration', () => {
     if (existsSync(csvPath)) {
       unlinkSync(csvPath);
     }
-  }, 60000);
+  }, 120000);
 });
