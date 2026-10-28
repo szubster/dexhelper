@@ -2,12 +2,12 @@
 id: research-676-728-investigate-fuzzer-deadlock-assertions-failure-v2
 type: RESEARCH
 title: Investigate Fuzzer Deadlock Assertions Failure V2
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-26T07:21:33.000Z'
-updated_at: '2026-10-26'
+updated_at: '2026-10-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2544461882318523885'
 pr_number: null
 parent: story-416-676-fuzzer-deadlock-assertions
 tags:
