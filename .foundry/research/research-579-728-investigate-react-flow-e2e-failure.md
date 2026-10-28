@@ -2,12 +2,12 @@
 id: research-579-728-investigate-react-flow-e2e-failure
 type: RESEARCH
 title: Investigate React Flow Visualizer E2E Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-26'
 updated_at: '2026-10-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17639454863702761172'
 pr_number: null
 parent: story-079-579-react-flow-visualizer-refactor-e2e
 tags:
