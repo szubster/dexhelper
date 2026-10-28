@@ -32,6 +32,6 @@ Write Playwright E2E tests to verify the integration and functionality of the ne
 4. Ensure tests are placed in the appropriate `tests/e2e/` directory.
 
 ## Acceptance Criteria
-- [ ] Update Playwright E2E locators to correctly target the new `DagTree` UI component.
-- [ ] Implement tests verifying all DAG expand/collapse user interactions.
-- [ ] Implement tests verifying the DAG state accurately reflects the Foundry state.
+- [x] Update Playwright E2E locators to correctly target the new `DagTree` UI component.
+- [x] Implement tests verifying all DAG expand/collapse user interactions.
+- [x] Implement tests verifying the DAG state accurately reflects the Foundry state.
