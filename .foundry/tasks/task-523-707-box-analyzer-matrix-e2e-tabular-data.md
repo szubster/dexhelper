@@ -2,13 +2,13 @@
 id: task-523-707-box-analyzer-matrix-e2e-tabular-data
 type: TASK
 title: Box Analyzer Matrix E2E - Tabular Data Verification
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-28'
 depends_on:
   - story-109-522-box-analyzer-highlighting-logic
-jules_session_id: null
+jules_session_id: '3964273890843890651'
 pr_number: null
 parent: story-109-523-box-analyzer-matrix-e2e
 tags:
