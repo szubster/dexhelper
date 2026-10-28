@@ -33,5 +33,14 @@ Investigate the root cause of the max rejection count failure for `task-676-712-
 - Outline the path forward for the retry implementation.
 
 ## Acceptance Criteria
-- [ ] Root cause identified and documented.
-- [ ] Path forward outlined.
+- [x] Root cause identified and documented.
+- [x] Path forward outlined.
+
+
+## Root Cause Analysis
+The git history for `task-676-712-fuzzer-deadlock-assertions-impl` and `research-676-721-investigate-fuzzer-deadlock-assertions-failure` reveals that the prior rejection reasons were `Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK`. This indicates that the agents repeatedly asked the user questions or sought feedback instead of working autonomously, causing the sessions to hang and fail.
+
+These are false permanent failures caused by system-level agent session crashes, not a flaw in the actual deadlock assertions logic or implementation approach. Because the orchestrator increments the `rejection_count` for these system-level violations, the nodes eventually hit the max rejection count threshold and were automatically cancelled.
+
+## Path Forward
+The original strategy to implement fuzzer deadlock detection assertions remains valid. The replacement task (`task-676-729-fuzzer-deadlock-assertions-impl-v3`) should proceed with implementing the assertions as originally planned, ensuring strict adherence to the Autonomous No-Ask Policy by utilizing Late Binding if context is missing, and completing the work autonomously without conversational prompts.
