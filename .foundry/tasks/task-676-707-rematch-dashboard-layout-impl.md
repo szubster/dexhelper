@@ -41,6 +41,6 @@ Implement the base layout for the Rematch Dashboard view component (`RematchDash
 - Write unit tests for the component's rendering.
 
 ## Acceptance Criteria
-- [ ] `RematchDashboard` component is created.
-- [ ] Component structural layout adheres to the tactical design system constraints.
-- [ ] Unit tests are written to verify component rendering.
+- [x] `RematchDashboard` component is created.
+- [x] Component structural layout adheres to the tactical design system constraints.
+- [x] Unit tests are written to verify component rendering.
