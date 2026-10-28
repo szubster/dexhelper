@@ -30,5 +30,5 @@ Extract and define the constant map layout data, specifically the grid dimension
 - Ensure no inline magic numbers are used; all layout constants must be defined explicitly.
 
 ## Acceptance Criteria
-- [ ] Implement data constants and helpers for Route 119 grid and water tiles.
-- [ ] Add unit tests verifying the grid boundaries and tile validation logic.
+- [x] Implement data constants and helpers for Route 119 grid and water tiles.
+- [x] Add unit tests verifying the grid boundaries and tile validation logic.
