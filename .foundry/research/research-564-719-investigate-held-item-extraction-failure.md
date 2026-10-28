@@ -2,12 +2,12 @@
 id: research-564-719-investigate-held-item-extraction-failure
 type: RESEARCH
 title: Investigate Held Item Extraction Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-23'
-updated_at: '2026-10-23'
+updated_at: '2026-10-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9073946642635434604'
 pr_number: null
 parent: story-554-564-pokemon-held-item-tracker
 tags:
