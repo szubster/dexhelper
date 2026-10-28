@@ -28,4 +28,6 @@ Implement a strict, reliable YAML frontmatter parsing utility (e.g., `parseFound
 ## Acceptance Criteria
 - [ ] Implement `parseFoundryNode` utility in `.github/scripts/`.
 - [ ] Ensure parsing correctly isolates YAML frontmatter and avoids scanning the markdown body.
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [ ] story-707-731-implement-yaml-parsing-utility
+- [ ] story-707-732-yaml-parsing-integration-e2e
