@@ -2,13 +2,13 @@
 id: task-586-708-multi-box-integration-impl-retry
 type: TASK
 title: Implement Multi-Box Search Integration Logic (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-19'
 updated_at: '2026-10-28'
 depends_on:
   - research-586-707-investigate-multi-box-integration-failure
-jules_session_id: null
+jules_session_id: '178874434545552507'
 pr_number: null
 parent: story-577-586-multi-box-integration-e2e
 tags:
