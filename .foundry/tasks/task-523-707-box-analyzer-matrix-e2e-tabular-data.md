@@ -2,13 +2,13 @@
 id: task-523-707-box-analyzer-matrix-e2e-tabular-data
 type: TASK
 title: Box Analyzer Matrix E2E - Tabular Data Verification
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-28'
 depends_on:
   - story-109-522-box-analyzer-highlighting-logic
-jules_session_id: '10843065420791155433'
+jules_session_id: null
 pr_number: null
 parent: story-109-523-box-analyzer-matrix-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - e2e
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

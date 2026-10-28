@@ -11,11 +11,11 @@
     },
     "byStatus": {
       "COMPLETED": 3406,
-      "ACTIVE": 157,
+      "ACTIVE": 163,
       "CANCELLED": 863,
-      "PENDING": 786,
+      "PENDING": 783,
       "BLOCKED": 14,
-      "READY": 6
+      "FAILED": 3
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -7871,7 +7871,7 @@
       "story-401-681-pokeblock-viewer-e2e.md": 0,
       "story-402-526-cloudflare-worker-setup.md": 2592000000,
       "story-402-527-drive-webhook-registration.md": 5097600000,
-      "story-402-528-save-file-sync-logic.md": 0,
+      "story-402-528-save-file-sync-logic.md": 5097600000,
       "story-402-529-drive-sync-e2e.md": 0,
       "story-402-560-tm-hm-compatibility-matching.md": 52876800000,
       "story-402-561-tm-hm-strategic-gap-identification.md": 50112000000,
@@ -10033,9 +10033,9 @@
   },
   "prs": {
     "totalPRs": 10000,
-    "openPRs": 181,
-    "mergedPRs": 8670,
-    "closedPRs": 1149
+    "openPRs": 187,
+    "mergedPRs": 8667,
+    "closedPRs": 1146
   },
-  "timestamp": "2026-10-28T13:40:47.406Z"
+  "timestamp": "2026-10-28T19:14:48.889Z"
 }
