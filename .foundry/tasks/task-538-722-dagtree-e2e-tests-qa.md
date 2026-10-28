@@ -2,7 +2,7 @@
 id: task-538-722-dagtree-e2e-tests-qa
 type: TASK
 title: QA DagTree E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-24'
 updated_at: '2026-10-28'

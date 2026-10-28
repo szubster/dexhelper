@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-28T06:27:05.698Z*
+*Generated at: 2026-10-28T13:40:47.406Z*
 
 ## Node Statistics
 
@@ -18,22 +18,21 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3403 |
-| ACTIVE | 149 |
+| COMPLETED | 3406 |
+| ACTIVE | 157 |
 | CANCELLED | 863 |
-| PENDING | 788 |
-| READY | 9 |
+| PENDING | 786 |
 | BLOCKED | 14 |
-| FAILED | 6 |
+| READY | 6 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 178 |
-| Merged PRs | 8672 |
-| Closed PRs | 1150 |
+| Open PRs | 181 |
+| Merged PRs | 8670 |
+| Closed PRs | 1149 |
 
 ## Rejection Counts
 
@@ -421,6 +420,7 @@
 | research-563-704-investigate-routes-encounters-failure-v2.md | 2 |
 | research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
+| research-579-728-investigate-react-flow-e2e-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
 | story-042-081-preserve-enum-optimizations.md | 2 |
@@ -474,6 +474,7 @@
 | task-443-490-implement-gen2-savings-e2e.md | 2 |
 | task-470-485-source-gen1-gen2-saves.md | 2 |
 | task-472-676-implement-e2e-tests-retry-2.md | 2 |
+| task-472-677-qa-tests-verification-retry-2.md | 2 |
 | task-473-493-dag-context-e2e-mock-data.md | 2 |
 | task-473-494-gen3-egg-hatch-e2e-impl.md | 2 |
 | task-473-640-gen3-condition-stats-qa-v3.md | 2 |
@@ -494,6 +495,7 @@
 | task-520-551-gen2-constants-qa.md | 2 |
 | task-521-528-statistics-e2e.md | 2 |
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
+| task-523-707-box-analyzer-matrix-e2e-tabular-data.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-527-675-drive-webhook-qa.md | 2 |
 | task-533-677-savedatareader-e2e-tests.md | 2 |
@@ -529,6 +531,9 @@
 | task-638-640-migrate-pokedata-plugin.md | 2 |
 | task-639-722-migrate-buttons-impl-v5.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
+| task-676-707-rematch-dashboard-layout-impl.md | 2 |
+| task-676-716-trainer-card-types.md | 2 |
+| task-679-712-pokeblock-dashboard-ui-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -791,7 +796,6 @@
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
 | research-564-690-investigate-gen3-pokedex-gaps-ui-failure.md | 1 |
-| research-579-728-investigate-react-flow-e2e-failure.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
@@ -908,7 +912,6 @@
 | task-443-491-box-analyzer-e2e-qa.md | 1 |
 | task-443-491-hof-e2e-qa.md | 1 |
 | task-471-639-update-fixture-manifests-retry.md | 1 |
-| task-472-677-qa-tests-verification-retry-2.md | 1 |
 | task-473-493-breeding-e2e-gender-egg-groups.md | 1 |
 | task-473-493-gen2-egg-hatch-e2e-impl.md | 1 |
 | task-473-493-gen3-condition-stats-constants.md | 1 |
@@ -964,7 +967,6 @@
 | task-522-529-update-root-package-json.md | 1 |
 | task-522-668-quota-handling-impl.md | 1 |
 | task-522-684-wip-awareness-e2e-agent-tests.md | 1 |
-| task-523-707-box-analyzer-matrix-e2e-tabular-data.md | 1 |
 | task-524-568-setup-oxlint-rules.md | 1 |
 | task-524-676-living-dex-ghosts-types.md | 1 |
 | task-526-555-safari-zone-layout-qa.md | 1 |
@@ -1049,10 +1051,7 @@
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
-| task-676-707-rematch-dashboard-layout-impl.md | 1 |
-| task-676-716-trainer-card-types.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
-| task-679-712-pokeblock-dashboard-ui-impl.md | 1 |
 
 ## Wait Times
 
@@ -1065,8 +1064,8 @@
 | task-676-702-add-adr-compliance-scripts.md | 77284800000 |
 | task-550-685-generator-tree-traversals-e2e-impl.md | 76809600000 |
 | task-550-687-generator-architecture-e2e-qa.md | 76809600000 |
+| story-325-528-safari-zone-bounty-board.md | 76636800000 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
-| story-325-528-safari-zone-bounty-board.md | 76550400000 |
 | task-528-677-safari-zone-bounty-board-ui.md | 76550400000 |
 | task-528-678-safari-zone-bounty-board-e2e.md | 76550400000 |
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76464000000 |
