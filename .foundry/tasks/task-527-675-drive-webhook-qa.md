@@ -2,14 +2,14 @@
 id: task-527-675-drive-webhook-qa
 type: TASK
 title: Drive Webhook Logic QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-09'
-updated_at: '2026-10-27'
+updated_at: '2026-10-28'
 depends_on:
   - task-527-673-webhook-registration-impl
   - task-527-674-webhook-renewal-impl
-jules_session_id: null
+jules_session_id: '13723846413856015031'
 pr_number: null
 parent: story-402-527-drive-webhook-registration
 tags:
