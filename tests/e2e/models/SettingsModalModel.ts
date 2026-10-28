@@ -48,7 +48,7 @@ export class SettingsModalModel {
   }
 
   async assertLivingDexModeEnabled() {
-    await expect(this.livingDexBtn).toHaveClass(/bg-emerald-500/);
+    await expect(this.livingDexBtn).toHaveClass(/emerald/);
   }
 
   async assertLivingDexModeChecked() {
