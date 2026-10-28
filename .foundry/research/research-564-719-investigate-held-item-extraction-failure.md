@@ -25,6 +25,6 @@ locks: []
 This node investigates the permanent failure of the previous attempt to extract held items. The previous iteration (`task-564-602-pokemon-held-item-tracker-extraction`) failed permanently because `extractHeldItems` used a `Set` which incorrectly drops duplicate held items.
 
 ## Acceptance Criteria
-- [ ] Investigate the root cause of the failure of `task-564-602-pokemon-held-item-tracker-extraction`.
-- [ ] Propose a revised, concrete strategy for successfully extracting these held items.
-- [ ] Document findings in the researcher persona journal.
+- [x] Investigate the root cause of the failure of `task-564-602-pokemon-held-item-tracker-extraction`.
+- [x] Propose a revised, concrete strategy for successfully extracting these held items.
+- [x] Document findings in the researcher persona journal.
