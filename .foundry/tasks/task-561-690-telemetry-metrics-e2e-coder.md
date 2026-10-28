@@ -17,6 +17,7 @@ tags:
   - e2e
   - tests
 research_references: []
+confidence_score: 100
 rejection_count: 1
 rejection_reason: ''
 notes: ''
@@ -29,5 +30,5 @@ locks: []
 Implement e2e/integration tests in `packages/foundry/foundry-orchestrator.e2e.test.ts` (or similar suitable e2e test file for the orchestrator) to verify that cycle and deadlock telemetry is correctly appended.
 
 ## Acceptance Criteria
-- [ ] Implement an e2e test that sets up a temporary directory, creates a cycle dependency, runs the orchestrator (or the core cycle detection logic), and verifies `.foundry/telemetry/cycle-detection.log` is created and appended correctly.
-- [ ] Implement an e2e test that sets up a temporary directory, creates a hierarchical deadlock dependency, runs the orchestrator, and verifies the telemetry log is appended correctly.
+- [x] Implement an e2e test that sets up a temporary directory, creates a cycle dependency, runs the orchestrator (or the core cycle detection logic), and verifies `.foundry/telemetry/cycle-detection.log` is created and appended correctly.
+- [x] Implement an e2e test that sets up a temporary directory, creates a hierarchical deadlock dependency, runs the orchestrator, and verifies the telemetry log is appended correctly.
