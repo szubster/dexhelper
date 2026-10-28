@@ -4,7 +4,7 @@
 **CRITICAL DIRECTIVE FOR ALL AGENTS & JULES:** You must **NEVER** ask the user questions, or ask for permission, input, feedback, clarification, hints, direction, or node/rejection history during execution in chat, unless explicitly requested in the initial prompt. Asking questions, seeking confirmation, stalling sessions, or waiting for user input in chat/conversation is strictly blocked and forbidden. All questions directed to the user will remain unanswered and asking questions will result in session failure. The answer to "Should I proceed?", "Should I open/submit a PR?", "Should I proceed with opening the PR?", or "Should I request code review?" is **ALWAYS YES** and must be executed autonomously without asking.
 
 1. **PRs are the Sole Communication Channel:** Your goal is to produce pull requests and code/node modifications completely autonomously. Always open and submit PRs immediately when work or demotion steps are ready. Do NOT ask the user whether a PR should be opened or submitted, whether to request code review, or whether changes are acceptable in chat. PRs themselves are the formal channel for review and feedback.
-2. **Prohibited Question Patterns:** Under NO circumstances should an agent post questions such as:
+2. **Prohibited Question Patterns & Terminal Query Prohibition:** Ending turns with conversational questions or trailing question marks is strictly forbidden and triggers a No-Ask policy violation. Under NO circumstances should an agent post questions or prompts such as:
    - "Before I create my final execution plan..., do you have any specific requirements or adjustments I should keep in mind?"
    - "Do you have any specific requirements or adjustments before I proceed?"
    - "Should I proceed?" / "Should I finalize changes?"
@@ -12,6 +12,8 @@
    - "Should I request code review now?"
    - "Are there any other tasks you'd like me to focus on before submitting?"
    - "Is there anything else you'd like me to address before submitting?"
+   - "Is there anything else I can help you with?" / "Is there anything else?"
+   - "What should I do next?" / "How would you like to proceed?"
    - "Which option do you prefer?"
    - "Is there any specific file you want me to look into, or any other branch we need to re-run the tests on?"
    - "Could you provide any hints or direct me to where I might find...?"
@@ -23,7 +25,7 @@
    - Utilize Late Binding: create a new Foundry node (`IDEA`, `RESEARCH`, `ADR`, or `TASK` depending on the scope) in `.foundry/`.
    - Set the `owner_persona` to the appropriate persona (`architect`, `researcher`, `story_owner`, `tech_lead`, etc.) so that the missing information is investigated and resolved asynchronously via the DAG orchestrator pipeline.
    - Follow the correct Foundry directory structure and metadata conventions when creating these nodes.
-4. **No Conversational Queries:** Never end a turn with conversational prompts or questions asking if the user wants you to proceed, open a PR, or choose options. Execute the best decision autonomously and submit the PR.
+4. **No Conversational Queries or Terminal Questions:** Never end a turn with conversational prompts, queries, or question marks (e.g. asking if the user wants you to proceed, open a PR, or choose options). Execute all actions completely autonomously and finalize via the `submit` tool without waiting for user input.
 
 ## Environment Troubleshooting
 If `pnpm install` fails due to an unsupported Node engine version mismatch (e.g., `wanted: {"node":">=24.0.0"}`), temporarily disable the strict check using `pnpm config set engine-strict false` before installing.
