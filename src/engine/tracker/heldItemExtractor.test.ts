@@ -26,13 +26,13 @@ describe('extractHeldItems', () => {
     expect(result).toEqual([3, 4, 5]);
   });
 
-  it('should extract unique held items from both party and PC boxes', () => {
+  it('should extract held items including duplicates from both party and PC boxes', () => {
     const saveData = {
       partyDetails: [{ item: 1 } as PokemonInstance, { item: 2 } as PokemonInstance, { item: 3 } as PokemonInstance],
       pcDetails: [{ item: 2 } as PokemonInstance, { item: 4 } as PokemonInstance],
     } as unknown as SaveData;
     const result = extractHeldItems(saveData);
-    expect(result).toEqual([1, 2, 3, 4]);
+    expect(result).toEqual([1, 2, 2, 3, 4]);
   });
 
   it('should handle undefined party and boxes', () => {
