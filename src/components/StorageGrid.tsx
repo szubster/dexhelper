@@ -27,6 +27,7 @@ export const StorageCard = React.memo(
     generation,
     onNavigate,
     isDead,
+    isDimmed,
     timeCapsuleValidation,
   }: {
     p: PokemonInstance;
@@ -35,6 +36,7 @@ export const StorageCard = React.memo(
     generation: number;
     onNavigate: (id: number) => void;
     isDead?: boolean;
+    isDimmed?: boolean;
     timeCapsuleValidation?: { isEligible: boolean; reason?: string } | undefined;
   }) => {
     const handleClick = React.useCallback(() => onNavigate(pokemon.id), [onNavigate, pokemon.id]);
@@ -59,7 +61,7 @@ export const StorageCard = React.memo(
         title={`View details for ${pokemon.name} in ${location}`}
         onClick={handleClick}
         variant={variant}
-        className="!p-0 min-h-16"
+        className={`!p-0 min-h-16 ${isDimmed ? 'pointer-events-none opacity-20 grayscale' : ''}`}
       >
         <div className="group/card relative flex h-full w-full flex-col">
           {/* Sprite Container - Top Side */}
