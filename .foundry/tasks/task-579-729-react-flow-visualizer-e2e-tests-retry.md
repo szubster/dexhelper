@@ -2,10 +2,10 @@
 id: task-579-729-react-flow-visualizer-e2e-tests-retry
 type: TASK
 title: React Flow Visualizer E2E Tests (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-26'
-updated_at: '2026-10-27'
+updated_at: '2026-10-28'
 depends_on:
   - research-579-728-investigate-react-flow-e2e-failure
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - integration
   - react-flow
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-579-728-investigate-react-flow-e2e-failure
 notes: ''
 locks: []
 ---

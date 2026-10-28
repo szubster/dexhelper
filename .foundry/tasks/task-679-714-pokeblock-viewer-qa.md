@@ -2,10 +2,10 @@
 id: task-679-714-pokeblock-viewer-qa
 type: TASK
 title: Pokéblock Viewer QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-10-24'
+updated_at: '2026-10-28'
 depends_on:
   - task-679-713-pokeblock-route-integration-impl
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-679-712-pokeblock-dashboard-ui-impl
 notes: ''
 locks: []
 ---

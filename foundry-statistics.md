@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-28T19:14:48.889Z*
+*Generated at: 2026-10-28T23:44:08.309Z*
 
 ## Node Statistics
 
@@ -154,6 +154,7 @@
 | research-563-640-investigate-map-data-extraction-failure.md | 3 |
 | research-566-668-investigate-orchestrator-diagnosis-failure.md | 3 |
 | research-566-676-investigate-orchestrator-diagnosis-failure-v2.md | 3 |
+| research-579-728-investigate-react-flow-e2e-failure.md | 3 |
 | research-608-673-investigate-text-search-e2e-failure.md | 3 |
 | research-608-690-investigate-text-search-e2e-failure-v2.md | 3 |
 | research-638-712-investigate-constants-extraction-v4-failure.md | 3 |
@@ -264,6 +265,7 @@
 | task-522-680-wip-signaling-e2e-tests.md | 3 |
 | task-522-685-wip-awareness-e2e-orchestrator-tests.md | 3 |
 | task-523-676-gen3-move-tutor-e2e-fixtures.md | 3 |
+| task-523-707-box-analyzer-matrix-e2e-tabular-data.md | 3 |
 | task-526-554-pathfinder-selection-components-impl.md | 3 |
 | task-527-596-safari-zone-area-map-ui.md | 3 |
 | task-528-677-safari-zone-bounty-board-ui.md | 3 |
@@ -337,6 +339,7 @@
 | task-649-702-priority-dispatch-coder.md | 3 |
 | task-674-700-migrate-pokedex-e2e-tests-coder.md | 3 |
 | task-676-712-fuzzer-deadlock-assertions-impl.md | 3 |
+| task-679-712-pokeblock-dashboard-ui-impl.md | 3 |
 | epic-009-atomic-handoff-testing.md | 2 |
 | epic-014-025-enforce-persona-pipeline-handoffs.md | 2 |
 | epic-030-039-cloudflare-r2-save-sync.md | 2 |
@@ -420,7 +423,6 @@
 | research-563-704-investigate-routes-encounters-failure-v2.md | 2 |
 | research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
-| research-579-728-investigate-react-flow-e2e-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
 | story-042-081-preserve-enum-optimizations.md | 2 |
@@ -495,7 +497,6 @@
 | task-520-551-gen2-constants-qa.md | 2 |
 | task-521-528-statistics-e2e.md | 2 |
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
-| task-523-707-box-analyzer-matrix-e2e-tabular-data.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-527-675-drive-webhook-qa.md | 2 |
 | task-533-677-savedatareader-e2e-tests.md | 2 |
@@ -533,7 +534,6 @@
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
-| task-679-712-pokeblock-dashboard-ui-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
