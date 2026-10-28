@@ -2,7 +2,7 @@
 id: task-561-690-telemetry-metrics-e2e-coder
 type: TASK
 title: Write E2E Integration Tests for Orchestrator Telemetry Metrics
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-16T02:33:42.224Z'
 updated_at: '2026-10-28'
@@ -17,8 +17,8 @@ tags:
   - e2e
   - tests
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

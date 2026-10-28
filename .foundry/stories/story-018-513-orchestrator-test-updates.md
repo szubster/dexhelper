@@ -2,21 +2,19 @@
 id: story-018-513-orchestrator-test-updates
 type: STORY
 title: Update Orchestrator Idempotent Tests
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-01'
 updated_at: '2026-10-28'
 depends_on:
   - story-018-512-idempotent-orchestrator-bypass
-jules_session_id: '13728244144012485091'
+jules_session_id: null
 parent: epic-008-018-session-dispatch-bypass
 tags:
   - orchestrator
   - typescript
-rejection_count: 0
-rejection_reason: >-
-  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
-  TASK nodes
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

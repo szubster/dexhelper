@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-28T00:51:09.603Z*
+*Generated at: 2026-10-28T06:27:05.698Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3400 |
-| ACTIVE | 145 |
-| CANCELLED | 862 |
-| PENDING | 785 |
-| READY | 25 |
+| COMPLETED | 3403 |
+| ACTIVE | 149 |
+| CANCELLED | 863 |
+| PENDING | 788 |
+| READY | 9 |
 | BLOCKED | 14 |
-| FAILED | 1 |
+| FAILED | 6 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 170 |
-| Merged PRs | 8677 |
-| Closed PRs | 1153 |
+| Open PRs | 178 |
+| Merged PRs | 8672 |
+| Closed PRs | 1150 |
 
 ## Rejection Counts
 
@@ -798,6 +798,7 @@
 | research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
+| story-018-513-orchestrator-test-updates.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
 | story-061-473-mirage-island-engine-e2e.md | 1 |
 | story-081-121-gen3-tv-block-dataview-parser.md | 1 |
@@ -1009,6 +1010,7 @@
 | task-561-615-pokerus-e2e-uninfected-cured.md | 1 |
 | task-561-668-spinda-rendering-types.md | 1 |
 | task-561-690-pokerus-spread-planner-e2e-impl.md | 1 |
+| task-561-690-telemetry-metrics-e2e-coder.md | 1 |
 | task-561-704-orchestrator-dag-graphology-impl-retry.md | 1 |
 | task-562-586-pokeblock-recommendation-logic.md | 1 |
 | task-562-590-gen3-dashboard-layout-and-routing-impl.md | 1 |

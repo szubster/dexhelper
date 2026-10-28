@@ -2,13 +2,13 @@
 id: task-472-677-qa-tests-verification-retry-2
 type: TASK
 title: QA Verification of New Fixture Tests (Retry 2)
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-10-10'
 updated_at: '2026-10-28'
 depends_on:
   - task-472-676-implement-e2e-tests-retry-2
-jules_session_id: '9314009181272821705'
+jules_session_id: null
 pr_number: null
 parent: story-428-472-e2e-verification
 tags:
@@ -16,7 +16,7 @@ tags:
   - testing
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
