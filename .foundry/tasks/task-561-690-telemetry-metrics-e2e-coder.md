@@ -2,12 +2,12 @@
 id: task-561-690-telemetry-metrics-e2e-coder
 type: TASK
 title: Write E2E Integration Tests for Orchestrator Telemetry Metrics
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-16T02:33:42.224Z'
 updated_at: '2026-10-28'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11020910039773160453'
 pr_number: null
 parent: story-530-561-telemetry-metrics-e2e
 tags:
