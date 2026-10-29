@@ -12,8 +12,8 @@ test.describe('PersonaBadge Integration - Skins', () => {
 
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();
 
-    const flowContainer = page.locator('.tactical-flow');
-    await expect(flowContainer).toBeVisible();
+    // View container in DAG dashboard
+    await expect(page.getByTestId('view-mode-board')).toBeVisible();
 
     const personaBadges = page.getByTestId('persona-badge');
     await expect(personaBadges).toHaveCount(2);
