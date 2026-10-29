@@ -2,13 +2,13 @@
 id: story-140-564-gen2-roamer-translation-integration
 type: STORY
 title: Gen 2 Roamer Translation Integration and E2E
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-10'
 updated_at: '2026-10-29'
 depends_on:
   - story-140-563-gen2-roamer-translation-logic
-jules_session_id: '5136691060925055009'
+jules_session_id: null
 pr_number: null
 parent: epic-043-140-gen2-roamer-map-translation
 tags:
@@ -18,7 +18,7 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

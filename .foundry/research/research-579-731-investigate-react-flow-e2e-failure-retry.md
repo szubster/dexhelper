@@ -7,7 +7,7 @@ owner_persona: researcher
 created_at: '2026-10-28'
 updated_at: '2026-10-29'
 depends_on: []
-jules_session_id: '270333067003526384'
+jules_session_id: null
 pr_number: null
 parent: story-079-579-react-flow-visualizer-refactor-e2e
 tags:

@@ -2,10 +2,10 @@
 id: story-072-677-refactor-dashboard-views
 type: STORY
 title: Refactor other DAG views to consume DagContext
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-14'
-updated_at: '2026-10-18'
+updated_at: '2026-10-29'
 depends_on:
   - story-072-676-refactor-dag-visualizer
 jules_session_id: null

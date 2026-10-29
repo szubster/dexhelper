@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-29T10:32:56.744Z*
+*Generated at: 2026-10-29T17:11:33.163Z*
 
 ## Node Statistics
 
@@ -19,21 +19,21 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3414 |
-| ACTIVE | 149 |
-| CANCELLED | 872 |
-| PENDING | 781 |
+| ACTIVE | 158 |
+| CANCELLED | 881 |
+| PENDING | 771 |
 | BLOCKED | 14 |
-| READY | 14 |
-| FAILED | 3 |
+| FAILED | 4 |
+| READY | 5 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 169 |
-| Merged PRs | 8687 |
-| Closed PRs | 1144 |
+| Open PRs | 187 |
+| Merged PRs | 8674 |
+| Closed PRs | 1139 |
 
 ## Rejection Counts
 
@@ -1026,6 +1026,7 @@
 | task-563-682-gen3-bag-inventory-parsing-impl.md | 1 |
 | task-564-578-e2e-navigation-and-selection.md | 1 |
 | task-564-619-pokeblock-e2e-implementation-retry.md | 1 |
+| task-564-670-gen2-roamer-qa.md | 1 |
 | task-564-682-qa-schema-frontmatter-validation.md | 1 |
 | task-566-583-shoal-dashboard-layout.md | 1 |
 | task-566-584-shoal-ui-qa.md | 1 |
