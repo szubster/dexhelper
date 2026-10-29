@@ -12,7 +12,7 @@ test.describe('PersonaBadge Integration - Skins', () => {
 
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();
 
-    const boardContainer = page.locator('.overflow-x-auto');
+    const boardContainer = page.locator('.overflow-x-auto').first();
     await expect(boardContainer).toBeVisible();
 
     const oakBadge = page.getByText('oak').first();
