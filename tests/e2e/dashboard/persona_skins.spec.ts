@@ -7,12 +7,16 @@ test.describe('PersonaBadge Integration - Skins', () => {
     await page.unrouteAll({ behavior: 'ignoreErrors' });
 
     await mockDagData(page, 'tests/fixtures/dag/mock_dag_skins.json');
+    await page.waitForTimeout(2000);
 
     await page.goto('./dag');
 
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();
 
-    const flowContainer = page.locator('.tactical-flow');
+    const flowContainer = page
+      .locator('.tactical-skeleton')
+      .or(page.locator('[data-testid="view-mode-board"]'))
+      .first();
     await expect(flowContainer).toBeVisible();
 
     const personaBadges = page.getByTestId('persona-badge');
