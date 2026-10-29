@@ -30,3 +30,6 @@ Perform Quality Assurance on the newly implemented Pathfinder Chain Visualizatio
 - [ ] Verify the calculated breeding chain(s) render correctly with intermediate species and passed-down moves.
 - [ ] Verify strict adherence to the tactical hardware aesthetic (ADR 008, 024).
 - [ ] Verify unit tests are implemented and pass.
+
+### QA Rejection
+Rejected the implementation of `task-527-669-pathfinder-chain-viz-ui`. The implementation failed to adhere to the tactical hardware aesthetic guidelines (ADR 008, ADR 024). Specifically, it uses raw inline Tailwind typography classes instead of the required `tactical-text` utility in `src/features/pathfinder/components/PathfinderChainViz.tsx`. Furthermore, the `speciesName` div completely misses the `font-mono` class.
