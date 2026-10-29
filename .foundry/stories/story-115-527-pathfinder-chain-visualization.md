@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+confidence_score: 100
 locks: []
 ---
 
@@ -31,7 +32,13 @@ Develop the visualization component for the calculated breeding chains in the Sm
 - [ ] Display the required intermediate species and the passed-down move at each step.
 - [ ] Adhere to the tactical hardware aesthetic (ADR 008, 024).
 - [x] Tech Lead: Break down into actionable TASKs.
-- [ ] task-527-668-pathfinder-chain-viz-types
-- [ ] task-527-669-pathfinder-chain-viz-ui
-- [ ] task-527-670-pathfinder-chain-viz-tests
-- [ ] task-527-671-pathfinder-chain-viz-qa
+- [x] task-527-668-pathfinder-chain-viz-types
+- [x] task-527-669-pathfinder-chain-viz-ui
+- [x] task-527-670-pathfinder-chain-viz-tests
+- [x] task-527-671-pathfinder-chain-viz-qa
+
+- [ ] research-527-715-investigate-pathfinder-chain-ui-failure
+- [ ] task-527-716-pathfinder-chain-viz-types-retry
+- [ ] task-527-717-pathfinder-chain-viz-ui-retry
+- [ ] task-527-718-pathfinder-chain-viz-tests-retry
+- [ ] task-527-719-pathfinder-chain-viz-qa-retry
