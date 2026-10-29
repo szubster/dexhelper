@@ -2,7 +2,7 @@
 id: task-676-706-qa-refactor-dag-visualizer
 type: TASK
 title: QA Refactor React Flow DAG Visualizer to consume DagContext
-status: ACTIVE
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-14'
 updated_at: '2026-10-22'
