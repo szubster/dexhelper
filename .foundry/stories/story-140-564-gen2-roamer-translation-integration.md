@@ -38,5 +38,8 @@ Verify the Gen 2 roamer map translation end-to-end within the roamer tracking da
 - [ ] E2E tests successfully verify the rendering of these locations.
 - [x] Tech Lead: Break down into executable Tasks.
 - [ ] task-564-668-gen2-roamer-ui-impl
-- [ ] task-564-669-gen2-roamer-e2e-tests
-- [ ] task-564-670-gen2-roamer-qa
+- [x] task-564-669-gen2-roamer-e2e-tests
+- [x] task-564-670-gen2-roamer-qa
+- [ ] research-564-734-investigate-gen2-roamer-e2e-failure
+- [ ] task-564-735-gen2-roamer-e2e-tests-retry
+- [ ] task-564-736-gen2-roamer-qa-retry
