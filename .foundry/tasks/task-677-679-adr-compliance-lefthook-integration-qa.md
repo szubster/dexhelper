@@ -17,6 +17,7 @@ tags:
   - compliance
   - adr
 rejection_count: 0
+confidence_score: 100
 rejection_reason: ''
 notes: ''
 locks: []
@@ -31,4 +32,4 @@ Verify that the `adr-compliance` command has been correctly integrated into `lef
 - Check `lefthook.yml` to verify that the `adr-compliance` command exists under the `pre-commit` section and is configured to run `verify-adr-compliance.ts`.
 
 ## Acceptance Criteria
-- [ ] Verify `lefthook.yml` contains `adr-compliance`.
+- [x] Verify `lefthook.yml` contains `adr-compliance`.
