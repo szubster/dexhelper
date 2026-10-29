@@ -2,12 +2,12 @@
 id: research-537-708-investigate-hydration-failure-retry-v2
 type: RESEARCH
 title: Investigate Gen 3 Berry Runtime State Hydration Failure (Retry V2)
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-20'
 updated_at: '2026-10-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7741870568599057021'
 pr_number: null
 parent: story-513-537-gen3-berry-serialization-and-api
 rejection_count: 1
