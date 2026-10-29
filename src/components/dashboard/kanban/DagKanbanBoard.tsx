@@ -1,5 +1,6 @@
 import type React from 'react';
 import { useMemo } from 'react';
+import { PersonaBadge } from '../../dag/PersonaBadge';
 import type { DagNodeData } from '../DagContext';
 import { useDagContext } from '../DagContext';
 
@@ -57,7 +58,8 @@ export const DagKanbanBoard: React.FC = () => {
                   >
                     <span className="font-bold">{String(nodeData['id'])}</span>
                     <span className="text-zinc-500">
-                      {String(nodeData.type)} | {String(nodeData.owner_persona)}
+                      {String(nodeData.type)} |{' '}
+                      <PersonaBadge persona={nodeData.owner_persona} className="inline-flex border-none px-0 py-0" />
                     </span>
                     {isPermanentlyFailed && <span className="mt-1 text-red-500">[ PERMANENTLY FAILED ]</span>}
                   </div>
