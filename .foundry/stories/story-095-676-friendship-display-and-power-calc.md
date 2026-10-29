@@ -2,12 +2,12 @@
 id: story-095-676-friendship-display-and-power-calc
 type: STORY
 title: Friendship Value Display and Move Power Calculation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-15'
-updated_at: '2026-10-19'
+updated_at: '2026-10-29'
 depends_on: []
-jules_session_id: '15552589917203978201'
+jules_session_id: null
 pr_number: null
 parent: epic-051-095-friendship-tracker-ui
 tags:

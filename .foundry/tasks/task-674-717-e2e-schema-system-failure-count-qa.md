@@ -2,10 +2,10 @@
 id: task-674-717-e2e-schema-system-failure-count-qa
 type: TASK
 title: QA E2E Test for system_failure_count Schema
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-23'
-updated_at: '2026-10-23'
+updated_at: '2026-10-29'
 depends_on:
   - task-674-716-e2e-schema-system-failure-count
 jules_session_id: null

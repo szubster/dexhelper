@@ -2,13 +2,13 @@
 id: task-478-677-aggregate-active-locks-retry-2
 type: TASK
 title: Aggregate active locks in RESOLVE phase (Retry 2)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-20'
+updated_at: '2026-10-29'
 depends_on:
   - research-478-676-investigate-locking-failure-retry
-jules_session_id: '2365202654733429186'
+jules_session_id: null
 pr_number: null
 parent: story-412-478-implement-resolve-phase-locking
 tags:

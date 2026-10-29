@@ -2,12 +2,12 @@
 id: research-567-690-investigate-shoal-cave-e2e-failure
 type: RESEARCH
 title: Investigate Root Cause of Shoal Cave Dashboard E2E Tests Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-16T12:53:44.101Z'
-updated_at: '2026-10-21'
+updated_at: '2026-10-29'
 depends_on: []
-jules_session_id: '8251845292820912205'
+jules_session_id: null
 pr_number: null
 parent: story-412-567-shoal-cave-e2e-verification
 tags:

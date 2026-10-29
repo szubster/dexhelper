@@ -2,12 +2,12 @@
 id: research-522-712-investigate-wip-signaling-e2e-failure
 type: RESEARCH
 title: Investigate WIP Signaling E2E Tests Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-21'
-updated_at: '2026-10-22'
+updated_at: '2026-10-29'
 depends_on: []
-jules_session_id: '2388564178402775411'
+jules_session_id: null
 pr_number: null
 parent: story-518-522-wip-signaling-e2e
 tags:

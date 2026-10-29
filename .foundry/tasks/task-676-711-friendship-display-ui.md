@@ -2,10 +2,10 @@
 id: task-676-711-friendship-display-ui
 type: TASK
 title: Implement Friendship Display and Progress Bar UI Component
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-19'
-updated_at: '2026-10-19'
+updated_at: '2026-10-29'
 depends_on:
   - task-676-710-friendship-power-calc-logic
 jules_session_id: null

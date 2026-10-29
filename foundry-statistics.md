@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-29T03:01:25.031Z*
+*Generated at: 2026-10-29T10:32:56.744Z*
 
 ## Node Statistics
 
@@ -11,26 +11,28 @@
 | EPIC | 518 |
 | IDEA | 235 |
 | PRD | 217 |
-| RESEARCH | 325 |
+| RESEARCH | 328 |
 | STORY | 1083 |
-| TASK | 2810 |
+| TASK | 2822 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3406 |
-| ACTIVE | 166 |
+| COMPLETED | 3414 |
+| ACTIVE | 149 |
 | CANCELLED | 872 |
-| PENDING | 774 |
+| PENDING | 781 |
 | BLOCKED | 14 |
+| READY | 14 |
+| FAILED | 3 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 190 |
-| Merged PRs | 8666 |
+| Open PRs | 169 |
+| Merged PRs | 8687 |
 | Closed PRs | 1144 |
 
 ## Rejection Counts
@@ -267,6 +269,7 @@
 | task-523-707-box-analyzer-matrix-e2e-tabular-data.md | 3 |
 | task-526-554-pathfinder-selection-components-impl.md | 3 |
 | task-527-596-safari-zone-area-map-ui.md | 3 |
+| task-527-669-pathfinder-chain-viz-ui.md | 3 |
 | task-528-677-safari-zone-bounty-board-ui.md | 3 |
 | task-528-692-wip-banner-e2e-tests.md | 3 |
 | task-533-536-orchestrator-curator-trigger-logic-impl.md | 3 |
@@ -522,6 +525,7 @@
 | task-563-680-gen2-bag-inventory-parsing-impl.md | 2 |
 | task-564-565-gen3-trainer-card-e2e-tests.md | 2 |
 | task-564-604-pokemon-held-item-tracker-qa.md | 2 |
+| task-564-669-gen2-roamer-e2e-tests.md | 2 |
 | task-564-680-thief-covet-ui-integration-components.md | 2 |
 | task-565-576-gen3-pokedex-gaps-e2e-coder.md | 2 |
 | task-565-606-hunting-progress-notifications.md | 2 |
@@ -972,7 +976,6 @@
 | task-526-566-drive-auth-tests.md | 1 |
 | task-526-567-drive-auth-qa.md | 1 |
 | task-527-582-update-generators-wip-banner.md | 1 |
-| task-527-669-pathfinder-chain-viz-ui.md | 1 |
 | task-527-671-pathfinder-chain-viz-qa.md | 1 |
 | task-527-674-webhook-renewal-impl.md | 1 |
 | task-530-549-isavedatareader-interface-impl.md | 1 |

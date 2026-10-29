@@ -2,10 +2,10 @@
 id: task-478-678-evaluate-locks-for-pending-nodes-retry-2
 type: TASK
 title: Evaluate locks for PENDING nodes in RESOLVE phase (Retry 2)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-13'
+updated_at: '2026-10-29'
 depends_on:
   - task-478-677-aggregate-active-locks-retry-2
 jules_session_id: null

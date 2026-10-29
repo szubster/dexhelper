@@ -2,13 +2,13 @@
 id: story-582-674-yaml-schema-e2e-verification
 type: STORY
 title: Integration and E2E Verification for system_failure_count Schema Updates
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-09'
-updated_at: '2026-10-23'
+updated_at: '2026-10-29'
 depends_on:
   - story-582-673-yaml-schema-validation-impl
-jules_session_id: '1942750292367522535'
+jules_session_id: null
 pr_number: null
 parent: epic-586-582-yaml-schema-counters
 tags:

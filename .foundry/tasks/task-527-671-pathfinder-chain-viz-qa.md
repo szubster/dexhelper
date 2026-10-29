@@ -2,13 +2,13 @@
 id: task-527-671-pathfinder-chain-viz-qa
 type: TASK
 title: QA Pathfinder Chain Visualization UI Component
-status: ACTIVE
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-06'
-updated_at: '2026-10-24'
+updated_at: '2026-10-29'
 depends_on:
   - task-527-670-pathfinder-chain-viz-tests
-jules_session_id: '15185383247800024991'
+jules_session_id: null
 pr_number: null
 parent: story-115-527-pathfinder-chain-visualization
 tags:
@@ -16,7 +16,9 @@ tags:
   - ui
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-527-669-pathfinder-chain-viz-ui
 notes: ''
 locks: []
 ---

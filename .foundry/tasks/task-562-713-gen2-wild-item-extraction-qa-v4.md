@@ -2,10 +2,10 @@
 id: task-562-713-gen2-wild-item-extraction-qa-v4
 type: TASK
 title: QA Verification for Gen 2 Wild Encounter Extraction (v4)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-20'
-updated_at: '2026-10-20'
+updated_at: '2026-10-29'
 depends_on:
   - task-562-712-gen2-wild-item-extraction-tests-v4
 jules_session_id: null

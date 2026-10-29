@@ -2,12 +2,12 @@
 id: task-491-690-implement-persona-skins-e2e
 type: TASK
 title: Implement Jules Agent Skins E2E Verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-16T02:13:34.971Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-29'
 depends_on: []
-jules_session_id: '9010212374864807241'
+jules_session_id: null
 pr_number: null
 parent: story-406-491-jules-agent-skins-e2e-verification
 tags:
