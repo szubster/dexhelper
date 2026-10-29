@@ -9,46 +9,46 @@ export interface ReadFileResult {
 }
 
 export async function readFoundryFiles(rootDir: string): Promise<ReadFileResult[]> {
-  const results: ReadFileResult[] = [];
-
-  for (const dir of TARGET_DIRS) {
-    const fullDirPath = path.join(rootDir, dir);
-
-    try {
-      const stats = await fs.stat(fullDirPath);
-      if (!stats.isDirectory()) {
-        continue;
+  const existingDirs = await Promise.all(
+    TARGET_DIRS.map(async (dir) => {
+      const fullDirPath = path.join(rootDir, dir);
+      try {
+        const stats = await fs.stat(fullDirPath);
+        return stats.isDirectory() ? fullDirPath : null;
+      } catch {
+        return null;
       }
-    } catch {
-      // Directory doesn't exist, skip
-      continue;
-    }
+    }),
+  );
 
-    const files = await getMarkdownFiles(fullDirPath);
-    for (const file of files) {
-      const content = await fs.readFile(file, 'utf-8');
-      results.push({
-        filePath: file,
-        content,
-      });
-    }
-  }
+  const validDirs = existingDirs.filter((d): d is string => d !== null);
 
-  return results;
+  const filesPerDir = await Promise.all(validDirs.map((dir) => getMarkdownFiles(dir)));
+  const files = filesPerDir.flat();
+
+  return Promise.all(
+    files.map(async (file) => ({
+      filePath: file,
+      content: await fs.readFile(file, 'utf-8'),
+    })),
+  );
 }
 
 async function getMarkdownFiles(dir: string): Promise<string[]> {
   const entries = await fs.readdir(dir, { withFileTypes: true });
-  const files: string[] = [];
 
-  for (const entry of entries) {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      files.push(...(await getMarkdownFiles(fullPath)));
-    } else if (entry.isFile() && entry.name.endsWith('.md')) {
-      files.push(fullPath);
-    }
-  }
+  const resultsPerEntry = await Promise.all(
+    entries.map(async (entry) => {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        return getMarkdownFiles(fullPath);
+      }
+      if (entry.isFile() && entry.name.endsWith('.md')) {
+        return [fullPath];
+      }
+      return [];
+    }),
+  );
 
-  return files;
+  return resultsPerEntry.flat();
 }
