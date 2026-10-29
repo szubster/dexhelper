@@ -11,11 +11,10 @@
     },
     "byStatus": {
       "COMPLETED": 3406,
-      "ACTIVE": 163,
-      "CANCELLED": 863,
-      "PENDING": 783,
-      "BLOCKED": 14,
-      "FAILED": 3
+      "ACTIVE": 166,
+      "CANCELLED": 872,
+      "PENDING": 774,
+      "BLOCKED": 14
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -7667,7 +7666,7 @@
       "story-078-559-battle-frontier-data-e2e-verification.md": 3542400000,
       "story-079-560-battle-frontier-dashboard-e2e.md": 864000000,
       "story-079-578-react-flow-visualizer-refactor.md": 2332800000,
-      "story-079-579-react-flow-visualizer-refactor-e2e.md": 3715200000,
+      "story-079-579-react-flow-visualizer-refactor-e2e.md": 3801600000,
       "story-081-121-gen3-tv-block-dataview-parser.md": 5788800000,
       "story-081-279-gen3-ignore-emulator-trailing-bytes.md": 8380800000,
       "story-081-281-gen3-system-time-fallback.md": 4060800000,
@@ -7705,7 +7704,7 @@
       "story-109-520-box-analyzer-view-layout.md": 7430400000,
       "story-109-521-box-analyzer-matrix-component.md": 8380800000,
       "story-109-522-box-analyzer-highlighting-logic.md": 9676800000,
-      "story-109-523-box-analyzer-matrix-e2e.md": 10454400000,
+      "story-109-523-box-analyzer-matrix-e2e.md": 10540800000,
       "story-112-403-integration-e2e.md": 6912000000,
       "story-114-412-egg-move-inventory-integration.md": 345600000,
       "story-114-413-egg-move-inventory-cross-reference-logic.md": 604800000,
@@ -7866,7 +7865,7 @@
       "story-401-677-gen3-trainer-card-tactical-components.md": 432000000,
       "story-401-678-gen3-trainer-card-progress-components.md": 432000000,
       "story-401-679-gen3-trainer-card-integration-e2e.md": 432000000,
-      "story-401-679-pokeblock-viewer-route.md": 518400000,
+      "story-401-679-pokeblock-viewer-route.md": 864000000,
       "story-401-680-pokeblock-viewer-components.md": 0,
       "story-401-681-pokeblock-viewer-e2e.md": 0,
       "story-402-526-cloudflare-worker-setup.md": 2592000000,
@@ -9158,8 +9157,8 @@
       "task-523-692-gen3-move-tutor-e2e-tests-retry.md": 258555972,
       "task-523-693-gen3-move-tutor-e2e-qa-retry.md": 258555956,
       "task-523-707-box-analyzer-matrix-e2e-tabular-data.md": 864000000,
-      "task-523-708-box-analyzer-matrix-e2e-highlighting.md": 777600000,
-      "task-523-709-box-analyzer-matrix-e2e-qa.md": 777600000,
+      "task-523-708-box-analyzer-matrix-e2e-highlighting.md": 864000000,
+      "task-523-709-box-analyzer-matrix-e2e-qa.md": 864000000,
       "task-524-567-setup-dependency-cruiser.md": 1036800000,
       "task-524-568-setup-oxlint-rules.md": 1296000000,
       "task-524-569-qa-architectural-linting.md": 1296000000,
@@ -9758,8 +9757,8 @@
       "task-578-592-visualizer-qa.md": 2022410000,
       "task-579-687-react-flow-visualizer-e2e-tests.md": 1036800000,
       "task-579-688-react-flow-visualizer-e2e-qa.md": 1036800000,
-      "task-579-729-react-flow-visualizer-e2e-tests-retry.md": 86400000,
-      "task-579-730-react-flow-visualizer-e2e-qa-retry.md": 86400000,
+      "task-579-729-react-flow-visualizer-e2e-tests-retry.md": 172800000,
+      "task-579-730-react-flow-visualizer-e2e-qa-retry.md": 172800000,
       "task-580-594-gen2-friendship-data-extraction-e2e-coder.md": 131443000,
       "task-580-595-gen3-friendship-data-extraction-e2e-coder.md": 1081843000,
       "task-580-596-friendship-data-extraction-e2e-qa.md": 1686643000,
@@ -10017,8 +10016,8 @@
       "task-678-714-event-flags-ui-components-tests.md": 346386574,
       "task-679-711-pokeblock-state-access-layer-impl.md": 777600000,
       "task-679-712-pokeblock-dashboard-ui-impl.md": 864000000,
-      "task-679-713-pokeblock-route-integration-impl.md": 518400000,
-      "task-679-714-pokeblock-viewer-qa.md": 518400000,
+      "task-679-713-pokeblock-route-integration-impl.md": 864000000,
+      "task-679-714-pokeblock-viewer-qa.md": 864000000,
       "task-703-710-update-palette-persona-prompt.md": 11021000,
       "task-704-712-update-core-policies-palette.md": 56937600000,
       "task-704-713-qa-core-policies-palette.md": 56937600000,
@@ -10033,9 +10032,9 @@
   },
   "prs": {
     "totalPRs": 10000,
-    "openPRs": 187,
-    "mergedPRs": 8667,
-    "closedPRs": 1146
+    "openPRs": 190,
+    "mergedPRs": 8666,
+    "closedPRs": 1144
   },
-  "timestamp": "2026-10-28T23:44:08.309Z"
+  "timestamp": "2026-10-29T03:01:25.031Z"
 }
