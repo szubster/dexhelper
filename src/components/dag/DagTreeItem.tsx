@@ -2,8 +2,10 @@ import { ChevronDown, ChevronRight } from 'lucide-react';
 import React from 'react';
 import { cn } from '../../utils/cn';
 import { useDagTreeContext } from './DagTreeContext';
+import { PersonaBadge } from './PersonaBadge';
 
 export interface DagTreeItemProps {
+  owner_persona?: string;
   nodeId: string;
   label: string;
   status: string;
@@ -11,7 +13,7 @@ export interface DagTreeItemProps {
   children?: React.ReactNode;
 }
 
-export function DagTreeItem({ nodeId, label, status, isPermanentFailure, children }: DagTreeItemProps) {
+export function DagTreeItem({ nodeId, label, status, owner_persona, isPermanentFailure, children }: DagTreeItemProps) {
   const { expandedNodes, toggleNode } = useDagTreeContext();
   const isExpanded = expandedNodes.has(nodeId);
   const hasChildren = React.Children.count(children) > 0;
@@ -72,6 +74,7 @@ export function DagTreeItem({ nodeId, label, status, isPermanentFailure, childre
         <span className={cn('w-24 shrink-0 font-bold uppercase tracking-widest', statusColor)}>[{status}]</span>
 
         <span className="flex-1 truncate text-zinc-300">{label}</span>
+        {owner_persona && <PersonaBadge persona={owner_persona} className="ml-2" />}
       </div>
 
       {hasChildren && isExpanded && <ul className="ml-3 border-zinc-700 border-l border-dashed pl-6">{children}</ul>}

@@ -42,6 +42,7 @@ export function DagTree() {
         nodeId={node.id}
         label={node.data.title || node.id}
         status={node.data.status}
+        owner_persona={node.data.owner_persona}
         isPermanentFailure={isPermanentFailure}
       >
         {children.map(renderNode)}
@@ -57,7 +58,7 @@ export function DagTree() {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex h-full flex-col gap-4 overflow-y-auto pb-8">
       <div className="flex gap-2">
         <button
           type="button"
