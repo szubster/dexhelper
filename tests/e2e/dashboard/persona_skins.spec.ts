@@ -12,8 +12,10 @@ test.describe('PersonaBadge Integration - Skins', () => {
 
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();
 
-    const flowContainer = page.locator('.tactical-flow');
-    await expect(flowContainer).toBeVisible();
+    // Click on board view (Kanban) since PersonaBadges are rendered there now
+    const boardViewBtn = page.getByTestId('view-mode-board');
+    await expect(boardViewBtn).toBeVisible();
+    await boardViewBtn.click();
 
     const personaBadges = page.getByTestId('persona-badge');
     await expect(personaBadges).toHaveCount(2);
