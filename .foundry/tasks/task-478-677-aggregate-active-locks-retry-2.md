@@ -31,6 +31,6 @@ Implement logic in Phase 4 (RESOLVE) of the orchestrator to aggregate all `locks
 - This ensures locks are appropriately released when nodes transition out of `ACTIVE` status (i.e. to `COMPLETED`, `VERIFYING`, or `FAILED`).
 
 ## Acceptance Criteria
-- [ ] Implement lock aggregation for `ACTIVE` nodes in Phase 4 of `foundry-orchestrator.ts`.
-- [ ] Add unit tests for the lock aggregation logic.
-- [ ] Ensure `pnpm lint && pnpm test` pass.
+- [x] Implement lock aggregation for `ACTIVE` nodes in Phase 4 of `foundry-orchestrator.ts`.
+- [x] Add unit tests for the lock aggregation logic.
+- [x] Ensure `pnpm lint && pnpm test` pass.
