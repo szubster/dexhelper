@@ -22,6 +22,7 @@
 | [epic-587-707-yaml-parsing-utility](.foundry/epics/epic-587-707-yaml-parsing-utility.md) | EPIC | Core YAML Parsing Utility Implementation | story_owner | [7076501360977388145](https://jules.google.com/session/7076501360977388145) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
+| [idea-074-refactor-dag-dashboard-context](.foundry/ideas/idea-074-refactor-dag-dashboard-context.md) | IDEA | Refactor DagDashboard to use React Context (ADR 013/017) | curator | [16445591236087752335](https://jules.google.com/session/16445591236087752335) |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [idea-540-multi-save-diffing-and-trade-simulation](.foundry/ideas/idea-540-multi-save-diffing-and-trade-simulation.md) | IDEA | Real-Time Multi-Save Diffing Engine and Cross-Save Trade Simulation Pipeline | product_manager | [9686101469478610701](https://jules.google.com/session/9686101469478610701) |
 | [prd-532-587-indexeddb-fallback-storage-telemetry](.foundry/prds/prd-532-587-indexeddb-fallback-storage-telemetry.md) | PRD | PRD - IndexedDB Fallback Storage Synchronization and Telemetry Strategy | epic_planner | [11931743453398438824](https://jules.google.com/session/11931743453398438824) |
