@@ -30,6 +30,9 @@ E2E verification for the React Flow visualizer refactor.
 - [x] Break down into tasks.
 - [x] task-579-687-react-flow-visualizer-e2e-tests
 - [x] task-579-688-react-flow-visualizer-e2e-qa
-- [ ] research-579-728-investigate-react-flow-e2e-failure
-- [ ] task-579-729-react-flow-visualizer-e2e-tests-retry
-- [ ] task-579-730-react-flow-visualizer-e2e-qa-retry
+- [x] research-579-728-investigate-react-flow-e2e-failure
+- [x] task-579-729-react-flow-visualizer-e2e-tests-retry
+- [x] task-579-730-react-flow-visualizer-e2e-qa-retry
+- [ ] research-579-731-investigate-react-flow-e2e-failure-retry
+- [ ] task-579-732-react-flow-visualizer-e2e-tests-retry-2
+- [ ] task-579-733-react-flow-visualizer-e2e-qa-retry-2
