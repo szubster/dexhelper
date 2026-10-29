@@ -13,9 +13,71 @@ export const tacticalMultiSelectItemVariants = cva(
         false:
           'bg-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300 border-t-zinc-700 border-b-zinc-950',
       },
+      variant: {
+        default: '',
+        cyan: '',
+        ghost: '',
+        emerald: '',
+        amber: '',
+        red: '',
+      },
     },
+    compoundVariants: [
+      {
+        active: true,
+        variant: 'cyan',
+        className: '!border-cyan-500 bg-cyan-950 text-cyan-300 shadow-[inset_0_4px_10px_rgba(6,182,212,0.15)]',
+      },
+      {
+        active: false,
+        variant: 'cyan',
+        className:
+          '!border-zinc-800 bg-zinc-900 text-zinc-500 hover:!border-zinc-600 hover:bg-zinc-800 hover:text-zinc-300 shadow-[inset_0_-2px_5px_rgba(0,0,0,0.5)]',
+      },
+      {
+        active: true,
+        variant: 'ghost',
+        className: 'border-[var(--theme-primary)] text-[var(--theme-primary)] bg-transparent shadow-none',
+      },
+      {
+        active: false,
+        variant: 'ghost',
+        className: 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400 bg-transparent shadow-none',
+      },
+      {
+        active: true,
+        variant: 'emerald',
+        className: 'border-emerald-500 text-emerald-500 bg-transparent shadow-none',
+      },
+      {
+        active: false,
+        variant: 'emerald',
+        className: 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400 bg-transparent shadow-none',
+      },
+      {
+        active: true,
+        variant: 'amber',
+        className: 'border-amber-500 text-amber-500 bg-transparent shadow-none',
+      },
+      {
+        active: false,
+        variant: 'amber',
+        className: 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400 bg-transparent shadow-none',
+      },
+      {
+        active: true,
+        variant: 'red',
+        className: 'border-red-500 text-red-500 bg-transparent shadow-none',
+      },
+      {
+        active: false,
+        variant: 'red',
+        className: 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400 bg-transparent shadow-none',
+      },
+    ],
     defaultVariants: {
       active: false,
+      variant: 'default',
     },
   },
 );
@@ -25,8 +87,6 @@ export interface MultiSelectControlItem<T extends string | number | readonly str
   id: T;
   label: React.ReactNode;
   ariaLabel?: string;
-  activeClassName?: string;
-  inactiveClassName?: string;
   className?: string;
   disabled?: boolean;
   testId?: string;
@@ -36,14 +96,11 @@ export interface TacticalMultiSelectControlProps<T extends string | number | rea
   items: MultiSelectControlItem<T>[];
   selectedValues: Set<T>;
   onValueToggle: (value: T) => void;
+  variant?: 'default' | 'cyan' | 'ghost' | 'emerald' | 'amber' | 'red';
   ariaLabel?: string;
   legendLabel?: string;
   containerClassName?: string;
   buttonBaseClassName?: string;
-  /** @deprecated Use CVA variants instead of overriding active/inactive classes directly */
-  defaultActiveClassName?: string;
-  /** @deprecated Use CVA variants instead of overriding active/inactive classes directly */
-  defaultInactiveClassName?: string;
   renderPrefixItem?: () => React.ReactNode;
 }
 
@@ -51,12 +108,11 @@ export function TacticalMultiSelectControl<T extends string | number | readonly 
   items,
   selectedValues,
   onValueToggle,
+  variant = 'default',
   ariaLabel,
   legendLabel,
   containerClassName,
   buttonBaseClassName,
-  defaultActiveClassName,
-  defaultInactiveClassName,
   renderPrefixItem,
 }: TacticalMultiSelectControlProps<T>) {
   return (
@@ -76,10 +132,7 @@ export function TacticalMultiSelectControl<T extends string | number | readonly 
           {renderPrefixItem?.()}
           {items.map((item) => {
             const isActive = selectedValues.has(item.id);
-
-            const customOverrideClass = isActive
-              ? (item.activeClassName ?? defaultActiveClassName)
-              : (item.inactiveClassName ?? defaultInactiveClassName);
+            const itemVariant = item.variant || variant;
 
             return (
               <button
@@ -92,8 +145,7 @@ export function TacticalMultiSelectControl<T extends string | number | readonly 
                 title={item.ariaLabel || (typeof item.label === 'string' ? `${item.label} filter` : undefined)}
                 aria-label={item.ariaLabel || (typeof item.label === 'string' ? `${item.label} filter` : undefined)}
                 className={cn(
-                  tacticalMultiSelectItemVariants({ active: isActive }),
-                  customOverrideClass,
+                  tacticalMultiSelectItemVariants({ active: isActive, variant: itemVariant }),
                   buttonBaseClassName,
                   item.className,
                 )}
