@@ -30,3 +30,7 @@ Implement smart logic to filter events based on the player's Pokédex and game p
 - [ ] Implement smart filtering based on save file state (e.g., game progression, Pokédex).
 - [ ] Develop forecasting logic to calculate and display future events.
 - [ ] Integrate filtering and forecasting into the dynamic checklist UI.
+- [ ] story-063-714-gen2-smart-filtering-logic
+- [ ] story-063-715-gen2-forecasting-logic
+- [ ] story-063-716-gen2-filtering-forecasting-ui
+- [ ] story-063-717-gen2-filtering-forecasting-e2e
