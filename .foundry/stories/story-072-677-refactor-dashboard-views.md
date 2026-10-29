@@ -13,6 +13,7 @@ pr_number: null
 parent: epic-045-072-refactor-views
 tags: []
 rejection_count: 0
+confidence_score: 100
 rejection_reason: ''
 notes: ''
 locks: []
@@ -28,4 +29,6 @@ Ensure other views in the DagDashboard (e.g., Kanban, Permanent Failures) consum
 - Verify seamless rendering across different views.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-677-734-refactor-kanban-permanent-failures-views
+- [ ] task-677-735-refactor-dashboard-views-e2e-qa
