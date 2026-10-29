@@ -37,7 +37,10 @@ Take the parsed Gen 3 berry patch data and integrate it with the PokeData storag
 - [ ] research-537-659-investigate-runtime-api-failure
 - [x] task-537-665-gen3-berry-runtime-state-hydration
 - [x] task-537-666-gen3-berry-runtime-state-qa
-- [ ] task-537-687-gen3-berry-runtime-state-hydration-retry
-- [ ] task-537-688-gen3-berry-runtime-state-qa-retry
-- [ ] research-537-689-investigate-runtime-state-hydration-failure
+- [x] task-537-687-gen3-berry-runtime-state-hydration-retry
+- [x] task-537-688-gen3-berry-runtime-state-qa-retry
+- [x] research-537-689-investigate-runtime-state-hydration-failure
 - [ ] research-537-690-berry-serialization-deprecation
+- [ ] research-537-708-investigate-hydration-failure-retry-v2
+- [ ] task-537-709-gen3-berry-hydration-retry-v2
+- [ ] task-537-710-gen3-berry-qa-retry-v2
