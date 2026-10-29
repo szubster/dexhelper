@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-29T17:11:33.163Z*
+*Generated at: 2026-10-29T22:07:45.075Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3414 |
-| ACTIVE | 158 |
+| COMPLETED | 3415 |
+| ACTIVE | 162 |
 | CANCELLED | 881 |
-| PENDING | 771 |
+| PENDING | 770 |
 | BLOCKED | 14 |
-| FAILED | 4 |
-| READY | 5 |
+| READY | 3 |
+| FAILED | 2 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 187 |
-| Merged PRs | 8674 |
-| Closed PRs | 1139 |
+| Open PRs | 191 |
+| Merged PRs | 8671 |
+| Closed PRs | 1138 |
 
 ## Rejection Counts
 
@@ -303,6 +303,7 @@
 | task-564-581-pokeblock-e2e-fixtures.md | 3 |
 | task-564-587-gen2-room-decoration-e2e-tests.md | 3 |
 | task-564-602-pokemon-held-item-tracker-extraction.md | 3 |
+| task-564-669-gen2-roamer-e2e-tests.md | 3 |
 | task-564-691-gen3-pokedex-gaps-ui-impl-retry.md | 3 |
 | task-566-582-orchestrator-diagnosis-logic.md | 3 |
 | task-566-602-progress-tracker-e2e-implementation.md | 3 |
@@ -525,7 +526,6 @@
 | task-563-680-gen2-bag-inventory-parsing-impl.md | 2 |
 | task-564-565-gen3-trainer-card-e2e-tests.md | 2 |
 | task-564-604-pokemon-held-item-tracker-qa.md | 2 |
-| task-564-669-gen2-roamer-e2e-tests.md | 2 |
 | task-564-680-thief-covet-ui-integration-components.md | 2 |
 | task-565-576-gen3-pokedex-gaps-e2e-coder.md | 2 |
 | task-565-606-hunting-progress-notifications.md | 2 |
@@ -792,9 +792,11 @@
 | research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
+| research-537-708-investigate-hydration-failure-retry-v2.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
 | research-559-704-investigate-query-formulation-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
+| research-562-710-investigate-gen2-wild-encounter-extraction-failure-v3.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
@@ -820,6 +822,7 @@
 | story-134-475-gen3-condition-stats-extraction-e2e.md | 1 |
 | story-134-524-living-dex-ghosts-and-styling.md | 1 |
 | story-136-330-gen1-checklist-ui-retry.md | 1 |
+| story-140-564-gen2-roamer-translation-integration.md | 1 |
 | story-269-647-gen3-ash-dashboard-ui.md | 1 |
 | story-335-563-develop-migration-script.md | 1 |
 | story-346-560-spinda-spot-coordinate-algorithm.md | 1 |

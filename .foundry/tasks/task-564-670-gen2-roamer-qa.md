@@ -2,7 +2,7 @@
 id: task-564-670-gen2-roamer-qa
 type: TASK
 title: Gen 2 Roamer UI and E2E QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-07'
 updated_at: '2026-10-29'
@@ -18,7 +18,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-564-669-gen2-roamer-e2e-tests
 notes: ''
 locks: []
 ---
