@@ -7,12 +7,12 @@ declare global {
 }
 
 import { expect, test } from '@playwright/test';
-import { mockFileSystemAccess, mockOfflineState } from './mock-utils';
+import { mockFilePicker, mockFileSystemAccess, mockOfflineState } from './mock-utils';
 
 test.describe('Mock Utils', () => {
   test('mockFileSystemAccess should mock showOpenFilePicker', async ({ page }) => {
     await mockFileSystemAccess(page, 'hello world', 'test.txt');
-    await page.goto('about:blank');
+    await page.goto('/');
 
     const fileData = await page.evaluate(async () => {
       const handles = await window.showOpenFilePicker();
@@ -25,8 +25,32 @@ test.describe('Mock Utils', () => {
     expect(fileData.text).toBe('hello world');
   });
 
+  test('mockFilePicker should mock file input correctly', async ({ page }) => {
+    // Navigate to a valid application route that has a file input
+    await page.goto('/');
+
+    // We need to attach an input element to the DOM since one isn't immediately visible
+    await page.evaluate(() => {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.id = 'test-file-input';
+      document.body.appendChild(input);
+    });
+
+    const fileInput = page.locator('#test-file-input').first();
+    // Call our mock utility
+    await mockFilePicker(page, fileInput, 'hello world', 'test.txt');
+
+    // Wait for the input to register the files
+    await page.waitForTimeout(50);
+
+    // We can evaluate the input to see its files property directly
+    const files = await fileInput.evaluate((node: HTMLInputElement) => node.files?.length);
+    expect(files).toBe(1);
+  });
+
   test('mockOfflineState should set offline status and trigger events', async ({ page }) => {
-    await page.goto('about:blank');
+    await page.goto('/');
 
     // Set up event listeners
     await page.evaluate(() => {
