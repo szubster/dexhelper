@@ -179,8 +179,7 @@ export const SearchAndFilters = React.memo(function SearchAndFilters() {
                 buttonBaseClassName="relative group min-w-[95px] xl:min-w-[105px] h-14 flex flex-col items-center justify-center !border border-solid transition-all overflow-hidden"
                 selectedValues={filtersSet}
                 onValueToggle={handleToggleFilter}
-                defaultActiveClassName="!border-cyan-500 bg-cyan-950 text-cyan-300 shadow-[inset_0_4px_10px_rgba(6,182,212,0.15)]"
-                defaultInactiveClassName="!border-zinc-800 bg-zinc-900 text-zinc-500 hover:!border-zinc-600 hover:bg-zinc-800 hover:text-zinc-300 shadow-[inset_0_-2px_5px_rgba(0,0,0,0.5)]"
+                variant="cyan"
                 renderPrefixItem={() => (
                   <ClearFiltersBadge isActive={filtersSet.size === 0} onClick={handleClearFilters} />
                 )}
