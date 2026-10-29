@@ -12,7 +12,7 @@ test.describe('PersonaBadge Integration - Skins', () => {
 
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();
 
-    const flowContainer = page.locator('.tactical-flow');
+    const flowContainer = page.getByTestId('view-mode-board');
     await expect(flowContainer).toBeVisible();
 
     const personaBadges = page.getByTestId('persona-badge');
