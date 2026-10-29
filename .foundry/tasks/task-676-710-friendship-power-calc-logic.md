@@ -13,6 +13,7 @@ parent: story-095-676-friendship-display-and-power-calc
 tags:
   - logic
   - typescript
+confidence_score: 100
 rejection_count: 0
 rejection_reason: ''
 notes: ''
@@ -28,5 +29,5 @@ Frustration Base Power = (255 - Friendship) / 2.5 (max 102)
 Write comprehensive unit tests to cover edge cases (0, 255) and rounding behavior.
 
 ## Acceptance Criteria
-- [ ] Calculation functions for Return and Frustration base power are implemented.
-- [ ] Unit tests are written to verify base power logic including edge cases (0, 255).
+- [x] Calculation functions for Return and Frustration base power are implemented.
+- [x] Unit tests are written to verify base power logic including edge cases (0, 255).
