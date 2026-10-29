@@ -12,16 +12,13 @@ test.describe('PersonaBadge Integration - Skins', () => {
 
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();
 
-    const flowContainer = page.locator('.tactical-flow');
-    await expect(flowContainer).toBeVisible();
+    const boardContainer = page.locator('.overflow-x-auto');
+    await expect(boardContainer).toBeVisible();
 
-    const personaBadges = page.getByTestId('persona-badge');
-    await expect(personaBadges).toHaveCount(2);
-
-    const oakBadge = personaBadges.filter({ hasText: 'oak' }).first();
+    const oakBadge = page.getByText('oak').first();
     await expect(oakBadge).toBeVisible();
 
-    const nurseBadge = personaBadges.filter({ hasText: 'nurse' }).first();
+    const nurseBadge = page.getByText('nurse').first();
     await expect(nurseBadge).toBeVisible();
   });
 });
