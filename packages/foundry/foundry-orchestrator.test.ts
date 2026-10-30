@@ -2297,6 +2297,34 @@ Target artifact: task-completed
     });
   });
 
+  describe('Macro Node Completion (Idempotent Generation Check)', () => {
+    test('Macro node cannot complete if it has unchecked descendant references', () => {
+      createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
+        id: "epic-001",
+        type: "EPIC",
+        title: "Epic 1",
+        status: "PENDING",
+        owner_persona: "story_owner",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      }, `## Acceptance Criteria
+- [ ] story-001
+- [x] story-002`);
+
+      main();
+
+      // Idempotent check should not bypass and auto-complete because of the unchecked box
+      // The status should be promoted to READY (because it has no depends_on blocking it)
+      // rather than being bypassed to COMPLETED by the idempotent logic.
+      const content = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-001.md'), 'utf-8');
+      expect(content).toContain('status: READY');
+      // And the checkbox should remain unchecked
+      expect(content).toContain('- [ ] story-001');
+    });
+  });
+
   test('Leaf task: bypasses dispatch and marks COMPLETED if all acceptance criteria checkboxes are checked', () => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-checked-leaf.md', {
       id: "task-checked-leaf",
@@ -3188,6 +3216,40 @@ Target artifact: task-completed
     expect(storyContent).toContain("status: PENDING");
   });
 
+  test('Lock Aggregation: Prevents PENDING node from promotion when its locks overlap with an ACTIVE node', () => {
+    // Task 1: ACTIVE with a lock
+    createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
+      id: "task-001",
+      type: "TASK",
+      title: "Task 1",
+      status: "ACTIVE",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      locks: ["db-migration"],
+    });
+
+    // Task 2: PENDING with the same lock
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task 2",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      locks: ["db-migration"],
+    });
+
+    main();
+
+    // Task 2 should remain PENDING because Task 1 has the same active lock
+    const task2Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-002.md'), 'utf-8');
+    expect(task2Content).toContain('status: PENDING');
+  });
+
   test('Deadlock Prevention: Handles circular dependencies safely and correctly prevents deadlocks', () => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-a.md', {
       id: "task-a",
@@ -3432,6 +3494,47 @@ Target artifact: task-completed
     expect(epicContent).toContain('Missing E2E/integration story');
   });
 
+  describe('Phase 4.8 Mapping Validation', () => {
+    test('fails invalid mapping (TASK -> product_manager)', () => {
+      createValidTestNode(tmpDir, '.foundry/tasks/task-invalid.md', {
+        id: "task-invalid",
+        type: "TASK",
+        title: "Task Invalid",
+        status: "PENDING",
+        owner_persona: "product_manager", // Invalid for TASK
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      });
+
+      main();
+
+      const taskContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-invalid.md'), 'utf-8');
+      expect(taskContent).toContain('status: FAILED');
+      expect(taskContent).toContain('Invalid owner_persona mapping');
+    });
+
+    test('succeeds valid mapping (TASK -> coder)', () => {
+      createValidTestNode(tmpDir, '.foundry/tasks/task-valid.md', {
+        id: "task-valid",
+        type: "TASK",
+        title: "Task Valid",
+        status: "PENDING",
+        owner_persona: "coder", // Valid for TASK
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      });
+
+      main();
+
+      const taskContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-valid.md'), 'utf-8');
+      expect(taskContent).toContain('status: READY');
+    });
+  });
+
   test('Late-Binding Completion: EPIC completes if it has E2E story', () => {
     createValidTestNode(tmpDir, '.foundry/epics/epic-001.md', {
       id: "epic-001",
@@ -3511,6 +3614,103 @@ Target artifact: task-completed
     const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-late.md'), 'utf-8');
     expect(storyContent).toContain('status: PENDING');
     expect(storyContent).not.toContain('status: COMPLETED');
+  });
+
+
+  test('Two-Tasks-Max Anti-Pattern: STORY fails if broken down into <= 2 TASK nodes but has > 2 acceptance criteria', () => {
+    createValidTestNode(tmpDir, '.foundry/stories/story-complex.md', {
+      id: "story-complex",
+      type: "STORY",
+      title: "Complex Story",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, `## Acceptance Criteria
+- [x] Criteria 1
+- [x] Criteria 2
+- [x] Criteria 3`);
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-child-1.md', {
+      id: "task-child-1",
+      type: "TASK",
+      title: "Task Child 1",
+      status: "COMPLETED",
+      owner_persona: "coder",
+      parent: "story-complex",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-child-2.md', {
+      id: "task-child-2",
+      type: "TASK",
+      title: "Task Child 2",
+      status: "COMPLETED",
+      owner_persona: "coder",
+      parent: "story-complex",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const storyContent = fs.readFileSync(require('path').join(tmpDir, '.foundry/stories/story-complex.md'), 'utf-8');
+    expect(storyContent).toContain('status: FAILED');
+    expect(storyContent).toContain('Two-Tasks-Max anti-pattern detected');
+  });
+
+  test('Two-Tasks-Max Anti-Pattern: STORY completes if broken down into <= 2 TASK nodes and has <= 2 acceptance criteria', () => {
+    createValidTestNode(tmpDir, '.foundry/stories/story-simple.md', {
+      id: "story-simple",
+      type: "STORY",
+      title: "Simple Story",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, `## Acceptance Criteria
+- [x] Criteria 1
+- [x] Criteria 2`);
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-child-1.md', {
+      id: "task-child-1",
+      type: "TASK",
+      title: "Task Child 1",
+      status: "COMPLETED",
+      owner_persona: "coder",
+      parent: "story-simple",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-child-2.md', {
+      id: "task-child-2",
+      type: "TASK",
+      title: "Task Child 2",
+      status: "COMPLETED",
+      owner_persona: "coder",
+      parent: "story-simple",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const storyContent = fs.readFileSync(require('path').join(tmpDir, '.foundry/stories/story-simple.md'), 'utf-8');
+    expect(storyContent).toContain('status: COMPLETED');
   });
 
   test('Phase 4.1: Late-Binding parent transitions to COMPLETED when at least one child is COMPLETED and remainder are CANCELLED', () => {
@@ -4175,6 +4375,105 @@ Target artifact: task-completed
     // cleanup
     process.exitCode = 0;
     stderrSpy.mockRestore();
+  });
+
+  test('Phase 4.5: Parent node is auto-fulfilled if its only unchecked criteria are plain text checkboxes', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-autocheck-only-plain.md', {
+      id: "epic-autocheck-only-plain",
+      type: "EPIC",
+      title: "Epic with plain text tasks",
+      status: "PENDING",
+      owner_persona: "story_owner",
+    }, `
+# Epic
+Just some epic.
+
+## Acceptance Criteria
+- [x] story-001
+- [ ] just a plain text checkbox
+- [ ] [some link](https://example.com)
+`);
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "E2E Integration Story",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      parent: "epic-autocheck-only-plain",
+      tags: ["e2e"],
+    }, `
+# Story
+`);
+
+    main();
+
+    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-autocheck-only-plain.md'), 'utf-8');
+    expect(parentContent).toContain('status: COMPLETED');
+    expect(parentContent).toContain('- [x] story-001');
+    expect(parentContent).toContain('- [x] just a plain text checkbox');
+    expect(parentContent).toContain('- [x] [some link](https://example.com)');
+  });
+
+  test('Phase 4.5: Auto-checking non-node criteria in generation node', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-autocheck.md', {
+      id: "epic-autocheck",
+      type: "EPIC",
+      title: "Epic with plain text tasks",
+      status: "PENDING",
+      owner_persona: "story_owner",
+    }, `
+# Epic
+Just some epic.
+
+## Acceptance Criteria
+- [ ] just a plain text checkbox
+- [ ] [some link](https://example.com)
+- [ ] story-001
+`);
+
+    createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
+      id: "story-001",
+      type: "STORY",
+      title: "E2E Integration Story",
+      status: "COMPLETED",
+      owner_persona: "tech_lead",
+      parent: "epic-autocheck",
+      tags: ["e2e"],
+    }, `
+# Story
+`);
+
+    main();
+
+    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-autocheck.md'), 'utf-8');
+    expect(parentContent).toContain('status: COMPLETED');
+    expect(parentContent).toContain('- [x] just a plain text checkbox');
+    expect(parentContent).toContain('- [x] [some link](https://example.com)');
+    expect(parentContent).toContain('- [x] story-001');
+  });
+
+  test('Phase 4.5: Does not auto-check non-node criteria if child node does not exist', () => {
+    createValidTestNode(tmpDir, '.foundry/epics/epic-autocheck.md', {
+      id: "epic-autocheck",
+      type: "EPIC",
+      title: "Epic with plain text tasks",
+      status: "PENDING",
+      owner_persona: "story_owner",
+    }, `
+# Epic
+Just some epic.
+
+## Acceptance Criteria
+- [ ] just a plain text checkbox
+- [ ] story-002
+`);
+
+    main();
+
+    const parentContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-autocheck.md'), 'utf-8');
+    expect(parentContent).toContain('status: READY'); // Should remain pending since child doesn't exist
+    expect(parentContent).toContain('- [ ] just a plain text checkbox');
   });
 
   test('Phase 4.5: Non-node references in body (like adr-compliance) do not trigger unresolvable node warnings or strict mode failure', () => {

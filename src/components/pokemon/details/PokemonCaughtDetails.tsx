@@ -1,3 +1,4 @@
+import { CornerCrosshairs, PokerusBadge, TacticalBadge } from '@dexhelper/ui';
 import { Activity, Dna, MapPin, Sparkles } from 'lucide-react';
 import React from 'react';
 import { useParsedSaveData } from '../../../contexts/EmulatorContext';
@@ -6,14 +7,11 @@ import { getContestRecommendations } from '../../../engine/gen3/contests/recomme
 import { getNature } from '../../../engine/gen3/nature';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
 import { getTimeCapsuleValidation } from '../../../utils/timeCapsule';
-import { CornerCrosshairs } from '../../CornerCrosshairs';
 import { HoverScanner } from '../../HoverScanner';
 import { LazyLoadWrapper } from '../../LazyLoadWrapper';
 import { LcdGrid } from '../../LcdGrid';
-import { PokerusBadge } from '../../PokerusBadge';
 import { SectionHeader } from '../../SectionHeader';
 import { SubDataPoint } from '../../SubDataPoint';
-import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 
 const ContestConditionStats = React.lazy(() =>

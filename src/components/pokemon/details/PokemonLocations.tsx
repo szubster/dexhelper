@@ -1,3 +1,4 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import {
   Activity,
   AlertTriangle,
@@ -20,7 +21,6 @@ import { isValidStaticGameVersion, staticEncounters } from '../../../engine/data
 import { DataLabel } from '../../DataLabel';
 import { ScanlineOverlay } from '../../ScanlineOverlay';
 import { SectionHeader } from '../../SectionHeader';
-import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalNode } from '../../TacticalNode';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 import { LocationRow } from './LocationRow';

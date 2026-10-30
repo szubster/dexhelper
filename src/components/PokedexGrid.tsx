@@ -1,3 +1,4 @@
+import { TacticalButton } from '@dexhelper/ui';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { SearchX } from 'lucide-react';
 import React, { useMemo } from 'react';
@@ -8,7 +9,6 @@ import { getGenerationConfig } from '../utils/generationConfig';
 import type { PokemonListItem } from '../utils/pokemonQueries';
 import { usePokedexGridVirtualizer } from './hooks/usePokedexGridVirtualizer';
 import { PokedexCard } from './PokedexCard';
-import { TacticalButton } from './TacticalButton';
 import { TacticalPanel } from './TacticalPanel';
 
 export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] }) {
@@ -145,7 +145,7 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
   }
 
   return (
-    <div className="fade-in animate-in pb-10 duration-500">
+    <div className="fade-in animate-in pb-28 duration-500 lg:pb-10">
       <div className="mb-4 flex items-center justify-between border-[var(--theme-primary)]/30 border-b border-dashed bg-[var(--theme-primary)]/5 px-4 py-2">
         <div className="flex items-center gap-3">
           <span className="font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-[0.2em]">

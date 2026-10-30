@@ -5,7 +5,7 @@ import type { SaveData } from '../../saveParser/index';
 import { gen1Strategy } from './gen1Strategy';
 
 // Mock the dependencies
-vi.mock('../../mapGraph/gen1Graph', () => ({
+vi.mock('../../mapGraph/index', () => ({
   resolveOutdoorMapId: vi.fn<(allLocations: UnifiedLocation[], id: number) => number>((_, id) => id),
   getDistanceToMap: vi
     .fn<() => { distance: number; name: string }>()
@@ -16,7 +16,7 @@ vi.mock('../../exclusives/gen1Exclusives', () => ({
   getUnobtainableReason: vi.fn<() => string>().mockReturnValue('Mocked Reason'),
 }));
 
-import { resolveOutdoorMapId } from '../../mapGraph/gen1Graph';
+import { resolveOutdoorMapId } from '../../mapGraph/index';
 
 describe('gen1Strategy', () => {
   describe('generation', () => {

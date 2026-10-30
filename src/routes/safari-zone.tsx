@@ -1,9 +1,10 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import { createFileRoute } from '@tanstack/react-router';
 import { ShieldAlert } from 'lucide-react';
 import React, { Suspense } from 'react';
 import { EmptyState } from '../components/EmptyState';
+import { SafariBountyBoard } from '../components/safari-zone/SafariBountyBoard';
 import { useSafariZoneSelection } from '../components/safari-zone/useSafariZoneSelection';
-import { TacticalBadge } from '../components/TacticalBadge';
 import { useStore } from '../store';
 
 const SafariZoneEncountersList = React.lazy(() => import('../components/safari-zone/SafariZoneEncountersList'));
@@ -56,8 +57,15 @@ function SafariZonePage() {
       </div>
 
       <Suspense fallback={<EmptyState label="INITIALIZING SAFARI ZONE TELEMETRY..." />}>
-        <SafariTargetSelection selection={selection} />
-        <SafariZoneEncountersList saveData={saveData} />
+        <div className="flex flex-col gap-6 lg:flex-row">
+          <div className="flex flex-1 flex-col gap-6">
+            <SafariTargetSelection selection={selection} />
+            <SafariZoneEncountersList saveData={saveData} />
+          </div>
+          <div className="w-full shrink-0 lg:w-80">
+            <SafariBountyBoard />
+          </div>
+        </div>
       </Suspense>
     </div>
   );

@@ -2,12 +2,12 @@
 id: task-537-680-remove-xyflow-deps
 type: TASK
 title: 'Remove xyflow dependencies, code, and update Vite config'
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-18'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '358827964231447211'
+jules_session_id: null
 pr_number: null
 parent: story-530-537-xyflow-cleanup
 tags:
@@ -15,7 +15,7 @@ tags:
   - bundle-size
   - refactor
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
@@ -40,9 +40,9 @@ Remove the `@xyflow/react` and `dagre` dependencies from `package.json`, clean u
 5. Remove chunking configurations for `@xyflow/react` and `dagre` in `vite.config.ts`.
 
 ## Acceptance Criteria
-- [ ] Usage of `@xyflow/react` and `dagre` is removed from `DagContext.tsx` and stale logic is cleared.
-- [ ] Redundant UI components and utils (`DagDashboard`, `DagNode`, `highlighting`) and their test files are deleted.
-- [ ] `DagWrapper.tsx` is updated.
-- [ ] `index.ts` no longer exports deleted components.
-- [ ] `@xyflow/react`, `dagre`, and `@types/dagre` are removed from dependencies.
-- [ ] `vite.config.ts` no longer references `@xyflow/`.
+- [x] Usage of `@xyflow/react` and `dagre` is removed from `DagContext.tsx` and stale logic is cleared.
+- [x] Redundant UI components and utils (`DagDashboard`, `DagNode`, `highlighting`) and their test files are deleted.
+- [x] `DagWrapper.tsx` is updated.
+- [x] `index.ts` no longer exports deleted components.
+- [x] `@xyflow/react`, `dagre`, and `@types/dagre` are removed from dependencies.
+- [x] `vite.config.ts` no longer references `@xyflow/`.

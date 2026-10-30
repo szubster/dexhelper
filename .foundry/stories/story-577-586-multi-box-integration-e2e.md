@@ -2,12 +2,12 @@
 id: story-577-586-multi-box-integration-e2e
 type: STORY
 title: Integration and E2E Verification for Multi-Box Search
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-18'
-updated_at: '2026-10-19'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: '8020393731610035852'
+jules_session_id: null
 pr_number: null
 parent: epic-566-577-multi-box-integration
 tags:
@@ -15,7 +15,7 @@ tags:
   - integration
   - e2e
   - pc-box
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
@@ -33,6 +33,10 @@ Implement integration logic bridging the search engine and UI components and exe
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-586-687-multi-box-integration-impl
-- [ ] task-586-688-multi-box-integration-e2e
-- [ ] task-586-689-multi-box-integration-qa
+- [x] task-586-687-multi-box-integration-impl
+- [x] task-586-688-multi-box-integration-e2e
+- [x] task-586-689-multi-box-integration-qa
+- [ ] research-586-707-investigate-multi-box-integration-failure
+- [ ] task-586-708-multi-box-integration-impl-retry
+- [ ] task-586-709-multi-box-integration-e2e-retry
+- [ ] task-586-710-multi-box-integration-qa-retry

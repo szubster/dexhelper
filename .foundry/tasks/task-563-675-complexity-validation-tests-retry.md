@@ -2,10 +2,10 @@
 id: task-563-675-complexity-validation-tests-retry
 type: TASK
 title: Write unit tests for complexity validation in Foundry Orchestrator (Retry)
-status: PENDING
+status: COMPLETED
 owner_persona: coder
 created_at: '2025-01-22'
-updated_at: '2026-10-16'
+updated_at: '2026-10-27'
 depends_on:
   - research-563-674-investigate-story-task-breakdown-failure
 jules_session_id: null
@@ -13,6 +13,7 @@ parent: story-552-563-story-to-task-complexity-validation
 tags: []
 rejection_reason: ''
 locks: []
+rejection_count: 2
 ---
 
 # TASK: Write unit tests for complexity validation in Foundry Orchestrator (Retry)
@@ -26,5 +27,5 @@ The Tech Lead persona breaks down a `STORY` into `TASK` nodes. A common anti-pat
 Tests should be added to `.github/scripts/foundry-orchestrator.test.ts` (or equivalent test file) to ensure that if a `STORY` node spawns `TASK` children and the count is low (e.g., <= 2) and the `STORY` is deemed complex (e.g., multiple acceptance criteria), the orchestrator flags it, likely promoting the node to `FAILED` with a specific reason.
 
 ## Acceptance Criteria
-- [ ] Add unit tests in `.github/scripts/foundry-orchestrator.test.ts` for the "Two-Tasks-Max" anti-pattern validation.
-- [ ] Ensure tests cover both positive cases (valid breakdown) and negative cases (anti-pattern).
+- [x] Add unit tests in `.github/scripts/foundry-orchestrator.test.ts` for the "Two-Tasks-Max" anti-pattern validation.
+- [x] Ensure tests cover both positive cases (valid breakdown) and negative cases (anti-pattern).

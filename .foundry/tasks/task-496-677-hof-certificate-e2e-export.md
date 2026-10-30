@@ -2,13 +2,13 @@
 id: task-496-677-hof-certificate-e2e-export
 type: TASK
 title: Hall of Fame Certificate E2E Export Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-01'
-updated_at: '2026-10-19'
+updated_at: '2026-10-29'
 depends_on:
   - task-496-676-hof-certificate-e2e-rendering
-jules_session_id: '5100871006760450211'
+jules_session_id: null
 pr_number: null
 parent: story-071-496-hof-certificate-e2e-verification
 tags:
@@ -29,6 +29,6 @@ locks: []
 Implement Playwright E2E tests to cover the full export flow of the Hall of Fame Certificate. Ensure that simulating a click on the export button triggers the image generation process, and verifies that the resulting file download or blob matches expectations.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for the download/export button flow.
-- [ ] Verify successful interception of the generated blob or file download.
-- [ ] Ensure proper handling of loading state interactions during generation.
+- [x] Implement E2E tests for the download/export button flow.
+- [x] Verify successful interception of the generated blob or file download.
+- [x] Ensure proper handling of loading state interactions during generation.

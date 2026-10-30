@@ -25,16 +25,16 @@ export function Gen3AshTrackerDashboard({ gen3VolcanicAsh }: Gen3AshTrackerDashb
       </div>
 
       <div className="flex flex-col gap-6 md:flex-row">
-        <div className="flex min-w-[200px] flex-col items-center justify-center border border-zinc-700 border-dashed bg-zinc-900/50 p-6">
-          <span className="mb-2 font-mono text-[10px] text-zinc-500 uppercase">Current Ash Collected</span>
+        <div className="flex min-w-[200px] flex-col items-center justify-center rounded-none border border-zinc-700 border-dashed bg-zinc-900/50 p-6">
+          <span className="tactical-text mb-2 text-[10px] text-zinc-500">Current Ash Collected</span>
           <span className="font-black font-mono text-4xl text-orange-500" data-testid="ash-count">
             {gen3VolcanicAsh.toLocaleString()}
           </span>
-          <span className="mt-1 font-mono text-[10px] text-zinc-500 uppercase">Steps</span>
+          <span className="tactical-text mt-1 text-[10px] text-zinc-500">Steps</span>
         </div>
 
         <div className="flex-1">
-          <h3 className="mb-3 font-bold font-mono text-[12px] text-zinc-400 uppercase">Craftable Items</h3>
+          <h3 className="tactical-text mb-3 font-bold text-[12px] text-zinc-400">Craftable Items</h3>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {CRAFTABLE_ITEMS.map((item) => {
               const canCraft = gen3VolcanicAsh >= item.cost;

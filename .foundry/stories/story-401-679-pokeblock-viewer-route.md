@@ -5,10 +5,10 @@ title: Gen 3 Pokéblock Viewer Route and Dashboard
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-10-20'
+updated_at: '2026-10-28'
 depends_on:
   - epic-114-400-gen3-pokeblock-case-parsing-retry
-jules_session_id: '11554621422010586103'
+jules_session_id: '14518514648216541512'
 pr_number: null
 parent: epic-114-401-gen3-pokeblock-dashboard-ui-retry
 tags:
@@ -31,3 +31,7 @@ As part of `epic-114-401-gen3-pokeblock-dashboard-ui-retry`, we need to create t
 - [ ] Implement the routing for the Pokéblock Viewer dashboard.
 - [ ] Create the main dashboard container component.
 - [ ] Ensure the container correctly accesses the parsed Pokéblock data from the save state context.
+- [ ] task-679-711-pokeblock-state-access-layer-impl
+- [ ] task-679-712-pokeblock-dashboard-ui-impl
+- [ ] task-679-713-pokeblock-route-integration-impl
+- [ ] task-679-714-pokeblock-viewer-qa

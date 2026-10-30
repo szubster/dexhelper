@@ -1,7 +1,7 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import React from 'react';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
 import { cn } from '../../../utils/cn';
-import { CornerCrosshairs } from '../../CornerCrosshairs';
 import { HoverScanner } from '../../HoverScanner';
 import { LcdGrid } from '../../LcdGrid';
 import { TacticalPanel } from '../../TacticalPanel';

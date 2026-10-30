@@ -2,20 +2,22 @@
 id: task-564-604-pokemon-held-item-tracker-qa
 type: TASK
 title: QA Pokemon Held Item Tracker Logic
-status: ACTIVE
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-09-19'
-updated_at: '2026-10-20'
+updated_at: '2026-10-23'
 depends_on:
   - task-564-603-pokemon-held-item-tracker-diff
-jules_session_id: '5599568460316035545'
+jules_session_id: null
 pr_number: null
 parent: story-554-564-pokemon-held-item-tracker
 tags:
   - dexhelper
   - tracker
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-564-602-pokemon-held-item-tracker-extraction
 notes: ''
 locks: []
 ---
@@ -30,3 +32,6 @@ Verify the logic implemented in src/engine/tracker/heldItemExtractor.ts and src/
 
 ### QA Rejection
 The implementation of `extractHeldItems` in `src/engine/tracker/heldItemExtractor.ts` uses a `Set` which incorrectly drops duplicate held items. This breaks downstream diffing logic. Task `task-564-602-pokemon-held-item-tracker-extraction` has been marked as FAILED.
+
+### QA Execution Log
+I have rejected the implementation of `task-564-602-pokemon-held-item-tracker-extraction` because `extractHeldItems` incorrectly drops duplicate held items.

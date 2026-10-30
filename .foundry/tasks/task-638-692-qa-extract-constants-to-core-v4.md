@@ -2,10 +2,10 @@
 id: task-638-692-qa-extract-constants-to-core-v4
 type: TASK
 title: Verify Constants Extraction to Core Package V4
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-16T06:41:10.372Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-21'
 depends_on:
   - task-638-691-extract-constants-to-core-v4
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - monorepo
   - pnpm
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-638-691-extract-constants-to-core-v4
 notes: ''
 locks: []
 ---

@@ -42,9 +42,8 @@ export function SettingsControls({
         <TacticalSegmentedControl
           ariaLabel="Game Version"
           containerClassName="grid grid-cols-3 gap-2 [&>div]:grid [&>div]:grid-cols-3 [&>div]:gap-2 [&>div]:border-none [&>button]:border"
+          variant="blue"
           buttonBaseClassName="!border-dashed !border focus-visible:ring-blue-500 px-3 py-2 text-[9px]"
-          defaultActiveClassName="border-blue-500 bg-blue-500/20 text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.3)]"
-          defaultInactiveClassName="border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300"
           selectedValue={effectiveVersion}
           onValueChange={(val) => setManualVersion(val === 'unknown' ? null : val)}
           items={versions.map((v) => ({
@@ -73,8 +72,6 @@ export function SettingsControls({
                   <span aria-hidden="true">[ </span>STANDARD<span aria-hidden="true"> ]</span>
                 </span>
               ),
-              activeClassName: 'bg-zinc-800 text-white',
-              inactiveClassName: 'bg-zinc-950 text-zinc-600 hover:bg-zinc-900/50 hover:text-zinc-400',
             },
             {
               id: 'living',
@@ -84,8 +81,7 @@ export function SettingsControls({
                   <span aria-hidden="true">[ </span>LIVING DEX<span aria-hidden="true"> ]</span>
                 </span>
               ),
-              activeClassName: 'bg-emerald-500 text-zinc-950 shadow-[0_0_15px_rgba(16,185,129,0.4)]',
-              inactiveClassName: 'bg-zinc-950 text-zinc-600 hover:bg-zinc-900/50 hover:text-zinc-400',
+              variant: 'emerald',
             },
           ]}
         />
@@ -99,9 +95,8 @@ export function SettingsControls({
         <TacticalSegmentedControl<PokeballType>
           ariaLabel="Ball Style"
           containerClassName="grid grid-cols-3 gap-2 [&>div]:grid [&>div]:grid-cols-3 [&>div]:gap-2 [&>div]:border-none [&>button]:border"
+          variant="amber"
           buttonBaseClassName="flex flex-col items-center justify-center gap-1.5 py-3 text-[9px] !border-dashed !border focus-visible:ring-amber-500"
-          defaultActiveClassName="border-amber-500 bg-amber-500/20 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.3)]"
-          defaultInactiveClassName="border-zinc-800 bg-zinc-950 text-zinc-500 hover:border-zinc-600 hover:bg-zinc-900 hover:text-zinc-300"
           selectedValue={globalPokeball}
           onValueChange={(val) => setGlobalPokeball(val)}
           items={filteredPokeballs.map((pb) => ({

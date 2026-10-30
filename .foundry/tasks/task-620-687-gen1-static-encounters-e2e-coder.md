@@ -5,9 +5,9 @@ title: Implement Gen 1 Static Encounters E2E Tests
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-18'
+updated_at: '2026-10-28'
 depends_on: []
-jules_session_id: '10588307912653510739'
+jules_session_id: '5804920920193816102'
 pr_number: null
 parent: story-136-620-gen1-static-encounters-e2e
 tags:
@@ -15,7 +15,7 @@ tags:
   - integration
   - gen1
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -30,8 +30,8 @@ Implement E2E tests for Gen 1 Static Encounters to ensure event flags are correc
 This task addresses the Orchestrator Safeguard requirement to verify that the Gen 1 Static Encounters parsing and UI logic integrate correctly end-to-end.
 
 ## Acceptance Criteria
-- [ ] Write Playwright E2E tests to verify Gen 1 Static Encounters are parsed correctly.
-- [ ] Verify that the parsed encounters are correctly displayed in the checklist UI.
-- [ ] Ensure tests use appropriate fixtures for save files and mock data if necessary.
-- [ ] Tests must use relative paths for navigation (`./dashboard`, not `/dashboard`).
-- [ ] Tests must adhere to all Playwright best practices (e.g. no `.catch()` for assertions).
+- [x] Write Playwright E2E tests to verify Gen 1 Static Encounters are parsed correctly.
+- [x] Verify that the parsed encounters are correctly displayed in the checklist UI.
+- [x] Ensure tests use appropriate fixtures for save files and mock data if necessary.
+- [x] Tests must use relative paths for navigation (`./dashboard`, not `/dashboard`).
+- [x] Tests must adhere to all Playwright best practices (e.g. no `.catch()` for assertions).

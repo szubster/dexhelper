@@ -2,12 +2,12 @@
 id: prd-526-587-save-file-schema-migration-framework
 type: PRD
 title: Versioned Save State Schema Migration Pipeline PRD
-status: READY
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-10-16T18:07:24.084Z'
-updated_at: '2026-10-16T18:07:24.084Z'
+updated_at: '2026-10-23'
 depends_on: []
-jules_session_id: '16960194378758863441'
+jules_session_id: null
 pr_number: null
 parent: idea-526-save-file-schema-migration-framework
 tags:
@@ -43,4 +43,7 @@ Introduce a lightweight, versioned Schema Migration Framework for parsed save st
 - **Future Extensibility**: Provides a clean foundation for upcoming Gen 4/5 save parser additions and offline diff storage.
 
 ## Acceptance Criteria
-- [ ] Break down into Epic to implement the `SaveSchemaMigrator` architecture and integrate it into the application pipeline.
+- [x] Break down into Epic to implement the `SaveSchemaMigrator` architecture and integrate it into the application pipeline.
+- [ ] epic-587-693-schema-migration-registry
+- [ ] epic-587-694-indexeddb-hydration-integration
+- [ ] epic-587-695-schema-migration-e2e

@@ -2,12 +2,12 @@
 id: prd-528-587-playwright-relative-path-linter
 type: PRD
 title: PRD Playwright Relative Path Navigation Linter Rule
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-10-15'
-updated_at: '2026-10-18'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: '14095990097843965610'
+jules_session_id: null
 pr_number: null
 parent: idea-528-playwright-relative-path-linter
 tags:
@@ -16,7 +16,7 @@ tags:
   - linting
   - quality
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -45,4 +45,6 @@ Create a custom ESLint / Biome / Oxlint rule or AST-based check that scans `test
 - Ensures seamless test execution regardless of Vite base URL deployment configurations.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-587-707-playwright-path-ast-analyzer
+- [ ] epic-587-708-playwright-path-linter-integration

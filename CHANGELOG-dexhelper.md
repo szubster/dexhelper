@@ -6,8 +6,157 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.3.0] - 2026-04-20
+### Changed
+- Converted Array.includes() to Set.has() in suggestion engine to optimize performance.
+- Enhanced BottomNav accessibility by adding focus-visible rings to navigation elements.
+
+### Fixed
+- Fixed Gen 1 Red and Blue version exclusive Pokemon parsing logic to correctly handle unobtainable Pokemon.
+- Removed unsafe store name casts in PokeDB to ensure type safety in data transactions.
+
+### Security
+- Sanitized error logging by only outputting error messages to prevent CWE-209 information leakage.
+
+## [1.2.0] - 2026-04-20
+### Added
+- Migrated the Pokémon save file parsing engine to the native DataView API for better bounds checking and robust data handling.
+
+### Changed
+- Improved accessibility by adding explicit `aria-label` attributes to icon-only interactive elements in the UI.
+- Optimized `getAreaNames` in IndexedDB to use a single readonly transaction, eliminating N+1 overhead and improving fetch performance by ~10x.
+- Updated `@tanstack/react-query` and related DevTools to 5.99.2.
+
+## [1.1.1] - 2026-04-19
+### Changed
+- Improved LocationSuggestions to prevent N+1 IndexedDB queries, removing synchronous main thread blocking on keystrokes.
+- Optimized AssistantPanel by leveraging cached global query options to eliminate redundant database queries and memory allocation.
+- Enhanced AssistantPanel accessibility by adding focus-visible indicators to grid buttons for improved keyboard navigation.
+- Added comprehensive documentation and architectural comments to the suggestionEngine and saveParser modules.
+
+### Fixed
+- Fixed PokeAPI evolution item IDs not matching in-game internal item IDs, ensuring proper evaluation of evolution stones in the assistant.
+- Fixed a bug where Yellow version exclusives for Sandshrew, Sandslash, and Pinsir were incorrectly listed as unobtainable, and Electabuzz was missing.
+- Resolved type safety and compiler errors in AssistantPanel styles mapping and DexDataLoader batch functions.
+
+## [1.1.0] - 2026-04-18
+### Added
+- Added support for Generation 2 daycare and egg status detection.
+- Implemented a distinct empty state UI for Pokedex grid when search or filters return no results.
+
+### Changed
+- Improved IndexedDB Pokemon GET operations by utilizing a single transaction for batch queries, significantly reducing execution time.
+- Enhanced search input accessibility to clear the search instantly with the `Escape` key and improved keyboard navigation.
+- Optimized CI tooling by replacing unused `crypto-js` with native Node crypto, removing `bundlemon`, and introducing `knip` for codebase health checks.
+
+### Fixed
+- Replaced explicit `any` typings in `PokeDB` schema upgrades with strict `idb` typings.
+
+### Security
+- Added strict regular expression validation to Base64 `localStorage` payload decoding to prevent unexpected behavior from malformed input.
+
+## [1.0.0] - 2026-04-17
+### Added
+- Unified Location Architecture with precomputed build-time distances using Floyd-Warshall algorithm for O(1) distance lookups.
+- React Query Devtools integration for development environments.
+- Missing special strategy suggestions (e.g., PC box full warnings) in the assistant.
+
+### Changed
+- Migrated Map Locations generation script to TypeScript and disabled allowJs.
+- Optimized Vite build configuration to produce a monolithic, offline-first bundle using Vite 8, Rolldown, and LightningCSS.
+- Optimized PokeDB Data Storage by omitting redundant default values during build-time generation and restoring them at runtime via recursive inflation.
+
+### Fixed
+- Fixed E2E hydration crashes and strict mode violations in location lookups.
+- Improved location suggestions UX and accessibility by updating the clear location filter button icon, adding an aria-label, and applying consistent keyboard focus rings.
+
+## [0.29.0] - 2026-04-15
+### Added
+- Localized evolution data architecture, Vite data plugin integration.
+- Aria-labels for icon-only buttons to improve accessibility.
+
+### Changed
+- Pre-computed mapping in StorageGrid to improve rendering performance.
+- React.memo for PokedexCard to avoid re-rendering.
+- Refactored save parser into modular files.
+
+### Fixed
+- Red/Blue starter catchable logic in suggestion engine.
+
+### Removed
+- Legacy stat and type UI components.
+
+### Added
+- Added module-level constants for Gen 3 fossil offsets.
+- Added unit tests for Gen 3 fossil revival state constants in `src/engine/saveParser/gen3/fossil/constants.test.ts`.
+
 ### Changed
 - Bump `@vitejs/plugin-react` from 6.1.1 to 6.1.2, `vite` from 8.3.0 to 8.3.4, and `vitest` from 4.1.11 to 5.0.4 in the root directory.
+
+## [0.28.0] - 2026-04-12
+### Changed
+- Migrate package manager from `npm` to `pnpm`, updating setup instructions in `README.md`.
+- Enhance performance of Assistant suggestion engine by optimizing Pokemon instance lookups.
+- Improve accessibility of Pokemon catch probability component by adding missing ARIA attributes and focus states.
+
+### Fixed
+- Fix missing Generation 2 specific evolution conditions (time of day and stats) in the Assistant.
+
+## [0.27.0] - 2026-04-11
+### Changed
+- Improve Assistant evolution suggestion logic to dynamically suggest evolutions based on missing final-stage evolutions, considering both Party and PC storage, as well as inventory items.
+- Optimize rendering performance across the application by reducing redundant array operations and memoizing derived state in Pokédex and Pokémon Details views.
+- Enhance keyboard navigation and screen reader accessibility by using screen-reader only classes for hidden inputs, adding standard ARIA roles to dialogs, and ensuring consistent focus-visible styles.
+
+## [0.26.1] - 2026-04-09
+### Changed
+- Improve filter buttons and target status segmented control accessibility by adopting ARIA roles.
+- Optimize AssistantPanel Pokémon name lookup performance by utilizing Record structure instead of Map.
+
+## [0.26.0] - 2026-04-08
+### Added
+- Add support for trade evolution suggestions in the Assistant engine.
+
+### Changed
+- Optimize Assistant API performance by batching and deduplicating ancestor fetch requests.
+
+## [0.25.2] - 2026-04-07
+### Changed
+- Optimize rendering overhead in `StorageGrid` by grouping Pokémon by location.
+- Improve rendering performance in `PokedexGrid` by removing unused shiny set calculations.
+- Improve UX by adding an inline two-step confirmation for save deletion in the settings modal.
+
+### Fixed
+- Prevent assistant from suggesting redundant evolutions for already owned Pokémon.
+- Fix Gen 1 NPC trade data and redundant version-exclusive suggestions, specifically fixing double suggestions in Pokémon Yellow.
+
+## [0.25.1] - 2026-04-06
+### Added
+- Enhance Assistant algorithm to intelligently suggest in-game NPC trades dynamically based on save file state and collection.
+
+### Changed
+- Bump `@tanstack/react-query` to `5.96.2`.
+
+### Fixed
+- Fix Pokémon Yellow save detection by analyzing Original Trainer names and checking for definitive Yellow markers.
+- Resolve 1-byte offset shift in English Pokémon Yellow saves that corrupted Pokedex data and incorrect map detection.
+
+## [0.25.0] - 2026-04-06
+### Added
+- Implement mapping for internal map IDs to general area names for Gen 1 and Gen 2, enhancing location display readability.
+
+### Changed
+- Optimize performance of Pokemon name lookups and suggestion engine data iterations by using Map data structures, reducing array lookup overhead.
+- Add proper ARIA accessibility attributes to interactive elements in the Settings Modal and Bottom Navigation.
+- Bump Vite development dependency.
+
+## [0.24.6] - 2026-04-06
+### Changed
+- Replace `framer-motion` with native CSS animations to improve UI performance and resolve visual test flakiness.
+- Improve accessibility for the Living Dex toggle switch by adding proper ARIA attributes, switch role, and focus styles.
+
+### Fixed
+- Fix Gen 1 save file parsing to correctly read all 12 PC boxes (instead of just the active box) and accurately display empty boxes in the Storage view.
 
 ## [0.24.5] - 2026-04-03
 ### Changed
@@ -286,3 +435,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.24.3]: https://github.com/szubster/dexhelper/compare/70b3ca6ea7f9788b3ea04d7a352acb8ad5706bed...961413c214332bc0ff9e90bfd13630da9a04c67f
 [0.24.4]: https://github.com/szubster/dexhelper/compare/961413c214332bc0ff9e90bfd13630da9a04c67f...edbf0c9005b78906051b1bc371acc754b0a466bd
 [0.24.5]: https://github.com/szubster/dexhelper/compare/edbf0c9005b78906051b1bc371acc754b0a466bd...0a51a23e9edeb506357e599dd7dcffdbbe75c9eb
+[0.24.6]: https://github.com/szubster/dexhelper/compare/18f5e2a12afbc20796f2d70fc895d4ff085cf10c...7389580e7acb3613d2e2f477c5a2a57033325be2
+[0.25.0]: https://github.com/szubster/dexhelper/compare/7389580e7acb3613d2e2f477c5a2a57033325be2...a18cf2a547687991de4af3b100e4d45e528ebe19
+[0.25.1]: https://github.com/szubster/dexhelper/compare/a18cf2a547687991de4af3b100e4d45e528ebe19...8ed973e2e6c042bd60543dee85e822baeba4f9bf
+[0.25.2]: https://github.com/szubster/dexhelper/compare/8ed973e2e6c042bd60543dee85e822baeba4f9bf...a19062bfa5babacd61b75ef13b5115d63c620c81
+[0.26.0]: https://github.com/szubster/dexhelper/compare/a19062bfa5babacd61b75ef13b5115d63c620c81...eee0a28dd252701243ddbcb259b987a947d7afb0
+[0.26.1]: https://github.com/szubster/dexhelper/compare/eee0a28dd252701243ddbcb259b987a947d7afb0...ae6a6a4361c2085f7d8cf13300045933367ab0f8
+[0.27.0]: https://github.com/szubster/dexhelper/compare/ae6a6a4361c2085f7d8cf13300045933367ab0f8...8c9667bddf112cc9f7de96ef0698e183e7153886
+[0.28.0]: https://github.com/szubster/dexhelper/compare/f5ca16255b8b52e07426a27723b7d2a10a3193ce...1cf13ad37fddbdb3d46ab5f515a02c5c8614b28a
+
+[0.29.0]: https://github.com/szubster/dexhelper/compare/1cf13ad37fddbdb3d46ab5f515a02c5c8614b28a...126e65d7c93cc154473e9bebaca1e599c163f006
+[1.1.0]: https://github.com/szubster/dexhelper/compare/6f834af...5898530
+[1.0.0]: https://github.com/szubster/dexhelper/compare/126e65d...0cc9b04
+
+[1.1.1]: https://github.com/szubster/dexhelper/compare/eca8138...ca65976
+[1.2.0]: https://github.com/szubster/dexhelper/compare/ca65976...4190489
+[1.3.0]: https://github.com/szubster/dexhelper/compare/4190489...4b11f2e

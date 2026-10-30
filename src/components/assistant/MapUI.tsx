@@ -1,15 +1,15 @@
+import { BikeBadge, EdgeLabel } from '@dexhelper/ui';
 import { MapPin } from 'lucide-react';
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import type { RouteRadarHeatmap } from '../../engine/radar/types';
-import { BikeBadge } from '../BikeBadge';
-import { EdgeLabel } from '../EdgeLabel';
 
 interface MapUIProps {
   heatmap: RouteRadarHeatmap;
   areaNames?: Record<number, string>;
 }
 
-export function MapUI({ heatmap, areaNames }: MapUIProps) {
+// ⚡ Bolt: Wrapped in React.memo to isolate Route Radar render cycle from parent AssistantPanel state updates.
+export const MapUI = memo(function MapUI({ heatmap, areaNames }: MapUIProps) {
   const areasWithSuggestions = useMemo(() => {
     return Object.entries(heatmap)
       .filter((entry) => entry[1].density > 0)
@@ -70,4 +70,4 @@ export function MapUI({ heatmap, areaNames }: MapUIProps) {
       </div>
     </div>
   );
-}
+});

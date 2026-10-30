@@ -1,10 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { LayoutGrid, ShieldAlert } from 'lucide-react';
+import {
+  MissedMilestonesWidget,
+  PokedexGapVisualizerWidget,
+  TrainerCardStatusWidget,
+} from '../components/dashboard/gen3';
 
 import { EmptyState } from '../components/EmptyState';
 import { Gen3PokeblocksDashboard, PokeblockOptimizerPanel } from '../components/pokeblocks';
 import { TacticalBlockHeader } from '../components/TacticalBlockHeader';
 import { TacticalPanel } from '../components/TacticalPanel';
+import { Gen3DashboardDataProvider } from '../contexts/Gen3DashboardDataContext';
 import { FeebasMapComponent } from '../features/feebas/components/FeebasMapComponent';
 import { useStore } from '../store';
 
@@ -20,19 +26,24 @@ function Gen3DashboardPage() {
   }
 
   return (
-    <div className="mb-20 flex h-full flex-col gap-6 pt-4 pb-[env(safe-area-inset-bottom,16px)] md:mb-0">
-      <TacticalPanel className="flex flex-col gap-4 p-4">
-        <TacticalBlockHeader
-          title="Gen 3 Transition Dashboard"
-          trackingLabel="SYS.G3DB.STATUS"
-          icon={<LayoutGrid size={12} />}
-        />
-        <div className="flex flex-col gap-4">
-          <FeebasMapComponent />
-          <Gen3PokeblocksDashboard />
-          <PokeblockOptimizerPanel />
-        </div>
-      </TacticalPanel>
-    </div>
+    <Gen3DashboardDataProvider>
+      <div className="mb-20 flex h-full flex-col gap-6 pt-4 pb-[env(safe-area-inset-bottom,16px)] md:mb-0">
+        <TacticalPanel className="flex flex-col gap-4 p-4">
+          <TacticalBlockHeader
+            title="Gen 3 Transition Dashboard"
+            trackingLabel="SYS.G3DB.STATUS"
+            icon={<LayoutGrid size={12} />}
+          />
+          <div className="flex flex-col gap-4">
+            <FeebasMapComponent />
+            <TrainerCardStatusWidget />
+            <MissedMilestonesWidget />
+            <PokedexGapVisualizerWidget />
+            <Gen3PokeblocksDashboard />
+            <PokeblockOptimizerPanel />
+          </div>
+        </TacticalPanel>
+      </div>
+    </Gen3DashboardDataProvider>
   );
 }

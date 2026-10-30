@@ -2,10 +2,10 @@
 id: story-346-678-event-flags-ui-components
 type: STORY
 title: Event Flags UI Components
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-15T18:49:48.604Z'
-updated_at: '2026-10-15T18:49:48.604Z'
+updated_at: '2026-10-25'
 depends_on:
   - epic-121-345-gen3-mystery-gift-data-extraction
 jules_session_id: null
@@ -31,7 +31,10 @@ Develop UI components to clearly indicate the status of special island event fla
 ## Acceptance Criteria
 - [ ] Create Event Flags display components.
 - [ ] Apply tactical aesthetic styling (ADR 008).
-- [ ] Tech Lead: Break this Story down into actionable Tasks.
+- [x] Tech Lead: Break this Story down into actionable Tasks.
+- [ ] task-678-712-event-flags-ui-components-impl
+- [ ] task-678-714-event-flags-ui-components-tests
+- [ ] task-678-713-event-flags-ui-components-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md

@@ -5,9 +5,9 @@ title: Write E2E Integration Tests for Orchestrator Telemetry Metrics
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-16T02:33:42.224Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-28'
 depends_on: []
-jules_session_id: '6599189769721140775'
+jules_session_id: '11020910039773160453'
 pr_number: null
 parent: story-530-561-telemetry-metrics-e2e
 tags:
@@ -17,7 +17,7 @@ tags:
   - e2e
   - tests
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

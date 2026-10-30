@@ -5,13 +5,13 @@ import { getGoogleDriveAccessToken } from '../google-drive-auth';
 import type { Env } from '../../types/env';
 
 vi.mock('../webhook-manager', () => ({
-  getActiveChannels: vi.fn<any>(),
-  saveActiveChannels: vi.fn<any>(),
-  getStartPageToken: vi.fn<any>(),
+  getActiveChannels: vi.fn<() => void>(),
+  saveActiveChannels: vi.fn<() => void>(),
+  getStartPageToken: vi.fn<() => void>(),
 }));
 
 vi.mock('../google-drive-auth', () => ({
-  getGoogleDriveAccessToken: vi.fn<any>(),
+  getGoogleDriveAccessToken: vi.fn<() => void>(),
 }));
 
 describe('webhook-renewal', () => {

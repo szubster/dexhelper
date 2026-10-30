@@ -28,6 +28,7 @@ import * as fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
+import { randomInt } from 'node:crypto';
 import { buildDocumentationIndex } from "./flexsearch-utils.ts";
 import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal, updateActiveSessionsTable, trackCycleDetectionFailure } from './dag-utils.ts';
 import { NodeFrontmatterSchema, type NodeFrontmatter } from './schema.ts';
@@ -85,7 +86,7 @@ const POKEMON_PHRASES = [
 ];
 
 function getRandomPokemonPhrase(): string {
-  const randomIndex = Math.floor(Math.random() * POKEMON_PHRASES.length);
+  const randomIndex = randomInt(0, POKEMON_PHRASES.length);
   return POKEMON_PHRASES[randomIndex];
 }
 
@@ -1105,6 +1106,15 @@ function main(): void {
   info('Phase 4: Resolving DAG — finding eligible PENDING nodes...');
   const eligible: ParsedNode[] = [];
 
+  const activeLocks = new Set<string>();
+  for (const node of nodes) {
+    if (node.frontmatter.status === 'ACTIVE' && node.frontmatter.locks) {
+      for (const lock of node.frontmatter.locks) {
+        activeLocks.add(lock);
+      }
+    }
+  }
+
   for (const node of nodes) {
     if (node.frontmatter.status !== 'PENDING') continue;
 
@@ -1165,6 +1175,18 @@ function main(): void {
       if (grandParents) {
         for (const gp of grandParents) {
           queue.push(gp);
+        }
+      }
+    }
+
+    if (blocked) continue;
+
+    if (node.frontmatter.locks) {
+      for (const lock of node.frontmatter.locks) {
+        if (activeLocks.has(lock)) {
+          info(`Node ${node.repoPath} is blocked by active lock: ${lock}`);
+          blocked = true;
+          break;
         }
       }
     }
@@ -1299,7 +1321,23 @@ function main(): void {
             promoteNodeStatus(node, 'PENDING', 'COMPLETED');
           }
         } else {
-          eligible.push(node);
+          let pushToEligible = true;
+          if (node.frontmatter.type === 'STORY') {
+            const childTasks = children.filter(child => child.frontmatter.type === 'TASK');
+            if (childTasks.length > 0 && childTasks.length <= 2) {
+              const acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
+              const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
+              const acceptanceCriteriaCount = (acceptanceCriteriaText.match(/^\s*-\s*\[[xX\s]\]/gm) || []).length;
+              if (acceptanceCriteriaCount > 2) {
+                info(`Two-Tasks-Max anti-pattern detected for ${node.repoPath}: ${childTasks.length} tasks for ${acceptanceCriteriaCount} criteria. Promoting to FAILED.`);
+                promoteNodeToFailedWithReason(node, 'Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few TASK nodes');
+                pushToEligible = false;
+              }
+            }
+          }
+          if (pushToEligible) {
+            eligible.push(node);
+          }
         }
       }
     }
@@ -1400,6 +1438,26 @@ function main(): void {
                   continue; // Skip promoting to COMPLETED
                 }
               }
+
+              if (node.frontmatter.type === 'STORY') {
+                const childTasks = children.filter(child => child.frontmatter.type === 'TASK');
+                if (childTasks.length > 0 && childTasks.length <= 2) {
+                  const acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
+                  const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
+                  const acceptanceCriteriaCount = (acceptanceCriteriaText.match(/^\s*-\s*\[[xX\s]\]/gm) || []).length;
+                  if (acceptanceCriteriaCount > 2) {
+                    info(`Late-Binding Parent Complete: ${node.repoPath} has completed children, but violates Two-Tasks-Max anti-pattern (${childTasks.length} tasks for ${acceptanceCriteriaCount} criteria). Promoting to FAILED.`);
+                    promoteNodeToFailedWithReason(node, 'Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few TASK nodes');
+                    const idx = eligible.indexOf(node);
+                    if (idx !== -1) {
+                      eligible.splice(idx, 1);
+                    }
+                    continue;
+                  }
+                }
+              }
+
+
 
               info(`Late-Binding Parent Complete: ${node.repoPath} has children and all are COMPLETED. Promoting directly to COMPLETED.`);
               if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona !== 'curator' && node.frontmatter.owner_persona !== 'auditor') {

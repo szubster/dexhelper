@@ -2,10 +2,10 @@
 id: story-420-478-background-fetching-e2e-verification
 type: STORY
 title: E2E and Integration Verification for Msgpack Prefetching
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-13'
+updated_at: '2026-10-25'
 depends_on:
   - story-420-477-implement-msgpack-prefetching
 jules_session_id: null
@@ -33,6 +33,6 @@ Verify that the generation-specific msgpack files are prefetched correctly witho
 
 ## Acceptance Criteria
 - [x] Break down into Tasks.
-- [ ] task-478-617-msgpack-prefetch-integration-tests
-- [ ] task-478-618-msgpack-prefetch-e2e-tests
-- [ ] task-478-619-msgpack-prefetch-qa
+- [x] task-478-617-msgpack-prefetch-integration-tests
+- [x] task-478-618-msgpack-prefetch-e2e-tests
+- [x] task-478-619-msgpack-prefetch-qa

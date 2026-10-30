@@ -5,7 +5,7 @@ title: Implement E2E Tests for New Save Fixtures (Retry 2)
 status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-19'
+updated_at: '2026-10-27'
 depends_on:
   - research-472-675-investigate-e2e-tests-failure-v2
 jules_session_id: null
@@ -16,7 +16,7 @@ tags:
   - e2e
   - fixtures
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

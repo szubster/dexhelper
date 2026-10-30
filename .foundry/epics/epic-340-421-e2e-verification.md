@@ -5,7 +5,7 @@ title: Bundle and Data splitting E2E Verification
 status: PENDING
 owner_persona: story_owner
 created_at: '2026-08-13'
-updated_at: '2026-08-13'
+updated_at: '2026-10-25'
 depends_on:
   - epic-340-417-engine-code-splitting
   - epic-340-418-ui-component-splitting
@@ -19,6 +19,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # EPIC: Bundle and Data splitting E2E Verification
 
@@ -31,5 +32,7 @@ Ensure the system functionality has not been compromised by code and data splitt
 - Validate that the correct background fetching functions seamlessly without issues.
 
 ## Acceptance Criteria
-- [ ] Break down this epic into stories.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Break down this epic into stories.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-421-726-splitting-validation
+- [ ] story-421-727-splitting-e2e-verification

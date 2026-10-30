@@ -1,12 +1,11 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import React from 'react';
-import { getMissingGen1SafariEncounters } from '../../engine/safariZone/gen1/missingEncounters';
-import { getMissingGen3SafariEncounters } from '../../engine/safariZone/gen3/missingEncounters';
+import { getMissingSafariEncounters } from '../../engine/safariZone/missingEncounters';
 import type { SaveData } from '../../engine/saveParser/parsers/common';
 import { pokemonListQueryOptions } from '../../utils/pokemonQueries';
 import { EmptyState } from '../EmptyState';
 import { PokemonSprite } from '../pokemon/PokemonSprite';
-import { TacticalBadge } from '../TacticalBadge';
 import { TacticalCard } from '../TacticalCard';
 import { TacticalPanel } from '../TacticalPanel';
 
@@ -25,12 +24,7 @@ export default function SafariZoneEncountersList({ saveData }: Props) {
     return map;
   }, [pokemonList]);
 
-  const missingAreas =
-    saveData.generation === 1
-      ? getMissingGen1SafariEncounters(saveData)
-      : saveData.generation === 3
-        ? getMissingGen3SafariEncounters(saveData)
-        : [];
+  const missingAreas = getMissingSafariEncounters(saveData);
 
   const gameVersion = saveData.gameVersion;
 

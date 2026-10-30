@@ -1,6 +1,6 @@
+import { TacticalButton } from '@dexhelper/ui';
 import React from 'react';
 import { cn } from '../utils/cn';
-import { TacticalButton } from './TacticalButton';
 
 interface ClearFiltersBadgeProps {
   isActive: boolean;
@@ -30,7 +30,9 @@ export const ClearFiltersBadge = React.memo(function ClearFiltersBadge({ isActiv
           isActive ? 'bg-[var(--theme-primary)] shadow-[0_0_5px_var(--theme-primary)]' : 'bg-zinc-800',
         )}
       />
-      <span aria-hidden="true">[ </span>ALL<span aria-hidden="true"> ]</span>
+      <span className="whitespace-nowrap">
+        <span aria-hidden="true">[ </span>ALL<span aria-hidden="true"> ]</span>
+      </span>
     </TacticalButton>
   );
 });

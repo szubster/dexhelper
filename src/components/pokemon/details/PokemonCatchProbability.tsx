@@ -1,3 +1,4 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import { Target } from 'lucide-react';
 import React, { useEffect, useMemo, useState } from 'react';
 import type { PokeballType } from '../../../store';
@@ -5,7 +6,6 @@ import { cn } from '../../../utils/cn';
 import { PanelWatermark } from '../../PanelWatermark';
 import { PokeballIcon } from '../../PokeballIcon';
 import { SectionHeader } from '../../SectionHeader';
-import { TacticalBadge } from '../../TacticalBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 
 interface PokemonCatchProbabilityProps {

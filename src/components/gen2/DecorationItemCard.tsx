@@ -1,6 +1,6 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import type React from 'react';
 import type { DecorationItem } from '../../features/decorations/types';
-import { TacticalBadge } from '../TacticalBadge';
 
 export interface DecorationItemCardProps {
   item: DecorationItem;

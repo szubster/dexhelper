@@ -33,6 +33,34 @@ describe('Lottery Matching Logic', () => {
       expect(calculateLotteryTier(12, 99012)).toBe(3); // 00012 vs 99012 -> 3 matches -> tier 3
       expect(calculateLotteryTier(12, 90012)).toBe(2); // 00012 vs 90012 -> 4 matches -> tier 2
     });
+
+    it.each([
+      { otId: 0, winningNumber: 0, expectedTier: 1, description: 'min boundary 0 vs 0 (5-digit match)' },
+      { otId: 0, winningNumber: 11111, expectedTier: 0, description: 'min boundary 0 vs 11111 (0 matches)' },
+      {
+        otId: 0,
+        winningNumber: 10000,
+        expectedTier: 2,
+        description: '00000 vs 10000 trailing 4 zeros (4-digit match -> Tier 2)',
+      },
+      {
+        otId: 65535,
+        winningNumber: 65535,
+        expectedTier: 1,
+        description: 'max 16-bit TID 65535 vs 65535 (5-digit match)',
+      },
+      {
+        otId: 65535,
+        winningNumber: 55535,
+        expectedTier: 2,
+        description: 'max 16-bit TID 65535 vs 55535 (4-digit match)',
+      },
+      { otId: 65535, winningNumber: 0, expectedTier: 0, description: 'max 16-bit TID 65535 vs 0 (0 matches)' },
+      { otId: 99999, winningNumber: 99999, expectedTier: 1, description: '5-digit max 99999 vs 99999 (5-digit match)' },
+      { otId: 0, winningNumber: 5, expectedTier: 0, description: '0 vs 5 (no trailing match because 00000 vs 00005)' },
+    ])('parameterized boundary case: $description', ({ otId, winningNumber, expectedTier }) => {
+      expect(calculateLotteryTier(otId, winningNumber)).toBe(expectedTier);
+    });
   });
 
   describe('getBestLotteryMatch', () => {

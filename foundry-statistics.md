@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-20T22:48:13.245Z*
+*Generated at: 2026-10-30T09:09:40.567Z*
 
 ## Node Statistics
 
@@ -8,32 +8,31 @@
 | Type | Count |
 |---|---|
 | ADR | 44 |
-| EPIC | 499 |
-| IDEA | 233 |
-| PRD | 207 |
-| RESEARCH | 301 |
-| STORY | 1053 |
-| TASK | 2674 |
+| EPIC | 518 |
+| IDEA | 235 |
+| PRD | 217 |
+| RESEARCH | 328 |
+| STORY | 1083 |
+| TASK | 2822 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3256 |
-| ACTIVE | 143 |
-| CANCELLED | 800 |
+| COMPLETED | 3415 |
+| ACTIVE | 166 |
+| CANCELLED | 883 |
 | PENDING | 768 |
-| READY | 27 |
 | BLOCKED | 14 |
-| FAILED | 3 |
+| READY | 1 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
-| Total PRs | 9796 |
-| Open PRs | 158 |
-| Merged PRs | 8490 |
-| Closed PRs | 1148 |
+| Total PRs | 10000 |
+| Open PRs | 201 |
+| Merged PRs | 8664 |
+| Closed PRs | 1135 |
 
 ## Rejection Counts
 
@@ -68,6 +67,7 @@
 | epic-114-327-gen3-pokeblock-case-parsing.md | 3 |
 | epic-120-338-implement-conflictless-journals.md | 3 |
 | prd-067-036-extract-dag-utils.md | 3 |
+| research-531-620-investigate-mgba-memory-sync-failure.md | 3 |
 | story-002-personas.md | 3 |
 | story-130-270-rng-tid-sid-integration.md | 3 |
 | story-136-295-gen1-checklist-ui.md | 3 |
@@ -88,6 +88,7 @@
 | task-116-169-battle-frontier-dashboard-impl.md | 3 |
 | task-121-309-gen3-tv-block-parser-retry6-impl.md | 3 |
 | task-128-181-implement-item-list-parsing.md | 3 |
+| task-136-491-permanent-failure-kanban-ui-impl.md | 3 |
 | task-254-261-shiny-carrier-breeding-view-qa.md | 3 |
 | task-261-331-npc-trade-state-integration-impl.md | 3 |
 | task-267-261-gen3-ash-dataview-extraction-impl.md | 3 |
@@ -106,6 +107,7 @@
 | task-361-495-sorting-algorithms-e2e-impl-retry.md | 3 |
 | task-363-415-trade-extraction-e2e-impl.md | 3 |
 | task-490-525-progression-switcher-e2e-impl.md | 3 |
+| task-531-568-mgba-memory-sync-core.md | 3 |
 | epic-037-055-gen3-berry-tracker-data-extraction.md | 3 |
 | epic-041-066-global-ribbon-checklist-dashboard.md | 3 |
 | epic-047-081-gen3-tv-swarm-data-extraction.md | 3 |
@@ -131,6 +133,7 @@
 | research-477-611-investigate-apricorn-failure-v2.md | 3 |
 | research-478-638-investigate-cloning-logic-failure.md | 3 |
 | research-478-668-investigate-locking-failure.md | 3 |
+| research-478-703-investigate-kurt-apricorn-core-logic-failure.md | 3 |
 | research-485-471-source-gen1-gen2-saves-manually.md | 3 |
 | research-490-604-investigate-other-gen1-personas-failure.md | 3 |
 | research-490-676-investigate-badge-injection-failure.md | 3 |
@@ -141,18 +144,20 @@
 | research-523-690-investigate-gen3-move-tutor-fixtures-failure.md | 3 |
 | research-527-673-investigate-safari-zone-area-map-failure.md | 3 |
 | research-527-690-investigate-safari-zone-area-map-failure-v2.md | 3 |
-| research-531-620-investigate-mgba-memory-sync-failure.md | 3 |
 | research-534-676-investigate-idea-reverification-failure.md | 3 |
 | research-537-689-investigate-runtime-state-hydration-failure.md | 3 |
 | research-551-690-investigate-orchestrator-priority-tests-v2-failure.md | 3 |
 | research-562-668-investigate-gen2-wild-encounter-extraction-failure.md | 3 |
 | research-562-680-investigate-moms-savings-ui-failure.md | 3 |
 | research-562-687-investigate-gen2-wild-encounter-extraction-failure-retry.md | 3 |
+| research-562-703-investigate-moms-savings-ui-failure-v2.md | 3 |
 | research-563-640-investigate-map-data-extraction-failure.md | 3 |
 | research-566-668-investigate-orchestrator-diagnosis-failure.md | 3 |
 | research-566-676-investigate-orchestrator-diagnosis-failure-v2.md | 3 |
+| research-579-728-investigate-react-flow-e2e-failure.md | 3 |
 | research-608-673-investigate-text-search-e2e-failure.md | 3 |
 | research-608-690-investigate-text-search-e2e-failure-v2.md | 3 |
+| research-638-712-investigate-constants-extraction-v4-failure.md | 3 |
 | research-639-658-investigate-extract-data-scripts-failure.md | 3 |
 | research-639-668-investigate-primitives-migration-failures.md | 3 |
 | research-639-675-investigate-primitives-migration-failures-v2.md | 3 |
@@ -160,11 +165,11 @@
 | research-641-668-investigate-hexstream-telemetry-failure.md | 3 |
 | research-641-673-investigate-scanline-crosshairs-failure.md | 3 |
 | research-645-687-investigate-dashboard-metrics-e2e-failure.md | 3 |
+| research-676-721-investigate-fuzzer-deadlock-assertions-failure.md | 3 |
 | story-525-639-extract-data-generation-scripts.md | 3 |
 | story-553-563-gen3-map-data-extraction.md | 3 |
 | task-081-130-preserve-enum-optimizations-impl.md | 3 |
 | task-081-144-preserve-enum-optimizations-retry-impl.md | 3 |
-| task-136-491-permanent-failure-kanban-ui-impl.md | 3 |
 | task-152-258-gen3-friendship-impl.md | 3 |
 | task-152-470-gen3-friendship-impl-v2.md | 3 |
 | task-241-440-daycare-gen3-parsing-impl.md | 3 |
@@ -232,6 +237,7 @@
 | task-478-667-kurt-apricorn-types.md | 3 |
 | task-478-669-orchestrator-cloning-logic-retry-3.md | 3 |
 | task-478-678-kurt-apricorn-core-logic-retry.md | 3 |
+| task-478-688-orchestrator-cloning-logic-retry-4.md | 3 |
 | task-479-576-gen3-pokeblock-e2e-impl.md | 3 |
 | task-479-676-gen2-unown-dex-e2e-tests.md | 3 |
 | task-490-504-visualize-dag-statuses-impl.md | 3 |
@@ -259,9 +265,12 @@
 | task-522-680-wip-signaling-e2e-tests.md | 3 |
 | task-522-685-wip-awareness-e2e-orchestrator-tests.md | 3 |
 | task-523-676-gen3-move-tutor-e2e-fixtures.md | 3 |
+| task-523-707-box-analyzer-matrix-e2e-tabular-data.md | 3 |
 | task-526-554-pathfinder-selection-components-impl.md | 3 |
 | task-527-596-safari-zone-area-map-ui.md | 3 |
-| task-531-568-mgba-memory-sync-core.md | 3 |
+| task-527-669-pathfinder-chain-viz-ui.md | 3 |
+| task-528-677-safari-zone-bounty-board-ui.md | 3 |
+| task-528-692-wip-banner-e2e-tests.md | 3 |
 | task-533-536-orchestrator-curator-trigger-logic-impl.md | 3 |
 | task-533-617-orchestrator-curator-trigger-logic-retry.md | 3 |
 | task-534-668-orchestrator-idea-reverification-impl.md | 3 |
@@ -277,6 +286,7 @@
 | task-559-668-query-formulation-impl.md | 3 |
 | task-560-568-tm-hm-compatibility-matching-impl.md | 3 |
 | task-560-609-tm-hm-compatibility-matching-impl-retry.md | 3 |
+| task-561-669-spinda-rendering-ui.md | 3 |
 | task-561-680-orchestrator-dag-graphology-impl.md | 3 |
 | task-562-579-gen2-wild-item-extraction-logic-impl.md | 3 |
 | task-562-579-wild-item-selection-ui.md | 3 |
@@ -287,35 +297,51 @@
 | task-563-582-map-data-extraction-logic.md | 3 |
 | task-563-667-routes-encounters-data-fetching-impl.md | 3 |
 | task-563-677-routes-encounters-data-fetching-retry.md | 3 |
+| task-563-691-save-file-progress-e2e-coder-retry.md | 3 |
 | task-564-571-gen3-pokedex-gaps-ui-impl.md | 3 |
 | task-564-581-pokeblock-e2e-fixtures.md | 3 |
 | task-564-587-gen2-room-decoration-e2e-tests.md | 3 |
+| task-564-602-pokemon-held-item-tracker-extraction.md | 3 |
+| task-564-669-gen2-roamer-e2e-tests.md | 3 |
+| task-564-691-gen3-pokedex-gaps-ui-impl-retry.md | 3 |
 | task-566-582-orchestrator-diagnosis-logic.md | 3 |
 | task-566-602-progress-tracker-e2e-implementation.md | 3 |
 | task-567-586-shoal-cave-e2e-coder.md | 3 |
 | task-570-590-cva-tactical-aesthetic-e2e-coder.md | 3 |
 | task-574-690-item-gating-ui-components.md | 3 |
+| task-579-687-react-flow-visualizer-e2e-tests.md | 3 |
 | task-586-687-multi-box-integration-impl.md | 3 |
 | task-608-619-multi-box-text-search-engine-e2e.md | 3 |
+| task-618-703-multi-box-search-highlight-impl.md | 3 |
 | task-619-687-multi-box-stat-filters-e2e-tests.md | 3 |
 | task-638-641-extract-constants-to-core.md | 3 |
 | task-638-666-extract-constants-to-core-retry.md | 3 |
 | task-638-669-extract-constants-to-core-v3.md | 3 |
+| task-638-691-extract-constants-to-core-v4.md | 3 |
+| task-638-717-extract-constants-to-core-v6.md | 3 |
 | task-639-641-extract-base-save-parsers.md | 3 |
 | task-639-641-extract-data-generation-scripts.md | 3 |
 | task-639-658-migrate-buttons-impl.md | 3 |
 | task-639-659-migrate-badges-impl.md | 3 |
 | task-639-660-migrate-inputs-leds-impl.md | 3 |
 | task-639-674-extract-data-generation-scripts-v4.md | 3 |
+| task-639-688-migrate-buttons-impl-v4.md | 3 |
+| task-639-689-migrate-badges-impl-v4.md | 3 |
+| task-639-690-migrate-inputs-leds-impl-v4.md | 3 |
 | task-640-641-relocate-foundry-scripts.md | 3 |
 | task-640-646-extract-core-domain-logic-replacement.md | 3 |
 | task-640-659-extract-utils-to-core.md | 3 |
 | task-640-669-extract-utils-to-core-retry.md | 3 |
+| task-640-688-extract-utils-to-core-retry-v2.md | 3 |
 | task-641-658-migrate-scanline-crosshairs.md | 3 |
 | task-641-659-migrate-hexstream-telemetry.md | 3 |
 | task-645-668-dashboard-metrics-integration-e2e-impl.md | 3 |
 | task-645-669-tactical-aesthetics-e2e-base-qa.md | 3 |
+| task-645-691-dashboard-metrics-integration-e2e-impl-retry-2.md | 3 |
+| task-649-702-priority-dispatch-coder.md | 3 |
 | task-674-700-migrate-pokedex-e2e-tests-coder.md | 3 |
+| task-676-712-fuzzer-deadlock-assertions-impl.md | 3 |
+| task-679-712-pokeblock-dashboard-ui-impl.md | 3 |
 | epic-009-atomic-handoff-testing.md | 2 |
 | epic-014-025-enforce-persona-pipeline-handoffs.md | 2 |
 | epic-030-039-cloudflare-r2-save-sync.md | 2 |
@@ -324,6 +350,7 @@
 | epic-071-100-tailwind-designer-persona-retry.md | 2 |
 | epic-100-130-rng-tid-sid-display.md | 2 |
 | epic-106-136-pc-box-sorting-algorithms.md | 2 |
+| prd-063-034-permanent-failure-dashboard.md | 2 |
 | story-028-045-cross-region-distance.md | 2 |
 | story-031-050-enforce-acceptance-criteria-completion.md | 2 |
 | story-032-062-gen3-data-generation-scripts.md | 2 |
@@ -382,7 +409,6 @@
 | idea-066-rom-hack-support.md | 2 |
 | idea-066-save-file-health-scanner.md | 2 |
 | idea-157-gen2-headbutt-tree-predictor.md | 2 |
-| prd-063-034-permanent-failure-dashboard.md | 2 |
 | prd-071-044-gen3-roamer-tracker.md | 2 |
 | prd-089-054-gen3-ash-gathering-tracker.md | 2 |
 | prd-421-521-automated-schema-linting.md | 2 |
@@ -392,8 +418,13 @@
 | research-478-676-investigate-locking-failure-retry.md | 2 |
 | research-517-668-investigate-orchestrator-generic-prompt-failure.md | 2 |
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
+| research-521-703-gen3-submodules-constants-failure.md | 2 |
+| research-527-712-investigate-safari-zone-area-map-failure-v3.md | 2 |
+| research-537-708-investigate-hydration-failure-retry-v2.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
+| research-563-704-investigate-routes-encounters-failure-v2.md | 2 |
+| research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
@@ -415,6 +446,7 @@
 | story-512-521-gen2-bug-catching-contest-core-data.md | 2 |
 | story-540-562-gen3-pokeblock-recommendation-engine.md | 2 |
 | story-553-562-gen3-missed-items-parsing.md | 2 |
+| story-577-586-multi-box-integration-e2e.md | 2 |
 | task-121-327-gen3-tv-block-parser-retry7-impl.md | 2 |
 | task-140-440-ribbon-dashboard-virtualization-impl.md | 2 |
 | task-273-394-living-dex-pc-mapping-retry-impl.md | 2 |
@@ -446,6 +478,8 @@
 | task-443-490-box-analyzer-gen3-e2e-impl.md | 2 |
 | task-443-490-implement-gen2-savings-e2e.md | 2 |
 | task-470-485-source-gen1-gen2-saves.md | 2 |
+| task-472-676-implement-e2e-tests-retry-2.md | 2 |
+| task-472-677-qa-tests-verification-retry-2.md | 2 |
 | task-473-493-dag-context-e2e-mock-data.md | 2 |
 | task-473-494-gen3-egg-hatch-e2e-impl.md | 2 |
 | task-473-640-gen3-condition-stats-qa-v3.md | 2 |
@@ -457,6 +491,7 @@
 | task-478-677-aggregate-active-locks-retry-2.md | 2 |
 | task-490-502-render-persona-badges-impl.md | 2 |
 | task-495-550-hof-export-image-renderer.md | 2 |
+| task-513-689-update-orchestrator-tests.md | 2 |
 | task-519-546-dashboard-layouts-coder.md | 2 |
 | task-520-530-statistics-report-integration-impl.md | 2 |
 | task-520-549-define-gen2-constants-impl.md | 2 |
@@ -466,9 +501,11 @@
 | task-521-528-statistics-e2e.md | 2 |
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
-| task-528-677-safari-zone-bounty-board-ui.md | 2 |
+| task-527-675-drive-webhook-qa.md | 2 |
+| task-533-677-savedatareader-e2e-tests.md | 2 |
 | task-536-562-implement-mocking-utilities.md | 2 |
 | task-536-564-playwright-style-guide-mock-utils.md | 2 |
+| task-537-680-remove-xyflow-deps.md | 2 |
 | task-550-563-implement-idea-matrix-updater.md | 2 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 2 |
 | task-552-681-curator-e2e-domain-overlap-tests.md | 2 |
@@ -485,8 +522,9 @@
 | task-563-578-save-file-progress-fixtures-coder.md | 2 |
 | task-563-586-develop-migration-script.md | 2 |
 | task-563-669-gen3-wild-item-data-parsing-logic-retry.md | 2 |
+| task-563-675-complexity-validation-tests-retry.md | 2 |
+| task-563-680-gen2-bag-inventory-parsing-impl.md | 2 |
 | task-564-565-gen3-trainer-card-e2e-tests.md | 2 |
-| task-564-602-pokemon-held-item-tracker-extraction.md | 2 |
 | task-564-604-pokemon-held-item-tracker-qa.md | 2 |
 | task-564-680-thief-covet-ui-integration-components.md | 2 |
 | task-565-576-gen3-pokedex-gaps-e2e-coder.md | 2 |
@@ -495,13 +533,17 @@
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
+| task-639-722-migrate-buttons-impl-v5.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
+| task-676-707-rematch-dashboard-layout-impl.md | 2 |
+| task-676-716-trainer-card-types.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
 | epic-018-028-migrate-heartbeat-to-gray-matter.md | 1 |
 | epic-019-030-orchestrator-test-factories.md | 1 |
 | epic-031-036-progression-tracking.md | 1 |
+| epic-034-047-permanent-failure-dashboard-ui.md | 1 |
 | epic-037-058-hidden-items-save-parsing.md | 1 |
 | epic-037-058-unown-tracker-engine.md | 1 |
 | epic-041-065-individual-contest-stats-view.md | 1 |
@@ -509,10 +551,12 @@
 | epic-043-153-gen3-roamer-map-translation.md | 1 |
 | epic-043-154-gen3-roamer-radar-widget.md | 1 |
 | epic-043-155-gen3-roamer-map-integration.md | 1 |
+| epic-045-071-documentation-macro-node-completion.md | 1 |
 | epic-049-087-dynamic-item-list-parsing.md | 1 |
 | epic-055-113-egg-move-pathfinding-engine.md | 1 |
 | epic-055-116-pokegear-active-callers.md | 1 |
 | epic-055-118-pokegear-alerts.md | 1 |
+| epic-057-420-bash-timeout-wrapper-retry.md | 1 |
 | epic-071-074-define-tailwind-v4-utilities.md | 1 |
 | epic-099-397-indexeddb-schema-design-retry.md | 1 |
 | epic-106-137-gen2-static-encounters.md | 1 |
@@ -522,6 +566,7 @@
 | idea-065-epic-verification-timing.md | 1 |
 | idea-066-enforce-gray-matter-linter.md | 1 |
 | idea-067-extract-dag-utils.md | 1 |
+| idea-086-fix-gen3save-mock.md | 1 |
 | prd-006-017-gen2-expansion-phase-3-4.md | 1 |
 | prd-020-020-enforce-acceptance-criteria-completion.md | 1 |
 | prd-124-339-librarian-persona-context-optimizer.md | 1 |
@@ -532,6 +577,7 @@
 | research-101-157-gen3-condition-stats-offsets.md | 1 |
 | research-103-157-gen3-ribbon-offsets.md | 1 |
 | research-109-262-secret-base-party-offsets.md | 1 |
+| research-136-530-investigate-kanban-ui-timeout.md | 1 |
 | research-157-369-gen3-party-box-offsets.md | 1 |
 | research-283-336-gen2-phone-memory-offsets.md | 1 |
 | research-327-385-gen3-pc-box-offsets.md | 1 |
@@ -655,7 +701,6 @@
 | task-644-649-orchestrator-confidence-intervention-impl.md | 1 |
 | task-645-665-agent-capability-integration-e2e-impl.md | 1 |
 | adr-479-032-adr-008-exceptions.md | 1 |
-| epic-034-047-permanent-failure-dashboard-ui.md | 1 |
 | epic-035-048-smart-radar-data-unification.md | 1 |
 | epic-036-058-feebas-backend-parsing.md | 1 |
 | epic-038-061-gen2-event-flag-parsing.md | 1 |
@@ -668,7 +713,6 @@
 | epic-044-398-gen3-roamer-iv-glitch-v5.md | 1 |
 | epic-044-399-gen3-roamer-dashboard-ui-v7.md | 1 |
 | epic-045-070-implement-dag-context.md | 1 |
-| epic-045-071-documentation-macro-node-completion.md | 1 |
 | epic-046-079-gen3-battle-frontier-dashboard-ui.md | 1 |
 | epic-048-083-gen3-match-call-save-parsing.md | 1 |
 | epic-048-084-gen3-match-call-static-data.md | 1 |
@@ -677,7 +721,6 @@
 | epic-053-105-daycare-save-parsing.md | 1 |
 | epic-053-106-egg-hatch-parsing.md | 1 |
 | epic-054-108-box-analyzer-save-parsing.md | 1 |
-| epic-057-420-bash-timeout-wrapper-retry.md | 1 |
 | epic-099-398-save-state-read-write-api-retry.md | 1 |
 | epic-099-399-save-state-lru-eviction-and-limits-retry.md | 1 |
 | epic-103-133-living-dex-data-engine.md | 1 |
@@ -693,12 +736,14 @@
 | epic-519-525-extract-build-tooling.md | 1 |
 | epic-521-553-schema-linter-integration.md | 1 |
 | epic-566-580-e2e-test-migration.md | 1 |
+| epic-583-690-cycle-detection-algorithm-core.md | 1 |
 | idea-059-multi-save-trade-planner.md | 1 |
 | idea-064-smart-route-radar.md | 1 |
 | idea-071-tailwind-v4-utilities-migration.md | 1 |
 | idea-083-daycare-egg-tracker.md | 1 |
 | idea-116-gen3-pc-box-wallpaper-customizer.md | 1 |
 | idea-117-split-bundles-and-data.md | 1 |
+| idea-118-centralize-prompt-reminders.md | 1 |
 | idea-122-foundry-lead-time-metrics.md | 1 |
 | idea-122-pokemon-themed-foundry-personas.md | 1 |
 | idea-137-builtin-emulator.md | 1 |
@@ -708,6 +753,8 @@
 | idea-532-e2e-dependency-validator-lint.md | 1 |
 | idea-537-artifact-presence-precommit-validator.md | 1 |
 | idea-538-context-provider-root-wiring-linter.md | 1 |
+| idea-540-multi-save-diffing-and-trade-simulation.md | 1 |
+| idea-540-tree-completeness-and-false-failure-prevention-heuristics.md | 1 |
 | prd-064-035-smart-route-radar.md | 1 |
 | prd-068-038-mirage-island-data-extraction.md | 1 |
 | prd-069-038-mirage-island-predictor.md | 1 |
@@ -720,8 +767,11 @@
 | prd-110-112-npc-size-record-assistant.md | 1 |
 | prd-113-114-gen3-pokeblock-stats-viewer.md | 1 |
 | prd-114-516-update-permanent-failure-dashboard-ui.md | 1 |
+| prd-528-587-playwright-relative-path-linter.md | 1 |
+| prd-530-587-strict-frontmatter-yaml-parsing-rule.md | 1 |
 | prd-535-586-false-permanent-failure-detection.md | 1 |
-| research-136-530-investigate-kanban-ui-timeout.md | 1 |
+| prd-540-726-tree-completeness-and-false-failure-prevention-heuristics.md | 1 |
+| research-047-586-tv-swarm-extraction-failure.md | 1 |
 | research-246-244-gen3-box-parsing.md | 1 |
 | research-338-556-investigate-unown-parsing-timeout.md | 1 |
 | research-348-506-investigate-ui-impl-failure.md | 1 |
@@ -739,31 +789,39 @@
 | research-479-608-investigate-gen3-pokeblock-e2e-failure.md | 1 |
 | research-494-495-gen3-egg-hatch-fixture.md | 1 |
 | research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |
+| research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
+| research-559-704-investigate-query-formulation-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
+| research-562-710-investigate-gen2-wild-encounter-extraction-failure-v3.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
 | research-564-690-investigate-gen3-pokedex-gaps-ui-failure.md | 1 |
-| research-567-690-investigate-shoal-cave-e2e-failure.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
+| research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
+| story-018-513-orchestrator-test-updates.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
 | story-061-473-mirage-island-engine-e2e.md | 1 |
 | story-081-121-gen3-tv-block-dataview-parser.md | 1 |
 | story-081-279-gen3-ignore-emulator-trailing-bytes.md | 1 |
+| story-085-676-rematch-dashboard-layout-and-routing.md | 1 |
 | story-105-649-daycare-save-parsing-e2e.md | 1 |
 | story-109-520-box-analyzer-view-layout.md | 1 |
+| story-109-523-box-analyzer-matrix-e2e.md | 1 |
+| story-112-403-integration-e2e.md | 1 |
 | story-133-273-living-dex-pc-mapping.md | 1 |
 | story-133-476-gen3-ribbon-e2e-verification.md | 1 |
 | story-134-475-gen3-condition-stats-extraction-e2e.md | 1 |
 | story-134-524-living-dex-ghosts-and-styling.md | 1 |
 | story-136-330-gen1-checklist-ui-retry.md | 1 |
+| story-140-564-gen2-roamer-translation-integration.md | 1 |
 | story-269-647-gen3-ash-dashboard-ui.md | 1 |
 | story-335-563-develop-migration-script.md | 1 |
 | story-346-560-spinda-spot-coordinate-algorithm.md | 1 |
@@ -781,6 +839,7 @@
 | story-513-537-gen3-berry-serialization-and-api.md | 1 |
 | story-517-537-gen3-weather-anomaly-data-e2e.md | 1 |
 | story-517-551-implement-deletion-chunking.md | 1 |
+| story-521-533-savedatareader-e2e.md | 1 |
 | story-525-640-relocate-foundry-scripts.md | 1 |
 | story-526-638-extract-constants.md | 1 |
 | story-526-639-extract-parsers.md | 1 |
@@ -793,6 +852,7 @@
 | story-534-559-rag-dynamic-querying-retrieval.md | 1 |
 | story-535-556-heatmap-toggle-ui.md | 1 |
 | story-535-557-react-flow-node-styling.md | 1 |
+| story-535-679-adr-acceptance-criteria.md | 1 |
 | story-536-540-benchmarking-ts7-toolchains.md | 1 |
 | story-536-541-benchmarking-node-native-execution.md | 1 |
 | story-536-542-migration-orchestration-plan.md | 1 |
@@ -800,13 +860,16 @@
 | story-537-550-integration-e2e-verification.md | 1 |
 | story-540-563-gen3-pokeblock-optimizer-ui.md | 1 |
 | story-550-573-tree-level-completeness-logic.md | 1 |
+| story-552-564-gen3-map-e2e-verification.md | 1 |
 | story-554-562-gen3-dashboard-layout-and-routing.md | 1 |
 | story-554-563-inventory-item-tracker.md | 1 |
 | story-555-564-lint-schema-frontmatter-validation.md | 1 |
 | story-565-567-lazy-load-e2e-verification.md | 1 |
 | story-566-570-cva-theme-variables-e2e-verification.md | 1 |
 | story-568-644-cva-visual-regression-tests.md | 1 |
-| story-577-586-multi-box-integration-e2e.md | 1 |
+| story-569-582-gen3-secret-base-party-extraction.md | 1 |
+| story-576-618-multi-box-search-visual-highlighting.md | 1 |
+| story-580-674-migrate-pokedex-e2e-tests.md | 1 |
 | task-094-157-moveset-inventory-validation-impl.md | 1 |
 | task-099-157-gen3-extract-pokemon-pids-impl.md | 1 |
 | task-099-158-gen3-extract-pokemon-pids-qa.md | 1 |
@@ -822,6 +885,7 @@
 | task-358-426-gen3-contest-museum-parsing-impl.md | 1 |
 | task-405-486-gen3-mixed-record-parser-qa-v2.md | 1 |
 | task-406-526-gen3-rematch-parser-impl.md | 1 |
+| task-407-679-qa-e2e-secret-base-retry.md | 1 |
 | task-408-417-gen3-trainer-flags-testing-qa.md | 1 |
 | task-408-431-gen1-tm-hm-parsing-qa.md | 1 |
 | task-411-512-tm-hm-integration-e2e-impl-v2.md | 1 |
@@ -893,7 +957,6 @@
 | task-499-615-tpm-distillation-e2e-implementation.md | 1 |
 | task-512-517-implement-idempotent-bypass.md | 1 |
 | task-512-618-qa-idempotent-bypass-retry.md | 1 |
-| task-513-689-update-orchestrator-tests.md | 1 |
 | task-518-680-orchestrator-integration-e2e-fixtures.md | 1 |
 | task-520-531-statistics-generation-qa.md | 1 |
 | task-520-540-refactor-gen3-items-and-trades-parsers.md | 1 |
@@ -915,19 +978,17 @@
 | task-526-566-drive-auth-tests.md | 1 |
 | task-526-567-drive-auth-qa.md | 1 |
 | task-527-582-update-generators-wip-banner.md | 1 |
-| task-527-669-pathfinder-chain-viz-ui.md | 1 |
+| task-527-671-pathfinder-chain-viz-qa.md | 1 |
 | task-527-674-webhook-renewal-impl.md | 1 |
-| task-527-675-drive-webhook-qa.md | 1 |
-| task-528-692-wip-banner-e2e-tests.md | 1 |
 | task-530-549-isavedatareader-interface-impl.md | 1 |
 | task-530-551-savedatareader-bounds-tests.md | 1 |
 | task-532-655-savedatareader-tests-qa.md | 1 |
 | task-533-602-orchestrator-curator-trigger-logic-retry-impl.md | 1 |
+| task-533-678-savedatareader-e2e-qa.md | 1 |
 | task-536-538-dagtree-context-state-impl.md | 1 |
 | task-536-565-playwright-style-guide-qa.md | 1 |
 | task-537-599-gen3-berry-pipeline-integration.md | 1 |
 | task-537-624-testing-style-guide-e2e-coder.md | 1 |
-| task-537-680-remove-xyflow-deps.md | 1 |
 | task-542-550-draft-migration-plan-coder.md | 1 |
 | task-545-550-dynamic-spawning-e2e-research-adr.md | 1 |
 | task-546-562-usetransition-search-filters.md | 1 |
@@ -945,6 +1006,7 @@
 | task-554-567-gen3-pk3-extraction-impl.md | 1 |
 | task-555-682-gen3-pk3-e2e-tests-impl.md | 1 |
 | task-557-581-orchestrator-link-resolution-fixtures.md | 1 |
+| task-557-681-orchestrator-link-resolution-e2e-impl-retry.md | 1 |
 | task-558-564-scheduled-workflows-batch1-impl.md | 1 |
 | task-559-680-battle-frontier-data-e2e-tests.md | 1 |
 | task-560-570-evaluate-graph-processing-libraries.md | 1 |
@@ -953,8 +1015,8 @@
 | task-561-614-pokerus-e2e-infected.md | 1 |
 | task-561-615-pokerus-e2e-uninfected-cured.md | 1 |
 | task-561-668-spinda-rendering-types.md | 1 |
-| task-561-669-spinda-rendering-ui.md | 1 |
 | task-561-690-pokerus-spread-planner-e2e-impl.md | 1 |
+| task-561-690-telemetry-metrics-e2e-coder.md | 1 |
 | task-561-704-orchestrator-dag-graphology-impl-retry.md | 1 |
 | task-562-586-pokeblock-recommendation-logic.md | 1 |
 | task-562-590-gen3-dashboard-layout-and-routing-impl.md | 1 |
@@ -962,14 +1024,19 @@
 | task-562-621-wild-item-selection-ui-retry.md | 1 |
 | task-563-589-gen2-room-decoration-ui-impl.md | 1 |
 | task-563-594-gen3-pokeblock-optimizer-ui-components.md | 1 |
+| task-563-681-gen2-bag-inventory-parsing-qa.md | 1 |
 | task-563-682-gen3-bag-inventory-parsing-impl.md | 1 |
 | task-564-578-e2e-navigation-and-selection.md | 1 |
 | task-564-619-pokeblock-e2e-implementation-retry.md | 1 |
+| task-564-670-gen2-roamer-qa.md | 1 |
+| task-564-682-qa-schema-frontmatter-validation.md | 1 |
 | task-566-583-shoal-dashboard-layout.md | 1 |
 | task-566-584-shoal-ui-qa.md | 1 |
+| task-567-691-shoal-cave-e2e-coder-retry.md | 1 |
 | task-569-578-cva-refactor-tactical-panel-card.md | 1 |
 | task-571-578-cva-refactor-basic-inputs.md | 1 |
 | task-574-659-archival-file-move-automation-qa.md | 1 |
+| task-575-691-archival-tree-completeness-e2e-tests.md | 1 |
 | task-578-589-visualizer-state-refactor.md | 1 |
 | task-580-595-gen3-friendship-data-extraction-e2e-coder.md | 1 |
 | task-580-649-gen3-fossil-schema-docs-impl.md | 1 |
@@ -981,13 +1048,16 @@
 | task-618-688-multi-box-ev-filters-logic.md | 1 |
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
-| task-638-691-extract-constants-to-core-v4.md | 1 |
+| task-620-687-gen1-static-encounters-e2e-coder.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
+| task-639-724-migrate-inputs-leds-impl-v5.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
 | task-640-653-relocate-foundry-scripts-replacement.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
+| task-676-702-gen2-pokemon-selection-state.md | 1 |
+| task-679-711-pokeblock-state-access-layer-impl.md | 1 |
 
 ## Wait Times
 
@@ -997,18 +1067,21 @@
 | task-563-641-map-data-extraction-logic-v2.md | 92620800000 |
 | task-563-642-map-data-tests-v2.md | 92620800000 |
 | task-563-643-map-data-qa-v2.md | 92620800000 |
-| task-676-702-add-adr-compliance-scripts.md | 77025600000 |
+| task-676-702-add-adr-compliance-scripts.md | 77284800000 |
+| task-550-685-generator-tree-traversals-e2e-impl.md | 76809600000 |
+| task-550-687-generator-architecture-e2e-qa.md | 76809600000 |
+| story-325-528-safari-zone-bounty-board.md | 76636800000 |
+| task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
+| task-528-677-safari-zone-bounty-board-ui.md | 76550400000 |
+| task-528-678-safari-zone-bounty-board-e2e.md | 76550400000 |
+| research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76464000000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
-| task-550-686-generator-pagination-engines-e2e-impl.md | 76464000000 |
+| story-325-527-safari-zone-area-highlighting.md | 76377600000 |
+| task-527-713-safari-zone-area-map-ui-v4.md | 76377600000 |
+| task-527-714-safari-zone-area-highlighting-qa-v4.md | 76377600000 |
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |
-| task-550-685-generator-tree-traversals-e2e-impl.md | 76291200000 |
-| task-550-687-generator-architecture-e2e-qa.md | 76204800000 |
-| task-528-677-safari-zone-bounty-board-ui.md | 75945600000 |
 | epic-339-406-jules-agent-skins.md | 75859200000 |
-| story-325-527-safari-zone-area-highlighting.md | 75859200000 |
 | task-528-676-safari-zone-bounty-board-data.md | 75859200000 |
-| story-325-528-safari-zone-bounty-board.md | 75513600000 |
-| task-528-678-safari-zone-bounty-board-e2e.md | 75513600000 |
 | task-531-634-savedatareader-bitwise-tests.md | 74390400000 |
 | task-531-635-savedatareader-bitwise-qa.md | 74390400000 |
 | task-531-633-savedatareader-bitwise-impl.md | 74304000000 |
@@ -1040,6 +1113,3 @@
 | idea-055-cloudflare-sync-and-future-features.md | 63244800000 |
 | task-323-331-pokerus-strain-ui-impl.md | 63244800000 |
 | idea-136-split-bundles-and-data.md | 63244800000 |
-| prd-121-336-gen3-mystery-gift-viewer.md | 63244800000 |
-| idea-121-gen3-mystery-gift-viewer.md | 63072000000 |
-| story-009-033-atomic-handoff-testing-e2e.md | 56937600000 |

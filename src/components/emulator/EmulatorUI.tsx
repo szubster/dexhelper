@@ -1,9 +1,9 @@
+import { TacticalFileInput } from '@dexhelper/ui';
 import { Database } from 'lucide-react';
 import type React from 'react';
 import { useCallback, useState } from 'react';
 import { romDB } from '../../db/RomDB';
 import { cn } from '../../utils/cn';
-import { TacticalFileInput } from '../TacticalFileInput';
 import { MGBACanvas } from './MGBACanvas';
 
 export function EmulatorUI() {

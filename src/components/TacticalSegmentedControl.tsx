@@ -1,8 +1,7 @@
+import { CornerCrosshairs } from '@dexhelper/ui';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React, { useRef } from 'react';
 import { cn } from '../utils/cn';
-
-import { CornerCrosshairs } from './CornerCrosshairs';
 import { HardwareScrews } from './HardwareScrews';
 import { ScanlineOverlay } from './ScanlineOverlay';
 
@@ -109,10 +108,6 @@ export interface TacticalSegmentedControlProps<T extends string | number | reado
   legendLabel?: string;
   containerClassName?: string;
   buttonBaseClassName?: string;
-  /** @deprecated Use CVA variants instead of overriding active/inactive classes directly */
-  defaultActiveClassName?: string;
-  /** @deprecated Use CVA variants instead of overriding active/inactive classes directly */
-  defaultInactiveClassName?: string;
 }
 
 // ⚡ Bolt: Wrapped in React.memo to eliminate redundant re-renders when parent state updates without props changing.
@@ -127,8 +122,6 @@ export const TacticalSegmentedControl = React.memo(function TacticalSegmentedCon
   legendLabel,
   containerClassName,
   buttonBaseClassName,
-  defaultActiveClassName,
-  defaultInactiveClassName,
 }: TacticalSegmentedControlProps<T>) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -193,10 +186,7 @@ export const TacticalSegmentedControl = React.memo(function TacticalSegmentedCon
             const isActive = selectedValue === item.id;
             const itemVariant = item.variant || variant;
 
-            const activeClass = item.activeClassName ?? defaultActiveClassName;
-            const inactiveClass = item.inactiveClassName ?? defaultInactiveClassName;
-
-            const customOverrideClass = isActive ? activeClass : inactiveClass;
+            const customOverrideClass = isActive ? item.activeClassName : item.inactiveClassName;
 
             return (
               // oxlint-disable jsx-a11y/prefer-tag-over-role

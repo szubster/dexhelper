@@ -1,3 +1,5 @@
+import { formatVersionExclusiveReason } from './common';
+
 // Following Gen 1 and 2 patterns, these lists represent Pokémon that are UNOBTAINABLE in the key's version.
 export const GEN3_VERSION_EXCLUSIVES: Record<string, number[]> = {
   // Ruby missing (Sapphire exclusives)
@@ -13,7 +15,6 @@ export const GEN3_VERSION_EXCLUSIVES: Record<string, number[]> = {
 };
 
 // Represents Pokémon that are AVAILABLE as exclusives in the key's version.
-// These are the inverse of the UNOBTAINABLE lists for paired versions.
 export type Gen3GameVersion = 'ruby' | 'sapphire' | 'emerald' | 'firered' | 'leafgreen';
 
 export const GEN3_AVAILABLE_EXCLUSIVES: Record<Gen3GameVersion, number[]> = {
@@ -21,7 +22,7 @@ export const GEN3_AVAILABLE_EXCLUSIVES: Record<Gen3GameVersion, number[]> = {
   ruby: [273, 274, 275, 303, 335, 338, 381, 383],
   // Sapphire exclusives (missing in Ruby)
   sapphire: [270, 271, 272, 302, 336, 337, 380, 382],
-  // Emerald exclusives - usually not considered to have exclusive pairs in the same way, but let's leave empty for now
+  // Emerald exclusives
   emerald: [],
   // FireRed exclusives (missing in LeafGreen)
   firered: [23, 24, 43, 44, 45, 54, 55, 58, 59, 90, 91, 123, 125, 182, 194, 195, 198, 211, 212, 225, 227, 239],
@@ -52,10 +53,10 @@ export function getGen3UnobtainableReason(
   _ownedCount: number,
   ownedSet: Set<number>,
 ): string | null {
-  const exclusives = GEN3_VERSION_EXCLUSIVES[gameVersion] || [];
+  const exclusives = GEN3_VERSION_EXCLUSIVES[gameVersion.toLowerCase()] || [];
 
   if (exclusives.includes(pokemonId) && !ownedSet.has(pokemonId)) {
-    return `This Pokémon is not available in ${gameVersion.charAt(0).toUpperCase() + gameVersion.slice(1)}. Must be traded from another version.`;
+    return formatVersionExclusiveReason(gameVersion);
   }
 
   return null;

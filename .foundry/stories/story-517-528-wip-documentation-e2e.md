@@ -5,10 +5,10 @@ title: E2E Verification for WIP Documentation
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-10-19'
+updated_at: '2026-10-21'
 depends_on:
   - story-517-527-markdown-banner
-jules_session_id: null
+jules_session_id: '1131416829121097181'
 pr_number: null
 parent: epic-346-517-wip-documentation
 tags:

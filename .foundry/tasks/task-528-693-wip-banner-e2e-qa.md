@@ -2,10 +2,10 @@
 id: task-528-693-wip-banner-e2e-qa
 type: TASK
 title: QA WIP Banner E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-16T02:19:15.Z'
-updated_at: '2026-10-16'
+updated_at: '2026-10-21'
 depends_on:
   - task-528-692-wip-banner-e2e-tests
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - ui
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-528-692-wip-banner-e2e-tests
 notes: ''
 locks: []
 ---

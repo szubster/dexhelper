@@ -2,12 +2,12 @@
 id: epic-098-690-gen3-pokerus-data-extraction
 type: EPIC
 title: Gen 3 Pokerus Data Extraction
-status: PENDING
+status: ACTIVE
 owner_persona: story_owner
-created_at: "2026-10-16T17:50:54.685Z"
-updated_at: "2026-10-16"
+created_at: '2026-10-16T17:50:54.685Z'
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18412712411163694410'
 pr_number: null
 parent: prd-080-098-gen3-pokerus-extraction
 tags:
@@ -15,8 +15,8 @@ tags:
   - pokerus
   - save-engine
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 locks: []
 ---
 

@@ -2,13 +2,13 @@
 id: task-478-677-aggregate-active-locks-retry-2
 type: TASK
 title: Aggregate active locks in RESOLVE phase (Retry 2)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-10'
-updated_at: '2026-10-20'
+updated_at: '2026-10-29'
 depends_on:
   - research-478-676-investigate-locking-failure-retry
-jules_session_id: '2365202654733429186'
+jules_session_id: null
 pr_number: null
 parent: story-412-478-implement-resolve-phase-locking
 tags:
@@ -31,6 +31,6 @@ Implement logic in Phase 4 (RESOLVE) of the orchestrator to aggregate all `locks
 - This ensures locks are appropriately released when nodes transition out of `ACTIVE` status (i.e. to `COMPLETED`, `VERIFYING`, or `FAILED`).
 
 ## Acceptance Criteria
-- [ ] Implement lock aggregation for `ACTIVE` nodes in Phase 4 of `foundry-orchestrator.ts`.
-- [ ] Add unit tests for the lock aggregation logic.
-- [ ] Ensure `pnpm lint && pnpm test` pass.
+- [x] Implement lock aggregation for `ACTIVE` nodes in Phase 4 of `foundry-orchestrator.ts`.
+- [x] Add unit tests for the lock aggregation logic.
+- [x] Ensure `pnpm lint && pnpm test` pass.

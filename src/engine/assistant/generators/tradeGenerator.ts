@@ -10,9 +10,7 @@ import {
   STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN3,
   STATIC_NPC_TRADE_DATA as STATIC_NPC_TRADE_DATA_GEN3,
 } from '../../data/gen3/assistantData';
-import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
-import { getGen2UnobtainableReason } from '../../exclusives/gen2Exclusives';
-import { getGen3UnobtainableReason } from '../../exclusives/gen3Exclusives';
+import { getUnobtainableReason } from '../../exclusives/index';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
 import type { Suggestion } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngineTypes';
@@ -93,14 +91,7 @@ export function generateGiftAndTradeSuggestions(
 
   const pidsWithExclusives = new Set<number>();
   for (const pid of queryTargets) {
-    let reason: string | null = null;
-    if (saveData.generation === 3) {
-      reason = getGen3UnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
-    } else if (saveData.generation === 2) {
-      reason = getGen2UnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
-    } else {
-      reason = getUnobtainableReason(pid, displayVersion, ownedSet.size, ownedSet);
-    }
+    const reason = getUnobtainableReason(pid, displayVersion, ownedSet, saveData.generation);
     if (reason) {
       pidsWithExclusives.add(pid);
 
@@ -111,9 +102,6 @@ export function generateGiftAndTradeSuggestions(
       const p = apiData.pokemonMetadata?.[pid];
       let hasPhysicalPreEvo = false;
       if (p?.efrm && p.efrm.length > 0) {
-        // Iterate backwards through all ancestors (recursive ownership check)
-        // The current logic only checked immediate parents, so if a player had Charmander,
-        // Charizard might incorrectly be flagged as Unobtainable/Trade.
         for (let i = p.efrm.length - 1; i >= 0; i--) {
           const preId = p.efrm[i];
           if (preId !== undefined && instancesBySpecies.has(preId)) {
@@ -152,8 +140,6 @@ export function generateGiftAndTradeSuggestions(
   }
 
   // C. In-Game NPC Trades
-  // Priority boosts if the player already physically possesses the required "offered" Pokemon (85).
-  // Priority is 75 if they possess a pre-evolution, or 70 if they possess a post-evolution they can breed down in Gen 2/3.
   for (const trade of staticNpcTradeData) {
     if (trade.gen !== saveData.generation) continue;
     if (trade.versions && !trade.versions.includes(displayVersion)) continue;
@@ -229,7 +215,6 @@ export function generateGiftAndTradeSuggestions(
   }
 
   // D. Static Gifts
-  // Suggests available static encounters and gifts that haven't been claimed yet.
   for (let i = 0; i < staticGiftEntries.length; i++) {
     const entry = staticGiftEntries[i];
     if (!entry) continue;

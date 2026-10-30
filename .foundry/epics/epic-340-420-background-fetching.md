@@ -2,10 +2,10 @@
 id: epic-340-420-background-fetching
 type: EPIC
 title: Implement background fetching and preloading
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-13'
-updated_at: '2026-08-26'
+updated_at: '2026-10-25'
 depends_on: []
 jules_session_id: null
 parent: prd-136-340-split-bundles-and-data
@@ -15,6 +15,7 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # EPIC: Implement background fetching and preloading
 
@@ -27,5 +28,5 @@ Improve UX by seamlessly background pre-fetching extension msgpack files.
 ## Acceptance Criteria
 - [x] Break down this epic into stories.
 - [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-420-477-implement-msgpack-prefetching
-- [ ] story-420-478-background-fetching-e2e-verification
+- [x] story-420-477-implement-msgpack-prefetching
+- [x] story-420-478-background-fetching-e2e-verification

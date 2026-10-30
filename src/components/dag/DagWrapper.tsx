@@ -1,7 +1,8 @@
 import { DagProvider, useDagContext, type ViewMode } from '../dashboard/DagContext';
 import { DagKanbanBoard } from '../dashboard/kanban/DagKanbanBoard';
 import { TacticalSegmentedControl } from '../TacticalSegmentedControl';
-import { DagDashboard } from './DagDashboard';
+import { DagTree } from './DagTree';
+import { DagTreeProvider } from './DagTreeContext';
 
 function DagViewSwitcher() {
   const { activeView, setActiveView } = useDagContext();
@@ -14,13 +15,19 @@ function DagViewSwitcher() {
           selectedValue={activeView}
           onValueChange={(val: string) => setActiveView(val as ViewMode)}
           items={[
-            { id: 'graph', label: '[ GRAPH ]', testId: 'view-mode-graph' },
             { id: 'board', label: '[ KANBAN ]', testId: 'view-mode-board' },
+            { id: 'tree', label: '[ TREE ]', testId: 'view-mode-tree' },
           ]}
         />
       </div>
       <div className="relative flex-1 overflow-hidden">
-        {activeView === 'board' ? <DagKanbanBoard /> : <DagDashboard />}
+        {activeView === 'board' ? (
+          <DagKanbanBoard />
+        ) : (
+          <DagTreeProvider>
+            <DagTree />
+          </DagTreeProvider>
+        )}
       </div>
     </div>
   );

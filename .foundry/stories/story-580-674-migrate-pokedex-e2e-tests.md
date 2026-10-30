@@ -2,19 +2,19 @@
 id: story-580-674-migrate-pokedex-e2e-tests
 type: STORY
 title: Migrate Pokedex E2E Tests to COM Pattern
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-09'
-updated_at: '2026-10-18'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: '14765118996840553089'
+jules_session_id: null
 pr_number: null
 parent: epic-566-580-e2e-test-migration
 tags:
   - testing
   - e2e
   - playwright
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -35,5 +35,8 @@ Refactor existing Pokedex grid-related E2E tests (e.g. `tests/e2e/pokedex-grid-v
 - [ ] Pokedex tests are refactored to use `PokedexGridModel`.
 - [ ] Tests use semantic locators via the COM.
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-674-700-migrate-pokedex-e2e-tests-coder
-- [ ] task-674-701-migrate-pokedex-e2e-tests-qa
+- [x] task-674-700-migrate-pokedex-e2e-tests-coder
+- [x] task-674-701-migrate-pokedex-e2e-tests-qa
+- [ ] research-674-707-investigate-pokedex-e2e-failure
+- [ ] task-674-708-migrate-pokedex-e2e-tests-retry-impl
+- [ ] task-674-709-migrate-pokedex-e2e-tests-retry-qa

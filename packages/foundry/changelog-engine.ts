@@ -449,7 +449,7 @@ Whenever an \`IDEA\` node is completed in the Foundry Engine (via \`foundry-hear
 export async function runChangelogEngine(
   statePath: string = STATE_FILE_PATH,
   taskPath: string = TASK_NODE_PATH,
-  batchSize: number = 5
+  batchSize: number = 10
 ): Promise<void> {
   const state = loadState(statePath);
 

@@ -1,7 +1,6 @@
+import { TacticalButton, TacticalFileInput } from '@dexhelper/ui';
 import { Activity, Upload } from 'lucide-react';
 import type React from 'react';
-import { TacticalButton } from '../TacticalButton';
-import { TacticalFileInput } from '../TacticalFileInput';
 
 interface OfflineControlsProps {
   requestSync: () => void;

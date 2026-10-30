@@ -1,3 +1,4 @@
+import { ShinyBadge } from '@dexhelper/ui';
 import { useQuery } from '@tanstack/react-query';
 import type React from 'react';
 import { useMemo } from 'react';
@@ -8,7 +9,6 @@ import { calculateBreedingPairs, type PokemonWithMetadata } from '../../../engin
 import { calculateShinyOdds } from '../../../engine/breeding/shiny';
 import type { SaveData } from '../../../engine/saveParser';
 import { calculateGen2Gender } from '../../../utils/gender';
-import { ShinyBadge } from '../../ShinyBadge';
 import { TacticalPanel } from '../../TacticalPanel';
 import { TelemetryDecoration } from '../../TelemetryDecoration';
 

@@ -2,10 +2,10 @@
 id: task-564-691-gen3-pokedex-gaps-ui-impl-retry
 type: TASK
 title: Implement Gen 3 Pokédex Gaps UI Retry
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-16T12:48:02.109Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-23'
 depends_on:
   - research-564-690-investigate-gen3-pokedex-gaps-ui-failure
 jules_session_id: null
@@ -17,8 +17,9 @@ tags:
   - pokedex
   - ui
 research_references: []
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 locks: []
-rejection_reason: ''
 ---
 
 # Implement Gen 3 Pokédex Gaps UI Retry

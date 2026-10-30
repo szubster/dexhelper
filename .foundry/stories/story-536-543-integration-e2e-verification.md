@@ -2,10 +2,10 @@
 id: story-536-543-integration-e2e-verification
 type: STORY
 title: Integration and E2E Verification
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-05'
-updated_at: '2026-10-17'
+updated_at: '2026-10-25'
 depends_on:
   - story-536-540-benchmarking-ts7-toolchains
   - story-536-541-benchmarking-node-native-execution
@@ -30,5 +30,5 @@ This story is dedicated exclusively to Integration and E2E Verification for the 
 
 ## Acceptance Criteria
 - [x] Decompose into implementation tasks for integrating and verifying the benchmarking setup end-to-end.
-- [ ] task-543-683-benchmarking-setup-integration-tests
-- [ ] task-543-684-benchmarking-setup-integration-qa
+- [x] task-543-683-benchmarking-setup-integration-tests
+- [x] task-543-684-benchmarking-setup-integration-qa

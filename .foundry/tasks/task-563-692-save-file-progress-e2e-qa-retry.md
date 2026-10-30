@@ -2,10 +2,10 @@
 id: task-563-692-save-file-progress-e2e-qa-retry
 type: TASK
 title: QA Verification for Save File Progress E2E Tests (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-16T21:00:50.594Z'
-updated_at: '2026-10-17'
+updated_at: '2026-10-25'
 depends_on:
   - task-563-691-save-file-progress-e2e-coder-retry
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-563-691-save-file-progress-e2e-coder-retry
 notes: ''
 locks: []
 ---

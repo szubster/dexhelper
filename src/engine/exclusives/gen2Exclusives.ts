@@ -1,3 +1,5 @@
+import { formatVersionExclusiveReason } from './common';
+
 export const GEN2_VERSION_EXCLUSIVES: Record<string, number[]> = {
   gold: [37, 38, 52, 53, 165, 166, 225, 227, 231, 232],
   silver: [56, 57, 58, 59, 167, 168, 207, 216, 217, 226],
@@ -10,10 +12,10 @@ export function getGen2UnobtainableReason(
   _ownedCount: number,
   ownedSet: Set<number>,
 ): string | null {
-  const exclusives = GEN2_VERSION_EXCLUSIVES[gameVersion] || [];
+  const exclusives = GEN2_VERSION_EXCLUSIVES[gameVersion.toLowerCase()] || [];
 
   if (exclusives.includes(pokemonId) && !ownedSet.has(pokemonId)) {
-    return `This Pokémon is not available in ${gameVersion.charAt(0).toUpperCase() + gameVersion.slice(1)}. Must be traded from another version.`;
+    return formatVersionExclusiveReason(gameVersion);
   }
 
   return null;

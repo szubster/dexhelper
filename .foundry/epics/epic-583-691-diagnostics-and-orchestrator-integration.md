@@ -2,12 +2,12 @@
 id: epic-583-691-diagnostics-and-orchestrator-integration
 type: EPIC
 title: EPIC - Cycle Detection Diagnostics and Pre-Dispatch Integration
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: 2026-10-16T18:06:01.101Z
-updated_at: 2026-10-16
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4343641534241186910'
 pr_number: null
 parent: prd-527-583-foundry-dag-deadlock-detector
 tags:
@@ -16,8 +16,8 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 locks: []
 priority: 50
 ---

@@ -50,15 +50,9 @@ const Gen3NpcTrades = React.lazy(() =>
   import('../components/dashboard/trades/Gen3NpcTrades').then((m) => ({ default: m.Gen3NpcTrades })),
 );
 
-const Gen2RoamerDossier = React.lazy(() =>
-  import('../features/roamer/components/Gen2RoamerDossier').then((m) => ({
-    default: m.Gen2RoamerDossier,
-  })),
-);
-
-const Gen3RoamerDossier = React.lazy(() =>
-  import('../features/roamer/components/Gen3RoamerDossier').then((m) => ({
-    default: m.Gen3RoamerDossier,
+const RoamerDossier = React.lazy(() =>
+  import('../features/roamer/components/RoamerDossier').then((m) => ({
+    default: m.RoamerDossier,
   })),
 );
 
@@ -88,6 +82,12 @@ const Gen3TrainerCardDashboard = React.lazy(() =>
 const GlobalRibbonChecklistDashboard = React.lazy(() =>
   import('../components/dashboard/ribbons/GlobalRibbonChecklistDashboard').then((m) => ({
     default: m.GlobalRibbonChecklistDashboard,
+  })),
+);
+
+const ThiefCovetOptimizerPanel = React.lazy(() =>
+  import('../components/dashboard/optimizer/ThiefCovetOptimizerPanel').then((m) => ({
+    default: m.ThiefCovetOptimizerPanel,
   })),
 );
 
@@ -152,9 +152,10 @@ function DashboardPage() {
             {saveData.hallOfFameRecords && saveData.hallOfFameRecords.length > 0 && (
               <HallOfFameDashboard saveData={saveData} />
             )}
-            <Gen3RoamerDossier saveData={saveData} />
+            <RoamerDossier saveData={saveData} />
             <RngCalculatorDashboard />
             <WildItemSelector />
+            <ThiefCovetOptimizerPanel saveData={saveData} />
             <BattleFrontierDashboard saveData={saveData} />
             <GlobalRibbonChecklistDashboard />
             {saveData.gen3VolcanicAsh !== undefined && (
@@ -174,7 +175,7 @@ function DashboardPage() {
             {saveData.hallOfFameRecords && saveData.hallOfFameRecords.length > 0 && (
               <HallOfFameDashboard saveData={saveData} />
             )}
-            <Gen2RoamerDossier saveData={saveData} />
+            <RoamerDossier saveData={saveData} />
             <Gen2Checklist />
             <Gen2SavingsDashboard />
             <Gen2DecorationsDashboard saveData={saveData} />

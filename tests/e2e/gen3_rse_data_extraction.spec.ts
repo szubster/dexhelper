@@ -21,6 +21,7 @@ test.describe('Gen 3 RSE Data Extraction E2E Validation', () => {
     // Check if the Pokemon details modal works for at least one Pokemon to verify extraction
     const firstCard = cards.first();
     await firstCard.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' }));
+    await page.waitForTimeout(1000); // Give the UI time to settle after scroll
 
     // Use .dispatchEvent('click') to reliably trigger click on mobile viewports
     await firstCard.dispatchEvent('click');

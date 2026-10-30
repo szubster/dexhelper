@@ -1,7 +1,7 @@
+import { TacticalButton } from '@dexhelper/ui';
 import { AlertTriangle, Cloud, HardDrive } from 'lucide-react';
 import { DataPoint } from './DataPoint';
 import { TacticalBlockHeader } from './TacticalBlockHeader';
-import { TacticalButton } from './TacticalButton';
 import { TacticalModal } from './TacticalModal';
 import { TacticalPanel } from './TacticalPanel';
 

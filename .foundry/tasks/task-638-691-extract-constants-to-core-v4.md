@@ -2,21 +2,21 @@
 id: task-638-691-extract-constants-to-core-v4
 type: TASK
 title: Extract Constants to Core Package V4
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-16T06:41:10.364Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-21'
 depends_on:
   - research-638-690-investigate-constants-extraction-v3-failure
-jules_session_id: '7305253816626266956'
+jules_session_id: null
 pr_number: null
 parent: story-526-638-extract-constants
 tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

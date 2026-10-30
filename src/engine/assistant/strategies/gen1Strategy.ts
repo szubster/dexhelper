@@ -1,32 +1,29 @@
 import type { UnifiedLocation } from '../../../db/schema';
 import { getGenerationConfig } from '../../../utils/generationConfig';
-import { getUnobtainableReason } from '../../exclusives/gen1Exclusives';
-import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/gen1Graph';
+import { getUnobtainableReason } from '../../exclusives/index';
+import { getDistanceToMap, resolveOutdoorMapId } from '../../mapGraph/index';
 import type { SaveData } from '../../saveParser/index';
-import { SPECIES_MEWTWO } from '../constants';
 import type { AssistantStrategy, Suggestion } from './types';
 
 export const gen1Strategy: AssistantStrategy = {
   generation: 1,
 
   resolveMapAid(saveData: SaveData, allLocations: UnifiedLocation[]): number | null {
-    // ⚡ Bolt: Replaced O(N) Array.find() calls with O(1) cached resolveOutdoorMapId for map resolution
     return resolveOutdoorMapId(allLocations, saveData.currentMapId);
   },
 
   getMapDistance(currentMapId: number, targetAid: number, allLocations: UnifiedLocation[]) {
-    return getDistanceToMap(allLocations, currentMapId, targetAid);
+    return getDistanceToMap(allLocations, currentMapId, targetAid, 1);
   },
 
-  getUnobtainableReason(pokemonId: number, version: string, ownedCount: number, ownedSet: Set<number>) {
-    return getUnobtainableReason(pokemonId, version, ownedCount, ownedSet);
+  getUnobtainableReason(pokemonId: number, version: string, _ownedCount: number, ownedSet: Set<number>) {
+    return getUnobtainableReason(pokemonId, version, ownedSet, 1);
   },
 
   getSpecialSuggestions(saveData: SaveData, _missingIds: number[]): Suggestion[] {
     const suggestions: Suggestion[] = [];
     const genConfig = getGenerationConfig(1);
 
-    // Box full warning — use config values instead of magic numbers
     if (saveData.currentBoxCount >= genConfig.boxWarningThreshold) {
       suggestions.push({
         id: 'box-full-warning',
@@ -38,18 +35,10 @@ export const gen1Strategy: AssistantStrategy = {
       });
     }
 
-    // Mewtwo lock check
-    if (saveData.hallOfFameCount === 0 && !saveData.owned.has(SPECIES_MEWTWO)) {
-      // Mewtwo is locked behind beating E4 — not a suggestion but a rejection condition
-      // This is handled by the main engine, not as a special suggestion
-    }
-
     return suggestions;
   },
 
   isInternallyObtainable(_baseId: number, _version: string): boolean {
-    // Gen 1 doesn't have breeding, so obtainability is purely based on
-    // encounter data + static encounters. The main engine handles this.
     return true;
   },
 };

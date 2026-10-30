@@ -2,12 +2,12 @@
 id: story-085-676-rematch-dashboard-layout-and-routing
 type: STORY
 title: Rematch Dashboard Layout and Routing
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-14'
-updated_at: '2026-10-19'
+updated_at: '2026-10-27'
 depends_on: []
-jules_session_id: '3752380884256901576'
+jules_session_id: null
 pr_number: null
 parent: epic-048-085-gen3-match-call-dashboard-ui
 tags:
@@ -16,7 +16,7 @@ tags:
   - ui
   - layout
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -35,6 +35,10 @@ Implement the base layout and routing for the Rematch Dashboard view component. 
 - Use base tactical primitives (e.g., `tactical-panel`, `tactical-text`) from `src/index.css`.
 
 ## Acceptance Criteria
+- [ ] task-676-707-rematch-dashboard-layout-impl
+- [ ] task-676-708-rematch-dashboard-routing-impl
+- [ ] task-676-709-rematch-dashboard-e2e-tests
+- [ ] task-676-710-rematch-dashboard-qa
 - [ ] Implement Rematch Dashboard structural layout.
 - [ ] Set up application routing for the new view.
 - [ ] Adhere to tactical design system constraints.

@@ -2,10 +2,10 @@
 id: task-563-671-gen3-wild-item-data-parsing-qa-retry
 type: TASK
 title: QA verification for Gen 3 Wild Encounter and Held Item Parsing Logic (Retry)
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-07'
-updated_at: '2026-10-10'
+updated_at: '2026-10-25'
 depends_on:
   - task-563-669-gen3-wild-item-data-parsing-logic-retry
   - task-563-670-gen3-wild-item-data-parsing-tests-retry
@@ -33,5 +33,5 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 - Ensure all automated tests pass.
 
 ## Acceptance Criteria
-- [ ] Verify Gen 3 wild encounter locations and rates parsing.
-- [ ] Verify held item data and their respective drop rates for Gen 3 Pokémon.
+- [x] Verify Gen 3 wild encounter locations and rates parsing.
+- [x] Verify held item data and their respective drop rates for Gen 3 Pokémon.
