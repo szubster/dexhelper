@@ -2,10 +2,10 @@
 id: story-707-733-ast-analyzer-e2e
 type: STORY
 title: Story Playwright Path AST Analyzer E2E
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-30'
 depends_on:
   - story-707-732-ast-analyzer-autofix
 jules_session_id: null

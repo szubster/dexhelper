@@ -2,10 +2,10 @@
 id: story-707-732-ast-analyzer-autofix
 type: STORY
 title: Story Playwright Path AST Autofix
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-30'
 depends_on:
   - story-707-731-ast-analyzer-detection-script
 jules_session_id: null

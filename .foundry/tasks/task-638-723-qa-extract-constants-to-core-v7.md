@@ -2,10 +2,10 @@
 id: task-638-723-qa-extract-constants-to-core-v7
 type: TASK
 title: Verify Constants Extraction to Core Package V7
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-10-30'
 depends_on:
   - task-638-722-extract-constants-to-core-v7
 jules_session_id: null

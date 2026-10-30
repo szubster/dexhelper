@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-30T09:09:40.567Z*
+*Generated at: 2026-10-30T16:22:14.258Z*
 
 ## Node Statistics
 
@@ -11,28 +11,29 @@
 | EPIC | 518 |
 | IDEA | 235 |
 | PRD | 217 |
-| RESEARCH | 328 |
-| STORY | 1083 |
-| TASK | 2822 |
+| RESEARCH | 329 |
+| STORY | 1086 |
+| TASK | 2824 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3415 |
-| ACTIVE | 166 |
+| COMPLETED | 3418 |
+| ACTIVE | 159 |
 | CANCELLED | 883 |
-| PENDING | 768 |
+| PENDING | 770 |
 | BLOCKED | 14 |
-| READY | 1 |
+| FAILED | 1 |
+| READY | 8 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 201 |
-| Merged PRs | 8664 |
-| Closed PRs | 1135 |
+| Open PRs | 192 |
+| Merged PRs | 8671 |
+| Closed PRs | 1137 |
 
 ## Rejection Counts
 
@@ -816,6 +817,7 @@
 | story-109-520-box-analyzer-view-layout.md | 1 |
 | story-109-523-box-analyzer-matrix-e2e.md | 1 |
 | story-112-403-integration-e2e.md | 1 |
+| story-115-527-pathfinder-chain-visualization.md | 1 |
 | story-133-273-living-dex-pc-mapping.md | 1 |
 | story-133-476-gen3-ribbon-e2e-verification.md | 1 |
 | story-134-475-gen3-condition-stats-extraction-e2e.md | 1 |
@@ -883,6 +885,7 @@
 | task-340-476-gen3-safari-zone-state-qa.md | 1 |
 | task-348-508-gen3-ash-ui-qa.md | 1 |
 | task-358-426-gen3-contest-museum-parsing-impl.md | 1 |
+| task-402-649-002-refactor-pokemon-details.md | 1 |
 | task-405-486-gen3-mixed-record-parser-qa-v2.md | 1 |
 | task-406-526-gen3-rematch-parser-impl.md | 1 |
 | task-407-679-qa-e2e-secret-base-retry.md | 1 |

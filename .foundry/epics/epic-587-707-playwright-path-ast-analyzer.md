@@ -2,12 +2,12 @@
 id: epic-587-707-playwright-path-ast-analyzer
 type: EPIC
 title: Epic Playwright Path AST Analyzer
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-18'
-updated_at: '2026-10-27'
+updated_at: '2026-10-30'
 depends_on: []
-jules_session_id: '11592020458311993671'
+jules_session_id: null
 pr_number: null
 parent: prd-528-587-playwright-relative-path-linter
 tags:
