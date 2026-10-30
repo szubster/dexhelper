@@ -34,6 +34,7 @@ const PokerusSpreadPlanner = React.lazy(() =>
 );
 
 import { ShinyBadge, TacticalIconButton } from '@dexhelper/ui';
+import { LazyLoadWrapper } from './LazyLoadWrapper';
 import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalModal } from './TacticalModal';
 
@@ -360,12 +361,12 @@ export function PokemonDetails({
           {/* Left Column Data Feed */}
           <div className="flex flex-col gap-6 xl:gap-8">
             {catchRate !== null && (
-              <React.Suspense fallback={<div className="tactical-skeleton h-24" />}>
+              <LazyLoadWrapper height="h-24">
                 <PokemonCatchProbability catchRate={catchRate} effectivePokeball={effectivePokeball} />
-              </React.Suspense>
+              </LazyLoadWrapper>
             )}
 
-            <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+            <LazyLoadWrapper height="h-48">
               <PokemonEvolutions
                 evoReq={evoReq}
                 evolvesTo={evolvesTo || []}
@@ -377,24 +378,24 @@ export function PokemonDetails({
                 gameVersion={gameVersion}
                 saveData={saveData}
               />
-            </React.Suspense>
+            </LazyLoadWrapper>
           </div>
 
           {/* Right Column Data Feed */}
           <div className="flex flex-col gap-6 xl:gap-8">
-            <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+            <LazyLoadWrapper height="h-48">
               <PokemonCaughtDetails yourPokemon={yourPokemon} />
-            </React.Suspense>
+            </LazyLoadWrapper>
 
             {saveData?.partyDetails?.some((p) => p.pokerus) && (
-              <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+              <LazyLoadWrapper height="h-48">
                 <PokerusSpreadPlanner initialParty={saveData.partyDetails} />
-              </React.Suspense>
+              </LazyLoadWrapper>
             )}
 
             {pokemonId === 201 && saveData?.generation === 2 && <UnownDexPanel yourPokemon={yourPokemon} />}
 
-            <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+            <LazyLoadWrapper height="h-48">
               <PokemonLocations
                 pokemonId={pokemonId}
                 gameVersion={gameVersion}
@@ -403,7 +404,7 @@ export function PokemonDetails({
                 evoReq={evoReq}
                 loading={loading}
               />
-            </React.Suspense>
+            </LazyLoadWrapper>
           </div>
         </div>
       </div>

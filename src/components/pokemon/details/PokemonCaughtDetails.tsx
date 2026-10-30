@@ -8,6 +8,7 @@ import { getNature } from '../../../engine/gen3/nature';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
 import { getTimeCapsuleValidation } from '../../../utils/timeCapsule';
 import { HoverScanner } from '../../HoverScanner';
+import { LazyLoadWrapper } from '../../LazyLoadWrapper';
 import { LcdGrid } from '../../LcdGrid';
 import { SectionHeader } from '../../SectionHeader';
 import { SubDataPoint } from '../../SubDataPoint';
@@ -199,15 +200,15 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
 
               {p.ribbons && generation === 3 && (
                 <div className="relative z-10 border-white/10 border-t border-dashed bg-black/40 p-4">
-                  <React.Suspense fallback={<div className="h-24 w-full animate-pulse bg-white/5" />}>
+                  <LazyLoadWrapper height="h-24">
                     <ContestRibbonsPanel ribbons={p.ribbons} />
-                  </React.Suspense>
+                  </LazyLoadWrapper>
                 </div>
               )}
 
               {p.condition && generation === 3 && (
                 <div className="relative z-10 flex flex-col gap-4 border-white/10 border-t border-dashed bg-black/40 p-4">
-                  <React.Suspense fallback={<div className="h-64 w-full animate-pulse bg-white/5" />}>
+                  <LazyLoadWrapper height="h-64">
                     <ContestConditionStats
                       cool={p.condition.cool}
                       beauty={p.condition.beauty}
@@ -226,7 +227,7 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
                         sheen={p.condition.sheen}
                       />
                     )}
-                  </React.Suspense>
+                  </LazyLoadWrapper>
                 </div>
               )}
             </TacticalPanel>
