@@ -36,4 +36,4 @@ As part of the Multi-Box Stat Filters Epic, we need to implement EV (Effort Valu
 - Ensure type safety using the defined filter state interfaces and the `PokemonInstance` interface.
 
 ## Acceptance Criteria
-- [ ] EV filtering core logic functions are implemented and exported.
+- [x] EV filtering core logic functions are implemented and exported.
