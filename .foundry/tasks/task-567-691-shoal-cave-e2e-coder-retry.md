@@ -2,10 +2,10 @@
 id: task-567-691-shoal-cave-e2e-coder-retry
 type: TASK
 title: Retry Write Playwright E2E Tests for Shoal Cave Dashboard
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-16T12:53:56.587Z'
-updated_at: '2026-10-29'
+updated_at: '2026-10-30'
 depends_on:
   - research-567-690-investigate-shoal-cave-e2e-failure
 jules_session_id: null
@@ -18,8 +18,8 @@ tags:
   - shoal-cave
   - playwright
 research_references: []
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

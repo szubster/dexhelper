@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-29T22:07:45.075Z*
+*Generated at: 2026-10-30T02:15:51.791Z*
 
 ## Node Statistics
 
@@ -19,21 +19,21 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3415 |
-| ACTIVE | 162 |
-| CANCELLED | 881 |
-| PENDING | 770 |
+| ACTIVE | 165 |
+| CANCELLED | 883 |
+| PENDING | 768 |
 | BLOCKED | 14 |
-| READY | 3 |
-| FAILED | 2 |
+| FAILED | 1 |
+| READY | 1 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 191 |
-| Merged PRs | 8671 |
-| Closed PRs | 1138 |
+| Open PRs | 194 |
+| Merged PRs | 8669 |
+| Closed PRs | 1137 |
 
 ## Rejection Counts
 
@@ -1033,6 +1033,7 @@
 | task-564-682-qa-schema-frontmatter-validation.md | 1 |
 | task-566-583-shoal-dashboard-layout.md | 1 |
 | task-566-584-shoal-ui-qa.md | 1 |
+| task-567-691-shoal-cave-e2e-coder-retry.md | 1 |
 | task-569-578-cva-refactor-tactical-panel-card.md | 1 |
 | task-571-578-cva-refactor-basic-inputs.md | 1 |
 | task-574-659-archival-file-move-automation-qa.md | 1 |

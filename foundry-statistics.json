@@ -11,12 +11,12 @@
     },
     "byStatus": {
       "COMPLETED": 3415,
-      "ACTIVE": 162,
-      "CANCELLED": 881,
-      "PENDING": 770,
+      "ACTIVE": 165,
+      "CANCELLED": 883,
+      "PENDING": 768,
       "BLOCKED": 14,
-      "READY": 3,
-      "FAILED": 2
+      "FAILED": 1,
+      "READY": 1
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -4520,7 +4520,7 @@
       "task-567-587-shoal-cave-e2e-qa.md": 0,
       "task-567-637-feebas-ui-component-impl.md": 0,
       "task-567-638-feebas-ui-component-qa.md": 0,
-      "task-567-691-shoal-cave-e2e-coder-retry.md": 0,
+      "task-567-691-shoal-cave-e2e-coder-retry.md": 1,
       "task-567-692-shoal-cave-e2e-qa-retry.md": 0,
       "task-569-578-cva-refactor-tactical-panel-card.md": 1,
       "task-570-590-cva-tactical-aesthetic-e2e-coder.md": 3,
@@ -7134,7 +7134,7 @@
       "idea-073-gen3-secret-base-viewer.md": 0,
       "idea-073-refactor-dag-dashboard-context.md": 0,
       "idea-074-gen3-battle-frontier-tracker.md": 0,
-      "idea-074-refactor-dag-dashboard-context.md": 0,
+      "idea-074-refactor-dag-dashboard-context.md": 12096000000,
       "idea-075-gen3-tv-swarm-tracker.md": 0,
       "idea-077-dynamic-pokeapi-data.md": 11664000000,
       "idea-077-gen3-match-call-tracker.md": 0,
@@ -7555,7 +7555,7 @@
       "research-537-659-investigate-runtime-api-failure.md": 518400000,
       "research-537-689-investigate-runtime-state-hydration-failure.md": 432000000,
       "research-537-690-berry-serialization-deprecation.md": 259200000,
-      "research-537-708-investigate-hydration-failure-retry-v2.md": 777600000,
+      "research-537-708-investigate-hydration-failure-retry-v2.md": 864000000,
       "research-540-608-benchmark-failure-investigation.md": 259200000,
       "research-546-611-mirage-island-ui-failure-investigation.md": 777600000,
       "research-551-668-investigate-orchestrator-priority-tests-failure.md": 518400000,
@@ -9730,7 +9730,7 @@
       "task-567-587-shoal-cave-e2e-qa.md": 1818583000,
       "task-567-637-feebas-ui-component-impl.md": 1123200000,
       "task-567-638-feebas-ui-component-qa.md": 1209600000,
-      "task-567-691-shoal-cave-e2e-coder-retry.md": 1076763413,
+      "task-567-691-shoal-cave-e2e-coder-retry.md": 1163163413,
       "task-567-692-shoal-cave-e2e-qa-retry.md": 299152491,
       "task-569-583-setup-cva-utility.md": -66854000,
       "task-569-584-setup-css-theme-variables.md": 105914000,
@@ -10064,9 +10064,9 @@
   },
   "prs": {
     "totalPRs": 10000,
-    "openPRs": 191,
-    "mergedPRs": 8671,
-    "closedPRs": 1138
+    "openPRs": 194,
+    "mergedPRs": 8669,
+    "closedPRs": 1137
   },
-  "timestamp": "2026-10-29T22:07:45.075Z"
+  "timestamp": "2026-10-30T02:15:51.791Z"
 }
