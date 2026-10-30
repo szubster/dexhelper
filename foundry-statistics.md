@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-30T16:22:14.258Z*
+*Generated at: 2026-10-30T21:13:29.227Z*
 
 ## Node Statistics
 
@@ -19,21 +19,20 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3418 |
-| ACTIVE | 159 |
+| ACTIVE | 166 |
 | CANCELLED | 883 |
-| PENDING | 770 |
+| PENDING | 771 |
 | BLOCKED | 14 |
 | FAILED | 1 |
-| READY | 8 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 192 |
-| Merged PRs | 8671 |
-| Closed PRs | 1137 |
+| Open PRs | 199 |
+| Merged PRs | 8670 |
+| Closed PRs | 1131 |
 
 ## Rejection Counts
 
@@ -147,6 +146,7 @@
 | research-527-690-investigate-safari-zone-area-map-failure-v2.md | 3 |
 | research-534-676-investigate-idea-reverification-failure.md | 3 |
 | research-537-689-investigate-runtime-state-hydration-failure.md | 3 |
+| research-537-708-investigate-hydration-failure-retry-v2.md | 3 |
 | research-551-690-investigate-orchestrator-priority-tests-v2-failure.md | 3 |
 | research-562-668-investigate-gen2-wild-encounter-extraction-failure.md | 3 |
 | research-562-680-investigate-moms-savings-ui-failure.md | 3 |
@@ -421,7 +421,6 @@
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
 | research-521-703-gen3-submodules-constants-failure.md | 2 |
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 2 |
-| research-537-708-investigate-hydration-failure-retry-v2.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-563-704-investigate-routes-encounters-failure-v2.md | 2 |
