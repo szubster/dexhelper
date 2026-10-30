@@ -34,5 +34,8 @@ Absolute navigation paths in Playwright E2E tests break execution when deployed 
 4. Implement an auto-fix mechanism to rewrite the leading `/` to `./`.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Break down into Stories
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [ ] story-707-731-ast-analyzer-detection-script
+- [ ] story-707-732-ast-analyzer-autofix
+- [ ] story-707-733-ast-analyzer-e2e
