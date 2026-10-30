@@ -35,4 +35,4 @@ Implement a UI presentation component to display the batched Pokémon and their 
 - Incorporate fixes based on the findings from research-492-690-investigate-pal-park-batch-ui-failure.
 
 ## Acceptance Criteria
-- [ ] Implement the UI component for displaying batches.
+- [x] Implement the UI component for displaying batches.
