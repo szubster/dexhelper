@@ -11,11 +11,10 @@
     },
     "byStatus": {
       "COMPLETED": 3415,
-      "ACTIVE": 165,
+      "ACTIVE": 166,
       "CANCELLED": 883,
       "PENDING": 768,
       "BLOCKED": 14,
-      "FAILED": 1,
       "READY": 1
     },
     "rejectionCounts": {
@@ -2460,7 +2459,7 @@
       "research-537-659-investigate-runtime-api-failure.md": 0,
       "research-537-689-investigate-runtime-state-hydration-failure.md": 3,
       "research-537-690-berry-serialization-deprecation.md": 0,
-      "research-537-708-investigate-hydration-failure-retry-v2.md": 1,
+      "research-537-708-investigate-hydration-failure-retry-v2.md": 2,
       "research-540-608-benchmark-failure-investigation.md": 0,
       "research-546-611-mirage-island-ui-failure-investigation.md": 0,
       "research-551-668-investigate-orchestrator-priority-tests-failure.md": 1,
@@ -10064,9 +10063,9 @@
   },
   "prs": {
     "totalPRs": 10000,
-    "openPRs": 194,
-    "mergedPRs": 8669,
-    "closedPRs": 1137
+    "openPRs": 201,
+    "mergedPRs": 8664,
+    "closedPRs": 1135
   },
-  "timestamp": "2026-10-30T02:15:51.791Z"
+  "timestamp": "2026-10-30T09:09:40.567Z"
 }

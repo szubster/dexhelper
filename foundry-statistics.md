@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-30T02:15:51.791Z*
+*Generated at: 2026-10-30T09:09:40.567Z*
 
 ## Node Statistics
 
@@ -19,11 +19,10 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3415 |
-| ACTIVE | 165 |
+| ACTIVE | 166 |
 | CANCELLED | 883 |
 | PENDING | 768 |
 | BLOCKED | 14 |
-| FAILED | 1 |
 | READY | 1 |
 
 ## PR Metrics
@@ -31,9 +30,9 @@
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 194 |
-| Merged PRs | 8669 |
-| Closed PRs | 1137 |
+| Open PRs | 201 |
+| Merged PRs | 8664 |
+| Closed PRs | 1135 |
 
 ## Rejection Counts
 
@@ -421,6 +420,7 @@
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
 | research-521-703-gen3-submodules-constants-failure.md | 2 |
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 2 |
+| research-537-708-investigate-hydration-failure-retry-v2.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-563-704-investigate-routes-encounters-failure-v2.md | 2 |
@@ -792,7 +792,6 @@
 | research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
-| research-537-708-investigate-hydration-failure-retry-v2.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
 | research-559-704-investigate-query-formulation-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
