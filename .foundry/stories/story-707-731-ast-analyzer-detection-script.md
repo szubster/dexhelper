@@ -16,6 +16,7 @@ tags:
   - ast
 research_references: []
 rejection_count: 0
+confidence_score: 100
 rejection_reason: ''
 notes: ''
 locks: []
@@ -27,4 +28,8 @@ locks: []
 Implement a Node.js script using `typescript` or `ts-morph` compiler API to parse TS files in `tests/e2e/` and test helpers. Detect `page.goto(...)` calls where the argument is a string literal starting with a single `/`. Exclude protocol-relative URLs (`//`) and external URLs (`http://`, `https://`).
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-731-734-ast-analyzer-core-logic
+- [ ] task-731-735-ast-analyzer-cli
+- [ ] task-731-736-ast-analyzer-tests
+- [ ] task-731-737-ast-analyzer-qa
