@@ -2,13 +2,13 @@
 id: task-563-682-gen3-dashboard-data-qa
 type: TASK
 title: QA - Gen 3 Dashboard Data Integration
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-02'
 updated_at: '2026-10-30'
 depends_on:
   - task-563-681-gen3-dashboard-widgets-ui
-jules_session_id: null
+jules_session_id: '10988583309328235438'
 pr_number: null
 parent: story-554-563-gen3-dashboard-data-integration
 tags:
