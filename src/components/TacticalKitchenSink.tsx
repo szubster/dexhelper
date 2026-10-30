@@ -2,6 +2,7 @@ import { TacticalBadge, TacticalButton, TacticalInput } from '@dexhelper/ui';
 import type React from 'react';
 import { useState } from 'react';
 import { SubDataPoint } from './SubDataPoint';
+import { ShoalCaveDashboard } from './shoal-cave/ShoalCaveDashboard';
 import { TacticalCard } from './TacticalCard';
 import { TacticalChip } from './TacticalChip';
 import { TacticalModal } from './TacticalModal';
@@ -171,6 +172,13 @@ export const TacticalKitchenSink: React.FC = () => {
         <TacticalProgressBar label="SYNC_RATE" value={180} max={255} codeTag="NET.LNK" variant="blue" />
         <TacticalProgressBar label="TEMP" value={230} max={255} codeTag="THERM" variant="amber" />
         <TacticalProgressBar label="CORE_OVERLOAD" value={250} max={255} codeTag="WARN" variant="red" />
+      </div>
+
+      <div id="test-shoal-dashboard-1">
+        <ShoalCaveDashboard tide="High" hoursUntilNextTide={2} minutesUntilNextTide={30} shells={2} salts={4} />
+      </div>
+      <div id="test-shoal-dashboard-2">
+        <ShoalCaveDashboard tide="Low" hoursUntilNextTide={0} minutesUntilNextTide={45} shells={4} salts={4} />
       </div>
     </div>
   );
