@@ -31,5 +31,5 @@ This task provides the E2E verification for the task reminders migration execute
 - Run and verify that `pnpm lint` and `pnpm test` pass successfully on the repository.
 
 ## 3. Acceptance Criteria
-- [ ] Schema of all `.foundry/tasks/` files is intact and validated.
-- [ ] `pnpm lint` and `pnpm test` pass without errors.
+- [x] Schema of all `.foundry/tasks/` files is intact and validated.
+- [x] `pnpm lint` and `pnpm test` pass without errors.
