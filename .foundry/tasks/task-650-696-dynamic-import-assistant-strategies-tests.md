@@ -26,6 +26,6 @@ locks: []
 Update the test suite to handle the asynchronous nature of the dynamically imported Assistant Strategies.
 
 ## Acceptance Criteria
-- [ ] Ensure the tests properly support the dynamic import of strategies and wait for promises to resolve where necessary.
-- [ ] Update `generateSuggestions.test.ts`, `suggestionEngine.test.ts` and any other affected tests to correctly await `getStrategy()`.
-- [ ] Ensure all unit tests pass with the new async import architecture.
+- [x]  Ensure the tests properly support the dynamic import of strategies and wait for promises to resolve where necessary.
+- [x]  Update `generateSuggestions.test.ts`, `suggestionEngine.test.ts` and any other affected tests to correctly await `getStrategy()`.
+- [x]  Ensure all unit tests pass with the new async import architecture.
