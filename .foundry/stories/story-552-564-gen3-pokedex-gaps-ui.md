@@ -30,6 +30,9 @@ Create the UI components to display the missing Pokémon, highlighting obtainabl
 - [ ] Highlight version exclusives differently from obtainable Pokémon
 - [x] task-564-571-gen3-pokedex-gaps-ui-impl
 - [x] task-564-572-qa-gen3-pokedex-gaps-ui
-- [ ] research-564-690-investigate-gen3-pokedex-gaps-ui-failure
-- [ ] task-564-691-gen3-pokedex-gaps-ui-impl-retry
-- [ ] task-564-692-qa-gen3-pokedex-gaps-ui-retry
+- [x] research-564-690-investigate-gen3-pokedex-gaps-ui-failure
+- [x] task-564-691-gen3-pokedex-gaps-ui-impl-retry
+- [x] task-564-692-qa-gen3-pokedex-gaps-ui-retry
+- [ ] research-564-716-investigate-pokedex-ui-retry-failure
+- [ ] task-564-717-gen3-pokedex-gaps-ui-impl-v3
+- [ ] task-564-718-qa-gen3-pokedex-gaps-ui-v3
