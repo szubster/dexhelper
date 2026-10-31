@@ -32,4 +32,9 @@ Implement the core engine logic to detect cycle dependencies in the DAG graph an
 3. Output the formatted message as a clear, explicit diagnostic log.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into modular Tasks for the Coder.
+- [x] Break down this Story into modular Tasks for the Coder.
+- [ ] task-712-734-cycle-detection-engine-types
+- [ ] task-712-735-cycle-detection-engine-logic
+- [ ] task-712-736-cycle-detection-diagnostic-logger
+- [ ] task-712-737-cycle-detection-engine-tests
+- [ ] task-712-738-cycle-detection-engine-qa
