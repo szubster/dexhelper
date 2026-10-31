@@ -29,7 +29,7 @@ locks: []
 Develop the `WonderCardPanel` component to visually display the details of a Wonder Card extracted from the Gen 3 Mystery Gift save file block, integrating the `TacticalCard` primitive.
 
 ## Acceptance Criteria
-- [ ] Create a `WonderCardPanel` React component in `src/components/` (or an appropriate feature folder).
-- [ ] The component must accept Wonder Card data (e.g., ID, Title, Icon ID, Status) as props.
-- [ ] The component must utilize the `TacticalCard` primitive to present the data.
-- [ ] Write unit tests to verify the component renders correctly and displays the provided Wonder Card data.
+- [x] Create a `WonderCardPanel` React component in `src/components/` (or an appropriate feature folder).
+- [x] The component must accept Wonder Card data (e.g., ID, Title, Icon ID, Status) as props.
+- [x] The component must utilize the `TacticalCard` primitive to present the data.
+- [x] Write unit tests to verify the component renders correctly and displays the provided Wonder Card data.
