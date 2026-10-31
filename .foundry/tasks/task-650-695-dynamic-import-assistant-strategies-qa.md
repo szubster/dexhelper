@@ -2,14 +2,14 @@
 id: task-650-695-dynamic-import-assistant-strategies-qa
 type: TASK
 title: Dynamic Import Assistant Strategies - QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-17T02:22:00.000Z'
 updated_at: '2026-10-31'
 depends_on:
   - task-650-696-dynamic-import-assistant-strategies-tests
   - task-650-694-dynamic-import-assistant-strategies-impl
-jules_session_id: null
+jules_session_id: '6122439404940047380'
 pr_number: null
 parent: story-401-650-dynamic-import-assistant-strategies
 tags:
