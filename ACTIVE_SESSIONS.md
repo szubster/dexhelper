@@ -3,6 +3,7 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [epic-587-707-yaml-parsing-utility](.foundry/epics/epic-587-707-yaml-parsing-utility.md) | EPIC | Core YAML Parsing Utility Implementation | story_owner | [7076501360977388145](https://jules.google.com/session/7076501360977388145) |
+| [epic-703-696-artifact-presence-parser-engine](.foundry/epics/epic-703-696-artifact-presence-parser-engine.md) | EPIC | Artifact Presence Validator - Parser Engine | story_owner | [12027668150763017296](https://jules.google.com/session/12027668150763017296) |
 | [epic-703-696-ast-linter-core-analysis](.foundry/epics/epic-703-696-ast-linter-core-analysis.md) | EPIC | AST Linter Core Context Analysis | story_owner | [8474987953631413842](https://jules.google.com/session/8474987953631413842) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
