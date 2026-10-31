@@ -55,4 +55,5 @@ Automating this check with a custom linting rule or script shifts compliance lef
   - Can be implemented via a custom ESLint plugin, a Biome script (if supported), or a standalone Node.js AST parser script using tools like `ts-morph` or regex parsing if AST is overkill for MVP.
 
 ## 6. Acceptance Criteria
-- [ ] An Epic is generated outlining the breakdown of creating the linter rule/script.
+- [x] An Epic is generated outlining the breakdown of creating the linter rule/script.
+- [ ] epic-587-693-tactical-utility-linter
