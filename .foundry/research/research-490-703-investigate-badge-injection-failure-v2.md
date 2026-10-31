@@ -11,7 +11,6 @@ jules_session_id: '14523198443900368793'
 parent: story-408-490-orchestrator-themed-output-impl
 rejection_reason: ''
 locks: []
-rejection_reason: ''
 ---
 # Investigate Badge Injection Failure (v2)
 

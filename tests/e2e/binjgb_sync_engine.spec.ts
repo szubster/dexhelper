@@ -25,26 +25,26 @@ test.describe('BinjgbSyncEngine E2E', () => {
           request.onsuccess = (event) => {
             const db = (event.target as IDBOpenDBRequest).result;
             if (!db.objectStoreNames.contains(storeName)) {
-                resolve(false);
-                return;
+              resolve(false);
+              return;
             }
             const tx = db.transaction(storeName, 'readonly');
             const store = tx.objectStore(storeName);
             const countReq = store.count();
 
             countReq.onsuccess = () => {
-               resolve(countReq.result > 0);
+              resolve(countReq.result > 0);
             };
             countReq.onerror = () => resolve(false);
           };
         });
       };
 
-      for(let i=0; i<50; i++) {
-         if(await verifySaveWritten()) {
-            return true;
-         }
-         await new Promise(r => setTimeout(r, 100));
+      for (let i = 0; i < 50; i++) {
+        if (await verifySaveWritten()) {
+          return true;
+        }
+        await new Promise((r) => setTimeout(r, 100));
       }
       return false;
     });
