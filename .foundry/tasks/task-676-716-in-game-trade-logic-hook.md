@@ -16,6 +16,7 @@ tags:
 research_references: []
 rejection_count: 0
 rejection_reason: ""
+confidence_score: 100
 notes: ""
 locks: []
 ---
@@ -30,7 +31,7 @@ Create a custom React hook to fetch and compute NPC trade data and completion st
 - It must compute the completion status for each trade: "Claimed", "Available", or "Incomplete".
 
 ## Acceptance Criteria
-- [ ] Create `src/hooks/useInGameTrades.ts`.
-- [ ] The hook correctly identifies the current game version and retrieves the appropriate trades.
-- [ ] The hook computes "Claimed" (received Pokemon is owned), "Available" (offered Pokemon is owned, but not claimed), and "Incomplete" (offered Pokemon is not owned) statuses.
-- [ ] Unit tests are written to verify the hook's logic.
+- [x] Create `src/hooks/useInGameTrades.ts`.
+- [x] The hook correctly identifies the current game version and retrieves the appropriate trades.
+- [x] The hook computes "Claimed" (received Pokemon is owned), "Available" (offered Pokemon is owned, but not claimed), and "Incomplete" (offered Pokemon is not owned) statuses.
+- [x] Unit tests are written to verify the hook's logic.
