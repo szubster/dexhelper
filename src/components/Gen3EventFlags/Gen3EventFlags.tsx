@@ -1,5 +1,5 @@
+import { TacticalBadge } from '@dexhelper/ui';
 import type React from 'react';
-import { TacticalBadge } from '../TacticalBadge';
 
 export interface Gen3EventFlagsProps {
   eonTicket?: boolean;

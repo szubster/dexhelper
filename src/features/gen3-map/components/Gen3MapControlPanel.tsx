@@ -1,5 +1,5 @@
+import { TacticalButton } from '@dexhelper/ui';
 import type React from 'react';
-import { TacticalButton } from '../../../components/TacticalButton';
 import { TacticalCheckbox } from '../../../components/TacticalCheckbox';
 import { useGen3MapStore } from '../store';
 
