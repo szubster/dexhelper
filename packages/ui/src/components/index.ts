@@ -10,3 +10,4 @@ export * from './CornerCrosshairs';
 export * from './TacticalIconButton';
 export * from './EdgeLabel';
 export * from './TacticalButton';
+export * from './ScanlineOverlay';
