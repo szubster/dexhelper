@@ -664,3 +664,6 @@ Moving forward, providing explicit instructions in the research node on using th
 # 2026-10-20 Session
 
 Investigated the failure of `task-638-669-extract-constants-to-core-v3` and discovered it was a false permanent failure caused by repeated `[ACKNOWLEDGED] Session terminated with state: COMPLETED` agent session crashes rather than actual QA rejections. Because the orchestrator's logic increments the `rejection_count` for these system-level crashes just like it does for standard task rejections, the node eventually hit the `MAX_REJECTION_THRESHOLD` (3) and was auto-cancelled. The namespaced exports deduplication strategy formulated in `research-638-668-investigate-constants-extraction-retry-failure` should still be implemented in the replacement node (`task-638-691-extract-constants-to-core-v4`).
+# Investigated task-423-688-gen3-ai-data-e2e-mapping-tests-impl-v5 timeout
+
+Investigated the failure of `task-423-688-gen3-ai-data-e2e-mapping-tests-impl-v5` and discovered it was a false permanent failure caused by repeated `[ACKNOWLEDGED] Session terminated with state: COMPLETED` agent session crashes rather than actual QA rejections.
