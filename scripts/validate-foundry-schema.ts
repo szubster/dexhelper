@@ -230,6 +230,7 @@ function validateSchema() {
       'Implementation Steps Completed',
       'Generated Tasks',
       'Painting Errors',
+      'Technical Requirements',
       'Linting Errors',
       'Implementation Tasks',
       'Child Tasks',
