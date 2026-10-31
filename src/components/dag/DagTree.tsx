@@ -42,7 +42,7 @@ export function DagTree() {
         nodeId={node.id}
         label={node.data.title || node.id}
         status={node.data.status}
-        persona={node.data.owner_persona}
+        persona={node.data.owner_persona as string}
         isPermanentFailure={isPermanentFailure}
       >
         {children.map(renderNode)}
