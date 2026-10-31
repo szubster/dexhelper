@@ -2,13 +2,13 @@
 id: task-676-717-impl-gen3-wallpaper-state-integration
 type: TASK
 title: Integrate State and Phrase Generation for Wallpaper Dashboard
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-22'
 updated_at: '2026-10-31'
 depends_on:
   - task-676-716-impl-gen3-wallpaper-ui-base
-jules_session_id: null
+jules_session_id: '18135463726360046718'
 pr_number: null
 parent: story-337-676-gen3-wallpaper-ui-component
 tags:
