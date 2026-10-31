@@ -27,4 +27,7 @@ locks: []
 Set up the React Context layer or Zustand store integration to expose the parsed Gen 3 Battle Frontier data to the UI. Ensure it listens for save file uploads and syncs dynamically.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into modular Tasks for the Coder.
+- [x] Break down this Story into modular Tasks for the Coder.
+- [ ] task-711-734-gen3-battle-frontier-context-impl
+- [ ] task-711-735-gen3-battle-frontier-context-tests
+- [ ] task-711-736-gen3-battle-frontier-context-qa
