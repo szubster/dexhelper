@@ -32,6 +32,6 @@ locks: []
 Implement E2E test scenarios to verify the orchestrator's fallback mechanisms when resolving prompts, such as handling missing specific layers or missing base persona prompts.
 
 ## Acceptance Criteria
-- [ ] Write E2E test cases simulating missing specific context layers and ensure the orchestrator handles it gracefully without crashing.
-- [ ] Write E2E test cases simulating a missing base persona prompt and verify the fallback to a generic prompt mechanism.
-- [ ] Ensure fallback warnings or errors are appropriately logged or handled as per the specifications.
+- [x] Write E2E test cases simulating missing specific context layers and ensure the orchestrator handles it gracefully without crashing.
+- [x] Write E2E test cases simulating a missing base persona prompt and verify the fallback to a generic prompt mechanism.
+- [x] Ensure fallback warnings or errors are appropriately logged or handled as per the specifications.
