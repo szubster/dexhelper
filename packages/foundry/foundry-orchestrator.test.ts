@@ -898,7 +898,7 @@ vi.doMock('node:url', async (importOriginal) => {
       type: "EPIC",
       title: "Epic 1",
       status: "PENDING",
-      owner_persona: "human",
+      owner_persona: "story_owner",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [],
@@ -1978,7 +1978,7 @@ vi.doMock('node:url', async (importOriginal) => {
       type: "TASK",
       title: "Orphaned QA Task",
       status: "PENDING",
-      owner_persona: "qa",
+      owner_persona: "coder",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       parent: ".foundry/stories/story-001.md",
@@ -2045,7 +2045,7 @@ vi.doMock('node:url', async (importOriginal) => {
       type: "TASK",
       title: "Orphaned QA Task",
       status: "PENDING",
-      owner_persona: "qa",
+      owner_persona: "coder",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       parent: ".foundry/stories/story-001.md",
@@ -2153,10 +2153,10 @@ vi.doMock('node:url', async (importOriginal) => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-human.md', { id: "task-human", type: "TASK", title: "Human Task", status: "PENDING", owner_persona: "human", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/research/research-001.md', { id: "research-001", type: "RESEARCH", title: "Research Task", status: "PENDING", owner_persona: "researcher", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/adrs/adr-architect.md', { id: "adr-architect", type: "ADR", title: "Architect PRD", status: "PENDING", owner_persona: "architect", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
-    createValidTestNode(tmpDir, '.foundry/tasks/task-tech-lead.md', { id: "task-tech-lead", type: "TASK", title: "Tech Lead Task", status: "PENDING", owner_persona: "tech_lead", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
+    createValidTestNode(tmpDir, '.foundry/tasks/task-tech-lead.md', { id: "task-tech-lead", type: "TASK", title: "Tech Lead Task", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/tasks/task-architect.md', { id: "task-architect", type: "TASK", title: "Architect Task", status: "PENDING", owner_persona: "architect", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/prds/prd-valid.md', { id: "prd-valid", type: "PRD", title: "Valid PRD", status: "PENDING", owner_persona: "epic_planner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
-    createValidTestNode(tmpDir, '.foundry/tasks/task-qa.md', { id: "task-qa", type: "TASK", title: "QA Task", status: "PENDING", owner_persona: "qa", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
+    createValidTestNode(tmpDir, '.foundry/tasks/task-qa.md', { id: "task-qa", type: "TASK", title: "QA Task", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/tasks/task-coder.md', { id: "task-coder", type: "TASK", title: "Coder Task", status: "PENDING", owner_persona: "coder", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
 
     main();
@@ -2215,7 +2215,7 @@ vi.doMock('node:url', async (importOriginal) => {
       type: "TASK",
       title: "Tech Lead Task",
       status: "COMPLETED",
-      owner_persona: "tech_lead",
+      owner_persona: "coder",
       created_at: "2026-04-20",
       updated_at: "2026-04-20",
       depends_on: [],

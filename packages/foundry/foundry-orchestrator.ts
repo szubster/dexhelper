@@ -214,12 +214,35 @@ function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
  *
  * In --dry-run mode, logs the intended change but does NOT write to disk.
  */
+
+
+const VALID_TRANSITIONS: Record<NodeFrontmatter['status'], NodeFrontmatter['status'][]> = {
+  DRAFT: ['PENDING', 'CANCELLED'],
+  PENDING: ['READY', 'COMPLETED', 'FAILED', 'CANCELLED', 'ACTIVE'],
+  READY: ['ACTIVE', 'FAILED', 'CANCELLED', 'PENDING'],
+  ACTIVE: ['VERIFYING', 'FAILED', 'CANCELLED', 'PENDING'],
+  VERIFYING: ['COMPLETED', 'FAILED', 'CANCELLED', 'READY', 'PENDING'],
+  COMPLETED: [],
+  FAILED: ['READY', 'CANCELLED', 'PENDING'],
+  CANCELLED: [],
+  WIP: ['PENDING', 'CANCELLED'],
+  APPROVED: ['IMPLEMENTED', 'CANCELLED'],
+  IMPLEMENTED: ['COMPLETED', 'CANCELLED'],
+  STABLE: []
+};
+
 function promoteNodeStatus(node: ParsedNode, currentStatus: NodeFrontmatter['status'], targetStatus: NodeFrontmatter['status'], newOwner?: string): void {
   const dateStr = todayISO();
   const dryTag = isDryRun() ? '[DRY-RUN] ' : '';
 
   if (node.frontmatter.status !== currentStatus) {
     warn(`${dryTag}Cannot promote status. Current status is ${node.frontmatter.status}, expected ${currentStatus} in: ${node.repoPath}`);
+    return;
+  }
+
+  const allowedTransitions = VALID_TRANSITIONS[currentStatus] || [];
+  if (!allowedTransitions.includes(targetStatus)) {
+    warn(`${dryTag}Invalid state transition from ${currentStatus} to ${targetStatus} in: ${node.repoPath}`);
     return;
   }
 
@@ -277,6 +300,13 @@ function promoteNodeToTpm(node: ParsedNode): void {
 function promoteNodeToCancelledWithReason(node: ParsedNode, reason: string): void {
   const dateStr = todayISO();
   const dryTag = isDryRun() ? '[DRY-RUN] ' : '';
+  const currentStatus = node.frontmatter.status;
+
+  const allowedTransitions = VALID_TRANSITIONS[currentStatus] || [];
+  if (!allowedTransitions.includes('CANCELLED')) {
+    warn(`${dryTag}Invalid state transition from ${currentStatus} to CANCELLED in: ${node.repoPath}`);
+    return;
+  }
 
   const newData = { ...node.frontmatter, status: 'CANCELLED' as NodeFrontmatter['status'], rejection_reason: reason, updated_at: dateStr };
   const newContent = matter.stringify(node.body, newData);
@@ -299,6 +329,13 @@ function promoteNodeToCancelledWithReason(node: ParsedNode, reason: string): voi
 function promoteNodeToFailedWithReason(node: ParsedNode, reason: string): void {
   const dateStr = todayISO();
   const dryTag = isDryRun() ? '[DRY-RUN] ' : '';
+  const currentStatus = node.frontmatter.status;
+
+  const allowedTransitions = VALID_TRANSITIONS[currentStatus] || [];
+  if (!allowedTransitions.includes('FAILED')) {
+    warn(`${dryTag}Invalid state transition from ${currentStatus} to FAILED in: ${node.repoPath}`);
+    return;
+  }
 
   const newData = { ...node.frontmatter, status: 'FAILED' as NodeFrontmatter['status'], rejection_reason: reason, updated_at: dateStr };
   const newContent = matter.stringify(node.body, newData);
@@ -1608,7 +1645,7 @@ function main(): void {
     STORY: ['tech_lead', 'story_owner'],
     TASK: ['coder', 'qa', 'tech_lead', 'architect', 'architect_visionary', 'changelogger', 'librarian'],
     RESEARCH: ['researcher'],
-    ADR: ['architect'],
+    ADR: ['architect', 'architect_visionary'],
   };
 
   for (const node of finalEligible) {
