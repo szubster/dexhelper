@@ -30,5 +30,8 @@ Update test cases in `.github/scripts/foundry-orchestrator.test.ts` to cover the
 ## Acceptance Criteria
 - [x] task-513-689-update-orchestrator-tests
 - [x] task-513-690-qa-orchestrator-tests
+- [ ] research-513-716-investigate-orchestrator-test-updates-failure
+- [ ] task-513-717-update-orchestrator-tests-retry
+- [ ] task-513-718-qa-orchestrator-tests-retry
 - [x] Test cases added/updated for Phase 4.5 auto-checking behavior.
 - [x] Tests pass cleanly with `npx vitest run`.
