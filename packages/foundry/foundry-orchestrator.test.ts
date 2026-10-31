@@ -4348,6 +4348,55 @@ Target artifact: task-completed
     expect(resultDraft).toContain('status: PENDING');
   });
 
+
+  test('Locks: PENDING nodes are blocked by ACTIVE nodes with overlapping locks', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-active.md', {
+      id: "task-active",
+      type: "TASK",
+      title: "Active Task with lock",
+      status: "ACTIVE",
+      owner_persona: "coder",
+      locks: ["lock-a"],
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-pending-blocked.md', {
+      id: "task-pending-blocked",
+      type: "TASK",
+      title: "Pending Task requiring same lock",
+      status: "PENDING",
+      owner_persona: "coder",
+      locks: ["lock-a"],
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-pending-free.md', {
+      id: "task-pending-free",
+      type: "TASK",
+      title: "Pending Task with different lock",
+      status: "PENDING",
+      owner_persona: "coder",
+      locks: ["lock-b"],
+    });
+
+    createValidTestNode(tmpDir, '.foundry/tasks/task-pending-nolock.md', {
+      id: "task-pending-nolock",
+      type: "TASK",
+      title: "Pending Task with no lock",
+      status: "PENDING",
+      owner_persona: "coder",
+    });
+
+    main();
+
+    const blockedResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-pending-blocked.md'), 'utf-8');
+    expect(blockedResult).toContain('status: PENDING');
+
+    const freeResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-pending-free.md'), 'utf-8');
+    expect(freeResult).toContain('status: READY');
+
+    const noLockResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-pending-nolock.md'), 'utf-8');
+    expect(noLockResult).toContain('status: READY');
+  });
+
   test('DRAFT or WIP dependencies exit with code 1 in strict mode', () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-wip.md', {
       id: "story-wip",
