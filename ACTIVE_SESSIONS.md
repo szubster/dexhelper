@@ -3,11 +3,13 @@
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
 | [epic-587-707-yaml-parsing-utility](.foundry/epics/epic-587-707-yaml-parsing-utility.md) | EPIC | Core YAML Parsing Utility Implementation | story_owner | [7076501360977388145](https://jules.google.com/session/7076501360977388145) |
+| [epic-703-696-ast-linter-core-analysis](.foundry/epics/epic-703-696-ast-linter-core-analysis.md) | EPIC | AST Linter Core Context Analysis | story_owner | [8474987953631413842](https://jules.google.com/session/8474987953631413842) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-074-refactor-dag-dashboard-context](.foundry/ideas/idea-074-refactor-dag-dashboard-context.md) | IDEA | Refactor DagDashboard to use React Context (ADR 013/017) | curator | [16445591236087752335](https://jules.google.com/session/16445591236087752335) |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
 | [idea-540-multi-save-diffing-and-trade-simulation](.foundry/ideas/idea-540-multi-save-diffing-and-trade-simulation.md) | IDEA | Real-Time Multi-Save Diffing Engine and Cross-Save Trade Simulation Pipeline | product_manager | [9686101469478610701](https://jules.google.com/session/9686101469478610701) |
+| [idea-541-tracker-collection-data-integrity-guard](.foundry/ideas/idea-541-tracker-collection-data-integrity-guard.md) | IDEA | Tracker Collection Data Integrity Linter & Developer Guideline | product_manager | - |
 | [research-047-586-tv-swarm-extraction-failure](.foundry/research/research-047-586-tv-swarm-extraction-failure.md) | RESEARCH | Investigate Gen 3 TV Swarm Data Extraction Failure | researcher | [9092536888665692814](https://jules.google.com/session/9092536888665692814) |
 | [research-423-712-investigate-ai-mapping-test-failure-v5](.foundry/research/research-423-712-investigate-ai-mapping-test-failure-v5.md) | RESEARCH | Investigate Gen 3 AI Script Mapping E2E Test Failure (V5) | researcher | [15102315175015349543](https://jules.google.com/session/15102315175015349543) |
 | [research-424-712-investigate-gen3-lottery-e2e-failure-retry](.foundry/research/research-424-712-investigate-gen3-lottery-e2e-failure-retry.md) | RESEARCH | Investigate Gen3 Lottery E2E Failure (Retry) | researcher | [264053103599043067](https://jules.google.com/session/264053103599043067) |

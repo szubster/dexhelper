@@ -2,12 +2,12 @@
 id: epic-703-696-ast-linter-core-analysis
 type: EPIC
 title: AST Linter Core Context Analysis
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-10-23'
-updated_at: '2026-10-23'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8474987953631413842'
 pr_number: null
 parent: prd-538-703-ast-linter-context-wiring
 tags:
