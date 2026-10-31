@@ -2,13 +2,13 @@
 id: research-551-712-investigate-orchestrator-priority-tests-v3-failure
 type: RESEARCH
 title: Investigate Orchestrator Priority Tests v3 Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-20'
-updated_at: '2026-10-20'
-rejection_reason: ""
+updated_at: '2026-10-31'
+rejection_reason: ''
 depends_on: []
-jules_session_id: null
+jules_session_id: '8911615227229736853'
 parent: story-540-551-priority-engine-dispatch
 locks: []
 ---
