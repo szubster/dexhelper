@@ -26,4 +26,6 @@ locks: []
 - Ensure that the markdown checkbox validation and section tracking logic are properly integrated and verified via tests.
 
 ## Acceptance Criteria
+- [ ] task-564-721-schema-linter-checkbox-e2e-impl
+- [ ] task-564-722-schema-linter-checkbox-e2e-qa
 - [ ] Verify the checkbox validation logic end-to-end.
