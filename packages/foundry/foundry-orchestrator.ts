@@ -29,6 +29,8 @@ import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import { createRequire } from 'node:module';
 import { randomInt } from 'node:crypto';
+import Graph from 'graphology';
+import { hasCycle } from 'graphology-dag';
 import { buildDocumentationIndex } from "./flexsearch-utils.ts";
 import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal, updateActiveSessionsTable, trackCycleDetectionFailure } from './dag-utils.ts';
 import { NodeFrontmatterSchema, type NodeFrontmatter } from './schema.ts';
@@ -972,69 +974,115 @@ function main(): void {
   info('Phase 3.9: Detecting circular dependencies among PENDING nodes...');
 
   const pendingNodesForCycleDetection = nodes.filter(n => n.frontmatter.status === 'PENDING');
-  const dependencyGraph = new Map<string, string[]>();
+  const cycleGraph = new Graph({type: 'directed'});
 
   for (const n of pendingNodesForCycleDetection) {
+    if (!cycleGraph.hasNode(n.repoPath)) {
+      cycleGraph.addNode(n.repoPath);
+    }
     const deps = (n.frontmatter.depends_on || []).map(d => resolveNodePath(d)).filter(Boolean) as string[];
     // Also include implicit parent dependencies
     const parentPath = resolveNodePath(n.frontmatter.parent);
     if (parentPath) {
       deps.push(parentPath);
     }
-    dependencyGraph.set(n.repoPath, deps);
-  }
 
-  const visitedForCycle = new Set<string>();
-  const recursionStackPath: string[] = [];
-  const recursionSet = new Set<string>();
-  const nodesInCycle = new Set<string>();
-
-  function dfsCycle(nodePath: string) {
-    visitedForCycle.add(nodePath);
-    recursionStackPath.push(nodePath);
-    recursionSet.add(nodePath);
-
-    const deps = dependencyGraph.get(nodePath) || [];
     for (const dep of deps) {
-      if (!dependencyGraph.has(dep)) continue; // Only care about PENDING dependencies
-
-      if (!visitedForCycle.has(dep)) {
-        dfsCycle(dep);
-      } else if (recursionSet.has(dep)) {
-        const cycleStartIndex = recursionStackPath.indexOf(dep);
-        const cyclePath = recursionStackPath.slice(cycleStartIndex);
-        cyclePath.push(dep);
-
-        warn(`Detected circular dependency: ${cyclePath.join(' -> ')}`);
-        trackCycleDetectionFailure(cyclePath);
-
-        for (const cycleNode of cyclePath) {
-          nodesInCycle.add(cycleNode);
+      // Only care about PENDING dependencies
+      if (pendingNodesForCycleDetection.some(pn => pn.repoPath === dep)) {
+        if (!cycleGraph.hasNode(dep)) {
+          cycleGraph.addNode(dep);
+        }
+        if (!cycleGraph.hasEdge(n.repoPath, dep)) {
+          cycleGraph.addEdge(n.repoPath, dep);
         }
       }
     }
-
-    recursionStackPath.pop();
-    recursionSet.delete(nodePath);
   }
 
-  for (const n of pendingNodesForCycleDetection) {
-    if (!visitedForCycle.has(n.repoPath)) {
-      dfsCycle(n.repoPath);
+  if (hasCycle(cycleGraph)) {
+    // DFS to extract the exact cycle path for telemetry and failure promotion
+    const visited = new Set<string>();
+    const recursionStack = new Set<string>();
+    const path: string[] = [];
+    let foundCyclePath: string[] | null = null;
+
+    function dfs(node: string) {
+      visited.add(node);
+      recursionStack.add(node);
+      path.push(node);
+
+      for (const neighbor of cycleGraph.outNeighbors(node)) {
+        if (!visited.has(neighbor)) {
+          dfs(neighbor);
+          if (foundCyclePath) return;
+        } else if (recursionStack.has(neighbor)) {
+          const cycleStartIndex = path.indexOf(neighbor);
+          foundCyclePath = [...path.slice(cycleStartIndex), neighbor];
+          return;
+        }
+      }
+
+      recursionStack.delete(node);
+      path.pop();
     }
-  }
 
-  if (nodesInCycle.size > 0) {
-    for (const nodePath of nodesInCycle) {
-      const cycleNode = nodes.find(n => n.repoPath === nodePath);
-      if (cycleNode) {
-        promoteNodeToFailedWithReason(cycleNode, 'Circular dependency detected');
+    for (const node of cycleGraph.nodes()) {
+      if (!visited.has(node) && !foundCyclePath) {
+        dfs(node);
+      }
+    }
+
+    if (foundCyclePath) {
+      warn(`Detected circular dependency: ${(foundCyclePath as string[]).join(' -> ')}`);
+      trackCycleDetectionFailure(foundCyclePath);
+
+      const nodesInCycle = new Set(foundCyclePath);
+      for (const nodePath of nodesInCycle) {
+        const cycleNode = nodes.find(n => n.repoPath === nodePath);
+        if (cycleNode) {
+          promoteNodeToFailedWithReason(cycleNode, 'Circular dependency detected');
+        }
       }
     }
   }
 
   // ── Phase 3.10: HIERARCHICAL DEADLOCK DETECTION ────────────────────────────
   info('Phase 3.10: Detecting hierarchical deadlocks...');
+
+  const deadlockGraph = new Graph({type: 'directed'});
+  for (const node of nodes) {
+    if (node.frontmatter.status === 'COMPLETED' || node.frontmatter.status === 'CANCELLED') continue;
+    if (!deadlockGraph.hasNode(node.repoPath)) deadlockGraph.addNode(node.repoPath);
+
+    for (const depRef of node.frontmatter.depends_on) {
+      const depPath = resolveNodePath(depRef);
+      if (depPath) {
+        if (!deadlockGraph.hasNode(depPath)) deadlockGraph.addNode(depPath);
+        if (!deadlockGraph.hasEdge(node.repoPath, depPath)) {
+          deadlockGraph.addEdge(node.repoPath, depPath);
+        }
+      }
+    }
+  }
+
+  function hasPath(start: string, target: string): boolean {
+    if (!deadlockGraph.hasNode(start) || !deadlockGraph.hasNode(target)) return false;
+    const queue = [start];
+    const visited = new Set<string>();
+    while (queue.length > 0) {
+      const curr = queue.shift()!;
+      if (curr === target) return true;
+      if (visited.has(curr)) continue;
+      visited.add(curr);
+
+      deadlockGraph.forEachOutNeighbor(curr, neighbor => {
+        queue.push(neighbor);
+      });
+    }
+    return false;
+  }
+
   for (const node of nodes) {
     if (node.frontmatter.status === 'COMPLETED' || node.frontmatter.status === 'CANCELLED') continue;
 
@@ -1042,52 +1090,7 @@ function main(): void {
     for (const child of children) {
       if (child.frontmatter.status === 'COMPLETED' || child.frontmatter.status === 'CANCELLED') continue;
 
-      const queue = [child.repoPath];
-      const visited = new Set<string>();
-      let isCyclic = false;
-
-      while (queue.length > 0) {
-        const curr = queue.shift()!;
-        if (visited.has(curr)) continue;
-        visited.add(curr);
-
-        if (curr === node.repoPath) {
-          isCyclic = true;
-          break;
-        }
-
-        const currNode = nodeMap.get(curr);
-        if (currNode) {
-          for (const depRef of currNode.frontmatter.depends_on) {
-            const depPath = resolveNodePath(depRef);
-            if (depPath) queue.push(depPath);
-          }
-        }
-      }
-
-      // Also check if parent transitively depends on child
-      if (!isCyclic) {
-        const parentQueue = [node.repoPath];
-        const parentVisited = new Set<string>();
-        while (parentQueue.length > 0) {
-          const curr = parentQueue.shift()!;
-          if (parentVisited.has(curr)) continue;
-          parentVisited.add(curr);
-
-          if (curr === child.repoPath) {
-            isCyclic = true;
-            break;
-          }
-
-          const currNode = nodeMap.get(curr);
-          if (currNode) {
-            for (const depRef of currNode.frontmatter.depends_on) {
-              const depPath = resolveNodePath(depRef);
-              if (depPath) parentQueue.push(depPath);
-            }
-          }
-        }
-      }
+      const isCyclic = hasPath(child.repoPath, node.repoPath) || hasPath(node.repoPath, child.repoPath);
 
       if (isCyclic) {
         warn(`Hierarchical deadlock detected: Parent '${node.frontmatter.id}' (${node.repoPath}) has unchecked/incomplete child '${child.frontmatter.id}' (${child.repoPath}), but a dependency cycle exists between them!`);
@@ -1494,9 +1497,18 @@ function main(): void {
       const links = [...body.matchAll(idRegex)].map(m => m[0]);
 
       if (links.length > 0) {
-        const resolvedLinks = links.map(l => resolveNodePath(l, true)).filter((l): l is string => !!l);
-        const allExist = resolvedLinks.every(l => nodeMap.has(l) || fs.existsSync(path.join(repoRoot, l)));
-        const hasChild = resolvedLinks.some(l => {
+        const resolvedLinks = links.map(l => resolveNodePath(l, true));
+        const hasUnresolvableLinks = resolvedLinks.some(l => !l);
+        if (hasUnresolvableLinks && isStrict()) {
+          const unresolvableLink = links[resolvedLinks.findIndex(l => !l)];
+          warn(`Unresolvable node reference: '${unresolvableLink}' referenced in body by: ${node.repoPath}`);
+          process.exitCode = 1;
+        }
+
+        const validResolvedLinks = resolvedLinks.filter((l): l is string => !!l);
+
+        const allExist = validResolvedLinks.every(l => nodeMap.has(l) || fs.existsSync(path.join(repoRoot, l)));
+        const hasChild = validResolvedLinks.some(l => {
           let childNode = nodeMap.get(l);
           if (!childNode && fs.existsSync(path.join(repoRoot, l))) {
             childNode = parseNodeFile(path.join(repoRoot, l), repoRoot) || undefined;
@@ -1599,11 +1611,11 @@ function main(): void {
   info('Phase 4.8: Validating node type to persona mappings...');
   const validatedEligible: ParsedNode[] = [];
   const validMappings: Record<string, string[]> = {
-    IDEA: ['product_manager'],
+    IDEA: ['product_manager', 'architect_visionary'],
     PRD: ['epic_planner', 'story_owner'],
     EPIC: ['story_owner', 'epic_planner'],
     STORY: ['tech_lead', 'story_owner'],
-    TASK: ['coder', 'qa', 'tech_lead', 'architect', 'changelogger', 'librarian'],
+    TASK: ['coder', 'qa', 'tech_lead', 'architect', 'architect_visionary', 'changelogger', 'librarian'],
     RESEARCH: ['researcher'],
     ADR: ['architect'],
   };

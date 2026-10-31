@@ -25,7 +25,7 @@ notes: ''
 ## Objective
 Setup Gen 3 save file fixtures containing required data.
 
-## Core Technical Requirements
+## Core Acceptance Criteria
 Generate or integrate a mock Gen 3 save file with a known player team, location, mapped upcoming trainer, and known opponent data. Ensure the fixture can be successfully loaded and represents a valid game state for AI Data extraction E2E tests.
 
 ## Acceptance Criteria

@@ -23,7 +23,7 @@ export const TargetingRings = React.memo(function TargetingRings({
       />
       <div
         className={cn(
-          'absolute inset-4 rounded-full border border-cyan-400/0 border-dashed opacity-0 transition-all duration-500 group-hover/card:animate-[spin_3s_linear_infinite_reverse] group-hover/card:border-cyan-400/20 group-hover/card:opacity-100',
+          'absolute inset-4 rounded-full border border-dashed border-cyan-400/0 opacity-0 transition-all duration-500 group-hover/card:animate-[spin_3s_linear_infinite_reverse] group-hover/card:border-cyan-400/20 group-hover/card:opacity-100',
           innerClassName,
         )}
       />

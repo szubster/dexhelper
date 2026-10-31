@@ -48,8 +48,8 @@ describe('LivingDexGrid', () => {
     const cells = page.getByTestId('pokedex-card').elements();
     expect(cells).toHaveLength(386);
 
-    await expect.element(page.getByTestId('pokedex-card').first()).toHaveTextContent('001');
-    await expect.element(page.getByTestId('pokedex-card').last()).toHaveTextContent('386');
+    await expect.element(page.getByTestId('pokedex-card').first()).toHaveTextContent('001GHOST');
+    await expect.element(page.getByTestId('pokedex-card').last()).toHaveTextContent('386GHOST');
   });
 
   test('calculates secured pokemon from party and PC', async () => {

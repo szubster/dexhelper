@@ -9,9 +9,9 @@ export const tacticalMultiSelectItemVariants = cva(
   {
     variants: {
       active: {
-        true: 'bg-zinc-950 shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)] text-[var(--theme-primary)] translate-y-[2px] border-t-zinc-950 border-b-zinc-800',
+        true: 'translate-y-[2px] border-t-zinc-950 border-b-zinc-800 bg-zinc-950 text-[var(--theme-primary)] shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)]',
         false:
-          'bg-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300 border-t-zinc-700 border-b-zinc-950',
+          'border-t-zinc-700 border-b-zinc-950 bg-zinc-800 text-zinc-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] hover:bg-zinc-700 hover:text-zinc-300',
       },
       variant: {
         default: '',
@@ -32,47 +32,47 @@ export const tacticalMultiSelectItemVariants = cva(
         active: false,
         variant: 'cyan',
         className:
-          '!border-zinc-800 bg-zinc-900 text-zinc-500 hover:!border-zinc-600 hover:bg-zinc-800 hover:text-zinc-300 shadow-[inset_0_-2px_5px_rgba(0,0,0,0.5)]',
+          '!border-zinc-800 bg-zinc-900 text-zinc-500 shadow-[inset_0_-2px_5px_rgba(0,0,0,0.5)] hover:!border-zinc-600 hover:bg-zinc-800 hover:text-zinc-300',
       },
       {
         active: true,
         variant: 'ghost',
-        className: 'border-[var(--theme-primary)] text-[var(--theme-primary)] bg-transparent shadow-none',
+        className: 'border-[var(--theme-primary)] bg-transparent text-[var(--theme-primary)] shadow-none',
       },
       {
         active: false,
         variant: 'ghost',
-        className: 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400 bg-transparent shadow-none',
+        className: 'border-zinc-800 bg-transparent text-zinc-500 shadow-none hover:bg-zinc-800 hover:text-zinc-400',
       },
       {
         active: true,
         variant: 'emerald',
-        className: 'border-emerald-500 text-emerald-500 bg-transparent shadow-none',
+        className: 'border-emerald-500 bg-transparent text-emerald-500 shadow-none',
       },
       {
         active: false,
         variant: 'emerald',
-        className: 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400 bg-transparent shadow-none',
+        className: 'border-zinc-800 bg-transparent text-zinc-500 shadow-none hover:bg-zinc-800 hover:text-zinc-400',
       },
       {
         active: true,
         variant: 'amber',
-        className: 'border-amber-500 text-amber-500 bg-transparent shadow-none',
+        className: 'border-amber-500 bg-transparent text-amber-500 shadow-none',
       },
       {
         active: false,
         variant: 'amber',
-        className: 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400 bg-transparent shadow-none',
+        className: 'border-zinc-800 bg-transparent text-zinc-500 shadow-none hover:bg-zinc-800 hover:text-zinc-400',
       },
       {
         active: true,
         variant: 'red',
-        className: 'border-red-500 text-red-500 bg-transparent shadow-none',
+        className: 'border-red-500 bg-transparent text-red-500 shadow-none',
       },
       {
         active: false,
         variant: 'red',
-        className: 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400 bg-transparent shadow-none',
+        className: 'border-zinc-800 bg-transparent text-zinc-500 shadow-none hover:bg-zinc-800 hover:text-zinc-400',
       },
     ],
     defaultVariants: {

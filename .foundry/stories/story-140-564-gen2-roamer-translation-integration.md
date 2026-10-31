@@ -8,7 +8,7 @@ created_at: '2026-09-10'
 updated_at: '2026-10-29'
 depends_on:
   - story-140-563-gen2-roamer-translation-logic
-jules_session_id: '5136691060925055009'
+jules_session_id: '5638703880084308080'
 pr_number: null
 parent: epic-043-140-gen2-roamer-map-translation
 tags:
@@ -17,7 +17,7 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

@@ -2,12 +2,12 @@
 id: prd-537-703-artifact-presence-precommit-validator
 type: PRD
 title: Automated Pre-Commit Deliverable Artifact Presence Validator
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-10-18'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '3500086733412656414'
+jules_session_id: null
 pr_number: null
 parent: idea-537-artifact-presence-precommit-validator
 tags:
@@ -33,4 +33,8 @@ Develop an automated pre-commit or linter validation tool (e.g. integrated into 
 3. **Enforcement:** If a deliverable file is omitted or left unstaged, the tool must fail the pre-commit hook (exit with a non-zero status), effectively blocking the agent from submitting the empty PR and forcing them to actually write the missing files.
 
 ## Acceptance Criteria
-- [ ] EPIC breakdown generated.
+- [x] EPIC breakdown generated.
+- [ ] epic-703-696-artifact-presence-parser-engine
+- [ ] epic-703-697-artifact-presence-verification-logic
+- [ ] epic-703-698-artifact-presence-lefthook-integration
+- [ ] epic-703-699-artifact-presence-e2e

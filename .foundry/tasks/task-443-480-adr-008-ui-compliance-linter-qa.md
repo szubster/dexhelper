@@ -28,7 +28,7 @@ notes: ''
 ## Objective
 Verify the `scripts/verify-adr-compliance.ts` correctly detects ADR 008 violations and is integrated into the CI process.
 
-## Technical Requirements
+## Acceptance Criteria
 - Run the unit tests added for the script using `vitest`.
 - Manually run the script against a test file that contains forbidden classes (`rounded-t`, etc.) and ensure it fails with a clear message.
 - Manually run the script against a test file with allowed classes (`rounded-none`, etc.) and ensure it passes.

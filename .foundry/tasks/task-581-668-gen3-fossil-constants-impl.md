@@ -2,10 +2,10 @@
 id: task-581-668-gen3-fossil-constants-impl
 type: TASK
 title: Implement Gen 3 Fossil Constants
-status: COMPLETED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-08'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,8 +13,8 @@ parent: story-552-581-gen3-fossil-constants
 tags:
   - gen3
   - constants
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
@@ -45,3 +45,10 @@ Based on the offset discovery in `gen3_fossil_revival_offsets.md`, we need to im
 ## Acceptance Criteria
 - [x] Constants are defined and accurately match `gen3_fossil_revival_offsets.md`.
 - [x] Code passes all lint checks (`pnpm lint`).
+
+### QA Rejection
+The implementation is missing constants for event flags. As defined in `gen3_fossil_revival_offsets.md` and Section 13 standards ("Bitwise Mapping"), you must explicitly define the bit locations for the following target events:
+- R/S: FLAG_CHOSE_ROOT_FOSSIL, FLAG_CHOSE_CLAW_FOSSIL, FLAG_RECEIVED_REVIVED_FOSSIL_MON
+- Emerald: FLAG_CHOSE_ROOT_FOSSIL, FLAG_CHOSE_CLAW_FOSSIL, FLAG_RECEIVED_REVIVED_FOSSIL_MON
+- FRLG: FLAG_GOT_DOME_FOSSIL, FLAG_GOT_HELIX_FOSSIL, FLAG_GOT_OLD_AMBER
+These need relative byte offsets from the `flags` array offset and their respective bit offsets.

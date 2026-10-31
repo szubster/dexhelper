@@ -1854,7 +1854,7 @@ describe('parseGen3MetLocation', () => {
   });
 });
 
-describe('parseGen3Roamer', () => {
+describe('parseGen3Roamer offset handling', () => {
   it('correctly parses Ruby/Sapphire roamer with non-zero saveBlock1Offset', () => {
     const saveBlock1Offset = 100;
     const buffer = new ArrayBuffer(saveBlock1Offset + GEN3_ROAMER_OFFSET_RS + 36);
