@@ -36,3 +36,6 @@ Integrate the cycle detection core engine seamlessly into the Foundry Orchestrat
 - [ ] Integrate cycle detection seamlessly into orchestrator pre-dispatch checks.
 - [ ] Output explicit diagnostic logs detailing the cyclic path when detected.
 - [ ] Ensure affected nodes are explicitly skipped or demoted from dispatch.
+- [ ] story-691-712-cycle-detection-diagnostics-logger
+- [ ] story-691-713-orchestrator-pre-dispatch-integration
+- [ ] story-691-714-orchestrator-cycle-detection-e2e
