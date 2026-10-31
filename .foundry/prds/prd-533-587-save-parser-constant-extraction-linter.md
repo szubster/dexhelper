@@ -31,4 +31,5 @@ Recent QA journals and task rejections (e.g., `task-520-550-refactor-gen2-parser
 - Improves save parser code maintainability and readability.
 
 ## Acceptance Criteria
-- [ ] epic-587-584-save-parser-constant-extraction-linter
+- [ ] epic-587-693-save-parser-linter-rule-development
+- [ ] epic-587-694-save-parser-linter-integration
