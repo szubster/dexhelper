@@ -2,10 +2,10 @@
 id: epic-703-697-ast-linter-wiring-verification
 type: EPIC
 title: AST Linter Provider Wiring Verification
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-23'
-updated_at: '2026-10-23'
+updated_at: '2026-10-31'
 depends_on:
   - epic-703-696-ast-linter-core-analysis
 jules_session_id: null

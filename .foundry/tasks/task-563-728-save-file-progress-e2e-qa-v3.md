@@ -2,10 +2,10 @@
 id: task-563-728-save-file-progress-e2e-qa-v3
 type: TASK
 title: QA Save File Progress E2E Tests (v3)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-25T00:00:00.000Z'
-updated_at: '2026-10-25T00:00:00.000Z'
+updated_at: '2026-10-31'
 depends_on:
   - task-563-727-save-file-progress-e2e-coder-v3
 jules_session_id: null

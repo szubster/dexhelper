@@ -2,10 +2,10 @@
 id: task-403-723-playwright-e2e-retry-qa-v5
 type: TASK
 title: QA Verification for Playwright E2E Tests V5
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-31'
 depends_on:
   - task-403-722-playwright-e2e-retry-impl-v5
 jules_session_id: null

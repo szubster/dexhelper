@@ -2,13 +2,13 @@
 id: task-564-682-qa-schema-frontmatter-validation
 type: TASK
 title: QA Schema Linter Frontmatter Validation
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-12'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on:
   - task-564-681-implement-enum-strictness-validation
-jules_session_id: '5299972489795107885'
+jules_session_id: null
 parent: story-555-564-lint-schema-frontmatter-validation
 tags:
   - qa

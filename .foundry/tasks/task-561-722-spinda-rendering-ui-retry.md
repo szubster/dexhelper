@@ -2,10 +2,10 @@
 id: task-561-722-spinda-rendering-ui-retry
 type: TASK
 title: Spinda UI Presentation Component Retry
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-24'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on:
   - task-561-668-spinda-rendering-types
   - research-561-721-investigate-spinda-ui-failure

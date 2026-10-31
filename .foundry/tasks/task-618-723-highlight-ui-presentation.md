@@ -2,10 +2,10 @@
 id: task-618-723-highlight-ui-presentation
 type: TASK
 title: Multi-Box Search Highlight UI Presentation
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on:
   - task-618-722-highlight-state-layer
 jules_session_id: null

@@ -2,12 +2,12 @@
 id: prd-537-703-artifact-presence-precommit-validator
 type: PRD
 title: Automated Pre-Commit Deliverable Artifact Presence Validator
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-10-18'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '3500086733412656414'
+jules_session_id: null
 pr_number: null
 parent: idea-537-artifact-presence-precommit-validator
 tags:

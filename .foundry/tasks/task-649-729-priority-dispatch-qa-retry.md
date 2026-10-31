@@ -2,10 +2,10 @@
 id: task-649-729-priority-dispatch-qa-retry
 type: TASK
 title: priority orchestrator dispatch qa retry
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on:
   - task-649-727-priority-dispatch-coder-retry
   - task-649-728-priority-dispatch-tests-coder-retry

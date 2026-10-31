@@ -2,12 +2,12 @@
 id: research-563-704-investigate-routes-encounters-failure-v2
 type: RESEARCH
 title: 'Investigate Routes, Encounters, and Drop Rates Data Fetching Failure (v2)'
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-18'
-updated_at: '2026-10-26'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '17728057620171535667'
+jules_session_id: null
 pr_number: null
 parent: story-555-563-routes-encounters-drop-rates
 tags:

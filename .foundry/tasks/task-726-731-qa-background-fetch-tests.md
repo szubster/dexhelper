@@ -2,10 +2,10 @@
 id: task-726-731-qa-background-fetch-tests
 type: TASK
 title: QA Verification for Background Fetching Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on:
   - task-726-730-impl-background-fetch-tests
 jules_session_id: null

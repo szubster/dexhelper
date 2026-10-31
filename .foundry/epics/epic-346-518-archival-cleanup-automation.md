@@ -2,13 +2,13 @@
 id: epic-346-518-archival-cleanup-automation
 type: EPIC
 title: Archival Cleanup Automation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-10-26'
+updated_at: '2026-10-31'
 depends_on:
   - epic-346-517-archival-cleanup-core-engine
-jules_session_id: '4856740333724423029'
+jules_session_id: null
 pr_number: null
 parent: prd-152-346-archival-cleanup-policy
 tags:

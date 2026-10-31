@@ -2,10 +2,10 @@
 id: story-518-729-archival-cleanup-cron-workflow
 type: STORY
 title: Archival Cleanup Cron Workflow
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on:
   - story-518-728-archivist-persona-definition
 jules_session_id: null

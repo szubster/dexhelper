@@ -2,12 +2,12 @@
 id: task-711-716-gen2-scoring-algorithm-impl
 type: TASK
 title: Gen 2 Bug-Catching Contest Scoring Algorithm Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-22'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '6623625933336601451'
+jules_session_id: null
 pr_number: null
 parent: story-513-711-gen2-scoring-algorithm
 tags:

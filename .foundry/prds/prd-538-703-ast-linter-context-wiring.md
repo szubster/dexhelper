@@ -2,12 +2,12 @@
 id: prd-538-703-ast-linter-context-wiring
 type: PRD
 title: Static AST Linter Rule for React Context Application Root Wiring
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-10-18'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '6843161528697067052'
+jules_session_id: null
 pr_number: null
 parent: idea-538-context-provider-root-wiring-linter
 tags:

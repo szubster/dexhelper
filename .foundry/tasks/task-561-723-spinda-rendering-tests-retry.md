@@ -2,10 +2,10 @@
 id: task-561-723-spinda-rendering-tests-retry
 type: TASK
 title: Spinda Component Unit Tests Retry
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-24'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on:
   - task-561-722-spinda-rendering-ui-retry
 jules_session_id: null

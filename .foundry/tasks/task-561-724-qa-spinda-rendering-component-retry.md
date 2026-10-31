@@ -2,10 +2,10 @@
 id: task-561-724-qa-spinda-rendering-component-retry
 type: TASK
 title: QA Spinda Rendering Component Retry
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-24'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on:
   - task-561-723-spinda-rendering-tests-retry
 jules_session_id: null
