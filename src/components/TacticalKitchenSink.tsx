@@ -1,7 +1,9 @@
 import { TacticalBadge, TacticalButton, TacticalInput } from '@dexhelper/ui';
 import type React from 'react';
 import { useState } from 'react';
+import { Gen3MapProvider } from '../contexts/Gen3MapContext';
 import { Gen3EventFlags } from './Gen3EventFlags/Gen3EventFlags';
+import { Gen3MapDashboard } from './map/gen3/Gen3MapDashboard';
 import { SubDataPoint } from './SubDataPoint';
 import { TacticalCard } from './TacticalCard';
 import { TacticalCheckbox } from './TacticalCheckbox';
@@ -191,6 +193,11 @@ export const TacticalKitchenSink: React.FC = () => {
           <Gen3EventFlags eonTicket={true} mysticTicket={false} auroraTicket={true} oldSeaMap={false} />
         </div>
       </div>
+
+      {/* Gen 3 Map */}
+      <Gen3MapProvider>
+        <Gen3MapDashboard />
+      </Gen3MapProvider>
     </div>
   );
 };
