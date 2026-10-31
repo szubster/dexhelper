@@ -7,8 +7,10 @@ interface ChecklistLayoutProps extends Omit<React.HTMLAttributes<HTMLDivElement>
   children?: React.ReactNode;
 }
 
-export const ChecklistLayout = React.forwardRef<HTMLDivElement, ChecklistLayoutProps>(
-  ({ title, children, className, ...props }, ref) => {
+// ⚡ Bolt: Wrapped ChecklistLayout in React.memo to prevent unnecessary re-renders of the checklist layout tree
+// when parent component updates without title or layout props changing.
+export const ChecklistLayout = React.memo(
+  React.forwardRef<HTMLDivElement, ChecklistLayoutProps>(({ title, children, className, ...props }, ref) => {
     return (
       <TacticalPanel
         ref={ref}
@@ -23,7 +25,7 @@ export const ChecklistLayout = React.forwardRef<HTMLDivElement, ChecklistLayoutP
         <div className="flex flex-col gap-2">{children}</div>
       </TacticalPanel>
     );
-  },
+  }),
 );
 
 ChecklistLayout.displayName = 'ChecklistLayout';
