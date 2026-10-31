@@ -28,5 +28,8 @@ locks: []
 This epic focuses on building the user interface for the Gen 3 Weather Anomaly Tracker. It involves creating a dashboard overlay to display the current active anomaly (Drought/Drizzle) and integrating this data into the Map UI to highlight the affected route with a weather icon.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into Stories.
-- [ ] Explicitly generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e`) alongside regular implementation stories to satisfy the orchestrator safeguard.
+- [ ] story-518-711-weather-anomaly-dashboard-overlay
+- [ ] story-518-712-weather-anomaly-map-integration
+- [ ] story-518-713-weather-anomaly-ui-e2e
+- [x] Break down this Epic into Stories.
+- [x] Explicitly generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e`) alongside regular implementation stories to satisfy the orchestrator safeguard.
