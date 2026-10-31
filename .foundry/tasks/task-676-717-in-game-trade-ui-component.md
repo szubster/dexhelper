@@ -30,7 +30,7 @@ Create presentational React components for the In-Game Trade Dashboard adhering 
 - Enforce tactical styling (sharp edges, dashed borders, monospaced fonts).
 
 ## Acceptance Criteria
-- [ ] Create presentational components (e.g., `NpcTradeList` and `NpcTradeCard`).
-- [ ] Components accept trade data and status as props and render correctly.
-- [ ] Visual tags reflect the correct completion status using tactical aesthetic rules (ADR 008).
-- [ ] Write component tests using `vitest-browser-react` to verify rendering.
+- [x] Create presentational components (e.g., `NpcTradeList` and `NpcTradeCard`).
+- [x] Components accept trade data and status as props and render correctly.
+- [x] Visual tags reflect the correct completion status using tactical aesthetic rules (ADR 008).
+- [x] Write component tests using `vitest-browser-react` to verify rendering.
