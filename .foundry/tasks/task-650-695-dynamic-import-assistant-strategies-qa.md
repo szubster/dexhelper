@@ -27,5 +27,5 @@ locks: []
 Verify that generation-specific Assistant Strategies have been successfully moved behind dynamic imports, minimizing the main bundle size without breaking strategy resolution and generation.
 
 ## Acceptance Criteria
-- [ ] Verify that `gen1Strategy`, `gen2Strategy`, and `gen3Strategy` are dynamically imported and no longer bundled synchronously in the main entrypoints.
-- [ ] Ensure that `pnpm test` and `pnpm lint` pass completely.
+- [x] Verify that `gen1Strategy`, `gen2Strategy`, and `gen3Strategy` are dynamically imported and no longer bundled synchronously in the main entrypoints.
+- [x] Ensure that `pnpm test` and `pnpm lint` pass completely.
