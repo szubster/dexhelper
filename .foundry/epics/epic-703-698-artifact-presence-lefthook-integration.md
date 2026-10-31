@@ -23,4 +23,6 @@ priority: 80
 Integrate the developed verification tool into the project's Lefthook pre-commit configuration. Ensure that failures in the tool block commits and emit clear error messages for the agent.
 
 ## Acceptance Criteria
-- [ ] STORY breakdown generated.
+- [x] STORY breakdown generated.
+- [ ] story-703-698-001-lefthook-integration-impl
+- [ ] story-703-698-002-lefthook-integration-e2e
