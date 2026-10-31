@@ -2,12 +2,12 @@
 id: adr-679-726-acceptance-criteria-structure
 type: ADR
 title: ADR 034 - Acceptance Criteria Structure
-status: READY
+status: ACTIVE
 owner_persona: architect
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18122965331286005741'
 pr_number: null
 parent: story-535-679-adr-acceptance-criteria
 tags:

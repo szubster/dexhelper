@@ -2,6 +2,7 @@
 
 | Node ID | Type | Title | Persona | Session Link |
 | --- | --- | --- | --- | --- |
+| [adr-679-726-acceptance-criteria-structure](.foundry/docs/adrs/adr-679-726-acceptance-criteria-structure.md) | ADR | ADR 034 - Acceptance Criteria Structure | architect | [18122965331286005741](https://jules.google.com/session/18122965331286005741) |
 | [epic-587-707-yaml-parsing-utility](.foundry/epics/epic-587-707-yaml-parsing-utility.md) | EPIC | Core YAML Parsing Utility Implementation | story_owner | [7076501360977388145](https://jules.google.com/session/7076501360977388145) |
 | [epic-703-696-artifact-presence-parser-engine](.foundry/epics/epic-703-696-artifact-presence-parser-engine.md) | EPIC | Artifact Presence Validator - Parser Engine | story_owner | [12027668150763017296](https://jules.google.com/session/12027668150763017296) |
 | [epic-703-696-ast-linter-core-analysis](.foundry/epics/epic-703-696-ast-linter-core-analysis.md) | EPIC | AST Linter Core Context Analysis | story_owner | [8474987953631413842](https://jules.google.com/session/8474987953631413842) |
