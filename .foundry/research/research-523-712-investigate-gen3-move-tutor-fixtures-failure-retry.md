@@ -2,12 +2,12 @@
 id: research-523-712-investigate-gen3-move-tutor-fixtures-failure-retry
 type: RESEARCH
 title: Investigate Gen 3 Move Tutor E2E Fixtures Failure Retry
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-20'
-updated_at: '2026-10-20'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13512502106936361478'
 parent: story-407-523-gen3-move-tutor-integration-e2e
 tags:
   - research
