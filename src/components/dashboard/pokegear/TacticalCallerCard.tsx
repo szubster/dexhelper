@@ -70,7 +70,7 @@ export function TacticalCallerCard({ contact, type, details, probability }: Tact
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
             <span className={`tactical-text text-[10px] ${themeColors.targetLock}`}>[ TARGET_LOCK ]</span>
-            <span className="font-bold text-white uppercase tracking-widest">{contact.name}</span>
+            <span className="font-bold tracking-widest text-white uppercase">{contact.name}</span>
           </div>
           <div className="flex items-center gap-2">
             <div

@@ -19,7 +19,7 @@ export function BottomNav() {
   const isGen3Dashboard = location.pathname === '/gen3-dashboard';
 
   return (
-    <nav className="fixed right-0 bottom-0 left-0 z-50 border-zinc-900 border-t-[8px] border-b-[8px] bg-zinc-950 pb-[env(safe-area-inset-bottom,0px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.9)] lg:hidden">
+    <nav className="fixed right-0 bottom-0 left-0 z-50 border-t-[8px] border-b-[8px] border-zinc-900 bg-zinc-950 pb-[env(safe-area-inset-bottom,0px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.9)] lg:hidden">
       {/* Hazard stripes rim on the top bezel */}
       <div
         className="absolute -top-[8px] right-0 left-0 h-[8px] opacity-30"
@@ -44,7 +44,7 @@ export function BottomNav() {
       {/* Telemetry decoration */}
       <TelemetryDecoration
         label="SYS.CONTROL_ARRAY"
-        className="-top-[24px] left-2 rounded-none border-zinc-900 border-t-2 border-r-2 border-b-0 border-l-2 bg-zinc-950 px-2 py-0.5 text-[9px] text-[var(--theme-primary)] shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)]"
+        className="-top-[24px] left-2 rounded-none border-t-2 border-r-2 border-b-0 border-l-2 border-zinc-900 bg-zinc-950 px-2 py-0.5 text-[9px] text-[var(--theme-primary)] shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)]"
         dotClassName="text-[var(--theme-primary)]"
       />
 
@@ -143,7 +143,7 @@ export function BottomNav() {
       </div>
 
       {/* Bottom Bezel Edge Detail */}
-      <div className="absolute right-0 -bottom-[8px] left-0 h-[8px] border-black border-t-2 bg-zinc-900 shadow-[inset_0_-2px_4px_rgba(0,0,0,0.5)]" />
+      <div className="absolute right-0 -bottom-[8px] left-0 h-[8px] border-t-2 border-black bg-zinc-900 shadow-[inset_0_-2px_4px_rgba(0,0,0,0.5)]" />
     </nav>
   );
 }

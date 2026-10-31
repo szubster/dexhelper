@@ -1,8 +1,12 @@
 import { TacticalBadge, TacticalButton, TacticalInput } from '@dexhelper/ui';
 import type React from 'react';
 import { useState } from 'react';
+import { Gen3MapProvider } from '../contexts/Gen3MapContext';
+import { Gen3EventFlags } from './Gen3EventFlags/Gen3EventFlags';
+import { Gen3MapDashboard } from './map/gen3/Gen3MapDashboard';
 import { SubDataPoint } from './SubDataPoint';
 import { TacticalCard } from './TacticalCard';
+import { TacticalCheckbox } from './TacticalCheckbox';
 import { TacticalChip } from './TacticalChip';
 import { TacticalModal } from './TacticalModal';
 import { TacticalPanel } from './TacticalPanel';
@@ -10,6 +14,7 @@ import { TacticalProgressBar } from './TacticalProgressBar';
 
 export const TacticalKitchenSink: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCheckboxChecked, setIsCheckboxChecked] = useState(true);
 
   return (
     <div className="flex flex-col gap-4 p-4">
@@ -116,10 +121,21 @@ export const TacticalKitchenSink: React.FC = () => {
       {/* Input */}
       <TacticalInput id="input-default" />
 
+      {/* Checkbox Showcase */}
+      <div className="flex flex-col gap-2 border border-dashed border-zinc-800 p-4" id="tacticalcheckbox-showcase">
+        <TacticalCheckbox
+          id="checkbox-default"
+          label="Option Active"
+          checked={isCheckboxChecked}
+          onChange={(e) => setIsCheckboxChecked(e.target.checked)}
+        />
+        <TacticalCheckbox id="checkbox-disabled" label="Option Disabled" disabled />
+      </div>
+
       {/* Modal */}
       <TacticalModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <TacticalPanel variant="emerald" className="p-6">
-          <h2 className="font-bold text-xl">Tactical Modal Content</h2>
+          <h2 className="text-xl font-bold">Tactical Modal Content</h2>
           <p className="mt-2 text-zinc-300">This is a complex slotted layout inside a modal.</p>
           <div className="mt-4 flex justify-end">
             <TacticalButton variant="secondary" id="btn-close-modal" onClick={() => setIsModalOpen(false)}>
@@ -139,7 +155,7 @@ export const TacticalKitchenSink: React.FC = () => {
 
       {/* TacticalChip Showcase */}
       <div
-        className="flex flex-wrap items-center gap-2 border border-zinc-800 border-dashed p-4"
+        className="flex flex-wrap items-center gap-2 border border-dashed border-zinc-800 p-4"
         id="tacticalchip-showcase"
       >
         <TacticalChip variant="primary" codeTag="SYS.01" sublabel="99%">
@@ -171,7 +187,17 @@ export const TacticalKitchenSink: React.FC = () => {
         <TacticalProgressBar label="SYNC_RATE" value={180} max={255} codeTag="NET.LNK" variant="blue" />
         <TacticalProgressBar label="TEMP" value={230} max={255} codeTag="THERM" variant="amber" />
         <TacticalProgressBar label="CORE_OVERLOAD" value={250} max={255} codeTag="WARN" variant="red" />
+        {/* Gen3 Event Flags */}
+        <div className="flex flex-col gap-2 border border-zinc-800 p-2">
+          <h3 className="font-mono text-[10px] text-zinc-500">Gen 3 Event Flags</h3>
+          <Gen3EventFlags eonTicket={true} mysticTicket={false} auroraTicket={true} oldSeaMap={false} />
+        </div>
       </div>
+
+      {/* Gen 3 Map */}
+      <Gen3MapProvider>
+        <Gen3MapDashboard />
+      </Gen3MapProvider>
     </div>
   );
 };

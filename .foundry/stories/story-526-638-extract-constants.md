@@ -2,12 +2,12 @@
 id: story-526-638-extract-constants
 type: STORY
 title: Extract game constants to core package
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-25'
+updated_at: '2026-10-30'
 depends_on: []
-jules_session_id: '18122095554638528165'
+jules_session_id: null
 pr_number: null
 parent: epic-519-526-extract-core-domain
 tags:
@@ -23,9 +23,12 @@ locks: []
 # Extract game constants to core package
 
 ## Acceptance Criteria
-- [ ] research-638-716-investigate-constants-extraction-v5-failure
-- [ ] task-638-717-extract-constants-to-core-v6
-- [ ] task-638-718-qa-extract-constants-to-core-v6
+- [ ] research-638-721-investigate-constants-extraction-v6-failure
+- [ ] task-638-722-extract-constants-to-core-v7
+- [ ] task-638-723-qa-extract-constants-to-core-v7
+- [x] research-638-716-investigate-constants-extraction-v5-failure
+- [x] task-638-717-extract-constants-to-core-v6
+- [x] task-638-718-qa-extract-constants-to-core-v6
 - [x] research-638-712-investigate-constants-extraction-v4-failure
 - [x] task-638-713-extract-constants-to-core-v5
 - [x] task-638-714-qa-extract-constants-to-core-v5

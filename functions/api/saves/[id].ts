@@ -2,12 +2,19 @@ import type { PagesFunction } from '@cloudflare/workers-types';
 import type { PluginData } from '@cloudflare/pages-plugin-cloudflare-access';
 import type { Env } from '../../types/env';
 
-
+function isValidSaveId(id: string): boolean {
+  if (!id || typeof id !== 'string') return false;
+  if (id.includes('..') || id.includes('/') || id.includes('\\')) return false;
+  return true;
+}
 
 export const onRequestGet: PagesFunction<Env, 'id', PluginData> = async ({ env, params, data }) => {
   const email = data.cloudflareAccess?.JWT?.payload?.email;
   if (!email) return new globalThis.Response('Unauthorized', { status: 401 }) as any;
   const id = params.id as string;
+  if (!isValidSaveId(id)) {
+    return new globalThis.Response('Bad Request', { status: 400 }) as any;
+  }
   const object = await env.SAVES_BUCKET.get(`${email}/${id}`);
   if (!object) return new globalThis.Response('Not Found', { status: 404 }) as any;
   const headers = new Headers();
@@ -25,6 +32,9 @@ export const onRequestPut: PagesFunction<Env, 'id', PluginData> = async ({ reque
   const email = data.cloudflareAccess?.JWT?.payload?.email;
   if (!email) return new globalThis.Response('Unauthorized', { status: 401 }) as any;
   const id = params.id as string;
+  if (!isValidSaveId(id)) {
+    return new globalThis.Response('Bad Request', { status: 400 }) as any;
+  }
 
   const clientLastModified = request.headers.get('client-last-modified');
 

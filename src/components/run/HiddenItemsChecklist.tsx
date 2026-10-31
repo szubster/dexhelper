@@ -48,7 +48,7 @@ export function HiddenItemsChecklist({ groupedItems }: HiddenItemsChecklistProps
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <h2 className="tactical-text font-bold text-sm text-zinc-300 uppercase tracking-widest">
+        <h2 className="tactical-text text-sm font-bold tracking-widest text-zinc-300 uppercase">
           [ HIDDEN ITEMS SCANNER ]
         </h2>
         <TacticalSegmentedControl<FilterOption>
@@ -72,9 +72,9 @@ export function HiddenItemsChecklist({ groupedItems }: HiddenItemsChecklistProps
               className="-top-3 left-4"
             />
 
-            <div className="mb-2 flex items-center gap-2 border-zinc-800 border-b border-dashed pb-2">
+            <div className="mb-2 flex items-center gap-2 border-b border-dashed border-zinc-800 pb-2">
               <MapPin className="h-4 w-4 text-zinc-500" />
-              <span className="font-bold font-mono text-xs text-zinc-400 uppercase tracking-widest">
+              <span className="font-mono text-xs font-bold tracking-widest text-zinc-400 uppercase">
                 {group.locationName}
               </span>
             </div>

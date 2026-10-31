@@ -22,7 +22,7 @@ export function NavigationTab({ icon, label, ...props }: NavigationTabProps) {
       inactiveProps={{
         className: 'border-zinc-800 text-zinc-500 bg-black/60 hover:text-zinc-300 hover:bg-zinc-900',
       }}
-      className="group focus-visible:tactical-focus relative flex flex-col items-center gap-1 border-t border-r border-l border-dashed px-8 py-3 font-black font-mono text-[10px] uppercase tracking-[0.2em] transition-all"
+      className="group focus-visible:tactical-focus relative flex flex-col items-center gap-1 border-t border-r border-l border-dashed px-8 py-3 font-mono text-[10px] font-black tracking-[0.2em] uppercase transition-all"
     >
       <CornerCrosshairs className="h-1 w-1 border-current opacity-50" />
       <div className="mb-1">{icon}</div>

@@ -2,17 +2,15 @@
 id: task-676-703-gen2-pokemon-selection-ui
 type: TASK
 title: Gen 2 Pokemon Selection Interface - UI Components
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-15'
-updated_at: '2026-10-15'
+updated_at: '2026-10-31'
 depends_on:
   - task-676-702-gen2-pokemon-selection-state
 jules_session_id: null
 pr_number: null
 parent: story-310-676-pokemon-selection-interface
-priority: 50
-confidence_score: null
 tags:
   - gen2
   - breeding
@@ -25,6 +23,7 @@ system_failure_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+priority: 50
 ---
 
 # Gen 2 Pokemon Selection Interface - UI Components
@@ -32,7 +31,7 @@ locks: []
 ## Objective
 Implement the UI components for selecting two Pokémon from the parsed Gen 2 save file storage (PC or Party) to evaluate for shiny breeding. This builds upon the state management implemented in task-676-702-gen2-pokemon-selection-state.
 
-## Technical Requirements
+## Acceptance Criteria
 - Consume the state exposed by the state layer (implemented in task-676-702).
 - Build a user interface allowing the selection of two Pokémon from the user's parsed Gen 2 storage.
 - Display relevant base stats for the selection, including species, gender (calculated from Attack DV), and current DVs (Defense and Special are critical).

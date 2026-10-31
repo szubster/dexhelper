@@ -26,7 +26,7 @@ notes: ''
 ## Objective
 Implement extraction logic for Gen 2 Daily and Weekly Events.
 
-## Technical Requirements
+## Acceptance Criteria
 Map the specific bit indices and bytes documented in `.foundry/docs/knowledge_base/gen2_event_flags_offsets.md` into a new utility function `parseGen2DailyEvents` in `src/engine/saveParser/utils/gen2EventFlags.ts`. Invoke this function in `parseGen2` within `src/engine/saveParser/parsers/gen2.ts` to populate the `gen2DailyEvents` property of `Gen2SaveData`.
 
 ## Acceptance Criteria

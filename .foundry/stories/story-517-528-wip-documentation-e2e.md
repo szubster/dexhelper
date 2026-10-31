@@ -28,5 +28,8 @@ This story is dedicated exclusively to Integration and E2E Verification for the 
 - [x] Break down into Tasks
 - [ ] task-528-690-wip-schema-integration-tests
 - [ ] task-528-691-wip-schema-integration-qa
-- [ ] task-528-692-wip-banner-e2e-tests
-- [ ] task-528-693-wip-banner-e2e-qa
+- [x] task-528-692-wip-banner-e2e-tests
+- [x] task-528-693-wip-banner-e2e-qa
+- [ ] research-528-712-investigate-wip-banner-e2e-failure
+- [ ] task-528-713-wip-banner-e2e-tests-retry
+- [ ] task-528-714-wip-banner-e2e-qa-retry

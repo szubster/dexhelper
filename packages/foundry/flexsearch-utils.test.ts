@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildDocumentationIndex } from './flexsearch-utils.ts';
+import { buildDocumentationIndex, buildQuery } from './flexsearch-utils.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -29,5 +29,16 @@ describe('flexsearch-utils', () => {
     expect(adrResults[0].result).toContain(path.join(adrsDir, 'test2.md'));
 
     fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  it('should build a query string from frontmatter', () => {
+    const frontmatter = {
+      title: 'Test Title',
+      type: 'TASK' as any,
+      tags: ['tag1', 'tag2'],
+      layers: ['layer1']
+    };
+    const query = buildQuery(frontmatter);
+    expect(query).toBe('Test Title TASK tag1 tag2 layer1');
   });
 });

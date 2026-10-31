@@ -10,7 +10,7 @@ export function PokerusBadge({ strain, daysRemaining = 0, className }: PokerusBa
   if (strain === 0) {
     return (
       <TacticalBadge variant="zinc" className={className}>
-        [PKRS STRN: 0]
+        <span aria-hidden="true">[</span>PKRS STRN: 0<span aria-hidden="true">]</span>
       </TacticalBadge>
     );
   }
@@ -18,14 +18,14 @@ export function PokerusBadge({ strain, daysRemaining = 0, className }: PokerusBa
   if (strain > 0 && daysRemaining > 0) {
     return (
       <TacticalBadge variant="pink" pulse className={className}>
-        [PKRS INF: {daysRemaining}D]
+        <span aria-hidden="true">[</span>PKRS INF: {daysRemaining}D<span aria-hidden="true">]</span>
       </TacticalBadge>
     );
   }
 
   return (
     <TacticalBadge variant="zinc" className={className}>
-      [PKRS CURED]
+      <span aria-hidden="true">[</span>PKRS CURED<span aria-hidden="true">]</span>
     </TacticalBadge>
   );
 }
