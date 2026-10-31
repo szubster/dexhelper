@@ -228,7 +228,8 @@ const VALID_TRANSITIONS: Record<NodeFrontmatter['status'], NodeFrontmatter['stat
   WIP: ['PENDING', 'CANCELLED'],
   APPROVED: ['IMPLEMENTED', 'CANCELLED'],
   IMPLEMENTED: ['COMPLETED', 'CANCELLED'],
-  STABLE: []
+  STABLE: [],
+  BLOCKED: ['READY', 'CANCELLED']
 };
 
 function promoteNodeStatus(node: ParsedNode, currentStatus: NodeFrontmatter['status'], targetStatus: NodeFrontmatter['status'], newOwner?: string): void {
@@ -241,7 +242,7 @@ function promoteNodeStatus(node: ParsedNode, currentStatus: NodeFrontmatter['sta
   }
 
   const allowedTransitions = VALID_TRANSITIONS[currentStatus] || [];
-  if (!allowedTransitions.includes(targetStatus)) {
+  if (currentStatus !== targetStatus && !allowedTransitions.includes(targetStatus)) {
     warn(`${dryTag}Invalid state transition from ${currentStatus} to ${targetStatus} in: ${node.repoPath}`);
     return;
   }
