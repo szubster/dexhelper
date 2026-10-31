@@ -132,7 +132,7 @@ export const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps
             <div className="flex items-center gap-2">
               <h3
                 className={cn(
-                  'font-black font-display text-xs uppercase tracking-[0.2em] transition-colors',
+                  'font-display text-xs font-black tracking-[0.2em] uppercase transition-colors',
                   colorClass || styles.text,
                 )}
               >
@@ -141,7 +141,7 @@ export const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps
               {badge && <div className="shrink-0">{badge}</div>}
             </div>
             {subtitle && (
-              <span className="font-bold font-mono text-[9px] text-zinc-500 uppercase tracking-widest">{subtitle}</span>
+              <span className="font-mono text-[9px] font-bold tracking-widest text-zinc-500 uppercase">{subtitle}</span>
             )}
           </div>
         </div>

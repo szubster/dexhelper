@@ -161,9 +161,14 @@ export function updateActiveSessionsTable(repoRoot: string): void {
     markdown += '| --- | --- | --- | --- | --- |\n';
     for (const node of activeNodes) {
       const nodeLink = `[${node.id}](${node.repoPath})`;
-      const sessionLink = node.sessionId
-        ? `[${node.sessionId}](https://jules.google.com/session/${node.sessionId})`
-        : '-';
+      let sessionLink = '-';
+      if (node.sessionId) {
+        if (node.sessionId.startsWith('agy-')) {
+          sessionLink = `Antigravity (\`${node.sessionId}\`)`;
+        } else {
+          sessionLink = `[${node.sessionId}](https://jules.google.com/session/${node.sessionId})`;
+        }
+      }
       markdown += `| ${nodeLink} | ${node.type} | ${node.title} | ${node.owner_persona} | ${sessionLink} |\n`;
     }
   }

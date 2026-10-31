@@ -6,8 +6,8 @@ export const Gen3MapDashboard: React.FC = () => {
   const { state } = useGen3Map();
 
   return (
-    <div className="grid w-full gap-4 rounded-none border border-neutral-700 border-dashed p-4 font-mono">
-      <h2 className="border-neutral-700 border-b border-dashed pb-2 font-bold text-xl uppercase tracking-widest">
+    <div className="grid w-full gap-4 rounded-none border border-dashed border-neutral-700 p-4 font-mono">
+      <h2 className="border-b border-dashed border-neutral-700 pb-2 text-xl font-bold tracking-widest uppercase">
         Gen 3 Map Dashboard
       </h2>
       <div className="flex gap-4">

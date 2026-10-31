@@ -36,6 +36,6 @@ Write Playwright E2E tests for the new map dashboard to verify core UI component
 - Use relative paths for navigation and `locator.or()` for Strict Mode OR conditions.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for the Gen 3 Map dashboard.
-- [ ] Verify toggle state changes reflect on the UI map layer.
-- [ ] Verify tactical hardware styling on different screen sizes.
+- [x] Implement Playwright E2E tests for the Gen 3 Map dashboard.
+- [x] Verify toggle state changes reflect on the UI map layer.
+- [x] Verify tactical hardware styling on different screen sizes.

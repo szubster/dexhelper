@@ -10,7 +10,7 @@ export const TacticalHeaderDivider = React.forwardRef<HTMLDivElement, TacticalHe
     return (
       <div
         ref={ref}
-        className={cn('flex items-center justify-between border-zinc-800 border-b border-dashed pb-2', className)}
+        className={cn('flex items-center justify-between border-b border-dashed border-zinc-800 pb-2', className)}
         {...props}
       >
         {children}

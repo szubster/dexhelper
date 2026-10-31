@@ -9,7 +9,7 @@ function DagViewSwitcher() {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex items-center justify-end border-zinc-800 border-b border-dashed bg-zinc-950 p-2">
+      <div className="flex items-center justify-end border-b border-dashed border-zinc-800 bg-zinc-950 p-2">
         <TacticalSegmentedControl
           ariaLabel="DAG View Mode"
           selectedValue={activeView}

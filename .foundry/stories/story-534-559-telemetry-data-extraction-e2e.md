@@ -2,13 +2,13 @@
 id: story-534-559-telemetry-data-extraction-e2e
 type: STORY
 title: Telemetry Data Extraction E2E Tests
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - story-534-558-telemetry-data-extraction-impl
-jules_session_id: '14790769280965326888'
+jules_session_id: null
 pr_number: null
 parent: epic-518-534-heatmap-telemetry-data
 tags:
@@ -30,4 +30,6 @@ locks: []
 Write end-to-end tests to verify that node telemetry data (rejection counts and wait times) is correctly extracted and exposed.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks
+- [x] Tech Lead: Break down into Tasks
+- [ ] task-559-712-heatmap-rejection-e2e-tests
+- [ ] task-559-713-heatmap-waittime-e2e-tests

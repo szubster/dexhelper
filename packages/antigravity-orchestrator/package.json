@@ -1,0 +1,26 @@
+{
+  "name": "@dexhelper/antigravity-orchestrator",
+  "version": "1.0.0",
+  "description": "Antigravity DAG orchestrator for Foundry - dispatch, reconcile, and session management",
+  "type": "module",
+  "bin": {
+    "antigravity-orchestrator": "./cli.ts"
+  },
+  "scripts": {
+    "assign": "node --experimental-strip-types cli.ts assign",
+    "dispatch": "node --experimental-strip-types cli.ts dispatch",
+    "reconcile": "node --experimental-strip-types cli.ts reconcile",
+    "status": "node --experimental-strip-types cli.ts status",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.5.1",
+    "vitest": "^5.0.4"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

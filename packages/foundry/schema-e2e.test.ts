@@ -26,6 +26,10 @@ describe('Zod Schema E2E Test Suite', () => {
     expect(validIdea).not.toBeNull();
     expect(validIdea?.frontmatter.id).toBe('idea-001-valid');
 
+    const validArchitectVisionaryIdea = parseNodeFile(path.join(fixturesDir, 'idea-003-architect-visionary-valid.md'), rootDir);
+    expect(validArchitectVisionaryIdea).not.toBeNull();
+    expect(validArchitectVisionaryIdea?.frontmatter.id).toBe('idea-003-architect-visionary-valid');
+
     const validEpic = parseNodeFile(path.join(fixturesDir, 'epic-001-valid.md'), rootDir);
     expect(validEpic).not.toBeNull();
     expect(validEpic?.frontmatter.id).toBe('epic-001-valid');

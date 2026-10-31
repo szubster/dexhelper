@@ -138,7 +138,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
 
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-3">
-            <h2 className="flex items-center gap-3 font-black font-display text-2xl text-white uppercase tracking-tight">
+            <h2 className="font-display flex items-center gap-3 text-2xl font-black tracking-tight text-white uppercase">
               <Sparkles className="text-[var(--theme-primary)]" size={24} />
               AI Assistant
             </h2>
@@ -174,10 +174,10 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
         <div className="relative flex flex-col items-center justify-center border border-zinc-800/50 bg-zinc-900/50 p-12 text-center">
           <CornerCrosshairs thickness={2} className="h-2 w-2 border-white/20" />
           <Sparkles className="mb-4 text-zinc-700" size={48} />
-          <h3 className="font-bold font-mono text-lg text-zinc-400 uppercase tracking-wide">
+          <h3 className="font-mono text-lg font-bold tracking-wide text-zinc-400 uppercase">
             [ YOU'RE ALL CAUGHT UP! ]
           </h3>
-          <p className="mt-2 max-w-sm font-medium font-mono text-xs text-zinc-600">
+          <p className="mt-2 max-w-sm font-mono text-xs font-medium text-zinc-600">
             NO NEW SUGGESTIONS AT THE MOMENT. KEEP EXPLORING TO DISCOVER MORE POKÉMON!
           </p>
         </div>
@@ -185,7 +185,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
           {/* Operations Sidebar */}
           <div className="flex w-full shrink-0 flex-col gap-6 lg:w-64">
-            <div className="relative w-full border border-zinc-800 border-dashed bg-black/40 p-2">
+            <div className="relative w-full border border-dashed border-zinc-800 bg-black/40 p-2">
               <EdgeLabel className="-top-2.5 left-4 text-[var(--theme-primary)]">OPS.MATRIX</EdgeLabel>
               <div className="flex flex-col gap-1">
                 {orderedCategories.map((category) => {
@@ -210,7 +210,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                         >
                           {catStyle.icon}
                         </div>
-                        <span className="font-black font-mono text-[11px] uppercase tracking-wider">
+                        <span className="font-mono text-[11px] font-black tracking-wider uppercase">
                           {category === 'Catch' ? 'ENCOUNTERS' : category === 'Trade' ? 'TRADES' : category}
                         </span>
                       </div>
@@ -236,7 +236,7 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
             {activeCategory && groupedSuggestions[activeCategory] && (
               <div className="fade-in animate-in space-y-6 duration-500">
                 {/* Active Category Header */}
-                <div className="relative flex items-center border border-zinc-800 border-dashed bg-zinc-900/40 p-4">
+                <div className="relative flex items-center border border-dashed border-zinc-800 bg-zinc-900/40 p-4">
                   <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-[var(--theme-primary)]/80 to-[var(--theme-primary)]/10" />
                   <EdgeLabel className="-top-2.5 left-4 text-[var(--theme-primary)]">ACTIVE.OP</EdgeLabel>
                   <div className="flex items-center gap-4">
@@ -246,14 +246,14 @@ export function AssistantPanel({ saveData, isLivingDex, manualVersion }: Assista
                       {CATEGORY_STYLES[activeCategory]?.icon}
                     </div>
                     <div>
-                      <h3 className="font-black font-display text-white text-xl uppercase tracking-wider">
+                      <h3 className="font-display text-xl font-black tracking-wider text-white uppercase">
                         {activeCategory === 'Catch'
                           ? 'WILD ENCOUNTERS'
                           : activeCategory === 'Trade'
                             ? 'TRADE REQUIRED'
                             : activeCategory}
                       </h3>
-                      <p className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
+                      <p className="font-mono text-[10px] tracking-widest text-zinc-500 uppercase">
                         [ {groupedSuggestions[activeCategory]?.length || 0} TARGETS IDENTIFIED ]
                       </p>
                     </div>

@@ -2,10 +2,10 @@
 id: task-563-681-gen2-bag-inventory-parsing-qa
 type: TASK
 title: Gen 2 Bag Inventory Parsing QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-12'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on:
   - task-563-680-gen2-bag-inventory-parsing-impl
 jules_session_id: null
