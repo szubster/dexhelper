@@ -55,7 +55,8 @@ Architect a dedicated **Real-Time Multi-Save Diffing Engine and Cross-Save Trade
 Significantly enhances DexHelper's multi-save analysis capabilities, unlocks automated trade path generation across concurrent playthroughs, guarantees trade rule compliance before user exports, and addresses critical DX gaps in multi-game living dex completion.
 
 ## Acceptance Criteria
-- [ ] PRD generated specifying the Multi-Save Diffing Matrix and Trade Compatibility Engine.
+- [x] PRD generated specifying the Multi-Save Diffing Matrix and Trade Compatibility Engine.
+- [ ] prd-540-727-multi-save-diffing-and-trade-simulation
 - [ ] Core `MultiSaveDiffEngine` and `TradeSimulator` modules implemented in `src/engine/saveParser/utils/`.
 - [ ] Unit test suite added verifying multi-save set operations, Time Capsule rules, and trade evolution simulation.
 - [ ] Tactical `MultiSaveDiffViewer` component integrated into the application view hierarchy.
