@@ -28,6 +28,8 @@ locks: []
 This story covers the end-to-end testing and integration verification required to ensure the newly virtualized \`PokedexGrid\` component works correctly within the broader application. We must verify that filtering, rendering, and scrolling are functionally robust and that no regressions are introduced.
 
 ## Acceptance Criteria
+- [ ] task-567-712-pokedex-grid-e2e-verification-impl
+- [ ] task-567-713-pokedex-grid-e2e-verification-qa
 - [ ] Verify existing E2E tests related to the Pokedex view pass.
 - [ ] If required, update E2E locators or assertions to handle the fact that off-screen items are no longer rendered in the DOM.
 - [ ] Confirm no regressions in Pokedex grid filtering and searching.
