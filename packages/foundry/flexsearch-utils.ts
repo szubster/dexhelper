@@ -5,6 +5,18 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const FlexSearch = require('flexsearch');
 
+
+import { type NodeFrontmatter } from './schema.ts';
+
+export function buildQuery(frontmatter: Partial<NodeFrontmatter>): string {
+  const parts: string[] = [];
+  if (frontmatter.title) parts.push(frontmatter.title);
+  if (frontmatter.type) parts.push(frontmatter.type);
+  if (frontmatter.tags && frontmatter.tags.length > 0) parts.push(...frontmatter.tags);
+  if (frontmatter.layers && frontmatter.layers.length > 0) parts.push(...frontmatter.layers);
+  return parts.join(' ');
+}
+
 export function buildDocumentationIndex(repoRoot: string) {
   const docsDirs = [
     path.join(repoRoot, '.foundry', 'docs'),

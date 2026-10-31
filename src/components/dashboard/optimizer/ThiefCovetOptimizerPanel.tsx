@@ -25,11 +25,11 @@ export const ThiefCovetOptimizerPanel: React.FC<ThiefCovetOptimizerPanelProps> =
 
   if (!hasAnyStealers) {
     return (
-      <TacticalPanel className="flex flex-col gap-4 border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+      <TacticalPanel className="flex flex-col gap-4 border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6">
         <TelemetryDecoration label="SYS.THIEF_OPTIMIZER" className="-top-[17px] left-[-1px]" />
         <div className="flex items-center gap-2">
           <Crosshair className="h-4 w-4 text-[var(--theme-primary)]" />
-          <span className="font-bold font-mono text-[var(--theme-primary)]">THIEF/COVET OPTIMIZER</span>
+          <span className="font-mono font-bold text-[var(--theme-primary)]">THIEF/COVET OPTIMIZER</span>
         </div>
         <EmptyState icon={<Search size={24} />} label="NO CAPABLE POKEMON DETECTED" />
       </TacticalPanel>
@@ -37,12 +37,12 @@ export const ThiefCovetOptimizerPanel: React.FC<ThiefCovetOptimizerPanelProps> =
   }
 
   return (
-    <TacticalPanel className="flex flex-col gap-4 border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+    <TacticalPanel className="flex flex-col gap-4 border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6">
       <TelemetryDecoration label="SYS.THIEF_OPTIMIZER" className="-top-[17px] left-[-1px]" />
       <div className="z-10 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Crosshair className="h-4 w-4 text-[var(--theme-primary)]" />
-          <span className="font-bold font-mono text-[var(--theme-primary)]">THIEF/COVET OPTIMIZER</span>
+          <span className="font-mono font-bold text-[var(--theme-primary)]">THIEF/COVET OPTIMIZER</span>
         </div>
       </div>
 
@@ -54,7 +54,7 @@ export const ThiefCovetOptimizerPanel: React.FC<ThiefCovetOptimizerPanelProps> =
               {itemStealers.party.map((stealer) => (
                 <div
                   key={stealer.instance.personalityValue?.toString() ?? stealer.instance.nickname}
-                  className="flex items-center gap-4 rounded-none border border-zinc-700 border-dashed bg-zinc-900/50 p-2"
+                  className="flex items-center gap-4 rounded-none border border-dashed border-zinc-700 bg-zinc-900/50 p-2"
                 >
                   <PokemonSprite
                     pokemonId={stealer.instance.speciesId}
@@ -63,8 +63,8 @@ export const ThiefCovetOptimizerPanel: React.FC<ThiefCovetOptimizerPanelProps> =
                     className="h-12 w-12"
                   />
                   <div className="flex flex-col">
-                    <span className="font-bold font-mono text-white">{stealer.instance.nickname || 'Unknown'}</span>
-                    <span className="font-mono text-[var(--theme-primary)] text-xs">
+                    <span className="font-mono font-bold text-white">{stealer.instance.nickname || 'Unknown'}</span>
+                    <span className="font-mono text-xs text-[var(--theme-primary)]">
                       {stealer.stealingMoveId === THIEF_MOVE_ID ? 'THIEF' : 'COVET'}
                     </span>
                   </div>
@@ -81,7 +81,7 @@ export const ThiefCovetOptimizerPanel: React.FC<ThiefCovetOptimizerPanelProps> =
               {itemStealers.pc.slice(0, 4).map((stealer) => (
                 <div
                   key={stealer.instance.personalityValue?.toString() ?? stealer.instance.nickname}
-                  className="flex items-center gap-4 rounded-none border border-zinc-700 border-dashed bg-zinc-900/50 p-2"
+                  className="flex items-center gap-4 rounded-none border border-dashed border-zinc-700 bg-zinc-900/50 p-2"
                 >
                   <PokemonSprite
                     pokemonId={stealer.instance.speciesId}
@@ -90,8 +90,8 @@ export const ThiefCovetOptimizerPanel: React.FC<ThiefCovetOptimizerPanelProps> =
                     className="h-12 w-12"
                   />
                   <div className="flex flex-col">
-                    <span className="font-bold font-mono text-white">{stealer.instance.nickname || 'Unknown'}</span>
-                    <span className="font-mono text-[var(--theme-primary)] text-xs">
+                    <span className="font-mono font-bold text-white">{stealer.instance.nickname || 'Unknown'}</span>
+                    <span className="font-mono text-xs text-[var(--theme-primary)]">
                       {stealer.stealingMoveId === THIEF_MOVE_ID ? 'THIEF' : 'COVET'}
                     </span>
                   </div>

@@ -2,12 +2,12 @@
 id: epic-583-691-diagnostics-and-orchestrator-integration
 type: EPIC
 title: EPIC - Cycle Detection Diagnostics and Pre-Dispatch Integration
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: 2026-10-16T18:06:01.101Z
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '4343641534241186910'
+jules_session_id: null
 pr_number: null
 parent: prd-527-583-foundry-dag-deadlock-detector
 tags:
@@ -36,3 +36,6 @@ Integrate the cycle detection core engine seamlessly into the Foundry Orchestrat
 - [ ] Integrate cycle detection seamlessly into orchestrator pre-dispatch checks.
 - [ ] Output explicit diagnostic logs detailing the cyclic path when detected.
 - [ ] Ensure affected nodes are explicitly skipped or demoted from dispatch.
+- [ ] story-691-712-cycle-detection-diagnostics-logger
+- [ ] story-691-713-orchestrator-pre-dispatch-integration
+- [ ] story-691-714-orchestrator-cycle-detection-e2e

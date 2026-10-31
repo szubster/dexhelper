@@ -34,11 +34,11 @@ export function VersionModal() {
         />
 
         {/* Left Pane: Diagnostic Readout */}
-        <div className="relative flex w-full flex-col border-amber-500/30 border-b border-dashed bg-black/60 p-6 sm:w-1/3 sm:border-r sm:border-b-0 sm:p-8">
+        <div className="relative flex w-full flex-col border-b border-dashed border-amber-500/30 bg-black/60 p-6 sm:w-1/3 sm:border-r sm:border-b-0 sm:p-8">
           <EdgeLabel className="-top-2 left-4 bg-amber-950 px-2 text-amber-500">DIAGNOSTIC_READOUT</EdgeLabel>
 
           <div className="flex flex-1 flex-col items-center justify-center text-center">
-            <div className="relative mb-6 flex h-20 w-20 items-center justify-center border border-amber-500/50 border-dashed bg-amber-500/10 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+            <div className="relative mb-6 flex h-20 w-20 items-center justify-center border border-dashed border-amber-500/50 bg-amber-500/10 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
               <CornerCrosshairs className="h-2 w-2 border-amber-500" />
               <div className="absolute inset-0 scale-75 animate-[spin_3s_linear_infinite] rounded-full border border-amber-500/20 opacity-50" />
               <div className="absolute inset-0 scale-50 animate-[ping_2s_ease-out_infinite] rounded-full border border-amber-500/40" />
@@ -46,14 +46,14 @@ export function VersionModal() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2 className="font-black font-mono text-amber-500 text-xl uppercase tracking-tighter shadow-amber-500/20 drop-shadow-md">
+              <h2 className="font-mono text-xl font-black tracking-tighter text-amber-500 uppercase shadow-amber-500/20 drop-shadow-md">
                 SYS.CONFLICT
               </h2>
-              <div className="mt-2 border-amber-500/50 border-l-2 pl-3 text-left">
-                <p className="tactical-text font-bold text-[9px] text-zinc-400 uppercase leading-relaxed">
+              <div className="mt-2 border-l-2 border-amber-500/50 pl-3 text-left">
+                <p className="tactical-text text-[9px] leading-relaxed font-bold text-zinc-400 uppercase">
                   [ ANOMALY ] Game version signature indistinguishable.
                 </p>
-                <p className="tactical-text mt-1 font-bold text-[9px] text-amber-500 uppercase leading-relaxed">
+                <p className="tactical-text mt-1 text-[9px] leading-relaxed font-bold text-amber-500 uppercase">
                   [ ACTION ] Manual user arbitration required to resume uplink.
                 </p>
               </div>
@@ -75,28 +75,28 @@ export function VersionModal() {
                   setManualVersion(v.id);
                   setIsVersionModalOpen(false);
                 }}
-                className="group focus-visible:tactical-focus relative flex flex-col border border-zinc-800 border-dashed bg-zinc-950 p-4 transition-all hover:scale-[1.02] hover:border-amber-500/50 hover:bg-amber-950/20 active:scale-95"
+                className="group focus-visible:tactical-focus relative flex flex-col border border-dashed border-zinc-800 bg-zinc-950 p-4 transition-all hover:scale-[1.02] hover:border-amber-500/50 hover:bg-amber-950/20 active:scale-95"
               >
                 <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-700 transition-colors group-hover:border-amber-500" />
                 <HoverScanner colorClass="via-amber-500/20" />
 
                 {/* Hardware node layout */}
-                <div className="relative z-10 flex w-full flex-row items-center justify-between border-zinc-800 border-b border-dashed pb-3 group-hover:border-amber-500/30">
+                <div className="relative z-10 flex w-full flex-row items-center justify-between border-b border-dashed border-zinc-800 pb-3 group-hover:border-amber-500/30">
                   <div className="flex items-center gap-2">
                     <div
                       className={`h-2.5 w-2.5 border border-black shadow-lg ${v.dotColor} group-hover:animate-pulse`}
                     />
-                    <span className="font-black font-mono text-[10px] text-zinc-400 uppercase tracking-[0.2em] transition-colors group-hover:text-amber-500">
+                    <span className="font-mono text-[10px] font-black tracking-[0.2em] text-zinc-400 uppercase transition-colors group-hover:text-amber-500">
                       SYS.VER
                     </span>
                   </div>
-                  <span className="font-black font-mono text-[9px] text-zinc-600 uppercase transition-colors group-hover:text-amber-400">
+                  <span className="font-mono text-[9px] font-black text-zinc-600 uppercase transition-colors group-hover:text-amber-400">
                     [ SELECT ]
                   </span>
                 </div>
 
                 <div className="relative z-10 mt-3 flex items-center justify-center py-2">
-                  <span className="font-black font-mono text-lg text-white uppercase tracking-widest drop-shadow-sm transition-colors group-hover:text-amber-400">
+                  <span className="font-mono text-lg font-black tracking-widest text-white uppercase drop-shadow-sm transition-colors group-hover:text-amber-400">
                     {v.label}
                   </span>
                 </div>

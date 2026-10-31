@@ -29,6 +29,19 @@ describe('TacticalInput', () => {
     await expect.element(page.getByText('Test Label')).toBeInTheDocument();
   });
 
+  it('renders with sublabel and codeTag telemetry badges', async () => {
+    await render(<TacticalInput label="Filter" sublabel="SYS_PROMPT_01" codeTag="[INP.01]" />);
+    await expect.element(page.getByText('SYS_PROMPT_01')).toBeInTheDocument();
+    await expect.element(page.getByText('[INP.01]')).toBeInTheDocument();
+  });
+
+  it('renders with variant styling and showLed indicator', async () => {
+    await render(<TacticalInput placeholder="Variant Input" variant="emerald" showLed={true} ledStatus="online" />);
+    const input = page.getByPlaceholder('Variant Input');
+    await expect.element(input).toBeInTheDocument();
+    await expect.element(input).toHaveClass('border-emerald-500/40');
+  });
+
   it('renders with icon', async () => {
     await render(<TacticalInput icon={<Search data-testid="search-icon" size={14} />} />);
     await expect.element(page.getByTestId('search-icon')).toBeInTheDocument();

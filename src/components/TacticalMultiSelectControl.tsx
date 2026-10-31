@@ -9,9 +9,9 @@ export const tacticalMultiSelectItemVariants = cva(
   {
     variants: {
       active: {
-        true: 'bg-zinc-950 shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)] text-[var(--theme-primary)] translate-y-[2px] border-t-zinc-950 border-b-zinc-800',
+        true: 'translate-y-[2px] border-t-zinc-950 border-b-zinc-800 bg-zinc-950 text-[var(--theme-primary)] shadow-[inset_0_4px_8px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.02)]',
         false:
-          'bg-zinc-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300 border-t-zinc-700 border-b-zinc-950',
+          'border-t-zinc-700 border-b-zinc-950 bg-zinc-800 text-zinc-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.4)] hover:bg-zinc-700 hover:text-zinc-300',
       },
     },
     defaultVariants: {

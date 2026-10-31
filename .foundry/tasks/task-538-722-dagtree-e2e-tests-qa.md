@@ -2,7 +2,8 @@
 id: task-538-722-dagtree-e2e-tests-qa
 type: TASK
 title: QA DagTree E2E Tests
-status: ACTIVE
+status: READY
+confidence_score: 100
 owner_persona: qa
 created_at: '2026-10-24'
 updated_at: '2026-10-28'
@@ -32,6 +33,6 @@ Verify the implementation of the Playwright E2E tests for the new `DagTree` UI c
 3. Verify that all E2E tests execute successfully in the headless environment.
 
 ## Acceptance Criteria
-- [ ] Verify Playwright E2E tests correctly target the `DagTree` UI.
-- [ ] Verify tests accurately cover expand/collapse interactions and state validation.
-- [ ] Verify tests pass successfully via E2E testing commands.
+- [x] Verify Playwright E2E tests correctly target the `DagTree` UI.
+- [x] Verify tests accurately cover expand/collapse interactions and state validation.
+- [x] Verify tests pass successfully via E2E testing commands.

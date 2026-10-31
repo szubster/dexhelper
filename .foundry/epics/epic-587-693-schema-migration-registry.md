@@ -2,12 +2,12 @@
 id: epic-587-693-schema-migration-registry
 type: EPIC
 title: Save Schema Migration Registry & Logic
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-21T07:29:22.000Z'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '15137690769940717170'
+jules_session_id: null
 pr_number: null
 parent: prd-526-587-save-file-schema-migration-framework
 tags:
@@ -33,4 +33,7 @@ Implement the core sequential migration registry (`SaveSchemaMigrator`) that pro
 3. Keep the registry decoupled from UI/React contexts for generic usage.
 
 ## Acceptance Criteria
-- [ ] Break down into Story.
+- [x] Break down into Story.
+- [ ] story-693-714-save-schema-migrator-logic
+- [ ] story-693-715-schema-versioning-payload
+- [ ] story-693-716-schema-migration-integration-e2e

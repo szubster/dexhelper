@@ -25,7 +25,7 @@ locks: []
 ## Objective
 Implement E2E verification to ensure the newly generated dynamic move PP data correctly integrates with the application and properly handles generational discrepancies.
 
-## Core Technical Requirements
+## Core Acceptance Criteria
 - Create or update a Playwright E2E test suite.
 - Validate that the dynamic `moves.jsonl` data effectively drives the frontend runtime instead of older hardcoded tables.
 - Validate that generational discrepancies (e.g., Gen 1 vs Gen 2 PP caps) are accurately represented during runtime execution in the browser.

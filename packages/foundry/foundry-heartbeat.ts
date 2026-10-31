@@ -506,7 +506,7 @@ export async function main() {
   // --- Pass 1: Check ACTIVE Nodes ---
   for (const node of activeNodes) {
     const sessionId = getSessionId(node);
-    const isHuman = node.frontmatter.owner_persona === 'human';
+    const isHuman = node.frontmatter.owner_persona === 'human' || (typeof sessionId === 'string' && sessionId.startsWith('agy-'));
 
     if (!isHuman && !sessionId && (node.frontmatter.status === 'ACTIVE' )) {
       warn(`Node ${node.repoPath} is ${node.frontmatter.status} but missing session ID. Failing.`);
@@ -564,14 +564,14 @@ export async function main() {
 
         if (isMerged) {
           await transitionNodeToCompleted(node, repoRoot, pr.number);
-          if (sessionId) {
+          if (sessionId && !sessionId.startsWith('agy-')) {
             info(`Cleaning up merged Jules session from API: ${sessionId}`);
             await deleteJulesSession(sessionId, julesKey);
           }
           continue;
         } else {
           await transitionNodeToReady(node, repoRoot, `PR #${pr.number} closed without merging.`);
-          if (sessionId) {
+          if (sessionId && !sessionId.startsWith('agy-')) {
             info(`Cleaning up closed unmerged Jules session from API: ${sessionId}`);
             await deleteJulesSession(sessionId, julesKey);
           }
@@ -687,7 +687,9 @@ export async function cleanupLingeringCompletedSessions(repoRoot: string, julesK
     if (sessionId && sessionId !== '123' && ['COMPLETED', 'CANCELLED'].includes(status)) {
       info(`Purging lingering session ${sessionId} for ${status} node: ${node.repoPath}`);
       if (!DRY_RUN) {
-        await deleteJulesSession(sessionId, julesKey);
+        if (!sessionId.startsWith('agy-')) {
+          await deleteJulesSession(sessionId, julesKey);
+        }
         const parsed = matter(node.rawContent);
         parsed.data.jules_session_id = null;
         fs.writeFileSync(node.filePath, matter.stringify(parsed.content, parsed.data), 'utf-8');
