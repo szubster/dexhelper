@@ -33,4 +33,9 @@ Implement parser extensions to accurately extract the 16-bit `wPlayerID` (Traine
 - Ensure extraction logic correctly processes Generation 2 save structures.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Decompose this Story into modular TASK nodes for the Coder, including QA.
+- [ ] task-711-736-gen2-tid-extraction-logic
+- [ ] task-711-737-gen2-tid-extraction-tests
+- [ ] task-711-738-gen2-tid-extraction-qa
+- [ ] task-711-734-gen2-tid-extraction-impl
+- [ ] task-711-735-gen2-tid-extraction-qa
+- [x] Tech Lead: Decompose this Story into modular TASK nodes for the Coder, including QA.
