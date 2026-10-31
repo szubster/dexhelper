@@ -27,6 +27,6 @@ locks: []
 Extend the `FilterType` with new IV-related filters (e.g., 'perfect-ivs') and implement the filter logic to properly filter Pokémon based on their `ivs` or `dvs`.
 
 ## Acceptance Criteria
-- [ ] Extend `FILTER_TYPES` in `src/store.ts` to include an IV filter (e.g. `perfect-ivs`).
-- [ ] Ensure that filtering logic uses the new filter state to filter Pokémon based on their `ivs` or `dvs` properties.
-- [ ] Add basic unit tests for the state management and filtering logic in `src/store.test.ts` and `src/engine/filtering` as appropriate.
+- [x] Extend `FILTER_TYPES` in `src/store.ts` to include an IV filter (e.g. `perfect-ivs`).
+- [x] Ensure that filtering logic uses the new filter state to filter Pokémon based on their `ivs` or `dvs` properties.
+- [x] Add basic unit tests for the state management and filtering logic in `src/store.test.ts` and `src/engine/filtering` as appropriate.
