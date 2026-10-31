@@ -608,6 +608,90 @@ describe('gen2 parsers', () => {
     });
   });
 
+  describe('parseGen2 - Bag Inventory', () => {
+    it('should parse Bag Inventory correctly for Gold/Silver', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // Gold/Silver TM/HM offset is 0x23e7
+      view.setUint8(0x23e7, 1); // TM01 (191)
+
+      // Gold/Silver Items Pocket offset is 0x2420
+      view.setUint8(0x2420, 2); // 2 items
+      view.setUint8(0x2420 + 1, 4); // Item ID 4 (Poke Ball)
+      view.setUint8(0x2420 + 2, 10); // Quantity 10
+      view.setUint8(0x2420 + 3, 17); // Item ID 17 (Potion)
+      view.setUint8(0x2420 + 4, 5); // Quantity 5
+
+      // Gold/Silver Key Items Pocket offset is 0x244a
+      view.setUint8(0x244a, 1); // 1 item
+      view.setUint8(0x244a + 1, 7); // Item ID 7 (Bicycle)
+
+      // Gold/Silver Balls Pocket offset is 0x2465
+      view.setUint8(0x2465, 1); // 1 item
+      view.setUint8(0x2465 + 1, 1); // Item ID 1 (Master Ball)
+      view.setUint8(0x2465 + 2, 99); // Quantity 99
+
+      // Avoid error in other parser part by setting valid current map group
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+      view.setUint8(0x288b + 7 + 20, 1);
+
+      const data = parseGen2(view, false);
+      expect(data.inventory).toEqual(
+        expect.arrayContaining([
+          { id: 191, quantity: 1 },
+          { id: 4, quantity: 10 },
+          { id: 17, quantity: 5 },
+          { id: 7, quantity: 1 },
+          { id: 1, quantity: 99 },
+        ]),
+      );
+    });
+
+    it('should parse Bag Inventory correctly for Crystal', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // Crystal TM/HM offset is 0x23c8
+      view.setUint8(0x23c8, 1); // TM01 (191)
+
+      // Crystal Items Pocket offset is 0x2402
+      view.setUint8(0x2402, 2); // 2 items
+      view.setUint8(0x2402 + 1, 4); // Item ID 4 (Poke Ball)
+      view.setUint8(0x2402 + 2, 10); // Quantity 10
+      view.setUint8(0x2402 + 3, 17); // Item ID 17 (Potion)
+      view.setUint8(0x2402 + 4, 5); // Quantity 5
+
+      // Crystal Key Items Pocket offset is 0x242c
+      view.setUint8(0x242c, 1); // 1 item
+      view.setUint8(0x242c + 1, 7); // Item ID 7 (Bicycle)
+
+      // Crystal Balls Pocket offset is 0x2447
+      view.setUint8(0x2447, 1); // 1 item
+      view.setUint8(0x2447 + 1, 1); // Item ID 1 (Master Ball)
+      view.setUint8(0x2447 + 2, 99); // Quantity 99
+
+      // Avoid error in other parser part by setting valid current map group
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+      view.setUint8(0x288b + 7 + 20, 1);
+
+      const data = parseGen2(view, true);
+      expect(data.inventory).toEqual(
+        expect.arrayContaining([
+          { id: 191, quantity: 1 },
+          { id: 4, quantity: 10 },
+          { id: 17, quantity: 5 },
+          { id: 7, quantity: 1 },
+          { id: 1, quantity: 99 },
+        ]),
+      );
+    });
+  });
+
   describe('parseGen2 - PC Items', () => {
     it('should parse pcItems correctly for Gold/Silver', () => {
       const buffer = new ArrayBuffer(0x8000);

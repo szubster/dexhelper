@@ -2,10 +2,10 @@
 id: story-555-564-lint-schema-frontmatter-validation
 type: STORY
 title: Schema Linter Frontmatter Validation
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-13'
+updated_at: '2026-10-31'
 depends_on:
   - story-555-563-lint-schema-file-iteration
 jules_session_id: null
@@ -27,8 +27,8 @@ locks: []
 - Validate enum strictness for `status`, `owner_persona`, and `type`.
 
 ## Acceptance Criteria
-- [ ] Implement frontmatter field validation logic.
-- [ ] Implement enum strictness validation logic.
-- [ ] task-564-680-implement-frontmatter-parsing
-- [ ] task-564-681-implement-enum-strictness-validation
-- [ ] task-564-682-qa-schema-frontmatter-validation
+- [x] Implement frontmatter field validation logic.
+- [x] Implement enum strictness validation logic.
+- [x] task-564-680-implement-frontmatter-parsing
+- [x] task-564-681-implement-enum-strictness-validation
+- [x] task-564-682-qa-schema-frontmatter-validation

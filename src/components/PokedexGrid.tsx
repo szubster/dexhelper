@@ -4,6 +4,7 @@ import { SearchX } from 'lucide-react';
 import React, { useMemo } from 'react';
 import { useParsedSaveData } from '../contexts/EmulatorContext';
 import { pokeDB } from '../db/PokeDB';
+import { hasPerfectIVsOrDVs } from '../engine/filtering/IVFilters';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import type { PokemonListItem } from '../utils/pokemonQueries';
@@ -42,6 +43,21 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
 
   const partySet = React.useMemo(() => new Set(saveData?.party || []), [saveData?.party]);
   const pcSet = React.useMemo(() => new Set(saveData?.pc || []), [saveData?.pc]);
+
+  const perfectIvSet = React.useMemo(() => {
+    const set = new Set<number>();
+    if (saveData) {
+      for (let i = 0; i < saveData.partyDetails.length; i++) {
+        const p = saveData.partyDetails[i];
+        if (p && hasPerfectIVsOrDVs(p)) set.add(p.speciesId);
+      }
+      for (let i = 0; i < saveData.pcDetails.length; i++) {
+        const p = saveData.pcDetails[i];
+        if (p && hasPerfectIVsOrDVs(p)) set.add(p.speciesId);
+      }
+    }
+    return set;
+  }, [saveData]);
 
   const finalPokemon = React.useMemo(() => {
     // ⚡ Bolt: Hoist string allocation outside the loop
@@ -86,10 +102,24 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
       }
       if (filtersSet.has('dex-only') && saveData.owned.has(pokemon.id) && !hasInStorage) {
         result.push(pokemon);
+        continue;
+      }
+      if (filtersSet.has('perfect-ivs') && perfectIvSet.has(pokemon.id)) {
+        result.push(pokemon);
       }
     }
     return result;
-  }, [pokemonList, displayLimit, deferredSearchTerm, saveData, filtersSet, partySet, pcSet, locationPokemonIds]);
+  }, [
+    pokemonList,
+    displayLimit,
+    deferredSearchTerm,
+    saveData,
+    filtersSet,
+    partySet,
+    pcSet,
+    locationPokemonIds,
+    perfectIvSet,
+  ]);
 
   const shinySpeciesIds = useMemo(() => {
     const set = new Set<number>();
@@ -117,12 +147,12 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
 
   if (finalPokemon.length === 0) {
     return (
-      <TacticalPanel className="fade-in mx-1 mt-4 flex animate-in flex-col items-center justify-center p-12 text-center duration-500">
+      <TacticalPanel className="fade-in animate-in mx-1 mt-4 flex flex-col items-center justify-center p-12 text-center duration-500">
         <SearchX className="mb-4 text-zinc-600" size={48} />
-        <h3 className="font-bold font-mono text-lg text-zinc-400 uppercase tracking-wide">
+        <h3 className="font-mono text-lg font-bold tracking-wide text-zinc-400 uppercase">
           <span aria-hidden="true">[ </span>SYS.QUERY_FAILED<span aria-hidden="true"> ]</span>
         </h3>
-        <p className="mt-2 max-w-sm font-medium font-mono text-sm text-zinc-600">
+        <p className="mt-2 max-w-sm font-mono text-sm font-medium text-zinc-600">
           No matches found in database. Adjust search parameters or clear active filters.
         </p>
         <TacticalButton
@@ -145,14 +175,14 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
   }
 
   return (
-    <div className="fade-in animate-in pb-10 duration-500">
-      <div className="mb-4 flex items-center justify-between border-[var(--theme-primary)]/30 border-b border-dashed bg-[var(--theme-primary)]/5 px-4 py-2">
+    <div className="fade-in animate-in pb-28 duration-500 lg:pb-10">
+      <div className="mb-4 flex items-center justify-between border-b border-dashed border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/5 px-4 py-2">
         <div className="flex items-center gap-3">
-          <span className="font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-[0.2em]">
+          <span className="font-mono text-[10px] tracking-[0.2em] text-[var(--theme-primary)] uppercase">
             SYS.SECTOR_SCAN
           </span>
           <div className="h-4 w-px border-r border-dashed bg-[var(--theme-primary)]/30" />
-          <span className="font-bold font-mono text-white text-xs uppercase tracking-wider">Pokedex Matrix</span>
+          <span className="font-mono text-xs font-bold tracking-wider text-white uppercase">Pokedex Matrix</span>
         </div>
         <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400">
           <span>ENTITIES:</span>

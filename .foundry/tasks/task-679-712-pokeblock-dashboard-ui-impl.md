@@ -2,13 +2,13 @@
 id: task-679-712-pokeblock-dashboard-ui-impl
 type: TASK
 title: Pokéblock Dashboard UI Component
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-28'
 depends_on:
   - task-679-711-pokeblock-state-access-layer-impl
-jules_session_id: '10235031750969822478'
+jules_session_id: null
 pr_number: null
 parent: story-401-679-pokeblock-viewer-route
 tags:
@@ -16,8 +16,8 @@ tags:
   - react
   - frontend
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

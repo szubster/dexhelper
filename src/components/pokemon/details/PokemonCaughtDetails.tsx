@@ -43,7 +43,7 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
   if (yourPokemon.length === 0) return null;
 
   return (
-    <div className="slide-in-from-bottom-4 fade-in animate-in space-y-6 fill-mode-both duration-500">
+    <div className="slide-in-from-bottom-4 fade-in animate-in fill-mode-both space-y-6 duration-500">
       <SectionHeader title="Biometric Signatures" icon={<Dna size={14} className="text-emerald-500" />} />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {yourPokemon.map((p, i) => {
@@ -59,7 +59,7 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
             <TacticalPanel
               key={`${p.storageLocation}-${p.slot || i}`}
               variant={p.isShiny ? 'amber' : p.isShinyCarrier ? 'cyan' : 'emerald'}
-              className="group !p-0 relative flex flex-col gap-0 rounded-none border-[2px] border-dashed"
+              className="group relative flex flex-col gap-0 rounded-none border-[2px] border-dashed !p-0"
             >
               <LcdGrid className="opacity-[0.05]" />
               <HoverScanner />
@@ -74,7 +74,7 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
                   <div
                     className={`h-2 w-2 animate-pulse rounded-none ${p.isShiny ? 'bg-amber-500' : p.isShinyCarrier ? 'bg-cyan-500' : 'bg-emerald-500'}`}
                   />
-                  <span className={`font-black font-mono text-[10px] tracking-widest ${themeColor}`}>
+                  <span className={`font-mono text-[10px] font-black tracking-widest ${themeColor}`}>
                     {p.isShiny
                       ? 'SYS.ANOMALY_DETECTED'
                       : p.isShinyCarrier
@@ -87,10 +87,10 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
                 </span>
               </div>
 
-              <div className="relative z-10 flex items-stretch border-white/10 border-b border-dashed bg-black/60">
+              <div className="relative z-10 flex items-stretch border-b border-dashed border-white/10 bg-black/60">
                 <div className={`flex flex-col justify-center border-r border-dashed ${themeBorder} p-4 text-center`}>
-                  <span className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">LEVEL</span>
-                  <div className="font-black font-display text-4xl text-white tracking-tighter drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
+                  <span className="font-mono text-[10px] tracking-widest text-zinc-500 uppercase">LEVEL</span>
+                  <div className="font-display text-4xl font-black tracking-tighter text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                     {(p.level ?? 0).toString().padStart(2, '0')}
                   </div>
                 </div>
@@ -99,14 +99,14 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
                   <div className="mb-2 flex items-center gap-2">
                     <TacticalBadge
                       variant="primary"
-                      className="border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/20 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest"
+                      className="border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/20 px-2 py-0.5 font-mono text-[9px] tracking-widest uppercase"
                     >
                       {p.location}
                     </TacticalBadge>
                     {p.slot && (
                       <TacticalBadge
                         variant="zinc"
-                        className="border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[9px] text-zinc-400 uppercase tracking-widest"
+                        className="border-white/10 bg-white/5 px-2 py-0.5 font-mono text-[9px] tracking-widest text-zinc-400 uppercase"
                       >
                         SLOT_{p.slot.toString().padStart(2, '0')}
                       </TacticalBadge>
@@ -181,24 +181,24 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
               </div>
 
               {generation === 2 && (
-                <div className="relative z-10 border-white/10 border-t border-dashed bg-black/80 p-3">
+                <div className="relative z-10 border-t border-dashed border-white/10 bg-black/80 p-3">
                   <TimeCapsuleBadge speciesId={p.speciesId} moves={p.moves} />
                 </div>
               )}
 
               {p.caughtData && (
-                <div className="relative z-10 flex items-center justify-between border-white/10 border-t border-dashed bg-[var(--theme-primary)]/5 p-3">
-                  <span className="flex items-center gap-1 font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
+                <div className="relative z-10 flex items-center justify-between border-t border-dashed border-white/10 bg-[var(--theme-primary)]/5 p-3">
+                  <span className="flex items-center gap-1 font-mono text-[9px] tracking-widest text-zinc-500 uppercase">
                     <MapPin size={10} className="text-[var(--theme-primary)]" /> EXTR.PT
                   </span>
-                  <span className="truncate font-black font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-tight">
+                  <span className="truncate font-mono text-[10px] font-black tracking-tight text-[var(--theme-primary)] uppercase">
                     {gen2Locations[p.caughtData.location] || 'UNKNOWN ZONE'}
                   </span>
                 </div>
               )}
 
               {p.ribbons && generation === 3 && (
-                <div className="relative z-10 border-white/10 border-t border-dashed bg-black/40 p-4">
+                <div className="relative z-10 border-t border-dashed border-white/10 bg-black/40 p-4">
                   <React.Suspense fallback={<div className="h-24 w-full animate-pulse bg-white/5" />}>
                     <ContestRibbonsPanel ribbons={p.ribbons} />
                   </React.Suspense>
@@ -206,7 +206,7 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
               )}
 
               {p.condition && generation === 3 && (
-                <div className="relative z-10 flex flex-col gap-4 border-white/10 border-t border-dashed bg-black/40 p-4">
+                <div className="relative z-10 flex flex-col gap-4 border-t border-dashed border-white/10 bg-black/40 p-4">
                   <React.Suspense fallback={<div className="h-64 w-full animate-pulse bg-white/5" />}>
                     <ContestConditionStats
                       cool={p.condition.cool}

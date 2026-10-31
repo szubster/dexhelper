@@ -2,13 +2,13 @@
 id: task-618-689-multi-box-ev-filters-tests
 type: TASK
 title: Multi-Box EV Filters Unit Tests
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-18'
+updated_at: '2026-10-30'
 depends_on:
   - task-618-688-multi-box-ev-filters-logic
-jules_session_id: null
+jules_session_id: '6966652828409547089'
 pr_number: null
 parent: story-575-618-multi-box-ev-filters
 tags:

@@ -2,12 +2,12 @@
 id: task-528-690-wip-schema-integration-tests
 type: TASK
 title: Implement Schema Validator Integration Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-16T02:19:15.Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-30'
 depends_on: []
-jules_session_id: '5157679641252668580'
+jules_session_id: null
 pr_number: null
 parent: story-517-528-wip-documentation-e2e
 tags:
@@ -27,4 +27,4 @@ locks: []
 Write integration tests verifying that `DRAFT` and `WIP` statuses are correctly parsed by the schema validator.
 
 ## Acceptance Criteria
-- [ ] Write integration tests for schema parsing of `DRAFT` and `WIP` statuses
+- [x] Write integration tests for schema parsing of `DRAFT` and `WIP` statuses

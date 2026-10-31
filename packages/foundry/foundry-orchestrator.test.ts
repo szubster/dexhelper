@@ -1879,6 +1879,29 @@ vi.doMock('node:url', async (importOriginal) => {
     expect(result).toContain('Session terminated with state: INTERNAL_ERROR');
   });
 
+  test('Phase 3.0: Skips max rejection threshold cancellation for NOT_FOUND infrastructure errors', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-infra-error-not-found.md', {
+      id: "task-infra-error-not-found",
+      type: "TASK",
+      title: "Infra Error Task Not Found",
+      status: "FAILED",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      parent: ".foundry/stories/story-001.md",
+      depends_on: [],
+      jules_session_id: null,
+      rejection_count: 3,
+      rejection_reason: "Session terminated with state: NOT_FOUND",
+    });
+
+    main();
+
+    const result = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-infra-error-not-found.md'), 'utf-8');
+    expect(result).toContain('status: FAILED');
+    expect(result).toContain('Session terminated with state: NOT_FOUND');
+  });
+
   test('Impossible Loop: Auto-cancels node when max rejection count is reached', async () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-001.md', {
       id: "story-001",
@@ -2125,6 +2148,7 @@ vi.doMock('node:url', async (importOriginal) => {
 
   test('Mapping Validation: Enforces type to persona mappings before dispatch', () => {
     createValidTestNode(tmpDir, '.foundry/ideas/idea-001.md', { id: "idea-001", type: "IDEA", title: "Idea", status: "PENDING", owner_persona: "product_manager", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
+    createValidTestNode(tmpDir, '.foundry/ideas/idea-architect-visionary.md', { id: "idea-architect-visionary", type: "IDEA", title: "Architect Visionary Idea", status: "PENDING", owner_persona: "architect_visionary", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/prds/prd-invalid.md', { id: "prd-invalid", type: "PRD", title: "Valid PRD", status: "PENDING", owner_persona: "epic_planner", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/tasks/task-human.md', { id: "task-human", type: "TASK", title: "Human Task", status: "PENDING", owner_persona: "human", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
     createValidTestNode(tmpDir, '.foundry/research/research-001.md', { id: "research-001", type: "RESEARCH", title: "Research Task", status: "PENDING", owner_persona: "researcher", created_at: "2026-04-20", updated_at: "2026-04-20", depends_on: [], jules_session_id: null });
@@ -3214,6 +3238,40 @@ Target artifact: task-completed
     // Story 1 should NOT be awakened to READY/ACTIVE because Task 1 was cancelled due to a permanent dependency failure elsewhere
     const storyContent = fs.readFileSync(path.join(tmpDir, ".foundry/stories/story-001.md"), "utf-8");
     expect(storyContent).toContain("status: PENDING");
+  });
+
+  test('Lock Aggregation: Prevents PENDING node from promotion when its locks overlap with an ACTIVE node', () => {
+    // Task 1: ACTIVE with a lock
+    createValidTestNode(tmpDir, '.foundry/tasks/task-001.md', {
+      id: "task-001",
+      type: "TASK",
+      title: "Task 1",
+      status: "ACTIVE",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      locks: ["db-migration"],
+    });
+
+    // Task 2: PENDING with the same lock
+    createValidTestNode(tmpDir, '.foundry/tasks/task-002.md', {
+      id: "task-002",
+      type: "TASK",
+      title: "Task 2",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      locks: ["db-migration"],
+    });
+
+    main();
+
+    // Task 2 should remain PENDING because Task 1 has the same active lock
+    const task2Content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-002.md'), 'utf-8');
+    expect(task2Content).toContain('status: PENDING');
   });
 
   test('Deadlock Prevention: Handles circular dependencies safely and correctly prevents deadlocks', () => {
@@ -4484,6 +4542,99 @@ Referencing adr-compliance in body.
     // cleanup
     process.exitCode = 0;
     stderrSpy.mockRestore();
+  });
+
+
+  describe('Link Resolution', () => {
+    test('Rewrites legacy markdown links to node IDs in the body', () => {
+      createValidTestNode(tmpDir, '.foundry/tasks/task-link-legacy.md', {
+        id: "task-link-legacy",
+        type: "TASK",
+        title: "Task Link Legacy",
+        status: "PENDING",
+        owner_persona: "coder",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      }, "See [idea-123](./.foundry/ideas/idea-123.md) and [epic-456](.foundry/epics/epic-456.md) for more info.");
+
+      main();
+
+      const taskContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-link-legacy.md'), 'utf-8');
+      expect(taskContent).toContain("See idea-123 and epic-456 for more info.");
+    });
+
+    test('Strict mode exits with code 1 for unresolvable raw node IDs in body', () => {
+      createValidTestNode(tmpDir, '.foundry/epics/epic-unresolvable.md', {
+        id: "epic-unresolvable",
+        type: "EPIC",
+        title: "Epic Unresolvable Link",
+        status: "PENDING",
+        owner_persona: "story_owner",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      }, "Reference to non-existent node: idea-999-missing");
+
+      const stderrSpy = vi.spyOn(process.stderr, 'write');
+      process.argv.push('--strict');
+      try {
+        main();
+      } finally {
+        process.argv.splice(process.argv.indexOf('--strict'), 1);
+      }
+
+      const output = stderrSpy.mock.calls.map(call => call[0] as string).join('');
+      expect(output).toContain("Unresolvable node reference: 'idea-999-missing'");
+      expect(process.exitCode).toBe(1);
+
+      // cleanup
+      process.exitCode = 0;
+      stderrSpy.mockRestore();
+    });
+
+    test('Strict mode detects cyclic links and exits with code 1', () => {
+      // Node 1 depends on Node 2
+      createValidTestNode(tmpDir, '.foundry/epics/epic-cycle-a.md', {
+        id: "epic-cycle-a",
+        type: "EPIC",
+        title: "Epic Cycle A",
+        status: "PENDING",
+        owner_persona: "story_owner",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: ["epic-cycle-b"],
+        jules_session_id: null,
+      }, "This depends on B");
+
+      // Node 2 has a raw ID link to Node 1 in its body (which the idempotent generation check picks up)
+      createValidTestNode(tmpDir, '.foundry/epics/epic-cycle-b.md', {
+        id: "epic-cycle-b",
+        type: "EPIC",
+        title: "Epic Cycle B",
+        status: "PENDING",
+        owner_persona: "story_owner",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      }, "This references epic-cycle-a");
+
+      const stderrSpy = vi.spyOn(process.stderr, 'write');
+      process.argv.push('--strict');
+      try {
+        main();
+      } finally {
+        process.argv.splice(process.argv.indexOf('--strict'), 1);
+      }
+      expect(process.exitCode).toBe(1);
+
+      // cleanup
+      process.exitCode = 0;
+      stderrSpy.mockRestore();
+    });
   });
 
 });

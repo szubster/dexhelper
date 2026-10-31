@@ -7,7 +7,7 @@ export function ClearStorageButton({ onClear }: { onClear: () => void }) {
 
   if (isConfirming) {
     return (
-      <div className="fade-in zoom-in-95 flex w-full animate-in gap-2 duration-200">
+      <div className="fade-in zoom-in-95 animate-in flex w-full gap-2 duration-200">
         <TacticalButton
           type="button"
           title="Abort purge"
@@ -38,7 +38,7 @@ export function ClearStorageButton({ onClear }: { onClear: () => void }) {
       title="Initiate system purge"
       onClick={() => setIsConfirming(true)}
       variant="danger-outline"
-      className="fade-in zoom-in-95 w-full animate-in duration-200"
+      className="fade-in zoom-in-95 animate-in w-full duration-200"
       hasCrosshairs={true}
     >
       <Trash2 size={16} className="transition-transform group-hover:rotate-12" />

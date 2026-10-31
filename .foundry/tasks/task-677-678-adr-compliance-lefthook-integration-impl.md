@@ -2,13 +2,13 @@
 id: task-677-678-adr-compliance-lefthook-integration-impl
 type: TASK
 title: Implement ADR Compliance Lefthook Integration
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-18T19:00:00.000Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-29'
 depends_on: []
 parent: story-418-677-adr-compliance-lefthook-integration
-jules_session_id: '16436828992430789557'
+jules_session_id: null
 pr_number: null
 rejection_count: 0
 rejection_reason: ''
@@ -32,4 +32,4 @@ To ensure code compliance before it is committed, the ADR compliance checks need
 - The command doesn't need `{staged_files}` since the script scans the whole `srcDir` internally, but can use it if we modify the script. Currently, `verify-adr-compliance.ts` doesn't accept arguments, so it will just run on the whole codebase. Let's just run it as `node --experimental-strip-types scripts/verify-adr-compliance.ts`.
 
 ## Acceptance Criteria
-- [ ] Update `lefthook.yml` to run `verify-adr-compliance.ts`.
+- [x] Update `lefthook.yml` to run `verify-adr-compliance.ts`.

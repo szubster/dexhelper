@@ -2,12 +2,12 @@
 id: story-552-562-gen2-wild-item-parsing
 type: STORY
 title: Gen 2 Wild Encounter and Held Item Parsing
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-20'
+updated_at: '2026-10-29'
 depends_on: []
-jules_session_id: '18280755282413158248'
+jules_session_id: null
 pr_number: null
 parent: epic-521-552-wild-item-data-engine
 tags:
@@ -41,7 +41,11 @@ As part of the Wild Item Data Engine epic, this story focuses exclusively on Gen
 - [x] task-562-669-gen2-wild-item-extraction-logic-retry
 - [x] task-562-670-gen2-wild-item-extraction-tests-retry
 - [x] task-562-671-gen2-wild-item-extraction-qa-retry
-- [ ] research-562-687-investigate-gen2-wild-encounter-extraction-failure-retry
-- [ ] task-562-688-gen2-wild-item-extraction-logic-v3
-- [ ] task-562-689-gen2-wild-item-extraction-tests-v3
-- [ ] task-562-690-gen2-wild-item-extraction-qa-v3
+- [x] research-562-687-investigate-gen2-wild-encounter-extraction-failure-retry
+- [x] task-562-688-gen2-wild-item-extraction-logic-v3
+- [x] task-562-689-gen2-wild-item-extraction-tests-v3
+- [x] task-562-690-gen2-wild-item-extraction-qa-v3
+- [ ] research-562-710-investigate-gen2-wild-encounter-extraction-failure-v3
+- [ ] task-562-711-gen2-wild-item-extraction-logic-v4
+- [ ] task-562-712-gen2-wild-item-extraction-tests-v4
+- [ ] task-562-713-gen2-wild-item-extraction-qa-v4

@@ -2,13 +2,13 @@
 id: task-491-691-qa-persona-skins-e2e
 type: TASK
 title: QA Jules Agent Skins E2E Verification
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-16T02:13:34.980Z'
-updated_at: '2026-10-19'
+updated_at: '2026-10-29'
 depends_on:
   - task-491-690-implement-persona-skins-e2e
-jules_session_id: null
+jules_session_id: '10444753708983096134'
 pr_number: null
 parent: story-406-491-jules-agent-skins-e2e-verification
 tags:

@@ -20,7 +20,7 @@ export function SettingsRow({
   return (
     <div
       className={cn(
-        'group relative flex items-center justify-between border border-zinc-800 border-dashed bg-zinc-900/50 p-4 transition-colors hover:bg-zinc-800/80',
+        'group relative flex items-center justify-between border border-dashed border-zinc-800 bg-zinc-900/50 p-4 transition-colors hover:bg-zinc-800/80',
         className,
       )}
       {...props}
@@ -28,7 +28,7 @@ export function SettingsRow({
       <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-600 transition-colors group-hover:border-[var(--theme-primary)]" />
       <div className="flex items-center gap-3">
         <div className={cn('border border-dashed p-2', iconColorClass)}>{icon}</div>
-        <span className="font-bold text-xs uppercase tracking-wider">{label}</span>
+        <span className="text-xs font-bold tracking-wider uppercase">{label}</span>
       </div>
       {children}
     </div>

@@ -49,7 +49,7 @@ export function BoxAnalyzerView({ pokemonList = [] }: BoxAnalyzerViewProps) {
       if (!listItem) continue;
 
       if (!term) {
-        result.push({ p, listItem });
+        result.push({ p, listItem, isDimmed: false });
         continue;
       }
 
@@ -57,9 +57,8 @@ export function BoxAnalyzerView({ pokemonList = [] }: BoxAnalyzerViewProps) {
       const otNameMatch = p.otName ? p.otName.toLowerCase().includes(term) : false;
       const speciesMatch = listItem.nameLower.includes(term);
 
-      if (nicknameMatch || otNameMatch || speciesMatch) {
-        result.push({ p, listItem });
-      }
+      const isDimmed = !(nicknameMatch || otNameMatch || speciesMatch);
+      result.push({ p, listItem, isDimmed });
     }
 
     return result;
@@ -72,7 +71,7 @@ export function BoxAnalyzerView({ pokemonList = [] }: BoxAnalyzerViewProps) {
   return (
     <div className="flex h-full flex-col gap-6 pt-4 pb-[env(safe-area-inset-bottom,16px)]">
       <TacticalPanel className="flex flex-col p-4 sm:p-6" variant="cyan">
-        <div className="flex flex-col gap-6 border-cyan-500/30 border-b border-dashed pb-6">
+        <div className="flex flex-col gap-6 border-b border-dashed border-cyan-500/30 pb-6">
           <div className="flex items-center justify-between">
             <TacticalBlockHeader
               title="Box Search Engine"
@@ -82,8 +81,8 @@ export function BoxAnalyzerView({ pokemonList = [] }: BoxAnalyzerViewProps) {
             />
             <div className="flex items-center gap-3 border border-cyan-500/20 bg-black/40 px-3 py-1.5">
               <Database size={12} className="text-cyan-500" />
-              <span className="font-mono text-[10px] text-cyan-400 tracking-widest">
-                MATCHES: {filteredBoxPokemon.length}
+              <span className="font-mono text-[10px] tracking-widest text-cyan-400">
+                MATCHES: {filteredBoxPokemon.filter((x) => !x.isDimmed).length}
               </span>
             </div>
           </div>
@@ -91,22 +90,23 @@ export function BoxAnalyzerView({ pokemonList = [] }: BoxAnalyzerViewProps) {
         </div>
 
         <div className="custom-scrollbar mt-6 flex-1 overflow-y-auto pr-2">
-          {filteredBoxPokemon.length === 0 ? (
+          {filteredBoxPokemon.filter((x) => !x.isDimmed).length === 0 && deferredSearchTerm ? (
             <div className="flex flex-col items-center justify-center py-20 text-center">
               <Network size={32} className="mb-4 text-cyan-500/20" />
-              <span className="font-mono text-cyan-500/60 text-sm uppercase tracking-widest">
+              <span className="font-mono text-sm tracking-widest text-cyan-500/60 uppercase">
                 NO TARGETS FOUND IN DB
               </span>
             </div>
           ) : (
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-              {filteredBoxPokemon.map(({ p, listItem }, idx) => (
+              {filteredBoxPokemon.map(({ p, listItem, isDimmed }, idx) => (
                 <StorageCard
                   // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                   key={`${p.storageLocation}-${p.speciesId}-${idx}`}
                   p={p}
                   pokemon={{ id: listItem.id, name: listItem.name }}
                   location={p.storageLocation}
+                  isDimmed={isDimmed}
                   generation={saveData.generation}
                   onNavigate={handleNavigate}
                   timeCapsuleValidation={

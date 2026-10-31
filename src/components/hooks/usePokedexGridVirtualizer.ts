@@ -1,4 +1,4 @@
-import { useWindowVirtualizer } from '@tanstack/react-virtual';
+import { useVirtualizer } from '@tanstack/react-virtual';
 import { useEffect, useRef, useState } from 'react';
 
 export function usePokedexGridVirtualizer({
@@ -12,7 +12,6 @@ export function usePokedexGridVirtualizer({
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [columns, setColumns] = useState(1);
-  const [scrollMargin, setScrollMargin] = useState(0);
 
   useEffect(() => {
     const updateColumns = () => {
@@ -33,18 +32,14 @@ export function usePokedexGridVirtualizer({
     return () => window.removeEventListener('resize', updateColumns);
   }, []);
 
-  useEffect(() => {
-    if (containerRef.current) {
-      setScrollMargin(containerRef.current.offsetTop);
-    }
-  }, []);
-
   // oxlint-disable-next-line react/incompatible-library
-  const virtualizer = useWindowVirtualizer({
+  const virtualizer = useVirtualizer({
     count: Math.ceil(count / columns),
+    getScrollElement: () =>
+      (containerRef.current?.closest('.custom-scrollbar') as HTMLElement | null) ??
+      (typeof document !== 'undefined' ? document.documentElement : null),
     estimateSize,
     overscan,
-    scrollMargin,
   });
 
   return { containerRef, columns, virtualizer };
