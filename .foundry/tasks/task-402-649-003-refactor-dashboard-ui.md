@@ -2,13 +2,13 @@
 id: task-402-649-003-refactor-dashboard-ui
 type: TASK
 title: Apply Lazy Loading to Dashboard UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-18T00:21:35Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-31'
 depends_on:
   - task-402-649-001-lazy-loading-wrapper
-jules_session_id: '7448703651117656899'
+jules_session_id: null
 pr_number: null
 parent: story-402-649-refactor-ui-lazy-loading
 tags:

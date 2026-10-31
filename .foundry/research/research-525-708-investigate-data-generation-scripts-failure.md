@@ -2,12 +2,12 @@
 id: research-525-708-investigate-data-generation-scripts-failure
 type: RESEARCH
 title: Investigate Data Generation Scripts Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-19'
-updated_at: '2026-10-20'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '7812011862287693455'
+jules_session_id: null
 pr_number: null
 parent: epic-519-525-extract-build-tooling
 tags:

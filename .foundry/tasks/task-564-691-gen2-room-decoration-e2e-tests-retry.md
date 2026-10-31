@@ -2,10 +2,10 @@
 id: task-564-691-gen2-room-decoration-e2e-tests-retry
 type: TASK
 title: Gen 2 Room Decoration E2E Tests Retry
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-16T12:42:28.318Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-31'
 depends_on:
   - research-564-690-investigate-gen2-room-decoration-e2e-failure
 jules_session_id: null

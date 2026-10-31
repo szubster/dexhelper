@@ -2,10 +2,10 @@
 id: story-412-712-matchup-recommendation-logic
 type: STORY
 title: Matchup Recommendation Logic
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - story-412-711-matchup-simulation-engine
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-424-713-gen3-lottery-e2e-tests-retry-2
 type: TASK
 title: Implement Gen3 Lottery E2E Tests (Retry 2)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-20'
-updated_at: '2026-10-20'
+updated_at: '2026-10-31'
 depends_on:
   - research-424-712-investigate-gen3-lottery-e2e-failure-retry
 jules_session_id: null

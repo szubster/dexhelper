@@ -2,10 +2,10 @@
 id: task-567-713-pokedex-grid-e2e-verification-qa
 type: TASK
 title: Verify E2E Tests for Virtualized Pokedex Grid (QA)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - task-567-712-pokedex-grid-e2e-verification-impl
 jules_session_id: null

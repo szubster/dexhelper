@@ -4,10 +4,10 @@ type: TASK
 title: >-
   Preserve Enum Optimizations with Verbose Keys in Generation Pipeline (Retry
   v3)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-16T17:44:50.697Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-31'
 depends_on:
   - research-081-690-investigate-retry-failure-v2
 jules_session_id: null

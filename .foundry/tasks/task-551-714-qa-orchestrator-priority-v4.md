@@ -2,15 +2,15 @@
 id: task-551-714-qa-orchestrator-priority-v4
 type: TASK
 title: QA Verification for Priority Sorting in Orchestrator v4
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-20'
-updated_at: '2026-10-20'
-rejection_reason: ""
+updated_at: '2026-10-31'
 depends_on:
   - task-551-713-update-orchestrator-priority-tests-v4
 jules_session_id: null
 parent: story-540-551-priority-engine-dispatch
+rejection_reason: ''
 locks: []
 ---
 

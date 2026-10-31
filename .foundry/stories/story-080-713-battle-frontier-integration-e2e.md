@@ -2,10 +2,10 @@
 id: story-080-713-battle-frontier-integration-e2e
 type: STORY
 title: Gen 3 Battle Frontier Integration & E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - story-080-712-battle-frontier-dashboard-wiring
 jules_session_id: null

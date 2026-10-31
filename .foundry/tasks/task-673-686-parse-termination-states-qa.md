@@ -1,11 +1,11 @@
 ---
 id: task-673-686-parse-termination-states-qa
 type: TASK
-title: "QA: Verify Orchestrator Termination State Parsing"
-status: PENDING
+title: 'QA: Verify Orchestrator Termination State Parsing'
+status: READY
 owner_persona: qa
-created_at: "2026-10-13"
-updated_at: "2026-10-13"
+created_at: '2026-10-13'
+updated_at: '2026-10-31'
 depends_on:
   - task-673-685-parse-termination-states-coder-tests
 jules_session_id: null
@@ -14,8 +14,9 @@ tags:
   - orchestrator
   - qa
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # QA: Verify Orchestrator Termination State Parsing

@@ -2,14 +2,14 @@
 id: epic-046-080-gen3-battle-frontier-data-integration
 type: EPIC
 title: Gen 3 Battle Frontier Data Integration
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-11'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - epic-046-078-gen3-battle-frontier-data-extraction
   - epic-046-079-gen3-battle-frontier-dashboard-ui
-jules_session_id: '4151448448695639123'
+jules_session_id: null
 pr_number: null
 parent: prd-074-046-gen3-battle-frontier-tracker
 tags:

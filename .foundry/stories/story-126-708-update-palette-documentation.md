@@ -2,13 +2,13 @@
 id: story-126-708-update-palette-documentation
 type: STORY
 title: Update Palette Documentation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-19'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - story-126-707-update-palette-persona-instructions
-jules_session_id: '11230639797049987640'
+jules_session_id: null
 pr_number: null
 parent: epic-071-126-tailwind-designer-persona-v2
 tags:

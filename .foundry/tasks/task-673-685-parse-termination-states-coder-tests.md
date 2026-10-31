@@ -2,13 +2,13 @@
 id: task-673-685-parse-termination-states-coder-tests
 type: TASK
 title: Unit Tests for Orchestrator Termination State Parsing
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-13'
-updated_at: '2026-10-20'
+updated_at: '2026-10-31'
 depends_on:
   - task-673-683-parse-termination-states-logic
-jules_session_id: '10023177354926801044'
+jules_session_id: null
 parent: story-581-673-orchestrator-termination-state-parsing
 tags:
   - orchestrator

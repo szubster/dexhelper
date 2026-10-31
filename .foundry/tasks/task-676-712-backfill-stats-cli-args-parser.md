@@ -2,10 +2,10 @@
 id: task-676-712-backfill-stats-cli-args-parser
 type: TASK
 title: Scaffold Backfill Stats CLI & Args Parser
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,7 +13,9 @@ parent: story-418-676-historical-stats-git-parser
 tags:
   - CLI
   - orchestrator
+locks: []
 priority: 50
+rejection_reason: ''
 ---
 
 # Scaffold Backfill Stats CLI & Args Parser

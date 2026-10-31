@@ -2,10 +2,10 @@
 id: task-574-714-item-gating-ui-state-retry
 type: TASK
 title: Item Gating UI State and Integration (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-20T16:13:59Z'
-updated_at: '2026-10-20T16:13:59Z'
+updated_at: '2026-10-31'
 depends_on:
   - task-574-713-item-gating-ui-components-retry
 jules_session_id: null

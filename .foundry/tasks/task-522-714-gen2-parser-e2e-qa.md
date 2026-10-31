@@ -2,10 +2,10 @@
 id: task-522-714-gen2-parser-e2e-qa
 type: TASK
 title: QA Verification for Gen 2 Parsers E2E
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-20'
-updated_at: '2026-10-20'
+updated_at: '2026-10-31'
 depends_on:
   - task-522-712-gen2-gs-parser-e2e-impl
   - task-522-713-gen2-crystal-parser-e2e-impl

@@ -2,13 +2,13 @@
 id: story-522-522-gen2-parser-refactor-e2e
 type: STORY
 title: E2E Verification of Gen 2 Parser Refactoring
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - story-522-521-gen2-parser-refactor-impl
-jules_session_id: '9787553804399970201'
+jules_session_id: null
 pr_number: null
 parent: epic-517-522-gen2-parser-refactor-adr-028
 tags:

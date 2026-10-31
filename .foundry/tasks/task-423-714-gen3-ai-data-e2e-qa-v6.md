@@ -2,10 +2,10 @@
 id: task-423-714-gen3-ai-data-e2e-qa-v6
 type: TASK
 title: QA for Gen 3 AI Data Extraction E2E Tests (V6)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-20'
-updated_at: '2026-10-20'
+updated_at: '2026-10-31'
 depends_on:
   - task-423-713-gen3-ai-data-e2e-mapping-tests-impl-v6
 jules_session_id: null

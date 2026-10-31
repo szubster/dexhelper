@@ -2,12 +2,12 @@
 id: research-564-690-investigate-gen2-room-decoration-e2e-failure
 type: RESEARCH
 title: Investigate Gen 2 Room Decoration E2E Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-16T12:42:28.310Z'
-updated_at: '2026-10-20'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '691462424147093078'
+jules_session_id: null
 parent: story-313-564-gen2-room-decoration-integration-e2e
 tags:
   - e2e

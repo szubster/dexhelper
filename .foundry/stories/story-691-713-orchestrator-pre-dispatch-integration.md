@@ -2,10 +2,10 @@
 id: story-691-713-orchestrator-pre-dispatch-integration
 type: STORY
 title: STORY - Orchestrator Pre-Dispatch Cycle Verification and Node Demotion
-status: READY
+status: PENDING
 owner_persona: tech_lead
-created_at: 2026-10-21T07:02:03.087Z
-updated_at: 2026-10-21
+created_at: '2026-10-21T07:02:03.087Z'
+updated_at: '2026-10-31'
 depends_on:
   - story-691-712-cycle-detection-diagnostics-logger
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 locks: []
 priority: 50
 ---

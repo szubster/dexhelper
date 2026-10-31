@@ -2,10 +2,10 @@
 id: story-080-712-battle-frontier-dashboard-wiring
 type: STORY
 title: Gen 3 Battle Frontier Dashboard UI Wiring
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - story-080-711-battle-frontier-react-context
 jules_session_id: null
