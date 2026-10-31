@@ -25,5 +25,5 @@ locks: []
 Following the Gen 2 parser refactoring to adhere to ADR 028, we need to add Playwright E2E integration tests to verify the Crystal parsing logic.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests specifically targeting Crystal parser verification.
-- [ ] Ensure the E2E tests verify that the UI properly renders the parsed data without regressions.
+- [x] Implement Playwright E2E tests specifically targeting Crystal parser verification.
+- [x] Ensure the E2E tests verify that the UI properly renders the parsed data without regressions.
