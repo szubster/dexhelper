@@ -72,7 +72,7 @@ export function BoxAnalyzerView({ pokemonList = [] }: BoxAnalyzerViewProps) {
   return (
     <div className="flex h-full flex-col gap-6 pt-4 pb-[env(safe-area-inset-bottom,16px)]">
       <TacticalPanel className="flex flex-col p-4 sm:p-6" variant="cyan">
-        <div className="flex flex-col gap-6 border-cyan-500/30 border-b border-dashed pb-6">
+        <div className="flex flex-col gap-6 border-b border-dashed border-cyan-500/30 pb-6">
           <div className="flex items-center justify-between">
             <TacticalBlockHeader
               title="Box Search Engine"
@@ -82,7 +82,7 @@ export function BoxAnalyzerView({ pokemonList = [] }: BoxAnalyzerViewProps) {
             />
             <div className="flex items-center gap-3 border border-cyan-500/20 bg-black/40 px-3 py-1.5">
               <Database size={12} className="text-cyan-500" />
-              <span className="font-mono text-[10px] text-cyan-400 tracking-widest">
+              <span className="font-mono text-[10px] tracking-widest text-cyan-400">
                 MATCHES: {filteredBoxPokemon.length}
               </span>
             </div>
@@ -94,7 +94,7 @@ export function BoxAnalyzerView({ pokemonList = [] }: BoxAnalyzerViewProps) {
           {filteredBoxPokemon.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 text-center">
               <Network size={32} className="mb-4 text-cyan-500/20" />
-              <span className="font-mono text-cyan-500/60 text-sm uppercase tracking-widest">
+              <span className="font-mono text-sm tracking-widest text-cyan-500/60 uppercase">
                 NO TARGETS FOUND IN DB
               </span>
             </div>

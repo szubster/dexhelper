@@ -43,11 +43,11 @@ export const TacticalChecklistItem = React.memo(
             'group relative flex items-center justify-between gap-3 overflow-hidden rounded-none border border-dashed p-3 transition-all duration-200',
             acquired
               ? cn(
-                  'border-emerald-900/50 border-l-2 border-l-emerald-500 bg-emerald-950/20 text-emerald-100',
+                  'border-l-2 border-emerald-900/50 border-l-emerald-500 bg-emerald-950/20 text-emerald-100',
                   interactive && 'hover:border-emerald-500/60 hover:bg-emerald-950/30',
                 )
               : cn(
-                  'border-zinc-800/80 border-l-2 border-l-zinc-700/60 bg-zinc-950/60 text-zinc-400',
+                  'border-l-2 border-zinc-800/80 border-l-zinc-700/60 bg-zinc-950/60 text-zinc-400',
                   interactive && 'hover:border-zinc-700 hover:border-l-zinc-500 hover:bg-zinc-900/50',
                 ),
             className,
@@ -112,19 +112,48 @@ export const TacticalChecklistItem = React.memo(
           <div className="z-10 flex shrink-0 items-center gap-1.5 font-mono text-[9px] uppercase tracking-widest">
             <span
               className={cn(
+<<<<<<< HEAD
                 'border border-dashed px-1.5 py-0.5 transition-colors',
                 acquired
                   ? 'border-emerald-800/60 bg-emerald-950/40 text-emerald-400/90'
                   : 'border-zinc-800 bg-zinc-900/50 text-zinc-500 group-hover:border-zinc-700 group-hover:text-zinc-400',
+=======
+                'truncate font-mono text-xs font-bold tracking-wider uppercase transition-colors',
+                acquired && strikethroughWhenAcquired
+                  ? 'text-zinc-400 line-through decoration-emerald-800/80'
+                  : acquired
+                    ? 'text-emerald-200'
+                    : 'text-zinc-300 group-hover:text-zinc-100',
+>>>>>>> f61aacbe7 (chore: update pnpm and dependencies to latest, remove overrides and recreate lockfile)
               )}
             >
               {statusText}
             </span>
           </div>
         </div>
+<<<<<<< HEAD
       );
     },
   ),
+=======
+
+        {/* Telemetry Status Badge */}
+        <div className="z-10 flex shrink-0 items-center gap-1.5 font-mono text-[9px] tracking-widest uppercase">
+          <span
+            className={cn(
+              'border border-dashed px-1.5 py-0.5 transition-colors',
+              acquired
+                ? 'border-emerald-800/60 bg-emerald-950/40 text-emerald-400/90'
+                : 'border-zinc-800 bg-zinc-900/50 text-zinc-500 group-hover:border-zinc-700 group-hover:text-zinc-400',
+            )}
+          >
+            {statusText}
+          </span>
+        </div>
+      </div>
+    );
+  },
+>>>>>>> f61aacbe7 (chore: update pnpm and dependencies to latest, remove overrides and recreate lockfile)
 );
 
 TacticalChecklistItem.displayName = 'TacticalChecklistItem';

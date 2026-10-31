@@ -58,7 +58,7 @@ export function EmulatorUI() {
 
   return (
     <div className="flex flex-col gap-4 p-4 font-mono text-zinc-100">
-      <h1 className="font-bold text-2xl text-emerald-500 uppercase tracking-widest">Emulator UI</h1>
+      <h1 className="text-2xl font-bold tracking-widest text-emerald-500 uppercase">Emulator UI</h1>
 
       {/* biome-ignore lint/a11y/noStaticElementInteractions: this is a drag and drop zone */}
       <div
@@ -81,7 +81,7 @@ export function EmulatorUI() {
 
         <label
           htmlFor="emulator-file-input"
-          className="cursor-pointer border border-emerald-500 border-dashed bg-emerald-500/10 px-4 py-2 font-bold text-emerald-500 text-sm transition-colors hover:bg-emerald-500/20"
+          className="cursor-pointer border border-dashed border-emerald-500 bg-emerald-500/10 px-4 py-2 text-sm font-bold text-emerald-500 transition-colors hover:bg-emerald-500/20"
         >
           SELECT FILE
         </label>
@@ -95,7 +95,7 @@ export function EmulatorUI() {
 
       {loadedRomName && (
         <div
-          className="border border-emerald-500/50 border-dashed bg-emerald-950/20 p-4 text-emerald-400"
+          className="border border-dashed border-emerald-500/50 bg-emerald-950/20 p-4 text-emerald-400"
           data-testid="success-message"
         >
           <p className="font-bold">✓ ROM LOADED</p>
@@ -106,7 +106,7 @@ export function EmulatorUI() {
       {romData && <MGBACanvas romData={romData} />}
 
       {error && (
-        <div className="border border-red-500/50 border-dashed bg-red-950/20 p-4 text-red-400">
+        <div className="border border-dashed border-red-500/50 bg-red-950/20 p-4 text-red-400">
           <p className="font-bold">✗ ERROR</p>
           <p className="text-sm">{error}</p>
         </div>

@@ -38,7 +38,7 @@ export function EmptyState({ label, icon, className, labelClassName, variant = '
         {/* Reticle & Icon */}
         <div className="relative mb-8 flex h-32 w-32 items-center justify-center">
           {/* Outer dashed circle */}
-          <div className="absolute inset-0 rounded-full border border-zinc-700/30 border-dashed transition-colors duration-700 group-hover:border-zinc-600/50" />
+          <div className="absolute inset-0 rounded-full border border-dashed border-zinc-700/30 transition-colors duration-700 group-hover:border-zinc-600/50" />
           {/* Inner solid circle */}
           <div className="absolute inset-6 rounded-full border border-zinc-800/80" />
           {/* Crosshairs */}
@@ -95,7 +95,7 @@ export function EmptyState({ label, icon, className, labelClassName, variant = '
             />
             <span
               className={cn(
-                'font-bold font-mono text-[10px] uppercase tracking-[0.25em] transition-colors',
+                'font-mono text-[10px] font-bold tracking-[0.25em] uppercase transition-colors',
                 isWarning ? 'text-zinc-500 group-hover:text-zinc-400' : 'text-zinc-600 group-hover:text-zinc-500',
               )}
             >
@@ -107,7 +107,7 @@ export function EmptyState({ label, icon, className, labelClassName, variant = '
 
           <span
             className={cn(
-              'font-black font-mono text-base uppercase tracking-[0.15em] transition-colors sm:text-lg',
+              'font-mono text-base font-black tracking-[0.15em] uppercase transition-colors sm:text-lg',
               isWarning ? 'text-zinc-400 group-hover:text-zinc-300' : 'text-zinc-500 group-hover:text-zinc-400',
               labelClassName,
             )}

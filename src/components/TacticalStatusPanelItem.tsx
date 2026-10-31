@@ -83,10 +83,10 @@ export const TacticalStatusPanelItem = React.forwardRef<HTMLDivElement, Tactical
         {...props}
       >
         {/* Hardware 4-Corner Crosshair Ticks */}
-        <div className="pointer-events-none absolute top-0 left-0 h-1.5 w-1.5 border-current border-t-2 border-l-2 opacity-40 group-hover:opacity-100" />
-        <div className="pointer-events-none absolute top-0 right-0 h-1.5 w-1.5 border-current border-t-2 border-r-2 opacity-40 group-hover:opacity-100" />
-        <div className="pointer-events-none absolute bottom-0 left-0 h-1.5 w-1.5 border-current border-b-2 border-l-2 opacity-40 group-hover:opacity-100" />
-        <div className="pointer-events-none absolute right-0 bottom-0 h-1.5 w-1.5 border-current border-r-2 border-b-2 opacity-40 group-hover:opacity-100" />
+        <div className="pointer-events-none absolute top-0 left-0 h-1.5 w-1.5 border-t-2 border-l-2 border-current opacity-40 group-hover:opacity-100" />
+        <div className="pointer-events-none absolute top-0 right-0 h-1.5 w-1.5 border-t-2 border-r-2 border-current opacity-40 group-hover:opacity-100" />
+        <div className="pointer-events-none absolute bottom-0 left-0 h-1.5 w-1.5 border-b-2 border-l-2 border-current opacity-40 group-hover:opacity-100" />
+        <div className="pointer-events-none absolute right-0 bottom-0 h-1.5 w-1.5 border-r-2 border-b-2 border-current opacity-40 group-hover:opacity-100" />
 
         {/* Left Status Bar Indicator */}
         <div
@@ -106,9 +106,9 @@ export const TacticalStatusPanelItem = React.forwardRef<HTMLDivElement, Tactical
             )}
           />
           <div className="flex min-w-0 flex-col">
-            <span className="truncate font-mono font-semibold uppercase tracking-wide">{label}</span>
+            <span className="truncate font-mono font-semibold tracking-wide uppercase">{label}</span>
             {sublabel && (
-              <span className="truncate font-mono text-[10px] text-zinc-500 uppercase tracking-tight">{sublabel}</span>
+              <span className="truncate font-mono text-[10px] tracking-tight text-zinc-500 uppercase">{sublabel}</span>
             )}
           </div>
         </div>
@@ -116,7 +116,7 @@ export const TacticalStatusPanelItem = React.forwardRef<HTMLDivElement, Tactical
         {/* Status Badge Tag */}
         <span
           className={cn(
-            'z-10 ml-2 shrink-0 border border-dashed px-1.5 py-0.5 font-bold font-mono text-[11px] tracking-wider transition-colors duration-200',
+            'z-10 ml-2 shrink-0 border border-dashed px-1.5 py-0.5 font-mono text-[11px] font-bold tracking-wider transition-colors duration-200',
             active ? currentVariant.activeBadge : 'border-zinc-800 bg-zinc-900/80 text-zinc-600',
           )}
         >

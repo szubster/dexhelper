@@ -40,9 +40,9 @@ export const DagKanbanBoard: React.FC = () => {
         return (
           <div
             key={col}
-            className="flex min-w-[300px] flex-col gap-2 rounded-none border border-zinc-800 border-dashed bg-zinc-900 p-2"
+            className="flex min-w-[300px] flex-col gap-2 rounded-none border border-dashed border-zinc-800 bg-zinc-900 p-2"
           >
-            <h3 className="border-zinc-800 border-b border-dashed pb-2 text-sm text-zinc-400">
+            <h3 className="border-b border-dashed border-zinc-800 pb-2 text-sm text-zinc-400">
               {col} ({columnNodes.length})
             </h3>
             <div className="flex flex-col gap-2 overflow-y-auto">

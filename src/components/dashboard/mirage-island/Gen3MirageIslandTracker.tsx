@@ -27,7 +27,7 @@ export const Gen3MirageIslandTracker = React.memo(({ saveData }: Gen3MirageIslan
 
   return (
     <TacticalPanel
-      className="mt-4 flex flex-col border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6"
+      className="mt-4 flex flex-col border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6"
       aria-label="Mirage Island Tracker"
     >
       <TelemetryDecoration label="SYS.MIRAGE_ISLAND" className="-top-[17px] left-[-1px]" />

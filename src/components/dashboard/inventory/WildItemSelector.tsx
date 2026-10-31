@@ -50,11 +50,11 @@ const WildItemSelectorComponent: React.FC = () => {
   }, [itemsMap, selectedWildItemIds]);
 
   return (
-    <TacticalPanel className="flex flex-col gap-4 border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+    <TacticalPanel className="flex flex-col gap-4 border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6">
       <TelemetryDecoration label="SYS.WILD_ITEMS" className="-top-[17px] left-[-1px]" />
 
       <div className="z-10 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-        <span className="tactical-text font-black font-mono text-lg text-white">WILD ITEM TRACKER TARGETS</span>
+        <span className="tactical-text font-mono text-lg font-black text-white">WILD ITEM TRACKER TARGETS</span>
         {selectedWildItemIds.length > 0 && (
           <TacticalButton
             variant="danger-outline"
