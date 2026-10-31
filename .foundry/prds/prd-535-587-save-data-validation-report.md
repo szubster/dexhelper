@@ -51,4 +51,8 @@ The vision is to transform the parser into a resilient, fault-tolerant engine th
 - Create component tests verifying the UI modal correctly renders various health statuses without runtime errors.
 
 ### 3. Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-587-693-core-diagnostic-report-subsystem
+- [ ] epic-587-694-graceful-parsing-architecture
+- [ ] epic-587-695-diagnostic-ui-modal
+- [ ] epic-587-696-e2e-verification
