@@ -28,4 +28,7 @@ Implement tracking and flagging of Pokémon that are ready to evolve via trade b
 - Automatically flag Pokémon ready to evolve via trade if moved between the loaded saves.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down this Story into Tasks.
+- [x] Tech Lead: Break down this Story into Tasks.
+- [ ] task-714-734-base-trade-evolution-generator-logic
+- [ ] task-714-735-base-trade-evolution-tests
+- [ ] task-714-736-base-trade-evolution-qa
