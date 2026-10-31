@@ -33,18 +33,7 @@ export function checkAdr013ComplianceInFile(filePath: string): Violation[] {
         'src/components/dashboard/progression/ProgressionTimeline.tsx',
         'DagContext.tsx'
     ];
-    if (whitelist.some(w => filePath.endsWith(w))) {
-        return violations;
-    }
-
-    // Whitelist known components with local state inside dashboard components
-    const whitelist = [
-        'src/components/dashboard/hof/HallOfFameDashboard.tsx',
-        'src/components/dashboard/inventory/WildItemSelector.tsx',
-        'src/components/dashboard/progression/ProgressionTimeline.tsx'
-    ];
-
-    if (whitelist.some(w => filePath.includes(w))) {
+    if (whitelist.some(w => filePath.includes(w) || filePath.endsWith(w))) {
         return violations;
     }
 
@@ -154,7 +143,12 @@ function main() {
         totalFiles++;
         try {
             const violations = findViolationsInFile(filePath);
-            const adr013Violations = filePath.includes('components/dashboard/')
+            const whitelist = [
+                "src/components/dashboard/hof/HallOfFameDashboard.tsx",
+                "src/components/dashboard/inventory/WildItemSelector.tsx",
+                "src/components/dashboard/progression/ProgressionTimeline.tsx"
+            ];
+            const adr013Violations = filePath.includes('components/dashboard/') && !whitelist.some(w => filePath.endsWith(w))
                 ? checkAdr013ComplianceInFile(filePath)
                 : [];
 
