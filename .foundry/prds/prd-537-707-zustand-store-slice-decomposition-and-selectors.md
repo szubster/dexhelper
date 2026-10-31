@@ -2,12 +2,12 @@
 id: prd-537-707-zustand-store-slice-decomposition-and-selectors
 type: PRD
 title: Modular Zustand Store Slice Decomposition and Memoized State Selectors
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-10-19'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '18039306591300909121'
+jules_session_id: null
 pr_number: null
 parent: idea-537-zustand-store-slice-decomposition-and-selectors
 tags:
@@ -51,4 +51,7 @@ Refactor `src/store.ts` into a modular, slice-based Zustand architecture:
 - **Enhanced Maintainability & DX**: Clean separation of state concerns across domain slices simplifies feature development and reduces merge conflicts for developer personas.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics
+- [ ] epic-707-693-domain-logic-extraction
+- [ ] epic-707-694-store-slice-decomposition
+- [ ] epic-707-695-memoized-selectors-migration
+- [x] Break down into Epics

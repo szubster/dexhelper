@@ -2,12 +2,12 @@
 id: story-556-563-e2e-tests-save-file-progress-tracking
 type: STORY
 title: E2E Tests for Save File Progress Tracking
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '5302533605430139873'
+jules_session_id: null
 pr_number: null
 parent: epic-521-556-wild-item-e2e-verification
 tags:
@@ -32,9 +32,12 @@ This story is part of the Wild Item E2E Verification epic. It focuses on writing
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks.
-- [ ] task-563-578-save-file-progress-fixtures-coder
+- [x] task-563-578-save-file-progress-fixtures-coder
 - [x] task-563-579-save-file-progress-e2e-coder
 - [x] task-563-580-save-file-progress-e2e-qa
-- [ ] research-563-690-investigate-save-file-progress-e2e-failure
-- [ ] task-563-691-save-file-progress-e2e-coder-retry
-- [ ] task-563-692-save-file-progress-e2e-qa-retry
+- [x] research-563-690-investigate-save-file-progress-e2e-failure
+- [x] task-563-691-save-file-progress-e2e-coder-retry
+- [x] task-563-692-save-file-progress-e2e-qa-retry
+- [ ] research-563-726-investigate-e2e-retry-failure
+- [ ] task-563-727-save-file-progress-e2e-coder-v3
+- [ ] task-563-728-save-file-progress-e2e-qa-v3

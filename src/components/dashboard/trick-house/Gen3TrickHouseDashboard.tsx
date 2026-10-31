@@ -30,12 +30,12 @@ export const Gen3TrickHouseDashboard = React.memo(({ saveData }: Gen3TrickHouseD
   const prizeReady = trickHouse.prizePickup === 2;
 
   return (
-    <TacticalPanel className="mt-4 flex flex-col border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+    <TacticalPanel className="mt-4 flex flex-col border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6">
       <TelemetryDecoration label="SYS.TRICK_HOUSE" className="-top-[17px] left-[-1px]" />
       <div className="z-10 mb-4 flex items-center justify-between">
         <span className="tactical-text text-lg text-white">TRICK HOUSE</span>
         {prizeReady && (
-          <span className="rounded-none border border-[var(--theme-primary)] border-dashed px-2 py-1 font-bold font-mono text-[10px] text-[var(--theme-primary)]">
+          <span className="rounded-none border border-dashed border-[var(--theme-primary)] px-2 py-1 font-mono text-[10px] font-bold text-[var(--theme-primary)]">
             PRIZE WAITING
           </span>
         )}

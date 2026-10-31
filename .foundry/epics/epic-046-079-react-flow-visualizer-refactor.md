@@ -2,7 +2,7 @@
 id: epic-046-079-react-flow-visualizer-refactor
 type: EPIC
 title: React Flow Visualizer Refactor
-status: PENDING
+status: CANCELLED
 owner_persona: story_owner
 created_at: '2026-06-11'
 updated_at: '2026-09-16'
@@ -31,5 +31,5 @@ As part of the architecture defined in PRD `prd-074-046-dag-context-architecture
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-079-578-react-flow-visualizer-refactor
-- [ ] story-079-579-react-flow-visualizer-refactor-e2e
+- [x] story-079-578-react-flow-visualizer-refactor
+- [x] story-079-579-react-flow-visualizer-refactor-e2e

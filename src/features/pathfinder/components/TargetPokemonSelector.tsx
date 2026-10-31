@@ -24,7 +24,7 @@ export const TargetPokemonSelector: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor="target-species" className="font-mono text-[10px] text-cyan-500 uppercase tracking-widest">
+      <label htmlFor="target-species" className="font-mono text-[10px] tracking-widest text-cyan-500 uppercase">
         Target Species
       </label>
       <TacticalSelect

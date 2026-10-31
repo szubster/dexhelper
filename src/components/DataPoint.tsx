@@ -22,14 +22,14 @@ export const DataPoint = React.memo(function DataPoint({
   return (
     <div
       className={cn(
-        'group relative flex flex-col justify-between overflow-hidden border border-zinc-800/80 border-dashed bg-zinc-950/60 p-3 transition-all duration-300 hover:border-[var(--theme-primary)]/50 hover:bg-zinc-900/80',
+        'group relative flex flex-col justify-between overflow-hidden border border-dashed border-zinc-800/80 bg-zinc-950/60 p-3 transition-all duration-300 hover:border-[var(--theme-primary)]/50 hover:bg-zinc-900/80',
         className,
       )}
     >
-      <div className="absolute top-0 left-0 h-1.5 w-1.5 border-zinc-700/80 border-t-[1.5px] border-l-[1.5px] transition-colors group-hover:border-[var(--theme-primary)]" />
-      <div className="absolute top-0 right-0 h-1.5 w-1.5 border-zinc-700/80 border-t-[1.5px] border-r-[1.5px] transition-colors group-hover:border-[var(--theme-primary)]" />
-      <div className="absolute bottom-0 left-0 h-1.5 w-1.5 border-zinc-700/80 border-b-[1.5px] border-l-[1.5px] transition-colors group-hover:border-[var(--theme-primary)]" />
-      <div className="absolute right-0 bottom-0 h-1.5 w-1.5 border-zinc-700/80 border-r-[1.5px] border-b-[1.5px] transition-colors group-hover:border-[var(--theme-primary)]" />
+      <div className="absolute top-0 left-0 h-1.5 w-1.5 border-t-[1.5px] border-l-[1.5px] border-zinc-700/80 transition-colors group-hover:border-[var(--theme-primary)]" />
+      <div className="absolute top-0 right-0 h-1.5 w-1.5 border-t-[1.5px] border-r-[1.5px] border-zinc-700/80 transition-colors group-hover:border-[var(--theme-primary)]" />
+      <div className="absolute bottom-0 left-0 h-1.5 w-1.5 border-b-[1.5px] border-l-[1.5px] border-zinc-700/80 transition-colors group-hover:border-[var(--theme-primary)]" />
+      <div className="absolute right-0 bottom-0 h-1.5 w-1.5 border-r-[1.5px] border-b-[1.5px] border-zinc-700/80 transition-colors group-hover:border-[var(--theme-primary)]" />
 
       <div className="absolute top-0 bottom-0 left-0 w-0 bg-[var(--theme-primary)]/10 opacity-0 transition-all duration-700 group-hover:w-full group-hover:opacity-100" />
 
@@ -37,7 +37,7 @@ export const DataPoint = React.memo(function DataPoint({
         <div className="mb-1.5 flex items-center justify-between">
           <span
             className={cn(
-              'font-black font-mono text-[9px] text-zinc-500 uppercase tracking-widest transition-colors group-hover:text-[var(--theme-primary)]',
+              'font-mono text-[9px] font-black tracking-widest text-zinc-500 uppercase transition-colors group-hover:text-[var(--theme-primary)]',
               labelClassName,
             )}
           >
@@ -47,12 +47,12 @@ export const DataPoint = React.memo(function DataPoint({
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="font-bold font-mono text-[10px] text-[var(--theme-primary)]/60" aria-hidden="true">
+          <span className="font-mono text-[10px] font-bold text-[var(--theme-primary)]/60" aria-hidden="true">
             {'>>'}
           </span>
           <span
             className={cn(
-              'font-bold font-mono text-[13px] text-zinc-200 uppercase tracking-tight drop-shadow-[0_0_8px_rgba(255,255,255,0.05)] transition-colors group-hover:text-white',
+              'font-mono text-[13px] font-bold tracking-tight text-zinc-200 uppercase drop-shadow-[0_0_8px_rgba(255,255,255,0.05)] transition-colors group-hover:text-white',
               valueClassName,
             )}
           >

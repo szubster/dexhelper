@@ -2,12 +2,12 @@
 id: prd-535-587-save-data-validation-report
 type: PRD
 title: Save File Corruption & Data Structure Integrity Diagnostic Report
-status: ACTIVE
-owner_persona: epic_planner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-10-16T18:14:49.553Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '12533772543462586666'
+jules_session_id: null
 pr_number: null
 parent: idea-535-save-data-validation-report
 tags:
@@ -15,9 +15,8 @@ tags:
   - diagnostics
   - dx
   - ui
-locks: []
-confidence_score: 90
 rejection_reason: ''
+locks: []
 ---
 
 # Save File Corruption & Data Structure Integrity Diagnostic Report
@@ -51,4 +50,8 @@ The vision is to transform the parser into a resilient, fault-tolerant engine th
 - Create component tests verifying the UI modal correctly renders various health statuses without runtime errors.
 
 ### 3. Acceptance Criteria
-- [ ] Break down into Epics
+- [x] Break down into Epics
+- [ ] epic-587-693-core-diagnostic-report-subsystem
+- [ ] epic-587-694-graceful-parsing-architecture
+- [ ] epic-587-695-diagnostic-ui-modal
+- [ ] epic-587-696-e2e-verification

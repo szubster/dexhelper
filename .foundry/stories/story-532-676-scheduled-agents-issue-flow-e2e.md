@@ -2,12 +2,12 @@
 id: story-532-676-scheduled-agents-issue-flow-e2e
 type: STORY
 title: Scheduled Agents Issue Flow E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '7357406673096465690'
+jules_session_id: null
 pr_number: null
 parent: epic-516-532-e2e-verification
 tags:
@@ -34,4 +34,6 @@ To satisfy the Orchestrator Safeguard (E2E/Integration Requirement), we must ver
 - E2E Test: Verify that when the Jules PR merges, the issue is automatically closed natively.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes for E2E test implementation.
+- [x] Break down into TASK nodes for E2E test implementation.
+- [ ] task-676-712-scheduled-agents-issue-flow-e2e-coder
+- [ ] task-676-713-scheduled-agents-issue-flow-e2e-qa

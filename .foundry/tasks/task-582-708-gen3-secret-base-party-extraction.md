@@ -18,6 +18,7 @@ tags:
   - map
 research_references: []
 rejection_count: 0
+confidence_score: 100
 rejection_reason: ''
 notes: ''
 locks: []
@@ -35,6 +36,6 @@ Following the creation of types and constants, implement the actual logic to ext
 - Use relative offsets with `section1Offset` or `section2Offset` since it's a Gen 3 save file block.
 
 ## Acceptance Criteria
-- [ ] Implement Gen 3 Secret Base NPC Party extraction.
-- [ ] Ensure extraction uses section offsets for A/B flash support.
-- [ ] Add unit tests verifying extraction behavior with both valid and corrupted input arrays.
+- [x] Implement Gen 3 Secret Base NPC Party extraction.
+- [x] Ensure extraction uses section offsets for A/B flash support.
+- [x] Add unit tests verifying extraction behavior with both valid and corrupted input arrays.

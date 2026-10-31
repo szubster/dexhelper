@@ -91,7 +91,10 @@ describe('BoxAnalyzerView', () => {
     void renderWithRouter(<BoxAnalyzerView pokemonList={mockPokemonList} />);
 
     await expect.element(page.getByText('Bulbasaur')).toBeVisible();
-    await expect.element(page.getByText('Charmander')).not.toBeInTheDocument();
+    // Now rendered, but dimmed
+    await expect.element(page.getByText('Charmander')).toBeVisible();
+    const btn = page.getByRole('button', { name: /View details for Charmander/i });
+    await expect.element(btn).toHaveClass(/opacity-20/);
   });
 
   it('displays matching Pokemon by nickname', async () => {
@@ -110,7 +113,10 @@ describe('BoxAnalyzerView', () => {
     void renderWithRouter(<BoxAnalyzerView pokemonList={mockPokemonList} />);
 
     await expect.element(page.getByText('Bulbasaur')).toBeVisible();
-    await expect.element(page.getByText('Charmander')).not.toBeInTheDocument();
+    // Now rendered, but dimmed
+    await expect.element(page.getByText('Charmander')).toBeVisible();
+    const btn = page.getByRole('button', { name: /View details for Charmander/i });
+    await expect.element(btn).toHaveClass(/opacity-20/);
   });
 
   it('displays matching Pokemon by OT name', async () => {

@@ -2,13 +2,13 @@
 id: task-618-688-multi-box-ev-filters-logic
 type: TASK
 title: Multi-Box EV Filters Core Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-10-20'
+updated_at: '2026-10-30'
 depends_on:
   - task-618-687-multi-box-ev-filters-types
-jules_session_id: '11338730388585636904'
+jules_session_id: null
 pr_number: null
 parent: story-575-618-multi-box-ev-filters
 tags:
@@ -36,4 +36,4 @@ As part of the Multi-Box Stat Filters Epic, we need to implement EV (Effort Valu
 - Ensure type safety using the defined filter state interfaces and the `PokemonInstance` interface.
 
 ## Acceptance Criteria
-- [ ] EV filtering core logic functions are implemented and exported.
+- [x] EV filtering core logic functions are implemented and exported.

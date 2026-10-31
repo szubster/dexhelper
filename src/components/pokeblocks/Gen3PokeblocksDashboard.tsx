@@ -25,8 +25,8 @@ export const Gen3PokeblocksDashboard: React.FC = () => {
         <div className="custom-scrollbar max-h-[300px] overflow-y-auto pr-2">
           {pokeblocks.map((block: Gen3Pokeblock, idx: number) => (
             // biome-ignore lint/suspicious/noArrayIndexKey: Safe here since list order is fixed
-            <div key={idx} className="mb-2 flex flex-col border border-gray-700 border-dashed bg-black/40 p-2">
-              <div className="font-mono text-gray-300 text-xs">
+            <div key={idx} className="mb-2 flex flex-col border border-dashed border-gray-700 bg-black/40 p-2">
+              <div className="font-mono text-xs text-gray-300">
                 Pokéblock #{idx + 1} - Color: {block.color}
               </div>
               <div className="mt-2 grid grid-cols-5 gap-1 text-center font-mono text-[10px] text-gray-400">
@@ -51,7 +51,7 @@ export const Gen3PokeblocksDashboard: React.FC = () => {
                   <span>{block.sour}</span>
                 </div>
               </div>
-              <div className="mt-2 border-gray-800 border-t border-dashed pt-1 font-mono text-[10px] text-gray-500">
+              <div className="mt-2 border-t border-dashed border-gray-800 pt-1 font-mono text-[10px] text-gray-500">
                 Feel: {block.feel}
               </div>
             </div>

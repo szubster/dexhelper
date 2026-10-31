@@ -7,7 +7,7 @@ owner_persona: researcher
 created_at: '2026-10-20'
 updated_at: '2026-10-29'
 depends_on: []
-jules_session_id: '14000994300099128157'
+jules_session_id: '1594257354062834048'
 pr_number: null
 parent: story-552-562-gen2-wild-item-parsing
 tags:
@@ -15,7 +15,7 @@ tags:
   - dexhelper
   - investigation
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

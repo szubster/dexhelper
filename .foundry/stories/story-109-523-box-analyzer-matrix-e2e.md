@@ -36,6 +36,10 @@ Implement end-to-end testing for the Duplicate Analyzer Comparison Matrix view.
 - [ ] Validate rendering of tabular data.
 - [ ] Validate stat highlighting.
 - [x] Break down into Tasks.
-- [ ] task-523-707-box-analyzer-matrix-e2e-tabular-data
-- [ ] task-523-708-box-analyzer-matrix-e2e-highlighting
-- [ ] task-523-709-box-analyzer-matrix-e2e-qa
+- [x] task-523-707-box-analyzer-matrix-e2e-tabular-data
+- [x] task-523-708-box-analyzer-matrix-e2e-highlighting
+- [x] task-523-709-box-analyzer-matrix-e2e-qa
+- [ ] research-523-731-investigate-box-analyzer-matrix-e2e-failure
+- [ ] task-523-732-box-analyzer-matrix-e2e-tabular-data-retry
+- [ ] task-523-733-box-analyzer-matrix-e2e-highlighting-retry
+- [ ] task-523-734-box-analyzer-matrix-e2e-qa-retry
