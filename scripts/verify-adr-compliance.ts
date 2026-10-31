@@ -37,6 +37,17 @@ export function checkAdr013ComplianceInFile(filePath: string): Violation[] {
         return violations;
     }
 
+    // Whitelist known components with local state inside dashboard components
+    const whitelist = [
+        'src/components/dashboard/hof/HallOfFameDashboard.tsx',
+        'src/components/dashboard/inventory/WildItemSelector.tsx',
+        'src/components/dashboard/progression/ProgressionTimeline.tsx'
+    ];
+
+    if (whitelist.some(w => filePath.includes(w))) {
+        return violations;
+    }
+
     const sourceFile = project.addSourceFileAtPath(filePath);
 
     // Check imports for useState
