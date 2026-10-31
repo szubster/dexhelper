@@ -34,4 +34,6 @@ To satisfy the Orchestrator Safeguard (E2E/Integration Requirement), we must ver
 - E2E Test: Verify that when the Jules PR merges, the issue is automatically closed natively.
 
 ## Acceptance Criteria
-- [ ] Break down into TASK nodes for E2E test implementation.
+- [x] Break down into TASK nodes for E2E test implementation.
+- [ ] task-676-712-scheduled-agents-issue-flow-e2e-coder
+- [ ] task-676-713-scheduled-agents-issue-flow-e2e-qa
