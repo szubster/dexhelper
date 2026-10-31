@@ -29,5 +29,8 @@ locks: []
 To ensure the reliability of the Ghost slots highlighting and tactical styling implementations, we need comprehensive unit and component tests.
 
 ## Acceptance Criteria
-- [ ] Write tests verifying that ghost slots are correctly identified and rendered in the grid based on the provided state.
-- [ ] Write tests verifying the application of tactical styling properties (or their relevant CSS classes) to the Living Dex Grid components.
+- [x] Write tests verifying that ghost slots are correctly identified and rendered in the grid based on the provided state.
+- [x] Write tests verifying the application of tactical styling properties (or their relevant CSS classes) to the Living Dex Grid components.
+
+### SCHEMA
+https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
