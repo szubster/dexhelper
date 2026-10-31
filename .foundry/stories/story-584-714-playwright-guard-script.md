@@ -34,4 +34,7 @@ Implement a standalone Node.js script (e.g., `scripts/check-playwright-browsers.
 - Do not automatically install binaries; strictly check for presence and gracefully report status.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-714-734-playwright-guard-script-core
+- [ ] task-714-735-playwright-guard-script-tests
+- [ ] task-714-736-playwright-guard-script-qa
