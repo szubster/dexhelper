@@ -2,10 +2,10 @@
 id: task-617-701-iv-filters-ui
 type: TASK
 title: Update UI components for Multi-Box IV Filters
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-16T21:13:54.702Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on:
   - task-617-700-iv-filters-state-logic
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - ui
   - feature
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-617-700-iv-filters-state-logic
 notes: ''
 locks: []
 ---

@@ -2,12 +2,12 @@
 id: story-350-676-in-game-trade-dashboard-core-ui
 type: STORY
 title: In-Game Trade Dashboard Core UI
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '933065792436543652'
+jules_session_id: null
 pr_number: null
 parent: epic-056-350-in-game-trade-dashboard-ui-v2
 tags:

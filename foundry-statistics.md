@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-31T07:38:05.992Z*
+*Generated at: 2026-10-31T13:59:32.339Z*
 
 ## Node Statistics
 
@@ -8,32 +8,33 @@
 | Type | Count |
 |---|---|
 | ADR | 44 |
-| EPIC | 518 |
+| EPIC | 534 |
 | IDEA | 235 |
 | PRD | 217 |
-| RESEARCH | 337 |
-| STORY | 1097 |
-| TASK | 2859 |
+| RESEARCH | 340 |
+| STORY | 1114 |
+| TASK | 2872 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3427 |
-| ACTIVE | 152 |
+| COMPLETED | 3442 |
+| ACTIVE | 131 |
 | CANCELLED | 886 |
-| PENDING | 812 |
+| PENDING | 836 |
+| READY | 37 |
+| FAILED | 7 |
 | BLOCKED | 14 |
-| FAILED | 2 |
-| READY | 14 |
+| VERIFYING | 3 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 187 |
-| Merged PRs | 8690 |
-| Closed PRs | 1123 |
+| Open PRs | 155 |
+| Merged PRs | 8723 |
+| Closed PRs | 1122 |
 
 ## Rejection Counts
 
@@ -785,6 +786,7 @@
 | research-422-658-tm-inventory-extraction-failure-retry.md | 1 |
 | research-423-668-investigate-ai-mapping-test-failure-v2.md | 1 |
 | research-470-558-japanese-gen2-offsets.md | 1 |
+| research-475-712-gen3-condition-stats-extraction-e2e-failure-retry.md | 1 |
 | research-477-506-gen3-mystery-gift-event-flag-offsets.md | 1 |
 | research-478-676-investigate-kurt-apricorn-types-failure.md | 1 |
 | research-479-608-investigate-gen3-pokeblock-e2e-failure.md | 1 |
@@ -801,6 +803,7 @@
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
 | research-564-690-investigate-gen3-pokedex-gaps-ui-failure.md | 1 |
+| research-608-712-investigate-text-search-e2e-failure-v3.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |

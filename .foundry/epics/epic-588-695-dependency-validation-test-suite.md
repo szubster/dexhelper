@@ -2,10 +2,10 @@
 id: epic-588-695-dependency-validation-test-suite
 type: EPIC
 title: EPIC - Automated Test Suite for E2E Dependency Validation
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-22T11:11:37.000Z'
-updated_at: '2026-10-22T11:11:37.000Z'
+updated_at: '2026-10-31'
 depends_on:
   - epic-588-693-dag-validation-script-extension
   - epic-588-694-orchestrator-dispatch-integration

@@ -2,12 +2,12 @@
 id: prd-534-587-automated-tactical-utility-usage-linter-rule
 type: PRD
 title: 'PRD: Automated Tactical Utility Usage Linter Rule'
-status: ACTIVE
-owner_persona: epic_planner
+status: PENDING
+owner_persona: auditor
 created_at: '2026-10-16T18:34:13.959Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '17536080104448816786'
+jules_session_id: null
 pr_number: null
 parent: idea-534-tactical-utility-usage-linter
 tags:

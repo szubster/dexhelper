@@ -2,13 +2,13 @@
 id: task-563-681-gen3-missed-items-ui-components
 type: TASK
 title: Gen 3 Missed Items UI Components
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on:
   - task-563-680-gen3-missed-items-context-layer
-jules_session_id: '3956747398880956686'
+jules_session_id: null
 parent: story-553-563-gen3-missed-items-ui
 locks: []
 rejection_reason: ''

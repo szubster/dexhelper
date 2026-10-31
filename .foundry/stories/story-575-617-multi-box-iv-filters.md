@@ -2,10 +2,10 @@
 id: story-575-617-multi-box-iv-filters
 type: STORY
 title: Multi-Box IV Filters
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-18'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on: []
 jules_session_id: null
 pr_number: null

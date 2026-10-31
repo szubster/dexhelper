@@ -2,12 +2,12 @@
 id: task-617-700-iv-filters-state-logic
 type: TASK
 title: Implement State and Logic for Multi-Box IV Filters
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-16T21:13:54.689Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '16793917152821494557'
+jules_session_id: null
 pr_number: null
 parent: story-575-617-multi-box-iv-filters
 tags:
@@ -16,7 +16,7 @@ tags:
   - zustand
   - feature
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 locks: []
 ---

@@ -2,10 +2,10 @@
 id: story-351-715-item-trade-evolution-tracking
 type: STORY
 title: Item Trade Evolution Tracking
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-22'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on:
   - story-351-714-base-trade-evolution-tracking
 jules_session_id: null

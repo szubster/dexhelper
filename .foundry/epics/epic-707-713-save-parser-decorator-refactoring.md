@@ -2,10 +2,10 @@
 id: epic-707-713-save-parser-decorator-refactoring
 type: EPIC
 title: Refactor Save Parsers to Utilize ISaveDataReader Decorators
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - epic-707-712-save-data-reader-decorator-implementation
 jules_session_id: null

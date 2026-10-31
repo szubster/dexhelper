@@ -2,10 +2,10 @@
 id: story-690-712-gen3-pokerus-integration-e2e
 type: STORY
 title: Gen 3 Pokerus Integration and E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - story-690-711-gen3-pokerus-parsing-and-mapping
 jules_session_id: null

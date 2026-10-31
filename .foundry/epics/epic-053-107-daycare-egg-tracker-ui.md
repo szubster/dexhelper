@@ -2,14 +2,14 @@
 id: epic-053-107-daycare-egg-tracker-ui
 type: EPIC
 title: Daycare & Egg Hatch Tracker UI
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-22'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - epic-053-105-daycare-save-parsing
   - epic-053-106-egg-hatch-parsing
-jules_session_id: '5749679620851897142'
+jules_session_id: null
 pr_number: null
 parent: prd-083-053-daycare-egg-tracker
 tags:

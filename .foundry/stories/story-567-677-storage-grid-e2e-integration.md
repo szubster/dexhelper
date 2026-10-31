@@ -2,13 +2,13 @@
 id: story-567-677-storage-grid-e2e-integration
 type: STORY
 title: Storage Grid E2E Integration tests
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on:
   - epic-564-566-storage-grid-virtualization
-jules_session_id: '3642666648180421839'
+jules_session_id: null
 pr_number: null
 parent: epic-564-567-e2e-integration
 tags:

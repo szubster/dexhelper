@@ -2,10 +2,10 @@
 id: epic-588-694-orchestrator-dispatch-integration
 type: EPIC
 title: EPIC - Orchestrator Dispatch Integration for Dependency Validation
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-22T11:11:37.000Z'
-updated_at: '2026-10-22T11:11:37.000Z'
+updated_at: '2026-10-31'
 depends_on:
   - epic-588-693-dag-validation-script-extension
 jules_session_id: null

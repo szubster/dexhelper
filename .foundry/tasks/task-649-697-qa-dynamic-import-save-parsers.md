@@ -2,10 +2,10 @@
 id: task-649-697-qa-dynamic-import-save-parsers
 type: TASK
 title: 'QA: Dynamic Import Save Parsers'
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-17T02:26:24.000Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on:
   - task-649-694-impl-dynamic-import-gen1-parser
   - task-649-695-impl-dynamic-import-gen2-parser

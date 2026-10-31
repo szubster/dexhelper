@@ -2,10 +2,10 @@
 id: task-676-719-in-game-trade-dashboard-qa
 type: TASK
 title: In-Game Trade Dashboard QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-22'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on:
   - task-676-718-in-game-trade-dashboard-route
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 locks: []
 ---
 # Task: In-Game Trade Dashboard QA

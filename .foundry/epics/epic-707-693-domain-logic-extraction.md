@@ -2,10 +2,10 @@
 id: epic-707-693-domain-logic-extraction
 type: EPIC
 title: Extract Domain Logic from Store Action Setters
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on: []
 jules_session_id: null
 pr_number: null

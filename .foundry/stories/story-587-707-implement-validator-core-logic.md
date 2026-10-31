@@ -2,12 +2,12 @@
 id: story-587-707-implement-validator-core-logic
 type: STORY
 title: Implement Validator Core Logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-18T18:43:00Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '5556022220396405588'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: epic-585-587-implement-macro-node-subtree-completeness-validator

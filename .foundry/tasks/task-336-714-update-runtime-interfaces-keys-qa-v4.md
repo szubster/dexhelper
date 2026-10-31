@@ -2,10 +2,10 @@
 id: task-336-714-update-runtime-interfaces-keys-qa-v4
 type: TASK
 title: Update Runtime Interfaces to Verbose Keys QA (v4)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-21T07:19:05.000Z'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - task-336-713-update-runtime-interfaces-keys-impl-v4
 jules_session_id: null

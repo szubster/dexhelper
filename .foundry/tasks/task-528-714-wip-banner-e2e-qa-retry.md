@@ -2,10 +2,10 @@
 id: task-528-714-wip-banner-e2e-qa-retry
 type: TASK
 title: QA WIP Banner E2E Tests (Retry)
-status: ACTIVE
+status: FAILED
 owner_persona: qa
 created_at: '2026-10-21T12:37:25Z'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - task-528-713-wip-banner-e2e-tests-retry
 jules_session_id: null
@@ -16,7 +16,7 @@ tags:
   - e2e
   - ui
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 locks: []
 ---
 

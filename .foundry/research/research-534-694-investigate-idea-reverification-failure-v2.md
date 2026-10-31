@@ -2,12 +2,12 @@
 id: research-534-694-investigate-idea-reverification-failure-v2
 type: RESEARCH
 title: Investigate IDEA Re-Verification Stage Failure (v2)
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-17'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '15665961288906048903'
+jules_session_id: null
 pr_number: null
 parent: story-531-534-idea-reverification-stage
 tags:

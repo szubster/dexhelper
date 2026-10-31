@@ -2,10 +2,10 @@
 id: research-528-712-investigate-wip-banner-e2e-failure
 type: RESEARCH
 title: Investigate WIP Banner E2E Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-21T12:37:25Z'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - e2e
   - debugging
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 locks: []
 ---
 

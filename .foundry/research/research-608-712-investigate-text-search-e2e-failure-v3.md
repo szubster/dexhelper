@@ -2,7 +2,7 @@
 id: research-608-712-investigate-text-search-e2e-failure-v3
 type: RESEARCH
 title: Investigate Multi-Box Text Search Engine E2E Failure (v3)
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-20'
 updated_at: '2026-10-31'
@@ -13,8 +13,8 @@ parent: story-574-608-multi-box-text-search-engine
 tags:
   - e2e
   - search
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: Spawned to investigate research-608-690 permanent failures
 locks: []
 ---

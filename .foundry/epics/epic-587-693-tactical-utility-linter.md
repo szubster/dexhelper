@@ -2,10 +2,10 @@
 id: epic-587-693-tactical-utility-linter
 type: EPIC
 title: 'Epic: Automated Tactical Utility Usage Linter'
-status: PENDING
+status: READY
 owner_persona: story_owner
 created_at: '2026-10-22T06:34:26Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
