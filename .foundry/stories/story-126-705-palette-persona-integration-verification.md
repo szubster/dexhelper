@@ -2,13 +2,13 @@
 id: story-126-705-palette-persona-integration-verification
 type: STORY
 title: E2E Integration and Verification for Palette Persona
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2025-01-01T00:00:00Z'
 updated_at: '2026-10-31'
 depends_on:
   - story-126-704-update-domain-ownership-docs
-jules_session_id: null
+jules_session_id: '12546717775886486179'
 pr_number: null
 parent: epic-071-126-tailwind-designer-persona-v2
 tags:
