@@ -39,5 +39,5 @@ Implement the state management for selecting two Pokémon from the parsed Gen 2 
 - Ensure type safety using TypeScript.
 
 ## Acceptance Criteria
-- [ ] A new file or additions to an existing state file containing the state management logic.
-- [ ] Unit tests validating the selection constraints and derived stats (gender and DVs).
+- [x] A new file or additions to an existing state file containing the state management logic.
+- [x] Unit tests validating the selection constraints and derived stats (gender and DVs).
