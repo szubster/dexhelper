@@ -23,4 +23,6 @@ priority: 80
 Develop the file system and Git staging presence verification logic. It should take the parsed list of file paths, check if they exist on disk, are non-empty, and are staged for commit via `git ls-files`.
 
 ## Acceptance Criteria
-- [ ] STORY breakdown generated.
+- [x] STORY breakdown generated.
+- [ ] story-697-734-artifact-presence-core-logic
+- [ ] story-697-735-artifact-presence-integration-e2e
