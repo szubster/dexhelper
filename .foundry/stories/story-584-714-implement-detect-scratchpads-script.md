@@ -29,3 +29,5 @@ priority: 50
 - [ ] Create `.github/scripts/detect-scratchpads.js`.
 - [ ] Scan repository root for uncommitted `*.sh`, `*.cjs`, `*.js`, `*.md`.
 - [ ] Ensure non-zero exit code if files are found and print paths.
+- [ ] task-714-734-implement-detect-scratchpads-script
+- [ ] task-714-735-qa-detect-scratchpads-script
