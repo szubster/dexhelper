@@ -33,7 +33,7 @@ export const PokemonStatusBadge = React.memo(function PokemonStatusBadge({
         />
         <div
           className={cn(
-            'relative z-10 flex h-2 w-2 items-center justify-center rounded-none border border-current text-opacity-80',
+            'text-opacity-80 relative z-10 flex h-2 w-2 items-center justify-center rounded-none border border-current',
             isShiny ? 'animate-pulse text-amber-500' : 'text-emerald-500',
           )}
         >
@@ -41,7 +41,7 @@ export const PokemonStatusBadge = React.memo(function PokemonStatusBadge({
         </div>
         <span
           className={cn(
-            'relative z-10 font-black font-mono text-[9px] uppercase tracking-widest',
+            'relative z-10 font-mono text-[9px] font-black tracking-widest uppercase',
             isShiny ? 'text-amber-400' : 'text-emerald-400',
           )}
         >
@@ -55,8 +55,8 @@ export const PokemonStatusBadge = React.memo(function PokemonStatusBadge({
 
   if (isOwnedInDex) {
     return (
-      <div className="flex w-full items-center justify-center border-amber-500/50 border-t border-dashed bg-amber-500/10 py-1.5">
-        <span className="tactical-text font-black text-[8px] text-amber-400">
+      <div className="flex w-full items-center justify-center border-t border-dashed border-amber-500/50 bg-amber-500/10 py-1.5">
+        <span className="tactical-text text-[8px] font-black text-amber-400">
           <span aria-hidden="true">[ </span>
           DEX_ONLY
           <span aria-hidden="true"> ]</span>
@@ -67,8 +67,8 @@ export const PokemonStatusBadge = React.memo(function PokemonStatusBadge({
 
   if (isSeenInDex) {
     return (
-      <div className="flex w-full items-center justify-center border-rose-500/50 border-t border-dashed bg-rose-500/10 py-1.5">
-        <span className="tactical-text font-black text-[8px] text-rose-400">
+      <div className="flex w-full items-center justify-center border-t border-dashed border-rose-500/50 bg-rose-500/10 py-1.5">
+        <span className="tactical-text text-[8px] font-black text-rose-400">
           <span aria-hidden="true">[ </span>
           SEEN
           <span aria-hidden="true"> ]</span>
@@ -78,8 +78,8 @@ export const PokemonStatusBadge = React.memo(function PokemonStatusBadge({
   }
 
   return (
-    <div className="flex w-full items-center justify-center border-zinc-700 border-t border-dashed bg-white/5 py-1.5">
-      <span className="tactical-text font-black text-[8px] text-zinc-600">
+    <div className="flex w-full items-center justify-center border-t border-dashed border-zinc-700 bg-white/5 py-1.5">
+      <span className="tactical-text text-[8px] font-black text-zinc-600">
         <span aria-hidden="true">[ </span>
         UNKNOWN
         <span aria-hidden="true"> ]</span>

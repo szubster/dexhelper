@@ -11,7 +11,17 @@ import {
   STATIC_NPC_TRADE_DATA as STATIC_NPC_TRADE_DATA_GEN3,
 } from '../../data/gen3/assistantData';
 import { getUnobtainableReason } from '../../exclusives/index';
+import type { Gen3StaticEncounters } from '../../gen3/staticEncounters';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
+
+function isGen3StaticEncounterClaimed(encounters: Gen3StaticEncounters, key: string): boolean {
+  if (key in encounters) {
+    const val = encounters[key as keyof typeof encounters];
+    return typeof val === 'boolean' ? val : false;
+  }
+  return false;
+}
+
 import type { Suggestion } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 import { checkFlag } from '../utils/flags';
@@ -229,9 +239,7 @@ export function generateGiftAndTradeSuggestions(
     let hasClaimed = false;
     if (saveData.generation === 3) {
       if (gift.gen3StaticKey && saveData.gen3StaticEncounters) {
-        hasClaimed = Boolean(
-          (saveData.gen3StaticEncounters as unknown as Record<string, boolean | undefined>)[gift.gen3StaticKey],
-        );
+        hasClaimed = isGen3StaticEncounterClaimed(saveData.gen3StaticEncounters, gift.gen3StaticKey);
       }
     } else {
       hasClaimed = checkFlag(saveData.eventFlags, gift.eventFlag);

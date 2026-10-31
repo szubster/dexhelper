@@ -63,27 +63,27 @@ export const RetroBackground = React.memo(function RetroBackground(_props: Retro
         {/* Diagnostic Crosshairs & Reticles */}
         {/* Center Target */}
         <div className="absolute top-1/2 left-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 items-center justify-center opacity-[0.04]">
-          <div className="h-full w-[1px] border-white border-l border-dashed bg-white" />
-          <div className="absolute h-[1px] w-full border-white border-t border-dashed bg-white" />
+          <div className="h-full w-[1px] border-l border-dashed border-white bg-white" />
+          <div className="absolute h-[1px] w-full border-t border-dashed border-white bg-white" />
           {/* Corner brackets */}
           <CornerCrosshairs className="h-4 w-4 border-white" thickness={2} />
         </div>
 
         {/* Vertical/Horizontal Structural Beams (dashed) */}
-        <div className="absolute top-0 left-[20%] h-full w-[1px] border-zinc-500 border-l border-dashed opacity-10" />
-        <div className="absolute top-0 right-[20%] h-full w-[1px] border-zinc-500 border-l border-dashed opacity-10" />
-        <div className="absolute top-[15%] left-0 h-[1px] w-full border-zinc-500 border-t border-dashed opacity-10" />
-        <div className="absolute bottom-[15%] left-0 h-[1px] w-full border-zinc-500 border-t border-dashed opacity-10" />
+        <div className="absolute top-0 left-[20%] h-full w-[1px] border-l border-dashed border-zinc-500 opacity-10" />
+        <div className="absolute top-0 right-[20%] h-full w-[1px] border-l border-dashed border-zinc-500 opacity-10" />
+        <div className="absolute top-[15%] left-0 h-[1px] w-full border-t border-dashed border-zinc-500 opacity-10" />
+        <div className="absolute bottom-[15%] left-0 h-[1px] w-full border-t border-dashed border-zinc-500 opacity-10" />
 
         {/* Ambient Telemetry Readouts */}
-        <div className="absolute top-[16%] left-[21%] font-mono text-[8px] text-zinc-600 uppercase tracking-widest opacity-20">
+        <div className="absolute top-[16%] left-[21%] font-mono text-[8px] tracking-widest text-zinc-600 uppercase opacity-20">
           [ SYS_DIAGNOSTIC_SECTOR_A ]<br />
           T_OFFSET: 0x000F4
           <br />
           STAT: STABLE
         </div>
 
-        <div className="absolute right-[21%] bottom-[16%] text-right font-mono text-[8px] text-zinc-600 uppercase tracking-widest opacity-20">
+        <div className="absolute right-[21%] bottom-[16%] text-right font-mono text-[8px] tracking-widest text-zinc-600 uppercase opacity-20">
           [ HW_OVERRIDE_ACTIVE ]<br />
           MEM_ALLOC: 4096KB
           <br />
@@ -104,7 +104,7 @@ export const RetroBackground = React.memo(function RetroBackground(_props: Retro
         </div>
 
         {/* System Watermarks */}
-        <div className="pointer-events-none absolute right-10 bottom-10 font-black font-mono text-9xl text-white/5 uppercase tracking-tighter mix-blend-overlay">
+        <div className="pointer-events-none absolute right-10 bottom-10 font-mono text-9xl font-black tracking-tighter text-white/5 uppercase mix-blend-overlay">
           SYS.TER
         </div>
 
@@ -114,7 +114,7 @@ export const RetroBackground = React.memo(function RetroBackground(_props: Retro
               <div key={i} className="h-4 w-2 border border-white bg-white/20" />
             ))}
           </div>
-          <div className="font-mono text-[8px] text-white uppercase tracking-widest">SYS.TERMINAL.READY</div>
+          <div className="font-mono text-[8px] tracking-widest text-white uppercase">SYS.TERMINAL.READY</div>
         </div>
       </div>
 

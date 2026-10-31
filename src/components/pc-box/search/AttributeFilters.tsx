@@ -29,8 +29,8 @@ export function AttributeFilters() {
   };
 
   return (
-    <div className="relative flex w-full flex-col gap-4 border border-zinc-700 border-dashed bg-zinc-950/80 p-4 xl:flex-row xl:flex-wrap">
-      <EdgeLabel className="-top-2 left-5 bg-zinc-950 px-2 text-zinc-400 tracking-[0.2em]">ATTRIBUTE_FILTERS</EdgeLabel>
+    <div className="relative flex w-full flex-col gap-4 border border-dashed border-zinc-700 bg-zinc-950/80 p-4 xl:flex-row xl:flex-wrap">
+      <EdgeLabel className="-top-2 left-5 bg-zinc-950 px-2 tracking-[0.2em] text-zinc-400">ATTRIBUTE_FILTERS</EdgeLabel>
 
       <div className="min-w-[200px] flex-1">
         <div className="mb-1 font-mono text-[10px] text-zinc-500">NATURE</div>

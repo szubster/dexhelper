@@ -98,7 +98,7 @@ export const PokedexCard = React.memo(function PokedexCard({
       variant={variant}
       style={{ animationDelay: `${(idx % 20) * 0.02}s` }}
       className={cn(
-        '!p-0 group/card relative overflow-hidden',
+        'group/card relative overflow-hidden !p-0',
         variant === 'emerald'
           ? 'border-emerald-500/50'
           : variant === 'amber'
@@ -124,7 +124,7 @@ export const PokedexCard = React.memo(function PokedexCard({
           {/* Enhanced LCD Grid Background */}
           <LcdGrid className="opacity-[0.05] transition-opacity group-hover/card:opacity-[0.1]" />
           <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent to-black/80" />
-          <div className="pointer-events-none absolute right-0 -bottom-4 left-0 select-none text-center font-black font-sans text-[150px] text-white/10 italic leading-none tracking-tighter mix-blend-overlay">
+          <div className="pointer-events-none absolute right-0 -bottom-4 left-0 text-center font-sans text-[150px] leading-none font-black tracking-tighter text-white/10 italic mix-blend-overlay select-none">
             {pokemon.id.toString().padStart(3, '0')}
           </div>
 
@@ -178,7 +178,7 @@ export const PokedexCard = React.memo(function PokedexCard({
               <div className="flex items-center gap-1.5">
                 <span
                   className={cn(
-                    'font-mono text-[8px] uppercase tracking-widest transition-colors',
+                    'font-mono text-[8px] tracking-widest uppercase transition-colors',
                     variant === 'emerald'
                       ? 'text-emerald-500'
                       : variant === 'amber'
@@ -202,7 +202,7 @@ export const PokedexCard = React.memo(function PokedexCard({
             <div className="flex items-baseline gap-2">
               <h3
                 className={cn(
-                  'truncate font-bold font-mono text-lg uppercase tracking-tight',
+                  'truncate font-mono text-lg font-bold tracking-tight uppercase',
                   isUnseen ? 'text-zinc-700' : isShiny ? 'text-amber-400' : 'text-white',
                 )}
               >

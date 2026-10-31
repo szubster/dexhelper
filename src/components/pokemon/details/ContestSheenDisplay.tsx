@@ -16,7 +16,7 @@ export const ContestSheenDisplay: React.FC<ContestSheenDisplayProps> = React.mem
     <TacticalPanel
       variant={isMaxed ? 'emerald' : 'blue'}
       className={cn(
-        '!p-4 relative flex flex-col gap-1.5 border-zinc-800 border-l border-dashed pl-3 transition-colors hover:border-zinc-500',
+        'relative flex flex-col gap-1.5 border-l border-dashed border-zinc-800 !p-4 pl-3 transition-colors hover:border-zinc-500',
         className,
       )}
     >
@@ -35,7 +35,7 @@ export const ContestSheenDisplay: React.FC<ContestSheenDisplayProps> = React.mem
             : 'bg-blue-500 shadow-[0_0_5px_rgba(59,130,246,0.8)]'
         }
         emptyColorClass={isMaxed ? 'bg-emerald-950/30' : 'bg-blue-950/30'}
-        className="!pl-0 border-none"
+        className="border-none !pl-0"
       />
     </TacticalPanel>
   );

@@ -12,7 +12,7 @@ export const PathfinderSelectionPanel: React.FC = () => {
   return (
     <div className="flex flex-col gap-6">
       <TacticalPanel
-        className="relative mt-4 flex flex-col gap-4 border-cyan-500/50 border-t-2 p-4 pt-6"
+        className="relative mt-4 flex flex-col gap-4 border-t-2 border-cyan-500/50 p-4 pt-6"
         variant="cyan"
       >
         <TacticalBlockHeader title="SMART EGG PATHFINDER" trackingLabel="SYS.BREEDING_PATH" />

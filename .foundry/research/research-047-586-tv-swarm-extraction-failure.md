@@ -19,6 +19,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Investigate Gen 3 TV Swarm Data Extraction Failure

@@ -2,10 +2,10 @@
 id: research-579-731-investigate-react-flow-e2e-failure-retry
 type: RESEARCH
 title: Investigate React Flow Visualizer E2E Failure (Retry)
-status: READY
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-28'
-updated_at: '2026-10-28'
+updated_at: '2026-10-29'
 depends_on: []
 jules_session_id: null
 pr_number: null

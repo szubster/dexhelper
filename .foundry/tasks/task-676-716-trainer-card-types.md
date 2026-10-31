@@ -20,6 +20,7 @@ rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Task: Define Trainer Card State TypeScript Interfaces

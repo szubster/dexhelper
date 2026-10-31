@@ -2,10 +2,10 @@
 id: task-537-709-gen3-berry-hydration-retry-v2
 type: TASK
 title: Hydrate Gen 3 Berry Data into Runtime State (Retry V2)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-20'
-updated_at: '2026-10-29'
+updated_at: '2026-10-30'
 depends_on:
   - research-537-708-investigate-hydration-failure-retry-v2
   - research-537-690-berry-serialization-deprecation
@@ -13,7 +13,9 @@ jules_session_id: null
 pr_number: null
 parent: story-513-537-gen3-berry-serialization-and-api
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-537-708-investigate-hydration-failure-retry-v2
 notes: ''
 locks: []
 ---

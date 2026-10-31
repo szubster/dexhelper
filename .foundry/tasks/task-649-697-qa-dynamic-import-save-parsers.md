@@ -2,10 +2,10 @@
 id: task-649-697-qa-dynamic-import-save-parsers
 type: TASK
 title: 'QA: Dynamic Import Save Parsers'
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-17T02:26:24.000Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on:
   - task-649-694-impl-dynamic-import-gen1-parser
   - task-649-695-impl-dynamic-import-gen2-parser
@@ -28,5 +28,5 @@ locks: []
 Verify the implementation of dynamic imports for generation-specific save parsers.
 
 ## Acceptance Criteria
-- [ ] Verify that generation-specific Save Parsers (Gen 1, Gen 2, Gen 3) are behind dynamic imports.
-- [ ] Verify that all save parsing tests still pass.
+- [x] Verify that generation-specific Save Parsers (Gen 1, Gen 2, Gen 3) are behind dynamic imports.
+- [x] Verify that all save parsing tests still pass.

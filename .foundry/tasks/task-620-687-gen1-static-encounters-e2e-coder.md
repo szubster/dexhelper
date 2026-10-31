@@ -19,6 +19,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Task: Implement Gen 1 Static Encounters E2E Tests

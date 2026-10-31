@@ -88,19 +88,19 @@ export const TacticalChip = React.forwardRef<HTMLDivElement, TacticalChipProps>(
       >
         {/* Hardware Corner Accent Ticks */}
         <span
-          className="pointer-events-none absolute top-0 left-0 h-1.5 w-1.5 border-current border-t border-l opacity-60 transition-opacity group-hover:opacity-100"
+          className="pointer-events-none absolute top-0 left-0 h-1.5 w-1.5 border-t border-l border-current opacity-60 transition-opacity group-hover:opacity-100"
           aria-hidden="true"
         />
         <span
-          className="pointer-events-none absolute top-0 right-0 h-1.5 w-1.5 border-current border-t border-r opacity-60 transition-opacity group-hover:opacity-100"
+          className="pointer-events-none absolute top-0 right-0 h-1.5 w-1.5 border-t border-r border-current opacity-60 transition-opacity group-hover:opacity-100"
           aria-hidden="true"
         />
         <span
-          className="pointer-events-none absolute bottom-0 left-0 h-1.5 w-1.5 border-current border-b border-l opacity-60 transition-opacity group-hover:opacity-100"
+          className="pointer-events-none absolute bottom-0 left-0 h-1.5 w-1.5 border-b border-l border-current opacity-60 transition-opacity group-hover:opacity-100"
           aria-hidden="true"
         />
         <span
-          className="pointer-events-none absolute right-0 bottom-0 h-1.5 w-1.5 border-current border-r border-b opacity-60 transition-opacity group-hover:opacity-100"
+          className="pointer-events-none absolute right-0 bottom-0 h-1.5 w-1.5 border-r border-b border-current opacity-60 transition-opacity group-hover:opacity-100"
           aria-hidden="true"
         />
 
@@ -120,7 +120,7 @@ export const TacticalChip = React.forwardRef<HTMLDivElement, TacticalChipProps>(
 
         {/* Optional Code Tag */}
         {codeTag && (
-          <span className="relative z-10 shrink-0 font-mono text-[9px] uppercase tracking-wider opacity-80">
+          <span className="relative z-10 shrink-0 font-mono text-[9px] tracking-wider uppercase opacity-80">
             <span aria-hidden="true">[</span>
             {codeTag}
             <span aria-hidden="true">]</span>
@@ -132,7 +132,7 @@ export const TacticalChip = React.forwardRef<HTMLDivElement, TacticalChipProps>(
 
         {/* Optional Sublabel */}
         {sublabel && (
-          <span className="relative z-10 ml-0.5 shrink-0 border border-current/20 border-dashed bg-current/10 px-1 py-0.25 font-mono text-[9px] text-current tracking-wider opacity-90">
+          <span className="relative z-10 ml-0.5 shrink-0 border border-dashed border-current/20 bg-current/10 px-1 py-0.25 font-mono text-[9px] tracking-wider text-current opacity-90">
             {sublabel}
           </span>
         )}
@@ -142,7 +142,7 @@ export const TacticalChip = React.forwardRef<HTMLDivElement, TacticalChipProps>(
           <button
             type="button"
             onClick={onRemove}
-            className="focus-visible:tactical-focus relative z-10 -mr-1 ml-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-none border border-current/30 border-dashed p-0.5 text-current opacity-80 transition-all hover:border-current hover:bg-current/20 hover:opacity-100 active:scale-90"
+            className="focus-visible:tactical-focus relative z-10 -mr-1 ml-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-none border border-dashed border-current/30 p-0.5 text-current opacity-80 transition-all hover:border-current hover:bg-current/20 hover:opacity-100 active:scale-90"
             title={removeButtonTitle}
             aria-label={removeButtonTitle}
           >
