@@ -2,7 +2,7 @@
 id: task-561-690-pokerus-spread-planner-e2e-impl
 type: TASK
 title: Pokerus Spread Planner E2E Implementation
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-16T02:37:32.062Z'
 updated_at: '2026-10-31'
@@ -15,8 +15,8 @@ tags:
   - integration
   - pokerus
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'The implementation in tests/e2e/pokerus.spec.ts uses page.evaluate() to inject mock states into __store, which violates E2E testing guidelines defined in .foundry/docs/knowledge_base/agents/core_policies.md'
 notes: ''
 locks: []
 ---
@@ -27,5 +27,5 @@ locks: []
 Write Playwright E2E tests to verify the integration of the Pokerus Spread Planner. This includes testing party configurations, suggestions, and warnings before a cure. Ensure tests interact with the rendered React components correctly.
 
 ## Acceptance Criteria
-- [x] Implement Playwright E2E tests for the Pokerus Spread Planner.
-- [x] Ensure tests cover UI interactions, suggestions, and state validation.
+- [ ] Implement Playwright E2E tests for the Pokerus Spread Planner.
+- [ ] Ensure tests cover UI interactions, suggestions, and state validation.
