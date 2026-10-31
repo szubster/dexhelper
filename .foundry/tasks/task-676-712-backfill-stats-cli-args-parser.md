@@ -16,6 +16,7 @@ tags:
 locks: []
 priority: 50
 rejection_reason: ''
+confidence_score: 100
 ---
 
 # Scaffold Backfill Stats CLI & Args Parser
@@ -30,6 +31,6 @@ As part of the Historical Statistics Backfilling Engine epic, we need a CLI scri
 - Write unit tests for the argument parsing logic.
 
 ## Acceptance Criteria
-- [ ] Script is created and executable.
-- [ ] Argument parsing correctly identifies intervals.
-- [ ] Unit tests pass.
+- [x] Script is created and executable.
+- [x] Argument parsing correctly identifies intervals.
+- [x] Unit tests pass.
