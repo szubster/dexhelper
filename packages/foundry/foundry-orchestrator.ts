@@ -1497,9 +1497,18 @@ function main(): void {
       const links = [...body.matchAll(idRegex)].map(m => m[0]);
 
       if (links.length > 0) {
-        const resolvedLinks = links.map(l => resolveNodePath(l, true)).filter((l): l is string => !!l);
-        const allExist = resolvedLinks.every(l => nodeMap.has(l) || fs.existsSync(path.join(repoRoot, l)));
-        const hasChild = resolvedLinks.some(l => {
+        const resolvedLinks = links.map(l => resolveNodePath(l, true));
+        const hasUnresolvableLinks = resolvedLinks.some(l => !l);
+        if (hasUnresolvableLinks && isStrict()) {
+          const unresolvableLink = links[resolvedLinks.findIndex(l => !l)];
+          warn(`Unresolvable node reference: '${unresolvableLink}' referenced in body by: ${node.repoPath}`);
+          process.exitCode = 1;
+        }
+
+        const validResolvedLinks = resolvedLinks.filter((l): l is string => !!l);
+
+        const allExist = validResolvedLinks.every(l => nodeMap.has(l) || fs.existsSync(path.join(repoRoot, l)));
+        const hasChild = validResolvedLinks.some(l => {
           let childNode = nodeMap.get(l);
           if (!childNode && fs.existsSync(path.join(repoRoot, l))) {
             childNode = parseNodeFile(path.join(repoRoot, l), repoRoot) || undefined;
