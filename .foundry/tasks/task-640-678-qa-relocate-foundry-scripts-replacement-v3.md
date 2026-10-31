@@ -2,13 +2,13 @@
 id: task-640-678-qa-relocate-foundry-scripts-replacement-v3
 type: TASK
 title: QA Relocate Foundry Scripts Replacement V3
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-10'
 updated_at: '2026-10-31'
 depends_on:
   - task-640-677-relocate-foundry-scripts-replacement-v3
-jules_session_id: null
+jules_session_id: '16819481685287201233'
 pr_number: null
 parent: story-525-640-relocate-foundry-scripts
 tags:
