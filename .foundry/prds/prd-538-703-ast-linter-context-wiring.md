@@ -33,4 +33,7 @@ Create a static AST analysis rule or linter utility in `.github/scripts/` or Bio
 Prevents unwrapped Context runtime errors, guarantees proper context hierarchy integration across feature implementations, and reduces QA transient rejections.
 
 ## Acceptance Criteria
-- [ ] Break down into Epics.
+- [ ] epic-703-696-ast-linter-core-analysis
+- [ ] epic-703-697-ast-linter-wiring-verification
+- [ ] epic-703-698-ast-linter-ci-integration
+- [x] Break down into Epics.
