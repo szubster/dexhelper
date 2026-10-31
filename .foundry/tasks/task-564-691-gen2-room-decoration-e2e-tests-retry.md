@@ -27,5 +27,5 @@ Write Playwright E2E tests for the Room Decoration Viewer UI flow, incorporating
 - Verify that the categorized view renders properly and that Mystery Gift exclusives are correctly highlighted in the UI.
 
 ## Acceptance Criteria
-- [ ] Write Playwright tests for decoration loading
-- [ ] Verify categorized view and Mystery Gift highlights in E2E tests
+- [x] Write Playwright tests for decoration loading
+- [x] Verify categorized view and Mystery Gift highlights in E2E tests
