@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 
 import { expect, test } from '@playwright/test';
 import { createValidTestNode } from '../../packages/foundry/foundry-test-utils';
+import { archiveChildNodes } from '../../packages/foundry/tpm-archival-fs';
 import { createMockFoundry } from './fixtures/mock-foundry';
 
 test.describe('Archival Tree Evaluation', () => {
@@ -145,5 +146,28 @@ test.describe('Archival Tree Evaluation', () => {
 
     epicContent = fs.readFileSync(path.join(tmpDir, `.foundry/epics/${epicId}.md`), 'utf-8');
     expect(epicContent).toContain('status: COMPLETED');
+  });
+
+  test('systematic file moves to the archive directory preserve subdirectories and file state transitions', async () => {
+    const nestedTaskDir = path.join(tmpDir, '.foundry/tasks/nested/deep');
+    fs.mkdirSync(nestedTaskDir, { recursive: true });
+
+    createValidTestNode(
+      tmpDir,
+      '.foundry/tasks/nested/deep/task-500.md',
+      {
+        id: 'task-500',
+        type: 'TASK',
+        status: 'COMPLETED',
+        parent: 'story-200',
+        title: 'Nested Task',
+      },
+      'Nested task content.',
+    );
+
+    const childPaths = ['.foundry/tasks/nested/deep/task-500.md', '.foundry/tasks/task-301.md'];
+    archiveChildNodes(tmpDir, childPaths);
+    expect(fs.existsSync(path.join(tmpDir, '.foundry/archive/tasks/nested/deep/task-500.md'))).toBe(true);
+    expect(fs.existsSync(path.join(tmpDir, '.foundry/tasks/nested/deep/task-500.md'))).toBe(false);
   });
 });
