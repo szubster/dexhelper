@@ -28,7 +28,7 @@ notes: ''
 ## Objective
 Implement unit tests using `vitest` for the `scripts/verify-adr-compliance.ts` script.
 
-## Technical Requirements
+## Acceptance Criteria
 - Create unit tests for the core logic implemented in `task-443-477-adr-008-ui-compliance-linter-logic`.
 - Provide mock file contents with forbidden classes (`rounded-t`, `rounded-lg`, etc.) and ensure the linter correctly identifies them.
 - Provide mock file contents with compliant classes (`rounded-none`, `border-dashed`) and ensure the linter passes them without errors.

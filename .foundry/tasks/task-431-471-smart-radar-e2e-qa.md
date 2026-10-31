@@ -32,7 +32,7 @@ QA verification for Smart Radar E2E tests.
 ## Context
 The Smart Radar E2E testing implementation is complete. We need QA to review and verify that the E2E tests for the `RouteRadarController` correctly and reliably validate the heatmap rendering based on `suggestionEngine` output.
 
-## Core Technical Requirements
+## Core Acceptance Criteria
 - Review the E2E tests written in `task-431-470-smart-radar-e2e-rendering-impl`.
 - Run the E2E tests locally to ensure they correctly validate the RouteRadarController output and map rendering without flakiness.
 - Verify that edge cases for map overlay rendering are sufficiently covered by the tests.

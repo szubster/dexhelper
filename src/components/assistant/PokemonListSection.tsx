@@ -21,7 +21,7 @@ export const PokemonListSection = React.memo(function PokemonListSection({
           to="/pokemon/$pokemonId"
           params={{ pokemonId: pid.toString() }}
           search={{ from: '/assistant' }}
-          className="group/sprite focus-visible:tactical-focus relative h-10 w-10 rounded-none border border-white/10 border-dashed bg-black/40 p-1 transition-all hover:scale-110 hover:border-white/40 hover:bg-black/60"
+          className="group/sprite focus-visible:tactical-focus relative h-10 w-10 rounded-none border border-dashed border-white/10 bg-black/40 p-1 transition-all hover:scale-110 hover:border-white/40 hover:bg-black/60"
           title={getPokemonName(pid)}
           aria-label={`View details for ${getPokemonName(pid)}`}
           onClick={(e) => e.stopPropagation()}
@@ -35,7 +35,7 @@ export const PokemonListSection = React.memo(function PokemonListSection({
         </Link>
       ))}
       {(pokemonIds?.length ?? 0) > 8 && (
-        <div className="flex h-10 w-10 items-center justify-center rounded-none border border-white/10 border-dashed bg-black/40 font-bold font-mono text-xs text-zinc-500">
+        <div className="flex h-10 w-10 items-center justify-center rounded-none border border-dashed border-white/10 bg-black/40 font-mono text-xs font-bold text-zinc-500">
           +{(pokemonIds?.length ?? 0) - 8}
         </div>
       )}

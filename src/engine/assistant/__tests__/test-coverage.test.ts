@@ -1,7 +1,7 @@
 import { expect, test, vi } from 'vitest';
 import { pokeDB } from '../../../db/PokeDB';
 import type { PokemonInstance, SaveData } from '../../saveParser/index';
-import { gen1Strategy } from '../strategies/gen1Strategy';
+import { getStrategy } from '../strategies';
 import { generateSuggestions } from '../suggestionEngine';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 
@@ -125,7 +125,7 @@ test('coverage for suggestionEngine new lines', async () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, await getStrategy(1));
 
   const espeon = suggestions.find((s) => s.pokemonId === 196);
   expect(espeon).toBeDefined();
@@ -163,7 +163,7 @@ test('coverage for suggestionEngine new lines', async () => {
     false,
     'crystal',
     mockApiData,
-    gen1Strategy,
+    await getStrategy(1),
   );
   const readySteelix = readySuggestions.find((s) => s.pokemonId === 208);
   expect(readySteelix).toBeDefined();
@@ -203,7 +203,7 @@ test('coverage for suggestionEngine edge cases', async () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, gen1Strategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'gold', mockApiData, await getStrategy(1));
   const jolteon = suggestions.find((s) => s.pokemonId === 135);
   expect(jolteon).toBeDefined();
   expect(jolteon?.title).toContain('Item Needed');
@@ -242,7 +242,7 @@ test('coverage for gen 2 breeding edge case without valid base pokemon', async (
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, await getStrategy(1));
 
   const pichu = suggestions.find((s) => s.pokemonId === 50);
   expect(pichu).toBeDefined();
@@ -274,7 +274,7 @@ test('coverage for missing target id in pokemonMetadata for Gen 2 breeding', asy
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, await getStrategy(1));
   const diglett = suggestions.find((s) => s.pokemonId === 50);
   expect(diglett).toBeUndefined();
 });
@@ -312,7 +312,7 @@ test('coverage for generateSuggestions with missing parent / target id / empty d
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, gen1Strategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'crystal', mockApiData, await getStrategy(1));
   const diglett = suggestions.find((s) => s.pokemonId === 50);
   expect(diglett).toBeUndefined();
 });
@@ -342,7 +342,7 @@ test('coverage for missing target metadata entirely in evo logic', async () => {
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+  const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, await getStrategy(1));
   const invalidEvo = suggestions.find((s) => s.category === 'Evolve');
   expect(invalidEvo).toBeUndefined();
 });
@@ -380,7 +380,7 @@ test('coverage for suggestionEngine getGameItemId unknown generation', async () 
     allAreas: [],
   } as unknown as AssistantApiData;
 
-  await expect(generateSuggestions(mockSaveData, false, 'ruby', mockApiData, gen1Strategy)).rejects.toThrow(
+  await expect(generateSuggestions(mockSaveData, false, 'ruby', mockApiData, await getStrategy(1))).rejects.toThrow(
     'Unknown generation',
   );
 });
@@ -416,7 +416,7 @@ test('coverage for recursive missing exclusive logic', async () => {
   } as unknown as AssistantApiData;
 
   const mockStrategy = {
-    ...gen1Strategy,
+    ...(await getStrategy(1)),
     getSpecialSuggestions: () => [],
     getUnobtainableReason: (pid: number) => (pid === 6 ? 'Needs Link Cable' : null),
   } as unknown as import('../strategies/types').AssistantStrategy;
@@ -463,7 +463,7 @@ test('coverage for localPids.delete with array of pokemonIds', async () => {
   } as unknown as AssistantApiData;
 
   const mockStrategyWithCatch = {
-    ...gen1Strategy,
+    ...(await getStrategy(1)),
     generation: 2,
     isInternallyObtainable: () => true,
     getUnobtainableReason: () => null,
@@ -512,7 +512,7 @@ test('coverage for localPids.delete with single pokemonId', async () => {
   } as unknown as AssistantApiData;
 
   const mockStrategyWithCatch = {
-    ...gen1Strategy,
+    ...(await getStrategy(1)),
     generation: 2,
     isInternallyObtainable: () => true,
     getUnobtainableReason: () => null,
@@ -573,7 +573,7 @@ test('coverage for localPids.delete with some ids filtered out', async () => {
   } as unknown as AssistantApiData;
 
   const mockStrategyWithCatch = {
-    ...gen1Strategy,
+    ...(await getStrategy(1)),
     generation: 2,
     isInternallyObtainable: () => true,
     getUnobtainableReason: () => null,
@@ -622,7 +622,7 @@ test('coverage for suggestionEngine catch filtering with single pokemonId', asyn
   } as unknown as AssistantApiData;
 
   const mockStrategyWithCatch = {
-    ...gen1Strategy,
+    ...(await getStrategy(1)),
     generation: 2,
     isInternallyObtainable: () => true,
     getUnobtainableReason: () => null,
@@ -678,7 +678,7 @@ test('coverage for suggestionEngine catch filtering when pokemonIds has undefine
   } as unknown as AssistantApiData;
 
   const mockStrategyWithCatch = {
-    ...gen1Strategy,
+    ...(await getStrategy(1)),
     generation: 2,
     isInternallyObtainable: () => true,
     getUnobtainableReason: () => null,

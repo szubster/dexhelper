@@ -23,7 +23,7 @@ locks: []
 ## Context
 To support parsing Ruins of Alph puzzle flags for Gen 2 saves, we need to define the relevant types and memory constants. These puzzles (Kabuto, Aerodactyl, Ho-Oh, Omanyte) act as event flags in the save file.
 
-## Technical Requirements
+## Acceptance Criteria
 - Define a new type or interface `RuinsOfAlphPuzzles` or similar in the Gen 2 typings to represent the completion state (booleans) of the four puzzles: Kabuto, Aerodactyl, Ho-Oh, and Omanyte.
 - Define memory offsets and bit masks as module-level constants in a relevant constants file for Gen 2 (e.g., `src/engine/saveParser/parsers/gen2/constants.ts` or a specific file for events/unown).
 - Do not use magic numbers for offsets or bit masking in the parser logic.

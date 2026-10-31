@@ -42,12 +42,12 @@ function SafariZonePage() {
 
   return (
     <div className="flex h-full flex-col gap-6 pt-4 pb-20">
-      <div className="flex items-center justify-between border-zinc-800 border-b border-dashed pb-4">
+      <div className="flex items-center justify-between border-b border-dashed border-zinc-800 pb-4">
         <div>
-          <span className="border border-[var(--theme-primary)]/30 border-dashed bg-[var(--theme-primary)]/10 px-2 py-0.5 font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-widest">
+          <span className="border border-dashed border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/10 px-2 py-0.5 font-mono text-[10px] tracking-widest text-[var(--theme-primary)] uppercase">
             SAFARI_ZONE.SYS
           </span>
-          <h1 className="mt-1 font-black font-mono text-2xl text-white uppercase tracking-tight">
+          <h1 className="mt-1 font-mono text-2xl font-black tracking-tight text-white uppercase">
             SAFARI ZONE MISSING ENCOUNTERS
           </h1>
         </div>

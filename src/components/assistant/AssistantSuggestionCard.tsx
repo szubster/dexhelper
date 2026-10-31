@@ -91,19 +91,19 @@ export const AssistantSuggestionCard = memo(function AssistantSuggestionCard({
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div
-              className={`flex items-center gap-1.5 border border-white/20 border-dashed px-2 py-1 font-black text-[9px] uppercase tracking-widest ${style.bg} ${style.color.replace('border-', 'text-')} shadow-sm backdrop-blur-md`}
+              className={`flex items-center gap-1.5 border border-dashed border-white/20 px-2 py-1 text-[9px] font-black tracking-widest uppercase ${style.bg} ${style.color.replace('border-', 'text-')} shadow-sm backdrop-blur-md`}
             >
               {style.icon}
               {s.category}
               {showDebug && (
-                <span className="ml-1 border-white/20 border-l border-dashed pl-1 text-[8px] opacity-70">
+                <span className="ml-1 border-l border-dashed border-white/20 pl-1 text-[8px] opacity-70">
                   P: {s.priority}
                 </span>
               )}
             </div>
             {s.pokemonId && (
               <div className="flex items-center gap-2">
-                <span className="tactical-text flex items-center gap-1 font-black text-[8px] text-[var(--theme-primary)]">
+                <span className="tactical-text flex items-center gap-1 text-[8px] font-black text-[var(--theme-primary)]">
                   <span className="h-1.5 w-1.5 animate-pulse bg-[var(--theme-primary)]" />[ TARGET ACQUIRED ]
                 </span>
                 <TacticalBadge className="px-1 py-0.5 font-mono text-[10px]">
@@ -113,22 +113,22 @@ export const AssistantSuggestionCard = memo(function AssistantSuggestionCard({
             )}
           </div>
 
-          <div className="h-px w-full border-zinc-800 border-b border-dashed" />
+          <div className="h-px w-full border-b border-dashed border-zinc-800" />
 
           <div className="space-y-2">
             <h3
-              className={`font-bold font-mono text-white uppercase leading-tight ${s.category === 'Catch' ? 'text-lg' : 'text-sm'}`}
+              className={`font-mono leading-tight font-bold text-white uppercase ${s.category === 'Catch' ? 'text-lg' : 'text-sm'}`}
             >
               {title}
             </h3>
-            <p className="max-w-[95%] font-mono text-[10px] text-zinc-400 uppercase leading-relaxed tracking-wide">
+            <p className="max-w-[95%] font-mono text-[10px] leading-relaxed tracking-wide text-zinc-400 uppercase">
               {desc}
             </p>
           </div>
 
           {s.warning && (
-            <div className="mt-2 flex w-max items-center gap-1.5 border border-amber-500/30 border-dashed bg-amber-500/10 px-2 py-1">
-              <span className="tactical-text font-black text-[9px] text-amber-400">[ WARNING: {s.warning} ]</span>
+            <div className="mt-2 flex w-max items-center gap-1.5 border border-dashed border-amber-500/30 bg-amber-500/10 px-2 py-1">
+              <span className="tactical-text text-[9px] font-black text-amber-400">[ WARNING: {s.warning} ]</span>
             </div>
           )}
         </div>
