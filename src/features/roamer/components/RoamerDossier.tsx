@@ -29,8 +29,8 @@ export function RoamerDossier({ saveData }: RoamerDossierProps) {
 
   return (
     <TacticalPanel className="p-4" variant={anyActive ? 'emerald' : 'default'}>
-      <div className="mb-4 flex items-center justify-between border-zinc-600 border-b border-dashed pb-2">
-        <h2 className="tactical-text font-bold text-xl text-zinc-300">Roamer Dossier</h2>
+      <div className="mb-4 flex items-center justify-between border-b border-dashed border-zinc-600 pb-2">
+        <h2 className="tactical-text text-xl font-bold text-zinc-300">Roamer Dossier</h2>
         {isGen3 &&
           (anyActive ? (
             <span className="tactical-text animate-pulse font-bold text-red-500">[ ACTIVE ]</span>
@@ -58,10 +58,10 @@ export function RoamerDossier({ saveData }: RoamerDossierProps) {
             return (
               <div
                 key={roamer.speciesId}
-                className="flex flex-col gap-3 border-zinc-700 border-b border-dashed pb-4 last:border-b-0 last:pb-0 md:flex-row md:items-center md:justify-between"
+                className="flex flex-col gap-3 border-b border-dashed border-zinc-700 pb-4 last:border-b-0 last:pb-0 md:flex-row md:items-center md:justify-between"
               >
                 <div className="flex flex-col gap-1">
-                  <span className="tactical-text font-bold text-lg text-zinc-200">{speciesName}</span>
+                  <span className="tactical-text text-lg font-bold text-zinc-200">{speciesName}</span>
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-xs text-zinc-500">LVL {roamer.level}</span>
                     <span className="font-mono text-xs text-zinc-600">•</span>
@@ -71,10 +71,10 @@ export function RoamerDossier({ saveData }: RoamerDossierProps) {
 
                 <div className="flex flex-col gap-1 md:items-end">
                   {isCaughtOrFainted ? (
-                    <span className="tactical-text font-bold text-sm text-zinc-500">[ INACTIVE ]</span>
+                    <span className="tactical-text text-sm font-bold text-zinc-500">[ INACTIVE ]</span>
                   ) : (
                     <>
-                      <span className="tactical-text animate-pulse font-bold text-emerald-500 text-sm">
+                      <span className="tactical-text animate-pulse text-sm font-bold text-emerald-500">
                         [ TRACKING ACTIVE ]
                       </span>
                       <span className="tactical-text text-xs text-zinc-400">
@@ -92,7 +92,7 @@ export function RoamerDossier({ saveData }: RoamerDossierProps) {
               <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
                 <div className="flex flex-col gap-2">
                   <DataLabel>Identification</DataLabel>
-                  <div className="flex flex-col gap-1 border-zinc-700 border-l border-dashed pl-3">
+                  <div className="flex flex-col gap-1 border-l border-dashed border-zinc-700 pl-3">
                     <DataPoint label="SPECIES" value={speciesName} />
                     <DataPoint label="LEVEL" value={roamer.level} />
                     <DataPoint
@@ -105,7 +105,7 @@ export function RoamerDossier({ saveData }: RoamerDossierProps) {
 
                 <div className="flex flex-col gap-2">
                   <DataLabel>Internal State</DataLabel>
-                  <div className="flex flex-col gap-1 border-zinc-700 border-l border-dashed pl-3">
+                  <div className="flex flex-col gap-1 border-l border-dashed border-zinc-700 pl-3">
                     <DataPoint
                       label="PERSONALITY"
                       value={
@@ -120,7 +120,7 @@ export function RoamerDossier({ saveData }: RoamerDossierProps) {
                 {roamer.ivs && (
                   <div className="flex flex-col gap-2">
                     <DataLabel>Individual Values</DataLabel>
-                    <div className="grid grid-cols-2 gap-1 border-zinc-700 border-l border-dashed pl-3">
+                    <div className="grid grid-cols-2 gap-1 border-l border-dashed border-zinc-700 pl-3">
                       <DataPoint label="HP" value={roamer.ivs.hp} />
                       <DataPoint label="ATK" value={roamer.ivs.atk} />
                       <DataPoint label="DEF" value={roamer.ivs.def} />
@@ -133,13 +133,13 @@ export function RoamerDossier({ saveData }: RoamerDossierProps) {
               </div>
 
               {isGlitchedIVs && (
-                <div className="mt-2 flex items-start gap-3 border border-amber-500 border-dashed bg-amber-500/10 p-3">
+                <div className="mt-2 flex items-start gap-3 border border-dashed border-amber-500 bg-amber-500/10 p-3">
                   <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" />
                   <div>
-                    <h3 className="tactical-text mb-1 font-bold text-amber-500 text-sm">
+                    <h3 className="tactical-text mb-1 text-sm font-bold text-amber-500">
                       Warning: Severe IV Truncation Detected
                     </h3>
-                    <p className="font-mono text-amber-400/80 text-xs">
+                    <p className="font-mono text-xs text-amber-400/80">
                       This roamer exhibits the signature of the Gen 3 Roamer IV Glitch. Due to a programming error in
                       the game, its Defense, Speed, Sp. Atk, and Sp. Def IVs have been permanently set to 0.
                     </p>

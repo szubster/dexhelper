@@ -43,11 +43,11 @@ export const TacticalChecklistItem = React.memo(
             'group relative flex items-center justify-between gap-3 overflow-hidden rounded-none border border-dashed p-3 transition-all duration-200',
             acquired
               ? cn(
-                  'border-emerald-900/50 border-l-2 border-l-emerald-500 bg-emerald-950/20 text-emerald-100',
+                  'border-l-2 border-emerald-900/50 border-l-emerald-500 bg-emerald-950/20 text-emerald-100',
                   interactive && 'hover:border-emerald-500/60 hover:bg-emerald-950/30',
                 )
               : cn(
-                  'border-zinc-800/80 border-l-2 border-l-zinc-700/60 bg-zinc-950/60 text-zinc-400',
+                  'border-l-2 border-zinc-800/80 border-l-zinc-700/60 bg-zinc-950/60 text-zinc-400',
                   interactive && 'hover:border-zinc-700 hover:border-l-zinc-500 hover:bg-zinc-900/50',
                 ),
             className,
@@ -94,7 +94,7 @@ export const TacticalChecklistItem = React.memo(
             <div className="flex min-w-0 flex-col">
               <span
                 className={cn(
-                  'truncate font-bold font-mono text-xs uppercase tracking-wider transition-colors',
+                  'truncate font-mono text-xs font-bold tracking-wider uppercase transition-colors',
                   acquired && strikethroughWhenAcquired
                     ? 'text-zinc-400 line-through decoration-emerald-800/80'
                     : acquired
@@ -109,7 +109,7 @@ export const TacticalChecklistItem = React.memo(
           </div>
 
           {/* Telemetry Status Badge */}
-          <div className="z-10 flex shrink-0 items-center gap-1.5 font-mono text-[9px] uppercase tracking-widest">
+          <div className="z-10 flex shrink-0 items-center gap-1.5 font-mono text-[9px] tracking-widest uppercase">
             <span
               className={cn(
                 'border border-dashed px-1.5 py-0.5 transition-colors',

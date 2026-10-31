@@ -42,10 +42,10 @@ export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, in
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent to-black/40" />
 
       {/* Target Crosshairs in Corners */}
-      <div className="absolute top-1 left-1 h-1.5 w-1.5 rounded-none border-zinc-500/50 border-t border-l transition-colors group-hover:border-cyan-500/50" />
-      <div className="absolute top-1 right-1 h-1.5 w-1.5 rounded-none border-zinc-500/50 border-t border-r transition-colors group-hover:border-cyan-500/50" />
-      <div className="absolute right-1 bottom-1 h-1.5 w-1.5 rounded-none border-zinc-500/50 border-r border-b transition-colors group-hover:border-cyan-500/50" />
-      <div className="absolute bottom-1 left-1 h-1.5 w-1.5 rounded-none border-zinc-500/50 border-b border-l transition-colors group-hover:border-cyan-500/50" />
+      <div className="absolute top-1 left-1 h-1.5 w-1.5 rounded-none border-t border-l border-zinc-500/50 transition-colors group-hover:border-cyan-500/50" />
+      <div className="absolute top-1 right-1 h-1.5 w-1.5 rounded-none border-t border-r border-zinc-500/50 transition-colors group-hover:border-cyan-500/50" />
+      <div className="absolute right-1 bottom-1 h-1.5 w-1.5 rounded-none border-r border-b border-zinc-500/50 transition-colors group-hover:border-cyan-500/50" />
+      <div className="absolute bottom-1 left-1 h-1.5 w-1.5 rounded-none border-b border-l border-zinc-500/50 transition-colors group-hover:border-cyan-500/50" />
 
       {isShiny && (
         <div className="absolute top-1.5 left-1.5 z-10 animate-[spin_4s_linear_infinite] text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
@@ -63,7 +63,7 @@ export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, in
       <div className="relative z-10 flex flex-col items-center">
         <span
           className={cn(
-            'font-black font-mono text-xl tracking-tighter sm:text-2xl',
+            'font-mono text-xl font-black tracking-tighter sm:text-2xl',
             isSecured ? 'text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]' : 'text-zinc-600',
             !isSecured && 'opacity-30 grayscale',
           )}
@@ -71,7 +71,7 @@ export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, in
           {id.toString().padStart(3, '0')}
         </span>
 
-        {!isSecured && <span className="mt-1 font-mono text-[8px] text-zinc-500 uppercase tracking-widest">GHOST</span>}
+        {!isSecured && <span className="mt-1 font-mono text-[8px] tracking-widest text-zinc-500 uppercase">GHOST</span>}
       </div>
 
       {isSecured && (

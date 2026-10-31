@@ -31,7 +31,7 @@ export interface NPCListProps {
 export function NPCList({ npcs = MOCK_NPCS, selectedNpcId, onSelect }: NPCListProps) {
   return (
     <div className="tactical-panel flex flex-col gap-2 p-4">
-      <h2 className="tactical-text mb-2 border-zinc-700 border-b border-dashed pb-2 text-xl">Fame Checker Targets</h2>
+      <h2 className="tactical-text mb-2 border-b border-dashed border-zinc-700 pb-2 text-xl">Fame Checker Targets</h2>
       <div className="flex flex-col gap-2">
         {npcs.map((npc) => (
           <button

@@ -69,12 +69,12 @@ export function DagTreeItem({ nodeId, label, status, isPermanentFailure, childre
           )}
         </button>
 
-        <span className={cn('w-24 shrink-0 font-bold uppercase tracking-widest', statusColor)}>[{status}]</span>
+        <span className={cn('w-24 shrink-0 font-bold tracking-widest uppercase', statusColor)}>[{status}]</span>
 
         <span className="flex-1 truncate text-zinc-300">{label}</span>
       </div>
 
-      {hasChildren && isExpanded && <ul className="ml-3 border-zinc-700 border-l border-dashed pl-6">{children}</ul>}
+      {hasChildren && isExpanded && <ul className="ml-3 border-l border-dashed border-zinc-700 pl-6">{children}</ul>}
     </li>
   );
 }

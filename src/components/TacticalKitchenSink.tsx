@@ -120,7 +120,7 @@ export const TacticalKitchenSink: React.FC = () => {
       <TacticalInput id="input-default" />
 
       {/* Checkbox Showcase */}
-      <div className="flex flex-col gap-2 border border-zinc-800 border-dashed p-4" id="tacticalcheckbox-showcase">
+      <div className="flex flex-col gap-2 border border-dashed border-zinc-800 p-4" id="tacticalcheckbox-showcase">
         <TacticalCheckbox
           id="checkbox-default"
           label="Option Active"
@@ -133,7 +133,7 @@ export const TacticalKitchenSink: React.FC = () => {
       {/* Modal */}
       <TacticalModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <TacticalPanel variant="emerald" className="p-6">
-          <h2 className="font-bold text-xl">Tactical Modal Content</h2>
+          <h2 className="text-xl font-bold">Tactical Modal Content</h2>
           <p className="mt-2 text-zinc-300">This is a complex slotted layout inside a modal.</p>
           <div className="mt-4 flex justify-end">
             <TacticalButton variant="secondary" id="btn-close-modal" onClick={() => setIsModalOpen(false)}>
@@ -153,7 +153,7 @@ export const TacticalKitchenSink: React.FC = () => {
 
       {/* TacticalChip Showcase */}
       <div
-        className="flex flex-wrap items-center gap-2 border border-zinc-800 border-dashed p-4"
+        className="flex flex-wrap items-center gap-2 border border-dashed border-zinc-800 p-4"
         id="tacticalchip-showcase"
       >
         <TacticalChip variant="primary" codeTag="SYS.01" sublabel="99%">

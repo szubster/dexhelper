@@ -18,7 +18,7 @@ export const ChecklistLayout = React.memo(
         {...props}
       >
         {title && (
-          <div className="mb-2 border-zinc-700 border-b border-dashed pb-2 font-bold text-lg text-zinc-200 uppercase tracking-wider">
+          <div className="mb-2 border-b border-dashed border-zinc-700 pb-2 text-lg font-bold tracking-wider text-zinc-200 uppercase">
             {title}
           </div>
         )}
