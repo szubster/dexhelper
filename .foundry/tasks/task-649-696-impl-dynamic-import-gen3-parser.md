@@ -25,4 +25,4 @@ locks: []
 Move the generation 3 specific Save Parser behind dynamic imports. This will help split bundles and reduce initial payload.
 
 ## Acceptance Criteria
-- [ ] Move generation 3 specific Save Parser behind dynamic imports in `src/engine/saveParser/index.ts`.
+- [x]  Move generation 3 specific Save Parser behind dynamic imports in `src/engine/saveParser/index.ts`.
