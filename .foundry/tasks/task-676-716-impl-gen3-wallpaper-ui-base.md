@@ -39,5 +39,5 @@ As part of the Gen 3 Wallpaper Customizer Epic, we need the actual UI component 
 *   Adhere strictly to the project's UI aesthetic constraints (ADR 008): tactical hardware, `rounded-none`, `border-dashed`, monospaced telemetry fonts, and use defined `@utility` primitives from `src/index.css`.
 
 ## Acceptance Criteria
-- [ ] Implement static `WallpaperDashboard` base component.
-- [ ] Adhere to ADR 008 styling constraints.
+- [x] Implement static `WallpaperDashboard` base component.
+- [x] Adhere to ADR 008 styling constraints.
