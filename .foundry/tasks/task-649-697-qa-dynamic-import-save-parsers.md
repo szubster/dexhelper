@@ -28,5 +28,5 @@ locks: []
 Verify the implementation of dynamic imports for generation-specific save parsers.
 
 ## Acceptance Criteria
-- [ ] Verify that generation-specific Save Parsers (Gen 1, Gen 2, Gen 3) are behind dynamic imports.
-- [ ] Verify that all save parsing tests still pass.
+- [x] Verify that generation-specific Save Parsers (Gen 1, Gen 2, Gen 3) are behind dynamic imports.
+- [x] Verify that all save parsing tests still pass.
