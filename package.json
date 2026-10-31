@@ -19,6 +19,11 @@
     "test": "tests"
   },
   "scripts": {
+    "antigravity": "node --experimental-strip-types packages/antigravity-orchestrator/cli.ts",
+    "antigravity:assign": "pnpm antigravity assign",
+    "antigravity:dispatch": "pnpm antigravity dispatch",
+    "antigravity:reconcile": "pnpm antigravity reconcile",
+    "antigravity:status": "pnpm antigravity status",
     "build": "vite build",
     "build:analyze": "ANALYZE=true vite build",
     "check:biome": "biome check --error-on-warnings .",
