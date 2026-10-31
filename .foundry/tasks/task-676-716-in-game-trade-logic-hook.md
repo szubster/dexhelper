@@ -1,0 +1,36 @@
+---
+id: task-676-716-in-game-trade-logic-hook
+type: TASK
+title: In-Game Trade Logic Hook
+status: READY
+owner_persona: coder
+created_at: '2026-10-22'
+updated_at: '2026-10-22'
+depends_on: []
+jules_session_id: null
+pr_number: null
+parent: story-350-676-in-game-trade-dashboard-core-ui
+tags:
+  - react
+  - logic
+research_references: []
+rejection_count: 0
+rejection_reason: ""
+notes: ""
+locks: []
+---
+# Task: In-Game Trade Logic Hook
+
+## Objective
+Create a custom React hook to fetch and compute NPC trade data and completion statuses for the current game version.
+
+## Scope
+- Create `src/hooks/useInGameTrades.ts`.
+- The hook should fetch `STATIC_NPC_TRADE_DATA` corresponding to the currently loaded game version from the global store.
+- It must compute the completion status for each trade: "Claimed", "Available", or "Incomplete".
+
+## Acceptance Criteria
+- [ ] Create `src/hooks/useInGameTrades.ts`.
+- [ ] The hook correctly identifies the current game version and retrieves the appropriate trades.
+- [ ] The hook computes "Claimed" (received Pokemon is owned), "Available" (offered Pokemon is owned, but not claimed), and "Incomplete" (offered Pokemon is not owned) statuses.
+- [ ] Unit tests are written to verify the hook's logic.
