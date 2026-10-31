@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { gen1Strategy } from '../strategies/gen1Strategy';
+import { getStrategy } from '../strategies';
 import { generateSuggestions } from '../suggestionEngine';
 
 describe('Recursive Exclusive Checking', () => {
@@ -34,7 +34,7 @@ describe('Recursive Exclusive Checking', () => {
     };
 
     const mockStrategy = {
-      ...gen1Strategy,
+      ...(await getStrategy(1)),
       getSpecialSuggestions: () => [],
       getUnobtainableReason: (pid: number) => (pid === 6 ? 'Needs Link Cable' : null),
     };

@@ -2,10 +2,10 @@
 id: story-401-650-dynamic-import-assistant-strategies
 type: STORY
 title: 'Story: Dynamic Import Assistant Strategies'
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-12T07:40:28.000Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -26,6 +26,6 @@ Move generation-specific Assistant Strategies behind dynamic imports to minimize
 
 ## Acceptance Criteria
 - [x] Break down this Story into coder TASK nodes for implementation.
-- [ ] task-650-694-dynamic-import-assistant-strategies-impl
-- [ ] task-650-696-dynamic-import-assistant-strategies-tests
-- [ ] task-650-695-dynamic-import-assistant-strategies-qa
+- [x] task-650-694-dynamic-import-assistant-strategies-impl
+- [x] task-650-696-dynamic-import-assistant-strategies-tests
+- [x] task-650-695-dynamic-import-assistant-strategies-qa

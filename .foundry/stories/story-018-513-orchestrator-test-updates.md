@@ -2,10 +2,10 @@
 id: story-018-513-orchestrator-test-updates
 type: STORY
 title: Update Orchestrator Idempotent Tests
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-01'
-updated_at: '2026-10-28'
+updated_at: '2026-10-31'
 depends_on:
   - story-018-512-idempotent-orchestrator-bypass
 jules_session_id: '571249819035095697'
@@ -17,6 +17,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 # Story: Update Orchestrator Idempotent Tests
 
@@ -30,5 +31,8 @@ Update test cases in `.github/scripts/foundry-orchestrator.test.ts` to cover the
 ## Acceptance Criteria
 - [x] task-513-689-update-orchestrator-tests
 - [x] task-513-690-qa-orchestrator-tests
+- [ ] research-513-716-investigate-orchestrator-test-updates-failure
+- [ ] task-513-717-update-orchestrator-tests-retry
+- [ ] task-513-718-qa-orchestrator-tests-retry
 - [x] Test cases added/updated for Phase 4.5 auto-checking behavior.
 - [x] Tests pass cleanly with `npx vitest run`.

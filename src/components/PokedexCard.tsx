@@ -81,8 +81,14 @@ export const PokedexCard = React.memo(function PokedexCard({
   const saveData = useParsedSaveData();
   const navigate = useNavigate();
 
-  const { inParty, inPC, hasInStorage, isOwnedInDex, isSeenInDex, isUnseen, isSeenNotOwned, isShiny, variant } =
-    getPokemonStatusFlags(pokemon.id, saveData, isLivingDex, partySet, pcSet, shinySpeciesIds);
+  const { inParty, inPC, hasInStorage, isOwnedInDex, isSeenInDex, isUnseen, isShiny, variant } = getPokemonStatusFlags(
+    pokemon.id,
+    saveData,
+    isLivingDex,
+    partySet,
+    pcSet,
+    shinySpeciesIds,
+  );
 
   // Derive isOwned and isSeen from the status flags
   const isOwned = isOwnedInDex || hasInStorage;
@@ -98,7 +104,7 @@ export const PokedexCard = React.memo(function PokedexCard({
       variant={variant}
       style={{ animationDelay: `${(idx % 20) * 0.02}s` }}
       className={cn(
-        '!p-0 group/card relative overflow-hidden',
+        'group/card relative overflow-hidden !p-0',
         variant === 'emerald'
           ? 'border-emerald-500/50'
           : variant === 'amber'
@@ -124,7 +130,7 @@ export const PokedexCard = React.memo(function PokedexCard({
           {/* Enhanced LCD Grid Background */}
           <LcdGrid className="opacity-[0.05] transition-opacity group-hover/card:opacity-[0.1]" />
           <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent to-black/80" />
-          <div className="pointer-events-none absolute right-0 -bottom-4 left-0 select-none text-center font-black font-sans text-[150px] text-white/10 italic leading-none tracking-tighter mix-blend-overlay">
+          <div className="pointer-events-none absolute right-0 -bottom-4 left-0 text-center font-sans text-[150px] leading-none font-black tracking-tighter text-white/10 italic mix-blend-overlay select-none">
             {pokemon.id.toString().padStart(3, '0')}
           </div>
 
@@ -152,14 +158,8 @@ export const PokedexCard = React.memo(function PokedexCard({
             generation={saveData?.generation ?? 1}
             isShiny={isShiny}
             alt={pokemon.name}
-            className={cn(
-              'z-10 h-[60%] w-[60%] object-contain transition-all duration-500',
-              isUnseen
-                ? 'opacity-10 brightness-0'
-                : isSeenNotOwned
-                  ? 'opacity-50 grayscale'
-                  : 'drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover/card:scale-110 group-hover/card:drop-shadow-[0_0_20px_rgba(34,211,238,0.3)]',
-            )}
+            loading="eager"
+            className="z-10 h-[60%] w-[60%] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-500 group-hover/card:scale-110 group-hover/card:drop-shadow-[0_0_20px_rgba(34,211,238,0.3)]"
           />
 
           {/* Extra intense scanline on hover */}
@@ -178,7 +178,7 @@ export const PokedexCard = React.memo(function PokedexCard({
               <div className="flex items-center gap-1.5">
                 <span
                   className={cn(
-                    'font-mono text-[8px] uppercase tracking-widest transition-colors',
+                    'font-mono text-[8px] tracking-widest uppercase transition-colors',
                     variant === 'emerald'
                       ? 'text-emerald-500'
                       : variant === 'amber'
@@ -202,8 +202,8 @@ export const PokedexCard = React.memo(function PokedexCard({
             <div className="flex items-baseline gap-2">
               <h3
                 className={cn(
-                  'truncate font-bold font-mono text-lg uppercase tracking-tight',
-                  isUnseen ? 'text-zinc-700' : isShiny ? 'text-amber-400' : 'text-white',
+                  'truncate font-mono text-lg font-bold tracking-tight uppercase',
+                  isUnseen ? 'text-zinc-400' : isShiny ? 'text-amber-400' : 'text-white',
                 )}
               >
                 {pokemon.name}

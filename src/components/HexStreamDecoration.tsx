@@ -24,5 +24,5 @@ export function HexStreamDecoration({ active }: { active: boolean }) {
     return undefined;
   }, [active]);
 
-  return <div className="break-all font-mono text-[10px] text-cyan-400 leading-tight">{hexStream.repeat(5)}</div>;
+  return <div className="font-mono text-[10px] leading-tight break-all text-cyan-400">{hexStream.repeat(5)}</div>;
 }

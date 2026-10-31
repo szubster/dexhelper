@@ -2,13 +2,13 @@
 id: task-561-705-orchestrator-state-machine-impl-retry
 type: TASK
 title: Implement Custom Node Lifecycle State Machine (Retry)
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-31'
 depends_on:
   - task-561-704-orchestrator-dag-graphology-impl-retry
-jules_session_id: null
+jules_session_id: '15795535702188104600'
 pr_number: null
 parent: story-540-561-implement-orchestrator-state-graph-engine
 tags:

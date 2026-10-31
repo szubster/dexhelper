@@ -86,14 +86,14 @@ export const ProgressionTimeline: React.FC = () => {
   return (
     <TacticalPanel className="flex flex-col gap-4 border-zinc-700 p-4">
       <TacticalHeaderDivider className="mb-2 flex-col items-start border-zinc-700">
-        <h3 className="tactical-text font-black text-lg text-white">PROGRESSION TIMELINE: {activePlaythrough.name}</h3>
+        <h3 className="tactical-text text-lg font-black text-white">PROGRESSION TIMELINE: {activePlaythrough.name}</h3>
         <p className="font-mono text-xs text-zinc-500">SYS.VERSION: {activePlaythrough.gameVersion.toUpperCase()}</p>
       </TacticalHeaderDivider>
 
       <div className="flex flex-col gap-2">
         <div className="flex items-start gap-4 font-mono">
           <div className="w-24 text-xs text-zinc-400">INIT</div>
-          <div className="flex-1 border-zinc-700 border-l border-dashed pl-4 text-sm text-zinc-300">
+          <div className="flex-1 border-l border-dashed border-zinc-700 pl-4 text-sm text-zinc-300">
             Adventure started.
           </div>
         </div>
@@ -101,7 +101,7 @@ export const ProgressionTimeline: React.FC = () => {
         {isLoading ? (
           <div className="flex items-start gap-4 font-mono">
             <div className="w-24 text-xs text-zinc-400">SYS.WAIT</div>
-            <div className="flex-1 animate-pulse border-zinc-700 border-l border-dashed pl-4 text-sm text-zinc-300">
+            <div className="flex-1 animate-pulse border-l border-dashed border-zinc-700 pl-4 text-sm text-zinc-300">
               Fetching history...
             </div>
           </div>
@@ -109,7 +109,7 @@ export const ProgressionTimeline: React.FC = () => {
           events.map((event) => (
             <div key={event.id} className="flex items-start gap-4 font-mono">
               <div className="w-24 text-xs text-zinc-400 uppercase">{event.type.substring(0, 8)}</div>
-              <div className="flex-1 border-zinc-700 border-l border-dashed pl-4 text-sm text-zinc-300">
+              <div className="flex-1 border-l border-dashed border-zinc-700 pl-4 text-sm text-zinc-300">
                 {event.description}
               </div>
             </div>

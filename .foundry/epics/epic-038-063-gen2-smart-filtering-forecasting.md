@@ -2,13 +2,13 @@
 id: epic-038-063-gen2-smart-filtering-forecasting
 type: EPIC
 title: Gen 2 Smart Filtering & Forecasting
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-06-07'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on:
   - epic-038-062-gen2-dynamic-checklist-ui
-jules_session_id: '7276142439636915520'
+jules_session_id: null
 pr_number: null
 parent: prd-069-038-gen2-daily-events
 tags:
@@ -30,3 +30,7 @@ Implement smart logic to filter events based on the player's Pokédex and game p
 - [ ] Implement smart filtering based on save file state (e.g., game progression, Pokédex).
 - [ ] Develop forecasting logic to calculate and display future events.
 - [ ] Integrate filtering and forecasting into the dynamic checklist UI.
+- [ ] story-063-714-gen2-smart-filtering-logic
+- [ ] story-063-715-gen2-forecasting-logic
+- [ ] story-063-716-gen2-filtering-forecasting-ui
+- [ ] story-063-717-gen2-filtering-forecasting-e2e

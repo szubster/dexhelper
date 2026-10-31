@@ -2,7 +2,7 @@
 id: task-579-733-react-flow-visualizer-e2e-qa-retry-2
 type: TASK
 title: QA React Flow Visualizer E2E Tests (Retry 2)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-28'
 updated_at: '2026-10-28'

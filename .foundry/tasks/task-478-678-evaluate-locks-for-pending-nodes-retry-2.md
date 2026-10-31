@@ -18,6 +18,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 
 # Evaluate locks for PENDING nodes in RESOLVE phase (Retry 2)
@@ -32,7 +33,7 @@ Implement lock evaluation in Phase 4 (RESOLVE) to prevent nodes from transitioni
 - Add an explicit log statement (e.g. `info('Node <path> requires lock <lock> which is currently active. Holding in PENDING.')`) when a node is blocked by a lock.
 
 ## Acceptance Criteria
-- [ ] Implement lock intersection evaluation in Phase 4 of `foundry-orchestrator.ts`.
-- [ ] Prevent nodes with intersecting locks from transitioning to `READY`.
-- [ ] Add unit tests for the lock evaluation logic.
-- [ ] Ensure `pnpm lint && pnpm test` pass.
+- [x] Implement lock intersection evaluation in Phase 4 of `foundry-orchestrator.ts`.
+- [x] Prevent nodes with intersecting locks from transitioning to `READY`.
+- [x] Add unit tests for the lock evaluation logic.
+- [x] Ensure `pnpm lint && pnpm test` pass.

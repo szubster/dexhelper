@@ -30,5 +30,9 @@ Implement the "bounty board" side panel that displays uncaught rare encounters i
 ## Acceptance Criteria
 - [x] Break down into Tasks
 - [ ] task-528-676-safari-zone-bounty-board-data
-- [ ] task-528-677-safari-zone-bounty-board-ui
-- [ ] task-528-678-safari-zone-bounty-board-e2e
+- [x] task-528-677-safari-zone-bounty-board-ui
+- [x] task-528-678-safari-zone-bounty-board-e2e
+- [ ] research-528-731-investigate-safari-zone-bounty-board-ui-failure
+- [ ] task-528-732-safari-zone-bounty-board-ui-retry
+- [ ] task-528-733-safari-zone-bounty-board-ui-qa-retry
+- [ ] task-528-734-safari-zone-bounty-board-e2e-retry
