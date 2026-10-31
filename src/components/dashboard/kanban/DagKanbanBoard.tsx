@@ -1,5 +1,6 @@
 import type React from 'react';
 import { useMemo } from 'react';
+import { PersonaBadge } from '../../dag/PersonaBadge';
 import type { DagNodeData } from '../DagContext';
 import { useDagContext } from '../DagContext';
 
@@ -56,8 +57,8 @@ export const DagKanbanBoard: React.FC = () => {
                     className={`flex flex-col border border-dashed p-2 text-xs ${isPermanentlyFailed ? 'border-red-600 bg-red-950/20' : 'border-zinc-800 bg-zinc-950 text-zinc-300'}`}
                   >
                     <span className="font-bold">{String(nodeData['id'])}</span>
-                    <span className="text-zinc-500">
-                      {String(nodeData.type)} | {String(nodeData.owner_persona)}
+                    <span className="flex items-center gap-2 text-zinc-500">
+                      {String(nodeData.type)} | <PersonaBadge persona={String(nodeData.owner_persona)} />
                     </span>
                     {isPermanentlyFailed && <span className="mt-1 text-red-500">[ PERMANENTLY FAILED ]</span>}
                   </div>
