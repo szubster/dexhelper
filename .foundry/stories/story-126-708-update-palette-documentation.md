@@ -29,3 +29,4 @@ Update `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_po
 
 ## Acceptance Criteria
 - [ ] Relevant documentation is updated to reflect this new responsibility.
+- [ ] task-708-712-update-palette-documentation-impl
