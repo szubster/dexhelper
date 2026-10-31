@@ -37,3 +37,7 @@ Following the research on Acceptance Criteria usage (`research-534-517-audit-acc
    - Orchestrator parsing rules: The orchestrator must parse these exact formats and transition parent nodes only when all listed children are COMPLETED.
    - Enforce usage of existing tools (like `replace_with_git_merge_diff` or `sed`) via core system memory and `agents.md` prompts.
    - Introduce pre-commit hook or CI check automation to validate formatting.
+
+## Acceptance Criteria
+- [ ] task-726-727-orchestrator-parsing
+- [ ] task-726-728-ci-check
