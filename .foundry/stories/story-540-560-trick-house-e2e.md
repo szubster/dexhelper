@@ -33,4 +33,6 @@ Final verification of the Gen 3 Trick House Tracker Dashboard. We need comprehen
 - Verify the UI accurately reflects the mocked puzzle levels, HM requirements, and prize pickup status.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into implementation TASK nodes.
+- [x] Tech Lead: Break down into implementation TASK nodes.
+- [ ] task-560-721-test-trick-house-e2e
+- [ ] task-560-722-qa-trick-house-e2e
