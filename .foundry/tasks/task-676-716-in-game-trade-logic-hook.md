@@ -2,12 +2,12 @@
 id: task-676-716-in-game-trade-logic-hook
 type: TASK
 title: In-Game Trade Logic Hook
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-22'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3155613825543818820'
 pr_number: null
 parent: story-350-676-in-game-trade-dashboard-core-ui
 tags:
@@ -15,8 +15,8 @@ tags:
   - logic
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 locks: []
 ---
 # Task: In-Game Trade Logic Hook
