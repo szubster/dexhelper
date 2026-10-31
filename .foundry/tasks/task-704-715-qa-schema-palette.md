@@ -27,4 +27,4 @@ priority: 100
 Verify that `.foundry/docs/schema.md` correctly documents the `palette` persona's styling ownership rules.
 
 ## Acceptance Criteria
-- [ ] Verified `schema.md` includes styling ownership rules for `palette`.
+- [x] Verified `schema.md` includes styling ownership rules for `palette`.
