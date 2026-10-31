@@ -2,13 +2,13 @@
 id: story-525-709-extract-data-generation-scripts-retry
 type: STORY
 title: Extract Data Generation Scripts - Retry
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-19'
 updated_at: '2026-10-31'
 depends_on:
   - research-525-708-investigate-data-generation-scripts-failure
-jules_session_id: null
+jules_session_id: '6830061805442138743'
 pr_number: null
 parent: epic-519-525-extract-build-tooling
 tags:
