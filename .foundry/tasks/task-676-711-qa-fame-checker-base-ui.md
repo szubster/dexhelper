@@ -34,6 +34,6 @@ Verify the implementation of the base UI components for the Fame Checker dashboa
 - Verify that Vitest browser tests pass.
 
 ## Acceptance Criteria
-- [ ] Base UI components correctly visualize mock data.
-- [ ] Components comply with tactical hardware aesthetics.
-- [ ] Unit tests pass and correctly cover the logic.
+- [x] Base UI components correctly visualize mock data.
+- [x] Components comply with tactical hardware aesthetics.
+- [x] Unit tests pass and correctly cover the logic.
