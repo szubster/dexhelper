@@ -35,4 +35,7 @@ Establish the automated workflow and persona ownership for the Archival Cleanup 
 ## Acceptance Criteria
 - [ ] Create the GitHub Actions cron job workflow for periodic cleanup.
 - [ ] Configure the workflow to run under the correct persona (`librarian` or `archivist`).
-- [ ] Ensure EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Ensure EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-518-728-archivist-persona-definition
+- [ ] story-518-729-archival-cleanup-cron-workflow
+- [ ] story-518-730-archival-cleanup-automation-e2e
