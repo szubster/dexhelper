@@ -2,10 +2,10 @@
 id: story-693-715-schema-versioning-payload
 type: STORY
 title: Save Payload Schema Version Integration
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-24T00:00:28.000Z'
-updated_at: '2026-10-24T00:00:28.000Z'
+updated_at: '2026-10-31'
 depends_on:
   - story-693-714-save-schema-migrator-logic
 jules_session_id: null

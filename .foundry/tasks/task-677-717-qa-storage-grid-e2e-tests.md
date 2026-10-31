@@ -2,10 +2,10 @@
 id: task-677-717-qa-storage-grid-e2e-tests
 type: TASK
 title: QA Storage Grid E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-22'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on:
   - task-677-716-implement-storage-grid-e2e-tests
 jules_session_id: null

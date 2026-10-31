@@ -2,13 +2,13 @@
 id: task-524-677-living-dex-ghosts-styling-ui
 type: TASK
 title: Implement Ghost Rendering and Tactical Styling for Living Dex Grid
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-09'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on:
   - task-524-676-living-dex-ghosts-types
-jules_session_id: '6447406191177710571'
+jules_session_id: null
 pr_number: null
 parent: story-134-524-living-dex-ghosts-and-styling
 tags:

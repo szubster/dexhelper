@@ -2,10 +2,10 @@
 id: story-694-716-indexeddb-hydration-integration-e2e
 type: STORY
 title: IndexedDB Hydration Integration E2E
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-21T08:00:00.000Z'
-updated_at: '2026-10-21T08:00:00.000Z'
+updated_at: '2026-10-31'
 depends_on:
   - story-694-715-indexeddb-retrieval-migrator
 jules_session_id: null

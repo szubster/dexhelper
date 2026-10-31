@@ -2,12 +2,12 @@
 id: research-521-703-gen3-submodules-constants-failure
 type: RESEARCH
 title: Investigate Gen 3 Submodule Constants Refactoring Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-18'
-updated_at: '2026-10-23'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '15433542764741595213'
+jules_session_id: null
 pr_number: null
 parent: story-523-521-gen3-parsers-refactor-modules
 tags:

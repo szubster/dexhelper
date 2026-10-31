@@ -2,12 +2,12 @@
 id: epic-587-584-root-scratchpad-detector-script
 type: EPIC
 title: Root Scratchpad Detector Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-17'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '600001366480174821'
+jules_session_id: null
 pr_number: null
 parent: prd-531-587-automatic-scratchpad-cleanup-guard
 tags:

@@ -2,7 +2,7 @@
 id: task-617-700-iv-filters-state-logic
 type: TASK
 title: Implement State and Logic for Multi-Box IV Filters
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-16T21:13:54.689Z'
 updated_at: '2026-10-31'
@@ -15,8 +15,8 @@ tags:
   - dexhelper
   - zustand
   - feature
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

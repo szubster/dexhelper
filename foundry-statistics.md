@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-31T13:59:32.339Z*
+*Generated at: 2026-10-31T18:55:15.527Z*
 
 ## Node Statistics
 
@@ -9,32 +9,31 @@
 |---|---|
 | ADR | 44 |
 | EPIC | 534 |
-| IDEA | 235 |
+| IDEA | 236 |
 | PRD | 217 |
-| RESEARCH | 340 |
-| STORY | 1114 |
-| TASK | 2872 |
+| RESEARCH | 344 |
+| STORY | 1125 |
+| TASK | 2890 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3442 |
-| ACTIVE | 131 |
-| CANCELLED | 886 |
-| PENDING | 836 |
-| READY | 37 |
-| FAILED | 7 |
+| COMPLETED | 3455 |
+| ACTIVE | 117 |
+| CANCELLED | 888 |
+| PENDING | 849 |
+| READY | 61 |
 | BLOCKED | 14 |
-| VERIFYING | 3 |
+| FAILED | 6 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 155 |
-| Merged PRs | 8723 |
-| Closed PRs | 1122 |
+| Open PRs | 144 |
+| Merged PRs | 8733 |
+| Closed PRs | 1123 |
 
 ## Rejection Counts
 
@@ -739,6 +738,8 @@
 | epic-521-553-schema-linter-integration.md | 1 |
 | epic-566-580-e2e-test-migration.md | 1 |
 | epic-583-690-cycle-detection-algorithm-core.md | 1 |
+| epic-587-693-save-parser-linter-rule-development.md | 1 |
+| epic-587-694-save-parser-linter-integration.md | 1 |
 | idea-059-multi-save-trade-planner.md | 1 |
 | idea-064-smart-route-radar.md | 1 |
 | idea-071-tailwind-v4-utilities-migration.md | 1 |
@@ -794,6 +795,7 @@
 | research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |
 | research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
+| research-528-712-investigate-wip-banner-e2e-failure.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
 | research-559-704-investigate-query-formulation-failure.md | 1 |
@@ -813,6 +815,7 @@
 | story-018-513-orchestrator-test-updates.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
 | story-061-473-mirage-island-engine-e2e.md | 1 |
+| story-063-606-mirage-island-state-hydration-e2e.md | 1 |
 | story-081-121-gen3-tv-block-dataview-parser.md | 1 |
 | story-081-279-gen3-ignore-emulator-trailing-bytes.md | 1 |
 | story-085-676-rematch-dashboard-layout-and-routing.md | 1 |
@@ -864,6 +867,7 @@
 | story-536-543-integration-e2e-verification.md | 1 |
 | story-537-550-integration-e2e-verification.md | 1 |
 | story-540-563-gen3-pokeblock-optimizer-ui.md | 1 |
+| story-541-561-architect-visionary-persona-e2e.md | 1 |
 | story-550-573-tree-level-completeness-logic.md | 1 |
 | story-552-564-gen3-map-e2e-verification.md | 1 |
 | story-554-562-gen3-dashboard-layout-and-routing.md | 1 |
@@ -986,6 +990,8 @@
 | task-527-582-update-generators-wip-banner.md | 1 |
 | task-527-671-pathfinder-chain-viz-qa.md | 1 |
 | task-527-674-webhook-renewal-impl.md | 1 |
+| task-528-713-wip-banner-e2e-tests-retry.md | 1 |
+| task-528-714-wip-banner-e2e-qa-retry.md | 1 |
 | task-530-549-isavedatareader-interface-impl.md | 1 |
 | task-530-551-savedatareader-bounds-tests.md | 1 |
 | task-532-655-savedatareader-tests-qa.md | 1 |
@@ -1015,6 +1021,7 @@
 | task-557-681-orchestrator-link-resolution-e2e-impl-retry.md | 1 |
 | task-558-564-scheduled-workflows-batch1-impl.md | 1 |
 | task-559-680-battle-frontier-data-e2e-tests.md | 1 |
+| task-559-713-heatmap-waittime-e2e-tests.md | 1 |
 | task-560-570-evaluate-graph-processing-libraries.md | 1 |
 | task-560-583-gen3-berry-pouch-parsing-impl.md | 1 |
 | task-560-594-spinda-coordinate-types.md | 1 |
@@ -1035,6 +1042,7 @@
 | task-564-578-e2e-navigation-and-selection.md | 1 |
 | task-564-619-pokeblock-e2e-implementation-retry.md | 1 |
 | task-564-670-gen2-roamer-qa.md | 1 |
+| task-564-681-thief-covet-ui-integration-tests.md | 1 |
 | task-564-682-qa-schema-frontmatter-validation.md | 1 |
 | task-566-583-shoal-dashboard-layout.md | 1 |
 | task-566-584-shoal-ui-qa.md | 1 |
@@ -1050,6 +1058,7 @@
 | task-581-659-pokedex-grid-virtualization-e2e-qa.md | 1 |
 | task-581-668-gen3-fossil-constants-impl.md | 1 |
 | task-617-668-multi-box-attribute-filters-ui.md | 1 |
+| task-617-700-iv-filters-state-logic.md | 1 |
 | task-618-687-multi-box-ev-filters-types.md | 1 |
 | task-618-688-multi-box-ev-filters-logic.md | 1 |
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
@@ -1060,6 +1069,7 @@
 | task-639-724-migrate-inputs-leds-impl-v5.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
 | task-640-653-relocate-foundry-scripts-replacement.md | 1 |
+| task-640-678-qa-relocate-foundry-scripts-replacement-v3.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |

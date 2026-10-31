@@ -2,7 +2,7 @@
 id: task-528-713-wip-banner-e2e-tests-retry
 type: TASK
 title: Implement WIP Banner E2E Tests (Retry)
-status: FAILED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-21T12:37:25Z'
 updated_at: '2026-10-31'
@@ -15,8 +15,8 @@ tags:
   - tests
   - e2e
   - ui
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 locks: []
 ---
 

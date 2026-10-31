@@ -2,12 +2,12 @@
 id: epic-587-584-playwright-browser-guard
 type: EPIC
 title: Playwright Browser Guard Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-17'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '11921483592837910597'
+jules_session_id: null
 pr_number: null
 parent: prd-536-587-playwright-browsers-preinstall-guard
 tags:

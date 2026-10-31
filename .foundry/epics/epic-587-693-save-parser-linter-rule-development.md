@@ -2,7 +2,7 @@
 id: epic-587-693-save-parser-linter-rule-development
 type: EPIC
 title: Save Parser Linter Rule Development
-status: FAILED
+status: READY
 owner_persona: story_owner
 created_at: '2026-10-21'
 updated_at: '2026-10-31'
@@ -12,8 +12,8 @@ pr_number: null
 parent: prd-533-587-save-parser-constant-extraction-linter
 tags: []
 research_references: []
-rejection_count: 0
-rejection_reason: ACTIVE node missing or malformed session ID
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

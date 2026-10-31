@@ -4,12 +4,12 @@ type: RESEARCH
 title: >-
   Investigate Root Cause of E2E Test Failure for Gen 3 Contest Condition Data
   Extraction (Retry)
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-20T20:38:13.799Z'
 updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '4894542401654712939'
+jules_session_id: null
 pr_number: null
 parent: story-134-475-gen3-condition-stats-extraction-e2e
 tags:
@@ -19,7 +19,7 @@ tags:
   - e2e
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

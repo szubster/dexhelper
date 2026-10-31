@@ -2,10 +2,10 @@
 id: task-564-717-gen3-pokedex-gaps-ui-impl-v3
 type: TASK
 title: Implement Gen 3 Pokédex Gaps UI V3
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-23'
-updated_at: '2026-10-23'
+updated_at: '2026-10-31'
 depends_on:
   - research-564-716-investigate-pokedex-ui-retry-failure
 jules_session_id: null
@@ -18,6 +18,7 @@ tags:
   - ui
 research_references: []
 locks: []
+rejection_reason: ''
 ---
 
 # Implement Gen 3 Pokédex Gaps UI V3

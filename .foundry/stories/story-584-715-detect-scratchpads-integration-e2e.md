@@ -2,10 +2,10 @@
 id: story-584-715-detect-scratchpads-integration-e2e
 type: STORY
 title: Integration and E2E Verification for Scratchpad Detector
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2025-01-01'
-updated_at: '2025-01-01'
+updated_at: '2026-10-31'
 depends_on:
   - story-584-714-implement-detect-scratchpads-script
 jules_session_id: null
