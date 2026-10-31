@@ -20,6 +20,6 @@ rejection_reason: ''
 Write integration tests using Playwright and `vitest-browser-react` to verify that the Gen 3 Missed Items components render correctly and integrate properly within the application view hierarchy.
 
 ## Acceptance Criteria
-- [ ] Write tests to verify the UI correctly renders the state from the context layer.
-- [ ] Ensure tests cover component integration into the view hierarchy.
-- [ ] All tests must pass locally and in CI.
+- [x] Write tests to verify the UI correctly renders the state from the context layer.
+- [x] Ensure tests cover component integration into the view hierarchy.
+- [x] All tests must pass locally and in CI.
