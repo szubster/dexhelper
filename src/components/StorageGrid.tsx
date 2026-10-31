@@ -1,6 +1,6 @@
 import { PokerusBadge, ShinyBadge, TacticalBadge } from '@dexhelper/ui';
 import { useNavigate } from '@tanstack/react-router';
-import { useWindowVirtualizer } from '@tanstack/react-virtual';
+import { useVirtualizer } from '@tanstack/react-virtual';
 import { Skull } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { useParsedSaveData } from '../contexts/EmulatorContext';
@@ -282,9 +282,11 @@ export const StorageGrid = React.memo(function StorageGrid({
   }, [saveData, storageLocations, pokemonByLocation, columns]);
 
   // oxlint-disable-next-line react/incompatible-library
-  const virtualizer = useWindowVirtualizer({
+  const virtualizer = useVirtualizer({
     count: flatList.length,
-    scrollMargin: containerNode?.offsetTop ?? 0,
+    getScrollElement: () =>
+      (containerNode?.closest('.custom-scrollbar') as HTMLElement | null) ??
+      (typeof document !== 'undefined' ? document.documentElement : null),
     estimateSize: (index) => {
       const item = flatList[index];
       if (!item) return 80;
