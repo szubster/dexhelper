@@ -27,4 +27,6 @@ locks: []
 Enhance the node hover tooltip to display specific metrics driving the heatmap color (rejections, wait times) when the heatmap is active.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into Task nodes.
+- [x] Tech Lead: Break this Story down into Task nodes.
+- [ ] task-558-721-heatmap-node-tooltip-impl
+- [ ] task-558-722-heatmap-node-tooltip-qa
