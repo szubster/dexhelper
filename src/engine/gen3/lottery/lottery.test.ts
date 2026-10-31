@@ -35,29 +35,174 @@ describe('Lottery Matching Logic', () => {
     });
 
     it.each([
-      { otId: 0, winningNumber: 0, expectedTier: 1, description: 'min boundary 0 vs 0 (5-digit match)' },
-      { otId: 0, winningNumber: 11111, expectedTier: 0, description: 'min boundary 0 vs 11111 (0 matches)' },
+      // Min boundary 0 ('00000') across all match lengths / tier levels
+      { otId: 0, winningNumber: 0, expectedTier: 1, description: 'min boundary 0 vs 0 (5-digit match -> Tier 1)' },
       {
         otId: 0,
         winningNumber: 10000,
         expectedTier: 2,
-        description: '00000 vs 10000 trailing 4 zeros (4-digit match -> Tier 2)',
+        description: '0 vs 10000 trailing 4 zeros (4-digit match -> Tier 2)',
       },
+      {
+        otId: 0,
+        winningNumber: 11000,
+        expectedTier: 3,
+        description: '0 vs 11000 trailing 3 zeros (3-digit match -> Tier 3)',
+      },
+      {
+        otId: 0,
+        winningNumber: 11100,
+        expectedTier: 4,
+        description: '0 vs 11100 trailing 2 zeros (2-digit match -> Tier 4)',
+      },
+      {
+        otId: 0,
+        winningNumber: 11110,
+        expectedTier: 0,
+        description: '0 vs 11110 trailing 1 zero (1-digit match -> Tier 0)',
+      },
+      { otId: 0, winningNumber: 11111, expectedTier: 0, description: 'min boundary 0 vs 11111 (0 matches -> Tier 0)' },
+
+      // Max 16-bit Trainer ID boundary 65535 ('65535') across all match lengths / tier levels
       {
         otId: 65535,
         winningNumber: 65535,
         expectedTier: 1,
-        description: 'max 16-bit TID 65535 vs 65535 (5-digit match)',
+        description: 'max 16-bit TID 65535 vs 65535 (5-digit match -> Tier 1)',
       },
       {
         otId: 65535,
-        winningNumber: 55535,
+        winningNumber: 15535,
         expectedTier: 2,
-        description: 'max 16-bit TID 65535 vs 55535 (4-digit match)',
+        description: 'max 16-bit TID 65535 vs 15535 (4-digit match -> Tier 2)',
       },
-      { otId: 65535, winningNumber: 0, expectedTier: 0, description: 'max 16-bit TID 65535 vs 0 (0 matches)' },
-      { otId: 99999, winningNumber: 99999, expectedTier: 1, description: '5-digit max 99999 vs 99999 (5-digit match)' },
-      { otId: 0, winningNumber: 5, expectedTier: 0, description: '0 vs 5 (no trailing match because 00000 vs 00005)' },
+      {
+        otId: 65535,
+        winningNumber: 11535,
+        expectedTier: 3,
+        description: 'max 16-bit TID 65535 vs 11535 (3-digit match -> Tier 3)',
+      },
+      {
+        otId: 65535,
+        winningNumber: 11135,
+        expectedTier: 4,
+        description: 'max 16-bit TID 65535 vs 11135 (2-digit match -> Tier 4)',
+      },
+      {
+        otId: 65535,
+        winningNumber: 11115,
+        expectedTier: 0,
+        description: 'max 16-bit TID 65535 vs 11115 (1-digit match -> Tier 0)',
+      },
+      {
+        otId: 65535,
+        winningNumber: 11111,
+        expectedTier: 0,
+        description: 'max 16-bit TID 65535 vs 11111 (0 matches -> Tier 0)',
+      },
+
+      // Max 5-digit decimal boundary 99999 ('99999') across all match lengths / tier levels
+      {
+        otId: 99999,
+        winningNumber: 99999,
+        expectedTier: 1,
+        description: '5-digit max 99999 vs 99999 (5-digit match -> Tier 1)',
+      },
+      {
+        otId: 99999,
+        winningNumber: 19999,
+        expectedTier: 2,
+        description: '5-digit max 99999 vs 19999 (4-digit match -> Tier 2)',
+      },
+      {
+        otId: 99999,
+        winningNumber: 11999,
+        expectedTier: 3,
+        description: '5-digit max 99999 vs 11999 (3-digit match -> Tier 3)',
+      },
+      {
+        otId: 99999,
+        winningNumber: 11199,
+        expectedTier: 4,
+        description: '5-digit max 99999 vs 11199 (2-digit match -> Tier 4)',
+      },
+      {
+        otId: 99999,
+        winningNumber: 11119,
+        expectedTier: 0,
+        description: '5-digit max 99999 vs 11119 (1-digit match -> Tier 0)',
+      },
+      {
+        otId: 99999,
+        winningNumber: 11111,
+        expectedTier: 0,
+        description: '5-digit max 99999 vs 11111 (0 matches -> Tier 0)',
+      },
+
+      // Suffix (right-to-left) vs Prefix evaluation edge cases
+      {
+        otId: 12345,
+        winningNumber: 12340,
+        expectedTier: 0,
+        description: '12345 vs 12340: 4 leading prefix matches but rightmost digit mismatch -> Tier 0',
+      },
+      {
+        otId: 12345,
+        winningNumber: 12305,
+        expectedTier: 0,
+        description: '12345 vs 12305: 1 rightmost match, 2nd rightmost mismatch -> Tier 0',
+      },
+      {
+        otId: 12345,
+        winningNumber: 12045,
+        expectedTier: 4,
+        description: '12345 vs 12045: 2 rightmost matches (45) -> Tier 4',
+      },
+      {
+        otId: 12345,
+        winningNumber: 10345,
+        expectedTier: 3,
+        description: '12345 vs 10345: 3 rightmost matches (345) -> Tier 3',
+      },
+      {
+        otId: 12345,
+        winningNumber: 92345,
+        expectedTier: 2,
+        description: '12345 vs 92345: 4 rightmost matches (2345) -> Tier 2',
+      },
+
+      // Single-digit zero-padded boundary values
+      { otId: 7, winningNumber: 7, expectedTier: 1, description: '7 vs 7 (00007 vs 00007 -> Tier 1)' },
+      {
+        otId: 7,
+        winningNumber: 10007,
+        expectedTier: 2,
+        description: '7 vs 10007 (00007 vs 10007 -> 4 matches -> Tier 2)',
+      },
+      {
+        otId: 7,
+        winningNumber: 11007,
+        expectedTier: 3,
+        description: '7 vs 11007 (00007 vs 11007 -> 3 matches -> Tier 3)',
+      },
+      {
+        otId: 7,
+        winningNumber: 11107,
+        expectedTier: 4,
+        description: '7 vs 11107 (00007 vs 11107 -> 2 matches -> Tier 4)',
+      },
+      {
+        otId: 7,
+        winningNumber: 11117,
+        expectedTier: 0,
+        description: '7 vs 11117 (00007 vs 11117 -> 1 match -> Tier 0)',
+      },
+      {
+        otId: 7,
+        winningNumber: 11111,
+        expectedTier: 0,
+        description: '7 vs 11111 (00007 vs 11111 -> 0 matches -> Tier 0)',
+      },
     ])('parameterized boundary case: $description', ({ otId, winningNumber, expectedTier }) => {
       expect(calculateLotteryTier(otId, winningNumber)).toBe(expectedTier);
     });
