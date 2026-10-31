@@ -2,17 +2,19 @@
 id: task-537-710-gen3-berry-qa-retry-v2
 type: TASK
 title: QA Gen 3 Berry Runtime State Hydration (Retry V2)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-20'
-updated_at: '2026-10-29'
+updated_at: '2026-10-30'
 depends_on:
   - task-537-709-gen3-berry-hydration-retry-v2
 jules_session_id: null
 pr_number: null
 parent: story-513-537-gen3-berry-serialization-and-api
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-537-708-investigate-hydration-failure-retry-v2
 notes: ''
 locks: []
 ---

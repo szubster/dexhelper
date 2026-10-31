@@ -11,15 +11,17 @@
     "verify:refs": "node --experimental-strip-types verify-dag-refs.ts"
   },
   "dependencies": {
-    "@google/genai": "^2.30.0",
+    "@google/genai": "^2.32.0",
     "flexsearch": "^0.8.212",
+    "graphology": "^0.26.0",
+    "graphology-dag": "^0.4.1",
     "gray-matter": "^4.0.3",
-    "zod": "^4.6.2"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@types/node": "^26.5.1",
-    "fast-check": "^4.9.0",
-    "vitest": "^5.0.4"
+    "@types/node": "^26.6.6",
+    "fast-check": "^4.10.2",
+    "vitest": "^5.0.5"
   },
   "engines": {
     "node": ">=22.0.0"

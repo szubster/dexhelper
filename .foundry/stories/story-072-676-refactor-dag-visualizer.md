@@ -2,7 +2,7 @@
 id: story-072-676-refactor-dag-visualizer
 type: STORY
 title: Refactor React Flow DAG Visualizer to consume DagContext
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-10-14'
 updated_at: '2026-10-18'
@@ -27,6 +27,6 @@ Refactor the React Flow DAG visualizer component to consume data from `DagContex
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-676-704-refactor-dag-visualizer-context
-- [ ] task-676-705-refactor-dag-visualizer-state
-- [ ] task-676-706-qa-refactor-dag-visualizer
+- [x] task-676-704-refactor-dag-visualizer-context
+- [x] task-676-705-refactor-dag-visualizer-state
+- [x] task-676-706-qa-refactor-dag-visualizer

@@ -2,18 +2,19 @@ import { ChevronDown, ChevronRight } from 'lucide-react';
 import React from 'react';
 import { cn } from '../../utils/cn';
 import { useDagTreeContext } from './DagTreeContext';
-import { PersonaBadge } from './PersonaBadge';
 
 export interface DagTreeItemProps {
   nodeId: string;
   label: string;
   status: string;
-  isPermanentFailure?: boolean;
   persona?: string;
+  isPermanentFailure?: boolean;
   children?: React.ReactNode;
 }
 
-export function DagTreeItem({ nodeId, label, status, isPermanentFailure, persona, children }: DagTreeItemProps) {
+import { PersonaBadge } from './PersonaBadge';
+
+export function DagTreeItem({ nodeId, label, status, persona, isPermanentFailure, children }: DagTreeItemProps) {
   const { expandedNodes, toggleNode } = useDagTreeContext();
   const isExpanded = expandedNodes.has(nodeId);
   const hasChildren = React.Children.count(children) > 0;
@@ -71,13 +72,15 @@ export function DagTreeItem({ nodeId, label, status, isPermanentFailure, persona
           )}
         </button>
 
-        <span className={cn('w-24 shrink-0 font-bold uppercase tracking-widest', statusColor)}>[{status}]</span>
+        <span className={cn('w-24 shrink-0 font-bold tracking-widest uppercase', statusColor)}>[{status}]</span>
 
-        <span className="flex-1 truncate text-zinc-300">{label}</span>
-        {persona && <PersonaBadge persona={persona} />}
+        <div className="flex min-w-0 flex-1 items-center justify-between gap-2">
+          <span className="truncate text-zinc-300">{label}</span>
+          {persona && <PersonaBadge persona={persona} className="shrink-0" />}
+        </div>
       </div>
 
-      {hasChildren && isExpanded && <ul className="ml-3 border-zinc-700 border-l border-dashed pl-6">{children}</ul>}
+      {hasChildren && isExpanded && <ul className="ml-3 border-l border-dashed border-zinc-700 pl-6">{children}</ul>}
     </li>
   );
 }

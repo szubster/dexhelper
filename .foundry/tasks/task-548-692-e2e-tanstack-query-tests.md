@@ -2,13 +2,13 @@
 id: task-548-692-e2e-tanstack-query-tests
 type: TASK
 title: Implement E2E Tests for TanStack Query Optimizations
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-16T02:45:12.400Z'
 updated_at: '2026-10-29'
 depends_on:
   - task-548-690-e2e-concurrent-fixtures
-jules_session_id: null
+jules_session_id: '3978242024108109546'
 pr_number: null
 parent: story-538-548-frontend-refactoring-e2e
 tags:

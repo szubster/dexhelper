@@ -2,12 +2,12 @@
 id: epic-587-584-root-scratchpad-detector-script
 type: EPIC
 title: Root Scratchpad Detector Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-17'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '600001366480174821'
+jules_session_id: null
 pr_number: null
 parent: prd-531-587-automatic-scratchpad-cleanup-guard
 tags:
@@ -29,6 +29,8 @@ priority: 50
 - The script should return a non-zero exit code if any unauthorized ephemeral files are found, printing their paths to the console.
 
 ## Acceptance Criteria
+- [ ] story-584-714-implement-detect-scratchpads-script
+- [ ] story-584-715-detect-scratchpads-integration-e2e
 - [ ] Implement `.github/scripts/detect-scratchpads.js` to detect unauthorized scratchpad files at the root.
 - [ ] Ensure the script exits with an error code if scratchpads are detected.
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.

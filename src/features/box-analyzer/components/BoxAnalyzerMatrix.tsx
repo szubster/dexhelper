@@ -15,14 +15,14 @@ export function BoxAnalyzerMatrix({ data, columns }: BoxAnalyzerMatrixProps) {
     cn(
       baseClass,
       'rounded-none border border-transparent px-1 transition-colors',
-      isBest && 'border-emerald-500 border-dashed bg-emerald-900/30 font-bold text-emerald-400',
+      isBest && 'border-dashed border-emerald-500 bg-emerald-900/30 font-bold text-emerald-400',
     );
 
   return (
     <div className="tactical-panel w-full overflow-x-auto border-cyan-500/30 p-2">
       <table className="w-full text-left font-mono text-xs text-zinc-300">
         <thead>
-          <tr className="border-cyan-500/30 border-b border-dashed">
+          <tr className="border-b border-dashed border-cyan-500/30">
             {columns.map((col) => (
               <th key={col.key} className="p-2 font-bold text-cyan-500 uppercase">
                 {col.label}
@@ -36,7 +36,7 @@ export function BoxAnalyzerMatrix({ data, columns }: BoxAnalyzerMatrixProps) {
               // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
               key={`${row.pokemon.speciesId}-${idx}`}
               className={cn(
-                'border-zinc-800/80 border-b border-dashed transition-colors hover:bg-zinc-900/80',
+                'border-b border-dashed border-zinc-800/80 transition-colors hover:bg-zinc-900/80',
                 idx === data.length - 1 && 'border-none',
               )}
             >

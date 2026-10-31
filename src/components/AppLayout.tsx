@@ -129,10 +129,10 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <div className="absolute inset-0 border-[26px] border-black/80" />
 
         {/* Hardware details in bezel */}
-        <div className="tactical-text absolute top-2 left-6 font-black text-[8px] text-zinc-700">
+        <div className="tactical-text absolute top-2 left-6 text-[8px] font-black text-zinc-700">
           [ MODEL: DEX-OS V2 ]
         </div>
-        <div className="tactical-text absolute right-6 bottom-2 font-black text-[8px] text-zinc-700">POWER: ONLINE</div>
+        <div className="tactical-text absolute right-6 bottom-2 text-[8px] font-black text-zinc-700">POWER: ONLINE</div>
 
         {/* Physical Screws */}
         <div className="absolute top-2 left-2 flex h-2 w-2 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 shadow-[inset_0_1px_1px_rgba(0,0,0,1)]">
@@ -154,7 +154,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* Screen Area */}
-      <div className="custom-scrollbar absolute inset-[24px] overflow-y-auto overflow-x-hidden rounded-none bg-zinc-950 pb-24 lg:pb-0">
+      <div className="custom-scrollbar absolute inset-[24px] overflow-x-hidden overflow-y-auto rounded-none bg-zinc-950 pb-24 lg:pb-0">
         <div className="relative z-10 mx-auto flex min-h-full flex-col">
           <AppHeader
             saveData={saveData}
