@@ -72,7 +72,7 @@ describe('evolutionGenerator', () => {
           6: {
             id: 6,
             efrm: [5, 4], // Charizard from Charmeleon, Charmander
-            det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 36 }],
+            det: [{ trigger: EVO_TRIGGER.LEVEL_UP, ml: 36 }],
           },
         },
       } as unknown as AssistantApiData;
@@ -89,12 +89,12 @@ describe('evolutionGenerator', () => {
           6: {
             id: 6,
             efrm: [5, 4], // Charizard from Charmeleon (5), Charmander (4)
-            det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 36 }],
+            det: [{ trigger: EVO_TRIGGER.LEVEL_UP, ml: 36 }],
           },
           5: {
             id: 5,
             efrm: [4],
-            det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 16 }],
+            det: [{ trigger: EVO_TRIGGER.LEVEL_UP, ml: 16 }],
           },
         },
       } as unknown as AssistantApiData;
@@ -125,7 +125,7 @@ describe('evolutionGenerator', () => {
           26: {
             id: 26,
             efrm: [25], // Raichu from Pikachu
-            det: [{ tr: EVO_TRIGGER.USE_ITEM, item: 33 }], // Thunder Stone
+            det: [{ trigger: EVO_TRIGGER.USE_ITEM, item: 33 }], // Thunder Stone
           },
         },
       } as unknown as AssistantApiData;
@@ -153,7 +153,7 @@ describe('evolutionGenerator', () => {
           2: {
             id: 2,
             efrm: [1],
-            det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 16 }],
+            det: [{ trigger: EVO_TRIGGER.LEVEL_UP, ml: 16 }],
           },
         },
       } as unknown as AssistantApiData;
@@ -198,7 +198,7 @@ describe('evolutionGenerator', () => {
           2: {
             id: 2,
             efrm: [1],
-            det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 16 }],
+            det: [{ trigger: EVO_TRIGGER.LEVEL_UP, ml: 16 }],
           },
         },
       } as unknown as AssistantApiData;
@@ -227,7 +227,7 @@ describe('evolutionGenerator', () => {
           106: {
             id: 106, // Hitmonlee
             efrm: [236],
-            det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 20, rps: 1 }], // Needs Atk > Def
+            det: [{ trigger: EVO_TRIGGER.LEVEL_UP, ml: 20, rps: 1 }], // Needs Atk > Def
           },
         },
       } as unknown as AssistantApiData;
@@ -259,7 +259,7 @@ describe('evolutionGenerator', () => {
           196: {
             id: 196, // Espeon
             efrm: [133],
-            det: [{ tr: EVO_TRIGGER.LEVEL_UP, mh: 220, time: 1 }], // Day happiness
+            det: [{ trigger: EVO_TRIGGER.LEVEL_UP, mh: 220, time: 1 }], // Day happiness
           },
         },
       } as unknown as AssistantApiData;
@@ -288,7 +288,7 @@ describe('evolutionGenerator', () => {
           999: {
             id: 999,
             efrm: [998],
-            det: [{ tr: EVO_TRIGGER.LEVEL_UP, time: 2 }], // Night level up
+            det: [{ trigger: EVO_TRIGGER.LEVEL_UP, time: 2 }], // Night level up
           },
         },
       } as unknown as AssistantApiData;
@@ -314,7 +314,7 @@ describe('evolutionGenerator', () => {
           134: {
             id: 134, // Vaporeon
             efrm: [133],
-            det: [{ tr: EVO_TRIGGER.USE_ITEM, item: 50 }], // Water Stone
+            det: [{ trigger: EVO_TRIGGER.USE_ITEM, item: 50 }], // Water Stone
           },
         },
       } as unknown as AssistantApiData;
@@ -369,7 +369,7 @@ describe('evolutionGenerator', () => {
           134: {
             id: 134, // Vaporeon
             efrm: [133],
-            det: [{ tr: EVO_TRIGGER.USE_ITEM, item: 34 }], // Gen 3 Water Stone (itemId 34)
+            det: [{ trigger: EVO_TRIGGER.USE_ITEM, item: 34 }], // Gen 3 Water Stone (itemId 34)
           },
         },
       } as unknown as AssistantApiData;
@@ -407,12 +407,12 @@ describe('evolutionGenerator', () => {
           65: {
             id: 65, // Alakazam
             efrm: [64],
-            det: [{ tr: EVO_TRIGGER.TRADE }],
+            det: [{ trigger: EVO_TRIGGER.TRADE }],
           },
           212: {
             id: 212, // Scizor
             efrm: [123],
-            det: [{ tr: EVO_TRIGGER.TRADE, held: 198 }], // Metal Coat
+            det: [{ trigger: EVO_TRIGGER.TRADE, held: 198 }], // Metal Coat
           },
         },
       } as unknown as AssistantApiData;
@@ -456,12 +456,12 @@ describe('evolutionGenerator', () => {
           230: {
             id: 230, // Kingdra
             efrm: [117], // Seadra
-            det: [{ tr: EVO_TRIGGER.TRADE, held: 235 }], // Dragon Scale
+            det: [{ trigger: EVO_TRIGGER.TRADE, held: 235 }], // Dragon Scale
           },
           368: {
             id: 368, // Gorebyss
             efrm: [366], // Clamperl
-            det: [{ tr: EVO_TRIGGER.TRADE, held: 227 }], // DeepSeaScale
+            det: [{ trigger: EVO_TRIGGER.TRADE, held: 227 }], // DeepSeaScale
           },
         },
       } as unknown as AssistantApiData;
@@ -511,7 +511,7 @@ describe('evolutionGenerator', () => {
           230: {
             id: 230, // Kingdra
             efrm: [117],
-            det: [{ tr: EVO_TRIGGER.TRADE, held: 235 }], // Dragon Scale (235)
+            det: [{ trigger: EVO_TRIGGER.TRADE, held: 235 }], // Dragon Scale (235)
           },
         },
       } as unknown as AssistantApiData;
@@ -543,7 +543,7 @@ describe('evolutionGenerator', () => {
           292: {
             id: 292, // Shedinja
             efrm: [290],
-            det: [{ tr: EVO_TRIGGER.SHED }],
+            det: [{ trigger: EVO_TRIGGER.SHED }],
           },
         },
       } as unknown as AssistantApiData;
@@ -596,7 +596,7 @@ describe('evolutionGenerator', () => {
           350: {
             id: 350, // Milotic
             efrm: [349], // Feebas
-            det: [{}, { tr: EVO_TRIGGER.TRADE, held: 580 }, {}],
+            det: [{}, { trigger: EVO_TRIGGER.TRADE, held: 580 }, {}],
           },
         },
       } as unknown as AssistantApiData;
@@ -627,8 +627,8 @@ describe('evolutionGenerator', () => {
     it('predicts Wurmple branch based on personalityValue in Gen 3', async () => {
       const apiData: AssistantApiData = {
         pokemonMetadata: {
-          266: { id: 266, efrm: [265], det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 7 }] }, // Silcoon
-          268: { id: 268, efrm: [265], det: [{ tr: EVO_TRIGGER.LEVEL_UP, ml: 7 }] }, // Cascoon
+          266: { id: 266, efrm: [265], det: [{ trigger: EVO_TRIGGER.LEVEL_UP, ml: 7 }] }, // Silcoon
+          268: { id: 268, efrm: [265], det: [{ trigger: EVO_TRIGGER.LEVEL_UP, ml: 7 }] }, // Cascoon
         },
       } as unknown as AssistantApiData;
 

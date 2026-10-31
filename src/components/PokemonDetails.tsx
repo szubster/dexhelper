@@ -92,9 +92,9 @@ export function PokemonDetails({
     if (details && details.length > 0) {
       const d = details[0];
       if (!d) return null;
-      if (d.tr === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
-      else if (d.tr === 3) methodStr = 'Use Item';
-      else if (d.tr === 2) methodStr = 'Trade';
+      if (d.trigger === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
+      else if (d.trigger === 3) methodStr = 'Use Item';
+      else if (d.trigger === 2) methodStr = 'Trade';
     }
 
     return {
@@ -124,9 +124,9 @@ export function PokemonDetails({
       let methodStr = 'Unknown';
       const d = evo.det[0];
       if (d) {
-        if (d.tr === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
-        else if (d.tr === 3) methodStr = 'Use Item';
-        else if (d.tr === 2) methodStr = 'Trade';
+        if (d.trigger === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
+        else if (d.trigger === 3) methodStr = 'Use Item';
+        else if (d.trigger === 2) methodStr = 'Trade';
       }
 
       result.push({

@@ -23,7 +23,7 @@ describe('PokemonDetails Locations Test', () => {
         cr: 45,
         baby: false,
       } as unknown as import('../../db/schema').PokemonMetadata,
-      enc: [{ v: 1, aid: 10, d: [{ c: 100, min: 5, max: 5, m: 1 }] }],
+      enc: [{ v: 1, aid: 10, d: [{ c: 100, min: 5, max: 5, method: 1 }] }],
       nameMap: { 4: 'Charmander' },
       areaNames: { 10: 'Area 10' },
     });

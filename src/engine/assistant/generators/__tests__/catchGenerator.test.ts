@@ -48,7 +48,7 @@ describe('catchGenerator', () => {
   it('should skip pokemon if they are static gifts and already owned (myOtIds)', () => {
     const apiData = {
       localEncounters: [
-        { pid: 133, enc: [{ aid: 1, v: 1, d: [{ c: 100, m: 1, min: 25, max: 25 }] }] }, // Eevee (static gift Gen 1)
+        { pid: 133, enc: [{ aid: 1, v: 1, d: [{ c: 100, method: 1, min: 25, max: 25 }] }] }, // Eevee (static gift Gen 1)
       ],
       localAid: 1,
       missingEncounters: {},
@@ -79,7 +79,7 @@ describe('catchGenerator', () => {
 
   it('should add local encounter suggestion with details and time', () => {
     const apiData = {
-      localEncounters: [{ pid: 1, enc: [{ aid: 1, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5, t: 1 }] }] }],
+      localEncounters: [{ pid: 1, enc: [{ aid: 1, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5, t: 1 }] }] }],
       localAid: 1,
       missingEncounters: {},
       allLocations: [],
@@ -122,8 +122,8 @@ describe('catchGenerator', () => {
         {
           pid: 1,
           enc: [
-            { aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }, // Wrong aid
-            { aid: 1, v: 2, d: [{ c: 10, m: 1, min: 2, max: 5 }] }, // Wrong version
+            { aid: 2, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }, // Wrong aid
+            { aid: 1, v: 2, d: [{ c: 10, method: 1, min: 2, max: 5 }] }, // Wrong version
           ],
         },
       ],
@@ -208,9 +208,9 @@ describe('catchGenerator', () => {
       localEncounters: [],
       localAid: undefined,
       missingEncounters: {
-        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
-        2: { enc: [{ aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
-        3: { enc: [{ aid: 3, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
+        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] },
+        2: { enc: [{ aid: 2, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] },
+        3: { enc: [{ aid: 3, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] },
       },
       allLocations: [],
     } as unknown as AssistantApiData;
@@ -258,8 +258,8 @@ describe('catchGenerator', () => {
       localEncounters: [],
       localAid: undefined,
       missingEncounters: {
-        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
-        2: { enc: [{ aid: 3, v: 2, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] }, // wrong version
+        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] },
+        2: { enc: [{ aid: 3, v: 2, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] }, // wrong version
       },
       allLocations: [],
     } as unknown as AssistantApiData;
@@ -377,7 +377,7 @@ it('should suggest catching a pre-evolution if target is missing and pre-evoluti
             {
               aid: 50,
               v: 1,
-              d: [{ m: 1, c: 10, min: 5, max: 10, t: 1 }],
+              d: [{ method: 1, c: 10, min: 5, max: 10, t: 1 }],
             },
           ],
         },
