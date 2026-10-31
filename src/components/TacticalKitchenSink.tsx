@@ -120,7 +120,7 @@ export const TacticalKitchenSink: React.FC = () => {
       <TacticalInput id="input-default" />
 
       {/* Checkbox Showcase */}
-      <div className="flex flex-col gap-2 border border-zinc-800 border-dashed p-4" id="tacticalcheckbox-showcase">
+      <div className="flex flex-col gap-2 border border-dashed border-zinc-800 p-4" id="tacticalcheckbox-showcase">
         <TacticalCheckbox
           id="checkbox-default"
           label="Option Active"

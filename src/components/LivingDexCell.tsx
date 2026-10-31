@@ -71,7 +71,7 @@ export const LivingDexCell = React.memo(function LivingDexCell({ id, inParty, in
           {id.toString().padStart(3, '0')}
         </span>
 
-        {!isSecured && <span className="mt-1 font-mono text-[8px] text-zinc-500 uppercase tracking-widest">GHOST</span>}
+        {!isSecured && <span className="mt-1 font-mono text-[8px] tracking-widest text-zinc-500 uppercase">GHOST</span>}
       </div>
 
       {isSecured && (

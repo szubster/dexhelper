@@ -12,7 +12,7 @@ export interface FameCheckerEntryListProps {
 export function FameCheckerEntryList({ npcName, entries }: FameCheckerEntryListProps) {
   return (
     <div className="tactical-panel flex flex-col gap-4 p-4">
-      <h2 className="tactical-text border-zinc-700 border-b border-dashed pb-2 text-xl">{npcName} Profile</h2>
+      <h2 className="tactical-text border-b border-dashed border-zinc-700 pb-2 text-xl">{npcName} Profile</h2>
       <div className="flex flex-col gap-3">
         {entries.map((entry) => (
           <div

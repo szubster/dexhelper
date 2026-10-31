@@ -47,7 +47,7 @@ export const TacticalCheckbox = React.forwardRef<HTMLInputElement, TacticalCheck
       <label
         htmlFor={inputId}
         className={cn(
-          'flex cursor-pointer select-none items-center gap-2',
+          'flex cursor-pointer items-center gap-2 select-none',
           props.disabled && 'cursor-not-allowed opacity-50',
           containerClassName,
         )}
