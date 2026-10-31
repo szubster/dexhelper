@@ -63,7 +63,7 @@ describe('generateSuggestions', () => {
           n: 'Onix',
           cr: 45,
           baby: false,
-          eto: [{ id: 208, eto: [], det: [{ tr: 2, held: 210 }], ef: 95 }],
+          eto: [{ id: 208, eto: [], det: [{ trigger: 2, held: 210 }], ef: 95 }],
           efrm: [],
           det: [],
         },
@@ -74,7 +74,7 @@ describe('generateSuggestions', () => {
           baby: false,
           eto: [],
           efrm: [95],
-          det: [{ tr: 2, held: 210 }],
+          det: [{ trigger: 2, held: 210 }],
         },
       },
       missingEncounters: {},
@@ -135,7 +135,7 @@ describe('generateSuggestions', () => {
           n: 'Onix',
           cr: 45,
           baby: false,
-          eto: [{ id: 208, eto: [], det: [{ tr: 2, held: 210 }], ef: 95 }],
+          eto: [{ id: 208, eto: [], det: [{ trigger: 2, held: 210 }], ef: 95 }],
           efrm: [],
           det: [],
         },
@@ -146,7 +146,7 @@ describe('generateSuggestions', () => {
           baby: false,
           eto: [],
           efrm: [95],
-          det: [{ tr: 2, held: 210 }],
+          det: [{ trigger: 2, held: 210 }],
         },
       },
       missingEncounters: {},
@@ -209,7 +209,7 @@ describe('generateSuggestions', () => {
           n: 'Clefairy',
           cr: 45,
           baby: false,
-          eto: [{ id: 36, eto: [], det: [{ tr: 3, item: 81 }], ef: 35 }],
+          eto: [{ id: 36, eto: [], det: [{ trigger: 3, item: 81 }], ef: 35 }],
           efrm: [173],
           det: [],
         },
@@ -220,7 +220,7 @@ describe('generateSuggestions', () => {
           baby: false,
           eto: [],
           efrm: [35],
-          det: [{ tr: 3, item: 81 }], // tr: 3 is USE_ITEM, item 81 is Moon Stone pokeapi ID
+          det: [{ trigger: 3, item: 81 }], // trigger: 3 is USE_ITEM, item 81 is Moon Stone pokeapi ID
         },
       },
       missingEncounters: {},
@@ -265,7 +265,7 @@ describe('generateSuggestions', () => {
               text: '',
               aid: 1, // localAid matches
               v: 1, // Red version (POKE_VERSION_MAP['red'] == 1)
-              d: [{ m: 1, c: 50, min: 2, max: 5 }],
+              d: [{ method: 1, c: 50, min: 2, max: 5 }],
             },
           ],
         },
@@ -320,7 +320,7 @@ describe('generateSuggestions', () => {
               text: '',
               aid: 2, // nearby aid
               v: 1, // Red
-              d: [{ m: 1, c: 50, min: 2, max: 5 }],
+              d: [{ method: 1, c: 50, min: 2, max: 5 }],
             },
           ],
         },
@@ -684,7 +684,7 @@ describe('generateSuggestions', () => {
           id: 196,
           eto: [],
           efrm: [133],
-          det: [{ tr: 1, time: 1 }], // Level up, day, no min_h or min_l
+          det: [{ trigger: 1, time: 1 }], // Level up, day, no min_h or min_l
         } as unknown as PokemonMetadata,
       },
       ancestralEncounters: {},
@@ -753,8 +753,8 @@ describe('generateSuggestions', () => {
           aid: 2,
           v: 4, // 4 = gold
           d: [
-            { c: 100, m: 8, min: 5 },
-            { c: 100, m: 7, min: 5 },
+            { c: 100, method: 8, min: 5 },
+            { c: 100, method: 7, min: 5 },
           ], // m = 8 is Headbutt, m = 7 is Rock Smash
         },
       ],
@@ -821,9 +821,9 @@ describe('generateSuggestions', () => {
       localEncounters: [],
       missingEncounters: {},
       pokemonMetadata: {
-        106: { id: 106, efrm: [236], det: [{ tr: 1, ml: 20, rps: 1 }] } as unknown as PokemonMetadata, // Hitmonlee
-        107: { id: 107, efrm: [236], det: [{ tr: 1, ml: 20, rps: -1 }] } as unknown as PokemonMetadata, // Hitmonchan
-        237: { id: 237, efrm: [236], det: [{ tr: 1, ml: 20, rps: 0 }] } as unknown as PokemonMetadata, // Hitmontop
+        106: { id: 106, efrm: [236], det: [{ trigger: 1, ml: 20, rps: 1 }] } as unknown as PokemonMetadata, // Hitmonlee
+        107: { id: 107, efrm: [236], det: [{ trigger: 1, ml: 20, rps: -1 }] } as unknown as PokemonMetadata, // Hitmonchan
+        237: { id: 237, efrm: [236], det: [{ trigger: 1, ml: 20, rps: 0 }] } as unknown as PokemonMetadata, // Hitmontop
       },
       ancestralEncounters: {},
       areaNames: {},
@@ -1003,21 +1003,21 @@ describe('generateSuggestions', () => {
       localEncounters: [
         {
           pid: 10,
-          enc: [{ aid: 2, v: 4, d: [{ c: 100, m: 8, min: 5 }] }], // Headbutt
+          enc: [{ aid: 2, v: 4, d: [{ c: 100, method: 8, min: 5 }] }], // Headbutt
         },
         {
           pid: 11,
-          enc: [{ aid: 2, v: 4, d: [{ c: 100, m: 7, min: 5 }] }], // Rock Smash
+          enc: [{ aid: 2, v: 4, d: [{ c: 100, method: 7, min: 5 }] }], // Rock Smash
         },
       ] as unknown as import('../../../db/schema').LocationAreaEncounters[],
       missingEncounters: {
         10: {
           pid: 10,
-          enc: [{ aid: 2, v: 4, d: [{ c: 100, m: 8, min: 5 }] }], // Headbutt
+          enc: [{ aid: 2, v: 4, d: [{ c: 100, method: 8, min: 5 }] }], // Headbutt
         },
         11: {
           pid: 11,
-          enc: [{ aid: 2, v: 4, d: [{ c: 100, m: 7, min: 5 }] }], // Rock Smash
+          enc: [{ aid: 2, v: 4, d: [{ c: 100, method: 7, min: 5 }] }], // Rock Smash
         },
       },
       pokemonMetadata: {

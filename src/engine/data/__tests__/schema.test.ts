@@ -13,7 +13,7 @@ describe('schema', () => {
       expect(ENCOUNTER_METHOD_MAP['walk']).toBe(1);
     });
 
-    it('should preserve walk encounter method m: 1 in generated encounters.jsonl without stripping it to undefined', () => {
+    it('should preserve walk encounter method method: 1 in generated encounters.jsonl without stripping it to undefined', () => {
       const encountersPath = path.join(process.cwd(), 'data/db/encounters.jsonl');
       const encountersLines = fs.readFileSync(encountersPath, 'utf-8').trim().split('\n');
       const encounters: LocationAreaEncounters[] = encountersLines.map((line) => JSON.parse(line));
@@ -24,10 +24,10 @@ describe('schema', () => {
       for (const encRecord of encounters) {
         for (const compactEnc of encRecord.enc) {
           for (const detail of compactEnc.d) {
-            if (detail.m === 1) {
+            if (detail.method === 1) {
               walkCount++;
             }
-            if (detail.m === undefined) {
+            if (detail.method === undefined) {
               undefinedMethodCount++;
             }
           }

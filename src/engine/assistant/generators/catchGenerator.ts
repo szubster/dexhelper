@@ -107,7 +107,7 @@ export function generateCatchSuggestions(
           if (!ed) continue;
           details.push({
             chance: ed.c,
-            method: METHOD_NAMES[ed.m] || 'walk',
+            method: METHOD_NAMES[ed.method] || 'walk',
             minLevel: ed.min,
             maxLevel: ed.max,
             areaId: re.aid,
@@ -179,7 +179,7 @@ export function generateCatchSuggestions(
         if (!ed) continue;
         bestDetails.push({
           chance: ed.c,
-          method: METHOD_NAMES[ed.m] || 'walk',
+          method: METHOD_NAMES[ed.method] || 'walk',
           minLevel: ed.min,
           maxLevel: ed.max,
           areaId,
@@ -261,7 +261,7 @@ export function generateCatchSuggestions(
         if (!ed) continue;
         bestDetails.push({
           chance: ed.c,
-          method: METHOD_NAMES[ed.m] || 'walk',
+          method: METHOD_NAMES[ed.method] || 'walk',
           minLevel: ed.min,
           maxLevel: ed.max,
           areaId,
