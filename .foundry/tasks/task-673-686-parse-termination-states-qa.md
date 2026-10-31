@@ -14,6 +14,7 @@ tags:
   - orchestrator
   - qa
 rejection_count: 0
+confidence_score: 100
 rejection_reason: ''
 notes: ''
 locks: []
