@@ -6,7 +6,7 @@ export function RngExplainer() {
     <TacticalPanel className="flex flex-col gap-3">
       <div className="flex items-center gap-2 text-zinc-400">
         <Info className="h-4 w-4" />
-        <h3 className="font-mono text-sm uppercase tracking-wider">RNG Tool Integration</h3>
+        <h3 className="font-mono text-sm tracking-wider uppercase">RNG Tool Integration</h3>
       </div>
 
       <div className="flex flex-col gap-2 font-mono text-xs text-zinc-500">

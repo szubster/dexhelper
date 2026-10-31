@@ -35,8 +35,8 @@ export const Gen3RTCControls: React.FC = () => {
   const displayDay = state.overrideDay || JS_DAYS_OF_WEEK[displayTime.getDay()];
 
   return (
-    <div className="flex flex-col gap-4 rounded-none border border-[var(--theme-border)] border-dashed bg-[var(--theme-surface)] p-4 font-mono text-zinc-100">
-      <h3 className="font-black text-sm uppercase tracking-widest">RTC Controls</h3>
+    <div className="flex flex-col gap-4 rounded-none border border-dashed border-[var(--theme-border)] bg-[var(--theme-surface)] p-4 font-mono text-zinc-100">
+      <h3 className="text-sm font-black tracking-widest uppercase">RTC Controls</h3>
 
       <div className="flex items-center gap-2 text-sm">
         <span>Current Time:</span>
@@ -47,7 +47,7 @@ export const Gen3RTCControls: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="rtc-time-input" className="text-xs text-zinc-400 uppercase tracking-widest">
+        <label htmlFor="rtc-time-input" className="text-xs tracking-widest text-zinc-400 uppercase">
           Manual Time Override (HH:MM)
         </label>
         <div className="flex gap-2">
@@ -65,7 +65,7 @@ export const Gen3RTCControls: React.FC = () => {
             onClick={handleOverride}
             disabled={!inputTime}
             variant="primary"
-            className="uppercase tracking-widest"
+            className="tracking-widest uppercase"
           >
             Apply Time
           </TacticalButton>
@@ -73,7 +73,7 @@ export const Gen3RTCControls: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="rtc-day-input" className="text-xs text-zinc-400 uppercase tracking-widest">
+        <label htmlFor="rtc-day-input" className="text-xs tracking-widest text-zinc-400 uppercase">
           Manual Day Override
         </label>
         <div className="flex gap-2">
@@ -95,7 +95,7 @@ export const Gen3RTCControls: React.FC = () => {
             onClick={handleReset}
             disabled={!state.isOverridden}
             variant="secondary"
-            className="uppercase tracking-widest"
+            className="tracking-widest uppercase"
           >
             Reset All
           </TacticalButton>

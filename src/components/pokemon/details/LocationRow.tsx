@@ -25,7 +25,7 @@ export const LocationRow = React.memo(function LocationRow({
   return (
     <div
       className={cn(
-        'group relative flex flex-col justify-between gap-4 overflow-hidden rounded-none border border-zinc-800 border-dashed bg-black/40 p-4 pl-6 transition-all hover:bg-zinc-900/60 sm:flex-row sm:items-center',
+        'group relative flex flex-col justify-between gap-4 overflow-hidden rounded-none border border-dashed border-zinc-800 bg-black/40 p-4 pl-6 transition-all hover:bg-zinc-900/60 sm:flex-row sm:items-center',
         variant === 'primary' && 'hover:border-[var(--theme-primary)]/50',
         variant === 'red' && 'hover:border-red-500/50',
         variant === 'amber' && 'hover:border-amber-500/50',
@@ -48,7 +48,7 @@ export const LocationRow = React.memo(function LocationRow({
         >
           {icon}
         </div>
-        <span className="font-bold font-display text-lg text-white uppercase tracking-tight transition-colors">
+        <span className="font-display text-lg font-bold tracking-tight text-white uppercase transition-colors">
           {label}
         </span>
       </div>

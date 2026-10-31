@@ -1,7 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { ShieldAlert } from 'lucide-react';
-import React, { Suspense } from 'react';
+import React from 'react';
 import { EmptyState } from '../components/EmptyState';
+import { LazyLoadWrapper } from '../components/LazyLoadWrapper';
 
 import { useStore } from '../store';
 
@@ -146,7 +147,7 @@ function DashboardPage() {
 
   return (
     <div className="mb-20 flex h-full flex-col gap-6 pt-4 pb-[env(safe-area-inset-bottom,16px)] md:mb-0">
-      <Suspense fallback={<div className="tactical-skeleton h-32" />}>
+      <LazyLoadWrapper height="h-32">
         {saveData.generation === 3 ? (
           <>
             {saveData.hallOfFameRecords && saveData.hallOfFameRecords.length > 0 && (
@@ -196,7 +197,7 @@ function DashboardPage() {
             <Gen1Checklist />
           </>
         )}
-      </Suspense>
+      </LazyLoadWrapper>
     </div>
   );
 }

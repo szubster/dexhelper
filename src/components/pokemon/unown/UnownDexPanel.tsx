@@ -27,8 +27,8 @@ export function UnownDexPanel({ yourPokemon }: UnownDexPanelProps) {
   return (
     <TacticalPanel variant="cyan" className="relative mt-8 flex flex-col gap-6 p-4 pt-8 sm:p-6">
       <TelemetryDecoration label="SYS.UNKNOWN_ENCRYPTION_MATRIX" className="-top-[17px] left-[-1px]" />
-      <div className="flex flex-col justify-between border-cyan-500/30 border-b border-dashed pb-4 sm:flex-row sm:items-center">
-        <h3 className="font-bold font-mono text-sm text-white uppercase tracking-widest">[ UNOWN DATABASE ]</h3>
+      <div className="flex flex-col justify-between border-b border-dashed border-cyan-500/30 pb-4 sm:flex-row sm:items-center">
+        <h3 className="font-mono text-sm font-bold tracking-widest text-white uppercase">[ UNOWN DATABASE ]</h3>
         <div className="mt-2 font-mono text-xs text-zinc-500 sm:mt-0">
           <span className="font-bold text-cyan-400">{ownedForms.size}</span> / 26 FORMS ACQUIRED
         </div>
@@ -66,11 +66,11 @@ export function UnownDexPanel({ yourPokemon }: UnownDexPanelProps) {
                 </div>
               )}
 
-              <div className="z-10 font-black text-2xl drop-shadow-[0_0_5px_rgba(34,211,238,0.3)]">{form}</div>
+              <div className="z-10 text-2xl font-black drop-shadow-[0_0_5px_rgba(34,211,238,0.3)]">{form}</div>
 
               <div
                 className={cn(
-                  'z-10 mt-1 px-1 font-black text-[7px] uppercase tracking-widest',
+                  'z-10 mt-1 px-1 text-[7px] font-black tracking-widest uppercase',
                   isOwned ? 'border border-cyan-500/30 bg-cyan-500/20 text-cyan-300' : 'text-zinc-600',
                 )}
               >

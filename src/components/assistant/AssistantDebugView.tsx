@@ -16,12 +16,12 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
   if (!saveData) return null;
 
   return (
-    <div className="fade-in slide-in-from-bottom-4 mt-12 animate-in space-y-6 duration-500">
+    <div className="fade-in slide-in-from-bottom-4 animate-in mt-12 space-y-6 duration-500">
       <div className="flex items-center gap-3 px-2">
-        <div className="rounded-none border border-zinc-700 border-dashed bg-zinc-800 p-2 text-zinc-400">
+        <div className="rounded-none border border-dashed border-zinc-700 bg-zinc-800 p-2 text-zinc-400">
           <Bug size={16} />
         </div>
-        <h3 className="tactical-text font-black text-[14px] text-[var(--theme-primary)]">[ SYS.DIAGNOSTICS ]</h3>
+        <h3 className="tactical-text text-[14px] font-black text-[var(--theme-primary)]">[ SYS.DIAGNOSTICS ]</h3>
       </div>
 
       <TacticalPanel variant="default" className="space-y-4 rounded-none border-dashed p-6 shadow-inner">
@@ -52,10 +52,10 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
 
       {rejected.length > 0 && (
         <div className="flex items-center gap-3 px-2 pt-4">
-          <div className="rounded-none border border-amber-500/30 border-dashed bg-amber-500/10 p-2 text-amber-400">
+          <div className="rounded-none border border-dashed border-amber-500/30 bg-amber-500/10 p-2 text-amber-400">
             <AlertCircle size={16} />
           </div>
-          <h4 className="tactical-text font-black text-[12px] text-amber-500">[ REJECTED_LOGS ]</h4>
+          <h4 className="tactical-text text-[12px] font-black text-amber-500">[ REJECTED_LOGS ]</h4>
         </div>
       )}
 
@@ -64,9 +64,9 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
           <div
             // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
             key={`${r.pokemonId}-${i}`}
-            className="flex items-start gap-4 rounded-none border border-zinc-800 border-dashed bg-zinc-900/40 p-4 transition-colors hover:border-zinc-700"
+            className="flex items-start gap-4 rounded-none border border-dashed border-zinc-800 bg-zinc-900/40 p-4 transition-colors hover:border-zinc-700"
           >
-            <div className="relative h-12 w-12 flex-shrink-0 rounded-none border border-white/10 border-dashed bg-zinc-800 p-1">
+            <div className="relative h-12 w-12 flex-shrink-0 rounded-none border border-dashed border-white/10 bg-zinc-800 p-1">
               <PokemonSprite
                 pokemonId={r.pokemonId}
                 generation={saveData.generation ?? 1}
@@ -79,17 +79,17 @@ export function AssistantDebugView({ rejected, getPokemonName, saveData }: Assis
             </div>
             <div className="space-y-1 overflow-hidden">
               <div className="flex items-center gap-2">
-                <span className="font-bold font-mono text-[10px] text-zinc-500">
+                <span className="font-mono text-[10px] font-bold text-zinc-500">
                   #{r.pokemonId.toString().padStart(3, '0')}
                 </span>
-                <span className="truncate font-black text-xs text-zinc-300 uppercase tracking-tight">
+                <span className="truncate text-xs font-black tracking-tight text-zinc-300 uppercase">
                   {getPokemonName(r.pokemonId)}
                 </span>
                 <TacticalBadge variant="zinc" className="px-1 py-0.5 font-mono">
                   {r.code}
                 </TacticalBadge>
               </div>
-              <p className="font-medium text-[10px] text-zinc-500 italic leading-tight">"{r.reason}"</p>
+              <p className="text-[10px] leading-tight font-medium text-zinc-500 italic">"{r.reason}"</p>
             </div>
           </div>
         ))}

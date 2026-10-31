@@ -15,7 +15,7 @@ export const MysteryEventTracker = React.memo(({ mysteryGiftData }: MysteryEvent
 
   return (
     <TacticalPanel
-      className="mt-4 flex flex-col border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6"
+      className="mt-4 flex flex-col border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6"
       aria-label="Mystery Event Tracker"
     >
       <TelemetryDecoration label="SYS.MYSTERY_EVENT" className="-top-[17px] left-[-1px]" />

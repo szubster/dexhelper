@@ -36,15 +36,15 @@ export const ContestRecommendationPanel = React.forwardRef<HTMLDivElement, Conte
         <TelemetryDecoration label="SYS.STRATEGY_MATRIX" className="-top-1 left-4" />
 
         {isDeadEnd && (
-          <div className="relative mb-2 flex flex-col gap-2 rounded-none border border-amber-500/50 border-dashed bg-amber-500/10 p-4">
+          <div className="relative mb-2 flex flex-col gap-2 rounded-none border border-dashed border-amber-500/50 bg-amber-500/10 p-4">
             <LcdGrid />
             <HoverScanner />
-            <div className="relative z-10 flex items-center gap-2 border-amber-500/30 border-b border-dashed pb-2">
-              <span className="font-bold font-mono text-amber-500 text-sm uppercase tracking-widest drop-shadow-[0_0_4px_rgba(245,158,11,0.5)]">
+            <div className="relative z-10 flex items-center gap-2 border-b border-dashed border-amber-500/30 pb-2">
+              <span className="font-mono text-sm font-bold tracking-widest text-amber-500 uppercase drop-shadow-[0_0_4px_rgba(245,158,11,0.5)]">
                 [ WARNING: OPTIMIZATION_DEAD_END ]
               </span>
             </div>
-            <div className="relative z-10 font-mono text-[10px] text-amber-400/90 uppercase leading-relaxed">
+            <div className="relative z-10 font-mono text-[10px] leading-relaxed text-amber-400/90 uppercase">
               MAXIMUM SHEEN (255) DETECTED. INSUFFICIENT METRICS FOR MASTER RANK. FURTHER ENHANCEMENT VIA POKÉBLOCKS IS
               IMPOSSIBLE.
             </div>
@@ -52,10 +52,10 @@ export const ContestRecommendationPanel = React.forwardRef<HTMLDivElement, Conte
         )}
 
         {recommendations.length === 0 ? (
-          <div className="relative flex h-16 items-center justify-center overflow-hidden rounded-none border border-zinc-800 border-dashed bg-black/40">
+          <div className="relative flex h-16 items-center justify-center overflow-hidden rounded-none border border-dashed border-zinc-800 bg-black/40">
             <LcdGrid />
             <HoverScanner />
-            <span className="relative z-10 font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
+            <span className="relative z-10 font-mono text-[10px] tracking-widest text-zinc-500 uppercase">
               [ NO_ACTIONABLE_INTELLIGENCE ]
             </span>
           </div>
@@ -64,30 +64,30 @@ export const ContestRecommendationPanel = React.forwardRef<HTMLDivElement, Conte
             {recommendations.slice(0, 2).map((rec, idx) => (
               <div
                 key={rec.category}
-                className="group relative flex flex-col overflow-hidden rounded-none border border-zinc-800 border-dashed bg-black/40 p-4"
+                className="group relative flex flex-col overflow-hidden rounded-none border border-dashed border-zinc-800 bg-black/40 p-4"
               >
                 <LcdGrid />
                 <HoverScanner />
 
                 {/* Tactical Data Pipe */}
-                <div className="absolute top-0 bottom-0 left-0 w-[3px] border-zinc-800 border-r border-dashed bg-zinc-950/80 transition-colors duration-500 group-hover:border-[var(--theme-primary)]/50" />
+                <div className="absolute top-0 bottom-0 left-0 w-[3px] border-r border-dashed border-zinc-800 bg-zinc-950/80 transition-colors duration-500 group-hover:border-[var(--theme-primary)]/50" />
                 <div className="absolute top-4 left-[-1px] h-2 w-[4px] bg-[var(--theme-primary)]/30 transition-all duration-300 group-hover:bg-[var(--theme-primary)] group-hover:shadow-[0_0_8px_var(--theme-primary)]" />
 
                 <div className="relative z-10 pl-3">
-                  <div className="mb-3 flex items-center justify-between border-zinc-800/50 border-b border-dashed pb-2">
+                  <div className="mb-3 flex items-center justify-between border-b border-dashed border-zinc-800/50 pb-2">
                     <div className="flex items-center gap-2">
-                      <span className="font-black font-mono text-[9px] text-zinc-500">
+                      <span className="font-mono text-[9px] font-black text-zinc-500">
                         {idx === 0 ? '[ PRIME_DIR ]' : '[ ALT_DIR ]'}
                       </span>
-                      <span className="font-bold font-mono text-[var(--theme-primary)] text-sm uppercase tracking-widest drop-shadow-[0_0_4px_rgba(var(--theme-primary-rgb),0.5)]">
+                      <span className="font-mono text-sm font-bold tracking-widest text-[var(--theme-primary)] uppercase drop-shadow-[0_0_4px_rgba(var(--theme-primary-rgb),0.5)]">
                         {rec.category}
                       </span>
                     </div>
-                    <div className="border border-zinc-800 border-dashed bg-zinc-950 px-2 py-0.5 font-mono text-[10px] text-zinc-400">
+                    <div className="border border-dashed border-zinc-800 bg-zinc-950 px-2 py-0.5 font-mono text-[10px] text-zinc-400">
                       CONF:{Math.round(rec.score)}%
                     </div>
                   </div>
-                  <div className="font-mono text-[10px] text-zinc-400 uppercase leading-relaxed">
+                  <div className="font-mono text-[10px] leading-relaxed text-zinc-400 uppercase">
                     {getReasoningCopy(rec.score)}
                   </div>
                 </div>

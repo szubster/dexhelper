@@ -38,8 +38,8 @@ export default function SafariZoneEncountersList({ saveData }: Props) {
         const encounters = area.encounters[gameVersion] || [];
         return (
           <TacticalPanel key={area.name} className="flex flex-col gap-4 p-4">
-            <div className="flex items-center justify-between border-zinc-800 border-b border-dashed pb-2">
-              <h2 className="font-bold font-mono text-lg text-white uppercase tracking-tight">{area.name}</h2>
+            <div className="flex items-center justify-between border-b border-dashed border-zinc-800 pb-2">
+              <h2 className="font-mono text-lg font-bold tracking-tight text-white uppercase">{area.name}</h2>
               <TacticalBadge variant="zinc">[ {encounters.length} MISSING ]</TacticalBadge>
             </div>
 
@@ -60,7 +60,7 @@ export default function SafariZoneEncountersList({ saveData }: Props) {
                         alt={pokemonName}
                         className="h-16 w-16 object-contain"
                       />
-                      <span className="mt-2 truncate font-bold font-mono text-white text-xs uppercase">
+                      <span className="mt-2 truncate font-mono text-xs font-bold text-white uppercase">
                         {pokemonName}
                       </span>
                       <div className="mt-1 flex items-center gap-1 font-mono text-[10px] text-zinc-400">
