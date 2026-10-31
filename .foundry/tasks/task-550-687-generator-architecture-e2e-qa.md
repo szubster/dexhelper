@@ -31,8 +31,8 @@ locks: []
 Verify the Playwright integration and E2E tests for the generator architecture (save file parsers, binary chunk streams, tree traversals, and pagination engines).
 
 ## Acceptance Criteria
-- [ ] Verify that E2E tests correctly cover the save file parsers.
-- [ ] Verify that E2E tests correctly cover the binary chunk streams.
-- [ ] Verify that E2E tests correctly cover the tree traversals.
-- [ ] Verify that E2E tests correctly cover the pagination engines.
-- [ ] Tests must pass successfully.
+- [x] Verify that E2E tests correctly cover the save file parsers.
+- [x] Verify that E2E tests correctly cover the binary chunk streams.
+- [x] Verify that E2E tests correctly cover the tree traversals.
+- [x] Verify that E2E tests correctly cover the pagination engines.
+- [x] Tests must pass successfully.
