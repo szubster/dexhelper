@@ -31,5 +31,10 @@ Investigate the root cause behind the permanent failure of `task-527-596-safari-
 - Propose a solution and document findings in this file to guide the retry tasks.
 
 ## Acceptance Criteria
-- [ ] Research complete and documented.
-- [ ] Solution proposed for the v4 retry tasks.
+- [x] Research complete and documented.
+- [x] Solution proposed for the v4 retry tasks.
+
+## Research Findings
+After investigating the git history and rejection logs for `task-527-596-safari-zone-area-map-ui`, it was discovered that the rejections were caused by `[ACKNOWLEDGED] Session terminated with state: COMPLETED`. This means the task was a false permanent failure due to repeated system-level agent session crashes, not an issue with the underlying logic or architectural constraints.
+
+Since the orchestrator increments `rejection_count` for system-level crashes similarly to standard task rejections, the task eventually hit the max rejection threshold. The previous implementation strategy is still perfectly valid and should be used for the next replacement task version.
