@@ -25,7 +25,7 @@ notes: ''
 ## Objective
 Extend the `Gen2SaveData` interface in `src/engine/saveParser/parsers/common.ts` to support Gen 2 daily and weekly events.
 
-## Technical Requirements
+## Acceptance Criteria
 Add a new `gen2DailyEvents` property to the `Gen2SaveData` interface in `src/engine/saveParser/parsers/common.ts`. This property should be a structured object containing boolean states for the following events, based on offsets from `.foundry/docs/knowledge_base/gen2_event_flags_offsets.md`:
 - Friday Lapras (ID 1888)
 - Bug Catching Contest (IDs 1814-1833)
