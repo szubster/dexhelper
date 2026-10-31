@@ -31,5 +31,5 @@ locks: []
 Write Playwright end-to-end tests to verify that the rejection count telemetry data is correctly extracted, properly structured, and correctly propagated to the DAG Health Heatmap visualization component within the orchestrator UI.
 
 ## Acceptance Criteria
-- [ ] Write E2E tests verifying node rejection counts are extracted correctly.
-- [ ] Verify rejection counts are rendered correctly in the Heatmap UI.
+- [x] Write E2E tests verifying node rejection counts are extracted correctly.
+- [x] Verify rejection counts are rendered correctly in the Heatmap UI.
