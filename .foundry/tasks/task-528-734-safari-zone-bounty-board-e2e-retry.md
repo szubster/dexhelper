@@ -2,10 +2,10 @@
 id: task-528-734-safari-zone-bounty-board-e2e-retry
 type: TASK
 title: Safari Zone Bounty Board E2E Tests Retry
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-28'
-updated_at: '2026-10-28'
+updated_at: '2026-10-31'
 depends_on:
   - task-528-733-safari-zone-bounty-board-ui-qa-retry
 jules_session_id: null

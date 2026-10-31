@@ -2,10 +2,10 @@
 id: task-679-733-pokeblock-route-integration-impl-retry
 type: TASK
 title: Pokéblock Route Integration (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-28'
-updated_at: '2026-10-28'
+updated_at: '2026-10-31'
 depends_on:
   - task-679-732-pokeblock-dashboard-ui-impl-retry
 jules_session_id: null

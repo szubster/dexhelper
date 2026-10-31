@@ -2,7 +2,7 @@
 id: task-479-700-gen2-unown-dex-e2e-coder
 type: TASK
 title: Implement Gen 2 Unown Dex Data Extraction E2E Tests (Retry)
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-10-31'
@@ -14,8 +14,8 @@ tags:
   - e2e
   - gen2
   - unown
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 ---
 

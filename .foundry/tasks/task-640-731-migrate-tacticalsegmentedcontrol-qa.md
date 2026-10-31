@@ -2,10 +2,10 @@
 id: task-640-731-migrate-tacticalsegmentedcontrol-qa
 type: TASK
 title: QA - Migrate TacticalSegmentedControl Component
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-27'
-updated_at: '2026-10-27'
+updated_at: '2026-10-31'
 depends_on:
   - task-640-730-migrate-tacticalsegmentedcontrol-impl
 jules_session_id: null

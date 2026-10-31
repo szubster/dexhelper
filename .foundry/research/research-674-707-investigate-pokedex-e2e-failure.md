@@ -2,12 +2,12 @@
 id: research-674-707-investigate-pokedex-e2e-failure
 type: RESEARCH
 title: Investigate Pokedex E2E Tests Migration Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-18'
-updated_at: '2026-10-27'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '12047315385166739273'
+jules_session_id: null
 pr_number: null
 parent: story-580-674-migrate-pokedex-e2e-tests
 tags:

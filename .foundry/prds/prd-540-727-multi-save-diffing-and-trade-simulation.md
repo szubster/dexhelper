@@ -2,10 +2,10 @@
 id: prd-540-727-multi-save-diffing-and-trade-simulation
 type: PRD
 title: Real-Time Multi-Save Diffing Engine and Cross-Save Trade Simulation Pipeline
-status: ACTIVE
+status: FAILED
 owner_persona: epic_planner
 created_at: '2026-10-28'
-updated_at: '2026-10-28'
+updated_at: '2026-10-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,7 +18,7 @@ tags:
   - gen3
   - gen2
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 notes: ''
 locks: []
 priority: 50

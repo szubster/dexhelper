@@ -2,10 +2,10 @@
 id: task-478-679-resolve-phase-locking-qa-retry-2
 type: TASK
 title: QA Verification for RESOLVE phase locking logic (Retry 2)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-10'
-updated_at: '2026-10-13'
+updated_at: '2026-10-31'
 depends_on:
   - task-478-678-evaluate-locks-for-pending-nodes-retry-2
 jules_session_id: null

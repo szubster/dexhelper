@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-31T22:02:01.620Z*
+*Generated at: 2026-10-31T23:52:29.768Z*
 
 ## Node Statistics
 
@@ -9,31 +9,31 @@
 |---|---|
 | ADR | 45 |
 | EPIC | 543 |
-| IDEA | 236 |
-| PRD | 217 |
-| RESEARCH | 352 |
-| STORY | 1132 |
-| TASK | 2932 |
+| IDEA | 238 |
+| PRD | 218 |
+| RESEARCH | 355 |
+| STORY | 1134 |
+| TASK | 2954 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3475 |
-| ACTIVE | 93 |
-| CANCELLED | 888 |
-| READY | 88 |
-| PENDING | 894 |
+| COMPLETED | 3500 |
+| ACTIVE | 71 |
+| CANCELLED | 890 |
+| PENDING | 911 |
+| READY | 94 |
 | BLOCKED | 14 |
-| FAILED | 5 |
+| FAILED | 7 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 113 |
-| Merged PRs | 8764 |
-| Closed PRs | 1123 |
+| Open PRs | 75 |
+| Merged PRs | 8803 |
+| Closed PRs | 1122 |
 
 ## Rejection Counts
 
@@ -424,6 +424,7 @@
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
 | research-521-703-gen3-submodules-constants-failure.md | 2 |
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 2 |
+| research-528-712-investigate-wip-banner-e2e-failure.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-563-704-investigate-routes-encounters-failure-v2.md | 2 |
@@ -798,12 +799,12 @@
 | research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |
 | research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
-| research-528-712-investigate-wip-banner-e2e-failure.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
 | research-559-704-investigate-query-formulation-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
 | research-562-710-investigate-gen2-wild-encounter-extraction-failure-v3.md | 1 |
+| research-562-716-investigate-moms-savings-ui-failure-v3.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
@@ -956,6 +957,7 @@
 | task-479-609-gen3-pokeblock-e2e-impl-v2.md | 1 |
 | task-479-610-gen3-pokeblock-e2e-qa-v2.md | 1 |
 | task-479-677-e2e-dynamic-bundles.md | 1 |
+| task-479-700-gen2-unown-dex-e2e-coder.md | 1 |
 | task-490-506-pal-park-hm-validator-impl.md | 1 |
 | task-490-506-update-oak-persona-skin-impl.md | 1 |
 | task-490-507-pal-park-hm-validator-qa.md | 1 |
@@ -1091,14 +1093,14 @@
 | task-550-687-generator-architecture-e2e-qa.md | 77414400000 |
 | task-676-702-add-adr-compliance-scripts.md | 77284800000 |
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76896000000 |
+| story-325-528-safari-zone-bounty-board.md | 76896000000 |
+| task-527-713-safari-zone-area-map-ui-v4.md | 76896000000 |
 | task-550-685-generator-tree-traversals-e2e-impl.md | 76809600000 |
-| story-325-528-safari-zone-bounty-board.md | 76636800000 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
 | task-528-677-safari-zone-bounty-board-ui.md | 76550400000 |
 | task-528-678-safari-zone-bounty-board-e2e.md | 76550400000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
 | story-325-527-safari-zone-area-highlighting.md | 76377600000 |
-| task-527-713-safari-zone-area-map-ui-v4.md | 76377600000 |
 | task-527-714-safari-zone-area-highlighting-qa-v4.md | 76377600000 |
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |
 | epic-339-406-jules-agent-skins.md | 75859200000 |

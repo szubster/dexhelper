@@ -2,10 +2,10 @@
 id: task-676-708-rematch-dashboard-routing-impl
 type: TASK
 title: Rematch Dashboard Routing Integration
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-31'
 depends_on:
   - task-676-707-rematch-dashboard-layout-impl
 jules_session_id: null

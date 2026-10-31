@@ -2,10 +2,10 @@
 id: task-582-709-qa-gen3-secret-base-party-extraction
 type: TASK
 title: QA Gen 3 Secret Base Party Extraction
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-09-30'
-updated_at: '2026-10-27'
+updated_at: '2026-10-31'
 depends_on:
   - task-582-708-gen3-secret-base-party-extraction
 jules_session_id: null

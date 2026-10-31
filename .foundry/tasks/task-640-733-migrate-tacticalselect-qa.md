@@ -2,10 +2,10 @@
 id: task-640-733-migrate-tacticalselect-qa
 type: TASK
 title: QA - Migrate TacticalSelect Component
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-27'
-updated_at: '2026-10-27'
+updated_at: '2026-10-31'
 depends_on:
   - task-640-732-migrate-tacticalselect-impl
 jules_session_id: null

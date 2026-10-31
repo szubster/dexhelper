@@ -2,7 +2,7 @@
 id: research-562-716-investigate-moms-savings-ui-failure-v3
 type: RESEARCH
 title: Investigate Gen 2 Mom's Savings UI Failure (v3)
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-23'
 updated_at: '2026-10-31'
@@ -15,8 +15,8 @@ tags:
   - gen2
   - ui
 research_references: []
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
