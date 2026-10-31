@@ -23,4 +23,7 @@ priority: 80
 Develop the parser engine that extracts expected deliverable file paths from the active Foundry TASK node's markdown. It needs to read the frontmatter to determine the task context and parse the markdown body, specifically targeting the acceptance criteria and explicitly listed deliverables.
 
 ## Acceptance Criteria
-- [ ] STORY breakdown generated.
+- [x] STORY breakdown generated.
+- [ ] story-696-734-artifact-frontmatter-parser
+- [ ] story-696-735-artifact-markdown-body-parser
+- [ ] story-696-736-artifact-parser-integration-e2e
