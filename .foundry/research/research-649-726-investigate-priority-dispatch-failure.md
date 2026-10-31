@@ -2,12 +2,12 @@
 id: research-649-726-investigate-priority-dispatch-failure
 type: RESEARCH
 title: Investigate Priority-Based Dispatch in Orchestrator Implementation failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7262920014550087327'
 pr_number: null
 parent: story-531-649-priority-orchestrator-dispatch-impl
 tags:
