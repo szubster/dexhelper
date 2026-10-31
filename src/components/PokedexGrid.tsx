@@ -4,6 +4,7 @@ import { SearchX } from 'lucide-react';
 import React, { useMemo } from 'react';
 import { useParsedSaveData } from '../contexts/EmulatorContext';
 import { pokeDB } from '../db/PokeDB';
+import { hasPerfectIVsOrDVs } from '../engine/filtering/IVFilters';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import type { PokemonListItem } from '../utils/pokemonQueries';
@@ -42,6 +43,21 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
 
   const partySet = React.useMemo(() => new Set(saveData?.party || []), [saveData?.party]);
   const pcSet = React.useMemo(() => new Set(saveData?.pc || []), [saveData?.pc]);
+
+  const perfectIvSet = React.useMemo(() => {
+    const set = new Set<number>();
+    if (saveData) {
+      for (let i = 0; i < saveData.partyDetails.length; i++) {
+        const p = saveData.partyDetails[i];
+        if (p && hasPerfectIVsOrDVs(p)) set.add(p.speciesId);
+      }
+      for (let i = 0; i < saveData.pcDetails.length; i++) {
+        const p = saveData.pcDetails[i];
+        if (p && hasPerfectIVsOrDVs(p)) set.add(p.speciesId);
+      }
+    }
+    return set;
+  }, [saveData]);
 
   const finalPokemon = React.useMemo(() => {
     // ⚡ Bolt: Hoist string allocation outside the loop
@@ -86,10 +102,24 @@ export function PokedexGrid({ pokemonList }: { pokemonList: PokemonListItem[] })
       }
       if (filtersSet.has('dex-only') && saveData.owned.has(pokemon.id) && !hasInStorage) {
         result.push(pokemon);
+        continue;
+      }
+      if (filtersSet.has('perfect-ivs') && perfectIvSet.has(pokemon.id)) {
+        result.push(pokemon);
       }
     }
     return result;
-  }, [pokemonList, displayLimit, deferredSearchTerm, saveData, filtersSet, partySet, pcSet, locationPokemonIds]);
+  }, [
+    pokemonList,
+    displayLimit,
+    deferredSearchTerm,
+    saveData,
+    filtersSet,
+    partySet,
+    pcSet,
+    locationPokemonIds,
+    perfectIvSet,
+  ]);
 
   const shinySpeciesIds = useMemo(() => {
     const set = new Set<number>();
