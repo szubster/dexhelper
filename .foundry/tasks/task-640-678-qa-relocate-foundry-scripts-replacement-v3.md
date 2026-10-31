@@ -26,6 +26,6 @@ locks: []
 Verify that the scripts were relocated correctly and that no tests or builds are broken.
 
 ## Acceptance Criteria
-- [ ] Scripts are correctly located in `packages/foundry/`
-- [ ] References to the old path are updated
-- [ ] Tests and builds pass without issue
+- [x] Scripts are correctly located in `packages/foundry/`
+- [x] References to the old path are updated
+- [x] Tests and builds pass without issue
