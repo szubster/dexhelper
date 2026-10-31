@@ -28,6 +28,9 @@ This epic focuses on building the matchup simulation and recommendation logic. I
 
 ## Acceptance Criteria
 - [ ] Build the matchup simulation engine to calculate type/stat/moveset advantages.
+- [ ] story-412-711-matchup-simulation-engine
 - [ ] Implement recommendation logic to scan PC Box and TM inventory for alternatives when matchups are poor.
+- [ ] story-412-712-matchup-recommendation-logic
 - [ ] Generate actionable plain-text advice (e.g., "Swap your Grass-type for the Level X Water-type in Box 2").
 - [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [ ] story-412-713-matchup-recommendation-e2e
