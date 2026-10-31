@@ -1,6 +1,6 @@
 [
   {
-    "filePath": ".foundry/ideas/idea-001.md",
+    "filePath": "idea-001",
     "data": {
       "id": "idea-001",
       "type": "IDEA",
@@ -11,7 +11,7 @@
     }
   },
   {
-    "filePath": ".foundry/prds/prd-001-001.md",
+    "filePath": "prd-001-001",
     "data": {
       "id": "prd-001-001",
       "type": "PRD",

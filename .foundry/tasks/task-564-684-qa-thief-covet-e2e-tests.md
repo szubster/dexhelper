@@ -2,10 +2,10 @@
 id: task-564-684-qa-thief-covet-e2e-tests
 type: TASK
 title: QA for Thief/Covet E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-01'
-updated_at: '2026-10-16'
+updated_at: '2026-10-31'
 depends_on:
   - task-564-683-thief-covet-e2e-tests
 jules_session_id: null

@@ -2,13 +2,13 @@
 id: story-552-564-schema-linter-checkbox-e2e
 type: STORY
 title: Integration and E2E Verification for Checkbox Linting
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on:
   - story-552-563-schema-linter-section-tracking
-jules_session_id: '11445614365720242115'
+jules_session_id: null
 parent: epic-521-552-schema-linter-core-logic
 tags:
   - foundry
@@ -26,4 +26,6 @@ locks: []
 - Ensure that the markdown checkbox validation and section tracking logic are properly integrated and verified via tests.
 
 ## Acceptance Criteria
+- [ ] task-564-721-schema-linter-checkbox-e2e-impl
+- [ ] task-564-722-schema-linter-checkbox-e2e-qa
 - [ ] Verify the checkbox validation logic end-to-end.

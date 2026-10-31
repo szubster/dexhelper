@@ -1559,6 +1559,80 @@ status: ACTIVE
     });
   });
 
+  describe('Antigravity Sessions (agy-*)', () => {
+    it('should leave an ACTIVE coder task with agy- session as ACTIVE without calling Jules API', async () => {
+      const mockNode = {
+        filePath: '/mock/repo/.foundry/tasks/task-agy.md',
+        repoPath: '.foundry/tasks/task-agy.md',
+        frontmatter: {
+          id: 'task-agy',
+          type: 'TASK',
+          status: 'ACTIVE',
+          jules_session_id: 'agy-conv-12345',
+          owner_persona: 'coder'
+        },
+        rawContent: '---\nstatus: ACTIVE\ntype: TASK\njules_session_id: "agy-conv-12345"\nowner_persona: "coder"\nupdated_at: "2023-01-01"\n---\nBody'
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-agy.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+      // @ts-expect-error - Mock signature mismatch
+      globalFetch.mockImplementation((url: string | URL | Request) => {
+        const urlStr = typeof url === 'string' ? url : (url as URL).toString();
+        if (urlStr.startsWith('https://jules.googleapis.com/')) {
+          throw new Error('Jules API should NOT be called for agy- sessions');
+        }
+        return Promise.resolve({ ok: true, status: 200, json: async () => [] });
+      });
+
+      await main();
+
+      expect(fs.writeFileSync).not.toHaveBeenCalled();
+    });
+
+    it('should transition an ACTIVE agy- task to COMPLETED if PR is merged without deleting Jules session', async () => {
+      const mockNode = {
+        filePath: '/mock/repo/.foundry/tasks/task-agy.md',
+        repoPath: '.foundry/tasks/task-agy.md',
+        frontmatter: {
+          id: 'task-agy',
+          type: 'TASK',
+          status: 'ACTIVE',
+          jules_session_id: 'agy-conv-12345',
+          owner_persona: 'coder',
+          pr_number: 8888
+        },
+        rawContent: '---\nstatus: ACTIVE\ntype: TASK\njules_session_id: "agy-conv-12345"\nowner_persona: "coder"\npr_number: 8888\nupdated_at: "2023-01-01"\n---\nBody'
+      };
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue(['/mock/repo/.foundry/tasks/task-agy.md']);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode as any);
+
+      // @ts-expect-error - Mock signature mismatch
+      globalFetch.mockImplementation((url: string | URL | Request) => {
+        const urlStr = typeof url === 'string' ? url : (url as URL).toString();
+        if (urlStr.startsWith('https://jules.googleapis.com/')) {
+          throw new Error('Jules API should NOT be called for agy- sessions');
+        }
+        if (urlStr.includes('/pulls/8888')) {
+          return Promise.resolve({
+            ok: true,
+            status: 200,
+            json: async () => ({ number: 8888, state: 'closed', merged: true })
+          });
+        }
+        return Promise.resolve({ ok: true, status: 200, json: async () => [] });
+      });
+
+      await main();
+
+      expect(fs.writeFileSync).toHaveBeenCalled();
+      const writeCall = vi.mocked(fs.writeFileSync).mock.calls[0];
+      expect(writeCall[1]).toContain('status: COMPLETED');
+    });
+  });
+
 
   describe('Regression: Archived Parent and Child Path Matching in Heartbeat', () => {
     it('should transition an EPIC in archive to VERIFYING when its E2E story child is also in archive and parent reference is original path', async () => {

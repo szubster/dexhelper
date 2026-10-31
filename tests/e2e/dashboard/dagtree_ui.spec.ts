@@ -14,15 +14,15 @@ test.describe('DagTree UI Interactions', () => {
 
   test('collapses and expands nodes correctly', async ({ page }) => {
     // Initial state is all collapsed
-    await expect(page.getByText('idea-001')).toBeVisible();
-    await expect(page.getByText('prd-001-001')).toBeHidden();
+    await expect(page.locator('li').filter({ hasText: 'idea-001' }).first()).toBeVisible();
+    await expect(page.locator('li').filter({ hasText: 'prd-001-001' }).first()).toBeHidden();
 
     // Click expand all just to get a predictable state
     await page.getByRole('button', { name: 'Expand All' }).click();
 
-    await expect(page.getByText('idea-001')).toBeVisible();
-    await expect(page.getByText('prd-001-001')).toBeVisible();
-    await expect(page.getByText('task-001-001-001')).toBeVisible();
+    await expect(page.locator('li').filter({ hasText: 'idea-001' }).first()).toBeVisible();
+    await expect(page.locator('li').filter({ hasText: 'prd-001-001' }).first()).toBeVisible();
+    await expect(page.locator('li').filter({ hasText: 'task-001-001-001' }).first()).toBeVisible();
 
     // Find the collapse button for idea-001
     // It's the first button inside the row
@@ -32,13 +32,13 @@ test.describe('DagTree UI Interactions', () => {
     await toggleBtn.click();
 
     // Check prd is hidden
-    await expect(page.getByText('prd-001-001')).toBeHidden();
+    await expect(page.locator('li').filter({ hasText: 'prd-001-001' }).first()).toBeHidden();
 
     // Expand root node
     await toggleBtn.click();
 
     // Check children are visible
-    await expect(page.getByText('prd-001-001')).toBeVisible();
+    await expect(page.locator('li').filter({ hasText: 'prd-001-001' }).first()).toBeVisible();
 
     // Find the toggle button for prd
     const prdRow = page.locator('li').filter({ hasText: 'prd-001-001' }).first().locator('> div');
@@ -46,28 +46,28 @@ test.describe('DagTree UI Interactions', () => {
     await collapsePrdBtn.click();
 
     // Check task is hidden
-    await expect(page.getByText('task-001-001-001')).toBeHidden();
+    await expect(page.locator('li').filter({ hasText: 'task-001-001-001' }).first()).toBeHidden();
   });
 
   test('Expand All and Collapse All buttons work globally', async ({ page }) => {
     // Initial state: collapsed
-    await expect(page.getByText('idea-001')).toBeVisible();
-    await expect(page.getByText('prd-001-001')).toBeHidden();
+    await expect(page.locator('li').filter({ hasText: 'idea-001' }).first()).toBeVisible();
+    await expect(page.locator('li').filter({ hasText: 'prd-001-001' }).first()).toBeHidden();
 
     // Click Expand All
     await page.getByRole('button', { name: 'Expand All' }).click();
 
     // Now all should be visible
-    await expect(page.getByText('idea-001')).toBeVisible();
-    await expect(page.getByText('prd-001-001')).toBeVisible();
-    await expect(page.getByText('task-001-001-001')).toBeVisible();
+    await expect(page.locator('li').filter({ hasText: 'idea-001' }).first()).toBeVisible();
+    await expect(page.locator('li').filter({ hasText: 'prd-001-001' }).first()).toBeVisible();
+    await expect(page.locator('li').filter({ hasText: 'task-001-001-001' }).first()).toBeVisible();
 
     // Click Collapse All
     await page.getByRole('button', { name: 'Collapse All' }).click();
 
     // Now only root should be visible
-    await expect(page.getByText('idea-001')).toBeVisible();
-    await expect(page.getByText('prd-001-001')).toBeHidden();
-    await expect(page.getByText('task-001-001-001')).toBeHidden();
+    await expect(page.locator('li').filter({ hasText: 'idea-001' }).first()).toBeVisible();
+    await expect(page.locator('li').filter({ hasText: 'prd-001-001' }).first()).toBeHidden();
+    await expect(page.locator('li').filter({ hasText: 'task-001-001-001' }).first()).toBeHidden();
   });
 });

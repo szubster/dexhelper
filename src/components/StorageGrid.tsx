@@ -27,6 +27,7 @@ export const StorageCard = React.memo(
     generation,
     onNavigate,
     isDead,
+    isDimmed,
     timeCapsuleValidation,
   }: {
     p: PokemonInstance;
@@ -35,6 +36,7 @@ export const StorageCard = React.memo(
     generation: number;
     onNavigate: (id: number) => void;
     isDead?: boolean;
+    isDimmed?: boolean;
     timeCapsuleValidation?: { isEligible: boolean; reason?: string } | undefined;
   }) => {
     const handleClick = React.useCallback(() => onNavigate(pokemon.id), [onNavigate, pokemon.id]);
@@ -59,11 +61,11 @@ export const StorageCard = React.memo(
         title={`View details for ${pokemon.name} in ${location}`}
         onClick={handleClick}
         variant={variant}
-        className="!p-0 min-h-16"
+        className={`min-h-16 !p-0 ${isDimmed ? 'pointer-events-none opacity-20 grayscale' : ''}`}
       >
         <div className="group/card relative flex h-full w-full flex-col">
           {/* Sprite Container - Top Side */}
-          <div className="relative flex aspect-square w-full shrink-0 items-center justify-center overflow-hidden border-zinc-800 border-b border-dashed bg-black/40 transition-colors duration-500 group-hover:bg-black/60">
+          <div className="relative flex aspect-square w-full shrink-0 items-center justify-center overflow-hidden border-b border-dashed border-zinc-800 bg-black/40 transition-colors duration-500 group-hover:bg-black/60">
             {/* Target overlay */}
             <TargetLockOverlay />
 
@@ -72,7 +74,7 @@ export const StorageCard = React.memo(
 
             {/* Massive Faded ID Background */}
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover/card:opacity-100">
-              <span className="select-none font-black font-display text-[4rem] text-cyan-500/10 italic leading-none">
+              <span className="font-display text-[4rem] leading-none font-black text-cyan-500/10 italic select-none">
                 {pokemon.id.toString().padStart(3, '0')}
               </span>
             </div>
@@ -112,7 +114,7 @@ export const StorageCard = React.memo(
 
             <div className="relative z-10 flex flex-col gap-1">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[8px] text-zinc-500 uppercase tracking-widest sm:text-[10px]">
+                <span className="font-mono text-[8px] tracking-widest text-zinc-500 uppercase sm:text-[10px]">
                   LV.{p.level.toString().padStart(3, '0')}
                 </span>
                 {p.otName && (
@@ -123,7 +125,7 @@ export const StorageCard = React.memo(
                   </span>
                 )}
               </div>
-              <h3 className="truncate font-bold font-mono text-sm text-white uppercase tracking-tight sm:text-base">
+              <h3 className="truncate font-mono text-sm font-bold tracking-tight text-white uppercase sm:text-base">
                 {pokemon.name}
               </h3>
             </div>
@@ -329,15 +331,15 @@ export const StorageGrid = React.memo(function StorageGrid({
               }}
             >
               {rowData.type === 'header' && 'count' in rowData && (
-                <div className="relative mt-16 mb-8 overflow-hidden rounded-none border border-zinc-800 border-dashed bg-zinc-950 p-1 first:mt-0">
+                <div className="relative mt-16 mb-8 overflow-hidden rounded-none border border-dashed border-zinc-800 bg-zinc-950 p-1 first:mt-0">
                   <div className="relative flex items-stretch gap-4 bg-zinc-900/50 p-3">
                     <RackHandle />
                     <div className="flex flex-1 flex-col justify-between gap-2 py-1 sm:flex-row sm:items-center">
                       <div className="flex items-center gap-3">
-                        <span className="border border-[var(--theme-primary)]/30 border-dashed bg-[var(--theme-primary)]/10 px-1.5 font-mono text-[9px] text-[var(--theme-primary)] uppercase tracking-[0.2em]">
+                        <span className="border border-dashed border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/10 px-1.5 font-mono text-[9px] tracking-[0.2em] text-[var(--theme-primary)] uppercase">
                           SYS.DIR
                         </span>
-                        <h2 className="font-black font-mono text-white text-xl uppercase tracking-tight">
+                        <h2 className="font-mono text-xl font-black tracking-tight text-white uppercase">
                           {rowData.location}
                         </h2>
                       </div>
@@ -352,10 +354,10 @@ export const StorageGrid = React.memo(function StorageGrid({
                                 : genConfig.boxCapacity
                           }
                         />
-                        <div className="h-6 w-px border-zinc-700 border-r border-dashed" />
+                        <div className="h-6 w-px border-r border-dashed border-zinc-700" />
                         <div className="flex gap-2">
                           <div
-                            className={`h-2 w-2 rounded-none border ${(pokemonByLocation.get(rowData.location) || []).some((p) => !p.p.isShiny && p.p.isShinyCarrier) ? 'animate-[pulse_1.5s_ease-in-out_infinite] border-cyan-400 border-dashed bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
+                            className={`h-2 w-2 rounded-none border ${(pokemonByLocation.get(rowData.location) || []).some((p) => !p.p.isShiny && p.p.isShinyCarrier) ? 'animate-[pulse_1.5s_ease-in-out_infinite] border-dashed border-cyan-400 bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]' : 'border-zinc-700 bg-zinc-900'}`}
                             title="Carrier Detector"
                           />
                           <div
@@ -376,7 +378,7 @@ export const StorageGrid = React.memo(function StorageGrid({
               {rowData.type === 'empty' && (
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
                   <TacticalPanel className="col-span-full flex min-h-[60px] flex-col items-center justify-center p-2 text-center transition-all duration-300 hover:border-zinc-700/50">
-                    <span className="font-black font-mono text-[10px] text-zinc-600 uppercase tracking-[0.3em]">
+                    <span className="font-mono text-[10px] font-black tracking-[0.3em] text-zinc-600 uppercase">
                       <span aria-hidden="true">[ </span>EMPTY<span aria-hidden="true"> ]</span>
                     </span>
                   </TacticalPanel>

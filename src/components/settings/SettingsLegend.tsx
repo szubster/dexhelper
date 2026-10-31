@@ -14,7 +14,7 @@ export function SettingsLegend() {
         ].map((item) => (
           <div
             key={item.label}
-            className="flex items-center gap-3 border border-zinc-800 border-dashed bg-zinc-900/50 p-3 font-bold font-mono text-[10px] uppercase tracking-wider"
+            className="flex items-center gap-3 border border-dashed border-zinc-800 bg-zinc-900/50 p-3 font-mono text-[10px] font-bold tracking-wider uppercase"
           >
             {item.icon} {item.label}
           </div>

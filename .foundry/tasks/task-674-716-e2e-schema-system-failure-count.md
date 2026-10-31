@@ -2,12 +2,12 @@
 id: task-674-716-e2e-schema-system-failure-count
 type: TASK
 title: Write E2E Test for system_failure_count Schema
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-23'
-updated_at: '2026-10-23'
+updated_at: '2026-10-29'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17493626432843241204'
 pr_number: null
 parent: story-582-674-yaml-schema-e2e-verification
 tags:

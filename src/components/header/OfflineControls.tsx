@@ -16,7 +16,7 @@ export function OfflineControls({ requestSync, handleFileUpload }: OfflineContro
         variant="primary"
         size="lg"
         hasCrosshairs={true}
-        className="group slide-in-from-bottom-2 fade-in w-full animate-in gap-4 border-dashed px-10 sm:w-auto"
+        className="group slide-in-from-bottom-2 fade-in animate-in w-full gap-4 border-dashed px-10 sm:w-auto"
       >
         <Upload size={20} />
         <span aria-hidden="true">[ </span>
@@ -32,7 +32,7 @@ export function OfflineControls({ requestSync, handleFileUpload }: OfflineContro
           variant="primary"
           size="lg"
           hasCrosshairs={true}
-          className="group slide-in-from-bottom-2 fade-in w-full animate-in gap-4 border-dashed px-10 sm:w-auto"
+          className="group slide-in-from-bottom-2 fade-in animate-in w-full gap-4 border-dashed px-10 sm:w-auto"
         >
           <Activity size={20} />
           <span aria-hidden="true">[ </span>

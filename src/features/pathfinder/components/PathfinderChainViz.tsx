@@ -26,8 +26,8 @@ export const PathfinderChainViz: React.FC<PathfinderChainVizProps> = ({ chain, t
             <TacticalPanel className="flex-1 p-4" variant="cyan">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="mb-1 font-mono text-cyan-500/70 text-xs tracking-widest">STEP {index + 1}</div>
-                  <div className="font-bold text-lg uppercase tracking-wider">{step.speciesName}</div>
+                  <div className="mb-1 font-mono text-xs tracking-widest text-cyan-500/70">STEP {index + 1}</div>
+                  <div className="text-lg font-bold tracking-wider uppercase">{step.speciesName}</div>
 
                   {targetMoveId && moveData && !(moveData instanceof Error) && (
                     <div className="mt-2 font-mono text-xs">

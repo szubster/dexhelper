@@ -25,7 +25,7 @@ export const EggMoveSelector: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor="target-egg-move" className="font-mono text-[10px] text-cyan-500 uppercase tracking-widest">
+      <label htmlFor="target-egg-move" className="font-mono text-[10px] tracking-widest text-cyan-500 uppercase">
         Target Egg Move
       </label>
       <TacticalSelect

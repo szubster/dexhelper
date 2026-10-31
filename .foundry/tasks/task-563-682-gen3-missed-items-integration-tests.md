@@ -2,14 +2,16 @@
 id: task-563-682-gen3-missed-items-integration-tests
 type: TASK
 title: Gen 3 Missed Items Integration Tests
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
-parent: story-553-563-gen3-missed-items-ui
+updated_at: '2026-10-31'
 depends_on:
   - task-563-681-gen3-missed-items-ui-components
-jules_session_id: null
+jules_session_id: '15677784060028040607'
+parent: story-553-563-gen3-missed-items-ui
+locks: []
+rejection_reason: ''
 ---
 
 # Task: Gen 3 Missed Items Integration Tests

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { PokemonMetadata } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
-import { gen1Strategy } from '../strategies/gen1Strategy';
+import { getStrategy } from '../strategies';
 import { generateSuggestions } from '../suggestionEngine';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 
@@ -42,7 +42,7 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
       false,
       'yellow',
       mockApiData as AssistantApiData,
-      gen1Strategy,
+      await getStrategy(1),
     );
     const jynxSuggestions = suggestions.filter((s) => s.pokemonId === 124);
 
@@ -57,7 +57,7 @@ describe('suggestionEngine - Redundancy Fix Verification', () => {
       false,
       'yellow',
       mockApiData as AssistantApiData,
-      gen1Strategy,
+      await getStrategy(1),
     );
     const mimeSuggestions = suggestions.filter((s) => s.pokemonId === 122);
 

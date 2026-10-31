@@ -30,7 +30,7 @@ locks: []
 ## Objective
 QA verification for Gen 3 AI Data E2E tests.
 
-## Core Technical Requirements
+## Core Acceptance Criteria
 Review the Playwright E2E tests implemented in the preceding tasks to ensure they comprehensively cover player team, location, trainer, opponent data extraction, and AI script mapping. Verify the test suite executes successfully locally.
 
 ## Acceptance Criteria
