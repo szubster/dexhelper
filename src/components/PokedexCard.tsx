@@ -81,8 +81,14 @@ export const PokedexCard = React.memo(function PokedexCard({
   const saveData = useParsedSaveData();
   const navigate = useNavigate();
 
-  const { inParty, inPC, hasInStorage, isOwnedInDex, isSeenInDex, isUnseen, isSeenNotOwned, isShiny, variant } =
-    getPokemonStatusFlags(pokemon.id, saveData, isLivingDex, partySet, pcSet, shinySpeciesIds);
+  const { inParty, inPC, hasInStorage, isOwnedInDex, isSeenInDex, isUnseen, isShiny, variant } = getPokemonStatusFlags(
+    pokemon.id,
+    saveData,
+    isLivingDex,
+    partySet,
+    pcSet,
+    shinySpeciesIds,
+  );
 
   // Derive isOwned and isSeen from the status flags
   const isOwned = isOwnedInDex || hasInStorage;
@@ -152,14 +158,8 @@ export const PokedexCard = React.memo(function PokedexCard({
             generation={saveData?.generation ?? 1}
             isShiny={isShiny}
             alt={pokemon.name}
-            className={cn(
-              'z-10 h-[60%] w-[60%] object-contain transition-all duration-500',
-              isUnseen
-                ? 'opacity-10 brightness-0'
-                : isSeenNotOwned
-                  ? 'opacity-50 grayscale'
-                  : 'drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover/card:scale-110 group-hover/card:drop-shadow-[0_0_20px_rgba(34,211,238,0.3)]',
-            )}
+            loading="eager"
+            className="z-10 h-[60%] w-[60%] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-500 group-hover/card:scale-110 group-hover/card:drop-shadow-[0_0_20px_rgba(34,211,238,0.3)]"
           />
 
           {/* Extra intense scanline on hover */}
@@ -203,7 +203,7 @@ export const PokedexCard = React.memo(function PokedexCard({
               <h3
                 className={cn(
                   'truncate font-mono text-lg font-bold tracking-tight uppercase',
-                  isUnseen ? 'text-zinc-700' : isShiny ? 'text-amber-400' : 'text-white',
+                  isUnseen ? 'text-zinc-400' : isShiny ? 'text-amber-400' : 'text-white',
                 )}
               >
                 {pokemon.name}
