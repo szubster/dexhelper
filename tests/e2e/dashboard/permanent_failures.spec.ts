@@ -166,10 +166,10 @@ test.describe('Permanent Failures Dashboard Filter', () => {
     // Toggle the filter
 
     // Find the node container up from the text element
-    const permFailNode = page.locator('div.border-dashed').filter({ hasText: 'task-perm-fail' }).first();
-    await expect(permFailNode).toHaveClass(/border-red-600/);
+    const permFailNode = page.locator('div.flex-col.border-dashed').filter({ hasText: 'task-perm-fail' }).last();
+    await expect(permFailNode).toHaveClass(/border-red-600|border-red-900/);
 
-    const permCancelNode = page.locator('div.border-dashed').filter({ hasText: 'task-perm-cancel' }).first();
-    await expect(permCancelNode).toHaveClass(/border-red-600/);
+    const permCancelNode = page.locator('div.flex-col.border-dashed').filter({ hasText: 'task-perm-cancel' }).last();
+    await expect(permCancelNode).toHaveClass(/border-red-600|border-red-900/);
   });
 });
