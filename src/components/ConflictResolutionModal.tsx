@@ -49,9 +49,9 @@ export function ConflictResolutionModal({
           {/* Local Save */}
           <TacticalPanel className="flex flex-col justify-between p-4" variant="default">
             <div>
-              <div className="mb-4 flex items-center gap-2 border-zinc-700 border-b border-dashed pb-2">
+              <div className="mb-4 flex items-center gap-2 border-b border-dashed border-zinc-700 pb-2">
                 <HardDrive className="h-4 w-4 text-zinc-400" />
-                <h3 className="font-bold font-mono text-zinc-100 uppercase">Local Save</h3>
+                <h3 className="font-mono font-bold text-zinc-100 uppercase">Local Save</h3>
               </div>
 
               <div className="mb-6 flex flex-col gap-3">
@@ -68,9 +68,9 @@ export function ConflictResolutionModal({
           {/* Remote Save */}
           <TacticalPanel className="flex flex-col justify-between p-4" variant="amber">
             <div>
-              <div className="mb-4 flex items-center gap-2 border-amber-500/30 border-b border-dashed pb-2">
+              <div className="mb-4 flex items-center gap-2 border-b border-dashed border-amber-500/30 pb-2">
                 <Cloud className="h-4 w-4 text-amber-500" />
-                <h3 className="font-bold font-mono text-amber-500 uppercase">Cloud Save</h3>
+                <h3 className="font-mono font-bold text-amber-500 uppercase">Cloud Save</h3>
               </div>
 
               <div className="mb-6 flex flex-col gap-3">

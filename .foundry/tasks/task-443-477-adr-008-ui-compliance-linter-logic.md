@@ -26,7 +26,7 @@ notes: ''
 ## Objective
 Implement the core AST parsing logic in `scripts/verify-adr-compliance.ts` to detect violations of ADR 008.
 
-## Technical Requirements
+## Acceptance Criteria
 - Create `scripts/verify-adr-compliance.ts`.
 - The script should read all `.tsx` and `.ts` files containing UI components in `src/`.
 - Parse the files to find Tailwind CSS class strings.

@@ -28,7 +28,7 @@ notes: ''
 ## Objective
 QA verification of the new Gen 3 Data Extraction E2E tests.
 
-## Technical Requirements
+## Acceptance Criteria
 1. Verify all Vitest and Playwright E2E tests pass locally.
 2. Review the E2E tests to ensure they accurately validate the 100-byte structure extraction and meet standard testing practices.
 3. Check for false positives by purposefully breaking parsing logic and verifying tests fail.

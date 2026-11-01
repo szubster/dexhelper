@@ -2,13 +2,13 @@
 id: story-567-677-storage-grid-e2e-integration
 type: STORY
 title: Storage Grid E2E Integration tests
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on:
   - epic-564-566-storage-grid-virtualization
-jules_session_id: '3642666648180421839'
+jules_session_id: null
 pr_number: null
 parent: epic-564-567-e2e-integration
 tags:
@@ -31,4 +31,6 @@ Ensure that StorageGrid properly integrates and passes its end-to-end integratio
 2. Break it down into modular TASK nodes for the \`coder\` and \`qa\` personas.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-677-716-implement-storage-grid-e2e-tests
+- [ ] task-677-717-qa-storage-grid-e2e-tests

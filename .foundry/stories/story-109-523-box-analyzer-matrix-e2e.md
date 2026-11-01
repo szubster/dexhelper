@@ -2,13 +2,13 @@
 id: story-109-523-box-analyzer-matrix-e2e
 type: STORY
 title: Box Analyzer Matrix E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-28'
-updated_at: '2026-10-28'
+updated_at: '2026-10-31'
 depends_on:
   - story-109-522-box-analyzer-highlighting-logic
-jules_session_id: '3500764826481564051'
+jules_session_id: null
 pr_number: null
 parent: epic-054-109-box-analyzer-matrix-ui
 tags:
@@ -36,6 +36,10 @@ Implement end-to-end testing for the Duplicate Analyzer Comparison Matrix view.
 - [ ] Validate rendering of tabular data.
 - [ ] Validate stat highlighting.
 - [x] Break down into Tasks.
-- [ ] task-523-707-box-analyzer-matrix-e2e-tabular-data
-- [ ] task-523-708-box-analyzer-matrix-e2e-highlighting
-- [ ] task-523-709-box-analyzer-matrix-e2e-qa
+- [x] task-523-707-box-analyzer-matrix-e2e-tabular-data
+- [x] task-523-708-box-analyzer-matrix-e2e-highlighting
+- [x] task-523-709-box-analyzer-matrix-e2e-qa
+- [ ] research-523-731-investigate-box-analyzer-matrix-e2e-failure
+- [ ] task-523-732-box-analyzer-matrix-e2e-tabular-data-retry
+- [ ] task-523-733-box-analyzer-matrix-e2e-highlighting-retry
+- [ ] task-523-734-box-analyzer-matrix-e2e-qa-retry

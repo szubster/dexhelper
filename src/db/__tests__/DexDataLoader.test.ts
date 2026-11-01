@@ -68,66 +68,6 @@ describe('DexDataLoader', () => {
     expect(pokeDB.getMovesBulk).toHaveBeenCalledWith([1, 2]);
   });
 
-  it('batches calls to pokeDB.getItemsBulk', async () => {
-    const mockItems = [
-      { id: 1, name: 'Item1' },
-      { id: 2, name: 'Item2' },
-    ] as import('../schema').ItemMetadata[];
-    vi.mocked(pokeDB.getItemsBulk).mockResolvedValue(mockItems);
-
-    const [i1, i2] = await Promise.all([dexDataLoader.items.load(1), dexDataLoader.items.load(2)]);
-
-    expect(i1).toEqual(mockItems[0]);
-    expect(i2).toEqual(mockItems[1]);
-    expect(pokeDB.getItemsBulk).toHaveBeenCalledTimes(1);
-    expect(pokeDB.getItemsBulk).toHaveBeenCalledWith([1, 2]);
-  });
-
-  it('batches calls to pokeDB.getMovesBulk', async () => {
-    const mockMoves = [
-      { id: 1, name: 'Move1' },
-      { id: 2, name: 'Move2' },
-    ] as import('../schema').MoveMetadata[];
-    vi.mocked(pokeDB.getMovesBulk).mockResolvedValue(mockMoves);
-
-    const [m1, m2] = await Promise.all([dexDataLoader.moves.load(1), dexDataLoader.moves.load(2)]);
-
-    expect(m1).toEqual(mockMoves[0]);
-    expect(m2).toEqual(mockMoves[1]);
-    expect(pokeDB.getMovesBulk).toHaveBeenCalledTimes(1);
-    expect(pokeDB.getMovesBulk).toHaveBeenCalledWith([1, 2]);
-  });
-
-  it('batches calls to pokeDB.getItemsBulk', async () => {
-    const mockItems = [
-      { id: 1, name: 'Item1' },
-      { id: 2, name: 'Item2' },
-    ] as import('../schema').ItemMetadata[];
-    vi.mocked(pokeDB.getItemsBulk).mockResolvedValue(mockItems);
-
-    const [i1, i2] = await Promise.all([dexDataLoader.items.load(1), dexDataLoader.items.load(2)]);
-
-    expect(i1).toEqual(mockItems[0]);
-    expect(i2).toEqual(mockItems[1]);
-    expect(pokeDB.getItemsBulk).toHaveBeenCalledTimes(1);
-    expect(pokeDB.getItemsBulk).toHaveBeenCalledWith([1, 2]);
-  });
-
-  it('batches calls to pokeDB.getMovesBulk', async () => {
-    const mockMoves = [
-      { id: 1, name: 'Move1' },
-      { id: 2, name: 'Move2' },
-    ] as import('../schema').MoveMetadata[];
-    vi.mocked(pokeDB.getMovesBulk).mockResolvedValue(mockMoves);
-
-    const [m1, m2] = await Promise.all([dexDataLoader.moves.load(1), dexDataLoader.moves.load(2)]);
-
-    expect(m1).toEqual(mockMoves[0]);
-    expect(m2).toEqual(mockMoves[1]);
-    expect(pokeDB.getMovesBulk).toHaveBeenCalledTimes(1);
-    expect(pokeDB.getMovesBulk).toHaveBeenCalledWith([1, 2]);
-  });
-
   it('handles errors from pokeDB', async () => {
     vi.mocked(pokeDB.getPokemons).mockResolvedValue([new Error('Not Found')]);
 

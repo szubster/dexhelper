@@ -26,7 +26,7 @@ notes: ''
 ## Objective
 Write unit tests for the Gen 2 daily/weekly event mapping logic.
 
-## Technical Requirements
+## Acceptance Criteria
 Write tests in `src/engine/saveParser/utils/gen2EventFlags.test.ts` to verify the extraction of flags for Friday Lapras, Bug Catching Contest, Haircut Brothers, Daily Mystery Gift, Buena's Password, and Weekday Siblings. Ensure the tests mock `eventFlags` byte arrays correctly mimicking the exact bits outlined in `.foundry/docs/knowledge_base/gen2_event_flags_offsets.md`.
 
 ## Acceptance Criteria

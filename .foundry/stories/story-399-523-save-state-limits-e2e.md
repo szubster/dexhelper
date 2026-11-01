@@ -2,10 +2,10 @@
 id: story-399-523-save-state-limits-e2e
 type: STORY
 title: Save State Limits and LRU Eviction E2E Verification
-status: PENDING
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-10-19'
+updated_at: '2026-10-31'
 depends_on:
   - story-399-522-save-state-quota-handling
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - indexeddb
   - history
   - e2e
-rejection_reason: ''
+rejection_reason: >-
+  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
+  TASK nodes
 locks: []
 ---
 
@@ -27,5 +29,5 @@ Perform End-to-End (E2E) verification for the save state limits, LRU eviction lo
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-523-690-save-state-limits-e2e-impl
-- [ ] task-523-691-save-state-limits-e2e-qa
+- [x] task-523-690-save-state-limits-e2e-impl
+- [x] task-523-691-save-state-limits-e2e-qa

@@ -2,7 +2,7 @@
 id: story-079-579-react-flow-visualizer-refactor-e2e
 type: STORY
 title: React Flow Visualizer Refactor E2E Verification
-status: PENDING
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-09-14'
 updated_at: '2026-10-29'
@@ -33,6 +33,6 @@ E2E verification for the React Flow visualizer refactor.
 - [x] research-579-728-investigate-react-flow-e2e-failure
 - [x] task-579-729-react-flow-visualizer-e2e-tests-retry
 - [x] task-579-730-react-flow-visualizer-e2e-qa-retry
-- [ ] research-579-731-investigate-react-flow-e2e-failure-retry
-- [ ] task-579-732-react-flow-visualizer-e2e-tests-retry-2
-- [ ] task-579-733-react-flow-visualizer-e2e-qa-retry-2
+- [x] research-579-731-investigate-react-flow-e2e-failure-retry
+- [x] task-579-732-react-flow-visualizer-e2e-tests-retry-2
+- [x] task-579-733-react-flow-visualizer-e2e-qa-retry-2

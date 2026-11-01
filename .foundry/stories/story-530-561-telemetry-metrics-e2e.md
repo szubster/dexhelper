@@ -2,10 +2,10 @@
 id: story-530-561-telemetry-metrics-e2e
 type: STORY
 title: Orchestrator Telemetry Metrics Integration and E2E Verification
-status: PENDING
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-10-28'
+updated_at: '2026-10-31'
 depends_on:
   - story-530-560-telemetry-metrics-impl
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
+  TASK nodes
 notes: ''
 locks: []
 ---
@@ -34,7 +36,7 @@ Verify the integration of telemetry metrics for cycle detection and hierarchical
 
 ## Acceptance Criteria
 - [x] Break down into Tasks to write integration and E2E tests for telemetry.
-- [ ] Tests verify cycle telemetry is appended correctly.
-- [ ] Tests verify hierarchical deadlock telemetry is appended correctly.
-- [ ] task-561-690-telemetry-metrics-e2e-coder
-- [ ] task-561-691-telemetry-metrics-e2e-qa
+- [x] Tests verify cycle telemetry is appended correctly.
+- [x] Tests verify hierarchical deadlock telemetry is appended correctly.
+- [x] task-561-690-telemetry-metrics-e2e-coder
+- [x] task-561-691-telemetry-metrics-e2e-qa

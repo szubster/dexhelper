@@ -2,10 +2,10 @@
 id: task-674-708-migrate-pokedex-e2e-tests-retry-impl
 type: TASK
 title: Refactor Pokedex Grid Virtualization E2E Tests to use COM Pattern (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-10-31'
 depends_on:
   - research-674-707-investigate-pokedex-e2e-failure
 jules_session_id: null

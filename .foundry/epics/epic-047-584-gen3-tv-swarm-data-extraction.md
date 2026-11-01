@@ -2,10 +2,10 @@
 id: epic-047-584-gen3-tv-swarm-data-extraction
 type: EPIC
 title: Gen 3 TV Broadcast and Swarm Tracker Data Extraction (Replacement)
-status: PENDING
+status: READY
 owner_persona: story_owner
-created_at: "2026-10-16T18:00:00.000Z"
-updated_at: "2026-10-16"
+created_at: '2026-10-16T18:00:00.000Z'
+updated_at: '2026-10-31'
 depends_on:
   - research-047-586-tv-swarm-extraction-failure
 jules_session_id: null
@@ -18,8 +18,8 @@ tags:
   - data-parsing
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
 locks: []
 ---
 

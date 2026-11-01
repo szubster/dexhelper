@@ -27,7 +27,7 @@ locks: []
 ## Objective
 Write E2E tests for AI script mapping, incorporating findings from the latest research investigation.
 
-## Core Technical Requirements
+## Core Acceptance Criteria
 Using the approach formulated in the research node, write Playwright E2E test cases simulating uploading the mock fixture. Assert that the UI correctly displays the mapped AI script and AI level for the extracted opponent.
 
 ## Acceptance Criteria

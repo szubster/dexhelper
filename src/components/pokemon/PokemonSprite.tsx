@@ -27,7 +27,7 @@ export const PokemonSprite = React.memo(function PokemonSprite({
   alt,
   className = '',
   style,
-  loading = 'lazy',
+  loading = 'eager',
   onError,
 }: PokemonSpriteProps) {
   const genConfig = getGenerationConfig(generation);
