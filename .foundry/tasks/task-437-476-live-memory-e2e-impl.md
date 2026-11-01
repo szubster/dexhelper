@@ -25,7 +25,7 @@ notes: ''
 ## Objective
 Implement automated E2E and integration tests for WASM memory hooking.
 
-## Technical Requirements
+## Acceptance Criteria
 - Use Playwright to simulate game scenarios.
 - Verify memory is successfully mapped to standard save block parsers continuously.
 

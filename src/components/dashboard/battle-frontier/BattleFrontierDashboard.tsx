@@ -32,24 +32,24 @@ export interface ProgressNodeData extends Record<string, unknown> {
 // ⚡ Bolt: Wrapped in React.memo to eliminate unnecessary re-renders.
 const ProgressNode = React.memo(({ data }: { data: ProgressNodeData }) => {
   return (
-    <div className="flex w-45 flex-col gap-0 border-2 border-zinc-700 border-dashed bg-black/80 font-mono text-white">
-      <div className="border-zinc-700 border-b border-dashed bg-black/40 p-2 text-center font-black text-[10px] text-zinc-400 uppercase">
+    <div className="flex w-45 flex-col gap-0 border-2 border-dashed border-zinc-700 bg-black/80 font-mono text-white">
+      <div className="border-b border-dashed border-zinc-700 bg-black/40 p-2 text-center text-[10px] font-black text-zinc-400 uppercase">
         {data.label}
       </div>
       <div className="flex flex-col gap-1 p-2 text-center">
         <span className="text-[10px] text-zinc-500">STREAK</span>
-        <span className="font-bold text-xl">{data.current}</span>
+        <span className="text-xl font-bold">{data.current}</span>
         {data.target && (
           <>
             <span className="text-[10px] text-zinc-500">TARGET</span>
-            <span className="font-bold text-amber-500 text-sm">{data.target}</span>
+            <span className="text-sm font-bold text-amber-500">{data.target}</span>
             <span className="text-[10px] text-zinc-500">REMAINING</span>
-            <span className="font-bold text-sm text-white">{Math.max(0, data.target - data.current)}</span>
+            <span className="text-sm font-bold text-white">{Math.max(0, data.target - data.current)}</span>
           </>
         )}
       </div>
       {data.status && (
-        <div className={`p-1 text-center font-black text-[9px] tracking-widest ${data.statusColor}`}>{data.status}</div>
+        <div className={`p-1 text-center text-[9px] font-black tracking-widest ${data.statusColor}`}>{data.status}</div>
       )}
     </div>
   );
@@ -110,9 +110,9 @@ export const BattleFrontierDashboard = React.memo(({ saveData }: BattleFrontierD
 
     return (
       <div className="flex flex-col gap-6">
-        <TacticalPanel className="mt-4 flex items-center justify-between border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+        <TacticalPanel className="mt-4 flex items-center justify-between border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6">
           <TelemetryDecoration label="SYS.BATTLE_TOWER" className="-top-[17px] left-[-1px]" />
-          <span className="tactical-text z-10 font-black text-lg text-white">COMBAT SIMULATION MATRIX</span>
+          <span className="tactical-text z-10 text-lg font-black text-white">COMBAT SIMULATION MATRIX</span>
         </TacticalPanel>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -122,7 +122,7 @@ export const BattleFrontierDashboard = React.memo(({ saveData }: BattleFrontierD
               variant={facility.variant}
               className="flex h-[250px] flex-col gap-0 border-l-2 p-0"
             >
-              <div className="flex items-center justify-between border-zinc-800 border-b border-dashed bg-black/40 p-3 pb-2">
+              <div className="flex items-center justify-between border-b border-dashed border-zinc-800 bg-black/40 p-3 pb-2">
                 <span className="tactical-text z-10 font-black text-white">[ {facility.name} ]</span>
               </div>
 
@@ -183,9 +183,9 @@ export const BattleFrontierDashboard = React.memo(({ saveData }: BattleFrontierD
 
   return (
     <div className="flex flex-col gap-6">
-      <TacticalPanel className="mt-4 flex items-center justify-between border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+      <TacticalPanel className="mt-4 flex items-center justify-between border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6">
         <TelemetryDecoration label="SYS.BATTLE_FRONTIER" className="-top-[17px] left-[-1px]" />
-        <span className="tactical-text z-10 font-black text-lg text-white">COMBAT SIMULATION MATRIX</span>
+        <span className="tactical-text z-10 text-lg font-black text-white">COMBAT SIMULATION MATRIX</span>
         <div className="z-10 flex flex-col items-end">
           <DataPoint
             label="WALLET_BALANCE"

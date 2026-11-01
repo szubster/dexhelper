@@ -22,10 +22,10 @@ export function RngTidSidDisplay({ tid, sid, className = '' }: RngTidSidDisplayP
   };
 
   return (
-    <div className={`tactical-panel whitespace-nowrap rounded-none border-zinc-700/50 border-dashed p-4 ${className}`}>
+    <div className={`tactical-panel rounded-none border-dashed border-zinc-700/50 p-4 whitespace-nowrap ${className}`}>
       <div className="flex items-center justify-between gap-4">
         <div className="flex flex-col gap-1">
-          <div className="whitespace-nowrap font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
+          <div className="font-mono text-[10px] tracking-widest whitespace-nowrap text-zinc-500 uppercase">
             RNG Trainer Identifiers
           </div>
           <div className="flex items-center gap-6 whitespace-nowrap">

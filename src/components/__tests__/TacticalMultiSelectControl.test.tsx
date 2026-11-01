@@ -23,7 +23,6 @@ describe('TacticalMultiSelectControl', () => {
     await expect.element(group).toBeInTheDocument();
 
     // The inner div with tactical border
-    // Find item and check parent or check class
     const buttonOne = page.getByRole('button', { name: 'One filter' });
     await expect.element(buttonOne).toBeInTheDocument();
     await expect.element(buttonOne).toHaveClass('tactical-badge');
@@ -31,6 +30,28 @@ describe('TacticalMultiSelectControl', () => {
     const buttonTwo = page.getByRole('button', { name: 'Two filter' });
     await expect.element(buttonTwo).toBeInTheDocument();
     await expect.element(buttonTwo).toHaveClass('tactical-badge');
+  });
+
+  it('applies CVA variant classes correctly', async () => {
+    const items = [
+      { id: '1', label: 'One' },
+      { id: '2', label: 'Two' },
+    ];
+
+    await render(
+      <TacticalMultiSelectControl
+        items={items}
+        selectedValues={new Set(['1'])}
+        onValueToggle={() => {}}
+        variant="cyan"
+      />,
+    );
+
+    const buttonOne = page.getByRole('button', { name: 'One filter' });
+    const buttonTwo = page.getByRole('button', { name: 'Two filter' });
+
+    await expect.element(buttonOne).toHaveClass('bg-cyan-950');
+    await expect.element(buttonTwo).toHaveClass('bg-zinc-900');
   });
 
   it('handles interactions and calls onValueToggle', async () => {

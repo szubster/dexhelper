@@ -25,7 +25,7 @@ export function FeebasMapComponent() {
         icon={<MapIcon size={12} />}
       />
 
-      <div className="flex flex-col gap-2 border border-zinc-800 border-dashed bg-zinc-900/50 p-4">
+      <div className="flex flex-col gap-2 border border-dashed border-zinc-800 bg-zinc-900/50 p-4">
         <h3 className="font-mono text-sm text-zinc-400">ACTIVE TILES [{tiles.length}]</h3>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
           {tiles.map((tile, i) => (
@@ -35,7 +35,7 @@ export function FeebasMapComponent() {
               className="flex items-center justify-between border border-zinc-800 bg-zinc-900 px-3 py-2"
             >
               <span className="font-mono text-xs text-zinc-500">TILE {i + 1}</span>
-              <span className="font-mono text-green-400 text-sm">
+              <span className="font-mono text-sm text-green-400">
                 X: {tile[0]} / Y: {tile[1]}
               </span>
             </div>

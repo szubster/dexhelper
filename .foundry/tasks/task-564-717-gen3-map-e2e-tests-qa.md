@@ -2,10 +2,10 @@
 id: task-564-717-gen3-map-e2e-tests-qa
 type: TASK
 title: QA Gen 3 Map E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-22T11:09:59Z'
-updated_at: '2026-10-22T11:09:59Z'
+updated_at: '2026-10-31'
 depends_on:
   - task-564-716-gen3-map-e2e-tests-impl
 jules_session_id: null

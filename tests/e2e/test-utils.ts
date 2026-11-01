@@ -87,6 +87,13 @@ export async function clearStorage(page: Page) {
   await page.reload();
 }
 
+export const HEADER_TRAINER_NAME_REGEX =
+  /RED|YELLOW|ASH|BLUE|GREEN|GOLD|SILVER|CRYSTAL|DUDE|TRNR|RUBY|SAPPHIRE|EMERALD|Player/i;
+
+export async function assertSaveLoadedHeader(page: Page) {
+  await expect(page.locator('header').getByText(HEADER_TRAINER_NAME_REGEX).first()).toBeVisible({ timeout: 5000 });
+}
+
 export async function mockDagData(page: Page, mockDataPath: string = 'tests/fixtures/dag/mock_dag.json') {
   const mockData = fs.readFileSync(mockDataPath, 'utf8');
 

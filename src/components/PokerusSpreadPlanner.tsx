@@ -17,12 +17,12 @@ function PokerusSpreadPlannerComponent({ initialParty, className }: PokerusSprea
 
   return (
     <div className={cn('tactical-panel flex flex-col gap-2 p-4', className)}>
-      <h2 className="mb-2 border-zinc-800 border-b border-dashed pb-2 font-bold text-sm uppercase">
+      <h2 className="mb-2 border-b border-dashed border-zinc-800 pb-2 text-sm font-bold uppercase">
         Pokérus Spread Planner
       </h2>
 
       {party.some((p) => p?.pokerus && p.pokerus.daysRemaining > 0) && (
-        <div className="mb-4 flex items-center justify-between border border-yellow-500/50 border-dashed bg-yellow-500/10 px-2 py-1 text-xs text-yellow-400">
+        <div className="mb-4 flex items-center justify-between border border-dashed border-yellow-500/50 bg-yellow-500/10 px-2 py-1 text-xs text-yellow-400">
           <span>[WARNING]</span>
           <span>Clock approaching midnight. Curing possible.</span>
         </div>
@@ -40,7 +40,7 @@ function PokerusSpreadPlannerComponent({ initialParty, className }: PokerusSprea
               // biome-ignore lint/suspicious/noArrayIndexKey: order is semantically fixed to 6 party slots
               key={index}
               className={cn(
-                'flex items-center justify-between border border-zinc-800 border-dashed p-2',
+                'flex items-center justify-between border border-dashed border-zinc-800 p-2',
                 isAtRisk && 'border-pink-500/50 bg-pink-500/10',
                 isContagious && 'border-pink-500/80',
                 isCured && 'border-zinc-700',
@@ -62,7 +62,7 @@ function PokerusSpreadPlannerComponent({ initialParty, className }: PokerusSprea
                   <button
                     type="button"
                     onClick={() => swapSlots(index, index - 1)}
-                    className="tactical-icon-button !p-1 ml-2 text-xs"
+                    className="tactical-icon-button ml-2 !p-1 text-xs"
                     title="Move up"
                   >
                     ↑
@@ -72,7 +72,7 @@ function PokerusSpreadPlannerComponent({ initialParty, className }: PokerusSprea
                   <button
                     type="button"
                     onClick={() => swapSlots(index, index + 1)}
-                    className="tactical-icon-button !p-1 ml-1 text-xs"
+                    className="tactical-icon-button ml-1 !p-1 text-xs"
                     title="Move down"
                   >
                     ↓

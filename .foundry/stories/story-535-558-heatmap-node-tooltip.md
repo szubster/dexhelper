@@ -2,13 +2,13 @@
 id: story-535-558-heatmap-node-tooltip
 type: STORY
 title: Heatmap Node Hover Tooltip
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on:
   - story-535-557-react-flow-node-styling
-jules_session_id: '6754875732499269592'
+jules_session_id: null
 parent: epic-518-535-heatmap-ui-components
 tags:
   - foundry
@@ -27,4 +27,6 @@ locks: []
 Enhance the node hover tooltip to display specific metrics driving the heatmap color (rejections, wait times) when the heatmap is active.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this Story down into Task nodes.
+- [x] Tech Lead: Break this Story down into Task nodes.
+- [ ] task-558-721-heatmap-node-tooltip-impl
+- [ ] task-558-722-heatmap-node-tooltip-qa

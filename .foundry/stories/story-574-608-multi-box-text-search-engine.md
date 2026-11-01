@@ -2,12 +2,12 @@
 id: story-574-608-multi-box-text-search-engine
 type: STORY
 title: Multi-Box Text Search Engine
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-22'
-updated_at: '2026-10-20'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '16011200479332851921'
+jules_session_id: null
 pr_number: null
 parent: epic-566-574-multi-box-search-engine
 tags:
@@ -38,5 +38,7 @@ As part of the Multi-Box Search Engine epic, we need to implement the core searc
 - [x] task-608-619-multi-box-text-search-engine-e2e
 - [x] research-608-673-investigate-text-search-e2e-failure
 - [x] task-608-674-multi-box-text-search-engine-e2e-retry
-- [ ] research-608-690-investigate-text-search-e2e-failure-v2
-- [ ] task-608-691-multi-box-text-search-engine-e2e-retry-v2
+- [x] research-608-690-investigate-text-search-e2e-failure-v2
+- [x] task-608-691-multi-box-text-search-engine-e2e-retry-v2
+- [ ] research-608-712-investigate-text-search-e2e-failure-v3
+- [ ] task-608-713-multi-box-text-search-engine-e2e-retry-v3

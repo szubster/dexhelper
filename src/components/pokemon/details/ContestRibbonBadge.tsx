@@ -65,7 +65,7 @@ export const ContestRibbonBadge = React.forwardRef<HTMLDivElement, ContestRibbon
           <div className="flex flex-col">
             <DataLabel>${type}_SYS</DataLabel>
             <span
-              className={cn('mt-0.5 font-black font-display text-xl uppercase tracking-tight', typeTextColorMap[type])}
+              className={cn('font-display mt-0.5 text-xl font-black tracking-tight uppercase', typeTextColorMap[type])}
             >
               {type}
             </span>
@@ -73,11 +73,11 @@ export const ContestRibbonBadge = React.forwardRef<HTMLDivElement, ContestRibbon
           <Award className={cn('h-5 w-5', rankColorMap[rank]?.split(' ')[0] || 'text-zinc-500')} aria-hidden="true" />
         </div>
 
-        <div className="relative z-10 flex items-center justify-between border-white/5 border-t border-dashed pt-3">
-          <span className="font-mono text-[8px] text-zinc-500 uppercase tracking-widest">CLEARANCE</span>
+        <div className="relative z-10 flex items-center justify-between border-t border-dashed border-white/5 pt-3">
+          <span className="font-mono text-[8px] tracking-widest text-zinc-500 uppercase">CLEARANCE</span>
           <span
             className={cn(
-              'inline-flex items-center gap-1.5 border border-dashed px-1.5 py-0.5 font-bold font-mono text-[9px] uppercase tracking-wider',
+              'inline-flex items-center gap-1.5 border border-dashed px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-wider uppercase',
               rankColorMap[rank],
             )}
           >

@@ -33,7 +33,7 @@ export function SystemControls({
         aria-label="Select Game Version"
         onClick={() => setIsVersionModalOpen(true)}
         className={cn(
-          'group zoom-in-95 fade-in focus-visible:tactical-focus relative animate-in overflow-hidden rounded-none border border-dashed px-3 py-1.5 font-black font-mono text-[9px] uppercase tracking-[0.2em] transition-all duration-500',
+          'group zoom-in-95 fade-in focus-visible:tactical-focus animate-in relative overflow-hidden rounded-none border border-dashed px-3 py-1.5 font-mono text-[9px] font-black tracking-[0.2em] uppercase transition-all duration-500',
           effectiveVersion === 'unknown'
             ? 'border-amber-500/50 bg-amber-500/10 text-amber-500 hover:bg-amber-500 hover:text-zinc-950'
             : 'border-[var(--theme-primary)]/50 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] hover:bg-[var(--theme-primary)] hover:text-zinc-950',
@@ -73,7 +73,7 @@ export function SystemControls({
             className="w-35 justify-start p-1.5"
           >
             <Activity size={16} className="text-amber-500" />
-            <span className="font-mono text-[9px] text-amber-500 uppercase tracking-wider">RESUME SYNC</span>
+            <span className="font-mono text-[9px] tracking-wider text-amber-500 uppercase">RESUME SYNC</span>
           </TacticalButton>
         ) : (
           <TacticalButton
@@ -103,7 +103,7 @@ export function SystemControls({
             />
             <span
               className={cn(
-                'font-mono text-[9px] uppercase tracking-wider',
+                'font-mono text-[9px] tracking-wider uppercase',
                 syncStatus === 'live' ? 'text-emerald-500' : '',
                 syncStatus === 'syncing' ? 'animate-pulse text-blue-500' : '',
                 syncStatus === 'error' ? 'text-red-500' : '',
