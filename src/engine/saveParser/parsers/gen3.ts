@@ -1,4 +1,4 @@
-export * from "../gen3/ribbons/constants";
+export * from '../gen3/ribbons/constants';
 
 import {
   OBEDIENCE_FLAG_BIT,
@@ -21,7 +21,7 @@ import {
   RIBBON_WINNING_BIT,
   RIBBON_WORLD_BIT,
   RIBBONS_OFFSET_IN_M,
-} from "../gen3/ribbons/constants";
+} from '../gen3/ribbons/constants';
 import {
   GEN3_ROAMER_OFFSET_EMERALD,
   GEN3_ROAMER_OFFSET_FRLG,
@@ -38,7 +38,7 @@ import {
   ROAMER_SPECIES_ID_OFFSET,
   ROAMER_STATUS_OFFSET,
   ROAMER_TOUGH_OFFSET,
-} from "../gen3/roamer/constants";
+} from '../gen3/roamer/constants';
 import {
   FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON,
   FLAG_GOT_TM03_FROM_MISTY,
@@ -77,8 +77,8 @@ import {
   FLAG_RECEIVED_TM_THIEF,
   FLAG_RECEIVED_TM_TORMENT,
   FLAG_RECEIVED_TM_WATER_PULSE,
-} from "../gen3/tmFlags/constants";
-import type { SpindaSpotCoordinate } from "./common";
+} from '../gen3/tmFlags/constants';
+import type { SpindaSpotCoordinate } from './common';
 
 /**
  * @module gen3Parser
@@ -100,29 +100,26 @@ import type { SpindaSpotCoordinate } from "./common";
  * is determined by `PV % 24`.
  */
 
-import { BERRY_TREE_LOCATIONS } from "../../gen3/berryPatches/berryLocations";
-import {
-  type Gen3FameCheckerData,
-  parseGen3FameChecker,
-} from "../../gen3/fameChecker/parser";
-import { extractFeebasSeed } from "../../gen3/feebas";
-import { parseGen3MatchCall } from "../../gen3/matchCall/parser";
+import { BERRY_TREE_LOCATIONS } from '../../gen3/berryPatches/berryLocations';
+import { type Gen3FameCheckerData, parseGen3FameChecker } from '../../gen3/fameChecker/parser';
+import { extractFeebasSeed } from '../../gen3/feebas';
+import { parseGen3MatchCall } from '../../gen3/matchCall/parser';
 import {
   SECRET_BASE_OFFSET_EMERALD,
   SECRET_BASE_OFFSET_RS,
   SECRET_BASE_SIZE,
   SECRET_BASES_COUNT,
-} from "../../gen3/secretBase/constants";
-import { parseSecretBaseRecord } from "../../gen3/secretBase/parser";
-import { extractGen3StaticEncounterFlags } from "../../gen3/staticEncounters";
+} from '../../gen3/secretBase/constants';
+import { parseSecretBaseRecord } from '../../gen3/secretBase/parser';
+import { extractGen3StaticEncounterFlags } from '../../gen3/staticEncounters';
 import {
   parseGen3BattleFrontierSymbols,
   parseGen3BattleFrontierWinStreaks,
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
-} from "../gen3/battleFrontier/parser";
-import { parseRSBattleTowerWinStreaks } from "../gen3/battleTower/parser";
-import { parseGen3BerryTrees } from "../gen3/berry/parser";
+} from '../gen3/battleFrontier/parser';
+import { parseRSBattleTowerWinStreaks } from '../gen3/battleTower/parser';
+import { parseGen3BerryTrees } from '../gen3/berry/parser';
 import {
   CONDITION_BEAUTY_OFFSET,
   CONDITION_COOL_OFFSET,
@@ -130,16 +127,12 @@ import {
   CONDITION_SHEEN_OFFSET,
   CONDITION_SMART_OFFSET,
   CONDITION_TOUGH_OFFSET,
-} from "../gen3/conditionStats/constants";
-import { parseGen3Daycare } from "../gen3/daycare/parser";
-import {
-  parseGen3BerryPouch,
-  parseGen3EventItems,
-  parseGen3Inventory,
-} from "../gen3/inventory/parser";
-import { parseGen3MissedItemsAndMilestones } from "../gen3/missedItems/parser";
-import { parseGen3MysteryGift } from "../gen3/mysteryGift";
-import { parseGen3NarrativeFlags } from "../gen3/narrative/parser";
+} from '../gen3/conditionStats/constants';
+import { parseGen3Daycare } from '../gen3/daycare/parser';
+import { parseGen3BerryPouch, parseGen3EventItems, parseGen3Inventory } from '../gen3/inventory/parser';
+import { parseGen3MissedItemsAndMilestones } from '../gen3/missedItems/parser';
+import { parseGen3MysteryGift } from '../gen3/mysteryGift';
+import { parseGen3NarrativeFlags } from '../gen3/narrative/parser';
 import {
   FLAG_BATTLE_FRONTIER_TRADE_DONE,
   FLAG_DID_CH_DING_TRADE,
@@ -154,16 +147,13 @@ import {
   FLAG_FORTREE_NPC_TRADE_COMPLETED,
   FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED,
   FLAG_RUSTBORO_NPC_TRADE_COMPLETED,
-} from "../gen3/npcTrades/constants";
-import { parseGen3Pokeblocks } from "../gen3/pokeblock/parser";
-import { extractPokedexGaps } from "../gen3/pokedex/gaps";
-import { parseGen3Pokedex } from "../gen3/pokedex/parser";
-import {
-  parseGen3TrainerDefeatFlags,
-  parseGen3TrainerRematchFlags,
-} from "../gen3/trainerFlags/parser";
-import { parseTrickHouse } from "../gen3/trickHouse/parser";
-import { extractWeatherAnomaly } from "../gen3/weatherAnomaly/extractor";
+} from '../gen3/npcTrades/constants';
+import { parseGen3Pokeblocks } from '../gen3/pokeblock/parser';
+import { extractPokedexGaps } from '../gen3/pokedex/gaps';
+import { parseGen3Pokedex } from '../gen3/pokedex/parser';
+import { parseGen3TrainerDefeatFlags, parseGen3TrainerRematchFlags } from '../gen3/trainerFlags/parser';
+import { parseTrickHouse } from '../gen3/trickHouse/parser';
+import { extractWeatherAnomaly } from '../gen3/weatherAnomaly/extractor';
 import type {
   GameVersion,
   Gen3ActiveSwarm,
@@ -177,8 +167,8 @@ import type {
   Gen3Spinda,
   Gen3TVShow,
   PokemonInstance,
-} from "./common";
-import { decodeGen3String } from "./common";
+} from './common';
+import { decodeGen3String } from './common';
 
 const SIGNATURE = 0x08012025;
 const SIGNATURE_OFFSET = 0x0ff8;
@@ -346,12 +336,7 @@ export const SPINDA_SPOT_ORIGINS = {
  * @returns A tuple of 4 bytes (0-255).
  */
 export function parseSpindaPID(pid: number): [number, number, number, number] {
-  return [
-    pid & 0xff,
-    (pid >>> 8) & 0xff,
-    (pid >>> 16) & 0xff,
-    (pid >>> 24) & 0xff,
-  ];
+  return [pid & 0xff, (pid >>> 8) & 0xff, (pid >>> 16) & 0xff, (pid >>> 24) & 0xff];
 }
 
 export const UPPER_16_BIT_SHIFT = 16;
@@ -431,7 +416,7 @@ export function extractGen3PokemonData(view: DataView, offset: number) {
     const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
     const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
     if (!permutation) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
 
     const buffer = new ArrayBuffer(48);
@@ -439,15 +424,14 @@ export function extractGen3PokemonData(view: DataView, offset: number) {
 
     for (let i = 0; i < 4; i++) {
       const char = permutation[i];
-      if (typeof char !== "string") {
-        throw new Error("The save file is corrupted or incomplete.");
+      if (typeof char !== 'string') {
+        throw new Error('The save file is corrupted or incomplete.');
       }
-      const canonicalIndex = "GAEM".indexOf(char);
+      const canonicalIndex = 'GAEM'.indexOf(char);
       if (canonicalIndex === -1) {
-        throw new Error("The save file is corrupted or incomplete.");
+        throw new Error('The save file is corrupted or incomplete.');
       }
-      const encryptedOffset =
-        offset + GEN3_POKEMON_DATA_OFFSET + i * SUBSTRUCTURE_SIZE;
+      const encryptedOffset = offset + GEN3_POKEMON_DATA_OFFSET + i * SUBSTRUCTURE_SIZE;
       const decryptedOffset = canonicalIndex * SUBSTRUCTURE_SIZE;
 
       // Read 3 32-bit integers, decrypt, and write
@@ -466,7 +450,7 @@ export function extractGen3PokemonData(view: DataView, offset: number) {
     };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -484,7 +468,7 @@ export const CONTEST_WINNER_SPECIES_OFFSET = 0x08;
  * The permutation index is determined by `PV % 24`.
  * The four blocks are: Growth (G), Attacks (A), EVs/Condition (E), and Miscellaneous (M).
  */
-export type Gen3SubstructureId = "G" | "A" | "E" | "M";
+export type Gen3SubstructureId = 'G' | 'A' | 'E' | 'M';
 
 /**
  * Resolves the relative memory offset of a specific 12-byte substructure (G, A, E, or M)
@@ -498,26 +482,23 @@ export type Gen3SubstructureId = "G" | "A" | "E" | "M";
  * @returns The relative byte offset (0, 12, 24, or 36) of the requested substructure.
  * @throws RangeError if the permutation index is invalid or the substructure cannot be found.
  */
-export function resolveGen3SubstructureOffset(
-  pv: number,
-  substructureId: Gen3SubstructureId,
-): number {
+export function resolveGen3SubstructureOffset(pv: number, substructureId: Gen3SubstructureId): number {
   try {
     const permutationIndex = pv % NUM_SUBSTRUCTURE_PERMUTATIONS;
     const permutation = SUBSTRUCTURE_ORDER[permutationIndex];
     if (!permutation) {
-      throw new RangeError("Invalid PV permutation");
+      throw new RangeError('Invalid PV permutation');
     }
 
     const index = permutation.indexOf(substructureId);
     if (index === -1) {
-      throw new RangeError("Substructure not found in permutation");
+      throw new RangeError('Substructure not found in permutation');
     }
 
     return index * SUBSTRUCTURE_SIZE;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -545,44 +526,40 @@ export function getGen3DecryptedSubstructure(
   try {
     const relativeOffset = resolveGen3SubstructureOffset(pv, substructureId);
 
-    return new DataView(
-      decryptedData.buffer,
-      decryptedData.byteOffset + relativeOffset,
-      SUBSTRUCTURE_SIZE,
-    );
+    return new DataView(decryptedData.buffer, decryptedData.byteOffset + relativeOffset, SUBSTRUCTURE_SIZE);
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
 }
 
 export const SUBSTRUCTURE_ORDER = [
-  "GAEM",
-  "GAME",
-  "GEAM",
-  "GEMA",
-  "GMAE",
-  "GMEA",
-  "AGEM",
-  "AGME",
-  "AEGM",
-  "AEMG",
-  "AMGE",
-  "AMEG",
-  "EGAM",
-  "EGMA",
-  "EAGM",
-  "EAMG",
-  "EMGA",
-  "EMAG",
-  "MGAE",
-  "MGEA",
-  "MAGE",
-  "MAEG",
-  "MEGA",
-  "MEAG",
+  'GAEM',
+  'GAME',
+  'GEAM',
+  'GEMA',
+  'GMAE',
+  'GMEA',
+  'AGEM',
+  'AGME',
+  'AEGM',
+  'AEMG',
+  'AMGE',
+  'AMEG',
+  'EGAM',
+  'EGMA',
+  'EAGM',
+  'EAMG',
+  'EMGA',
+  'EMAG',
+  'MGAE',
+  'MGEA',
+  'MAGE',
+  'MAEG',
+  'MEGA',
+  'MEAG',
 ];
 
 export const EMERALD_MOVE_TUTOR_BYTE_1_OFFSET = 0x36;
@@ -645,7 +622,7 @@ export const BYTES_PER_GAME_STAT = 4;
  * Used to calculate the `hoennDexCount` stat since the save file only tracks
  * Pokédex completion globally via National Dex flags.
  */
-import { HOENN_DEX_NATIONAL_IDS } from "../gen3/pokedex/constants";
+import { HOENN_DEX_NATIONAL_IDS } from '../gen3/pokedex/constants';
 
 /**
  * Locates the most recent memory offset for a specific save section in Gen 3 flash memory.
@@ -675,10 +652,7 @@ import { HOENN_DEX_NATIONAL_IDS } from "../gen3/pokedex/constants";
  * @example
  * const section1Offset = getLatestSectionOffset(view, 1);
  */
-function getLatestSectionOffset(
-  view: DataView,
-  targetSectionId: number,
-): number {
+function getLatestSectionOffset(view: DataView, targetSectionId: number): number {
   let saveIndexA = -1;
   let saveIndexB = -1;
   let sectionOffsetA = -1;
@@ -717,7 +691,7 @@ function getLatestSectionOffset(
   }
 
   if (sectionOffsetA === -1 && sectionOffsetB === -1) {
-    throw new Error("Target section not found or invalid signature.");
+    throw new Error('Target section not found or invalid signature.');
   }
 
   // If both banks are valid, the one with the higher saveIndex is the most recent save
@@ -776,14 +750,11 @@ function getLatestSectionOffset(
  * @throws RangeError if a required section is out of bounds or missing.
  */
 
-function extractGen3GameVersion(
-  view: DataView,
-  section0Offset: number,
-): GameVersion {
+function extractGen3GameVersion(view: DataView, section0Offset: number): GameVersion {
   const code = view.getUint32(section0Offset + 0x00ac, true);
-  if (code === 0) return "ruby";
-  if (code === 1) return "firered";
-  return "emerald";
+  if (code === 0) return 'ruby';
+  if (code === 1) return 'firered';
+  return 'emerald';
 }
 
 export function parseGen3PCBuffer(view: DataView): Uint8Array {
@@ -795,8 +766,7 @@ export function parseGen3PCBuffer(view: DataView): Uint8Array {
       const sectionOffset = getLatestSectionOffset(view, sectionId);
 
       // Sections 5-12 contain 3968 bytes, Section 13 contains 2000 bytes.
-      const bytesToCopy =
-        sectionId === 13 ? PC_BOX_SECTION_13_SIZE : PC_BOX_SECTION_5_TO_12_SIZE;
+      const bytesToCopy = sectionId === 13 ? PC_BOX_SECTION_13_SIZE : PC_BOX_SECTION_5_TO_12_SIZE;
 
       for (let i = 0; i < bytesToCopy; i++) {
         pcBuffer[pcBufferOffset++] = view.getUint8(sectionOffset + i);
@@ -806,7 +776,7 @@ export function parseGen3PCBuffer(view: DataView): Uint8Array {
     return pcBuffer;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -831,26 +801,22 @@ export function parseGen3PCBuffer(view: DataView): Uint8Array {
  * @param gameVersion - The detected or forced version of the Gen 3 game (used to determine party count offset).
  * @returns An object containing a simple array of species IDs (`party`), detailed data (`partyDetails`), and Spinda pattern data (`gen3Spindas`).
  */
-export function* iterateGen3Party(
-  view: DataView,
-  section1Offset: number,
-  gameVersion: GameVersion,
-) {
+export function* iterateGen3Party(view: DataView, section1Offset: number, gameVersion: GameVersion) {
   try {
     const countOffset =
       section1Offset +
-      (gameVersion === "firered" || gameVersion === "leafgreen"
+      (gameVersion === 'firered' || gameVersion === 'leafgreen'
         ? GEN3_PARTY_COUNT_OFFSET_FRLG
         : GEN3_PARTY_COUNT_OFFSET);
     const listOffset =
       section1Offset +
-      (gameVersion === "firered" || gameVersion === "leafgreen"
+      (gameVersion === 'firered' || gameVersion === 'leafgreen'
         ? GEN3_PARTY_POKEMON_LIST_OFFSET_FRLG
         : GEN3_PARTY_POKEMON_LIST_OFFSET);
 
     // team size in FRLG is 1 byte at 0x34 or 4 bytes at 0x234 in RSE
     const partyCount =
-      gameVersion === "firered" || gameVersion === "leafgreen"
+      gameVersion === 'firered' || gameVersion === 'leafgreen'
         ? view.getUint8(countOffset)
         : view.getUint32(countOffset, true);
 
@@ -864,45 +830,27 @@ export function* iterateGen3Party(
       const { pv, otId, decryptedData } = extractedData;
 
       // In the decrypted GAEM buffer, G is at offset 0, A is at offset 12
-      const speciesId = decryptedData.getUint16(
-        DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_SPECIES_OFFSET_IN_G,
-        true,
-      );
-      const item = decryptedData.getUint16(
-        DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_ITEM_OFFSET_IN_G,
-        true,
-      );
-      const friendship = decryptedData.getUint8(
-        DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G,
-      );
+      const speciesId = decryptedData.getUint16(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
+      const item = decryptedData.getUint16(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+      const friendship = decryptedData.getUint8(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
 
-      const move1 = decryptedData.getUint16(
-        DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A,
-        true,
-      );
+      const move1 = decryptedData.getUint16(DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
       const move2 = decryptedData.getUint16(
-        DECRYPTED_BLOCK_A_OFFSET +
-          GEN3_POKEMON_MOVES_OFFSET_IN_A +
-          GEN3_POKEMON_MOVE_2_OFFSET,
+        DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET,
         true,
       );
       const move3 = decryptedData.getUint16(
-        DECRYPTED_BLOCK_A_OFFSET +
-          GEN3_POKEMON_MOVES_OFFSET_IN_A +
-          GEN3_POKEMON_MOVE_3_OFFSET,
+        DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET,
         true,
       );
       const move4 = decryptedData.getUint16(
-        DECRYPTED_BLOCK_A_OFFSET +
-          GEN3_POKEMON_MOVES_OFFSET_IN_A +
-          GEN3_POKEMON_MOVE_4_OFFSET,
+        DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET,
         true,
       );
 
       const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
-      const gen3Spinda =
-        speciesId === GEN3_SPINDA_SPECIES_ID ? { pid: pv } : undefined;
+      const gen3Spinda = speciesId === GEN3_SPINDA_SPECIES_ID ? { pid: pv } : undefined;
 
       const partyDetail: PokemonInstance = {
         speciesId,
@@ -912,7 +860,7 @@ export function* iterateGen3Party(
         moves,
         friendship,
         personalityValue: pv,
-        storageLocation: "Party",
+        storageLocation: 'Party',
         hash: `${pv}-${otId}`,
         currentHp: view.getUint16(offset + GEN3_PARTY_HP_OFFSET, true),
         stats: {
@@ -924,14 +872,8 @@ export function* iterateGen3Party(
           spdef: view.getUint16(offset + GEN3_PARTY_SPDEF_OFFSET, true),
         },
         evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
-        condition: parseGen3ConditionStats(
-          decryptedData,
-          2 * SUBSTRUCTURE_SIZE,
-        ),
-        ribbons: parseGen3Ribbons(
-          decryptedData,
-          3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M,
-        ),
+        condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),
+        ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
         nature: pv % 25,
       };
 
@@ -939,7 +881,7 @@ export function* iterateGen3Party(
     }
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -967,54 +909,34 @@ export function* iterateGen3PCBoxes(pcBufferView: DataView) {
     for (let box = 0; box < PC_BOX_COUNT; box++) {
       for (let slot = 0; slot < PC_BOX_CAPACITY; slot++) {
         const pokemonIndex = box * PC_BOX_CAPACITY + slot;
-        const offset =
-          PC_BOX_POKEMON_LIST_OFFSET +
-          pokemonIndex * GEN3_PC_POKEMON_STRUCT_SIZE;
+        const offset = PC_BOX_POKEMON_LIST_OFFSET + pokemonIndex * GEN3_PC_POKEMON_STRUCT_SIZE;
 
         const extractedData = extractGen3PokemonData(pcBufferView, offset);
         if (!extractedData) continue;
         const { pv, otId, decryptedData } = extractedData;
 
         // In the decrypted GAEM buffer, G is at offset 0, A is at offset 12
-        const speciesId = decryptedData.getUint16(
-          DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_SPECIES_OFFSET_IN_G,
-          true,
-        );
-        const item = decryptedData.getUint16(
-          DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_ITEM_OFFSET_IN_G,
-          true,
-        );
-        const friendship = decryptedData.getUint8(
-          DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G,
-        );
+        const speciesId = decryptedData.getUint16(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_SPECIES_OFFSET_IN_G, true);
+        const item = decryptedData.getUint16(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_ITEM_OFFSET_IN_G, true);
+        const friendship = decryptedData.getUint8(DECRYPTED_BLOCK_G_OFFSET + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
 
-        const move1 = decryptedData.getUint16(
-          DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A,
-          true,
-        );
+        const move1 = decryptedData.getUint16(DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A, true);
         const move2 = decryptedData.getUint16(
-          DECRYPTED_BLOCK_A_OFFSET +
-            GEN3_POKEMON_MOVES_OFFSET_IN_A +
-            GEN3_POKEMON_MOVE_2_OFFSET,
+          DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_2_OFFSET,
           true,
         );
         const move3 = decryptedData.getUint16(
-          DECRYPTED_BLOCK_A_OFFSET +
-            GEN3_POKEMON_MOVES_OFFSET_IN_A +
-            GEN3_POKEMON_MOVE_3_OFFSET,
+          DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_3_OFFSET,
           true,
         );
         const move4 = decryptedData.getUint16(
-          DECRYPTED_BLOCK_A_OFFSET +
-            GEN3_POKEMON_MOVES_OFFSET_IN_A +
-            GEN3_POKEMON_MOVE_4_OFFSET,
+          DECRYPTED_BLOCK_A_OFFSET + GEN3_POKEMON_MOVES_OFFSET_IN_A + GEN3_POKEMON_MOVE_4_OFFSET,
           true,
         );
 
         const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
-        const gen3Spinda =
-          speciesId === GEN3_SPINDA_SPECIES_ID ? { pid: pv } : undefined;
+        const gen3Spinda = speciesId === GEN3_SPINDA_SPECIES_ID ? { pid: pv } : undefined;
 
         const isShiny = false; // We can skip full shiny calculation for PC boxes for now unless requested
 
@@ -1030,14 +952,8 @@ export function* iterateGen3PCBoxes(pcBufferView: DataView) {
           storageLocation: `Box ${box + 1}`,
           slot,
           evs: parseGen3EVs(decryptedData, 2 * SUBSTRUCTURE_SIZE),
-          condition: parseGen3ConditionStats(
-            decryptedData,
-            2 * SUBSTRUCTURE_SIZE,
-          ),
-          ribbons: parseGen3Ribbons(
-            decryptedData,
-            3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M,
-          ),
+          condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),
+          ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
           nature: pv % 25,
         };
 
@@ -1046,7 +962,7 @@ export function* iterateGen3PCBoxes(pcBufferView: DataView) {
     }
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1079,7 +995,7 @@ export function parseGen3EVs(view: DataView, offset: number) {
     return { hp, atk, def, spe, spa, spd };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1120,13 +1036,7 @@ export function calculateGen3HiddenPower(
   const spatkBit = spatk % 2;
   const spdefBit = spdef % 2;
 
-  const typeBits =
-    hpBit |
-    (atkBit << 1) |
-    (defBit << 2) |
-    (spdBit << 3) |
-    (spatkBit << 4) |
-    (spdefBit << 5);
+  const typeBits = hpBit | (atkBit << 1) | (defBit << 2) | (spdBit << 3) | (spatkBit << 4) | (spdefBit << 5);
   const typeIndex = Math.floor((typeBits * 15) / 63);
 
   const hpPowerBit = (hp >> 1) % 2;
@@ -1146,25 +1056,25 @@ export function calculateGen3HiddenPower(
   const power = Math.floor((powerBits * 40) / 63) + 30;
 
   const TYPES = [
-    "Fighting",
-    "Flying",
-    "Poison",
-    "Ground",
-    "Rock",
-    "Bug",
-    "Ghost",
-    "Steel",
-    "Fire",
-    "Water",
-    "Grass",
-    "Electric",
-    "Psychic",
-    "Ice",
-    "Dragon",
-    "Dark",
+    'Fighting',
+    'Flying',
+    'Poison',
+    'Ground',
+    'Rock',
+    'Bug',
+    'Ghost',
+    'Steel',
+    'Fire',
+    'Water',
+    'Grass',
+    'Electric',
+    'Psychic',
+    'Ice',
+    'Dragon',
+    'Dark',
   ] as const;
 
-  return { type: TYPES[typeIndex] ?? "Dark", power };
+  return { type: TYPES[typeIndex] ?? 'Dark', power };
 }
 
 /**
@@ -1218,19 +1128,12 @@ export function parseGen3PokemonPVAndIVs(view: DataView, offset: number) {
 
     const decryptionKey = pv ^ otId;
 
-    const miscSubstructureRelativeOffset = resolveGen3SubstructureOffset(
-      pv,
-      "M",
-    );
+    const miscSubstructureRelativeOffset = resolveGen3SubstructureOffset(pv, 'M');
     // The Miscellaneous (M) substructure starts at offset + 32 + relativeOffset
-    const miscSubstructureOffset =
-      offset + GEN3_POKEMON_DATA_OFFSET + miscSubstructureRelativeOffset;
+    const miscSubstructureOffset = offset + GEN3_POKEMON_DATA_OFFSET + miscSubstructureRelativeOffset;
 
     // The IVs are located at offset 4 within the M substructure. This corresponds to the second 32-bit word.
-    const encryptedIVs = view.getUint32(
-      miscSubstructureOffset + MISC_IVS_OFFSET,
-      true,
-    );
+    const encryptedIVs = view.getUint32(miscSubstructureOffset + MISC_IVS_OFFSET, true);
     const decryptedIVs = encryptedIVs ^ decryptionKey;
 
     const hp = (decryptedIVs >> IV_SHIFT_HP) & IV_MASK;
@@ -1243,7 +1146,7 @@ export function parseGen3PokemonPVAndIVs(view: DataView, offset: number) {
     return { hp, attack, defense, speed, specialAttack, specialDefense, pv };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1269,23 +1172,18 @@ export function parseGen3EggSteps(
   growthSubstructureOffset: number,
 ): number | null {
   try {
-    const ivEggAbility = view.getUint32(
-      miscSubstructureOffset + MISC_IV_EGG_ABILITY_OFFSET,
-      true,
-    );
+    const ivEggAbility = view.getUint32(miscSubstructureOffset + MISC_IV_EGG_ABILITY_OFFSET, true);
     const isEgg = (ivEggAbility >> IS_EGG_BIT_SHIFT) & 1;
 
     if (!isEgg) {
       return null;
     }
 
-    const eggCycles = view.getUint8(
-      growthSubstructureOffset + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G,
-    );
+    const eggCycles = view.getUint8(growthSubstructureOffset + GEN3_POKEMON_FRIENDSHIP_OFFSET_IN_G);
     return eggCycles * EGG_CYCLE_STEPS;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1341,20 +1239,11 @@ export function parseGen3EggSteps(
  * @returns The parsed Gen3RoamerData object.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3RoamerStruct(
-  dataView: DataView,
-  offset: number,
-): Gen3RoamerData {
+export function parseGen3RoamerStruct(dataView: DataView, offset: number): Gen3RoamerData {
   try {
     const rawIvs = dataView.getUint32(offset + ROAMER_IVS_OFFSET, true);
-    const personalityValue = dataView.getUint32(
-      offset + ROAMER_PV_OFFSET,
-      true,
-    );
-    const speciesId = dataView.getUint16(
-      offset + ROAMER_SPECIES_ID_OFFSET,
-      true,
-    );
+    const personalityValue = dataView.getUint32(offset + ROAMER_PV_OFFSET, true);
+    const speciesId = dataView.getUint16(offset + ROAMER_SPECIES_ID_OFFSET, true);
     const hp = dataView.getUint16(offset + ROAMER_HP_OFFSET, true);
     const level = dataView.getUint8(offset + ROAMER_LEVEL_OFFSET);
     const statusCondition = dataView.getUint8(offset + ROAMER_STATUS_OFFSET);
@@ -1385,23 +1274,19 @@ export function parseGen3RoamerStruct(
     };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
 }
 
-export function parseGen3Roamer(
-  view: DataView,
-  saveBlock1Offset: number,
-  gameVersion: GameVersion,
-) {
+export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVersion: GameVersion) {
   let offset = saveBlock1Offset;
-  if (gameVersion === "ruby" || gameVersion === "sapphire") {
+  if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
     offset += GEN3_ROAMER_OFFSET_RS;
-  } else if (gameVersion === "emerald") {
+  } else if (gameVersion === 'emerald') {
     offset += GEN3_ROAMER_OFFSET_EMERALD;
-  } else if (gameVersion === "firered" || gameVersion === "leafgreen") {
+  } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
     offset += GEN3_ROAMER_OFFSET_FRLG;
   } else {
     // Defaulting to ruby offset if unknown
@@ -1433,7 +1318,7 @@ export function parseGen3Roamer(
     };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1464,7 +1349,7 @@ export function parseGen3TVBlock(view: DataView, offset: number): Gen3TVShow[] {
     return shows;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1491,17 +1376,10 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
 
     for (const show of shows) {
       // Check if the show is a Mix Record event (21 to 40)
-      if (
-        show.active &&
-        show.kind >= TVGROUP_RECORD_MIX_START &&
-        show.kind <= TVGROUP_RECORD_MIX_END
-      ) {
+      if (show.active && show.kind >= TVGROUP_RECORD_MIX_START && show.kind <= TVGROUP_RECORD_MIX_END) {
         const payloadStart = show.itemOffset + TV_SHOW_PAYLOAD_OFFSET;
         const payload = new Uint8Array(
-          view.buffer.slice(
-            view.byteOffset + payloadStart,
-            view.byteOffset + payloadStart + TV_SHOW_PAYLOAD_LENGTH,
-          ),
+          view.buffer.slice(view.byteOffset + payloadStart, view.byteOffset + payloadStart + TV_SHOW_PAYLOAD_LENGTH),
         );
         mixRecords.push({ kind: show.kind, active: show.active, payload });
       }
@@ -1509,7 +1387,7 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
     return mixRecords;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1537,21 +1415,13 @@ export function parseGen3MixRecords(view: DataView, offset: number) {
  * @returns The amount of Volcanic Ash gathered.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3VolcanicAsh(
-  view: DataView,
-  saveBlock1Offset: number,
-  version: GameVersion,
-): number {
+export function parseGen3VolcanicAsh(view: DataView, saveBlock1Offset: number, version: GameVersion): number {
   try {
-    const varsOffset =
-      version === "emerald" ? GEN3_EMERALD_VARS_OFFSET : GEN3_RS_VARS_OFFSET;
-    return view.getUint16(
-      saveBlock1Offset + varsOffset + GEN3_ASH_VAR_RELATIVE_OFFSET,
-      true,
-    );
+    const varsOffset = version === 'emerald' ? GEN3_EMERALD_VARS_OFFSET : GEN3_RS_VARS_OFFSET;
+    return view.getUint16(saveBlock1Offset + varsOffset + GEN3_ASH_VAR_RELATIVE_OFFSET, true);
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1565,41 +1435,26 @@ export function parseGen3VolcanicAsh(
  * @param offset - The memory offset of the TV Shows block.
  * @returns An object containing swarm details if active, or undefined if no swarm is occurring.
  */
-export function parseGen3ActiveSwarm(
-  view: DataView,
-  offset: number,
-): Gen3ActiveSwarm | undefined {
+export function parseGen3ActiveSwarm(view: DataView, offset: number): Gen3ActiveSwarm | undefined {
   try {
     const shows = parseGen3TVBlock(view, offset);
 
     for (const show of shows) {
       // Check if the show is a Mass Outbreak event and active
       if (show.active && show.kind === TVSHOW_MASS_OUTBREAK) {
-        const speciesId = view.getUint16(
-          show.itemOffset + OUTBREAK_SPECIES_OFFSET,
-          true,
-        );
+        const speciesId = view.getUint16(show.itemOffset + OUTBREAK_SPECIES_OFFSET, true);
         const mapId = view.getUint8(show.itemOffset + OUTBREAK_MAP_NUM_OFFSET);
-        const mapGroup = view.getUint8(
-          show.itemOffset + OUTBREAK_MAP_GROUP_OFFSET,
-        );
-        const daysRemaining = view.getUint16(
-          show.itemOffset + OUTBREAK_DAYS_BEFORE_OFFSET,
-          true,
-        );
+        const mapGroup = view.getUint8(show.itemOffset + OUTBREAK_MAP_GROUP_OFFSET);
+        const daysRemaining = view.getUint16(show.itemOffset + OUTBREAK_DAYS_BEFORE_OFFSET, true);
         const moves: [number, number, number, number] = [
           view.getUint16(show.itemOffset + OUTBREAK_MOVES_OFFSET, true),
           view.getUint16(show.itemOffset + OUTBREAK_MOVE_2_OFFSET, true),
           view.getUint16(show.itemOffset + OUTBREAK_MOVE_3_OFFSET, true),
           view.getUint16(show.itemOffset + OUTBREAK_MOVE_4_OFFSET, true),
         ];
-        const probability = view.getUint8(
-          show.itemOffset + OUTBREAK_PROBABILITY_OFFSET,
-        );
+        const probability = view.getUint8(show.itemOffset + OUTBREAK_PROBABILITY_OFFSET);
         const level = view.getUint8(show.itemOffset + OUTBREAK_LEVEL_OFFSET);
-        const language = view.getUint8(
-          show.itemOffset + OUTBREAK_LANGUAGE_OFFSET,
-        );
+        const language = view.getUint8(show.itemOffset + OUTBREAK_LANGUAGE_OFFSET);
 
         // We only extract the first active swarm we find
         return {
@@ -1617,7 +1472,7 @@ export function parseGen3ActiveSwarm(
     return undefined;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1648,7 +1503,7 @@ export function parseGen3ConditionStats(view: DataView, offset: number) {
     return { cool, beauty, cute, smart, tough, sheen };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1673,16 +1528,13 @@ export function parseGen3ConditionStats(view: DataView, offset: number) {
  * @returns The 16-bit unsigned integer representing the Mirage Island value.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3MirageIslandValue(
-  view: DataView,
-  offset: number,
-): number {
+export function parseGen3MirageIslandValue(view: DataView, offset: number): number {
   try {
     // Read the 16-bit little-endian value using the DataView API
     return view.getUint16(offset, true);
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1713,7 +1565,7 @@ export function parseGen3SecretBases(
   gameVersion: GameVersion,
 ): Gen3SecretBase[] {
   let baseOffset = saveBlock1Offset;
-  if (gameVersion === "emerald") {
+  if (gameVersion === 'emerald') {
     baseOffset += SECRET_BASE_OFFSET_EMERALD;
   } else {
     baseOffset += SECRET_BASE_OFFSET_RS; // Defaulting to RS offset for ruby/sapphire and unknown since FRLG doesn't use secret bases in the same way.
@@ -1731,7 +1583,7 @@ export function parseGen3SecretBases(
     return secretBases;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1763,10 +1615,7 @@ export function parseGen3SecretBases(
  * @returns The fully constructed SaveData object.
  * @throws {Error} If the save file is corrupted, incomplete, or out-of-bounds reads occur.
  */
-export function parseGen3TrainerId(
-  view: DataView,
-  section0Offset: number,
-): { trainerId: number; secretId: number } {
+export function parseGen3TrainerId(view: DataView, section0Offset: number): { trainerId: number; secretId: number } {
   try {
     const val = view.getUint32(section0Offset + GEN3_TRAINER_ID_OFFSET, true);
     const trainerId = val & LOWER_16_BIT_MASK;
@@ -1774,7 +1623,7 @@ export function parseGen3TrainerId(
     return { trainerId, secretId };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1789,10 +1638,7 @@ export function parseGen3TrainerId(
  * @returns True if all 5 museum paintings exist.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3ContestMaster(
-  view: DataView,
-  section3Offset: number,
-): boolean {
+export function parseGen3ContestMaster(view: DataView, section3Offset: number): boolean {
   try {
     const baseOffset = section3Offset + GEN3_CONTEST_WINNERS_RELATIVE_OFFSET;
 
@@ -1801,10 +1647,7 @@ export function parseGen3ContestMaster(
       const offset = baseOffset + winnerIndex * CONTEST_WINNER_STRUCT_SIZE;
 
       // Check if the species field is non-zero
-      const species = view.getUint16(
-        offset + CONTEST_WINNER_SPECIES_OFFSET,
-        true,
-      );
+      const species = view.getUint16(offset + CONTEST_WINNER_SPECIES_OFFSET, true);
       if (species === 0) {
         return false;
       }
@@ -1813,7 +1656,7 @@ export function parseGen3ContestMaster(
     return true;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -1836,23 +1679,20 @@ export function parseGen3ContestMaster(
  * @returns The structured Gen3SaveData object containing all parsed player progress.
  * @throws RangeError if the file bounds are exceeded during the initial block scan.
  */
-export function parseGen3(
-  view: DataView,
-  _forcedVersion?: GameVersion,
-): Gen3SaveData {
+export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3SaveData {
   try {
     let section2Offset: number;
     try {
       section2Offset = getLatestSectionOffset(view, 2);
     } catch {
-      throw new RangeError("Out of bounds during block scan");
+      throw new RangeError('Out of bounds during block scan');
     }
 
     let section1Offset: number;
     try {
       section1Offset = getLatestSectionOffset(view, 1);
     } catch {
-      throw new RangeError("Out of bounds during block scan");
+      throw new RangeError('Out of bounds during block scan');
     }
 
     let section0Offset: number;
@@ -1861,7 +1701,7 @@ export function parseGen3(
       section0Offset = getLatestSectionOffset(view, 0);
       gameVersion = _forcedVersion || extractGen3GameVersion(view, section0Offset);
     } catch {
-      throw new RangeError("Out of bounds during block scan");
+      throw new RangeError('Out of bounds during block scan');
     }
 
     let section3Offset: number;
@@ -1872,77 +1712,39 @@ export function parseGen3(
       section3Offset = -1;
     }
 
-    const gen3BerryPatches = parseGen3BerryTrees(view, section1Offset).map(
-      (t, index) => ({
-        ...t,
-        growthStopped: !!t.growthStopped,
-        isWateredStage1: !!t.isWateredStage1,
-        isWateredStage2: !!t.isWateredStage2,
-        isWateredStage3: !!t.isWateredStage3,
-        isWateredStage4: !!t.isWateredStage4,
-        locationName: BERRY_TREE_LOCATIONS[index] || "Unknown Location",
-      }),
-    );
-    const gen3SecretBases = parseGen3SecretBases(
-      view,
-      section1Offset,
-      gameVersion,
-    );
-    const gen3StaticEncounters = extractGen3StaticEncounterFlags(
-      view,
-      gameVersion,
-      section1Offset,
-    );
+    const gen3BerryPatches = parseGen3BerryTrees(view, section1Offset).map((t, index) => ({
+      ...t,
+      growthStopped: !!t.growthStopped,
+      isWateredStage1: !!t.isWateredStage1,
+      isWateredStage2: !!t.isWateredStage2,
+      isWateredStage3: !!t.isWateredStage3,
+      isWateredStage4: !!t.isWateredStage4,
+      locationName: BERRY_TREE_LOCATIONS[index] || 'Unknown Location',
+    }));
+    const gen3SecretBases = parseGen3SecretBases(view, section1Offset, gameVersion);
+    const gen3StaticEncounters = extractGen3StaticEncounterFlags(view, gameVersion, section1Offset);
 
-    const gen3Pokeblocks = parseGen3Pokeblocks(
-      view,
-      section1Offset,
-      gameVersion,
-    );
+    const gen3Pokeblocks = parseGen3Pokeblocks(view, section1Offset, gameVersion);
     const gen3PokeNews = parseGen3PokeNews(view, section1Offset);
-    const gen3MixRecords = parseGen3MixRecords(
-      view,
-      section1Offset + TV_SHOWS_OFFSET,
-    );
-    const gen3ActiveSwarm = parseGen3ActiveSwarm(
-      view,
-      section1Offset + TV_SHOWS_OFFSET,
-    );
-    const gen3VolcanicAsh = parseGen3VolcanicAsh(
-      view,
-      section1Offset,
-      gameVersion,
-    );
-    let gen3WeatherAnomaly:
-      | import("../gen3/weatherAnomaly/types").Gen3WeatherAnomaly
-      | undefined;
+    const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_OFFSET);
+    const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_OFFSET);
+    const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, gameVersion);
+    let gen3WeatherAnomaly: import('../gen3/weatherAnomaly/types').Gen3WeatherAnomaly | undefined;
     try {
       gen3WeatherAnomaly = extractWeatherAnomaly(view, section1Offset);
     } catch {
       // ignore error
     }
-    const gen3EventItems = parseGen3EventItems(
-      view,
-      section1Offset,
-      gameVersion,
-    );
-    let gen3Daycare: import("./common").Gen3DaycareData | undefined;
+    const gen3EventItems = parseGen3EventItems(view, section1Offset, gameVersion);
+    let gen3Daycare: import('./common').Gen3DaycareData | undefined;
     try {
       gen3Daycare = parseGen3Daycare(view, section1Offset, gameVersion);
     } catch {
       // ignore error
     }
 
-    const narrative = parseGen3NarrativeFlags(
-      view,
-      section1Offset,
-      gameVersion,
-    );
-    const missedItems = parseGen3MissedItemsAndMilestones(
-      view,
-      section1Offset,
-      gameVersion,
-    );
+    const narrative = parseGen3NarrativeFlags(view, section1Offset, gameVersion);
+    const missedItems = parseGen3MissedItemsAndMilestones(view, section1Offset, gameVersion);
 
     const roamingLegendaries = [];
     try {
@@ -1966,30 +1768,16 @@ export function parseGen3(
     const hiddenItemFlags = new Uint8Array(14);
 
     for (let i = 0; i < 14; i++) {
-      const currentByte = view.getUint8(
-        flagsOffset + HIDDEN_ITEM_FLAGS_OFFSET + i,
-      );
-      const nextByte = view.getUint8(
-        flagsOffset + HIDDEN_ITEM_FLAGS_OFFSET + i + 1,
-      );
-      hiddenItemFlags[i] =
-        ((currentByte >> 4) | ((nextByte & NIBBLE_MASK) << 4)) &
-        LOWER_8_BIT_MASK;
+      const currentByte = view.getUint8(flagsOffset + HIDDEN_ITEM_FLAGS_OFFSET + i);
+      const nextByte = view.getUint8(flagsOffset + HIDDEN_ITEM_FLAGS_OFFSET + i + 1);
+      hiddenItemFlags[i] = ((currentByte >> 4) | ((nextByte & NIBBLE_MASK) << 4)) & LOWER_8_BIT_MASK;
     }
 
-    const mirageIslandOffset =
-      gameVersion === "emerald"
-        ? MIRAGE_ISLAND_OFFSET_EMERALD
-        : MIRAGE_ISLAND_OFFSET_RS;
-    const mirageIslandValue = parseGen3MirageIslandValue(
-      view,
-      section2Offset + mirageIslandOffset,
-    );
+    const mirageIslandOffset = gameVersion === 'emerald' ? MIRAGE_ISLAND_OFFSET_EMERALD : MIRAGE_ISLAND_OFFSET_RS;
+    const mirageIslandValue = parseGen3MirageIslandValue(view, section2Offset + mirageIslandOffset);
 
     let gen3BattleFrontierWinStreaks: Gen3BattleFrontierWinStreaks | undefined;
-    let gen3RSBattleTowerWinStreaks:
-      | ReturnType<typeof parseRSBattleTowerWinStreaks>
-      | undefined;
+    let gen3RSBattleTowerWinStreaks: ReturnType<typeof parseRSBattleTowerWinStreaks> | undefined;
     let gen3BattleFrontierSymbols: Gen3BattleFrontierSymbols | undefined;
     let gen3TotalBattlePoints: number | undefined;
     let gen3BattlePoints: number | undefined;
@@ -1997,7 +1785,7 @@ export function parseGen3(
     let gen3NPCTrades: Record<string, boolean> | undefined;
     let gen3FameChecker: Gen3FameCheckerData[] | undefined;
 
-    if (gameVersion === "emerald") {
+    if (gameVersion === 'emerald') {
       try {
         gen3MoveTutors = parseGen3EmeraldMoveTutors(view, section1Offset);
       } catch {
@@ -2008,13 +1796,13 @@ export function parseGen3(
       } catch {
         // Ignored
       }
-    } else if (gameVersion === "ruby" || gameVersion === "sapphire") {
+    } else if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
       try {
         gen3NPCTrades = parseGen3RSENPCTrades(view, section1Offset);
       } catch {
         // Ignored
       }
-    } else if (gameVersion === "firered" || gameVersion === "leafgreen") {
+    } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
       try {
         gen3MoveTutors = parseGen3FRLGMoveTutors(view, section1Offset);
       } catch {
@@ -2032,28 +1820,19 @@ export function parseGen3(
       }
     }
 
-    if (gameVersion === "emerald") {
+    if (gameVersion === 'emerald') {
       try {
-        gen3BattleFrontierWinStreaks = parseGen3BattleFrontierWinStreaks(
-          view,
-          section2Offset,
-        );
+        gen3BattleFrontierWinStreaks = parseGen3BattleFrontierWinStreaks(view, section2Offset);
       } catch {
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
       try {
-        gen3BattleFrontierSymbols = parseGen3BattleFrontierSymbols(
-          view,
-          section1Offset,
-        );
+        gen3BattleFrontierSymbols = parseGen3BattleFrontierSymbols(view, section1Offset);
       } catch {
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
       try {
-        gen3TotalBattlePoints = parseGen3TotalBattlePoints(
-          view,
-          section2Offset,
-        );
+        gen3TotalBattlePoints = parseGen3TotalBattlePoints(view, section2Offset);
       } catch {
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
@@ -2062,22 +1841,15 @@ export function parseGen3(
       } catch {
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
-    } else if (gameVersion === "ruby" || gameVersion === "sapphire") {
+    } else if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
       try {
-        gen3RSBattleTowerWinStreaks = parseRSBattleTowerWinStreaks(
-          view,
-          section0Offset,
-        );
+        gen3RSBattleTowerWinStreaks = parseRSBattleTowerWinStreaks(view, section0Offset);
       } catch {
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
     }
     let gen3FeebasSeed: number | undefined;
-    if (
-      gameVersion === "ruby" ||
-      gameVersion === "sapphire" ||
-      gameVersion === "emerald"
-    ) {
+    if (gameVersion === 'ruby' || gameVersion === 'sapphire' || gameVersion === 'emerald') {
       try {
         gen3FeebasSeed = extractFeebasSeed(view, gameVersion, section1Offset);
       } catch {
@@ -2089,23 +1861,15 @@ export function parseGen3(
     let gen3TrainerRematchFlags: number[] | undefined;
 
     if (
-      gameVersion === "ruby" ||
-      gameVersion === "sapphire" ||
-      gameVersion === "emerald" ||
-      gameVersion === "firered" ||
-      gameVersion === "leafgreen"
+      gameVersion === 'ruby' ||
+      gameVersion === 'sapphire' ||
+      gameVersion === 'emerald' ||
+      gameVersion === 'firered' ||
+      gameVersion === 'leafgreen'
     ) {
       try {
-        gen3TrainerDefeatFlags = parseGen3TrainerDefeatFlags(
-          view,
-          section1Offset,
-          gameVersion,
-        );
-        gen3TrainerRematchFlags = parseGen3TrainerRematchFlags(
-          view,
-          section1Offset,
-          gameVersion,
-        );
+        gen3TrainerDefeatFlags = parseGen3TrainerDefeatFlags(view, section1Offset, gameVersion);
+        gen3TrainerRematchFlags = parseGen3TrainerRematchFlags(view, section1Offset, gameVersion);
       } catch {
         // Ignored
       }
@@ -2113,69 +1877,33 @@ export function parseGen3(
 
     const { trainerId, secretId } = parseGen3TrainerId(view, section0Offset);
     const securityKey = parseGen3SecurityKey(view, section0Offset, gameVersion);
-    const gen3ShoalItems = parseGen3ShoalItems(
-      view,
-      section1Offset,
-      gameVersion,
-      securityKey,
-    );
-    const gen3TMHMs = parseGen3TMHMs(
-      view,
-      section1Offset,
-      gameVersion,
-      securityKey,
-    );
-    const gen3Berries = parseGen3BerryPouch(
-      view,
-      section1Offset,
-      gameVersion,
-      securityKey,
-    );
-    const inventory = parseGen3Inventory(
-      view,
-      section1Offset,
-      gameVersion,
-      securityKey,
-    );
+    const gen3ShoalItems = parseGen3ShoalItems(view, section1Offset, gameVersion, securityKey);
+    const gen3TMHMs = parseGen3TMHMs(view, section1Offset, gameVersion, securityKey);
+    const gen3Berries = parseGen3BerryPouch(view, section1Offset, gameVersion, securityKey);
+    const inventory = parseGen3Inventory(view, section1Offset, gameVersion, securityKey);
 
-    const gen3TMEventFlags = parseGen3TMEventFlags(
-      view,
-      section1Offset,
-      gameVersion,
-    );
-    const gen3MatchCall = parseGen3MatchCall(
-      view,
-      section1Offset,
-      section2Offset,
-      gameVersion,
-    );
+    const gen3TMEventFlags = parseGen3TMEventFlags(view, section1Offset, gameVersion);
+    const gen3MatchCall = parseGen3MatchCall(view, section1Offset, section2Offset, gameVersion);
 
     let gameStatsOffset = GEN3_GAME_STATS_OFFSET_RS;
-    if (gameVersion === "emerald")
-      gameStatsOffset = GEN3_GAME_STATS_OFFSET_EMERALD;
-    else if (gameVersion === "firered" || gameVersion === "leafgreen")
-      gameStatsOffset = GEN3_GAME_STATS_OFFSET_FRLG;
+    if (gameVersion === 'emerald') gameStatsOffset = GEN3_GAME_STATS_OFFSET_EMERALD;
+    else if (gameVersion === 'firered' || gameVersion === 'leafgreen') gameStatsOffset = GEN3_GAME_STATS_OFFSET_FRLG;
 
     let hallOfFameCount = 0;
     try {
       hallOfFameCount = view.getUint32(
-        section1Offset +
-          gameStatsOffset +
-          GAME_STAT_ENTERED_HOF_ID * BYTES_PER_GAME_STAT,
+        section1Offset + gameStatsOffset + GAME_STAT_ENTERED_HOF_ID * BYTES_PER_GAME_STAT,
         true,
       );
     } catch (error) {
       if (error instanceof RangeError) {
-        throw new Error("The save file is corrupted or incomplete.");
+        throw new Error('The save file is corrupted or incomplete.');
       }
       throw error;
     }
 
     const { seen, owned } = parseGen3Pokedex(view, section0Offset);
-    const {
-      missingNational: missingNationalDex,
-      missingHoenn: missingHoennDex,
-    } = extractPokedexGaps(seen, owned);
+    const { missingNational: missingNationalDex, missingHoenn: missingHoennDex } = extractPokedexGaps(seen, owned);
 
     let hoennDexCount = 0;
     for (const id of owned) {
@@ -2195,10 +1923,7 @@ export function parseGen3(
 
     let hasContestMaster = false;
     const version = gameVersion;
-    if (
-      section3Offset !== -1 &&
-      (version === "ruby" || version === "sapphire" || version === "emerald")
-    ) {
+    if (section3Offset !== -1 && (version === 'ruby' || version === 'sapphire' || version === 'emerald')) {
       try {
         hasContestMaster = parseGen3ContestMaster(view, section3Offset);
       } catch {
@@ -2222,12 +1947,9 @@ export function parseGen3(
     try {
       const pcBuffer = parseGen3PCBuffer(view);
       const pcBufferView = new DataView(pcBuffer.buffer);
-      currentBoxCount =
-        pcBufferView.getUint32(PC_BOX_CURRENT_BOX_OFFSET, true) + 1;
+      currentBoxCount = pcBufferView.getUint32(PC_BOX_CURRENT_BOX_OFFSET, true) + 1;
 
-      for (const { speciesId, pcDetail, gen3Spinda } of iterateGen3PCBoxes(
-        pcBufferView,
-      )) {
+      for (const { speciesId, pcDetail, gen3Spinda } of iterateGen3PCBoxes(pcBufferView)) {
         pc.push(speciesId);
         pcDetails.push(pcDetail);
         if (gen3Spinda) {
@@ -2237,10 +1959,9 @@ export function parseGen3(
     } catch (error) {
       if (
         error instanceof RangeError ||
-        (error instanceof Error &&
-          error.message === "The save file is corrupted or incomplete.")
+        (error instanceof Error && error.message === 'The save file is corrupted or incomplete.')
       ) {
-        throw new Error("The save file is corrupted or incomplete.");
+        throw new Error('The save file is corrupted or incomplete.');
       }
       // Ignored, PC data might be missing or corrupt
     }
@@ -2249,11 +1970,7 @@ export function parseGen3(
     const partyDetails: PokemonInstance[] = [];
     const partySpindas: Gen3Spinda[] = [];
 
-    for (const { speciesId, partyDetail, gen3Spinda } of iterateGen3Party(
-      view,
-      section1Offset,
-      gameVersion,
-    )) {
+    for (const { speciesId, partyDetail, gen3Spinda } of iterateGen3Party(view, section1Offset, gameVersion)) {
       party.push(speciesId);
       partyDetails.push(partyDetail);
       if (gen3Spinda) {
@@ -2263,15 +1980,13 @@ export function parseGen3(
 
     for (const p of partyDetails) {
       if (p.personalityValue !== undefined) {
-        p.isMirageIslandKey =
-          (p.personalityValue & 0xffff) === mirageIslandValue;
+        p.isMirageIslandKey = (p.personalityValue & 0xffff) === mirageIslandValue;
       }
     }
 
     for (const p of pcDetails) {
       if (p.personalityValue !== undefined) {
-        p.isMirageIslandKey =
-          (p.personalityValue & 0xffff) === mirageIslandValue;
+        p.isMirageIslandKey = (p.personalityValue & 0xffff) === mirageIslandValue;
       }
     }
 
@@ -2367,11 +2082,7 @@ export function parseGen3(
     }
 
     try {
-      const gen3MysteryGift = parseGen3MysteryGift(
-        view,
-        section1Offset,
-        gameVersion,
-      );
+      const gen3MysteryGift = parseGen3MysteryGift(view, section1Offset, gameVersion);
       result.gen3MysteryGift = gen3MysteryGift;
     } catch {
       // Ignored
@@ -2380,7 +2091,7 @@ export function parseGen3(
     return result;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -2399,16 +2110,13 @@ export function parseGen3(
  * @returns An object containing the 32-bit PV and its lower 16-bits pre-calculated.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3PersonalityValue(
-  view: DataView,
-  offset: number,
-): { pv: number; lower16: number } {
+export function parseGen3PersonalityValue(view: DataView, offset: number): { pv: number; lower16: number } {
   try {
     const pv = view.getUint32(offset, true);
     return { pv, lower16: pv & LOWER_16_BIT_MASK };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -2447,10 +2155,8 @@ export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
     const artist = (bitfield & (1 << RIBBON_ARTIST_BIT)) !== 0;
     const effort = (bitfield & (1 << RIBBON_EFFORT_BIT)) !== 0;
     const battleChampion = (bitfield & (1 << RIBBON_BATTLE_CHAMPION_BIT)) !== 0;
-    const regionalChampion =
-      (bitfield & (1 << RIBBON_REGIONAL_CHAMPION_BIT)) !== 0;
-    const nationalChampion =
-      (bitfield & (1 << RIBBON_NATIONAL_CHAMPION_BIT)) !== 0;
+    const regionalChampion = (bitfield & (1 << RIBBON_REGIONAL_CHAMPION_BIT)) !== 0;
+    const nationalChampion = (bitfield & (1 << RIBBON_NATIONAL_CHAMPION_BIT)) !== 0;
     const country = (bitfield & (1 << RIBBON_COUNTRY_BIT)) !== 0;
     const national = (bitfield & (1 << RIBBON_NATIONAL_BIT)) !== 0;
     const earth = (bitfield & (1 << RIBBON_EARTH_BIT)) !== 0;
@@ -2479,7 +2185,7 @@ export function parseGen3Ribbons(view: DataView, offset: number): Gen3Ribbons {
     };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -2506,18 +2212,13 @@ export function parseGen3PokeNews(view: DataView, saveBlock1Offset: number) {
       const itemOffset = offset + i * POKE_NEWS_SIZE;
       const kind = view.getUint8(itemOffset + POKE_NEWS_KIND_OFFSET);
       const state = view.getUint8(itemOffset + POKE_NEWS_STATE_OFFSET);
-      const dayCountdown = view.getUint16(
-        itemOffset + POKE_NEWS_COUNTDOWN_OFFSET,
-        true,
-      );
+      const dayCountdown = view.getUint16(itemOffset + POKE_NEWS_COUNTDOWN_OFFSET, true);
       news.push({ kind, state, dayCountdown });
     }
     return news;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error(
-        "The save file is corrupted or incomplete: Invalid PokeNews struct.",
-      );
+      throw new Error('The save file is corrupted or incomplete: Invalid PokeNews struct.');
     }
     throw error;
   }
@@ -2537,10 +2238,7 @@ export function parseGen3PokeNews(view: DataView, saveBlock1Offset: number) {
  * @returns An object containing boolean flags for each move tutor.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3EmeraldMoveTutors(
-  view: DataView,
-  saveBlock1Offset: number,
-) {
+export function parseGen3EmeraldMoveTutors(view: DataView, saveBlock1Offset: number) {
   try {
     const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
     const byte1 = view.getUint8(baseOffset + EMERALD_MOVE_TUTOR_BYTE_1_OFFSET);
@@ -2560,7 +2258,7 @@ export function parseGen3EmeraldMoveTutors(
     };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -2582,7 +2280,7 @@ export function parseGen3EmeraldMoveTutors(
  * @returns An object containing boolean statuses for each RSE NPC trade.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export { parseGen3LotteryNumber } from "../gen3/lottery/parser";
+export { parseGen3LotteryNumber } from '../gen3/lottery/parser';
 
 export const GEN3_TM_HM_MOVE_MAP: Record<number, number> = {
   289: 264,
@@ -2663,21 +2361,17 @@ export const GEN3_TM_HM_MOVE_MAP: Record<number, number> = {
  * @param gameVersion - The detected game version (determines the key's exact offset within Section 0).
  * @returns The 32-bit security key (or 0 if Ruby/Sapphire, as they do not use encryption).
  */
-export function parseGen3SecurityKey(
-  view: DataView,
-  section0Offset: number,
-  gameVersion: GameVersion,
-): number {
+export function parseGen3SecurityKey(view: DataView, section0Offset: number, gameVersion: GameVersion): number {
   try {
-    if (gameVersion === "emerald") {
+    if (gameVersion === 'emerald') {
       return view.getUint32(section0Offset + SECURITY_KEY_OFFSET_EMERALD, true);
-    } else if (gameVersion === "firered" || gameVersion === "leafgreen") {
+    } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
       return view.getUint32(section0Offset + SECURITY_KEY_OFFSET_FRLG, true);
     }
     return 0; // Ruby/Sapphire do not use the security key
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -2710,10 +2404,10 @@ export function parseGen3ShoalItems(
   let offset = saveBlock1Offset;
   let size = 0;
 
-  if (gameVersion === "emerald") {
+  if (gameVersion === 'emerald') {
     offset += ITEMS_POCKET_OFFSET_EMERALD;
     size = ITEMS_POCKET_SIZE_EMERALD;
-  } else if (gameVersion === "firered" || gameVersion === "leafgreen") {
+  } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
     offset += ITEMS_POCKET_OFFSET_FRLG;
     size = ITEMS_POCKET_SIZE_FRLG;
   } else {
@@ -2731,10 +2425,7 @@ export function parseGen3ShoalItems(
     for (let i = 0; i < numItems; i++) {
       const itemOffset = offset + i * ITEM_ENTRY_SIZE;
       const itemId = view.getUint16(itemOffset + ITEM_INDEX_OFFSET, true);
-      const maskedQuantity = view.getUint16(
-        itemOffset + ITEM_QUANTITY_OFFSET,
-        true,
-      );
+      const maskedQuantity = view.getUint16(itemOffset + ITEM_QUANTITY_OFFSET, true);
 
       // 0 indicates an empty slot
       if (itemId === 0) continue;
@@ -2751,7 +2442,7 @@ export function parseGen3ShoalItems(
     return shoalItems;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -2766,10 +2457,10 @@ export function parseGen3TMHMs(
   let offset = saveBlock1Offset;
   let size = 0;
 
-  if (gameVersion === "emerald") {
+  if (gameVersion === 'emerald') {
     offset += TM_POCKET_OFFSET_EMERALD;
     size = TM_POCKET_SIZE_EMERALD;
-  } else if (gameVersion === "firered" || gameVersion === "leafgreen") {
+  } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
     offset += TM_POCKET_OFFSET_FRLG;
     size = TM_POCKET_SIZE_FRLG;
   } else {
@@ -2778,8 +2469,7 @@ export function parseGen3TMHMs(
   }
 
   try {
-    const inventory: { itemId: number; quantity: number; moveId: number }[] =
-      [];
+    const inventory: { itemId: number; quantity: number; moveId: number }[] = [];
     const numItems = size / ITEM_ENTRY_SIZE;
 
     // In Gen 3, item quantity is masked with the lower 16 bits of the security key
@@ -2788,10 +2478,7 @@ export function parseGen3TMHMs(
     for (let i = 0; i < numItems; i++) {
       const itemOffset = offset + i * ITEM_ENTRY_SIZE;
       const itemId = view.getUint16(itemOffset + ITEM_INDEX_OFFSET, true);
-      const maskedQuantity = view.getUint16(
-        itemOffset + ITEM_QUANTITY_OFFSET,
-        true,
-      );
+      const maskedQuantity = view.getUint16(itemOffset + ITEM_QUANTITY_OFFSET, true);
 
       // 0 indicates an empty slot
       if (itemId === 0) continue;
@@ -2809,7 +2496,7 @@ export function parseGen3TMHMs(
     return inventory;
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -2829,11 +2516,7 @@ export function parseGen3TMHMs(
  * @param flag - The specific flag ID to query.
  * @returns True if the flag is set (1), false otherwise (0).
  */
-function readEventFlag(
-  view: DataView,
-  baseOffset: number,
-  flag: number,
-): boolean {
+function readEventFlag(view: DataView, baseOffset: number, flag: number): boolean {
   const byteOffset = baseOffset + (flag >> FLAG_BYTE_SHIFT);
   const bitIndex = flag & FLAG_BIT_MASK;
   return !!((view.getUint8(byteOffset) >> bitIndex) & 1);
@@ -2864,154 +2547,54 @@ export function parseGen3TMEventFlags(
     const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
 
     // TMs are unique per version, so we check version context
-    if (
-      gameVersion === "emerald" ||
-      gameVersion === "ruby" ||
-      gameVersion === "sapphire"
-    ) {
+    if (gameVersion === 'emerald' || gameVersion === 'ruby' || gameVersion === 'sapphire') {
       return {
-        TM31_BRICK_BREAK: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_RECEIVED_TM_BRICK_BREAK,
-        ),
-        TM39_ROCK_TOMB: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_RECEIVED_TM_ROCK_TOMB,
-        ),
+        TM31_BRICK_BREAK: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_BRICK_BREAK),
+        TM39_ROCK_TOMB: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_ROCK_TOMB),
         TM08_BULK_UP: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_BULK_UP),
-        TM34_SHOCK_WAVE: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_RECEIVED_TM_SHOCK_WAVE,
-        ),
-        TM50_OVERHEAT: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_RECEIVED_TM_OVERHEAT,
-        ),
+        TM34_SHOCK_WAVE: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_SHOCK_WAVE),
+        TM50_OVERHEAT: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_OVERHEAT),
         TM42_FACADE: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_FACADE),
-        TM40_AERIAL_ACE: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_RECEIVED_TM_AERIAL_ACE,
-        ),
-        TM04_CALM_MIND: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_RECEIVED_TM_CALM_MIND,
-        ),
-        TM03_WATER_PULSE: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_RECEIVED_TM_WATER_PULSE,
-        ),
-        TM24_THUNDERBOLT: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON,
-        ),
+        TM40_AERIAL_ACE: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_AERIAL_ACE),
+        TM04_CALM_MIND: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_CALM_MIND),
+        TM03_WATER_PULSE: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_WATER_PULSE),
+        TM24_THUNDERBOLT: readEventFlag(view, baseOffset, FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON),
         TM27_RETURN: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_RETURN),
-        TM36_SLUDGE_BOMB: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_RECEIVED_TM_SLUDGE_BOMB,
-        ),
+        TM36_SLUDGE_BOMB: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_SLUDGE_BOMB),
         TM05_ROAR: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_ROAR),
-        TM19_GIGA_DRAIN: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_RECEIVED_TM_GIGA_DRAIN,
-        ),
+        TM19_GIGA_DRAIN: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_GIGA_DRAIN),
         TM44_REST: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_REST),
         TM45_ATTRACT: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_ATTRACT),
         TM49_SNATCH: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_SNATCH),
         TM28_DIG: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_DIG),
-        TM09_BULLET_SEED: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_RECEIVED_TM_BULLET_SEED,
-        ),
-        TM10_HIDDEN_POWER: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_RECEIVED_TM_HIDDEN_POWER,
-        ),
+        TM09_BULLET_SEED: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_BULLET_SEED),
+        TM10_HIDDEN_POWER: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_HIDDEN_POWER),
         TM41_TORMENT: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_TORMENT),
         TM46_THIEF: readEventFlag(view, baseOffset, FLAG_RECEIVED_TM_THIEF),
       };
-    } else if (gameVersion === "firered" || gameVersion === "leafgreen") {
+    } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
       return {
-        TM34_SHOCK_WAVE: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM34_FROM_SURGE,
-        ),
-        TM42_FACADE: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM42_AT_MEMORIAL_PILLAR,
-        ),
+        TM34_SHOCK_WAVE: readEventFlag(view, baseOffset, FLAG_GOT_TM34_FROM_SURGE),
+        TM42_FACADE: readEventFlag(view, baseOffset, FLAG_GOT_TM42_AT_MEMORIAL_PILLAR),
         TM28_DIG: readEventFlag(view, baseOffset, FLAG_GOT_TM28_FROM_ROCKET),
-        TM29_PSYCHIC: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM29_FROM_MR_PSYCHIC,
-        ),
-        TM38_FIRE_BLAST: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM38_FROM_BLAINE,
-        ),
-        TM39_ROCK_TOMB: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM39_FROM_BROCK,
-        ),
+        TM29_PSYCHIC: readEventFlag(view, baseOffset, FLAG_GOT_TM29_FROM_MR_PSYCHIC),
+        TM38_FIRE_BLAST: readEventFlag(view, baseOffset, FLAG_GOT_TM38_FROM_BLAINE),
+        TM39_ROCK_TOMB: readEventFlag(view, baseOffset, FLAG_GOT_TM39_FROM_BROCK),
         TM06_TOXIC: readEventFlag(view, baseOffset, FLAG_GOT_TM06_FROM_KOGA),
         TM27_RETURN: readEventFlag(view, baseOffset, FLAG_GOT_TM27),
-        TM19_GIGA_DRAIN: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM19_FROM_ERIKA,
-        ),
-        TM33_REFLECT: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM33_FROM_THIRSTY_GIRL,
-        ),
-        TM20_SAFEGUARD: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM20_FROM_THIRSTY_GIRL,
-        ),
-        TM16_LIGHT_SCREEN: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM16_FROM_THIRSTY_GIRL,
-        ),
-        TM03_WATER_PULSE: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM03_FROM_MISTY,
-        ),
-        TM26_EARTHQUAKE: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM26_FROM_GIOVANNI,
-        ),
-        TM04_CALM_MIND: readEventFlag(
-          view,
-          baseOffset,
-          FLAG_GOT_TM04_FROM_SABRINA,
-        ),
+        TM19_GIGA_DRAIN: readEventFlag(view, baseOffset, FLAG_GOT_TM19_FROM_ERIKA),
+        TM33_REFLECT: readEventFlag(view, baseOffset, FLAG_GOT_TM33_FROM_THIRSTY_GIRL),
+        TM20_SAFEGUARD: readEventFlag(view, baseOffset, FLAG_GOT_TM20_FROM_THIRSTY_GIRL),
+        TM16_LIGHT_SCREEN: readEventFlag(view, baseOffset, FLAG_GOT_TM16_FROM_THIRSTY_GIRL),
+        TM03_WATER_PULSE: readEventFlag(view, baseOffset, FLAG_GOT_TM03_FROM_MISTY),
+        TM26_EARTHQUAKE: readEventFlag(view, baseOffset, FLAG_GOT_TM26_FROM_GIOVANNI),
+        TM04_CALM_MIND: readEventFlag(view, baseOffset, FLAG_GOT_TM04_FROM_SABRINA),
       };
     }
     return {};
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -3031,10 +2614,7 @@ export function parseGen3TMEventFlags(
  * @returns A record mapping NPC trade internal names to a boolean indicating if they have been completed.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3RSENPCTrades(
-  view: DataView,
-  saveBlock1Offset: number,
-): Record<string, boolean> {
+export function parseGen3RSENPCTrades(view: DataView, saveBlock1Offset: number): Record<string, boolean> {
   try {
     const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
 
@@ -3053,7 +2633,7 @@ export function parseGen3RSENPCTrades(
     };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -3071,10 +2651,7 @@ export function parseGen3RSENPCTrades(
  * @returns An object containing boolean statuses for each FRLG NPC trade.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3FRLGNPCTrades(
-  view: DataView,
-  saveBlock1Offset: number,
-): Record<string, boolean> {
+export function parseGen3FRLGNPCTrades(view: DataView, saveBlock1Offset: number): Record<string, boolean> {
   try {
     const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
 
@@ -3098,7 +2675,7 @@ export function parseGen3FRLGNPCTrades(
     };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -3119,10 +2696,7 @@ export function parseGen3FRLGNPCTrades(
  * @returns An object containing boolean statuses for each FRLG move tutor.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3FRLGMoveTutors(
-  view: DataView,
-  saveBlock1Offset: number,
-) {
+export function parseGen3FRLGMoveTutors(view: DataView, saveBlock1Offset: number) {
   try {
     const baseOffset = saveBlock1Offset + GEN3_EVENT_FLAGS_OFFSET;
 
@@ -3155,7 +2729,7 @@ export function parseGen3FRLGMoveTutors(
     };
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
@@ -3166,7 +2740,7 @@ export {
   parseGen3BattleFrontierWinStreaks,
   parseGen3BattlePoints,
   parseGen3TotalBattlePoints,
-} from "../gen3/battleFrontier/parser";
+} from '../gen3/battleFrontier/parser';
 
 /**
  * Parses the met location byte for a Gen 3 Pokémon.
@@ -3181,18 +2755,15 @@ export {
  * @returns The raw byte value representing the met location.
  * @throws Error - "The save file is corrupted or incomplete." on out-of-bounds reads.
  */
-export function parseGen3MetLocation(
-  view: DataView,
-  miscSubstructureOffset: number,
-): number {
+export function parseGen3MetLocation(view: DataView, miscSubstructureOffset: number): number {
   try {
     return view.getUint8(miscSubstructureOffset + MET_LOCATION_OFFSET_IN_M);
   } catch (error) {
     if (error instanceof RangeError) {
-      throw new Error("The save file is corrupted or incomplete.");
+      throw new Error('The save file is corrupted or incomplete.');
     }
     throw error;
   }
 }
 
-export * from "../gen3/trainerFlags/parser";
+export * from '../gen3/trainerFlags/parser';
