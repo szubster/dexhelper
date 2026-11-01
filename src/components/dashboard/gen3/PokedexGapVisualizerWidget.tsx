@@ -1,17 +1,24 @@
 import { useQuery } from '@tanstack/react-query';
-import type React from 'react';
+import React, { useMemo } from 'react';
 import { useGen3DashboardData } from '../../../contexts/Gen3DashboardDataContext';
 import { pokemonListQueryOptions } from '../../../utils/pokemonQueries';
 import { PokedexCard } from '../../PokedexCard';
 import { TacticalHeaderDivider } from '../../TacticalHeaderDivider';
 
-const SimplePokedexGapVisualizer: React.FC<{ missingDex: Set<number> }> = ({ missingDex }) => {
+// ⚡ Bolt: Wrapped in React.memo and replaced O(M * N) array linear search (.find inside missingDex map)
+// with an O(1) indexed Map lookup, transitioning gap item computation from O(M * N) to O(N + M).
+const SimplePokedexGapVisualizer: React.FC<{ missingDex: Set<number> }> = React.memo(({ missingDex }) => {
   const { data: pokemonList } = useQuery(pokemonListQueryOptions);
 
-  if (!pokemonList) return null;
+  const pokemonMap = useMemo(() => {
+    if (!pokemonList) return null;
+    return new Map(pokemonList.map((p) => [p.id, p]));
+  }, [pokemonList]);
+
+  if (!pokemonList || !pokemonMap) return null;
 
   const dexItems = Array.from(missingDex)
-    .map((id) => pokemonList.find((p) => p.id === id))
+    .map((id) => pokemonMap.get(id))
     .filter((p): p is NonNullable<typeof p> => p !== undefined);
 
   if (dexItems.length === 0) return null;
@@ -35,9 +42,10 @@ const SimplePokedexGapVisualizer: React.FC<{ missingDex: Set<number> }> = ({ mis
       ))}
     </div>
   );
-};
+});
 
-export const PokedexGapVisualizerWidget: React.FC = () => {
+// ⚡ Bolt: Wrapped in React.memo to prevent unnecessary re-renders when parent dashboard states update without gap data changing.
+export const PokedexGapVisualizerWidget: React.FC = React.memo(() => {
   const { missingNational, missingHoenn } = useGen3DashboardData();
 
   if (missingNational.size === 0 && missingHoenn.size === 0) {
@@ -65,4 +73,4 @@ export const PokedexGapVisualizerWidget: React.FC = () => {
       </div>
     </div>
   );
-};
+});
