@@ -10,8 +10,9 @@ test.describe('Rematch Dashboard Routing', () => {
     // we use page.goto with a relative path as explicitly requested
     await page.goto('./rematch');
 
-    // Check for unique RematchDashboard elements
+    // Wait for the components to render and verify they are correctly initialized to get good codecov hit tracking
     await expect(page.locator('h1').filter({ hasText: '[REMATCH_DASHBOARD]' })).toBeVisible();
     await expect(page.locator('h2').filter({ hasText: '[AVAILABLE_REMATCHES]' })).toBeVisible();
+    await expect(page.locator('h2').filter({ hasText: '[LOCATION_DATA]' })).toBeVisible();
   });
 });
