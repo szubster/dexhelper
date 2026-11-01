@@ -16,7 +16,7 @@ export function Gen2RoomDecorationDashboard({
 
   return (
     <div className="tactical-panel flex flex-col gap-6 p-6">
-      <h2 className="tactical-text mb-4 border-zinc-700 border-b border-dashed pb-2 font-bold text-xl">
+      <h2 className="tactical-text mb-4 border-b border-dashed border-zinc-700 pb-2 text-xl font-bold">
         Room Decorations
       </h2>
 
@@ -41,7 +41,7 @@ function DecorationCategorySection({ name, items }: DecorationCategorySectionPro
 
   return (
     <TacticalCard>
-      <h3 className="tactical-text mb-3 font-semibold text-sm text-zinc-300">{name}</h3>
+      <h3 className="tactical-text mb-3 text-sm font-semibold text-zinc-300">{name}</h3>
       <div className="flex flex-col gap-2">
         {items.map((item) => (
           <DecorationItemCard key={item.id} item={item} />

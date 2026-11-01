@@ -32,7 +32,7 @@ export function MGBACanvas({ romData: _romData }: MGBACanvasProps) {
 
   return (
     <div className="flex flex-col gap-4 font-mono">
-      <div className="relative flex items-center justify-center border border-emerald-500/30 border-dashed bg-black/50 p-2">
+      <div className="relative flex items-center justify-center border border-dashed border-emerald-500/30 bg-black/50 p-2">
         <canvas
           ref={canvasRef}
           width={240}

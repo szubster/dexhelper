@@ -25,8 +25,8 @@ export function SafariBountyBoard() {
   if (!saveData || missingAreas.length === 0) {
     return (
       <TacticalPanel className="flex h-full flex-col p-4" variant="default">
-        <div className="flex items-center justify-between border-zinc-800 border-b border-dashed pb-2">
-          <h2 className="font-bold font-mono text-sm text-white uppercase tracking-tight">BOUNTY BOARD</h2>
+        <div className="flex items-center justify-between border-b border-dashed border-zinc-800 pb-2">
+          <h2 className="font-mono text-sm font-bold tracking-tight text-white uppercase">BOUNTY BOARD</h2>
           <TacticalBadge variant="emerald" dot pulse>
             [ ALL SECURED ]
           </TacticalBadge>
@@ -43,8 +43,8 @@ export function SafariBountyBoard() {
 
   return (
     <TacticalPanel className="flex h-full flex-col p-4" variant="default">
-      <div className="flex items-center justify-between border-zinc-800 border-b border-dashed pb-2">
-        <h2 className="font-bold font-mono text-sm text-white uppercase tracking-tight">BOUNTY BOARD</h2>
+      <div className="flex items-center justify-between border-b border-dashed border-zinc-800 pb-2">
+        <h2 className="font-mono text-sm font-bold tracking-tight text-white uppercase">BOUNTY BOARD</h2>
         <TacticalBadge variant="amber" dot pulse>
           [ {totalMissing} TARGETS ]
         </TacticalBadge>
@@ -57,7 +57,7 @@ export function SafariBountyBoard() {
 
           return (
             <div key={area.name} className="flex flex-col gap-3">
-              <h3 className="font-bold font-mono text-xs text-zinc-400 uppercase tracking-widest">
+              <h3 className="font-mono text-xs font-bold tracking-widest text-zinc-400 uppercase">
                 {area.name} <span className="text-zinc-600">[{encounters.length}]</span>
               </h3>
               <div className="grid grid-cols-2 gap-3">
@@ -77,7 +77,7 @@ export function SafariBountyBoard() {
                           alt={pokemonName}
                           className="h-12 w-12 object-contain"
                         />
-                        <span className="mt-1 truncate font-bold font-mono text-[10px] text-white uppercase">
+                        <span className="mt-1 truncate font-mono text-[10px] font-bold text-white uppercase">
                           {pokemonName}
                         </span>
                         <div className="mt-0.5 flex items-center gap-1 font-mono text-[9px] text-amber-500/80">

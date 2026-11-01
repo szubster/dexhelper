@@ -2,10 +2,10 @@
 id: research-608-712-investigate-text-search-e2e-failure-v3
 type: RESEARCH
 title: Investigate Multi-Box Text Search Engine E2E Failure (v3)
-status: READY
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-20'
-updated_at: '2026-10-20'
+updated_at: '2026-11-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,8 +13,8 @@ parent: story-574-608-multi-box-text-search-engine
 tags:
   - e2e
   - search
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: Spawned to investigate research-608-690 permanent failures
 locks: []
 ---

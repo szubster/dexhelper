@@ -5,7 +5,7 @@ title: Heatmap Wait Time E2E Tests
 status: READY
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - task-558-680-telemetry-extraction-logic
   - task-558-681-telemetry-generator-update
@@ -19,7 +19,7 @@ tags:
   - playwright
   - heatmap
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

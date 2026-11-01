@@ -26,7 +26,7 @@ notes: ''
 ## Objective
 Write E2E tests for player, location, trainer, and opponent extraction.
 
-## Core Technical Requirements
+## Core Acceptance Criteria
 Write Playwright E2E test cases simulating uploading the Gen 3 mock fixture. Assert that the player's active team, location, nearest trainer, and opponent data are correctly extracted and rendered on the UI according to the system specifications.
 
 ## Acceptance Criteria

@@ -2,13 +2,13 @@
 id: task-492-692-pal-park-batch-ui-tests-retry
 type: TASK
 title: Pal Park Batch UI Component Tests (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-15'
 updated_at: '2026-10-31'
 depends_on:
   - task-492-691-pal-park-batch-ui-impl-retry
-jules_session_id: null
+jules_session_id: '11668212488874077242'
 pr_number: null
 parent: story-420-492-pal-park-batch-generation
 tags:

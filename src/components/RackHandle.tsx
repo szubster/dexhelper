@@ -8,7 +8,7 @@ export const RackHandle = React.forwardRef<HTMLDivElement, RackHandleProps>(({ c
     <div
       ref={ref}
       className={cn(
-        'flex w-4 shrink-0 flex-col justify-between border-zinc-700/50 border-r border-dashed pr-2',
+        'flex w-4 shrink-0 flex-col justify-between border-r border-dashed border-zinc-700/50 pr-2',
         className,
       )}
       {...props}

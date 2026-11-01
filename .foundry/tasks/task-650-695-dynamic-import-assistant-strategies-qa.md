@@ -2,10 +2,10 @@
 id: task-650-695-dynamic-import-assistant-strategies-qa
 type: TASK
 title: Dynamic Import Assistant Strategies - QA
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-17T02:22:00.000Z'
-updated_at: '2026-10-22'
+updated_at: '2026-10-31'
 depends_on:
   - task-650-696-dynamic-import-assistant-strategies-tests
   - task-650-694-dynamic-import-assistant-strategies-impl
@@ -27,5 +27,5 @@ locks: []
 Verify that generation-specific Assistant Strategies have been successfully moved behind dynamic imports, minimizing the main bundle size without breaking strategy resolution and generation.
 
 ## Acceptance Criteria
-- [ ] Verify that `gen1Strategy`, `gen2Strategy`, and `gen3Strategy` are dynamically imported and no longer bundled synchronously in the main entrypoints.
-- [ ] Ensure that `pnpm test` and `pnpm lint` pass completely.
+- [x] Verify that `gen1Strategy`, `gen2Strategy`, and `gen3Strategy` are dynamically imported and no longer bundled synchronously in the main entrypoints.
+- [x] Ensure that `pnpm test` and `pnpm lint` pass completely.

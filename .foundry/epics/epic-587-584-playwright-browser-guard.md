@@ -2,12 +2,12 @@
 id: epic-587-584-playwright-browser-guard
 type: EPIC
 title: Playwright Browser Guard Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-17'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '11921483592837910597'
+jules_session_id: null
 pr_number: null
 parent: prd-536-587-playwright-browsers-preinstall-guard
 tags:
@@ -35,5 +35,8 @@ Based on `prd-536-587-playwright-browsers-preinstall-guard`, this Epic covers th
 4. **E2E/Integration Verification:** An integration test must verify this behavior (simulating a missing binary state if possible, or confirming the guard passes when binaries are present).
 
 ## Acceptance Criteria
-- [ ] Break down into Stories.
-- [ ] Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.
+- [ ] story-584-714-playwright-guard-script
+- [ ] story-584-715-playwright-guard-vitest-integration
+- [ ] story-584-716-playwright-guard-e2e-verification
+- [x] Break down into Stories.
+- [x] Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.

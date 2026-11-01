@@ -9,46 +9,47 @@ export interface ReadFileResult {
 }
 
 export async function readFoundryFiles(rootDir: string): Promise<ReadFileResult[]> {
-  const results: ReadFileResult[] = [];
+  const dirResults = await Promise.all(
+    TARGET_DIRS.map(async (dir) => {
+      const fullDirPath = path.join(rootDir, dir);
 
-  for (const dir of TARGET_DIRS) {
-    const fullDirPath = path.join(rootDir, dir);
-
-    try {
-      const stats = await fs.stat(fullDirPath);
-      if (!stats.isDirectory()) {
-        continue;
+      try {
+        const stats = await fs.stat(fullDirPath);
+        if (!stats.isDirectory()) {
+          return [];
+        }
+      } catch {
+        // Directory doesn't exist, skip
+        return [];
       }
-    } catch {
-      // Directory doesn't exist, skip
-      continue;
-    }
 
-    const files = await getMarkdownFiles(fullDirPath);
-    for (const file of files) {
-      const content = await fs.readFile(file, 'utf-8');
-      results.push({
-        filePath: file,
-        content,
-      });
-    }
-  }
+      const files = await getMarkdownFiles(fullDirPath);
+      return Promise.all(
+        files.map(async (file) => ({
+          filePath: file,
+          content: await fs.readFile(file, 'utf-8'),
+        })),
+      );
+    }),
+  );
 
-  return results;
+  return dirResults.flat();
 }
 
 async function getMarkdownFiles(dir: string): Promise<string[]> {
   const entries = await fs.readdir(dir, { withFileTypes: true });
-  const files: string[] = [];
 
-  for (const entry of entries) {
+  const filePromises = entries.map(async (entry) => {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      files.push(...(await getMarkdownFiles(fullPath)));
-    } else if (entry.isFile() && entry.name.endsWith('.md')) {
-      files.push(fullPath);
+      return getMarkdownFiles(fullPath);
     }
-  }
+    if (entry.isFile() && entry.name.endsWith('.md')) {
+      return [fullPath];
+    }
+    return [];
+  });
 
-  return files;
+  const nestedFiles = await Promise.all(filePromises);
+  return nestedFiles.flat();
 }

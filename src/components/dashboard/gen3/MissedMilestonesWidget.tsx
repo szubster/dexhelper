@@ -14,7 +14,7 @@ export const MissedMilestonesWidget: React.FC = () => {
   return (
     <TacticalCard>
       <TacticalHeaderDivider className="mb-4 border-zinc-700">
-        <h2 className="font-bold font-mono text-sm text-zinc-400 tracking-widest">MISSED MILESTONES</h2>
+        <h2 className="font-mono text-sm font-bold tracking-widest text-zinc-400">MISSED MILESTONES</h2>
       </TacticalHeaderDivider>
       <div className="flex flex-col gap-2">
         {missedMasterBall && (

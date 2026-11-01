@@ -2,12 +2,12 @@
 id: research-424-712-investigate-gen3-lottery-e2e-failure-retry
 type: RESEARCH
 title: Investigate Gen3 Lottery E2E Failure (Retry)
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-20'
-updated_at: '2026-10-20'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: null
+jules_session_id: '264053103599043067'
 pr_number: null
 parent: story-133-424-gen3-lottery-e2e-verification
 tags:
