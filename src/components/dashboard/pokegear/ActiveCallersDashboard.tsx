@@ -19,16 +19,16 @@ export function ActiveCallersDashboard({ contacts, timerState }: ActiveCallersDa
     <div className="flex flex-col gap-6">
       <TacticalPanel
         variant="cyan"
-        className="relative mt-4 flex flex-col gap-4 border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6"
+        className="relative mt-4 flex flex-col gap-4 border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6"
       >
         <TelemetryDecoration label="SYS.SIGNAL_INTERCEPT" className="-top-[17px] left-[-1px]" />
 
         <TacticalHeaderDivider>
-          <span className="tactical-text z-10 font-black text-lg text-white">ACTIVE CALLERS MATRIX</span>
+          <span className="tactical-text z-10 text-lg font-black text-white">ACTIVE CALLERS MATRIX</span>
           <div className="z-10 flex items-center gap-2">
             <span className="tactical-text text-[10px] text-zinc-500">[ FREQUENCY_STATUS ]</span>
             <span
-              className={`font-black text-xs tracking-widest ${isCoolingDown ? 'animate-pulse text-amber-500' : 'text-emerald-500'}`}
+              className={`text-xs font-black tracking-widest ${isCoolingDown ? 'animate-pulse text-amber-500' : 'text-emerald-500'}`}
             >
               {isCoolingDown ? 'COOLING_DOWN' : 'ACTIVE'}
             </span>
@@ -40,7 +40,7 @@ export function ActiveCallersDashboard({ contacts, timerState }: ActiveCallersDa
             <div className="relative mb-4 flex h-16 w-16 items-center justify-center">
               <CornerCrosshairs className="h-2 w-2 border-zinc-600/50" thickness={2} />
               <div className="absolute h-8 w-8 animate-ping rounded-full border border-zinc-700 opacity-20"></div>
-              <div className="absolute h-16 w-16 animate-[spin_4s_linear_infinite] rounded-full border-zinc-600 border-t border-r opacity-30"></div>
+              <div className="absolute h-16 w-16 animate-[spin_4s_linear_infinite] rounded-full border-t border-r border-zinc-600 opacity-30"></div>
             </div>
             <span className="tactical-text text-zinc-500">[ SEARCHING_FOR_SIGNALS... ]</span>
           </div>

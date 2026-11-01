@@ -2,12 +2,12 @@
 id: epic-587-707-yaml-parsing-utility
 type: EPIC
 title: Core YAML Parsing Utility Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-18'
-updated_at: '2026-10-28'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '7076501360977388145'
+jules_session_id: null
 pr_number: null
 parent: prd-530-587-strict-frontmatter-yaml-parsing-rule
 tags: []
@@ -28,4 +28,6 @@ Implement a strict, reliable YAML frontmatter parsing utility (e.g., `parseFound
 ## Acceptance Criteria
 - [ ] Implement `parseFoundryNode` utility in `.github/scripts/`.
 - [ ] Ensure parsing correctly isolates YAML frontmatter and avoids scanning the markdown body.
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [ ] story-707-731-implement-yaml-parsing-utility
+- [ ] story-707-732-yaml-parsing-integration-e2e

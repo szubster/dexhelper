@@ -2,7 +2,7 @@
 id: research-537-708-investigate-hydration-failure-retry-v2
 type: RESEARCH
 title: Investigate Gen 3 Berry Runtime State Hydration Failure (Retry V2)
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-20'
 updated_at: '2026-10-30'
@@ -10,8 +10,8 @@ depends_on: []
 jules_session_id: null
 pr_number: null
 parent: story-513-537-gen3-berry-serialization-and-api
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

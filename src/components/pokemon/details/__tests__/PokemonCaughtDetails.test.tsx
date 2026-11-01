@@ -5,9 +5,8 @@ import { useParsedSaveData } from '../../../../contexts/EmulatorContext';
 import type { PokemonInstance } from '../../../../engine/saveParser/index';
 import { PokemonCaughtDetails } from '../PokemonCaughtDetails';
 
-
 vi.mock('../../LazyLoadWrapper', () => ({
-  LazyLoadWrapper: ({ children, fallback, height, width }: any) => (
+  LazyLoadWrapper: ({ children, height, width }: { children?: React.ReactNode; height?: string; width?: string }) => (
     <div data-testid="lazy-load-wrapper" data-height={height} data-width={width}>
       {children}
     </div>

@@ -2,20 +2,20 @@
 id: task-563-705-routes-encounters-data-fetching-v3
 type: TASK
 title: 'Routes, Encounters, and Drop Rates Data Fetching (v3)'
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-11-01'
 depends_on:
   - research-563-704-investigate-routes-encounters-failure-v2
-jules_session_id: null
+jules_session_id: '4424477184406485562'
 pr_number: null
 parent: story-555-563-routes-encounters-drop-rates
 tags:
   - dexhelper
   - data
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

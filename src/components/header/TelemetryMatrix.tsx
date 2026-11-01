@@ -11,7 +11,7 @@ interface TelemetryMatrixProps {
 
 export function TelemetryMatrix({ saveData, progressPercentage }: TelemetryMatrixProps) {
   return (
-    <div className="zoom-in-95 fade-in relative flex animate-in items-center bg-zinc-900/50 p-2 duration-500">
+    <div className="zoom-in-95 fade-in animate-in relative flex items-center bg-zinc-900/50 p-2 duration-500">
       <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-700" />
       <div className="flex flex-col pr-4 pl-2">
         <InlineDataPoint label="TRNR" value={saveData.trainerName || 'UNKNOWN'} />
@@ -47,7 +47,7 @@ export function TelemetryMatrix({ saveData, progressPercentage }: TelemetryMatri
             <RngTidSidDisplay
               tid={saveData.trainerId}
               sid={saveData.secretId ?? 0}
-              className="!p-0 h-full border-none bg-transparent"
+              className="h-full border-none bg-transparent !p-0"
             />
           </div>
         </>

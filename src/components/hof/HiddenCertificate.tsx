@@ -38,12 +38,12 @@ export const HiddenCertificate: React.FC<HiddenCertificateProps> = ({ record, ga
   return (
     <div
       id="hof-certificate-hidden-container"
-      className="pointer-events-none absolute top-0 left-0 -z-50 flex h-[630px] w-[1200px] flex-col rounded-none border-4 border-zinc-700 border-dashed bg-zinc-950 p-12 font-mono text-zinc-100 opacity-0"
+      className="pointer-events-none absolute top-0 left-0 -z-50 flex h-[630px] w-[1200px] flex-col rounded-none border-4 border-dashed border-zinc-700 bg-zinc-950 p-12 font-mono text-zinc-100 opacity-0"
     >
       <HardwareScrews />
 
-      <div className="mb-12 border-zinc-800 border-b-2 border-dashed pb-8 text-center">
-        <h1 className="font-black text-6xl text-[var(--theme-primary)] tracking-widest">HALL OF FAME</h1>
+      <div className="mb-12 border-b-2 border-dashed border-zinc-800 pb-8 text-center">
+        <h1 className="text-6xl font-black tracking-widest text-[var(--theme-primary)]">HALL OF FAME</h1>
         <div className="mt-8 flex items-end justify-between px-12">
           <h2 className="text-4xl">TRAINER: {record.playerName}</h2>
           <h3 className="text-2xl text-zinc-400">VERSION: {gameVersion.toUpperCase()}</h3>
@@ -55,12 +55,12 @@ export const HiddenCertificate: React.FC<HiddenCertificateProps> = ({ record, ga
           <div
             // biome-ignore lint/suspicious/noArrayIndexKey: Safe here since list is static and read-only
             key={idx}
-            className="relative flex flex-col items-center rounded-none border-2 border-zinc-800 border-dashed bg-zinc-900/50 p-6"
+            className="relative flex flex-col items-center rounded-none border-2 border-dashed border-zinc-800 bg-zinc-900/50 p-6"
           >
-            <div className="mb-2 font-bold text-3xl">{pkmn.nickname || `Species ${pkmn.speciesId}`}</div>
+            <div className="mb-2 text-3xl font-bold">{pkmn.nickname || `Species ${pkmn.speciesId}`}</div>
             <div className="mb-4 text-xl text-zinc-400">Lvl {pkmn.level}</div>
 
-            <div className="flex h-32 w-32 items-center justify-center rounded-none border-2 border-zinc-700 border-dashed bg-zinc-950">
+            <div className="flex h-32 w-32 items-center justify-center rounded-none border-2 border-dashed border-zinc-700 bg-zinc-950">
               <span className="text-2xl text-zinc-500">#{pkmn.speciesId}</span>
             </div>
 

@@ -85,16 +85,16 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
 
   return (
     <div className="mt-6 flex flex-col gap-6">
-      <TacticalPanel className="relative flex flex-col gap-4 border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+      <TacticalPanel className="relative flex flex-col gap-4 border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6">
         <TelemetryDecoration label="SYS.GLOBAL_RIBBONS" className="-top-[17px] left-[-1px]" />
         <div className="flex items-center justify-between">
-          <span className="tactical-text z-10 font-black text-lg text-white">GLOBAL RIBBON CHECKLIST</span>
+          <span className="tactical-text z-10 text-lg font-black text-white">GLOBAL RIBBON CHECKLIST</span>
           <span className="tactical-text z-10 text-xs text-zinc-400">
             MODE: {isLivingDex ? 'LIVING DEX' : 'STANDARD'}
           </span>
         </div>
 
-        <div className="flex flex-col gap-2 border-zinc-800 border-b border-dashed pb-4">
+        <div className="flex flex-col gap-2 border-b border-dashed border-zinc-800 pb-4">
           <span className="tactical-text text-[10px] text-zinc-500">MASTER RANK TRACKING</span>
           <div className="flex gap-2">
             {(['cool', 'beauty', 'cute', 'smart', 'tough'] as const).map((key) => {
@@ -141,7 +141,7 @@ const GlobalRibbonChecklistDashboardContent: React.FC = () => {
                     width: '100%',
                     transform: `translateY(${virtualRow.start}px)`,
                   }}
-                  className="mb-2 flex items-center justify-between border-zinc-800 border-b border-dashed p-2"
+                  className="mb-2 flex items-center justify-between border-b border-dashed border-zinc-800 p-2"
                 >
                   <span className="font-mono text-sm text-white">
                     {pokemon.nickname || `Species ${pokemon.speciesId}`} (Lv {pokemon.level})

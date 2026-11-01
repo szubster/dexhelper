@@ -28,7 +28,7 @@ notes: ''
 ## Objective
 QA verification of the Gen 3 Move Tutor parsing tests.
 
-## Technical Requirements
+## Acceptance Criteria
 1. Verify all Vitest and Playwright tests pass locally.
 2. Check for false positives by purposefully breaking parsing logic and verifying tests fail.
 

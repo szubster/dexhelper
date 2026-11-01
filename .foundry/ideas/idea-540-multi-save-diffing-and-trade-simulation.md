@@ -2,12 +2,12 @@
 id: idea-540-multi-save-diffing-and-trade-simulation
 type: IDEA
 title: Real-Time Multi-Save Diffing Engine and Cross-Save Trade Simulation Pipeline
-status: ACTIVE
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-10-19'
-updated_at: '2026-10-28'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '9686101469478610701'
+jules_session_id: null
 pr_number: null
 parent: null
 tags:
@@ -55,7 +55,8 @@ Architect a dedicated **Real-Time Multi-Save Diffing Engine and Cross-Save Trade
 Significantly enhances DexHelper's multi-save analysis capabilities, unlocks automated trade path generation across concurrent playthroughs, guarantees trade rule compliance before user exports, and addresses critical DX gaps in multi-game living dex completion.
 
 ## Acceptance Criteria
-- [ ] PRD generated specifying the Multi-Save Diffing Matrix and Trade Compatibility Engine.
+- [x] PRD generated specifying the Multi-Save Diffing Matrix and Trade Compatibility Engine.
+- [ ] prd-540-727-multi-save-diffing-and-trade-simulation
 - [ ] Core `MultiSaveDiffEngine` and `TradeSimulator` modules implemented in `src/engine/saveParser/utils/`.
 - [ ] Unit test suite added verifying multi-save set operations, Time Capsule rules, and trade evolution simulation.
 - [ ] Tactical `MultiSaveDiffViewer` component integrated into the application view hierarchy.

@@ -6,8 +6,8 @@ export function FeatureFlagsUI() {
   const { setFlag, resetFlags } = useFeatureFlagActions();
 
   return (
-    <div className="mt-8 border-zinc-800 border-t border-dashed pt-8">
-      <h3 className="mb-4 font-black font-mono text-xs text-zinc-500 tracking-widest">FEATURE.FLAGS</h3>
+    <div className="mt-8 border-t border-dashed border-zinc-800 pt-8">
+      <h3 className="mb-4 font-mono text-xs font-black tracking-widest text-zinc-500">FEATURE.FLAGS</h3>
       <div className="flex flex-col gap-2">
         {Object.entries(flags).map(([key, value]) => (
           <TacticalButton

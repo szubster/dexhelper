@@ -2,12 +2,12 @@
 id: epic-587-694-indexeddb-hydration-integration
 type: EPIC
 title: IndexedDB Hydration & Save Intercept Integration
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-21T07:29:22.000Z'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '1333907728289558652'
+jules_session_id: null
 pr_number: null
 parent: prd-526-587-save-file-schema-migration-framework
 tags:
@@ -33,4 +33,7 @@ Integrate the `SaveSchemaMigrator` core engine directly into DexHelper's `SaveHi
 3. Assure smooth transition preventing runtime undefined exceptions during state hydration.
 
 ## Acceptance Criteria
-- [ ] Break down into Story.
+- [x] Break down into Story.
+- [ ] story-694-714-intercept-file-loading-stamping
+- [ ] story-694-715-indexeddb-retrieval-migrator
+- [ ] story-694-716-indexeddb-hydration-integration-e2e
