@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-01T08:14:49.936Z*
+*Generated at: 2026-11-01T14:56:03.983Z*
 
 ## Node Statistics
 
@@ -19,10 +19,10 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3511 |
-| ACTIVE | 85 |
+| ACTIVE | 92 |
 | CANCELLED | 890 |
-| PENDING | 899 |
-| READY | 79 |
+| PENDING | 897 |
+| READY | 74 |
 | BLOCKED | 14 |
 | FAILED | 9 |
 
@@ -31,9 +31,9 @@
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 94 |
-| Merged PRs | 8797 |
-| Closed PRs | 1109 |
+| Open PRs | 101 |
+| Merged PRs | 8791 |
+| Closed PRs | 1108 |
 
 ## Rejection Counts
 
@@ -130,6 +130,7 @@
 | research-473-598-gen3-match-call-e2e-failure.md | 3 |
 | research-473-611-investigate-condition-stats-parser-failure.md | 3 |
 | research-475-690-gen3-condition-stats-extraction-e2e-failure.md | 3 |
+| research-475-712-gen3-condition-stats-extraction-e2e-failure-retry.md | 3 |
 | research-477-564-investigate-apricorn-offsets-failure.md | 3 |
 | research-477-611-investigate-apricorn-failure-v2.md | 3 |
 | research-478-638-investigate-cloning-logic-failure.md | 3 |
@@ -159,6 +160,7 @@
 | research-579-728-investigate-react-flow-e2e-failure.md | 3 |
 | research-608-673-investigate-text-search-e2e-failure.md | 3 |
 | research-608-690-investigate-text-search-e2e-failure-v2.md | 3 |
+| research-608-712-investigate-text-search-e2e-failure-v3.md | 3 |
 | research-638-712-investigate-constants-extraction-v4-failure.md | 3 |
 | research-639-658-investigate-extract-data-scripts-failure.md | 3 |
 | research-639-668-investigate-primitives-migration-failures.md | 3 |
@@ -418,7 +420,6 @@
 | research-407-676-e2e-failure-investigation.md | 2 |
 | research-472-675-investigate-e2e-tests-failure-v2.md | 2 |
 | research-473-638-investigate-condition-stats-parser-failure-v2.md | 2 |
-| research-475-712-gen3-condition-stats-extraction-e2e-failure-retry.md | 2 |
 | research-478-676-investigate-locking-failure-retry.md | 2 |
 | research-517-668-investigate-orchestrator-generic-prompt-failure.md | 2 |
 | research-519-601-investigate-tracker-refactoring-failure.md | 2 |
@@ -426,13 +427,15 @@
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 2 |
 | research-528-712-investigate-wip-banner-e2e-failure.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
+| research-562-716-investigate-moms-savings-ui-failure-v3.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-563-704-investigate-routes-encounters-failure-v2.md | 2 |
 | research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
-| research-608-712-investigate-text-search-e2e-failure-v3.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
+| research-639-726-investigate-primitives-migration-failures-v5.md | 2 |
+| research-645-721-investigate-dashboard-metrics-e2e-failure-retry-2.md | 2 |
 | story-042-081-preserve-enum-optimizations.md | 2 |
 | story-063-605-mirage-island-unified-state-hydration.md | 2 |
 | story-088-638-client-db-jsonl-loader.md | 2 |
@@ -543,6 +546,7 @@
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
+| task-707-716-impl-validator-parsing.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -809,7 +813,6 @@
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
 | research-561-721-investigate-spinda-ui-failure.md | 1 |
 | research-562-710-investigate-gen2-wild-encounter-extraction-failure-v3.md | 1 |
-| research-562-716-investigate-moms-savings-ui-failure-v3.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
@@ -818,10 +821,8 @@
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
 | research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
-| research-639-726-investigate-primitives-migration-failures-v5.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
-| research-645-721-investigate-dashboard-metrics-e2e-failure-retry-2.md | 1 |
 | story-018-513-orchestrator-test-updates.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
 | story-061-473-mirage-island-engine-e2e.md | 1 |
@@ -997,6 +998,8 @@
 | task-522-529-update-root-package-json.md | 1 |
 | task-522-668-quota-handling-impl.md | 1 |
 | task-522-684-wip-awareness-e2e-agent-tests.md | 1 |
+| task-522-713-wip-awareness-e2e-orchestrator-tests-retry.md | 1 |
+| task-522-713-wip-signaling-e2e-tests-retry.md | 1 |
 | task-524-568-setup-oxlint-rules.md | 1 |
 | task-524-676-living-dex-ghosts-types.md | 1 |
 | task-526-555-safari-zone-layout-qa.md | 1 |
@@ -1089,9 +1092,9 @@
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
+| task-676-729-fuzzer-deadlock-assertions-impl-v3.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
 | task-703-704-orchestrator-badge-injection-impl-retry.md | 1 |
-| task-707-716-impl-validator-parsing.md | 1 |
 
 ## Wait Times
 
@@ -1103,9 +1106,9 @@
 | task-563-643-map-data-qa-v2.md | 92620800000 |
 | task-550-687-generator-architecture-e2e-qa.md | 77414400000 |
 | task-676-702-add-adr-compliance-scripts.md | 77284800000 |
+| task-527-713-safari-zone-area-map-ui-v4.md | 76982400000 |
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76896000000 |
 | story-325-528-safari-zone-bounty-board.md | 76896000000 |
-| task-527-713-safari-zone-area-map-ui-v4.md | 76896000000 |
 | task-550-685-generator-tree-traversals-e2e-impl.md | 76809600000 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 76636800000 |
 | task-528-677-safari-zone-bounty-board-ui.md | 76550400000 |

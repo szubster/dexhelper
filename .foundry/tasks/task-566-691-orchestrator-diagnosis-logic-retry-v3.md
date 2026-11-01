@@ -2,13 +2,13 @@
 id: task-566-691-orchestrator-diagnosis-logic-retry-v3
 type: TASK
 title: Implement Orchestrator Logic for BLOCKED Diagnosis (Retry v3)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-16T20:42:07.420Z'
 updated_at: '2026-11-01'
 depends_on:
   - research-566-690-investigate-orchestrator-diagnosis-failure-v3
-jules_session_id: '3983101092562227677'
+jules_session_id: null
 pr_number: null
 parent: story-552-566-orchestrator-diagnosis-artifact
 tags:
@@ -18,7 +18,7 @@ tags:
   - core
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
