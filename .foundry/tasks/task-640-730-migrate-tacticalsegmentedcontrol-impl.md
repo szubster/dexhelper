@@ -26,8 +26,8 @@ locks: []
 Migrate the `TacticalSegmentedControl` component from the main application into the `@dexhelper/ui` workspace package.
 
 ## Acceptance Criteria
-- [ ] Move `TacticalSegmentedControl` source files to `@dexhelper/ui`.
-- [ ] Update intra-package dependencies to use relative module paths if any.
-- [ ] Update application-level imports to target the `@dexhelper/ui` package.
-- [ ] Ensure components are properly integrated into the application's view hierarchy.
-- [ ] Write/verify unit tests or rendering tests for the component in the workspace package.
+- [x] Move `TacticalSegmentedControl` source files to `@dexhelper/ui`.
+- [x] Update intra-package dependencies to use relative module paths if any.
+- [x] Update application-level imports to target the `@dexhelper/ui` package.
+- [x] Ensure components are properly integrated into the application's view hierarchy.
+- [x] Write/verify unit tests or rendering tests for the component in the workspace package.
