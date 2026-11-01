@@ -2,14 +2,14 @@
 id: task-522-713-wip-signaling-e2e-tests-retry
 type: TASK
 title: Implement E2E Tests for WIP Signaling System (Retry)
-status: READY
+status: ACTIVE
 confidence_score: 100
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-10-29'
+updated_at: '2026-11-01'
 depends_on:
   - research-522-712-investigate-wip-signaling-e2e-failure
-jules_session_id: '7664493583335314017'
+jules_session_id: '14216555257748326626'
 pr_number: null
 parent: story-518-522-wip-signaling-e2e
 tags:
