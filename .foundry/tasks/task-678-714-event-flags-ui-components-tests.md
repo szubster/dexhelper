@@ -30,6 +30,6 @@ locks: []
 Develop unit tests using `vitest-browser-react` to verify the functionality of the Event Flags UI components implemented in `task-678-712-event-flags-ui-components-impl`.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the Gen 3 event flag React components.
-- [ ] Verify that components correctly render truthy and falsy states.
-- [ ] Verify components render correctly according to ADR 008 tactical aesthetics.
+- [x] Write unit tests for the Gen 3 event flag React components.
+- [x] Verify that components correctly render truthy and falsy states.
+- [x] Verify components render correctly according to ADR 008 tactical aesthetics.
