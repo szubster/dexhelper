@@ -30,3 +30,6 @@ Verify the Playwright E2E tests implemented for the Pokerus Spread Planner. Ensu
 ## Acceptance Criteria
 - [ ] Review the implemented E2E tests for accuracy and adherence to Playwright best practices.
 - [ ] Run the E2E tests locally to ensure they pass and verify the required features.
+
+### QA Rejection
+The tests in tests/e2e/pokerus.spec.ts use page.evaluate() to inject states directly into the __store. E2E tests must test the actual UI, and should not be using page.evaluate() to bypass components as described in core policies.

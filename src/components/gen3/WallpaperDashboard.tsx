@@ -16,8 +16,8 @@ export const WallpaperDashboard: React.FC = () => {
 
   return (
     <TacticalPanel className="flex flex-col gap-4 p-4">
-      <div className="flex flex-col gap-1 border-zinc-800 border-b border-dashed pb-2">
-        <h2 className="tactical-text font-bold text-emerald-400 text-lg">PC Box Wallpapers</h2>
+      <div className="flex flex-col gap-1 border-b border-dashed border-zinc-800 pb-2">
+        <h2 className="tactical-text text-lg font-bold text-emerald-400">PC Box Wallpapers</h2>
         <p className="tactical-text text-xs text-zinc-500">
           Unlock custom wallpapers by providing the generated phrases to Walda in Rustboro City. Using placeholder TID{' '}
           {trainerId}.
@@ -34,7 +34,7 @@ export const WallpaperDashboard: React.FC = () => {
               key={theme.name}
               label={theme.name}
               subtitle={
-                <span className="mt-1 inline-block border border-emerald-900/50 border-dashed bg-emerald-950/30 px-1 py-0.5 font-mono text-emerald-300 text-xs tracking-widest">
+                <span className="mt-1 inline-block border border-dashed border-emerald-900/50 bg-emerald-950/30 px-1 py-0.5 font-mono text-xs tracking-widest text-emerald-300">
                   {phrase}
                 </span>
               }

@@ -1,5 +1,5 @@
 import type { Gen3Pokeblock } from '../../../engine/saveParser/gen3/pokeblock/types';
-import type { Gen3SaveData } from '../../../engine/saveParser/parsers/common';
+import { isGen3Save } from '../../../engine/saveParser/parsers/common';
 import { useStore } from '../../../store';
 
 /**
@@ -9,8 +9,8 @@ import { useStore } from '../../../store';
  */
 export function usePokeblocks(): Gen3Pokeblock[] | undefined {
   const saveData = useStore((state) => state.saveData);
-  if (saveData && saveData.generation === 3) {
-    return (saveData as Gen3SaveData).gen3Pokeblocks;
+  if (saveData && isGen3Save(saveData)) {
+    return saveData.gen3Pokeblocks;
   }
   return undefined;
 }

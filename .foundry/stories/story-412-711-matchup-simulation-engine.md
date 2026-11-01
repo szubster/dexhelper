@@ -30,4 +30,10 @@ Build the core matchup simulation engine to calculate type effectiveness, stat a
 - [ ] Implement type effectiveness calculation logic.
 - [ ] Implement stat advantage calculation logic.
 - [ ] Implement moveset coverage analysis.
-- [ ] Break down this Story into modular Tasks for the Coder.
+- [x] Break down this Story into modular Tasks for the Coder.
+- [ ] task-711-734-type-effectiveness-logic
+- [ ] task-711-735-type-effectiveness-qa
+- [ ] task-711-736-stat-advantage-logic
+- [ ] task-711-737-stat-advantage-qa
+- [ ] task-711-738-moveset-coverage-logic
+- [ ] task-711-739-moveset-coverage-qa

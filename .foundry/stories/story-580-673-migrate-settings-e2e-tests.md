@@ -2,7 +2,7 @@
 id: story-580-673-migrate-settings-e2e-tests
 type: STORY
 title: Migrate Settings E2E Tests to COM Pattern
-status: FAILED
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-09'
 updated_at: '2026-10-31'
@@ -14,10 +14,8 @@ tags:
   - testing
   - e2e
   - playwright
-rejection_count: 0
-rejection_reason: >-
-  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
-  TASK nodes
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 60

@@ -22,7 +22,7 @@ export const Gen3MissedItemsDashboard: React.FC = () => {
         icon={<Archive size={12} />}
       />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="flex flex-col gap-2 rounded-none border border-zinc-700 border-dashed p-3">
+        <div className="flex flex-col gap-2 rounded-none border border-dashed border-zinc-700 p-3">
           <DataPoint
             label="Master Ball Status"
             value={
@@ -35,12 +35,12 @@ export const Gen3MissedItemsDashboard: React.FC = () => {
             }
           />
         </div>
-        <div className="flex flex-col gap-2 rounded-none border border-zinc-700 border-dashed p-3">
-          <span className="mb-1 font-bold font-mono text-xs text-zinc-500 uppercase tracking-widest">
+        <div className="flex flex-col gap-2 rounded-none border border-dashed border-zinc-700 p-3">
+          <span className="mb-1 font-mono text-xs font-bold tracking-widest text-zinc-500 uppercase">
             Missed Legendaries
           </span>
           {missedLegendaries.length > 0 ? (
-            <ul className="list-inside list-disc font-mono text-red-400 text-sm">
+            <ul className="list-inside list-disc font-mono text-sm text-red-400">
               {missedLegendaries.map((legendary) => (
                 <li key={legendary}>{legendary}</li>
               ))}

@@ -39,9 +39,9 @@ export const CapacitySegmentedBar = React.memo(function CapacitySegmentedBar({
   }
 
   return (
-    <div className="relative inline-flex items-center gap-2.5 rounded-none border border-zinc-800/80 border-dashed bg-zinc-950/90 px-2 py-1 font-mono text-[9px] shadow-[inset_0_0_10px_rgba(0,0,0,0.8)]">
+    <div className="relative inline-flex items-center gap-2.5 rounded-none border border-dashed border-zinc-800/80 bg-zinc-950/90 px-2 py-1 font-mono text-[9px] shadow-[inset_0_0_10px_rgba(0,0,0,0.8)]">
       {/* Telemetry Tag */}
-      <span className="select-none font-bold text-zinc-500 uppercase tracking-wider">
+      <span className="font-bold tracking-wider text-zinc-500 uppercase select-none">
         <span aria-hidden="true">[</span>SYS.CAP<span aria-hidden="true">]</span>
       </span>
 
@@ -55,7 +55,7 @@ export const CapacitySegmentedBar = React.memo(function CapacitySegmentedBar({
         <span className="font-bold text-zinc-400">
           {current}/{max}
         </span>
-        <span className="font-semibold text-[8px] text-zinc-600">({percentage}%)</span>
+        <span className="text-[8px] font-semibold text-zinc-600">({percentage}%)</span>
         <span className={`h-1.5 w-1.5 rounded-none border border-black ${statusLed}`} aria-hidden="true" />
       </div>
     </div>

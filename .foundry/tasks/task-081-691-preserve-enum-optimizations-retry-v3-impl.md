@@ -26,6 +26,6 @@ locks: []
 Refactor the data generation pipeline (`scripts/generate-pokedata.ts`) and relevant schema types (`src/db/schema.ts`) to use verbose keys (e.g., `method`, `trigger`) as per ADR 015, while ensuring that enum-to-number optimizations for fields like `method` and `trigger` are fully preserved. Address findings from the prerequisite research task `research-081-690-investigate-retry-failure-v2`.
 
 ## Acceptance Criteria
-- [ ] `scripts/generate-pokedata.ts` updated to use verbose keys instead of minified ones (e.g. `method` instead of `m`).
-- [ ] `src/db/schema.ts` updated to reflect verbose keys (`method`, `trigger`) while keeping enum types (number).
-- [ ] Enum-to-number mapping logic (e.g. `ENCOUNTER_METHOD_MAP`, `EVO_TRIGGER_MAP`) is maintained and properly mapped to the new verbose keys.
+- [x] `scripts/generate-pokedata.ts` updated to use verbose keys instead of minified ones (e.g. `method` instead of `m`).
+- [x] `src/db/schema.ts` updated to reflect verbose keys (`method`, `trigger`) while keeping enum types (number).
+- [x] Enum-to-number mapping logic (e.g. `ENCOUNTER_METHOD_MAP`, `EVO_TRIGGER_MAP`) is maintained and properly mapped to the new verbose keys.

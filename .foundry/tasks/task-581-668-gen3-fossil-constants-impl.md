@@ -2,10 +2,10 @@
 id: task-581-668-gen3-fossil-constants-impl
 type: TASK
 title: Implement Gen 3 Fossil Constants
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-08'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,8 +13,8 @@ parent: story-552-581-gen3-fossil-constants
 tags:
   - gen3
   - constants
-rejection_count: 2
-rejection_reason: 'Missing relative flag offsets and bit locations for RSE and FRLG flags as defined in gen3_fossil_revival_offsets.md'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

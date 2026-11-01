@@ -43,6 +43,49 @@ export function generateCatchSuggestions(
   suggestions: Suggestion[],
   localPids: Set<number>,
 ) {
+  // Weather Anomaly detection (Emerald Marine Cave / Terra Cave)
+  if (saveData.generation === 3 && saveData.gen3WeatherAnomaly?.isActive) {
+    const locId = saveData.gen3WeatherAnomaly.locationId;
+    const marineRoutes: Record<number, string> = {
+      0: 'Route 105',
+      1: 'Route 125',
+      2: 'Route 127',
+      3: 'Route 129',
+    };
+    const terraRoutes: Record<number, string> = {
+      4: 'Route 114',
+      5: 'Route 115',
+      6: 'Route 116',
+      7: 'Route 118',
+    };
+
+    const staticEnc = saveData.gen3StaticEncounters;
+    const isKyogreCaught = staticEnc && 'kyogre' in staticEnc && staticEnc.kyogre;
+    const isGroudonCaught = staticEnc && 'groudon' in staticEnc && staticEnc.groudon;
+
+    if (locId in marineRoutes && missingIds.has(382) && !isKyogreCaught) {
+      const routeName = marineRoutes[locId];
+      suggestions.push({
+        id: 'catch-weather-anomaly-382',
+        category: 'Catch',
+        title: 'Weather Anomaly: Kyogre (#382)',
+        description: `Heavy rainfall detected at ${routeName}! Enter Marine Cave to encounter Kyogre.`,
+        pokemonId: 382,
+        priority: 115,
+      });
+    } else if (locId in terraRoutes && missingIds.has(383) && !isGroudonCaught) {
+      const routeName = terraRoutes[locId];
+      suggestions.push({
+        id: 'catch-weather-anomaly-383',
+        category: 'Catch',
+        title: 'Weather Anomaly: Groudon (#383)',
+        description: `Severe drought detected at ${routeName}! Enter Terra Cave to encounter Groudon.`,
+        pokemonId: 383,
+        priority: 115,
+      });
+    }
+  }
+
   // Roaming Legendaries detection (Gen 2 / Gen 3)
   if (saveData.roamingLegendaries && saveData.roamingLegendaries.length > 0) {
     for (let i = 0; i < saveData.roamingLegendaries.length; i++) {
@@ -107,7 +150,7 @@ export function generateCatchSuggestions(
           if (!ed) continue;
           details.push({
             chance: ed.c,
-            method: METHOD_NAMES[ed.m] || 'walk',
+            method: METHOD_NAMES[ed.method] || 'walk',
             minLevel: ed.min,
             maxLevel: ed.max,
             areaId: re.aid,
@@ -179,7 +222,7 @@ export function generateCatchSuggestions(
         if (!ed) continue;
         bestDetails.push({
           chance: ed.c,
-          method: METHOD_NAMES[ed.m] || 'walk',
+          method: METHOD_NAMES[ed.method] || 'walk',
           minLevel: ed.min,
           maxLevel: ed.max,
           areaId,
@@ -261,7 +304,7 @@ export function generateCatchSuggestions(
         if (!ed) continue;
         bestDetails.push({
           chance: ed.c,
-          method: METHOD_NAMES[ed.m] || 'walk',
+          method: METHOD_NAMES[ed.method] || 'walk',
           minLevel: ed.min,
           maxLevel: ed.max,
           areaId,

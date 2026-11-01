@@ -79,8 +79,8 @@ function ProcurementStrategy({
 
         <div className="relative z-10 flex flex-col gap-2">
           <DataLabel>STATUS REPORT</DataLabel>
-          <div className="border border-red-500/30 border-dashed bg-zinc-950/80 p-3">
-            <div className="font-bold text-sm text-zinc-300 leading-relaxed">
+          <div className="border border-dashed border-red-500/30 bg-zinc-950/80 p-3">
+            <div className="text-sm leading-relaxed font-bold text-zinc-300">
               Species missing from Living Dex. Priority retrieval recommended via
               {evoReq ? (
                 <>
@@ -147,8 +147,8 @@ function EvolutionFrom({
 
         <div className="relative z-10 flex flex-1 flex-col gap-2">
           <DataLabel>PRE_EVOLUTION_LINK</DataLabel>
-          <div className="flex flex-1 flex-col justify-center border border-purple-500/30 border-dashed bg-zinc-950/80 p-3">
-            <div className="mb-2 font-bold text-sm text-zinc-300 leading-relaxed">
+          <div className="flex flex-1 flex-col justify-center border border-dashed border-purple-500/30 bg-zinc-950/80 p-3">
+            <div className="mb-2 text-sm leading-relaxed font-bold text-zinc-300">
               <InlineLink
                 aria-label={`Navigate to ${evoReq.fromName} details`}
                 onClick={() => onNavigate(evoReq.fromId, evoReq.fromName)}
@@ -158,12 +158,12 @@ function EvolutionFrom({
                 [ {evoReq.fromName.toUpperCase()} ]
               </InlineLink>
             </div>
-            <div className="font-black text-[10px] text-purple-400/60 uppercase">METHOD: {evoReq.method}</div>
-            <div className="mt-4 flex items-center justify-between border-zinc-800 border-t border-dashed pt-2">
+            <div className="text-[10px] font-black text-purple-400/60 uppercase">METHOD: {evoReq.method}</div>
+            <div className="mt-4 flex items-center justify-between border-t border-dashed border-zinc-800 pt-2">
               <DataLabel>ASSET_STATUS</DataLabel>
               <div
                 className={cn(
-                  'relative z-10 inline-flex items-center gap-2 rounded-none border border-dashed px-2 py-1 font-black text-[9px] uppercase tracking-widest',
+                  'relative z-10 inline-flex items-center gap-2 rounded-none border border-dashed px-2 py-1 text-[9px] font-black tracking-widest uppercase',
                   hasPreEvo
                     ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-500'
                     : 'border-red-500/30 bg-red-500/10 text-red-500',
@@ -208,19 +208,19 @@ function EvolutionTo({
             {evolvesTo.map((evo) => (
               <div
                 key={evo.id}
-                className="relative flex flex-col gap-1.5 border border-zinc-800 border-dashed bg-zinc-950/80 p-2 transition-colors hover:border-blue-500/40"
+                className="relative flex flex-col gap-1.5 border border-dashed border-zinc-800 bg-zinc-950/80 p-2 transition-colors hover:border-blue-500/40"
               >
                 <div className="flex items-center justify-between">
                   <InlineLink
                     aria-label={`Navigate to ${evo.name} details`}
                     onClick={() => onNavigate(evo.id, evo.name)}
                     variant="blue"
-                    className="font-bold font-mono text-blue-400 text-sm tracking-tight"
+                    className="font-mono text-sm font-bold tracking-tight text-blue-400"
                   >
                     [ {evo.name.toUpperCase()} ]
                   </InlineLink>
                 </div>
-                <div className="border border-blue-500/20 bg-blue-500/10 px-2 py-1 font-black font-mono text-[9px] text-blue-400 uppercase">
+                <div className="border border-blue-500/20 bg-blue-500/10 px-2 py-1 font-mono text-[9px] font-black text-blue-400 uppercase">
                   VIA {evo.method}
                 </div>
               </div>
@@ -258,7 +258,7 @@ function BreedingProtocol({
         <div className="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="flex flex-col gap-2">
             <DataLabel>CROSS_REFERENCE</DataLabel>
-            <div className="flex flex-wrap gap-2 border border-pink-500/30 border-dashed bg-zinc-950/80 p-3">
+            <div className="flex flex-wrap gap-2 border border-dashed border-pink-500/30 bg-zinc-950/80 p-3">
               {breedingInfo.parentNames.map((name: string, i: number) => (
                 <React.Fragment key={name}>
                   <InlineLink
@@ -278,7 +278,7 @@ function BreedingProtocol({
           </div>
           <div className="flex flex-col gap-2">
             <DataLabel>METHODOLOGY</DataLabel>
-            <div className="relative z-10 rounded-none border border-pink-500/30 border-dashed bg-pink-500/10 p-3 font-black text-[10px] text-pink-400 uppercase leading-relaxed tracking-widest">
+            <div className="relative z-10 rounded-none border border-dashed border-pink-500/30 bg-pink-500/10 p-3 text-[10px] leading-relaxed font-black tracking-widest text-pink-400 uppercase">
               {breedingInfo.method}
             </div>
           </div>

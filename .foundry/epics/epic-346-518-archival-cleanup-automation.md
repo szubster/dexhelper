@@ -2,13 +2,13 @@
 id: epic-346-518-archival-cleanup-automation
 type: EPIC
 title: Archival Cleanup Automation
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-02'
-updated_at: '2026-10-26'
+updated_at: '2026-10-31'
 depends_on:
   - epic-346-517-archival-cleanup-core-engine
-jules_session_id: '4856740333724423029'
+jules_session_id: null
 pr_number: null
 parent: prd-152-346-archival-cleanup-policy
 tags:
@@ -35,4 +35,7 @@ Establish the automated workflow and persona ownership for the Archival Cleanup 
 ## Acceptance Criteria
 - [ ] Create the GitHub Actions cron job workflow for periodic cleanup.
 - [ ] Configure the workflow to run under the correct persona (`librarian` or `archivist`).
-- [ ] Ensure EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Ensure EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-518-728-archivist-persona-definition
+- [ ] story-518-729-archival-cleanup-cron-workflow
+- [ ] story-518-730-archival-cleanup-automation-e2e

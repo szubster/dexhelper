@@ -16,7 +16,7 @@ export const PalParkBatch: React.FC<PalParkBatchProps> = ({ batch, batchIndex, c
   return (
     <TacticalPanel className={cn('mb-4 p-4', className)} variant="default">
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="font-bold font-mono text-sm text-zinc-300 uppercase tracking-widest">
+        <h3 className="font-mono text-sm font-bold tracking-widest text-zinc-300 uppercase">
           Batch {batchIndex + 1} <span className="text-zinc-500">[{batch.length}/6]</span>
         </h3>
       </div>
@@ -38,7 +38,7 @@ export const PalParkBatch: React.FC<PalParkBatchProps> = ({ batch, batchIndex, c
             </div>
 
             <div className="flex w-full flex-col items-center gap-1">
-              <span className="font-bold font-mono text-xs text-zinc-200">
+              <span className="font-mono text-xs font-bold text-zinc-200">
                 {p.pokemon.nickname || p.pokemon.otName || '???'}
               </span>
               <div className="mt-1 flex gap-2">
@@ -56,7 +56,7 @@ export const PalParkBatch: React.FC<PalParkBatchProps> = ({ batch, batchIndex, c
           <div
             // biome-ignore lint/suspicious/noArrayIndexKey: Empty filler slots do not have unique IDs
             key={`empty-${i}`}
-            className="flex h-[120px] items-center justify-center rounded-none border border-zinc-800 border-dashed bg-zinc-900/30 opacity-50"
+            className="flex h-[120px] items-center justify-center rounded-none border border-dashed border-zinc-800 bg-zinc-900/30 opacity-50"
           >
             <span className="font-mono text-xs text-zinc-600">EMPTY SLOT</span>
           </div>

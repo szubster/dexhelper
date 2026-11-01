@@ -28,7 +28,7 @@ notes: ''
 ## Objective
 Implement Playwright E2E tests for the Gen 3 Move Tutor UI representation.
 
-## Technical Requirements
+## Acceptance Criteria
 1. Use `@playwright/test` to navigate the UI with mocked parsed data.
 2. Verify that Move Tutor components render correctly when successful data is provided.
 3. Test graceful UI handling when extraction fails (e.g., displaying an error message or empty state instead of crashing).

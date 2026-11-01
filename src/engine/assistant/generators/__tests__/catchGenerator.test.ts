@@ -55,7 +55,7 @@ describe('catchGenerator', () => {
 
     for (const tc of testCases) {
       const apiData = {
-        localEncounters: [{ pid: tc.pid, enc: [{ aid: 1, v: 1, d: [{ c: 100, m: 1, min: 25, max: 25 }] }] }],
+        localEncounters: [{ pid: tc.pid, enc: [{ aid: 1, v: 1, d: [{ c: 100, method: 1, min: 25, max: 25 }] }] }],
         localAid: 1,
         missingEncounters: {},
         allLocations: [],
@@ -96,7 +96,7 @@ describe('catchGenerator', () => {
               v: 1,
               d: [
                 null, // null ed
-                { c: 10, m: 999, min: 2, max: 5, t: 1 }, // unknown method 999 -> fallback 'walk'
+                { c: 10, method: 999, min: 2, max: 5, t: 1 }, // unknown method 999 -> fallback 'walk'
               ],
             },
           ],
@@ -144,8 +144,8 @@ describe('catchGenerator', () => {
         {
           pid: 1,
           enc: [
-            { aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }, // Wrong aid
-            { aid: 1, v: 2, d: [{ c: 10, m: 1, min: 2, max: 5 }] }, // Wrong version
+            { aid: 2, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }, // Wrong aid
+            { aid: 1, v: 2, d: [{ c: 10, method: 1, min: 2, max: 5 }] }, // Wrong version
           ],
         },
       ],
@@ -226,9 +226,9 @@ describe('catchGenerator', () => {
       localEncounters: [],
       localAid: undefined,
       missingEncounters: {
-        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
-        2: { enc: [{ aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
-        3: { enc: [{ aid: 3, v: 1, d: [{ c: 10, m: 999, min: 2, max: 5 }] }] },
+        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] },
+        2: { enc: [{ aid: 2, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] },
+        3: { enc: [{ aid: 3, v: 1, d: [{ c: 10, method: 999, min: 2, max: 5 }] }] },
       },
       allLocations: [],
     } as unknown as AssistantApiData;
@@ -277,8 +277,8 @@ describe('catchGenerator', () => {
       localEncounters: [],
       localAid: undefined,
       missingEncounters: {
-        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
-        2: { enc: [{ aid: 3, v: 2, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] }, // wrong version
+        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] },
+        2: { enc: [{ aid: 3, v: 2, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] }, // wrong version
       },
       allLocations: [],
     } as unknown as AssistantApiData;
@@ -380,6 +380,102 @@ describe('catchGenerator', () => {
     expect(suggestionsGen3[0]?.description).toContain('Shadow Tag');
   });
 
+  it('should generate high-priority suggestions for Emerald weather anomaly Marine Cave (Kyogre #382) and Terra Cave (Groudon #383)', () => {
+    const apiData = {
+      localEncounters: [],
+      localAid: undefined,
+      missingEncounters: {},
+      allLocations: [],
+    } as unknown as AssistantApiData;
+
+    const myOtIds = new Set<number>();
+    const missingIds = new Set<number>([382, 383]);
+    const queryTargets = [382, 383];
+
+    // Marine Cave active on Route 105 (locationId 0)
+    const saveDataKyogre = {
+      generation: 3,
+      currentMapId: 1,
+      gen3WeatherAnomaly: { isActive: true, locationId: 0 },
+    } as unknown as SaveData;
+
+    const suggestionsKyogre: Suggestion[] = [];
+    generateCatchSuggestions(
+      apiData,
+      1,
+      myOtIds,
+      missingIds,
+      queryTargets,
+      saveDataKyogre,
+      gen1Strategy,
+      suggestionsKyogre,
+      new Set(),
+    );
+
+    expect(suggestionsKyogre).toHaveLength(1);
+    expect(suggestionsKyogre[0]).toMatchObject({
+      id: 'catch-weather-anomaly-382',
+      category: 'Catch',
+      pokemonId: 382,
+      priority: 115,
+      title: 'Weather Anomaly: Kyogre (#382)',
+    });
+    expect(suggestionsKyogre[0]?.description).toContain('Route 105');
+
+    // Terra Cave active on Route 118 (locationId 7)
+    const saveDataGroudon = {
+      generation: 3,
+      currentMapId: 1,
+      gen3WeatherAnomaly: { isActive: true, locationId: 7 },
+    } as unknown as SaveData;
+
+    const suggestionsGroudon: Suggestion[] = [];
+    generateCatchSuggestions(
+      apiData,
+      1,
+      myOtIds,
+      missingIds,
+      queryTargets,
+      saveDataGroudon,
+      gen1Strategy,
+      suggestionsGroudon,
+      new Set(),
+    );
+
+    expect(suggestionsGroudon).toHaveLength(1);
+    expect(suggestionsGroudon[0]).toMatchObject({
+      id: 'catch-weather-anomaly-383',
+      category: 'Catch',
+      pokemonId: 383,
+      priority: 115,
+      title: 'Weather Anomaly: Groudon (#383)',
+    });
+    expect(suggestionsGroudon[0]?.description).toContain('Route 118');
+
+    // Suppressed when already caught/defeated in gen3StaticEncounters
+    const saveDataCaught = {
+      generation: 3,
+      currentMapId: 1,
+      gen3WeatherAnomaly: { isActive: true, locationId: 0 },
+      gen3StaticEncounters: { kyogre: true },
+    } as unknown as SaveData;
+
+    const suggestionsCaught: Suggestion[] = [];
+    generateCatchSuggestions(
+      apiData,
+      1,
+      myOtIds,
+      missingIds,
+      queryTargets,
+      saveDataCaught,
+      gen1Strategy,
+      suggestionsCaught,
+      new Set(),
+    );
+
+    expect(suggestionsCaught).toHaveLength(0);
+  });
+
   it('should suggest catching a pre-evolution if target is missing and pre-evolution is nearby', () => {
     const apiData = {
       localEncounters: [],
@@ -398,7 +494,7 @@ describe('catchGenerator', () => {
                 v: 1,
                 d: [
                   null, // null ed
-                  { m: 999, c: 10, min: 5, max: 10, t: 1 }, // unknown method 999
+                  { method: 999, c: 10, min: 5, max: 10, t: 1 }, // unknown method 999
                 ],
               },
             ],
@@ -452,13 +548,13 @@ describe('catchGenerator', () => {
       localEncounters: [],
       localAid: null,
       missingEncounters: {
-        5: { enc: [{ aid: 50, v: 1, d: [{ c: 10, m: 1, min: 5, max: 10 }] }] },
+        5: { enc: [{ aid: 50, v: 1, d: [{ c: 10, method: 1, min: 5, max: 10 }] }] },
       },
       ancestralEncounters: {
         5: {
           4: {
             pid: 4,
-            enc: [{ aid: 50, v: 1, d: [{ c: 10, m: 1, min: 5, max: 10 }] }],
+            enc: [{ aid: 50, v: 1, d: [{ c: 10, method: 1, min: 5, max: 10 }] }],
           },
         },
       },

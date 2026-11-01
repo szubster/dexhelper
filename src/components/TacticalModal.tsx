@@ -53,7 +53,7 @@ export const TacticalModal = React.forwardRef<HTMLDivElement, TacticalModalProps
         <div
           aria-hidden="true"
           className={cn(
-            'fade-in absolute inset-0 animate-in bg-black/80 backdrop-blur-sm duration-300',
+            'fade-in animate-in absolute inset-0 bg-black/80 backdrop-blur-sm duration-300',
             backdropClassName,
           )}
           onClick={onClose}
@@ -65,7 +65,7 @@ export const TacticalModal = React.forwardRef<HTMLDivElement, TacticalModalProps
           {...(ariaLabel ? { 'aria-label': ariaLabel } : {})}
           {...(ariaLabelledBy ? { 'aria-labelledby': ariaLabelledBy } : {})}
           {...(ariaDescribedBy ? { 'aria-describedby': ariaDescribedBy } : {})}
-          className={cn('zoom-in-95 relative w-full animate-in shadow-2xl duration-300', dialogClassName)}
+          className={cn('zoom-in-95 animate-in relative w-full shadow-2xl duration-300', dialogClassName)}
         >
           {children}
         </div>

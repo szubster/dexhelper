@@ -17,6 +17,7 @@ rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 100
 ---
 # Story: Update Orchestrator Idempotent Tests
 
