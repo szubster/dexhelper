@@ -16,6 +16,7 @@ import { Route as DagRouteImport } from './routes/dag'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as EmulatorRouteImport } from './routes/emulator'
 import { Route as Gen3DashboardRouteImport } from './routes/gen3-dashboard'
+import { Route as RematchRouteImport } from './routes/rematch'
 import { Route as SafariZoneRouteImport } from './routes/safari-zone'
 import { Route as StorageRouteImport } from './routes/storage'
 import { Route as PokemonPokemonIdRouteImport } from './routes/pokemon.$pokemonId'
@@ -55,6 +56,11 @@ const Gen3DashboardRoute = Gen3DashboardRouteImport.update({
   path: '/gen3-dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RematchRoute = RematchRouteImport.update({
+  id: '/rematch',
+  path: '/rematch',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SafariZoneRoute = SafariZoneRouteImport.update({
   id: '/safari-zone',
   path: '/safari-zone',
@@ -79,6 +85,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/emulator': typeof EmulatorRoute
   '/gen3-dashboard': typeof Gen3DashboardRoute
+  '/rematch': typeof RematchRoute
   '/safari-zone': typeof SafariZoneRoute
   '/storage': typeof StorageRoute
   '/pokemon/$pokemonId': typeof PokemonPokemonIdRoute
@@ -91,6 +98,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/emulator': typeof EmulatorRoute
   '/gen3-dashboard': typeof Gen3DashboardRoute
+  '/rematch': typeof RematchRoute
   '/safari-zone': typeof SafariZoneRoute
   '/storage': typeof StorageRoute
   '/pokemon/$pokemonId': typeof PokemonPokemonIdRoute
@@ -104,6 +112,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/emulator': typeof EmulatorRoute
   '/gen3-dashboard': typeof Gen3DashboardRoute
+  '/rematch': typeof RematchRoute
   '/safari-zone': typeof SafariZoneRoute
   '/storage': typeof StorageRoute
   '/pokemon/$pokemonId': typeof PokemonPokemonIdRoute
@@ -118,6 +127,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/emulator'
     | '/gen3-dashboard'
+    | '/rematch'
     | '/safari-zone'
     | '/storage'
     | '/pokemon/$pokemonId'
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/emulator'
     | '/gen3-dashboard'
+    | '/rematch'
     | '/safari-zone'
     | '/storage'
     | '/pokemon/$pokemonId'
@@ -142,6 +153,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/emulator'
     | '/gen3-dashboard'
+    | '/rematch'
     | '/safari-zone'
     | '/storage'
     | '/pokemon/$pokemonId'
@@ -155,6 +167,7 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   EmulatorRoute: typeof EmulatorRoute
   Gen3DashboardRoute: typeof Gen3DashboardRoute
+  RematchRoute: typeof RematchRoute
   SafariZoneRoute: typeof SafariZoneRoute
   StorageRoute: typeof StorageRoute
   PokemonPokemonIdRoute: typeof PokemonPokemonIdRoute
@@ -211,6 +224,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Gen3DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rematch': {
+      id: '/rematch'
+      path: '/rematch'
+      fullPath: '/rematch'
+      preLoaderRoute: typeof RematchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/safari-zone': {
       id: '/safari-zone'
       path: '/safari-zone'
@@ -243,6 +263,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   EmulatorRoute: EmulatorRoute,
   Gen3DashboardRoute: Gen3DashboardRoute,
+  RematchRoute: RematchRoute,
   SafariZoneRoute: SafariZoneRoute,
   StorageRoute: StorageRoute,
   PokemonPokemonIdRoute: PokemonPokemonIdRoute,

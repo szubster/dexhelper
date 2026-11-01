@@ -17,6 +17,7 @@ export function BottomNav() {
   const isFrontier = location.pathname === '/dashboard';
   const isAnalyzer = location.pathname === '/box-analyzer';
   const isGen3Dashboard = location.pathname === '/gen3-dashboard';
+  const isRematch = location.pathname === '/rematch';
 
   return (
     <nav className="fixed right-0 bottom-0 left-0 z-50 border-t-[8px] border-b-[8px] border-zinc-900 bg-zinc-950 pb-[env(safe-area-inset-bottom,0px)] font-mono shadow-[0_-20px_50px_rgba(0,0,0,0.9)] lg:hidden">
@@ -125,6 +126,17 @@ export function BottomNav() {
                 activeLabel="G3DB"
                 icon={LayoutGrid}
                 isActive={isGen3Dashboard}
+              />
+            </div>
+
+            <div className="h-full min-w-[52px] flex-1">
+              <NavButton
+                to="./rematch"
+                ariaLabel="Rematches"
+                label="RMTCH"
+                activeLabel="RMTCH"
+                icon={Swords}
+                isActive={isRematch}
               />
             </div>
           </>

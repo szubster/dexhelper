@@ -45,6 +45,7 @@ describe('BottomNav', () => {
     await expect.element(page.getByText('DASH')).not.toBeInTheDocument();
     await expect.element(page.getByText('SFRI')).not.toBeInTheDocument();
     await expect.element(page.getByText('G3DB')).not.toBeInTheDocument();
+    await expect.element(page.getByText('RMTCH')).not.toBeInTheDocument();
   });
 
   it('should render DASH button when Gen 2 save data is present', async () => {
@@ -112,6 +113,7 @@ describe('BottomNav', () => {
     await expect.element(getByText('DASH')).toBeInTheDocument();
     await expect.element(getByText('SFRI')).toBeInTheDocument();
     await expect.element(getByText('G3DB')).toBeInTheDocument();
+    await expect.element(getByText('RMTCH')).toBeInTheDocument();
   });
 
   it('should be visible on small (sm) target screens', async () => {
