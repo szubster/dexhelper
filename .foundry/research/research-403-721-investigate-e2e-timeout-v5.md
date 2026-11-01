@@ -33,5 +33,14 @@ The retry task `task-403-674-playwright-e2e-retry-impl-v4` failed permanently. W
 - Document the findings.
 
 ## Acceptance Criteria
-- [ ] Investigate the root cause of the failure of `task-403-674-playwright-e2e-retry-impl-v4`.
-- [ ] Document findings and recommendations in the researcher journal and node body.
+- [x] Investigate the root cause of the failure of `task-403-674-playwright-e2e-retry-impl-v4`.
+- [x] Document findings and recommendations in the researcher journal and node body.
+
+## Findings and Recommendations
+
+### Root Cause Analysis
+The previous retry task `task-403-674-playwright-e2e-retry-impl-v4` failed permanently not due to a Playwright session timeout, but because of repeated `Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK` errors. The coder agent incorrectly stalled the session by asking for user input instead of completing the work autonomously. Furthermore, previous retry tasks were running the full test suite (`xvfb-run -a pnpm test:e2e`) instead of targeting the specific file, leading to the 400-second session timeout initially.
+
+### Recommendations
+1.  **Strict Autonomous Execution**: The replacement retry task `task-403-722-playwright-e2e-retry-impl-v5` must strictly adhere to the No-Ask Policy. The coder must execute the tests autonomously without seeking user feedback or stalling the session.
+2.  **Target Specific Test Files**: When running Playwright E2E tests locally to verify code changes, the coder MUST execute only the affected test files (e.g., `xvfb-run -a pnpm test:e2e tests/e2e/core_data_extraction.spec.ts`) to avoid triggering the 400-second bash session timeout, as explicitly stated in the Core System Policies.
