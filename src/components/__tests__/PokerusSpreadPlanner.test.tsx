@@ -73,8 +73,8 @@ describe('PokerusSpreadPlanner', () => {
 
   it('allows moving pokemon up and down', async () => {
     const party = [
-      createUninfectedPokemon(), // index 0
-      createContagiousPokemon(), // index 1
+      createUninfectedPokemon(), // index 0 (Species 2)
+      createContagiousPokemon(), // index 1 (Species 1)
       null,
       null,
       null,
@@ -82,21 +82,24 @@ describe('PokerusSpreadPlanner', () => {
     ];
     // With contagious at index 1, index 0 is at risk. index 2 is empty.
 
-    const { getByTitle, getByText } = await render(<PokerusSpreadPlanner initialParty={party} />);
+    const { getByRole, getByText } = await render(<PokerusSpreadPlanner initialParty={party} />);
 
-    // Find Move up button for slot 2 (index 1)
-    const moveUpButtons = getByTitle('Move up').elements();
-    expect(moveUpButtons).toHaveLength(1); // Only index 1 has a move up button since index > 0 and has pokemon
+    // Verify accessible name for Move up button of slot 2 (index 1)
+    const moveUpButton = getByRole('button', { name: 'Move Species 1 up' });
+    await expect.element(moveUpButton).toBeInTheDocument();
 
-    // Click it to move contagious to index 0
-    await getByTitle('Move up').click();
+    // Verify accessible name for Move down button of slot 1 (index 0)
+    const moveDownButton = getByRole('button', { name: 'Move Species 2 down' });
+    await expect.element(moveDownButton).toBeInTheDocument();
+
+    // Click move up to swap contagious (Species 1) to index 0
+    await moveUpButton.click();
 
     // After moving contagious to index 0 and uninfected to index 1, the uninfected is still at risk
     await expect.element(getByText('[AT RISK]', { exact: false })).toBeInTheDocument();
 
-    // Move down button check
-    const moveDownButtons = getByTitle('Move down').elements();
-    // Index 0 has a move down button, index 1 has a move down button
-    expect(moveDownButtons).toHaveLength(2);
+    // Verify swapped buttons accessible names
+    await expect.element(getByRole('button', { name: 'Move Species 2 up' })).toBeInTheDocument();
+    await expect.element(getByRole('button', { name: 'Move Species 1 down' })).toBeInTheDocument();
   });
 });
