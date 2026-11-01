@@ -11,3 +11,4 @@ export * from './TacticalIconButton';
 export * from './EdgeLabel';
 export * from './TacticalButton';
 export * from './ScanlineOverlay';
+export * from './TacticalSelect';

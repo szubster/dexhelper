@@ -1,7 +1,7 @@
+import { TacticalSelect } from '@dexhelper/ui';
 import { useQuery } from '@tanstack/react-query';
 import type React from 'react';
 import { useMemo } from 'react';
-import { TacticalSelect } from '../../../components/TacticalSelect';
 import { pokeDB } from '../../../db/PokeDB';
 import { useAvailableEggMoves, useEggMove, useSetEggMove } from '../hooks';
 
