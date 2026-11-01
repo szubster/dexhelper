@@ -40,5 +40,5 @@ With the base UI in place, this task connects the component to the application's
 *   Ensure the component correctly updates when the save state or unlocked wallpapers change.
 
 ## Acceptance Criteria
-- [ ] Connect `WallpaperDashboard` to `trainerId` and phrase generator.
-- [ ] Wire checkboxes to `toggleWallpaperUnlocked` action.
+- [x] Connect `WallpaperDashboard` to `trainerId` and phrase generator.
+- [x] Wire checkboxes to `toggleWallpaperUnlocked` action.
