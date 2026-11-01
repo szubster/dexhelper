@@ -42,6 +42,7 @@ export function DagTree() {
         nodeId={node.id}
         label={node.data.title || node.id}
         status={node.data.status}
+        persona={node.data.owner_persona as string}
         isPermanentFailure={isPermanentFailure}
         rejectionCount={node.data.rejection_count}
         showHeatmap={showHeatmap}
@@ -66,7 +67,7 @@ export function DagTree() {
           type="button"
           onClick={handleExpandAll}
           title="Expand All Nodes"
-          className="focus-visible:tactical-focus rounded-none border border-zinc-700 border-dashed bg-zinc-900 px-3 py-1 font-mono text-sm text-zinc-300 transition-colors hover:bg-zinc-800"
+          className="focus-visible:tactical-focus rounded-none border border-dashed border-zinc-700 bg-zinc-900 px-3 py-1 font-mono text-sm text-zinc-300 transition-colors hover:bg-zinc-800"
         >
           Expand All
         </button>
@@ -74,7 +75,7 @@ export function DagTree() {
           type="button"
           onClick={collapseAll}
           title="Collapse All Nodes"
-          className="focus-visible:tactical-focus rounded-none border border-zinc-700 border-dashed bg-zinc-900 px-3 py-1 font-mono text-sm text-zinc-300 transition-colors hover:bg-zinc-800"
+          className="focus-visible:tactical-focus rounded-none border border-dashed border-zinc-700 bg-zinc-900 px-3 py-1 font-mono text-sm text-zinc-300 transition-colors hover:bg-zinc-800"
         >
           Collapse All
         </button>

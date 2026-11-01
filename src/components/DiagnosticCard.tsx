@@ -15,7 +15,7 @@ interface DiagnosticCardProps {
 
 export function DiagnosticCard({ label, value, subValue, valueClassName }: DiagnosticCardProps) {
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-none border border-zinc-800/80 border-dashed bg-black/40 transition-all duration-500 hover:border-[var(--theme-primary)]/50 hover:bg-zinc-950/60">
+    <div className="group relative flex flex-col overflow-hidden rounded-none border border-dashed border-zinc-800/80 bg-black/40 transition-all duration-500 hover:border-[var(--theme-primary)]/50 hover:bg-zinc-950/60">
       <LcdGrid className="opacity-[0.03] transition-opacity duration-500 group-hover:opacity-[0.08]" />
       <ScanlineOverlay opacityClass="opacity-10" />
       <CornerCrosshairs className="h-2 w-2 border-zinc-700/50 transition-colors duration-500 group-hover:border-[var(--theme-primary)]/80" />
@@ -29,8 +29,8 @@ export function DiagnosticCard({ label, value, subValue, valueClassName }: Diagn
 
       <div className="relative z-10 flex flex-1 flex-col">
         {/* Header Tab */}
-        <div className="flex items-center justify-between border-zinc-800/50 border-b border-dashed bg-zinc-900/50 px-4 py-2 transition-colors duration-500 group-hover:border-[var(--theme-primary)]/30 group-hover:bg-[var(--theme-primary)]/5">
-          <p className="tactical-text font-black text-[9px] text-zinc-500 transition-colors duration-500 group-hover:text-[var(--theme-primary)]">
+        <div className="flex items-center justify-between border-b border-dashed border-zinc-800/50 bg-zinc-900/50 px-4 py-2 transition-colors duration-500 group-hover:border-[var(--theme-primary)]/30 group-hover:bg-[var(--theme-primary)]/5">
+          <p className="tactical-text text-[9px] font-black text-zinc-500 transition-colors duration-500 group-hover:text-[var(--theme-primary)]">
             [ {label} ]
           </p>
           <Terminal
@@ -42,12 +42,12 @@ export function DiagnosticCard({ label, value, subValue, valueClassName }: Diagn
         {/* Value Section */}
         <div className="relative flex flex-1 flex-col justify-end p-4 pl-5">
           <div className="flex items-baseline gap-2">
-            <span className="font-mono text-[var(--theme-primary)] text-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <span className="font-mono text-xl text-[var(--theme-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
               {'>'}
             </span>
             <p
               className={cn(
-                'font-black font-mono text-3xl text-zinc-200 tracking-tighter drop-shadow-[0_0_8px_rgba(255,255,255,0.05)] transition-all duration-300 group-hover:text-white',
+                'font-mono text-3xl font-black tracking-tighter text-zinc-200 drop-shadow-[0_0_8px_rgba(255,255,255,0.05)] transition-all duration-300 group-hover:text-white',
                 valueClassName,
               )}
             >
@@ -57,7 +57,7 @@ export function DiagnosticCard({ label, value, subValue, valueClassName }: Diagn
           </div>
 
           {subValue && (
-            <p className="mt-1 flex items-center gap-2 font-bold font-mono text-[9px] text-zinc-500 uppercase tracking-widest transition-colors duration-500 group-hover:text-zinc-400">
+            <p className="mt-1 flex items-center gap-2 font-mono text-[9px] font-bold tracking-widest text-zinc-500 uppercase transition-colors duration-500 group-hover:text-zinc-400">
               <span className="h-[1px] w-2 bg-zinc-700 transition-colors duration-500 group-hover:bg-[var(--theme-primary)]/50" />
               {subValue}
             </p>

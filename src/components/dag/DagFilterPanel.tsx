@@ -27,25 +27,20 @@ export const DagFilterPanel = React.memo(function DagFilterPanel({
   onToggleHeatmap,
 }: DagFilterPanelProps) {
   return (
-    <div className="absolute top-4 left-4 z-10 flex flex-col gap-4 border border-zinc-800 border-dashed bg-zinc-950/90 p-4 font-mono text-xs text-zinc-400 backdrop-blur-sm">
+    <div className="absolute top-4 left-4 z-10 flex flex-col gap-4 border border-dashed border-zinc-800 bg-zinc-950/90 p-4 font-mono text-xs text-zinc-400 backdrop-blur-sm">
       <TacticalMultiSelectControl
         ariaLabel="Filter by type"
         legendLabel="[ SYSTEM.FILTER_TYPE ]"
+        variant="ghost"
         containerClassName="gap-2 [&>div]:flex-wrap [&>div]:gap-2 [&>div]:border-none [&>button]:border"
         buttonBaseClassName="!border-dashed !border focus-visible:ring-[var(--theme-primary)] px-2 py-1 text-xs"
-        defaultActiveClassName="border-[var(--theme-primary)] text-[var(--theme-primary)] bg-transparent shadow-none"
-        defaultInactiveClassName="border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400"
         selectedValues={activeTypes}
         onValueToggle={(val) => onTypeToggle(val)}
         items={ALL_TYPES.map((type) => ({
           id: type,
           label: type,
           testId: type,
-          activeClassName: 'border-[var(--theme-primary)] text-[var(--theme-primary)] bg-transparent shadow-none',
-          inactiveClassName: 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400',
-          className: activeTypes.has(type)
-            ? 'border-[var(--theme-primary)] text-[var(--theme-primary)] bg-transparent shadow-none flex-none'
-            : 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 flex-none',
+          className: activeTypes.has(type) ? 'flex-none' : 'flex-none',
         }))}
       />
 
@@ -57,33 +52,27 @@ export const DagFilterPanel = React.memo(function DagFilterPanel({
         selectedValues={activeStatuses}
         onValueToggle={(val) => onStatusToggle(val)}
         items={ALL_STATUSES.map((status) => {
-          const isActive = activeStatuses.has(status);
-          let activeColorClass = 'border-[var(--theme-primary)] text-[var(--theme-primary)]';
+          let itemVariant: 'emerald' | 'amber' | 'red' | 'ghost' = 'ghost';
 
-          if (isActive) {
-            switch (status) {
-              case 'COMPLETED':
-                activeColorClass = 'border-emerald-500 text-emerald-500';
-                break;
-              case 'READY':
-                activeColorClass = 'border-amber-500 text-amber-500';
-                break;
-              case 'FAILED':
-              case 'BLOCKED':
-                activeColorClass = 'border-red-500 text-red-500';
-                break;
-            }
+          switch (status) {
+            case 'COMPLETED':
+              itemVariant = 'emerald';
+              break;
+            case 'READY':
+              itemVariant = 'amber';
+              break;
+            case 'FAILED':
+            case 'BLOCKED':
+              itemVariant = 'red';
+              break;
           }
 
           return {
             id: status,
             label: status,
             testId: status,
-            activeClassName: `${activeColorClass} bg-transparent shadow-none`,
-            inactiveClassName: 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400',
-            className: isActive
-              ? `${activeColorClass} bg-transparent shadow-none flex-none`
-              : 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 flex-none',
+            variant: itemVariant,
+            className: 'flex-none',
           };
         })}
       />
@@ -93,7 +82,7 @@ export const DagFilterPanel = React.memo(function DagFilterPanel({
           aria-label="Toggle permanent failures only"
           title="Toggle permanent failures only"
           aria-pressed={showPermanentFailures}
-          className={`!border-dashed border px-2 py-1 text-xs focus-visible:ring-[var(--theme-primary)] ${
+          className={`border !border-dashed px-2 py-1 text-xs focus-visible:ring-[var(--theme-primary)] ${
             showPermanentFailures
               ? 'border-red-500 bg-red-950/20 text-red-500 shadow-none'
               : 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400'
@@ -108,7 +97,7 @@ export const DagFilterPanel = React.memo(function DagFilterPanel({
           aria-label="Toggle heatmap overlay"
           title="Toggle heatmap overlay"
           aria-pressed={showHeatmap}
-          className={`!border-dashed border px-2 py-1 text-xs focus-visible:ring-[var(--theme-primary)] ${
+          className={`border !border-dashed px-2 py-1 text-xs focus-visible:ring-[var(--theme-primary)] ${
             showHeatmap
               ? 'border-amber-500 bg-amber-950/20 text-amber-500 shadow-none'
               : 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400'

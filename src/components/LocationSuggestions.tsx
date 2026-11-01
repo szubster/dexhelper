@@ -73,8 +73,8 @@ export function LocationSuggestions() {
 
   if (selectedLocationId) {
     return (
-      <div className="fade-in slide-in-from-top-1 flex animate-in items-center gap-2 px-4 pb-4">
-        <div className="tactical-text relative flex items-center gap-2 border border-[var(--theme-primary)]/30 border-dashed bg-[var(--theme-primary)]/10 px-4 py-2 font-black text-[10px] text-[var(--theme-primary)]">
+      <div className="fade-in slide-in-from-top-1 animate-in flex items-center gap-2 px-4 pb-4">
+        <div className="tactical-text relative flex items-center gap-2 border border-dashed border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/10 px-4 py-2 text-[10px] font-black text-[var(--theme-primary)]">
           <div className="absolute top-0 left-0 h-full w-1 bg-[var(--theme-primary)]" />
           <CornerCrosshairs
             corners={['top-right', 'bottom-right']}
@@ -102,12 +102,12 @@ export function LocationSuggestions() {
     <div
       role="listbox"
       aria-label="Location suggestions"
-      className="fade-in zoom-in-95 absolute top-full left-0 z-50 mt-2 w-full animate-in border border-white/20 border-dashed bg-zinc-950 shadow-2xl duration-200"
+      className="fade-in zoom-in-95 animate-in absolute top-full left-0 z-50 mt-2 w-full border border-dashed border-white/20 bg-zinc-950 shadow-2xl duration-200"
     >
       <CornerCrosshairs thickness={2} className="h-2 w-2 border-white/40" />
       <ScanlineOverlay opacityClass="opacity-10" />
       <div className="relative z-10 space-y-1 p-2">
-        <div className="tactical-text px-3 py-2 font-black text-[9px] text-zinc-600">[ SCAN RESULTS ]</div>
+        <div className="tactical-text px-3 py-2 text-[9px] font-black text-zinc-600">[ SCAN RESULTS ]</div>
         {suggestions.map((loc) => (
           <button
             type="button"
@@ -128,10 +128,10 @@ export function LocationSuggestions() {
                 <MapPin size={14} />
               </div>
               <div className="min-w-0 flex-1">
-                <div className="font-black font-mono text-[11px] text-white uppercase tracking-wider transition-colors group-hover:text-[var(--theme-primary)]">
+                <div className="font-mono text-[11px] font-black tracking-wider text-white uppercase transition-colors group-hover:text-[var(--theme-primary)]">
                   {loc.n}
                 </div>
-                <div className="tactical-text font-bold text-[9px] text-zinc-500">[{loc.count} DETECTED]</div>
+                <div className="tactical-text text-[9px] font-bold text-zinc-500">[{loc.count} DETECTED]</div>
               </div>
             </div>
           </button>

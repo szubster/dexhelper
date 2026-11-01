@@ -17,6 +17,7 @@ tags:
   - schema
 research_references: []
 rejection_count: 0
+confidence_score: 100
 rejection_reason: ''
 notes: ''
 locks: []
@@ -28,4 +29,4 @@ locks: []
 QA verification for the integration tests of `DRAFT` and `WIP` statuses being parsed by the schema validator.
 
 ## Acceptance Criteria
-- [ ] Verify that integration tests correctly cover schema parsing of `DRAFT` and `WIP` statuses
+- [x] Verify that integration tests correctly cover schema parsing of `DRAFT` and `WIP` statuses

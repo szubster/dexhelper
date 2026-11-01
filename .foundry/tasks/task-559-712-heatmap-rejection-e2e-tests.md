@@ -2,16 +2,16 @@
 id: task-559-712-heatmap-rejection-e2e-tests
 type: TASK
 title: Heatmap Rejection E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on:
   - task-558-680-telemetry-extraction-logic
   - task-558-681-telemetry-generator-update
   - task-558-682-telemetry-extraction-tests
   - task-558-683-telemetry-extraction-qa
-jules_session_id: null
+jules_session_id: '7823504103936201584'
 pr_number: null
 parent: story-534-559-telemetry-data-extraction-e2e
 tags:

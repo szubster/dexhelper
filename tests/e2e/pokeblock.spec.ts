@@ -10,7 +10,7 @@ test.describe('Gen 3 Pokeblocks E2E', () => {
 
     // For an empty array of pokeblocks, the POKÉBLOCKS component won't render
     const pokeblockHeader = page.getByText('POKÉBLOCKS', { exact: true });
-    await expect(pokeblockHeader).toBeHidden();
+    await expect(pokeblockHeader).not.toBeAttached();
   });
 
   test('should parse and display pokeblocks for Ruby/Sapphire', async ({ page }) => {
@@ -31,7 +31,7 @@ test.describe('Gen 3 Pokeblocks E2E', () => {
 
     // FRLG does not have pokeblocks.
     const pokeblockHeader = page.getByText('POKÉBLOCKS', { exact: true });
-    await expect(pokeblockHeader).toBeHidden();
+    await expect(pokeblockHeader).not.toBeAttached();
   });
 
   test('should load save file, display optimizer, calculate recommendation and display results', async ({

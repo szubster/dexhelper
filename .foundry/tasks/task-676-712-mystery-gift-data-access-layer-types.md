@@ -16,6 +16,7 @@ tags:
   - ui
   - state
 rejection_count: 0
+confidence_score: 100
 rejection_reason: ''
 notes: ''
 locks: []
@@ -34,5 +35,5 @@ Define the TypeScript interfaces for the Mystery Gift data access layer (Zustand
 - Ensure the state interface correctly references `Gen3MysteryGift` from `src/engine/saveParser/parsers/common.ts`.
 
 ## Acceptance Criteria
-- [ ] Define `MysteryGiftState` interface
-- [ ] Ensure correct typings
+- [x] Define `MysteryGiftState` interface
+- [x] Ensure correct typings
