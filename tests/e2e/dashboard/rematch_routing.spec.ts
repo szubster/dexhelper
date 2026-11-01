@@ -6,7 +6,8 @@ test.describe('Rematch Dashboard Routing', () => {
     // Navigate and load save data
     await initializeWithSave(page, 'gen3/emerald_post_e4.sav');
 
-    // Just directly navigate to the page since the test expects us to verify navigation to a relative route per playwright best practices
+    // To safely navigate without hardcoding absolute paths that ignore Vite base paths in CI environments,
+    // we use page.goto with a relative path as explicitly requested
     await page.goto('./rematch');
 
     // Check for unique RematchDashboard elements
