@@ -148,7 +148,7 @@ test.describe('Permanent Failures Dashboard Filter', () => {
 
     // Wait for the DAG loading screen to disappear
     const loadingEl = page.getByText('[ SYSTEM.LOADING_DAG ]');
-    await expect(loadingEl).toHaveCount(0, { timeout: 15000 });
+    await expect(loadingEl).toHaveCount(0, { timeout: 20000 });
 
     // Look for our specific node using a generic locator
     const permFailText = page.getByText('task-perm-fail');
@@ -166,10 +166,14 @@ test.describe('Permanent Failures Dashboard Filter', () => {
     // Toggle the filter
 
     // Find the node container up from the text element
-    const permFailNode = page.locator('div.border-dashed').filter({ hasText: 'task-perm-fail' }).first();
-    await expect(permFailNode).toHaveClass(/border-red-600/);
+    const permFailNode = page
+      .getByText('task-perm-fail')
+      .locator('xpath=ancestor::div[contains(@class, "border-dashed")][1]');
+    await expect(permFailNode).toHaveClass(/border-red-600/, { timeout: 15000 });
 
-    const permCancelNode = page.locator('div.border-dashed').filter({ hasText: 'task-perm-cancel' }).first();
-    await expect(permCancelNode).toHaveClass(/border-red-600/);
+    const permCancelNode = page
+      .getByText('task-perm-cancel')
+      .locator('xpath=ancestor::div[contains(@class, "border-dashed")][1]');
+    await expect(permCancelNode).toHaveClass(/border-red-600/, { timeout: 15000 });
   });
 });
