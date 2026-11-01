@@ -34,4 +34,4 @@ Ensure the new UI components for the Thief/Covet optimizer render correctly and 
 - Ensure the tests use `vitest-browser-react` and follow project testing guidelines.
 
 ## Acceptance Criteria
-- [ ] coder: Write component tests for the Thief/Covet optimizer UI.
+- [x] coder: Write component tests for the Thief/Covet optimizer UI.
