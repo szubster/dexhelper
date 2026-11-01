@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-10-31T23:52:29.768Z*
+*Generated at: 2026-11-01T01:33:36.021Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3500 |
-| ACTIVE | 71 |
+| COMPLETED | 3508 |
+| ACTIVE | 79 |
 | CANCELLED | 890 |
-| PENDING | 911 |
-| READY | 94 |
+| PENDING | 904 |
+| READY | 90 |
 | BLOCKED | 14 |
-| FAILED | 7 |
+| FAILED | 2 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 75 |
-| Merged PRs | 8803 |
-| Closed PRs | 1122 |
+| Open PRs | 81 |
+| Merged PRs | 8801 |
+| Closed PRs | 1118 |
 
 ## Rejection Counts
 
@@ -762,6 +762,7 @@
 | idea-538-context-provider-root-wiring-linter.md | 1 |
 | idea-540-multi-save-diffing-and-trade-simulation.md | 1 |
 | idea-540-tree-completeness-and-false-failure-prevention-heuristics.md | 1 |
+| idea-541-tracker-collection-data-integrity-guard.md | 1 |
 | prd-064-035-smart-route-radar.md | 1 |
 | prd-068-038-mirage-island-data-extraction.md | 1 |
 | prd-069-038-mirage-island-predictor.md | 1 |
@@ -778,6 +779,7 @@
 | prd-530-587-strict-frontmatter-yaml-parsing-rule.md | 1 |
 | prd-535-586-false-permanent-failure-detection.md | 1 |
 | prd-540-726-tree-completeness-and-false-failure-prevention-heuristics.md | 1 |
+| prd-540-727-multi-save-diffing-and-trade-simulation.md | 1 |
 | research-047-586-tv-swarm-extraction-failure.md | 1 |
 | research-246-244-gen3-box-parsing.md | 1 |
 | research-338-556-investigate-unown-parsing-timeout.md | 1 |
@@ -793,6 +795,7 @@
 | research-470-558-japanese-gen2-offsets.md | 1 |
 | research-477-506-gen3-mystery-gift-event-flag-offsets.md | 1 |
 | research-478-676-investigate-kurt-apricorn-types-failure.md | 1 |
+| research-478-727-investigate-kurt-apricorn-core-logic-failure-v2.md | 1 |
 | research-479-608-investigate-gen3-pokeblock-e2e-failure.md | 1 |
 | research-494-495-gen3-egg-hatch-fixture.md | 1 |
 | research-513-716-investigate-orchestrator-test-updates-failure.md | 1 |
@@ -803,6 +806,7 @@
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
 | research-559-704-investigate-query-formulation-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
+| research-561-721-investigate-spinda-ui-failure.md | 1 |
 | research-562-710-investigate-gen2-wild-encounter-extraction-failure-v3.md | 1 |
 | research-562-716-investigate-moms-savings-ui-failure-v3.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
@@ -813,8 +817,10 @@
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
 | research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
+| research-639-726-investigate-primitives-migration-failures-v5.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
+| research-645-721-investigate-dashboard-metrics-e2e-failure-retry-2.md | 1 |
 | story-018-513-orchestrator-test-updates.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
 | story-061-473-mirage-island-engine-e2e.md | 1 |
@@ -839,6 +845,7 @@
 | story-346-561-spinda-pattern-rendering-component.md | 1 |
 | story-397-360-gen3-roamer-integration-e2e.md | 1 |
 | story-398-433-save-state-read-write-api-e2e.md | 1 |
+| story-399-523-save-state-limits-e2e.md | 1 |
 | story-402-527-drive-webhook-registration.md | 1 |
 | story-402-649-refactor-ui-lazy-loading.md | 1 |
 | story-406-413-bike-requirement-heatmap.md | 1 |
@@ -857,6 +864,7 @@
 | story-527-638-setup-ui-package.md | 1 |
 | story-527-639-migrate-tactical-primitives.md | 1 |
 | story-530-550-implement-schema-priority.md | 1 |
+| story-530-561-telemetry-metrics-e2e.md | 1 |
 | story-531-533-orchestrator-trigger-logic-updates.md | 1 |
 | story-531-534-idea-reverification-stage.md | 1 |
 | story-534-558-telemetry-data-extraction-impl.md | 1 |
@@ -1045,6 +1053,7 @@
 | task-563-594-gen3-pokeblock-optimizer-ui-components.md | 1 |
 | task-563-681-gen2-bag-inventory-parsing-qa.md | 1 |
 | task-563-682-gen3-bag-inventory-parsing-impl.md | 1 |
+| task-563-705-routes-encounters-data-fetching-v3.md | 1 |
 | task-564-578-e2e-navigation-and-selection.md | 1 |
 | task-564-619-pokeblock-e2e-implementation-retry.md | 1 |
 | task-564-670-gen2-roamer-qa.md | 1 |

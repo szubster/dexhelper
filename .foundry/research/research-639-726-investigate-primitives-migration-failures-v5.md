@@ -2,10 +2,10 @@
 id: research-639-726-investigate-primitives-migration-failures-v5
 type: RESEARCH
 title: Investigate Primitives Migration Failures (v5)
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - react
   - components
   - research
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---
