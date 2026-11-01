@@ -403,3 +403,14 @@ When decomposing `prd-521-565-agent-confidence-metrics-dashboard` into child Epi
 2. **DAG ID Strictness**: When setting the `depends_on` array, the values MUST strictly be exact Node IDs without file extensions (e.g., `epic-565-569-agent-confidence-metrics-schema`), rather than repository-relative file paths (like `.foundry/epics/...`). Using file paths breaks the orchestrator's dependency resolution logic.
 
 Moving forward, I will strictly enforce the ID schema extraction and ensure exact Node IDs are used for all `depends_on` mappings.
+
+
+---
+
+# Playwright Path Linter Epic Breakdown
+
+When breaking down `prd-528-587-playwright-relative-path-linter` into Epics, I observed the rule to explicitly add `- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.` to the Acceptance Criteria of each generated EPIC. This ensures that the orchestrator's E2E safeguard policy is respected.
+
+I also ensured that the Epic node IDs strictly follow the schema: `<type>-<parent_NNN>-<NNN>-<slug>` (e.g. `epic-587-707-playwright-path-ast-analyzer`).
+
+When appending the generated Epics to the parent PRD's Acceptance Criteria, I used the exact Node IDs without file extensions (e.g., `- [ ] epic-587-707-playwright-path-ast-analyzer`) and checked off the `Break down into Epics` requirement.

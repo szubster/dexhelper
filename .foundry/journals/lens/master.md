@@ -232,3 +232,30 @@ Under constrained parent container widths or tight flex/grid layouts, components
 ### Mobile Title Text Scaling
 * **Issue**: `PokemonDetails.tsx` header used `text-5xl` for Pokemon names on 393px mobile viewports, forcing long entity names (`VICTREEBEL`, `EXEGGCUTE`) to break mid-word across lines.
 * **Fix**: Scaled heading text to `text-3xl sm:text-6xl lg:text-7xl` for clean mobile rendering.
+
+---
+
+# Lens Journal — Hex Stream Component Consistency & Badge Bracket Formatting
+
+## Key Learnings & Architectural Constraints
+
+### Reusable Telemetry Overlays (`HexStreamDecoration`)
+When rendering animated or static hex data stream overlays on hoverable cards (such as `StorageCard` in `StorageGrid.tsx` and `PokedexCard.tsx`), avoid repeating raw string operations like `'0123456789ABCDEF'.repeat(N)`. Using the dedicated `HexStreamDecoration` component isolates animation states and ensures consistent tactical hardware styling across the application UI.
+
+### Filter Badge Bracket Wrapping Safeguard
+Filter action badges with ASCII brackets (like `ClearFiltersBadge`) must wrap bracket label pairs in `whitespace-nowrap` containers to guarantee that ASCII brackets (`[ ]`) and action keywords (`ALL`) remain atomically bound on a single line when rendered inside flex wrap containers or compact viewports.
+
+---
+
+# Lens Visual QA & Layout Audit Journal — 2026-10-28
+
+## Discoveries & Remediation
+
+### SearchAndFilters Layout Squeezing on 1280px / Desktop Viewports
+* **Defect Identified**: In `src/components/SearchAndFilters.tsx`, `TargetAcquisitionArray` (left pane), `ParameterRouting` (right pane), AND `AttributeFilters` were all direct flex children inside a single `xl:flex-row` container.
+* **Impact**: On 1280px - 1536px desktop viewports, `AttributeFilters` (requiring ~800px min width for its 4 attribute controls) forced `TargetAcquisitionArray` to shrink down to a width of **64.8px**, rendering the search input text field illegible and heavily clipped.
+* **Remediation**: Wrapped `TargetAcquisitionArray` and `ParameterRouting` in an inner `flex-col xl:flex-row` container, while placing `AttributeFilters` cleanly as a full-width row below them in the outer flex column layout.
+* **Result**: On 1280px viewports, the search input width expanded from 64.8px to 520.8px, restoring legibility and proper tactical hardware proportions.
+
+## Key Architectural Rules & Learnings
+1. **Multi-Pane Flex Container Isolation**: High-density control panels containing multi-column sub-components (like `AttributeFilters`) must be isolated into distinct row blocks rather than co-existing in a single `xl:flex-row` with primary input containers, preventing extreme flex-shrink squeezing.

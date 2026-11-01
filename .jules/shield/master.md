@@ -125,3 +125,47 @@ Added unit test in `src/emulator/wasm/binjgb/__tests__/BinjgbSyncEngine.test.ts`
 ## Key Learnings
 1. Always sanitize error objects passed to `console.error` or logging callbacks across all async/polling loops.
 2. Ensure caught errors are checked with `err instanceof Error` before accessing `.message`.
+
+---
+
+# Shield Security Journal - Dependency Security Audit Fixes
+
+**Date:** 2026-10-10
+
+## Summary of Action Taken
+Performed a `pnpm audit` security audit and patched multiple vulnerable transitive dependencies using `overrides` in `pnpm-workspace.yaml`:
+- **`follow-redirects`**: Upgraded to `^1.16.1` to resolve high-severity cross-origin credential leaks (GHSA-q3jh-wrc6-jgq8, GHSA-8r9p-f939-6h3c).
+- **`zod`**: Upgraded to `^4.6.6` to resolve high-severity memory exhaustion during collection validation (GHSA-mrhx-c7xc-m3w5).
+- **`undici`**: Upgraded to `^7.30.1` to resolve moderate SRI bypass and header smuggling (GHSA-4qv8-2p9j-2685, GHSA-f72v-6w45-q472).
+- **`fast-uri`**: Upgraded to `^3.1.9` to resolve moderate URI scheme spoofing and host confusion (GHSA-w74x-v6f9-j3xg, GHSA-wjr9-j795-jxcr, GHSA-xhq7-xmqj-769h, GHSA-333x-w4r6-6crp).
+- **`serialize-javascript`**: Upgraded to `^7.1.3` to resolve low-severity XSS vulnerability (GHSA-m5mm-p8h7-m29v).
+
+## Key Learnings & Patterns
+- Overriding transitive dependency versions in `pnpm-workspace.yaml` resolves security advisories across nested dependencies.
+- Verify `pnpm audit` reports 0 vulnerabilities and run the full test suite to guarantee compatibility.
+
+---
+
+# Shield Journal Entry: Replacing Weak PRNG in DAG Orchestrator
+
+## Vulnerability / Issue
+Identified usage of `Math.random()` in `packages/foundry/foundry-orchestrator.ts` for selecting random diagnostic logging phrases. `Math.random()` is a cryptographically weak pseudo-random number generator (CWE-338) and is flagged by SAST/security scanners.
+
+## Action Taken
+Replaced `Math.random()` in `packages/foundry/foundry-orchestrator.ts` with `randomInt(0, POKEMON_PHRASES.length)` imported from native `node:crypto`.
+
+## Key Learnings
+- Project security policies mandate using `node:crypto` in Node environments (and `window.crypto.getRandomValues()` in browser contexts) even for non-security-critical features (like random log prefixes) to ensure zero-warning compliance across static analysis tools.
+
+---
+
+# Shield Journal Entry: Playwright Mobile Viewport Click Interception Fix
+
+## Issue
+In CI, Playwright E2E tests (`box_analyzer_gen3`, `gen3_frlg_data_extraction`, `gen3_rse_data_extraction`) failed on `Mobile Pixel 9` with `expect(getByRole('dialog')).toBeVisible() timeout`. Click events on virtualized/nested UI cards were intercepted on mobile viewports when using `page.click({ force: true })`.
+
+## Fix
+Replaced `.click({ force: true })` with `.dispatchEvent('click')` on card locators. Dispatching the `click` event directly on the target element bypasses viewport coordinate hit-testing and pointer-events interception issues on headless mobile emulators.
+
+## Key Learnings
+- When writing Playwright E2E assertions for mobile viewports, `.dispatchEvent('click')` is significantly more resilient than `.click({ force: true })` for virtualized or nested components.

@@ -263,3 +263,42 @@ The Gen 2 breeding engine module (`src/engine/breeding/inheritance.ts`) determin
 - Added JSDoc comments to `InheritedDVsResult` interface fields (`maleOffspring`, `femaleOffspring`, `genderlessOffspring`).
 - Added comprehensive JSDoc to `determineInheritedDVs` with `@param`, `@returns`, and `@example` blocks.
 - Added concise inline comments explaining why Ditto overrides opposite-gender inheritance and why cross-gender DV inheritance occurs in Gen 2 ROM mechanics.
+
+---
+
+# Scribe Journal - Route Radar Gating Utilities Documentation
+
+## Target Module
+`src/engine/radar/gatingUtilities.ts`
+
+## Motivation
+The Route Radar gating utility module (`src/engine/radar/gatingUtilities.ts`) evaluates whether a player's progression context meets prerequisites (items, overworld HMs, bike types, or logical AND/OR expressions) for accessing routes and wild encounters. Despite its central role in route accessibility calculation, the file lacked module-level JSDoc context, function JSDoc annotations (`@param`, `@returns`, `@example`), and inline comments explaining recursive logical evaluation.
+
+## Additions
+- Added top-level `@module gatingUtilities` JSDoc header detailing Route Radar requirement gating mechanics.
+- Added comprehensive function JSDoc for `evaluateRequirement` with `@param requirement`, `@param context`, `@returns`, and `@example` code snippets illustrating single HM and nested logical AND/OR evaluations.
+- Added concise inline comments explaining recursive evaluation of child requirements via `.every()` and `.some()`.
+
+## Learnings
+- **Route Radar Progression Requirements**: Route gating supports nested logical requirement trees (`LogicalRequirement`), allowing multi-clause prerequisites like requiring both `dive` HM AND `storage_key` item to access specific locations.
+
+---
+
+# Scribe Session Journal - Zustand Store Documentation
+
+## Target Module
+`src/store.ts`
+
+## Motivation
+`src/store.ts` contains the central application Zustand store. While basic type definitions and property comments existed, the main `useStore` hook lacked JSDoc detailing critical store invariants:
+1. **Transient vs. Persisted State Separation:** Distinguishing between user settings (persisted to `localStorage` via `partialize`) and heavy/transient runtime data (e.g., `saveData`, search terms, modal toggles).
+2. **Storage Quota Preservation:** Explaining why binary save data must remain in IndexedDB/cloud storage rather than `localStorage` to prevent browser quota crashes (5MB limit).
+3. **Selector Performance Best Practices:** Documenting atomic inline selector patterns to avoid unnecessary full-tree re-renders.
+
+## Actions Completed
+- Added comprehensive JSDoc to `useStore` in `src/store.ts`.
+- Outlined architecture, state persistence invariants, storage quota preservation rules, and selector subscription best practices with explicit `@example` blocks.
+- Verified file edits and passed all tests via `pnpm test`.
+
+## Lessons Learned
+- When documenting global state management stores, clearly detailing which state slices are persisted versus transient—and explaining the storage quota reasons why—gives future developers vital architectural context.

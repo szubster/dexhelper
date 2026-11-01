@@ -211,3 +211,33 @@ Wrapped decorative telemetry brackets (`[` and `]`) in `CapacitySegmentedBar.tsx
 - **Screen Reader Noise Reduction**: Telemetry labels (`[SYS.CAP]`) in status controls (such as `CapacitySegmentedBar`) should isolate decorative bracket characters with `<span aria-hidden="true">`.
 - This prevents assistive technologies from repetitively announcing "left bracket" and "right bracket" across storage views, while preserving the tactical hardware aesthetic visually.
 - **Screen Reader Clarity**: Text elements in grid displays that present telemetry data formatted with ASCII brackets (e.g. `[RED]`, `[ READY ]`, `[ EMPTY ]`) should isolate the brackets in `<span aria-hidden="true">`. This prevents screen readers from redundantly voicing "left bracket" and "right bracket" for every card in large storage box grids while preserving the tactical hardware aesthetic visually.
+
+
+---
+
+# Palette Journal Entry - TacticalInput Icon Decorative A11y
+
+## Date
+2026-10-18
+
+## Micro-UX / Accessibility Improvement
+Added `aria-hidden="true"` to the decorative icon container `div` in `TacticalInput.tsx`.
+
+## Key Learnings
+- **Decorative Icons in Form Inputs:** When input components like `TacticalInput` accept an `icon` prop for visual enhancement (such as a search icon inside input fields across search panels), the container wrapper should strictly carry `aria-hidden="true"`.
+- This prevents screen readers from redundantly announcing decorative icon elements when focusing or reading input fields.
+- **Vitest Browser Locators:** In Vitest Browser tests (`@vitest/browser`), `page.getBy*` returns a `Locator` object rather than a raw DOM node. To inspect parent elements, access `.element().parentElement` directly on the locator.
+
+---
+
+# Palette Journal Entry - Pokérus Status Badge Brackets Accessibility
+
+## Date
+2026-10-23
+
+## Micro-UX / Accessibility Improvement
+Wrapped decorative telemetry brackets (`[` and `]`) in `src/components/PokerusBadge.tsx` with `<span aria-hidden="true">`.
+
+## Key Learnings
+- **Screen Reader Clarity on Status Badges**: Status indicator badges (such as `PokerusBadge`) that format state labels with ASCII brackets (e.g. `[PKRS STRN: 0]`, `[PKRS INF: 2D]`, `[PKRS CURED]`) should wrap decorative bracket characters in `<span aria-hidden="true">`.
+- This prevents assistive technologies from voicing "left bracket" and "right bracket" when announcing Pokérus status while preserving the tactical hardware design system aesthetic visually.
