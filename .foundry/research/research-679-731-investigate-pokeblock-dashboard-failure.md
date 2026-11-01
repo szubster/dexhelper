@@ -2,12 +2,12 @@
 id: research-679-731-investigate-pokeblock-dashboard-failure
 type: RESEARCH
 title: Investigate Pokeblock Dashboard UI Component Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-28'
 updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '493114891836172513'
 pr_number: null
 parent: story-401-679-pokeblock-viewer-route
 tags:
