@@ -2,14 +2,14 @@
 id: task-533-678-savedatareader-e2e-qa
 type: TASK
 title: QA SaveDataReader E2E and Integration Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-10'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on:
   - task-533-676-savedatareader-integration-tests
   - task-533-677-savedatareader-e2e-tests
-jules_session_id: null
+jules_session_id: '8564524959823251913'
 parent: story-521-533-savedatareader-e2e
 tags:
   - qa
