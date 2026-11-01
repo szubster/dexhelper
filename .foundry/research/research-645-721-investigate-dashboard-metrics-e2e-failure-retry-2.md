@@ -2,12 +2,12 @@
 id: research-645-721-investigate-dashboard-metrics-e2e-failure-retry-2
 type: RESEARCH
 title: Investigate E2E Test Failure for Dashboard Metrics (Retry 2)
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-25T00:00:00.000Z'
 updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17740183116932640832'
 pr_number: null
 parent: story-571-645-dashboard-metrics-integration-e2e
 tags:
