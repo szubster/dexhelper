@@ -46,16 +46,16 @@ export function SettingsModal() {
       {/* Telemetry decoration */}
       <TelemetryDecoration label="SYS.CONFIG_ACTIVE" className="top-0 left-4" />
 
-      <div className="flex items-center justify-between border-zinc-800 border-b border-dashed p-8 pt-10">
+      <div className="flex items-center justify-between border-b border-dashed border-zinc-800 p-8 pt-10">
         <div>
           <button
             type="button"
-            className="cursor-pointer select-none border-none bg-transparent p-0 text-left"
+            className="cursor-pointer border-none bg-transparent p-0 text-left select-none"
             onClick={() => setDevClickCount((c) => c + 1)}
           >
-            <h2 className="font-black font-mono text-2xl uppercase tracking-tighter">SYS.CONFIG</h2>
+            <h2 className="font-mono text-2xl font-black tracking-tighter uppercase">SYS.CONFIG</h2>
           </button>
-          <p className="tactical-text mt-1 font-bold text-[10px] text-zinc-500">Configure your experience</p>
+          <p className="tactical-text mt-1 text-[10px] font-bold text-zinc-500">Configure your experience</p>
         </div>
         <TacticalButton
           onClick={() => setIsSettingsOpen(false)}

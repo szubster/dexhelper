@@ -16,6 +16,7 @@ tags:
   - serialization
   - api
 rejection_count: 1
+confidence_score: 100
 rejection_reason: ''
 locks: []
 ---
@@ -41,6 +42,9 @@ Take the parsed Gen 3 berry patch data and integrate it with the PokeData storag
 - [x] task-537-688-gen3-berry-runtime-state-qa-retry
 - [x] research-537-689-investigate-runtime-state-hydration-failure
 - [ ] research-537-690-berry-serialization-deprecation
-- [ ] research-537-708-investigate-hydration-failure-retry-v2
-- [ ] task-537-709-gen3-berry-hydration-retry-v2
-- [ ] task-537-710-gen3-berry-qa-retry-v2
+- [x] research-537-708-investigate-hydration-failure-retry-v2
+- [x] task-537-709-gen3-berry-hydration-retry-v2
+- [x] task-537-710-gen3-berry-qa-retry-v2
+- [ ] task-537-719-gen3-berry-hydration-retry-v3
+- [ ] task-537-720-gen3-berry-qa-retry-v3
+- [ ] research-537-721-investigate-hydration-failure-retry-v3

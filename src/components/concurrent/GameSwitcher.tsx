@@ -10,8 +10,8 @@ export const GameSwitcher: React.FC = () => {
   }
 
   return (
-    <div className="flex items-center gap-2 rounded-none border border-zinc-800 border-dashed bg-zinc-950/80 px-3 py-1.5">
-      <span className="shrink-0 font-mono text-[10px] text-zinc-500 uppercase tracking-widest">Active PT</span>
+    <div className="flex items-center gap-2 rounded-none border border-dashed border-zinc-800 bg-zinc-950/80 px-3 py-1.5">
+      <span className="shrink-0 font-mono text-[10px] tracking-widest text-zinc-500 uppercase">Active PT</span>
       <TacticalSelect
         containerClassName="w-auto min-w-[120px]"
         className="border-none bg-transparent py-0 pr-6 pl-1 font-mono text-[11px] text-[var(--theme-primary)]"

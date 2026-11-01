@@ -2,13 +2,13 @@
 id: task-673-688-migrate-settings-tests-qa
 type: TASK
 title: Migrate Settings E2E Tests to COM Pattern QA
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-13'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on:
   - task-673-687-migrate-settings-tests-impl
-jules_session_id: '18015310217943638250'
+jules_session_id: null
 pr_number: null
 parent: story-580-673-migrate-settings-e2e-tests
 tags:
@@ -32,5 +32,5 @@ Verify the implementation of the `SettingsModalModel` COM migration.
 - Run E2E tests to ensure they pass consistently.
 
 ## Acceptance Criteria
-- [ ] Code properly utilizes `SettingsModalModel`.
-- [ ] E2E tests pass consistently.
+- [x] Code properly utilizes `SettingsModalModel`.
+- [x] E2E tests pass consistently.

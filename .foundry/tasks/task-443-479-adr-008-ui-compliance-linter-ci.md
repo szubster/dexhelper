@@ -28,7 +28,7 @@ notes: ''
 ## Objective
 Integrate the `scripts/verify-adr-compliance.ts` script into the project's tooling and CI pipelines.
 
-## Technical Requirements
+## Acceptance Criteria
 - Add a script in `package.json` to execute `scripts/verify-adr-compliance.ts` (e.g., `pnpm run lint:adr`).
 - Integrate the check into the broader `lint` script in `package.json` to ensure it is run locally.
 - Add the check to the CI workflow (`.github/workflows/ci.yml`) under the `lint` job.

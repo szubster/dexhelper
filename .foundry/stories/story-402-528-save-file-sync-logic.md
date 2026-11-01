@@ -2,13 +2,13 @@
 id: story-402-528-save-file-sync-logic
 type: STORY
 title: Save File Sync Logic and Limits Handling
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-10-28'
+updated_at: '2026-10-31'
 depends_on:
   - story-402-527-drive-webhook-registration
-jules_session_id: '16537460578067104261'
+jules_session_id: null
 pr_number: null
 parent: epic-336-402-implement-cloudflare-drive-sync
 tags:
@@ -22,6 +22,7 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+confidence_score: 95
 ---
 
 # Story: Save File Sync Logic and Limits Handling
@@ -35,4 +36,8 @@ Implement logic to download `.sav` files upon webhook notifications, while monit
 ## Acceptance Criteria
 - [ ] Implement `.sav` file downloading logic from Google Drive.
 - [ ] Implement limits monitoring and error handling for large files.
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+
+- [ ] task-528-731-cloudflare-worker-drive-download
+- [ ] task-528-732-cloudflare-worker-limits-handling
+- [ ] task-528-733-cloudflare-worker-sync-qa

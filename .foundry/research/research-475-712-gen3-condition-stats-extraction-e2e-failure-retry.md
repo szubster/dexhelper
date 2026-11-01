@@ -4,12 +4,12 @@ type: RESEARCH
 title: >-
   Investigate Root Cause of E2E Test Failure for Gen 3 Contest Condition Data
   Extraction (Retry)
-status: ACTIVE
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-20T20:38:13.799Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '6897829776279872695'
+jules_session_id: null
 pr_number: null
 parent: story-134-475-gen3-condition-stats-extraction-e2e
 tags:
@@ -18,8 +18,8 @@ tags:
   - data-extraction
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

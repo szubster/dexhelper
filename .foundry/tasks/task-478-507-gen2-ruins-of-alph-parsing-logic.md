@@ -24,7 +24,7 @@ locks: []
 ## Context
 With the constants and types defined for the Ruins of Alph puzzles, we need to implement the actual parsing logic to extract these flags from the Gen 2 save data.
 
-## Technical Requirements
+## Acceptance Criteria
 - Create or update parsing logic for Gen 2 saves (likely in a file related to events or unown in `src/engine/saveParser/parsers/gen2/`) to extract the four puzzle flags using the constants defined in the prerequisite task.
 - Parse the event flags using a `DataView` from the memory block.
 - Explicitly map the specific bit offsets corresponding to target events. Just extracting the raw array is insufficient.
