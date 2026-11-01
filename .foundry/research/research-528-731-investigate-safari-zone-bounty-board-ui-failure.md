@@ -2,12 +2,12 @@
 id: research-528-731-investigate-safari-zone-bounty-board-ui-failure
 type: RESEARCH
 title: Investigate Safari Zone Bounty Board UI Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-28'
 updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11189008778261371602'
 pr_number: null
 parent: story-325-528-safari-zone-bounty-board
 tags:
