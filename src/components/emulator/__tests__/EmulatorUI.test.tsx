@@ -22,17 +22,12 @@ describe('EmulatorUI', () => {
 
     const file = new File(['dummy content'], 'test.gba', { type: 'application/octet-stream' });
 
-    const inputElement = container.querySelector('[data-testid="file-input"]');
-
-    const dataTransfer = new DataTransfer();
-    dataTransfer.items.add(file);
+    const inputElement = container.querySelector('[data-testid="file-input"]') as HTMLInputElement;
 
     if (inputElement) {
-      Object.defineProperty(inputElement, 'files', {
-        value: dataTransfer.files,
-        configurable: true,
-        writable: true,
-      });
+      const dataTransfer = new DataTransfer();
+      dataTransfer.items.add(file);
+      inputElement.files = dataTransfer.files;
 
       const changeEvent = new Event('change', { bubbles: true, cancelable: true });
       inputElement.dispatchEvent(changeEvent);
