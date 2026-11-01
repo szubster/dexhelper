@@ -32,7 +32,7 @@ As part of the Cloudflare Drive Sync epic, the Cloudflare Worker needs to be abl
 Implement the logic to authenticate with Google Drive API and download the specified `.sav` file content.
 
 ## Acceptance Criteria
-- [ ] Implement a function to download a file from Google Drive by its file ID.
-- [ ] Handle Google Drive API authentication within the Cloudflare Worker.
-- [ ] Return the file content as an ArrayBuffer or suitable format for further processing.
-- [ ] Add unit tests for the download logic.
+- [x] Implement a function to download a file from Google Drive by its file ID.
+- [x] Handle Google Drive API authentication within the Cloudflare Worker.
+- [x] Return the file content as an ArrayBuffer or suitable format for further processing.
+- [x] Add unit tests for the download logic.
