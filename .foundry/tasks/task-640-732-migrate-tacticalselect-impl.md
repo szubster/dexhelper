@@ -2,12 +2,12 @@
 id: task-640-732-migrate-tacticalselect-impl
 type: TASK
 title: Migrate TacticalSelect Component Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-27'
-updated_at: '2026-10-27'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16905306040310587288'
 pr_number: null
 parent: story-527-640-migrate-complex-components
 tags:
