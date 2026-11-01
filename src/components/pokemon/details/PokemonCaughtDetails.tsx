@@ -12,6 +12,7 @@ import { LcdGrid } from '../../LcdGrid';
 import { SectionHeader } from '../../SectionHeader';
 import { SubDataPoint } from '../../SubDataPoint';
 import { TacticalPanel } from '../../TacticalPanel';
+import { FriendshipDisplay } from './FriendshipDisplay';
 
 const ContestConditionStats = React.lazy(() =>
   import('../../ContestConditionStats').then((m) => ({ default: m.ContestConditionStats })),
@@ -158,17 +159,9 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
                 )}
 
                 {p.friendship !== undefined && (
-                  <SubDataPoint label="SYNC_RATE">
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-[11px] text-rose-400">{p.friendship} PT</span>
-                      <div className="h-1 flex-1 bg-zinc-800">
-                        <div
-                          className="h-full bg-rose-500"
-                          style={{ width: `${Math.min(100, (p.friendship / 255) * 100)}%` }}
-                        />
-                      </div>
-                    </div>
-                  </SubDataPoint>
+                  <div className="col-span-1 mt-2 sm:col-span-2">
+                    <FriendshipDisplay friendship={p.friendship} />
+                  </div>
                 )}
 
                 {p.pokerus !== undefined && (
