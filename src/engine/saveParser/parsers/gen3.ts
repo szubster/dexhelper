@@ -749,6 +749,14 @@ function getLatestSectionOffset(view: DataView, targetSectionId: number): number
  * @returns A Uint8Array containing the contiguous PC Buffer.
  * @throws RangeError if a required section is out of bounds or missing.
  */
+
+function extractGen3GameVersion(view: DataView, section0Offset: number): GameVersion {
+  const code = view.getUint32(section0Offset + 0x00ac, true);
+  if (code === 0) return 'ruby';
+  if (code === 1) return 'firered';
+  return 'emerald';
+}
+
 export function parseGen3PCBuffer(view: DataView): Uint8Array {
   try {
     const pcBuffer = new Uint8Array(PC_BOX_BUFFER_SIZE);
@@ -1537,7 +1545,7 @@ export function parseGen3MirageIslandValue(view: DataView, offset: number): numb
  * Placeholder implementation for scaffolding.
  *
  * @param view - The raw save file DataView.
- * @param _forcedVersion - An optional game version override.
+ * @param gameVersion - An optional game version override.
  * @returns The fully parsed and structured SaveData object.
  * @throws Error - Gen 3 parsing not implemented yet, or "Corrupted Save File" on RangeError.
  */
@@ -1603,7 +1611,7 @@ export function parseGen3SecretBases(
  *    of the `SaveBlock1` struct.
  *
  * @param view - The raw save file DataView.
- * @param _forcedVersion - An optional game version override (e.g. 'ruby', 'emerald') to dictate memory offsets.
+ * @param gameVersion - An optional game version override (e.g. 'ruby', 'emerald') to dictate memory offsets.
  * @returns The fully constructed SaveData object.
  * @throws {Error} If the save file is corrupted, incomplete, or out-of-bounds reads occur.
  */
@@ -1667,7 +1675,7 @@ export function parseGen3ContestMaster(view: DataView, section3Offset: number): 
  *    event flags, and metadata specific to Hoenn or Kanto (Gen 3).
  *
  * @param view - The raw binary data of the .sav file.
- * @param _forcedVersion - An optional version override provided by the user (defaults to 'ruby' for fallbacks).
+ * @param gameVersion - An optional version override provided by the user (defaults to 'ruby' for fallbacks).
  * @returns The structured Gen3SaveData object containing all parsed player progress.
  * @throws RangeError if the file bounds are exceeded during the initial block scan.
  */
@@ -1688,8 +1696,10 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     }
 
     let section0Offset: number;
+    let gameVersion: GameVersion;
     try {
       section0Offset = getLatestSectionOffset(view, 0);
+      gameVersion = _forcedVersion || extractGen3GameVersion(view, section0Offset);
     } catch {
       throw new RangeError('Out of bounds during block scan');
     }
@@ -1711,34 +1721,34 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       isWateredStage4: !!t.isWateredStage4,
       locationName: BERRY_TREE_LOCATIONS[index] || 'Unknown Location',
     }));
-    const gen3SecretBases = parseGen3SecretBases(view, section1Offset, _forcedVersion || 'ruby');
-    const gen3StaticEncounters = extractGen3StaticEncounterFlags(view, _forcedVersion || 'ruby', section1Offset);
+    const gen3SecretBases = parseGen3SecretBases(view, section1Offset, gameVersion);
+    const gen3StaticEncounters = extractGen3StaticEncounterFlags(view, gameVersion, section1Offset);
 
-    const gen3Pokeblocks = parseGen3Pokeblocks(view, section1Offset, _forcedVersion || 'ruby');
+    const gen3Pokeblocks = parseGen3Pokeblocks(view, section1Offset, gameVersion);
     const gen3PokeNews = parseGen3PokeNews(view, section1Offset);
     const gen3MixRecords = parseGen3MixRecords(view, section1Offset + TV_SHOWS_OFFSET);
     const gen3ActiveSwarm = parseGen3ActiveSwarm(view, section1Offset + TV_SHOWS_OFFSET);
-    const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, _forcedVersion || 'ruby');
+    const gen3VolcanicAsh = parseGen3VolcanicAsh(view, section1Offset, gameVersion);
     let gen3WeatherAnomaly: import('../gen3/weatherAnomaly/types').Gen3WeatherAnomaly | undefined;
     try {
       gen3WeatherAnomaly = extractWeatherAnomaly(view, section1Offset);
     } catch {
       // ignore error
     }
-    const gen3EventItems = parseGen3EventItems(view, section1Offset, _forcedVersion || 'ruby');
+    const gen3EventItems = parseGen3EventItems(view, section1Offset, gameVersion);
     let gen3Daycare: import('./common').Gen3DaycareData | undefined;
     try {
-      gen3Daycare = parseGen3Daycare(view, section1Offset, _forcedVersion || 'ruby');
+      gen3Daycare = parseGen3Daycare(view, section1Offset, gameVersion);
     } catch {
       // ignore error
     }
 
-    const narrative = parseGen3NarrativeFlags(view, section1Offset, _forcedVersion || 'ruby');
-    const missedItems = parseGen3MissedItemsAndMilestones(view, section1Offset, _forcedVersion || 'ruby');
+    const narrative = parseGen3NarrativeFlags(view, section1Offset, gameVersion);
+    const missedItems = parseGen3MissedItemsAndMilestones(view, section1Offset, gameVersion);
 
     const roamingLegendaries = [];
     try {
-      const roamer = parseGen3Roamer(view, section1Offset, _forcedVersion || 'ruby');
+      const roamer = parseGen3Roamer(view, section1Offset, gameVersion);
       if (roamer?.isActive) {
         roamingLegendaries.push({
           speciesId: roamer.speciesId,
@@ -1763,7 +1773,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       hiddenItemFlags[i] = ((currentByte >> 4) | ((nextByte & NIBBLE_MASK) << 4)) & LOWER_8_BIT_MASK;
     }
 
-    const mirageIslandOffset = _forcedVersion === 'emerald' ? MIRAGE_ISLAND_OFFSET_EMERALD : MIRAGE_ISLAND_OFFSET_RS;
+    const mirageIslandOffset = gameVersion === 'emerald' ? MIRAGE_ISLAND_OFFSET_EMERALD : MIRAGE_ISLAND_OFFSET_RS;
     const mirageIslandValue = parseGen3MirageIslandValue(view, section2Offset + mirageIslandOffset);
 
     let gen3BattleFrontierWinStreaks: Gen3BattleFrontierWinStreaks | undefined;
@@ -1775,7 +1785,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     let gen3NPCTrades: Record<string, boolean> | undefined;
     let gen3FameChecker: Gen3FameCheckerData[] | undefined;
 
-    if (_forcedVersion === 'emerald') {
+    if (gameVersion === 'emerald') {
       try {
         gen3MoveTutors = parseGen3EmeraldMoveTutors(view, section1Offset);
       } catch {
@@ -1786,13 +1796,13 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       } catch {
         // Ignored
       }
-    } else if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire') {
+    } else if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
       try {
         gen3NPCTrades = parseGen3RSENPCTrades(view, section1Offset);
       } catch {
         // Ignored
       }
-    } else if (_forcedVersion === 'firered' || _forcedVersion === 'leafgreen') {
+    } else if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
       try {
         gen3MoveTutors = parseGen3FRLGMoveTutors(view, section1Offset);
       } catch {
@@ -1810,7 +1820,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       }
     }
 
-    if (_forcedVersion === 'emerald') {
+    if (gameVersion === 'emerald') {
       try {
         gen3BattleFrontierWinStreaks = parseGen3BattleFrontierWinStreaks(view, section2Offset);
       } catch {
@@ -1831,7 +1841,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       } catch {
         // Ignored if missing or corrupted, allowing the rest of the save to load
       }
-    } else if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire') {
+    } else if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
       try {
         gen3RSBattleTowerWinStreaks = parseRSBattleTowerWinStreaks(view, section0Offset);
       } catch {
@@ -1839,9 +1849,9 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       }
     }
     let gen3FeebasSeed: number | undefined;
-    if (_forcedVersion === 'ruby' || _forcedVersion === 'sapphire' || _forcedVersion === 'emerald') {
+    if (gameVersion === 'ruby' || gameVersion === 'sapphire' || gameVersion === 'emerald') {
       try {
-        gen3FeebasSeed = extractFeebasSeed(view, _forcedVersion, section1Offset);
+        gen3FeebasSeed = extractFeebasSeed(view, gameVersion, section1Offset);
       } catch {
         // Ignored
       }
@@ -1851,34 +1861,33 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     let gen3TrainerRematchFlags: number[] | undefined;
 
     if (
-      _forcedVersion === 'ruby' ||
-      _forcedVersion === 'sapphire' ||
-      _forcedVersion === 'emerald' ||
-      _forcedVersion === 'firered' ||
-      _forcedVersion === 'leafgreen'
+      gameVersion === 'ruby' ||
+      gameVersion === 'sapphire' ||
+      gameVersion === 'emerald' ||
+      gameVersion === 'firered' ||
+      gameVersion === 'leafgreen'
     ) {
       try {
-        gen3TrainerDefeatFlags = parseGen3TrainerDefeatFlags(view, section1Offset, _forcedVersion);
-        gen3TrainerRematchFlags = parseGen3TrainerRematchFlags(view, section1Offset, _forcedVersion);
+        gen3TrainerDefeatFlags = parseGen3TrainerDefeatFlags(view, section1Offset, gameVersion);
+        gen3TrainerRematchFlags = parseGen3TrainerRematchFlags(view, section1Offset, gameVersion);
       } catch {
         // Ignored
       }
     }
 
     const { trainerId, secretId } = parseGen3TrainerId(view, section0Offset);
-    const securityKey = parseGen3SecurityKey(view, section0Offset, _forcedVersion || 'ruby');
-    const gen3ShoalItems = parseGen3ShoalItems(view, section1Offset, _forcedVersion || 'ruby', securityKey);
-    const gen3TMHMs = parseGen3TMHMs(view, section1Offset, _forcedVersion || 'ruby', securityKey);
-    const gen3Berries = parseGen3BerryPouch(view, section1Offset, _forcedVersion || 'ruby', securityKey);
-    const inventory = parseGen3Inventory(view, section1Offset, _forcedVersion || 'ruby', securityKey);
+    const securityKey = parseGen3SecurityKey(view, section0Offset, gameVersion);
+    const gen3ShoalItems = parseGen3ShoalItems(view, section1Offset, gameVersion, securityKey);
+    const gen3TMHMs = parseGen3TMHMs(view, section1Offset, gameVersion, securityKey);
+    const gen3Berries = parseGen3BerryPouch(view, section1Offset, gameVersion, securityKey);
+    const inventory = parseGen3Inventory(view, section1Offset, gameVersion, securityKey);
 
-    const gen3TMEventFlags = parseGen3TMEventFlags(view, section1Offset, _forcedVersion || 'ruby');
-    const gen3MatchCall = parseGen3MatchCall(view, section1Offset, section2Offset, _forcedVersion || 'ruby');
+    const gen3TMEventFlags = parseGen3TMEventFlags(view, section1Offset, gameVersion);
+    const gen3MatchCall = parseGen3MatchCall(view, section1Offset, section2Offset, gameVersion);
 
     let gameStatsOffset = GEN3_GAME_STATS_OFFSET_RS;
-    if (_forcedVersion === 'emerald') gameStatsOffset = GEN3_GAME_STATS_OFFSET_EMERALD;
-    else if (_forcedVersion === 'firered' || _forcedVersion === 'leafgreen')
-      gameStatsOffset = GEN3_GAME_STATS_OFFSET_FRLG;
+    if (gameVersion === 'emerald') gameStatsOffset = GEN3_GAME_STATS_OFFSET_EMERALD;
+    else if (gameVersion === 'firered' || gameVersion === 'leafgreen') gameStatsOffset = GEN3_GAME_STATS_OFFSET_FRLG;
 
     let hallOfFameCount = 0;
     try {
@@ -1913,7 +1922,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     );
 
     let hasContestMaster = false;
-    const version = _forcedVersion || 'ruby';
+    const version = gameVersion;
     if (section3Offset !== -1 && (version === 'ruby' || version === 'sapphire' || version === 'emerald')) {
       try {
         hasContestMaster = parseGen3ContestMaster(view, section3Offset);
@@ -1961,11 +1970,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     const partyDetails: PokemonInstance[] = [];
     const partySpindas: Gen3Spinda[] = [];
 
-    for (const { speciesId, partyDetail, gen3Spinda } of iterateGen3Party(
-      view,
-      section1Offset,
-      _forcedVersion || 'ruby',
-    )) {
+    for (const { speciesId, partyDetail, gen3Spinda } of iterateGen3Party(view, section1Offset, gameVersion)) {
       party.push(speciesId);
       partyDetails.push(partyDetail);
       if (gen3Spinda) {
@@ -1996,7 +2001,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
       pc,
       partyDetails,
       pcDetails,
-      gameVersion: _forcedVersion || 'ruby',
+      gameVersion: gameVersion,
       badges: narrative.badges,
       trainerName: decodeGen3String(view, section0Offset + 0x00, 7),
       trainerId,
@@ -2077,7 +2082,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
     }
 
     try {
-      const gen3MysteryGift = parseGen3MysteryGift(view, section1Offset, _forcedVersion || 'ruby');
+      const gen3MysteryGift = parseGen3MysteryGift(view, section1Offset, gameVersion);
       result.gen3MysteryGift = gen3MysteryGift;
     } catch {
       // Ignored
