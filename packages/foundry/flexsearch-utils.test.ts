@@ -31,14 +31,50 @@ describe('flexsearch-utils', () => {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
-  it('should build a query string from frontmatter', () => {
-    const frontmatter = {
-      title: 'Test Title',
-      type: 'TASK' as any,
-      tags: ['tag1', 'tag2'],
-      layers: ['layer1']
-    };
-    const query = buildQuery(frontmatter);
-    expect(query).toBe('Test Title TASK tag1 tag2 layer1');
+  describe('buildQuery', () => {
+    it('should build a query string from frontmatter', () => {
+      const frontmatter = {
+        title: 'Test Title',
+        type: 'TASK' as any,
+        tags: ['tag1', 'tag2'],
+        layers: ['layer1']
+      };
+      const query = buildQuery(frontmatter);
+      expect(query).toBe('Test Title TASK tag1 tag2 layer1');
+    });
+
+    it('should handle empty frontmatter gracefully', () => {
+      const frontmatter = {};
+      const query = buildQuery(frontmatter);
+      expect(query).toBe('');
+    });
+
+    it('should handle undefined tags or layers gracefully', () => {
+      const frontmatter = {
+        title: 'Test Title',
+        type: 'TASK' as any,
+      };
+      const query = buildQuery(frontmatter);
+      expect(query).toBe('Test Title TASK');
+    });
+
+    it('should handle missing title or type gracefully', () => {
+      const frontmatter = {
+        tags: ['tag1', 'tag2'],
+        layers: ['layer1']
+      };
+      const query = buildQuery(frontmatter);
+      expect(query).toBe('tag1 tag2 layer1');
+    });
+
+    it('should handle missing type gracefully', () => {
+      const frontmatter = {
+        title: 'Test Title',
+        tags: ['tag1', 'tag2'],
+        layers: ['layer1']
+      };
+      const query = buildQuery(frontmatter);
+      expect(query).toBe('Test Title tag1 tag2 layer1');
+    });
   });
 });
