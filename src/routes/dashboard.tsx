@@ -12,6 +12,11 @@ const BattleFrontierDashboard = React.lazy(() =>
     default: m.BattleFrontierDashboard,
   })),
 );
+const ShinyBreedingManualSelector = React.lazy(() =>
+  import('../features/shiny-breeding/components/ShinyBreedingManualSelector').then((m) => ({
+    default: m.ShinyBreedingManualSelector,
+  })),
+);
 const ShinyCarrierBreedingDashboard = React.lazy(() =>
   import('../components/dashboard/breeding/ShinyCarrierBreedingDashboard').then((m) => ({
     default: m.ShinyCarrierBreedingDashboard,
@@ -188,6 +193,7 @@ function DashboardPage() {
             )}
             <Gen2NpcTrades />
             <ShinyCarrierBreedingDashboard />
+            <ShinyBreedingManualSelector />
           </>
         ) : (
           <>

@@ -38,6 +38,6 @@ Implement the UI components for selecting two Pokémon from the parsed Gen 2 sav
 - **Tactical Styling**: Adhere strictly to the "tactical hardware" aesthetic. Use Tailwind v4 `@utility` classes (e.g., `tactical-panel`) for consistent styling, incorporating dashed borders (`border-dashed`), sharp corners (`rounded-none`), and monospaced typography (`font-mono`).
 
 ## Acceptance Criteria
-- [ ] React components implementing the UI.
-- [ ] Browser tests using `vitest-browser-react` validating rendering and selection logic.
-- [ ] Playwright E2E tests validating the full integration.
+- [x] React components implementing the UI.
+- [x] Browser tests using `vitest-browser-react` validating rendering and selection logic.
+- [x] Playwright E2E tests validating the full integration.

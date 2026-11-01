@@ -93,4 +93,31 @@ test.describe('Gen 2 Breeding Dashboard - DV Overlap and Shiny Odds', () => {
     expect(textContent).toContain('MALE ODDS:1/64'); // Inherits from Pikachu
     expect(textContent).toContain('FEMALE ODDS:1/64');
   });
+  test('should manually select breeding parents and calculate shiny odds', async ({ page }) => {
+    await initializeWithSave(page, 'tests/fixtures/saves/gen2/Pokemon Gold - TID 15051.sav');
+    await page.goto('./dashboard');
+    await expect(page.getByText('MANUAL PAIR EVALUATION').first()).toBeVisible({ timeout: 15000 });
+
+    await page.evaluate(() => {
+      const state = window.useStore.getState();
+      window.useStore.setState({
+        ...state,
+        saveData: {
+          ...state.saveData,
+          generation: 2,
+          partyDetails: [
+            { speciesId: 25, isShiny: true, isShinyCarrier: false, dvs: { atk: 15, def: 10, spd: 10, spc: 10 } },
+            { speciesId: 132, isShiny: false, isShinyCarrier: false, dvs: { atk: 7, def: 5, spd: 10, spc: 12 } },
+          ],
+          pcDetails: [],
+        } as unknown as typeof state.saveData,
+      });
+    });
+
+    const dropdowns = page.locator('.tactical-select');
+    await dropdowns.nth(0).selectOption({ index: 1 });
+    await dropdowns.nth(1).selectOption({ index: 2 });
+
+    await expect(page.getByText('MALE OFFSPRING: 1/64').first()).toBeVisible({ timeout: 15000 });
+  });
 });
