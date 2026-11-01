@@ -28,5 +28,5 @@ locks: []
 Define the graph traversal types (such as Node and Edge interfaces) required for the cycle detection algorithm.
 
 ## Acceptance Criteria
-- [ ] Create type definitions for DAG nodes and edges.
-- [ ] Ensure types support nodes in different states and missing references.
+- [x] Create type definitions for DAG nodes and edges.
+- [x] Ensure types support nodes in different states and missing references.
