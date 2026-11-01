@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-01T16:10:08.288Z*
+*Generated at: 2026-11-01T19:56:28.939Z*
 
 ## Node Statistics
 
@@ -19,12 +19,12 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3511 |
-| ACTIVE | 94 |
-| CANCELLED | 895 |
-| PENDING | 892 |
-| READY | 75 |
+| ACTIVE | 95 |
+| CANCELLED | 898 |
+| PENDING | 889 |
+| READY | 77 |
 | BLOCKED | 14 |
-| FAILED | 6 |
+| FAILED | 3 |
 
 ## PR Metrics
 
@@ -154,6 +154,7 @@
 | research-562-680-investigate-moms-savings-ui-failure.md | 3 |
 | research-562-687-investigate-gen2-wild-encounter-extraction-failure-retry.md | 3 |
 | research-562-703-investigate-moms-savings-ui-failure-v2.md | 3 |
+| research-562-716-investigate-moms-savings-ui-failure-v3.md | 3 |
 | research-563-640-investigate-map-data-extraction-failure.md | 3 |
 | research-566-668-investigate-orchestrator-diagnosis-failure.md | 3 |
 | research-566-676-investigate-orchestrator-diagnosis-failure-v2.md | 3 |
@@ -165,6 +166,7 @@
 | research-639-658-investigate-extract-data-scripts-failure.md | 3 |
 | research-639-668-investigate-primitives-migration-failures.md | 3 |
 | research-639-675-investigate-primitives-migration-failures-v2.md | 3 |
+| research-639-726-investigate-primitives-migration-failures-v5.md | 3 |
 | research-640-668-investigate-relocate-scripts-replacement-failure.md | 3 |
 | research-641-668-investigate-hexstream-telemetry-failure.md | 3 |
 | research-641-673-investigate-scanline-crosshairs-failure.md | 3 |
@@ -348,6 +350,7 @@
 | task-674-700-migrate-pokedex-e2e-tests-coder.md | 3 |
 | task-676-712-fuzzer-deadlock-assertions-impl.md | 3 |
 | task-679-712-pokeblock-dashboard-ui-impl.md | 3 |
+| task-707-716-impl-validator-parsing.md | 3 |
 | epic-009-atomic-handoff-testing.md | 2 |
 | epic-014-025-enforce-persona-pipeline-handoffs.md | 2 |
 | epic-030-039-cloudflare-r2-save-sync.md | 2 |
@@ -429,14 +432,12 @@
 | research-528-712-investigate-wip-banner-e2e-failure.md | 2 |
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-561-721-investigate-spinda-ui-failure.md | 2 |
-| research-562-716-investigate-moms-savings-ui-failure-v3.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-563-704-investigate-routes-encounters-failure-v2.md | 2 |
 | research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
-| research-639-726-investigate-primitives-migration-failures-v5.md | 2 |
 | research-645-721-investigate-dashboard-metrics-e2e-failure-retry-2.md | 2 |
 | story-042-081-preserve-enum-optimizations.md | 2 |
 | story-063-605-mirage-island-unified-state-hydration.md | 2 |
@@ -548,8 +549,8 @@
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
+| task-676-729-fuzzer-deadlock-assertions-impl-v3.md | 2 |
 | task-703-704-orchestrator-badge-injection-impl-retry.md | 2 |
-| task-707-716-impl-validator-parsing.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -969,6 +970,7 @@
 | task-478-507-gen2-ruins-of-alph-parsing-logic.md | 1 |
 | task-478-508-gen2-ruins-of-alph-qa.md | 1 |
 | task-478-515-impl-pokeblock-parser.md | 1 |
+| task-478-679-resolve-phase-locking-qa-retry-2.md | 1 |
 | task-479-609-gen3-pokeblock-e2e-impl-v2.md | 1 |
 | task-479-610-gen3-pokeblock-e2e-qa-v2.md | 1 |
 | task-479-677-e2e-dynamic-bundles.md | 1 |
@@ -1096,7 +1098,6 @@
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
 | task-676-703-gen2-pokemon-selection-ui.md | 1 |
-| task-676-729-fuzzer-deadlock-assertions-impl-v3.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
 
 ## Wait Times
