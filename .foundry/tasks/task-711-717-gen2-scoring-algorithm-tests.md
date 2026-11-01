@@ -28,7 +28,7 @@ locks: []
 This task involves writing comprehensive unit tests for the Gen 2 Bug-Catching Contest scoring algorithm implemented in task-711-716.
 
 ## Acceptance Criteria
-- [ ] Create unit tests covering the exact formula for the scoring logic.
-- [ ] Test the IV bonus logic (odd IVs giving specific point values).
-- [ ] Test maximum and minimum scenarios (e.g., max stats, shiny perfect IVs).
-- [ ] Ensure all tests pass.
+- [x] Create unit tests covering the exact formula for the scoring logic.
+- [x] Test the IV bonus logic (odd IVs giving specific point values).
+- [x] Test maximum and minimum scenarios (e.g., max stats, shiny perfect IVs).
+- [x] Ensure all tests pass.
