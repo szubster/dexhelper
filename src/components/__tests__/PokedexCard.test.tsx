@@ -118,6 +118,32 @@ describe('PokedexCard', () => {
 
     await expect.element(page.getByText('[ SEEN ]', { exact: true })).toBeInTheDocument();
   });
+
+  test('renders sprite with eager loading and visible styling when unseen in save data', async () => {
+    vi.mocked(useParsedSaveData).mockReturnValue({ owned: new Set(), seen: new Set() } as unknown as ReturnType<
+      typeof useParsedSaveData
+    >);
+    const router = createMockRouter(
+      <PokedexCard
+        pokemon={mockPokemon}
+        idx={0}
+        isLivingDex={false}
+        partySet={new Set()}
+        pcSet={new Set()}
+        shinySpeciesIds={new Set()}
+      />,
+    );
+
+    await render(<RouterProvider router={router} />);
+
+    await expect.element(page.getByText('[ UNKNOWN ]', { exact: true })).toBeInTheDocument();
+    const img = page.getByAltText('Bulbasaur');
+    await expect.element(img).toBeInTheDocument();
+    await expect.element(img).toHaveAttribute('loading', 'eager');
+    const className = (img.element() as HTMLImageElement).className;
+    expect(className).not.toContain('brightness-0');
+    expect(className).not.toContain('opacity-10');
+  });
 });
 
 vi.mock('../../contexts/EmulatorContext', async (importOriginal) => {

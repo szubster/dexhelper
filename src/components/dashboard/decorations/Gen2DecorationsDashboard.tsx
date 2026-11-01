@@ -16,7 +16,7 @@ export const Gen2DecorationsDashboard: React.FC<Gen2DecorationsDashboardProps> =
   const { active, unlocked } = saveData.gen2RoomDecorations;
 
   return (
-    <TacticalPanel className="mt-4 flex flex-col gap-4 rounded-none border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+    <TacticalPanel className="mt-4 flex flex-col gap-4 rounded-none border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6">
       <TelemetryDecoration label="SYS.ROOM_DECORATIONS" className="-top-[17px] left-[-1px]" />
       <Gen2RoomDecorationDashboard activeDecorations={active} unlockedDecorations={unlocked} />
     </TacticalPanel>

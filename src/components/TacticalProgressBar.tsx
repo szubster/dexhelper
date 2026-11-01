@@ -155,12 +155,12 @@ export const TacticalProgressBar = React.memo(
               {showDot && <span className={cn('inline-block h-1.5 w-1.5 rounded-full', styles.dot)} />}
               {codeTag && (
                 <span
-                  className={cn('border px-1 py-0.5 font-mono text-[8px] uppercase tracking-wider', styles.codeTag)}
+                  className={cn('border px-1 py-0.5 font-mono text-[8px] tracking-wider uppercase', styles.codeTag)}
                 >
                   [{codeTag}]
                 </span>
               )}
-              <span className={cn('font-black uppercase tracking-widest', styles.labelColor)}>[ {label} ]</span>
+              <span className={cn('font-black tracking-widest uppercase', styles.labelColor)}>[ {label} ]</span>
             </div>
 
             <div className="font-mono text-zinc-400">

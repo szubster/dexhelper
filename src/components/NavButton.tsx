@@ -43,7 +43,7 @@ export function NavButton({ to, isActive, onClick, icon: Icon, label, activeLabe
         />
         <span
           className={cn(
-            'whitespace-nowrap font-black font-mono text-[9px] uppercase tracking-tight transition-colors',
+            'font-mono text-[9px] font-black tracking-tight whitespace-nowrap uppercase transition-colors',
             isActive ? 'text-[var(--theme-primary)]' : 'text-zinc-500 group-hover:text-zinc-400',
           )}
         >

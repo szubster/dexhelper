@@ -397,3 +397,12 @@ For detailed memory layout, variables, and event flags used to track the status 
 This document details:
 - **RSE (Devon Corporation):** Root Fossil (Lileep), Claw Fossil (Anorith). Variables and event flags (e.g., `VAR_FOSSIL_RESURRECTION_STATE`, `FLAG_RECEIVED_REVIVED_FOSSIL_MON`).
 - **FRLG (Cinnabar Lab):** Helix Fossil (Omanyte), Dome Fossil (Kabuto), Old Amber (Aerodactyl). Variables and event flags (e.g., `VAR_MAP_SCENE_CINNABAR_ISLAND_POKEMON_LAB_EXPERIMENT_ROOM_WHICH_FOSSIL`).
+
+---
+
+## 18. Styling Ownership (Palette Persona)
+
+The `palette` persona is the master of the Tailwind and styling ecosystem. This includes:
+1. Maintaining custom primitives in `src/index.css` using the `@utility` directive.
+2. Consolidating repeating utility combinations.
+3. Ensuring styling adherence to the tactical hardware aesthetic guidelines (e.g., `rounded-none`, `border-dashed`, monospaced fonts) as defined in ADR 024.

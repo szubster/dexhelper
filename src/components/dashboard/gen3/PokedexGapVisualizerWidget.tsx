@@ -21,7 +21,7 @@ const SimplePokedexGapVisualizer: React.FC<{ missingDex: Set<number> }> = ({ mis
       {dexItems.map((pokemon, idx) => (
         <div
           key={pokemon.id}
-          className="relative opacity-60 grayscale filter transition-all duration-300 hover:opacity-100 hover:filter-none"
+          className="hover:filter-none relative opacity-60 grayscale filter transition-all duration-300 hover:opacity-100"
         >
           <PokedexCard
             pokemon={pokemon}
@@ -47,7 +47,7 @@ export const PokedexGapVisualizerWidget: React.FC = () => {
   return (
     <div className="flex flex-col gap-4 border border-zinc-700 bg-zinc-900/50 p-4">
       <TacticalHeaderDivider className="mb-4 border-zinc-700">
-        <h2 className="font-bold font-mono text-sm text-zinc-400 tracking-widest">POKÉDEX GAP ANALYSIS</h2>
+        <h2 className="font-mono text-sm font-bold tracking-widest text-zinc-400">POKÉDEX GAP ANALYSIS</h2>
       </TacticalHeaderDivider>
       <div className="flex flex-col gap-4">
         {missingHoenn.size > 0 && (

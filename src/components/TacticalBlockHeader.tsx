@@ -80,13 +80,13 @@ export function TacticalBlockHeader({
       {...props}
     >
       <div className="flex flex-col gap-1">
-        <span className={cn('flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-widest', styles.label)}>
+        <span className={cn('flex items-center gap-1.5 font-mono text-[9px] tracking-widest uppercase', styles.label)}>
           {icon}
           {trackingLabel}
         </span>
         <span
           className={cn(
-            'font-black font-display text-white text-xl uppercase tracking-tight drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-colors',
+            'font-display text-xl font-black tracking-tight text-white uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-colors',
             styles.text,
           )}
         >

@@ -16,7 +16,7 @@ export function ShoalItemTracker({ shells, salts, className }: ShoalItemTrackerP
   return (
     <TacticalPanel className={cn('p-4', className)}>
       <TacticalHeaderDivider className="mb-4">
-        <h3 className="tactical-text font-black text-xs text-zinc-400">Shoal Material Reserves</h3>
+        <h3 className="tactical-text text-xs font-black text-zinc-400">Shoal Material Reserves</h3>
         <div className="relative h-4 w-4">
           <TacticalLed variant={isReady ? 'emerald' : 'amber'} pipe={false} position="top-1/2" />
         </div>
@@ -25,11 +25,11 @@ export function ShoalItemTracker({ shells, salts, className }: ShoalItemTrackerP
         <DataPoint label="Shoal Shells" value={`${shells} / 4`} />
         <DataPoint label="Shoal Salts" value={`${salts} / 4`} />
       </div>
-      <div className="mt-4 border-zinc-800 border-t border-dashed pt-2">
+      <div className="mt-4 border-t border-dashed border-zinc-800 pt-2">
         <div className="flex items-center justify-between">
           <span className="tactical-text text-[10px] text-zinc-500">Shell Bell Crafting</span>
           <span
-            className={cn('tactical-text font-bold text-[10px]', isReady ? 'text-emerald-400' : 'text-amber-400/60')}
+            className={cn('tactical-text text-[10px] font-bold', isReady ? 'text-emerald-400' : 'text-amber-400/60')}
           >
             {isReady ? 'READY' : 'INSUFFICIENT MATERIALS'}
           </span>

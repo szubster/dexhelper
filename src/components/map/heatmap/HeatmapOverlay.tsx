@@ -55,7 +55,7 @@ export const HeatmapOverlay: React.FC<HeatmapUIOverlayProps> = ({ heatmapData, c
             <div className="scanline-overlay absolute inset-0 opacity-50" />
 
             {showDensityLabels && (
-              <span className="tactical-text z-10 font-black text-[8px] text-white mix-blend-difference">
+              <span className="tactical-text z-10 text-[8px] font-black text-white mix-blend-difference">
                 {Math.round(data.density)}
               </span>
             )}

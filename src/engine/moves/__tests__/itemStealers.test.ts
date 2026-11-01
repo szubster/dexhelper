@@ -1,7 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import type { PokemonMetadata } from '../../../db/schema';
 import type { PokemonInstance } from '../../saveParser/parsers/common';
-import { COVET_MOVE_ID, findAllItemStealers, findItemStealers, THIEF_MOVE_ID } from '../itemStealers';
+import {
+  COVET_MOVE_ID,
+  findAllItemStealers,
+  findItemStealers,
+  findStealingMove,
+  ITEM_STEALING_MOVE_IDS,
+  THIEF_MOVE_ID,
+} from '../itemStealers';
 
 describe('itemStealers', () => {
   const mockPokemon: PokemonInstance[] = [
@@ -35,6 +42,25 @@ describe('itemStealers', () => {
     [1, { id: 1, n: 'Bulbasaur', cr: 45, baby: false, eto: [], efrm: [], det: [] }],
     [2, { id: 2, n: 'Ivysaur', cr: 45, baby: false, eto: [], efrm: [], det: [] }],
   ]);
+
+  describe('findStealingMove', () => {
+    it('should return Thief when present in moves', () => {
+      expect(findStealingMove([1, 2, THIEF_MOVE_ID, 4])).toBe(THIEF_MOVE_ID);
+    });
+
+    it('should return Covet when present in moves', () => {
+      expect(findStealingMove([1, COVET_MOVE_ID, 3, 4])).toBe(COVET_MOVE_ID);
+    });
+
+    it('should return undefined when no stealing move is present', () => {
+      expect(findStealingMove([1, 2, 3, 4])).toBeUndefined();
+    });
+
+    it('should contain expected move IDs in ITEM_STEALING_MOVE_IDS', () => {
+      expect(ITEM_STEALING_MOVE_IDS).toContain(THIEF_MOVE_ID);
+      expect(ITEM_STEALING_MOVE_IDS).toContain(COVET_MOVE_ID);
+    });
+  });
 
   describe('findItemStealers', () => {
     it('should correctly identify Pokemon with Thief', () => {
