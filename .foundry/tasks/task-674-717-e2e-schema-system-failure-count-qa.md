@@ -33,5 +33,5 @@ As part of STORY `story-582-674-yaml-schema-e2e-verification`, we need to verify
 - Ensure the test covers valid and invalid parsing scenarios as requested.
 
 ## Acceptance Criteria
-- [ ] E2E test runs successfully.
-- [ ] Test implementation correctly covers valid and invalid `system_failure_count` parsing.
+- [x] E2E test runs successfully.
+- [x] Test implementation correctly covers valid and invalid `system_failure_count` parsing.
