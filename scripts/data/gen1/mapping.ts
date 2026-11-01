@@ -38,9 +38,9 @@ export const GEN1_MAPS: Record<number, MapNode> = {
   0x1a: { id: 0x1a, aid: 309, name: 'Route 16', connections: [0x06, 0x17] },
   0x1b: { id: 0x1b, aid: 310, name: 'Route 17', connections: [0x16, 0x18] },
   0x1c: { id: 0x1c, aid: 311, name: 'Route 18', connections: [0x17, 0x07] },
-  0x1d: { id: 0x1d, aid: 314, name: 'Route 19', connections: [0x07, 0x1a] },
-  0x1e: { id: 0x1e, aid: 315, name: 'Route 20', connections: [0x19, 0x08, 0x3e] },
-  0x1f: { id: 0x1f, aid: 732, name: 'Route 21', connections: [0x08, 0x00] },
+  0x1d: { id: 0x1d, aid: 277, name: 'Route 19', connections: [0x07, 0x1a] },
+  0x1e: { id: 0x1e, aid: 278, name: 'Route 20', connections: [0x19, 0x08, 0x3e] },
+  0x1f: { id: 0x1f, aid: 312, name: 'Route 21', connections: [0x08, 0x00] },
   0x20: { id: 0x20, aid: 313, name: 'Route 22', connections: [0x01, 0x21, 0x1801] }, // Route 26
   0x21: { id: 0x21, aid: 1202, name: 'Indigo Plateau', connections: [0x20, 0x3f] },
   0x22: { id: 0x22, aid: 314, name: 'Route 24', connections: [0x03, 0x23] },
