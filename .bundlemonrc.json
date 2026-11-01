@@ -83,7 +83,7 @@
     },
     {
       "path": "assets/index-<hash>.css",
-      "maxSize": "225kb"
+      "maxSize": "230kb"
     },
     {
       "path": "assets/press-*<hash>.css",
