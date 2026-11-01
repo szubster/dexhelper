@@ -24,7 +24,7 @@ locks: []
 ## Context
 QA needs to verify the implementation of the Ruins of Alph puzzle event flag parsing for Gen 2 saves, ensuring it adheres to our save parsing constraints.
 
-## Technical Requirements
+## Acceptance Criteria
 - Verify that module-level constants are used for all offsets and bit masks (no magic numbers).
 - Verify that `RangeError` is caught and rethrown as "The save file is corrupted or incomplete.".
 - Verify that the specific bit offsets are explicitly mapped rather than just returning a raw array.

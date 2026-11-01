@@ -7,6 +7,7 @@ import {
 } from '../components/dashboard/gen3';
 import { Gen3MissedItemsDashboard } from '../components/dashboard/missed-items/Gen3MissedItemsDashboard';
 import { EmptyState } from '../components/EmptyState';
+import { WallpaperDashboard } from '../components/gen3/WallpaperDashboard';
 import { Gen3PokeblocksDashboard, PokeblockOptimizerPanel } from '../components/pokeblocks';
 import { TacticalBlockHeader } from '../components/TacticalBlockHeader';
 import { TacticalPanel } from '../components/TacticalPanel';
@@ -40,6 +41,7 @@ function Gen3DashboardPage() {
             <TrainerCardStatusWidget />
             <MissedMilestonesWidget />
             <PokedexGapVisualizerWidget />
+            <WallpaperDashboard />
             <Gen3PokeblocksDashboard />
             <PokeblockOptimizerPanel />
           </div>

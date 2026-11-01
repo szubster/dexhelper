@@ -2,7 +2,7 @@
 id: story-063-606-mirage-island-state-hydration-e2e
 type: STORY
 title: Mirage Island State Hydration E2E Verification
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-06-08'
 updated_at: '2026-10-31'
@@ -17,10 +17,8 @@ tags:
   - mirage-island
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
-  TASK nodes
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

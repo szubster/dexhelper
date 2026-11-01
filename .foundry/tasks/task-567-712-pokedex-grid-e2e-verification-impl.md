@@ -27,7 +27,7 @@ locks: []
 This task implements the E2E verification steps required to ensure the newly virtualized \`PokedexGrid\` component works correctly within the broader application. This involves updating existing Playwright E2E tests, particularly \`tests/e2e/filtering_logic.spec.ts\` and \`tests/e2e/pokedex-grid-virtualization.spec.ts\`, to account for virtualized DOM rendering where off-screen items are no longer present.
 
 ## Acceptance Criteria
-- [ ] Update \`tests/e2e/filtering_logic.spec.ts\` and any other affected E2E tests to handle virtualized rendering logic (e.g., items not being in the DOM initially unless scrolled into view).
-- [ ] Update \`tests/e2e/models/PokedexGridModel.ts\` if necessary to support assertions on virtualized items.
-- [ ] Verify that \`tests/e2e/pokedex-grid-virtualization.spec.ts\` correctly tests the scroll and lazy-loading behavior.
-- [ ] Ensure all Pokedex grid E2E tests pass reliably without flakiness.
+- [x] Update \`tests/e2e/filtering_logic.spec.ts\` and any other affected E2E tests to handle virtualized rendering logic (e.g., items not being in the DOM initially unless scrolled into view).
+- [x] Update \`tests/e2e/models/PokedexGridModel.ts\` if necessary to support assertions on virtualized items.
+- [x] Verify that \`tests/e2e/pokedex-grid-virtualization.spec.ts\` correctly tests the scroll and lazy-loading behavior.
+- [x] Ensure all Pokedex grid E2E tests pass reliably without flakiness.

@@ -57,7 +57,7 @@ export const PokemonLocations = React.memo(function PokemonLocations({
 
   return (
     <div className="space-y-6">
-      <div className="relative flex items-center justify-between overflow-hidden border-[var(--theme-primary)]/20 border-b-2 border-dashed pb-4">
+      <div className="relative flex items-center justify-between overflow-hidden border-b-2 border-dashed border-[var(--theme-primary)]/20 pb-4">
         {/* Animated scanning line behind header */}
         <div className="absolute inset-0 z-0 -translate-x-full animate-[shimmer_3s_infinite] bg-gradient-to-r from-transparent via-[var(--theme-primary)]/10 to-transparent" />
 
@@ -75,7 +75,7 @@ export const PokemonLocations = React.memo(function PokemonLocations({
           <Radar size={14} className="animate-[spin_4s_linear_infinite] text-[var(--theme-primary)]" />
           <TacticalBadge
             variant="primary"
-            className="border-[var(--theme-primary)]/40 bg-[var(--theme-primary)]/15 px-3 py-1 font-black text-[10px] text-[var(--theme-primary)] shadow-[0_0_10px_rgba(var(--theme-primary-rgb),0.2)] backdrop-blur-md"
+            className="border-[var(--theme-primary)]/40 bg-[var(--theme-primary)]/15 px-3 py-1 text-[10px] font-black text-[var(--theme-primary)] shadow-[0_0_10px_rgba(var(--theme-primary-rgb),0.2)] backdrop-blur-md"
           >
             [ SAT-LINK: {gameVersion.toUpperCase()} ]
           </TacticalBadge>
@@ -92,7 +92,7 @@ export const PokemonLocations = React.memo(function PokemonLocations({
           {hasEncounters ? (
             <>
               {evoReq && (
-                <div className="group relative overflow-hidden border border-amber-500/30 border-dashed bg-amber-950/20 p-4">
+                <div className="group relative overflow-hidden border border-dashed border-amber-500/30 bg-amber-950/20 p-4">
                   <div className="absolute top-0 right-0 p-1 opacity-20 transition-opacity group-hover:opacity-100">
                     <Binary size={12} className="text-amber-500" />
                   </div>
@@ -118,7 +118,7 @@ export const PokemonLocations = React.memo(function PokemonLocations({
                 <div
                   // biome-ignore lint/suspicious/noArrayIndexKey: Array index is stable and required for duplicates
                   key={`static-${i}`}
-                  className="group relative overflow-hidden border border-red-500/30 border-dashed bg-red-950/20 p-4"
+                  className="group relative overflow-hidden border border-dashed border-red-500/30 bg-red-950/20 p-4"
                 >
                   <ScanlineOverlay opacityClass="opacity-10" />
                   <TelemetryDecoration label="STATIC_ENCOUNTER" className="top-0 left-4 text-red-500/50" />
@@ -141,10 +141,10 @@ export const PokemonLocations = React.memo(function PokemonLocations({
                 {versionEnc.length > 0 && (
                   <div className="mb-2 flex items-center gap-2">
                     <Radio size={12} className="animate-pulse text-[var(--theme-primary)]" />
-                    <span className="font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-widest">
+                    <span className="font-mono text-[10px] tracking-widest text-[var(--theme-primary)] uppercase">
                       [ FIELD_DEPLOYMENT_ZONES ]
                     </span>
-                    <div className="h-[1px] flex-1 border-[var(--theme-primary)]/20 border-b border-dashed" />
+                    <div className="h-[1px] flex-1 border-b border-dashed border-[var(--theme-primary)]/20" />
                   </div>
                 )}
                 {versionEnc.map((e) => (
@@ -180,15 +180,15 @@ const GeospatialNode = React.memo(function GeospatialNode({
 
       <div className="flex flex-col gap-4 p-5">
         {/* Header */}
-        <div className="flex items-start justify-between border-zinc-800 border-b border-dashed pb-3">
+        <div className="flex items-start justify-between border-b border-dashed border-zinc-800 pb-3">
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2">
               <Crosshair size={12} className="text-[var(--theme-primary)]" />
-              <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">
+              <span className="font-mono text-[9px] tracking-widest text-zinc-500 uppercase">
                 ZONE_ID: {e.aid.toString().padStart(3, '0')}
               </span>
             </div>
-            <h4 className="flex items-center gap-2 font-black font-display text-lg text-white uppercase tracking-wider">
+            <h4 className="font-display flex items-center gap-2 text-lg font-black tracking-wider text-white uppercase">
               {areaName.toUpperCase()}
             </h4>
           </div>
@@ -209,7 +209,7 @@ const GeospatialNode = React.memo(function GeospatialNode({
 
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {e.d.map((d: CompactEncounterDetail, di: number) => {
-              const methodStr = REVERSE_METHOD_MAP[d.m]?.toLowerCase() || 'unknown';
+              const methodStr = REVERSE_METHOD_MAP[d.method]?.toLowerCase() || 'unknown';
               const isRod = methodStr.includes('rod');
               const isSurf = methodStr === 'surf';
               const isGrass = methodStr === 'walk';
@@ -222,8 +222,8 @@ const GeospatialNode = React.memo(function GeospatialNode({
                   className="group/vector relative flex flex-col gap-2 border border-zinc-800 bg-black/40 p-3 transition-all hover:border-[var(--theme-primary)]/60 hover:bg-[var(--theme-primary)]/5"
                 >
                   {/* Corner Accents */}
-                  <div className="absolute top-0 left-0 h-1.5 w-1.5 border-[var(--theme-primary)]/40 border-t border-l group-hover/vector:border-[var(--theme-primary)]" />
-                  <div className="absolute right-0 bottom-0 h-1.5 w-1.5 border-[var(--theme-primary)]/40 border-r border-b group-hover/vector:border-[var(--theme-primary)]" />
+                  <div className="absolute top-0 left-0 h-1.5 w-1.5 border-t border-l border-[var(--theme-primary)]/40 group-hover/vector:border-[var(--theme-primary)]" />
+                  <div className="absolute right-0 bottom-0 h-1.5 w-1.5 border-r border-b border-[var(--theme-primary)]/40 group-hover/vector:border-[var(--theme-primary)]" />
 
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] shadow-[inset_0_0_10px_rgba(var(--theme-primary-rgb),0.1)] transition-colors group-hover/vector:bg-[var(--theme-primary)]/20">
@@ -232,7 +232,7 @@ const GeospatialNode = React.memo(function GeospatialNode({
 
                     <div className="flex flex-1 flex-col gap-1 overflow-hidden">
                       <div className="flex w-full items-center justify-between">
-                        <span className="truncate font-bold font-mono text-[11px] text-zinc-200 uppercase">
+                        <span className="truncate font-mono text-[11px] font-bold text-zinc-200 uppercase">
                           {methodStr.replace('-', ' ')}
                         </span>
                       </div>
@@ -247,13 +247,13 @@ const GeospatialNode = React.memo(function GeospatialNode({
                     </div>
                   </div>
 
-                  <div className="mt-1 flex items-center justify-between border-zinc-800 border-t border-dashed pt-2">
+                  <div className="mt-1 flex items-center justify-between border-t border-dashed border-zinc-800 pt-2">
                     <div className="flex items-end gap-1">
                       <Activity size={10} className="text-emerald-500/70" />
                       <span className="font-mono text-[9px] text-zinc-500">PROBABILITY</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="font-black font-mono text-[var(--theme-primary)] text-sm drop-shadow-[0_0_4px_rgba(var(--theme-primary-rgb),0.5)]">
+                      <div className="font-mono text-sm font-black text-[var(--theme-primary)] drop-shadow-[0_0_4px_rgba(var(--theme-primary-rgb),0.5)]">
                         {d.c}%
                       </div>
 
@@ -283,8 +283,8 @@ function FallbackLocations({
   areaNames: Record<number, string> | undefined;
 }) {
   return (
-    <div className="space-y-3 border border-red-500/30 border-dashed bg-red-950/10 p-4">
-      <div className="mb-2 flex items-center gap-2 font-black text-[10px] text-amber-500/80 uppercase tracking-widest">
+    <div className="space-y-3 border border-dashed border-red-500/30 bg-red-950/10 p-4">
+      <div className="mb-2 flex items-center gap-2 text-[10px] font-black tracking-widest text-amber-500/80 uppercase">
         <AlertTriangle size={14} className="animate-pulse text-amber-400" />[ SYS.ERR: TARGET NOT IN JURISDICTION (
         {gameVersion.toUpperCase()}) ]
       </div>
@@ -295,10 +295,10 @@ function FallbackLocations({
         {encounters.map((e) => (
           <div
             key={`${e.aid}-${e.v}`}
-            className="flex flex-col rounded-none border border-zinc-800 border-dashed bg-zinc-950 p-3 transition-colors hover:border-amber-500/30"
+            className="flex flex-col rounded-none border border-dashed border-zinc-800 bg-zinc-950 p-3 transition-colors hover:border-amber-500/30"
           >
             <div className="flex items-center justify-between">
-              <span className="font-bold text-[10px] text-zinc-300 uppercase tracking-wide">
+              <span className="text-[10px] font-bold tracking-wide text-zinc-300 uppercase">
                 {(areaNames?.[e.aid] || `AREA #${e.aid}`).toUpperCase()}
               </span>
               <TacticalBadge variant="amber" className="border-amber-500/20 bg-amber-500/5 px-1.5 py-0.5 text-[8px]">

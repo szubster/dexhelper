@@ -45,13 +45,13 @@ export const CatchMethodSection = React.memo(function CatchMethodSection({
         return (
           <div
             key={method}
-            className={`space-y-3 rounded-none border border-white/10 border-dashed bg-black/30 p-4 transition-opacity ${!isOwned ? 'opacity-40 grayscale-[0.5]' : ''}`}
+            className={`space-y-3 rounded-none border border-dashed border-white/10 bg-black/30 p-4 transition-opacity ${!isOwned ? 'opacity-40 grayscale-[0.5]' : ''}`}
           >
             <div className="flex items-center justify-between px-1">
               <div className="flex items-center gap-2">
                 <Icon size={14} className={isOwned ? 'text-emerald-400' : 'text-zinc-500'} />
                 <span
-                  className={`font-black font-mono text-[10px] tracking-wider ${isOwned ? 'text-zinc-300' : 'text-zinc-500'}`}
+                  className={`font-mono text-[10px] font-black tracking-wider ${isOwned ? 'text-zinc-300' : 'text-zinc-500'}`}
                 >
                   {label}
                 </span>
@@ -69,7 +69,7 @@ export const CatchMethodSection = React.memo(function CatchMethodSection({
                     to="/pokemon/$pokemonId"
                     params={{ pokemonId: pid.toString() }}
                     search={{ from: '/assistant' }}
-                    className="focus-visible:tactical-focus relative flex h-14 w-14 items-center justify-center rounded-none border border-white/10 border-dashed bg-zinc-800/80 p-2 shadow-md transition-all hover:scale-110 hover:border-emerald-500/50 hover:bg-zinc-700"
+                    className="focus-visible:tactical-focus relative flex h-14 w-14 items-center justify-center rounded-none border border-dashed border-white/10 bg-zinc-800/80 p-2 shadow-md transition-all hover:scale-110 hover:border-emerald-500/50 hover:bg-zinc-700"
                     title={getPokemonName(pid)}
                     aria-label={`View details for ${getPokemonName(pid)}`}
                     onClick={(e) => e.stopPropagation()}
@@ -80,12 +80,12 @@ export const CatchMethodSection = React.memo(function CatchMethodSection({
                       alt={getPokemonName(pid)}
                       className="h-full w-full object-contain"
                     />
-                    <div className="absolute -top-1.5 -right-1.5 rounded-none border border-white/20 border-dashed bg-emerald-500 px-1.5 py-0.5 font-black font-mono text-[9px] text-white shadow-lg">
+                    <div className="absolute -top-1.5 -right-1.5 rounded-none border border-dashed border-white/20 bg-emerald-500 px-1.5 py-0.5 font-mono text-[9px] font-black text-white shadow-lg">
                       {enc.chance}%
                     </div>
                   </Link>
                   <div className="flex flex-col items-center leading-none">
-                    <span className="font-black text-[9px] text-white transition-colors group-hover/sprite:text-emerald-400">
+                    <span className="text-[9px] font-black text-white transition-colors group-hover/sprite:text-emerald-400">
                       Lv. {enc.minLevel === enc.maxLevel ? enc.minLevel : `${enc.minLevel}-${enc.maxLevel}`}
                     </span>
                     {areaNames?.[enc.areaId] && (
