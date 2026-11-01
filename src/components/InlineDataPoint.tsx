@@ -20,11 +20,11 @@ export const InlineDataPoint = React.memo(function InlineDataPoint({
   valueClassName,
 }: InlineDataPointProps) {
   return (
-    <div className={cn('relative flex items-center gap-2 border-zinc-800/50 border-b border-dashed pb-0.5', className)}>
+    <div className={cn('relative flex items-center gap-2 border-b border-dashed border-zinc-800/50 pb-0.5', className)}>
       <div className="absolute top-1.5 -left-1.5 h-0.5 w-0.5 bg-[var(--theme-primary)] opacity-50 shadow-[0_0_2px_var(--theme-primary)]" />
       <span
         className={cn(
-          'tactical-text whitespace-nowrap font-black text-[8px] text-zinc-500 tracking-widest',
+          'tactical-text text-[8px] font-black tracking-widest whitespace-nowrap text-zinc-500',
           labelClassName,
         )}
       >
@@ -32,7 +32,7 @@ export const InlineDataPoint = React.memo(function InlineDataPoint({
       </span>
       <span
         className={cn(
-          'bg-black/40 px-1 font-black font-mono text-[10px] text-[var(--theme-primary)] uppercase tracking-tight',
+          'bg-black/40 px-1 font-mono text-[10px] font-black tracking-tight text-[var(--theme-primary)] uppercase',
           valueClassName,
         )}
       >

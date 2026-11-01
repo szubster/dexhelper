@@ -53,7 +53,7 @@ export const HallOfFameDashboard: React.FC<Props> = ({ saveData }) => {
   return (
     <TacticalPanel className="p-5">
       <TacticalHeaderDivider className="mb-4 border-zinc-700">
-        <h2 className="font-bold font-mono text-sm text-zinc-400 tracking-widest">HALL OF FAME RECORDS</h2>
+        <h2 className="font-mono text-sm font-bold tracking-widest text-zinc-400">HALL OF FAME RECORDS</h2>
         <span className="font-mono text-xs text-zinc-500">TOTAL ENTRIES: {saveData.hallOfFameRecords.length}</span>
       </TacticalHeaderDivider>
       <div className="flex flex-col gap-4">
@@ -65,7 +65,7 @@ export const HallOfFameDashboard: React.FC<Props> = ({ saveData }) => {
             strikethroughWhenAcquired={false}
           />
         </div>
-        <div className="flex justify-end border-zinc-800 border-t border-dashed pt-2">
+        <div className="flex justify-end border-t border-dashed border-zinc-800 pt-2">
           <TacticalButton
             onClick={() => void handleExport()}
             disabled={isExporting}

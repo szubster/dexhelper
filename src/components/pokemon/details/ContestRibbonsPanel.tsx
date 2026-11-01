@@ -31,8 +31,8 @@ export function ContestRibbonsPanel({ ribbons }: ContestRibbonsPanelProps) {
 
   return (
     <div className="relative z-10 flex flex-col gap-3 pt-2">
-      <div className="flex items-center justify-between border-zinc-800 border-b border-dashed pb-2">
-        <span className="flex items-center gap-2 font-black text-[10px] text-zinc-500 uppercase tracking-widest">
+      <div className="flex items-center justify-between border-b border-dashed border-zinc-800 pb-2">
+        <span className="flex items-center gap-2 text-[10px] font-black tracking-widest text-zinc-500 uppercase">
           <ShieldCheck size={12} className="text-zinc-400" /> [ ACQUIRED_RIBBONS ]
         </span>
       </div>

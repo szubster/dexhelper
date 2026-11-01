@@ -2,13 +2,13 @@
 id: task-559-705-query-formulation-impl-v2
 type: TASK
 title: Implement Query Formulation Logic (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on:
   - research-559-704-investigate-query-formulation-failure
-jules_session_id: '14823929303917619686'
+jules_session_id: null
 parent: story-534-559-rag-dynamic-querying-retrieval
 tags:
   - query
@@ -29,5 +29,5 @@ The orchestrator must formulate search queries using the assigned node's frontma
 - Write unit tests.
 
 ## Acceptance Criteria
-- [ ] Implement query formulation function.
-- [ ] Write unit tests for query formulation.
+- [x] Implement query formulation function.
+- [x] Write unit tests for query formulation.

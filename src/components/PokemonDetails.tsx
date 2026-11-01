@@ -34,6 +34,7 @@ const PokerusSpreadPlanner = React.lazy(() =>
 );
 
 import { ShinyBadge, TacticalIconButton } from '@dexhelper/ui';
+import { LazyLoadWrapper } from './LazyLoadWrapper';
 import { ScanlineOverlay } from './ScanlineOverlay';
 import { TacticalModal } from './TacticalModal';
 
@@ -226,7 +227,7 @@ export function PokemonDetails({
       <ScanlineOverlay />
 
       {/* Top Header / Target Lock Section - Hardware Diagnostic Console */}
-      <div className="relative flex shrink-0 flex-col items-center border-[var(--theme-primary)]/30 border-b-2 bg-zinc-950 p-4 sm:flex-row sm:items-stretch sm:justify-start sm:p-6 lg:p-8">
+      <div className="relative flex shrink-0 flex-col items-center border-b-2 border-[var(--theme-primary)]/30 bg-zinc-950 p-4 sm:flex-row sm:items-stretch sm:justify-start sm:p-6 lg:p-8">
         {/* Deep Hardware Background */}
         <div className="absolute inset-0 z-0 bg-[var(--theme-primary)]/5">
           <LcdGrid className="opacity-[0.03]" />
@@ -234,7 +235,7 @@ export function PokemonDetails({
         </div>
 
         {/* Heavy Mechanical Brackets */}
-        <div className="pointer-events-none absolute inset-0 z-10 border-[4px] border-[var(--theme-primary)]/10 border-dashed" />
+        <div className="pointer-events-none absolute inset-0 z-10 border-[4px] border-dashed border-[var(--theme-primary)]/10" />
 
         {/* Hardware hazard stripe lip */}
         <div
@@ -249,13 +250,13 @@ export function PokemonDetails({
         <div className="relative z-30 flex w-full flex-col items-center gap-6 sm:flex-row sm:gap-8">
           <div className="group relative shrink-0">
             {/* Enlarged Sprite Container with Matrix Targeting */}
-            <div className="zoom-in-50 fade-in group/target relative flex h-40 w-40 animate-in items-center justify-center overflow-hidden rounded-none border-2 border-[var(--theme-primary)]/40 bg-black/80 fill-mode-both shadow-[0_0_40px_rgba(0,0,0,0.9)] transition-all delay-100 duration-500 hover:border-[var(--theme-primary)] hover:bg-black/90 sm:h-48 sm:w-48">
+            <div className="zoom-in-50 fade-in group/target animate-in fill-mode-both relative flex h-40 w-40 items-center justify-center overflow-hidden rounded-none border-2 border-[var(--theme-primary)]/40 bg-black/80 shadow-[0_0_40px_rgba(0,0,0,0.9)] transition-all delay-100 duration-500 hover:border-[var(--theme-primary)] hover:bg-black/90 sm:h-48 sm:w-48">
               <LcdGrid className="opacity-15" color="var(--theme-primary)" />
               <HoverScanner />
 
               {/* Matrix Targeting Rings */}
               <div className="absolute inset-4 rounded-full border border-[var(--theme-primary)]/10 transition-all duration-700 group-hover/target:animate-[spin_4s_linear_infinite] group-hover/target:border-[var(--theme-primary)]/40 group-hover/target:shadow-[0_0_15px_rgba(var(--theme-primary-rgb),0.3)]" />
-              <div className="absolute inset-8 rounded-full border border-[var(--theme-primary)]/10 border-dashed transition-all duration-500 group-hover/target:animate-[spin_3s_linear_infinite_reverse] group-hover/target:border-[var(--theme-primary)]/30 group-hover/target:shadow-[0_0_10px_rgba(var(--theme-primary-rgb),0.2)]" />
+              <div className="absolute inset-8 rounded-full border border-dashed border-[var(--theme-primary)]/10 transition-all duration-500 group-hover/target:animate-[spin_3s_linear_infinite_reverse] group-hover/target:border-[var(--theme-primary)]/30 group-hover/target:shadow-[0_0_10px_rgba(var(--theme-primary-rgb),0.2)]" />
 
               {/* Glitch Overlay on Hover */}
               <div className="pointer-events-none absolute inset-0 z-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(var(--theme-primary-rgb),0.05)_2px,rgba(var(--theme-primary-rgb),0.05)_4px)] opacity-0 transition-opacity duration-300 group-hover/target:opacity-100" />
@@ -279,10 +280,10 @@ export function PokemonDetails({
           </div>
 
           <div className="flex w-full flex-col justify-center text-center sm:text-left">
-            <div className="slide-in-from-bottom-4 fade-in flex animate-in flex-col fill-mode-both delay-200 duration-500">
+            <div className="slide-in-from-bottom-4 fade-in animate-in fill-mode-both flex flex-col delay-200 duration-500">
               <div className="mb-1 flex items-center justify-between pr-24">
                 <div className="flex items-center gap-2">
-                  <span className="font-black font-mono text-[11px] text-[var(--theme-primary)]/70 uppercase tracking-[0.5em]">
+                  <span className="font-mono text-[11px] font-black tracking-[0.5em] text-[var(--theme-primary)]/70 uppercase">
                     [ SUBJECT_ID: {pokemonId.toString().padStart(3, '0')} ]
                   </span>
                   <div className="hidden h-[2px] w-12 bg-gradient-to-r from-[var(--theme-primary)]/50 to-transparent sm:block" />
@@ -300,19 +301,19 @@ export function PokemonDetails({
                 </div>
               </div>
 
-              <h2 className="mb-2 break-words break-all font-black font-display text-3xl text-white uppercase leading-none tracking-widest drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] sm:break-normal sm:text-6xl lg:text-7xl">
+              <h2 className="font-display mb-2 text-3xl leading-none font-black tracking-widest break-words break-all text-white uppercase drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] sm:text-6xl sm:break-normal lg:text-7xl">
                 {pokemonName}
               </h2>
 
               {/* Raw Telemetry Data Trace */}
-              <div className="mb-6 hidden font-mono text-[9px] text-[var(--theme-primary)]/40 tracking-widest sm:block">
+              <div className="mb-6 hidden font-mono text-[9px] tracking-widest text-[var(--theme-primary)]/40 sm:block">
                 {'> '}TRACE: 0x{(pokemonId * 255).toString(16).toUpperCase().padStart(4, '0')} | FLG:{' '}
                 {yourPokemon.length > 0 ? '1' : '0'} | GEN: {saveData?.generation ?? 'N/A'}
               </div>
 
               <div className="flex flex-wrap justify-center gap-3 sm:justify-start">
                 {stadiumReward && (
-                  <div className="flex items-center gap-2 border-[2px] border-blue-500/50 border-dashed bg-blue-950/40 px-4 py-2 font-black font-mono text-[10px] text-blue-400 uppercase tracking-widest shadow-[inset_0_0_10px_rgba(59,130,246,0.2)]">
+                  <div className="flex items-center gap-2 border-[2px] border-dashed border-blue-500/50 bg-blue-950/40 px-4 py-2 font-mono text-[10px] font-black tracking-widest text-blue-400 uppercase shadow-[inset_0_0_10px_rgba(59,130,246,0.2)]">
                     <Monitor size={14} className="text-blue-500" /> STADIUM_REWARD
                   </div>
                 )}
@@ -320,7 +321,7 @@ export function PokemonDetails({
                 {saveData && (
                   <div
                     className={cn(
-                      'flex items-center gap-2 border-[2px] border-dashed px-4 py-2 font-black font-mono text-[10px] uppercase tracking-[0.2em] shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] transition-colors',
+                      'flex items-center gap-2 border-[2px] border-dashed px-4 py-2 font-mono text-[10px] font-black tracking-[0.2em] uppercase shadow-[inset_0_0_10px_rgba(0,0,0,0.5)] transition-colors',
                       yourPokemon.length > 0
                         ? 'border-emerald-500/60 bg-emerald-950/40 text-emerald-400'
                         : 'border-red-500/60 bg-red-950/40 text-red-500',
@@ -360,12 +361,12 @@ export function PokemonDetails({
           {/* Left Column Data Feed */}
           <div className="flex flex-col gap-6 xl:gap-8">
             {catchRate !== null && (
-              <React.Suspense fallback={<div className="tactical-skeleton h-24" />}>
+              <LazyLoadWrapper height="h-24">
                 <PokemonCatchProbability catchRate={catchRate} effectivePokeball={effectivePokeball} />
-              </React.Suspense>
+              </LazyLoadWrapper>
             )}
 
-            <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+            <LazyLoadWrapper height="h-48">
               <PokemonEvolutions
                 evoReq={evoReq}
                 evolvesTo={evolvesTo || []}
@@ -377,24 +378,24 @@ export function PokemonDetails({
                 gameVersion={gameVersion}
                 saveData={saveData}
               />
-            </React.Suspense>
+            </LazyLoadWrapper>
           </div>
 
           {/* Right Column Data Feed */}
           <div className="flex flex-col gap-6 xl:gap-8">
-            <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+            <LazyLoadWrapper height="h-48">
               <PokemonCaughtDetails yourPokemon={yourPokemon} />
-            </React.Suspense>
+            </LazyLoadWrapper>
 
             {saveData?.partyDetails?.some((p) => p.pokerus) && (
-              <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+              <LazyLoadWrapper height="h-48">
                 <PokerusSpreadPlanner initialParty={saveData.partyDetails} />
-              </React.Suspense>
+              </LazyLoadWrapper>
             )}
 
             {pokemonId === 201 && saveData?.generation === 2 && <UnownDexPanel yourPokemon={yourPokemon} />}
 
-            <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+            <LazyLoadWrapper height="h-48">
               <PokemonLocations
                 pokemonId={pokemonId}
                 gameVersion={gameVersion}
@@ -403,7 +404,7 @@ export function PokemonDetails({
                 evoReq={evoReq}
                 loading={loading}
               />
-            </React.Suspense>
+            </LazyLoadWrapper>
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ export function AppHeader({
     return total > 0 ? (securedIds.size / total) * 100 : 0;
   }, [saveData]);
   return (
-    <header className="sticky top-0 z-50 flex w-full flex-col border-[var(--theme-primary)]/40 border-b-[6px] border-dashed bg-black px-4 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.8)] lg:flex-row lg:items-center lg:justify-between lg:px-8">
+    <header className="sticky top-0 z-50 flex w-full flex-col border-b-[6px] border-dashed border-[var(--theme-primary)]/40 bg-black px-4 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.8)] lg:flex-row lg:items-center lg:justify-between lg:px-8">
       {/* Heavy Hazard Stripes Lip */}
       <div
         className="absolute top-0 right-0 left-0 h-2 opacity-80"
@@ -50,7 +50,7 @@ export function AppHeader({
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[var(--theme-primary)]/10 to-transparent" />
 
       {/* Raw text watermark */}
-      <div className="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[80px] text-white/5 uppercase tracking-[0.5em] opacity-30 blur-[2px]">
+      <div className="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 font-mono text-[80px] tracking-[0.5em] whitespace-nowrap text-white/5 uppercase opacity-30 blur-[2px]">
         DIAGNOSTIC CONSOLE ACTIVE
       </div>
 
@@ -59,15 +59,15 @@ export function AppHeader({
           <div className="group relative flex items-center gap-4 border border-[var(--theme-primary)]/40 bg-zinc-950 p-3 shadow-[inset_0_0_20px_rgba(var(--theme-primary-rgb),0.1)]">
             <CornerCrosshairs className="h-3 w-3 border-[var(--theme-primary)]" thickness={2} />
 
-            <div className="slide-in-from-left-4 fade-in flex animate-in items-center gap-4 duration-500">
-              <span className="font-black text-3xl text-white tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all group-hover:text-[var(--theme-primary)] group-hover:drop-shadow-[0_0_15px_rgba(var(--theme-primary-rgb),0.8)]">
+            <div className="slide-in-from-left-4 fade-in animate-in flex items-center gap-4 duration-500">
+              <span className="text-3xl font-black tracking-tighter text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all group-hover:text-[var(--theme-primary)] group-hover:drop-shadow-[0_0_15px_rgba(var(--theme-primary-rgb),0.8)]">
                 DEX<span className="text-[var(--theme-primary)] transition-colors group-hover:text-white">HELPER</span>
               </span>
 
-              <div className="h-10 w-[2px] border-[var(--theme-primary)]/30 border-l border-dashed" />
+              <div className="h-10 w-[2px] border-l border-dashed border-[var(--theme-primary)]/30" />
 
               <div className="flex flex-col gap-1">
-                <span className="font-retro text-[8px] text-zinc-500 uppercase tracking-[0.3em]">
+                <span className="font-retro text-[8px] tracking-[0.3em] text-zinc-500 uppercase">
                   {saveData ? getGenerationConfig(saveData.generation).label : 'Protocol X'}
                 </span>
                 <div className="flex items-center gap-2">
@@ -75,7 +75,7 @@ export function AppHeader({
                     <div className="absolute h-4 w-4 animate-ping rounded-full bg-[var(--theme-primary)]/40" />
                     <div className="relative h-2 w-2 rounded-full bg-[var(--theme-primary)] shadow-[0_0_8px_var(--theme-primary)]" />
                   </div>
-                  <span className="font-black font-mono text-[9px] text-[var(--theme-primary)] tracking-widest">
+                  <span className="font-mono text-[9px] font-black tracking-widest text-[var(--theme-primary)]">
                     SYS.PWR
                   </span>
                 </div>
@@ -88,10 +88,10 @@ export function AppHeader({
         {saveData && (
           <nav className="relative mt-4 hidden lg:mt-0 lg:flex lg:flex-1 lg:justify-center">
             {/* Structural bracket for nav */}
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 font-mono text-[8px] text-[var(--theme-primary)]/60 tracking-[0.4em]">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 font-mono text-[8px] tracking-[0.4em] text-[var(--theme-primary)]/60">
               [ DOWNLINK / UPLINK ]
             </div>
-            <div className="flex border-2 border-zinc-800 border-dashed bg-zinc-950/80 shadow-2xl">
+            <div className="flex border-2 border-dashed border-zinc-800 bg-zinc-950/80 shadow-2xl">
               <NavigationTab to="/" icon={<LayoutGrid size={14} />} label="SYS.DEX" />
               <NavigationTab to="/box-analyzer" icon={<Network size={14} />} label="SYS.ANLZ" />
               <NavigationTab to="/storage" icon={<Database size={14} />} label="SYS.STRG" />
@@ -112,7 +112,7 @@ export function AppHeader({
       </div>
 
       {saveData ? (
-        <div className="mt-4 flex w-full flex-wrap items-center justify-between gap-4 border-zinc-800 border-t border-dashed pt-4 lg:mt-0 lg:w-auto lg:border-t-0 lg:pt-0">
+        <div className="mt-4 flex w-full flex-wrap items-center justify-between gap-4 border-t border-dashed border-zinc-800 pt-4 lg:mt-0 lg:w-auto lg:border-t-0 lg:pt-0">
           {/* Dense Telemetry Data Matrix */}
           <TelemetryMatrix saveData={saveData} progressPercentage={progressPercentage} />
 

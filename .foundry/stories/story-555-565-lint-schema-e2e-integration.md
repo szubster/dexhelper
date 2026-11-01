@@ -2,10 +2,10 @@
 id: story-555-565-lint-schema-e2e-integration
 type: STORY
 title: Schema Linter Integration & E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-13'
+updated_at: '2026-10-31'
 depends_on:
   - story-555-564-lint-schema-frontmatter-validation
 jules_session_id: null

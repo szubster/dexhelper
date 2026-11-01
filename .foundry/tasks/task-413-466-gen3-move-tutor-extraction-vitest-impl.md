@@ -26,7 +26,7 @@ notes: ''
 ## Objective
 Implement Vitest integration tests for the Gen 3 Move Tutor extraction pipeline.
 
-## Technical Requirements
+## Acceptance Criteria
 1. Use `vitest-browser-react` to write integration tests validating the parsing logic.
 2. Mock save files for both Emerald and FireRed/LeafGreen.
 3. Test that extraction yields the correct Move Tutor states based on the mocked save data.

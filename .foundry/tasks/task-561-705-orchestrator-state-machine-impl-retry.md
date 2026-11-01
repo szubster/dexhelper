@@ -16,6 +16,7 @@ tags:
   - architecture
   - state-machine
 rejection_count: 0
+confidence_score: 100
 rejection_reason: ''
 notes: ''
 locks: []
@@ -27,6 +28,6 @@ locks: []
 Based on ADR 560, implement robust custom state machine logic for Node lifecycle transitions in the Foundry orchestrator, maintaining stateless execution.
 
 ## Acceptance Criteria
-- [ ] Refactor state transition logic in \`packages/foundry/foundry-orchestrator.ts\`.
-- [ ] Implement clear state transitions (PENDING -> READY -> ACTIVE -> VERIFYING -> COMPLETED/FAILED).
-- [ ] Ensure integration with the new Graphology DAG structure.
+- [x] Refactor state transition logic in \`packages/foundry/foundry-orchestrator.ts\`.
+- [x] Implement clear state transitions (PENDING -> READY -> ACTIVE -> VERIFYING -> COMPLETED/FAILED).
+- [x] Ensure integration with the new Graphology DAG structure.

@@ -656,7 +656,18 @@ export const pokeDB = {
       const bStore = tx.objectStore(DB_CONFIG.STORES.BERRIES);
       const mStore = tx.objectStore(DB_CONFIG.STORES.METADATA);
 
-      if (data.enc) {
+      if (data.enc && data.enc.length > 0) {
+        const rawEStore = unwrap(eStore);
+        const pids = data.enc.map((e) => e.pid);
+        const existingMap = new Map<number, LocationAreaEncounters>();
+        const existingList = await bulkGet<LocationAreaEncounters>(rawEStore, pids);
+
+        for (const existing of existingList) {
+          if (existing) {
+            existingMap.set(existing.pid, existing);
+          }
+        }
+
         for (const e of data.enc) {
           const inflatedEnc = e.enc.map((enc) => ({
             ...enc,
@@ -667,7 +678,7 @@ export const pokeDB = {
             })),
           }));
 
-          const existing = await eStore.get(e.pid);
+          const existing = existingMap.get(e.pid);
           if (existing) {
             existing.enc.push(...inflatedEnc);
             void eStore.put(existing);
@@ -677,9 +688,20 @@ export const pokeDB = {
         }
       }
 
-      if (data.loc) {
+      if (data.loc && data.loc.length > 0) {
+        const rawLStore = unwrap(lStore);
+        const ids = data.loc.map((l) => l.id);
+        const existingMap = new Map<number, UnifiedLocation>();
+        const existingList = await bulkGet<UnifiedLocation>(rawLStore, ids);
+
+        for (const existing of existingList) {
+          if (existing) {
+            existingMap.set(existing.id, existing);
+          }
+        }
+
         for (const l of data.loc) {
-          const existing = await lStore.get(l.id);
+          const existing = existingMap.get(l.id);
           if (existing) {
             void lStore.put({
               ...existing,

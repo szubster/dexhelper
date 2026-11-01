@@ -4,7 +4,6 @@ import type { PokemonMetadata } from '../../../db/schema';
 import type { SaveData } from '../../saveParser/index';
 import type { PokemonInstance } from '../../saveParser/parsers/common';
 import { getStrategy } from '../strategies';
-import { gen1Strategy } from '../strategies/gen1Strategy';
 import type { EncounterDetail } from '../strategies/types';
 import { generateSuggestions } from '../suggestionEngine';
 import type { AssistantApiData } from '../suggestionEngineTypes';
@@ -82,7 +81,7 @@ describe('generateSuggestions', () => {
     } as unknown as AssistantApiData;
 
     const mockStrategy = {
-      ...gen1Strategy,
+      ...(await getStrategy(1)),
       generation: 2,
     };
 
@@ -154,7 +153,7 @@ describe('generateSuggestions', () => {
     } as unknown as AssistantApiData;
 
     const mockStrategy = {
-      ...gen1Strategy,
+      ...(await getStrategy(1)),
       generation: 2,
     };
 
@@ -228,7 +227,7 @@ describe('generateSuggestions', () => {
     } as unknown as AssistantApiData;
 
     const mockStrategy = {
-      ...gen1Strategy,
+      ...(await getStrategy(1)),
       generation: 2,
     };
 
@@ -284,7 +283,7 @@ describe('generateSuggestions', () => {
       ],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, await getStrategy(1));
 
     const localSuggestion = suggestions.find((s) => s.id === 'catch-local');
     expect(localSuggestion).toBeDefined();
@@ -341,7 +340,7 @@ describe('generateSuggestions', () => {
 
     // We need to spy on strategy.getMapDistance to return a distance < 8
     const mockStrategy = {
-      ...gen1Strategy,
+      ...(await getStrategy(1)),
       getMapDistance: (_startMapId: number, targetAid: number) => {
         if (targetAid === 2) return { distance: 1, name: 'Route 1' };
         return null;
@@ -387,7 +386,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, await getStrategy(1));
 
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeDefined();
@@ -423,7 +422,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, await getStrategy(1));
 
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeUndefined();
@@ -462,7 +461,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, await getStrategy(1));
 
     const giftSuggestion = suggestions.find((s) => s.id === 'gift-131');
     expect(giftSuggestion).toBeUndefined();
@@ -493,7 +492,7 @@ describe('generateSuggestions', () => {
       allLocations: [],
     } as unknown as AssistantApiData;
 
-    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, gen1Strategy);
+    const { suggestions } = await generateSuggestions(mockSaveData, false, 'red', mockApiData, await getStrategy(1));
 
     const tradeSuggestion = suggestions.find((s) => s.id === 'npc-trade-122');
     expect(tradeSuggestion).toBeUndefined();
@@ -571,7 +570,7 @@ describe('generateSuggestions', () => {
 
     // Use a strategy with generation 2
     const mockStrategy = {
-      ...gen1Strategy,
+      ...(await getStrategy(1)),
       generation: 2, // Must be 2 for Gen2 logic
     };
 
@@ -694,7 +693,7 @@ describe('generateSuggestions', () => {
 
     // Use a strategy with generation 2
     const mockStrategy = {
-      ...gen1Strategy,
+      ...(await getStrategy(1)),
       generation: 2,
     };
 
@@ -738,7 +737,7 @@ describe('generateSuggestions', () => {
     };
 
     const localStrategy = {
-      ...gen1Strategy,
+      ...(await getStrategy(1)),
       generation: 2,
       getMapDistance: () => ({ distance: 1, name: 'Route 1' }),
     };
@@ -831,7 +830,7 @@ describe('generateSuggestions', () => {
     } as unknown as AssistantApiData;
 
     const mockStrategy = {
-      ...gen1Strategy,
+      ...(await getStrategy(1)),
       generation: 2,
     };
 
@@ -1032,7 +1031,7 @@ describe('generateSuggestions', () => {
     };
 
     const localStrategy = {
-      ...gen1Strategy,
+      ...(await getStrategy(1)),
       generation: 2,
       getMapDistance: () => ({ distance: 0, name: 'Route 2' }), // same location
       getSpecialSuggestions: () => [] as unknown as import('../strategies/types').Suggestion[],

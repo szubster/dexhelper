@@ -86,7 +86,7 @@ export function SyncProgress() {
       <div
         data-testid="sync-progress"
         className={cn(
-          'fade-in zoom-in-95 relative flex h-full max-h-[800px] w-full max-w-6xl animate-in flex-col shadow-2xl duration-500',
+          'fade-in zoom-in-95 animate-in relative flex h-full max-h-[800px] w-full max-w-6xl flex-col shadow-2xl duration-500',
           isComplete && 'fade-out zoom-out-95 animate-out fill-mode-forwards',
           isComplete ? 'border-emerald-500/50' : 'border-[var(--theme-primary)]/50',
           'border-[4px] border-dashed bg-zinc-950',
@@ -105,7 +105,7 @@ export function SyncProgress() {
         <TelemetryDecoration label="SYS.HARDWARE_UPLINK" className="top-2 left-6 bg-zinc-950 px-4 py-2 text-[10px]" />
 
         {/* Heavy Hardware Console Header */}
-        <div className="flex flex-col items-start justify-between border-zinc-800 border-b-[2px] border-dashed bg-zinc-900 px-6 pt-10 pb-4 md:flex-row md:items-center">
+        <div className="flex flex-col items-start justify-between border-b-[2px] border-dashed border-zinc-800 bg-zinc-900 px-6 pt-10 pb-4 md:flex-row md:items-center">
           <div className="flex items-center gap-6">
             {/* LED Status Indicator */}
             <div
@@ -119,12 +119,12 @@ export function SyncProgress() {
               {isComplete ? <Key size={24} /> : <Activity size={24} className="animate-pulse" />}
             </div>
             <div className="flex flex-col">
-              <h3 className="font-black font-mono text-white text-xl uppercase leading-none tracking-tight">
+              <h3 className="font-mono text-xl leading-none font-black tracking-tight text-white uppercase">
                 {isComplete ? '[ LINK_ESTABLISHED ]' : '[ INITIALIZING_UPLINK ]'}
               </h3>
               <div className="mt-1 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 bg-zinc-600" />
-                <p className="tactical-text font-bold text-[10px] text-zinc-500 uppercase tracking-widest">
+                <p className="tactical-text text-[10px] font-bold tracking-widest text-zinc-500 uppercase">
                   {isComplete ? 'HANDSHAKE VERIFIED // SECURED' : `OP: ${progress?.stage || 'AWAITING_SIGNAL'}`}
                 </p>
               </div>
@@ -133,12 +133,12 @@ export function SyncProgress() {
 
           <div className="mt-4 flex w-full flex-col gap-2 md:mt-0 md:w-auto md:items-end">
             <div className="flex items-center gap-3">
-              <span className="tactical-text font-black text-[10px] text-zinc-600 tracking-widest">
+              <span className="tactical-text text-[10px] font-black tracking-widest text-zinc-600">
                 UPLINK_CAPACITY
               </span>
               <span
                 className={cn(
-                  'font-black font-mono text-3xl tracking-tighter',
+                  'font-mono text-3xl font-black tracking-tighter',
                   isComplete ? 'text-emerald-500' : 'text-[var(--theme-primary)]',
                 )}
               >
@@ -168,7 +168,7 @@ export function SyncProgress() {
 
         <div className="flex flex-1 flex-col overflow-hidden bg-zinc-950 md:flex-row">
           {/* Left Pane: Handshake Log Stream */}
-          <div className="relative flex flex-1 flex-col border-zinc-800 border-b-[2px] border-dashed p-6 md:border-r-[2px] md:border-b-0">
+          <div className="relative flex flex-1 flex-col border-b-[2px] border-dashed border-zinc-800 p-6 md:border-r-[2px] md:border-b-0">
             <EdgeLabel className="-top-3 left-6 bg-zinc-950 px-2 text-[10px]">TERMINAL_LOG</EdgeLabel>
             <LcdGrid className="opacity-[0.03]" />
             <ScanlineOverlay opacityClass="opacity-10" />
@@ -176,7 +176,7 @@ export function SyncProgress() {
             <div className="custom-scrollbar relative flex flex-1 flex-col justify-end overflow-y-auto pt-4 font-mono text-[10px] leading-relaxed tracking-wider">
               {/* Fake Hex Dump background */}
               <div className="pointer-events-none absolute inset-0 z-0 flex flex-col justify-end opacity-20">
-                <div className="select-none break-all font-mono text-[9px] text-zinc-700 leading-tight">
+                <div className="font-mono text-[9px] leading-tight break-all text-zinc-700 select-none">
                   {HEX_BINARY_PATTERN}
                 </div>
               </div>
@@ -207,7 +207,7 @@ export function SyncProgress() {
           </div>
 
           {/* Center Pane: Hardware Targeting Array */}
-          <div className="relative flex flex-1 items-center justify-center border-zinc-800 border-b-[2px] border-dashed bg-zinc-900/30 p-8 md:border-r-[2px] md:border-b-0">
+          <div className="relative flex flex-1 items-center justify-center border-b-[2px] border-dashed border-zinc-800 bg-zinc-900/30 p-8 md:border-r-[2px] md:border-b-0">
             <EdgeLabel className="-top-3 left-6 bg-zinc-950 px-2 text-[10px]">DIAGNOSTIC_ARRAY</EdgeLabel>
             <LcdGrid className="opacity-[0.05]" />
 
@@ -273,7 +273,7 @@ export function SyncProgress() {
               })}
             </div>
 
-            <div className="mt-4 flex items-center justify-between border-zinc-800 border-t border-dashed pt-4">
+            <div className="mt-4 flex items-center justify-between border-t border-dashed border-zinc-800 pt-4">
               <div className="flex items-center gap-2">
                 <span
                   className={cn(

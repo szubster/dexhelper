@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { gen1Strategy } from '../strategies/gen1Strategy';
+import { getStrategy } from '../strategies';
 import { generateSuggestions } from '../suggestionEngine';
 
 describe('Recursive Evolution Suggestions', () => {
@@ -31,7 +31,7 @@ describe('Recursive Evolution Suggestions', () => {
       allLocations: [],
     };
 
-    const mockStrategy = { ...gen1Strategy, getSpecialSuggestions: () => [] };
+    const mockStrategy = { ...(await getStrategy(1)), getSpecialSuggestions: () => [] };
     const { suggestions } = await generateSuggestions(
       mockSaveData as unknown as import('../../saveParser/index').SaveData,
       false,

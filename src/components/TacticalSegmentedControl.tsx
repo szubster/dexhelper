@@ -6,13 +6,13 @@ import { HardwareScrews } from './HardwareScrews';
 import { ScanlineOverlay } from './ScanlineOverlay';
 
 export const tacticalSegmentedItemVariants = cva(
-  'tactical-badge relative flex-1 border border-dashed border-zinc-950 px-2.5 py-2 transition-all duration-150 overflow-hidden group',
+  'tactical-badge group relative flex-1 overflow-hidden border border-dashed border-zinc-950 px-2.5 py-2 transition-all duration-150',
   {
     variants: {
       active: {
-        true: 'bg-zinc-950 shadow-[inset_0_4px_12px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.05)] translate-y-[1px]',
+        true: 'translate-y-[1px] bg-zinc-950 shadow-[inset_0_4px_12px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.05)]',
         false:
-          'bg-zinc-900/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_2px_4px_rgba(0,0,0,0.4)] text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200 border-zinc-800',
+          'border-zinc-800 bg-zinc-900/80 text-zinc-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_2px_4px_rgba(0,0,0,0.4)] hover:bg-zinc-800 hover:text-zinc-200',
       },
       variant: {
         default: '',
@@ -27,37 +27,37 @@ export const tacticalSegmentedItemVariants = cva(
       {
         active: true,
         variant: 'default',
-        className: 'border-t-zinc-950 border-b-zinc-800 text-[var(--theme-primary)] border-[var(--theme-primary)]/40',
+        className: 'border-[var(--theme-primary)]/40 border-t-zinc-950 border-b-zinc-800 text-[var(--theme-primary)]',
       },
       {
         active: true,
         variant: 'emerald',
         className:
-          'border-t-zinc-950 border-b-emerald-950 text-emerald-400 border-emerald-500/50 shadow-[0_0_10px_rgba(16,185,129,0.25)]',
+          'border-emerald-500/50 border-t-zinc-950 border-b-emerald-950 text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.25)]',
       },
       {
         active: true,
         variant: 'amber',
         className:
-          'border-t-zinc-950 border-b-amber-950 text-amber-400 border-amber-500/50 shadow-[0_0_10px_rgba(245,158,11,0.25)]',
+          'border-amber-500/50 border-t-zinc-950 border-b-amber-950 text-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.25)]',
       },
       {
         active: true,
         variant: 'blue',
         className:
-          'border-t-zinc-950 border-b-blue-950 text-blue-400 border-blue-500/50 shadow-[0_0_10px_rgba(59,130,246,0.25)]',
+          'border-blue-500/50 border-t-zinc-950 border-b-blue-950 text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.25)]',
       },
       {
         active: true,
         variant: 'red',
         className:
-          'border-t-zinc-950 border-b-red-950 text-red-400 border-red-500/50 shadow-[0_0_10px_rgba(239,68,68,0.25)]',
+          'border-red-500/50 border-t-zinc-950 border-b-red-950 text-red-400 shadow-[0_0_10px_rgba(239,68,68,0.25)]',
       },
       {
         active: true,
         variant: 'purple',
         className:
-          'border-t-zinc-950 border-b-purple-950 text-purple-400 border-purple-500/50 shadow-[0_0_10px_rgba(168,85,247,0.25)]',
+          'border-purple-500/50 border-t-zinc-950 border-b-purple-950 text-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.25)]',
       },
     ],
     defaultVariants: {
@@ -163,14 +163,14 @@ export const TacticalSegmentedControl = React.memo(function TacticalSegmentedCon
         <>
           <legend className="sr-only">{ariaLabel || legendLabel}</legend>
           <div className="flex items-center justify-between px-0.5">
-            <span className="tactical-text font-bold text-[9px] text-zinc-500 tracking-widest">{legendLabel}</span>
+            <span className="tactical-text text-[9px] font-bold tracking-widest text-zinc-500">{legendLabel}</span>
             <span className="font-mono text-[8px] text-zinc-600">[CH.SEL]</span>
           </div>
         </>
       )}
       {!legendLabel && ariaLabel && <legend className="sr-only">{ariaLabel}</legend>}
 
-      <div className="relative border border-zinc-800 border-dashed bg-zinc-950/90 p-2 shadow-[inset_0_0_20px_rgba(0,0,0,0.9),0_2px_8px_rgba(0,0,0,0.6)]">
+      <div className="relative border border-dashed border-zinc-800 bg-zinc-950/90 p-2 shadow-[inset_0_0_20px_rgba(0,0,0,0.9),0_2px_8px_rgba(0,0,0,0.6)]">
         <HardwareScrews />
         <CornerCrosshairs className="h-1.5 w-1.5 border-zinc-700/60" />
 
@@ -230,13 +230,13 @@ export const TacticalSegmentedControl = React.memo(function TacticalSegmentedCon
                     ) : (
                       <div className="h-1 w-1 shrink-0 rounded-full bg-zinc-700" />
                     )}
-                    <span className="whitespace-nowrap font-mono">{item.label}</span>
+                    <span className="font-mono whitespace-nowrap">{item.label}</span>
                     {item.codeTag && (
                       <span className="font-mono text-[8px] text-zinc-500 uppercase">[{item.codeTag}]</span>
                     )}
                   </div>
                   {item.sublabel && (
-                    <span className="font-mono text-[8px] text-zinc-500 tracking-normal">{item.sublabel}</span>
+                    <span className="font-mono text-[8px] tracking-normal text-zinc-500">{item.sublabel}</span>
                   )}
                 </div>
               </button>

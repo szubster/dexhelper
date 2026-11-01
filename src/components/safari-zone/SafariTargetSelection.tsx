@@ -61,7 +61,7 @@ function SafariTargetSelectionComponent({ selection }: Props) {
   return (
     <TacticalPanel className="mb-6 flex flex-col gap-4 p-4 md:flex-row" variant="default">
       <div className="flex flex-1 flex-col gap-2">
-        <label htmlFor="safari-version-select" className="font-bold font-mono text-xs text-zinc-400 uppercase">
+        <label htmlFor="safari-version-select" className="font-mono text-xs font-bold text-zinc-400 uppercase">
           [ Game Version ]
         </label>
         <TacticalSelect
@@ -85,7 +85,7 @@ function SafariTargetSelectionComponent({ selection }: Props) {
       </div>
 
       <div className="flex flex-1 flex-col gap-2">
-        <label htmlFor="safari-target-select" className="font-bold font-mono text-xs text-zinc-400 uppercase">
+        <label htmlFor="safari-target-select" className="font-mono text-xs font-bold text-zinc-400 uppercase">
           [ Target Pokémon ]
         </label>
         <TacticalSelect

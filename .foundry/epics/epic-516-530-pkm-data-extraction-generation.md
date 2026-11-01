@@ -2,10 +2,10 @@
 id: epic-516-530-pkm-data-extraction-generation
 type: EPIC
 title: PKM/PK3 Data Extraction and Generation
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-09-10'
+updated_at: '2026-10-31'
 depends_on: []
 jules_session_id: null
 parent: prd-159-516-individual-pokemon-pkm-exporter
@@ -15,6 +15,7 @@ tags:
   - gen2
   - gen3
 rejection_reason: ''
+locks: []
 ---
 
 # Epic: PKM/PK3 Data Extraction and Generation
@@ -30,6 +31,6 @@ This epic focuses on the backend data layer required to export individual Pokém
 ## Acceptance Criteria
 - [x] Story Owner: Break down this Epic into Stories.
 - [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-530-553-gen1-gen2-pkm-extraction
-- [ ] story-530-554-gen3-pk3-extraction
-- [ ] story-530-555-pkm-data-integration-e2e
+- [x] story-530-553-gen1-gen2-pkm-extraction
+- [x] story-530-554-gen3-pk3-extraction
+- [x] story-530-555-pkm-data-integration-e2e
