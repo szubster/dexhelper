@@ -28,5 +28,5 @@ Execute searches against the in-memory flexsearch index and extract relevant chu
 - Extract document chunks.
 
 ## Acceptance Criteria
-- [ ] Implement chunk extraction function.
-- [ ] Write unit tests.
+- [x] Implement chunk extraction function.
+- [x] Write unit tests.
