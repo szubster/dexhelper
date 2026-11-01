@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-01T01:33:36.021Z*
+*Generated at: 2026-11-01T08:14:49.936Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3508 |
-| ACTIVE | 79 |
+| COMPLETED | 3511 |
+| ACTIVE | 85 |
 | CANCELLED | 890 |
-| PENDING | 904 |
-| READY | 90 |
+| PENDING | 899 |
+| READY | 79 |
 | BLOCKED | 14 |
-| FAILED | 2 |
+| FAILED | 9 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 81 |
-| Merged PRs | 8801 |
-| Closed PRs | 1118 |
+| Open PRs | 94 |
+| Merged PRs | 8797 |
+| Closed PRs | 1109 |
 
 ## Rejection Counts
 
@@ -534,6 +534,7 @@
 | task-564-680-thief-covet-ui-integration-components.md | 2 |
 | task-565-576-gen3-pokedex-gaps-e2e-coder.md | 2 |
 | task-565-606-hunting-progress-notifications.md | 2 |
+| task-566-691-orchestrator-diagnosis-logic-retry-v3.md | 2 |
 | task-570-618-cva-tactical-aesthetic-e2e-coder-retry.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
@@ -854,6 +855,7 @@
 | story-411-422-pc-box-and-tm-extraction.md | 1 |
 | story-412-477-detect-experiment-metadata.md | 1 |
 | story-414-418-fuzzing-setup-and-properties.md | 1 |
+| story-418-677-adr-compliance-lefthook-integration.md | 1 |
 | story-513-537-gen3-berry-serialization-and-api.md | 1 |
 | story-517-537-gen3-weather-anomaly-data-e2e.md | 1 |
 | story-517-551-implement-deletion-chunking.md | 1 |
@@ -1061,7 +1063,6 @@
 | task-564-682-qa-schema-frontmatter-validation.md | 1 |
 | task-566-583-shoal-dashboard-layout.md | 1 |
 | task-566-584-shoal-ui-qa.md | 1 |
-| task-566-691-orchestrator-diagnosis-logic-retry-v3.md | 1 |
 | task-567-691-shoal-cave-e2e-coder-retry.md | 1 |
 | task-569-578-cva-refactor-tactical-panel-card.md | 1 |
 | task-571-578-cva-refactor-basic-inputs.md | 1 |
@@ -1089,6 +1090,7 @@
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
+| task-703-704-orchestrator-badge-injection-impl-retry.md | 1 |
 | task-707-716-impl-validator-parsing.md | 1 |
 
 ## Wait Times
