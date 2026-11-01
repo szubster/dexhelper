@@ -33,7 +33,7 @@ Write E2E tests for map overlay rendering based on Smart Radar data.
 ## Context
 Following the implementation of test hydration utilities, we now need to verify that the `RouteRadarController` correctly drives the UI. We must test that map overlays are properly rendered with the correct visual densities.
 
-## Core Technical Requirements
+## Core Acceptance Criteria
 - Use Playwright to write E2E tests for the map component.
 - Hydrate the state using utilities from `task-431-469-smart-radar-test-utilities-impl`.
 - Assert that heatmap density overlays appear based on injected suggestionEngine mock data.

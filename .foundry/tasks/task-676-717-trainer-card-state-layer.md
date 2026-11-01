@@ -2,13 +2,13 @@
 id: task-676-717-trainer-card-state-layer
 type: TASK
 title: Task - Implement Trainer Card State Fetching Hooks
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-22'
-updated_at: '2026-10-22'
+updated_at: '2026-11-01'
 depends_on:
   - task-676-716-trainer-card-types
-jules_session_id: null
+jules_session_id: '3045058524701079298'
 pr_number: null
 parent: story-401-676-gen3-trainer-card-core-state
 tags:

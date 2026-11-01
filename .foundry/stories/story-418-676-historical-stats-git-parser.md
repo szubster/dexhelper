@@ -2,12 +2,12 @@
 id: story-418-676-historical-stats-git-parser
 type: STORY
 title: Historical Stats Git Parser CLI
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-10-20'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '18160837357709487379'
+jules_session_id: null
 pr_number: null
 parent: epic-146-418-historical-statistics-backfilling
 tags:
@@ -33,4 +33,8 @@ As part of the Historical Statistics Backfilling Engine epic, we need a CLI scri
 - Implement git history traversal logic to check out or read the `.foundry/` directory at specific points in time.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into modular Tasks for the Coder.
+- [x] Break down this Story into modular Tasks for the Coder.
+- [ ] task-676-712-backfill-stats-cli-args-parser
+- [ ] task-676-713-qa-backfill-stats-cli-args-parser
+- [ ] task-676-714-backfill-stats-git-traversal-impl
+- [ ] task-676-715-qa-backfill-stats-git-traversal

@@ -2,13 +2,13 @@
 id: story-404-478-kurt-apricorn-parsing-logic
 type: STORY
 title: Kurt Apricorn Parsing Logic
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on:
   - story-404-477-kurt-apricorn-offset-and-constants
-jules_session_id: '14959208022831040068'
+jules_session_id: null
 pr_number: null
 parent: epic-338-404-kurt-apricorn-data-engine
 tags:
@@ -36,12 +36,16 @@ With the memory offsets and constants defined, this story implements the actual 
 - [x] task-478-668-kurt-apricorn-core-logic
 - [x] task-478-669-kurt-apricorn-unit-tests
 - [x] task-478-670-kurt-apricorn-qa
-- [ ] research-478-676-investigate-kurt-apricorn-types-failure
-- [ ] task-478-677-kurt-apricorn-types-retry
+- [x] research-478-676-investigate-kurt-apricorn-types-failure
+- [x] task-478-677-kurt-apricorn-types-retry
 - [x] task-478-678-kurt-apricorn-core-logic-retry
 - [x] task-478-679-kurt-apricorn-unit-tests-retry
 - [x] task-478-680-kurt-apricorn-qa-retry
-- [ ] research-478-703-investigate-kurt-apricorn-core-logic-failure
-- [ ] task-478-704-kurt-apricorn-core-logic-retry-2
-- [ ] task-478-705-kurt-apricorn-unit-tests-retry-2
-- [ ] task-478-706-kurt-apricorn-qa-retry-2
+- [x] research-478-703-investigate-kurt-apricorn-core-logic-failure
+- [x] task-478-704-kurt-apricorn-core-logic-retry-2
+- [x] task-478-705-kurt-apricorn-unit-tests-retry-2
+- [x] task-478-706-kurt-apricorn-qa-retry-2
+- [ ] research-478-727-investigate-kurt-apricorn-core-logic-failure-v2
+- [ ] task-478-728-kurt-apricorn-core-logic-retry-3
+- [ ] task-478-729-kurt-apricorn-unit-tests-retry-3
+- [ ] task-478-730-kurt-apricorn-qa-retry-3

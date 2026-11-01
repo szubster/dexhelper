@@ -2,12 +2,12 @@
 id: task-676-707-route-119-layout-data-impl
 type: TASK
 title: Route 119 Layout Data and Constraints Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-18T18:41:32.085Z'
-updated_at: '2026-10-28'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '7844071853358986643'
+jules_session_id: null
 pr_number: null
 parent: story-059-676-route-119-visual-map
 tags:
@@ -30,5 +30,5 @@ Extract and define the constant map layout data, specifically the grid dimension
 - Ensure no inline magic numbers are used; all layout constants must be defined explicitly.
 
 ## Acceptance Criteria
-- [ ] Implement data constants and helpers for Route 119 grid and water tiles.
-- [ ] Add unit tests verifying the grid boundaries and tile validation logic.
+- [x] Implement data constants and helpers for Route 119 grid and water tiles.
+- [x] Add unit tests verifying the grid boundaries and tile validation logic.

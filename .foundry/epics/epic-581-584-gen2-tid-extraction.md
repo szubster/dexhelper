@@ -2,12 +2,12 @@
 id: epic-581-584-gen2-tid-extraction
 type: EPIC
 title: Gen 2 TID Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-16T17:53:10.106Z'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '16494303868447171332'
+jules_session_id: null
 pr_number: null
 parent: prd-157-581-gen2-headbutt-tree-predictor
 tags:
@@ -33,4 +33,6 @@ Extract the 16-bit Trainer ID from Generation 2 save files to enable player-spec
 - Ensure extraction logic matches Gen 2 save block structures.
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into implementation stories and ensure a final E2E verification story is included.
+- [x] Story Owner: Break down this Epic into implementation stories and ensure a final E2E verification story is included.
+- [ ] story-584-711-gen2-tid-extraction-core
+- [ ] story-584-712-gen2-tid-extraction-e2e

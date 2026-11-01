@@ -120,6 +120,9 @@ export interface SessionDetails {
 }
 
 export async function getSessionDetails(sessionId: string, julesKey: string): Promise<SessionDetails | null> {
+  if (sessionId.startsWith('agy-')) {
+    return null;
+  }
   try {
     const res = await fetch(`https://jules.googleapis.com/v1alpha/sessions/${sessionId}`, {
       headers: { 'X-Goog-Api-Key': julesKey }
@@ -142,6 +145,9 @@ export async function getSessionDetails(sessionId: string, julesKey: string): Pr
 }
 
 export async function deleteJulesSession(sessionId: string, julesKey: string): Promise<boolean> {
+  if (sessionId.startsWith('agy-')) {
+    return true;
+  }
   try {
     const res = await fetch(`https://jules.googleapis.com/v1alpha/sessions/${sessionId}`, {
       method: 'DELETE',

@@ -19,22 +19,22 @@ export function Gen3AshTrackerDashboard({ gen3VolcanicAsh }: Gen3AshTrackerDashb
 
   return (
     <TacticalPanel className="flex flex-col gap-4">
-      <div className="flex items-center gap-2 border-zinc-700 border-b border-dashed pb-2">
+      <div className="flex items-center gap-2 border-b border-dashed border-zinc-700 pb-2">
         <Flame className="text-orange-500" size={20} />
-        <h2 className="tactical-text font-black text-[14px]">VOLCANIC ASH TRACKER</h2>
+        <h2 className="tactical-text text-[14px] font-black">VOLCANIC ASH TRACKER</h2>
       </div>
 
       <div className="flex flex-col gap-6 md:flex-row">
-        <div className="flex min-w-[200px] flex-col items-center justify-center rounded-none border border-zinc-700 border-dashed bg-zinc-900/50 p-6">
+        <div className="flex min-w-[200px] flex-col items-center justify-center rounded-none border border-dashed border-zinc-700 bg-zinc-900/50 p-6">
           <span className="tactical-text mb-2 text-[10px] text-zinc-500">Current Ash Collected</span>
-          <span className="font-black font-mono text-4xl text-orange-500" data-testid="ash-count">
+          <span className="font-mono text-4xl font-black text-orange-500" data-testid="ash-count">
             {gen3VolcanicAsh.toLocaleString()}
           </span>
           <span className="tactical-text mt-1 text-[10px] text-zinc-500">Steps</span>
         </div>
 
         <div className="flex-1">
-          <h3 className="tactical-text mb-3 font-bold text-[12px] text-zinc-400">Craftable Items</h3>
+          <h3 className="tactical-text mb-3 text-[12px] font-bold text-zinc-400">Craftable Items</h3>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {CRAFTABLE_ITEMS.map((item) => {
               const canCraft = gen3VolcanicAsh >= item.cost;
@@ -50,7 +50,7 @@ export function Gen3AshTrackerDashboard({ gen3VolcanicAsh }: Gen3AshTrackerDashb
                   </span>
                   <div className="flex flex-col items-end">
                     <span
-                      className={`font-bold font-mono text-[12px] ${canCraft ? 'text-orange-400' : 'text-zinc-600'}`}
+                      className={`font-mono text-[12px] font-bold ${canCraft ? 'text-orange-400' : 'text-zinc-600'}`}
                     >
                       {item.cost}
                     </span>

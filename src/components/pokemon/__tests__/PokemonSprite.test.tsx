@@ -15,7 +15,14 @@ describe('PokemonSprite', () => {
     const img = page.getByAltText('Pikachu');
     await expect.element(img).toBeInTheDocument();
     await expect.element(img).toHaveAttribute('src', expectedPrimaryUrl);
+    await expect.element(img).toHaveAttribute('loading', 'eager');
     await expect.element(img).not.toHaveAttribute('crossorigin');
+  });
+
+  it('respects custom loading attribute', async () => {
+    await render(<PokemonSprite pokemonId={25} generation={1} alt="Pikachu" loading="lazy" />);
+    const img = page.getByAltText('Pikachu');
+    await expect.element(img).toHaveAttribute('loading', 'lazy');
   });
 
   it('falls back to official artwork on first load error', async () => {

@@ -2,12 +2,12 @@
 id: story-043-336-update-runtime-interfaces-keys
 type: STORY
 title: Update Runtime Interfaces to Verbose Keys
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-07-21'
-updated_at: '2026-10-21'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '16129667148116155966'
+jules_session_id: null
 pr_number: null
 parent: epic-032-043-runtime-interfaces-keys
 tags:
@@ -37,6 +37,9 @@ Implement changes required by ADR 015. Update the runtime interfaces and compone
 - [x] research-336-567-investigate-runtime-interfaces-keys-failure
 - [x] task-336-568-update-runtime-interfaces-keys-impl-v2
 - [x] task-336-569-update-runtime-interfaces-keys-qa-v2
-- [ ] research-336-690-investigate-runtime-interfaces-keys-failure-v2
-- [ ] task-336-691-update-runtime-interfaces-keys-impl-v3
-- [ ] task-336-692-update-runtime-interfaces-keys-qa-v3
+- [x] research-336-690-investigate-runtime-interfaces-keys-failure-v2
+- [x] task-336-691-update-runtime-interfaces-keys-impl-v3
+- [x] task-336-692-update-runtime-interfaces-keys-qa-v3
+- [ ] research-336-712-investigate-runtime-interfaces-keys-failure-v3
+- [ ] task-336-713-update-runtime-interfaces-keys-impl-v4
+- [ ] task-336-714-update-runtime-interfaces-keys-qa-v4

@@ -2,14 +2,14 @@
 id: story-112-403-integration-e2e
 type: STORY
 title: Integration and E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on:
   - story-112-401-gen2-dv-extraction
   - story-112-402-gen3-iv-pv-extraction
-jules_session_id: '16907918018409105473'
+jules_session_id: null
 pr_number: null
 parent: epic-112-400-npc-size-record-data-extraction
 tags:
@@ -45,6 +45,9 @@ This story ensures that the backend logic to parse and extract hidden values fro
 - [x] research-403-668-investigate-e2e-timeout-v3
 - [x] task-403-669-playwright-e2e-retry-impl-v3
 - [x] task-403-670-playwright-e2e-retry-qa-v3
-- [ ] research-403-673-investigate-e2e-timeout-v4
-- [ ] task-403-674-playwright-e2e-retry-impl-v4
-- [ ] task-403-675-playwright-e2e-retry-qa-v4
+- [x] research-403-673-investigate-e2e-timeout-v4
+- [x] task-403-674-playwright-e2e-retry-impl-v4
+- [x] task-403-675-playwright-e2e-retry-qa-v4
+- [ ] research-403-721-investigate-e2e-timeout-v5
+- [ ] task-403-722-playwright-e2e-retry-impl-v5
+- [ ] task-403-723-playwright-e2e-retry-qa-v5

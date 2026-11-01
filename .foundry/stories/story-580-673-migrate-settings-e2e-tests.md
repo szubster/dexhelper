@@ -2,10 +2,10 @@
 id: story-580-673-migrate-settings-e2e-tests
 type: STORY
 title: Migrate Settings E2E Tests to COM Pattern
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-09'
-updated_at: '2026-10-17'
+updated_at: '2026-10-31'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - testing
   - e2e
   - playwright
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -32,8 +32,8 @@ Refactor existing Settings-related E2E tests (`tests/e2e/settings.spec.ts` and `
 - Ensure the refactored tests pass consistently.
 
 ## Acceptance Criteria
-- [ ] Settings tests are refactored to use `SettingsModalModel`.
-- [ ] Tests use semantic locators via the COM.
+- [x] Settings tests are refactored to use `SettingsModalModel`.
+- [x] Tests use semantic locators via the COM.
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-673-687-migrate-settings-tests-impl
-- [ ] task-673-688-migrate-settings-tests-qa
+- [x] task-673-687-migrate-settings-tests-impl
+- [x] task-673-688-migrate-settings-tests-qa

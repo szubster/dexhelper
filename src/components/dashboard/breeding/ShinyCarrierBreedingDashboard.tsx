@@ -105,12 +105,12 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-6">
-      <TacticalPanel className="relative mt-4 flex flex-col gap-4 border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+      <TacticalPanel className="relative mt-4 flex flex-col gap-4 border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6">
         <TelemetryDecoration label="SYS.BREEDING_OPTIMIZATION" className="-top-[17px] left-[-1px]" />
 
         <div className="flex items-center justify-between">
-          <span className="tactical-text z-10 font-black text-lg text-white">OPTIMAL BREEDING PAIRS</span>
-          <span className="tactical-text z-10 text-amber-500 text-xs">[ PRIORITY: SHINY CARRIERS ]</span>
+          <span className="tactical-text z-10 text-lg font-black text-white">OPTIMAL BREEDING PAIRS</span>
+          <span className="tactical-text z-10 text-xs text-amber-500">[ PRIORITY: SHINY CARRIERS ]</span>
         </div>
 
         {breedingPairs.length === 0 ? (
@@ -129,13 +129,13 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
                   key={`pair-${pA.id}-${pB.id}`}
                   className="tactical-panel relative flex flex-col gap-2 border-2 border-zinc-700 bg-black/60 p-3 font-mono text-xs hover:border-zinc-500"
                 >
-                  <div className="tactical-panel absolute top-0 right-0 border-zinc-700 border-t-0 border-r-0 border-b-2 border-l-2 bg-zinc-900/80 px-2 py-1 text-[10px] text-zinc-400">
+                  <div className="tactical-panel absolute top-0 right-0 border-t-0 border-r-0 border-b-2 border-l-2 border-zinc-700 bg-zinc-900/80 px-2 py-1 text-[10px] text-zinc-400">
                     SCORE: {pair.score}
                   </div>
 
                   <div className="flex w-full flex-col gap-3 pt-4">
                     {/* Parent A */}
-                    <div className="flex items-center justify-between border-zinc-800 border-b border-dashed pb-2">
+                    <div className="flex items-center justify-between border-b border-dashed border-zinc-800 pb-2">
                       <div className="flex flex-col">
                         <span className="font-bold text-white">
                           {pA._speciesName}{' '}
@@ -171,7 +171,7 @@ export const ShinyCarrierBreedingDashboard: React.FC = () => {
                     </div>
 
                     {/* Shiny Odds */}
-                    <div className="flex flex-col gap-1 border-zinc-800 border-t border-dashed pt-2 text-[10px]">
+                    <div className="flex flex-col gap-1 border-t border-dashed border-zinc-800 pt-2 text-[10px]">
                       <div className="flex justify-between">
                         <span className="text-zinc-400">MALE ODDS:</span>
                         <span

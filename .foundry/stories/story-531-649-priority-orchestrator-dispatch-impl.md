@@ -2,12 +2,12 @@
 id: story-531-649-priority-orchestrator-dispatch-impl
 type: STORY
 title: Priority-Based Dispatch in Orchestrator Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-13'
-updated_at: '2026-10-25'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '7217853635389167286'
+jules_session_id: null
 pr_number: null
 parent: epic-518-531-priority-orchestrator-dispatch
 tags:
@@ -27,6 +27,10 @@ Following the schema update for the `priority` field, the orchestrator needs to 
 
 ## Acceptance Criteria
 - [x] Tech Lead: Decompose this story into implementation and QA TASK nodes.
-- [ ] task-649-702-priority-dispatch-coder
-- [ ] task-649-703-priority-dispatch-tests-coder
-- [ ] task-649-704-priority-dispatch-qa
+- [x] task-649-702-priority-dispatch-coder
+- [x] task-649-703-priority-dispatch-tests-coder
+- [x] task-649-704-priority-dispatch-qa
+- [ ] research-649-726-investigate-priority-dispatch-failure
+- [ ] task-649-727-priority-dispatch-coder-retry
+- [ ] task-649-728-priority-dispatch-tests-coder-retry
+- [ ] task-649-729-priority-dispatch-qa-retry

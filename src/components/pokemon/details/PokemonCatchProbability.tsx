@@ -84,12 +84,12 @@ export const PokemonCatchProbability = React.memo(function PokemonCatchProbabili
 
       <div className="space-y-6">
         <div className="space-y-3">
-          <div className="flex justify-between font-black text-[10px] text-emerald-500/60 uppercase tracking-widest">
+          <div className="flex justify-between text-[10px] font-black tracking-widest text-emerald-500/60 uppercase">
             <span>Target Integrity</span>
             <span className="font-mono text-emerald-400">{hpPercent}% HP</span>
           </div>
 
-          <div className="relative flex w-full items-center gap-1 border border-white/5 border-dashed bg-black/60 p-1">
+          <div className="relative flex w-full items-center gap-1 border border-dashed border-white/5 bg-black/60 p-1">
             {HP_SEGMENTS.map((i) => {
               const segmentValue = (i + 1) * 10;
               const isActive = hpPercent >= segmentValue;
@@ -109,7 +109,7 @@ export const PokemonCatchProbability = React.memo(function PokemonCatchProbabili
                   aria-pressed={isActive}
                   onClick={() => setHpPercent(segmentValue)}
                   className={cn(
-                    'focus-visible:tactical-focus h-4 flex-1 rounded-none border-black border-r transition-all last:border-r-0',
+                    'focus-visible:tactical-focus h-4 flex-1 rounded-none border-r border-black transition-all last:border-r-0',
                     isActive ? segmentColor : 'bg-zinc-800/40 hover:bg-white/10',
                   )}
                 />
@@ -119,7 +119,7 @@ export const PokemonCatchProbability = React.memo(function PokemonCatchProbabili
         </div>
 
         <div className="space-y-3 pt-2">
-          <div className="flex font-black text-[10px] text-emerald-500/60 uppercase tracking-widest">
+          <div className="flex text-[10px] font-black tracking-widest text-emerald-500/60 uppercase">
             <span>Target Status</span>
           </div>
           <div className="grid grid-cols-3 gap-2">
@@ -150,7 +150,7 @@ export const PokemonCatchProbability = React.memo(function PokemonCatchProbabili
                   </div>
                   <span
                     className={cn(
-                      'font-mono text-[9px] uppercase tracking-widest transition-colors',
+                      'font-mono text-[9px] tracking-widest uppercase transition-colors',
                       isActive ? 'text-white' : 'text-zinc-500 group-hover:text-zinc-400',
                     )}
                   >
@@ -163,10 +163,10 @@ export const PokemonCatchProbability = React.memo(function PokemonCatchProbabili
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 border-emerald-500/10 border-t pt-8">
+      <div className="flex flex-col gap-2 border-t border-emerald-500/10 pt-8">
         <div className="flex items-end justify-between">
           <div className="relative flex flex-col">
-            <span className="mb-1 font-mono text-[10px] text-emerald-500/40 uppercase tracking-widest">
+            <span className="mb-1 font-mono text-[10px] tracking-widest text-emerald-500/40 uppercase">
               Estimated Success
             </span>
             <div className="relative overflow-hidden">
@@ -175,9 +175,9 @@ export const PokemonCatchProbability = React.memo(function PokemonCatchProbabili
               )}
               <span
                 className={cn(
-                  'block font-black font-display text-5xl normal-case tracking-tighter transition-opacity duration-150',
+                  'font-display block text-5xl font-black tracking-tighter normal-case transition-opacity duration-150',
                   valueClassName,
-                  isCalculating ? 'opacity-30 blur-[2px]' : 'opacity-100 blur-0',
+                  isCalculating ? 'opacity-30 blur-[2px]' : 'blur-0 opacity-100',
                 )}
               >
                 {isCalculating ? 'CALC...' : `${finalChance}%`}
@@ -185,10 +185,10 @@ export const PokemonCatchProbability = React.memo(function PokemonCatchProbabili
             </div>
           </div>
           <div className="flex flex-col items-end text-right">
-            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-none border border-white/10 border-dashed bg-black/40">
+            <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-none border border-dashed border-white/10 bg-black/40">
               <PokeballIcon type={effectivePokeball} size="md" glow />
             </div>
-            <span className="font-black text-[10px] text-zinc-500 uppercase tracking-widest">
+            <span className="text-[10px] font-black tracking-widest text-zinc-500 uppercase">
               {effectivePokeball.toUpperCase()} BALL
             </span>
           </div>

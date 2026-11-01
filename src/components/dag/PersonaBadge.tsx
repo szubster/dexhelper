@@ -52,7 +52,7 @@ export const PersonaBadge = React.memo(function PersonaBadge({ persona, classNam
       data-testid="persona-badge"
     >
       <Icon size={12} strokeWidth={2.5} data-testid={`persona-icon-${normalizedPersona}`} />
-      <span className="font-bold text-[10px] uppercase tracking-widest">{persona}</span>
+      <span className="text-[10px] font-bold tracking-widest uppercase">{persona}</span>
     </div>
   );
 });

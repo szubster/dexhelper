@@ -2,13 +2,13 @@
 id: task-581-669-gen3-fossil-constants-qa
 type: TASK
 title: QA Gen 3 Fossil Constants
-status: ACTIVE
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-08'
-updated_at: '2026-10-24'
+updated_at: '2026-10-31'
 depends_on:
   - task-581-668-gen3-fossil-constants-impl
-jules_session_id: '9691570640416686939'
+jules_session_id: null
 pr_number: null
 parent: story-552-581-gen3-fossil-constants
 tags:
@@ -16,7 +16,9 @@ tags:
   - constants
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-581-668-gen3-fossil-constants-impl
 notes: ''
 locks: []
 ---
@@ -37,3 +39,5 @@ A coder task implemented constants for tracking fossil states in Generation 3 ga
 ## Acceptance Criteria
 - [ ] Constants are mathematically correct and verified against documentation.
 - [ ] Constants adhere to schema guidelines.
+
+Note: Rejected task-581-668-gen3-fossil-constants-impl due to missing flag constants.
