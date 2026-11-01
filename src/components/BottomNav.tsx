@@ -131,7 +131,7 @@ export function BottomNav() {
 
             <div className="h-full min-w-[52px] flex-1">
               <NavButton
-                to="/rematch"
+                to="./rematch"
                 ariaLabel="Rematches"
                 label="RMTCH"
                 activeLabel="RMTCH"
