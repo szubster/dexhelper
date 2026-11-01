@@ -17,6 +17,7 @@ tags:
   - ui
 research_references: []
 locks: []
+rejection_reason: ""
 ---
 
 # Investigate Gen 3 Pokédex Gaps UI Retry Failure
