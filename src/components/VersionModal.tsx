@@ -51,10 +51,12 @@ export function VersionModal() {
               </h2>
               <div className="mt-2 border-l-2 border-amber-500/50 pl-3 text-left">
                 <p className="tactical-text text-[9px] leading-relaxed font-bold text-zinc-400 uppercase">
-                  [ ANOMALY ] Game version signature indistinguishable.
+                  <span aria-hidden="true">[ </span>ANOMALY<span aria-hidden="true"> ] </span>Game version signature
+                  indistinguishable.
                 </p>
                 <p className="tactical-text mt-1 text-[9px] leading-relaxed font-bold text-amber-500 uppercase">
-                  [ ACTION ] Manual user arbitration required to resume uplink.
+                  <span aria-hidden="true">[ </span>ACTION<span aria-hidden="true"> ] </span>Manual user arbitration
+                  required to resume uplink.
                 </p>
               </div>
             </div>
@@ -91,7 +93,7 @@ export function VersionModal() {
                     </span>
                   </div>
                   <span className="font-mono text-[9px] font-black text-zinc-600 uppercase transition-colors group-hover:text-amber-400">
-                    [ SELECT ]
+                    <span aria-hidden="true">[ </span>SELECT<span aria-hidden="true"> ]</span>
                   </span>
                 </div>
 
