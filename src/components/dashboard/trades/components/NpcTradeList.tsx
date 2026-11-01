@@ -23,10 +23,10 @@ export const NpcTradeList = React.forwardRef<HTMLDivElement, NpcTradeListProps>(
 
     return (
       <div ref={ref} className={cn('mt-6 flex flex-col gap-6', className)} {...props}>
-        <TacticalPanel className="relative flex flex-col gap-4 border-[var(--theme-primary)]/50 border-t-2 p-4 pt-6">
+        <TacticalPanel className="relative flex flex-col gap-4 border-t-2 border-[var(--theme-primary)]/50 p-4 pt-6">
           <TelemetryDecoration label={`SYS.GEN${generation}_IN_GAME_TRADES`} className="-top-[17px] left-[-1px]" />
           <div className="flex items-center justify-between">
-            <span className="tactical-text z-10 font-black text-lg text-white">IN-GAME TRADES</span>
+            <span className="tactical-text z-10 text-lg font-black text-white">IN-GAME TRADES</span>
           </div>
 
           <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

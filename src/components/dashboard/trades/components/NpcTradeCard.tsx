@@ -15,7 +15,7 @@ export const NpcTradeCard = React.forwardRef<HTMLDivElement, NpcTradeCardProps>(
       <div ref={ref} className={cn('tactical-card relative gap-4 overflow-hidden', className)} {...props}>
         <div className="flex items-start justify-between">
           <div className="flex flex-col gap-1">
-            <span className="tactical-text font-black text-lg text-white">#{trade.receivedId}</span>
+            <span className="tactical-text text-lg font-black text-white">#{trade.receivedId}</span>
             {trade.nickname && <span className="tactical-text text-xs text-zinc-400">"{trade.nickname}"</span>}
           </div>
           <span
@@ -29,7 +29,7 @@ export const NpcTradeCard = React.forwardRef<HTMLDivElement, NpcTradeCardProps>(
           </span>
         </div>
 
-        <div className="flex flex-col gap-2 border-zinc-800 border-t border-dashed pt-3">
+        <div className="flex flex-col gap-2 border-t border-dashed border-zinc-800 pt-3">
           <div className="flex items-center justify-between text-xs">
             <span className="tactical-text text-zinc-500">OFFER</span>
             <span className="tactical-text text-zinc-300">#{trade.offeredId}</span>
