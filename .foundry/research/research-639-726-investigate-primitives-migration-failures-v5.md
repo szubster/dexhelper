@@ -2,12 +2,12 @@
 id: research-639-726-investigate-primitives-migration-failures-v5
 type: RESEARCH
 title: Investigate Primitives Migration Failures (v5)
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-25'
 updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14775411356293740932'
 pr_number: null
 parent: story-527-639-migrate-tactical-primitives
 tags:
