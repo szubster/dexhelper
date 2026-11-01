@@ -32,5 +32,8 @@ Implement module-level constants for Gen 3 fossil offsets as determined by the p
 
 ## Acceptance Criteria
 - [x] Break down this story into tasks.
-- [ ] task-581-668-gen3-fossil-constants-impl
-- [ ] task-581-669-gen3-fossil-constants-qa
+- [x] task-581-668-gen3-fossil-constants-impl
+- [x] task-581-669-gen3-fossil-constants-qa
+- [ ] research-581-732-gen3-fossil-flag-offsets
+- [ ] task-581-735-gen3-fossil-constants-impl-retry
+- [ ] task-581-736-gen3-fossil-constants-qa-retry
