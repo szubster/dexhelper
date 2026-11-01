@@ -430,3 +430,16 @@
 ## Critical Learnings & Strategic Insights
 - **Rationale & Concept**: In Gen 3, egg IV inheritance picks 3 IVs randomly from the two Daycare parents, making high-IV breeding opaque and heavily dependent on combinatorics. Surfacing the exact inheritance probabilities and scanning PC Boxes for optimal breeding pairs transforms DexHelper into a powerful collector and competitive utility.
 - **Strategic Balance**: In the preceding sessions, IDEA-532 (`idea-532-e2e-dependency-validator-lint`) was proposed for the internal Foundry Orchestrator infrastructure. To strictly maintain the required 50/50 balance between product features and system improvements, this session pivots back to a high-value, mechanics-surfacing product feature for DexHelper.
+
+---
+
+# Visionary Journal - Session 2026-10-23
+
+## Session Overview
+- Date: 2026-10-23
+- Task: Proposed IDEA node `idea-540-gen1-3-capture-rate-pokeball-efficiency-calculator` for DexHelper.
+
+## Critical Learnings & Strategic Insights
+- **Proposed Idea:** Gen 1-3 Wild Capture Rate & Poké Ball Efficiency Calculator (IDEA-540)
+- **Rationale & Concept:** Wild Pokémon capture mechanics across Gen 1-3 involve intricate, generation-specific formulas (HP percentages, status conditions, species base catch rates, and special Poké Ball multipliers such as Timer Ball turn counts, Net Ball type bonuses, and Gen 2 Apricorn Ball bugged multipliers). Currently, players embarking on static legendary encounters or rare wild hunts must rely on manual external calculators and spreadsheet modeling to determine if their inventory of Poké Balls is sufficient. This idea proposes a DexHelper feature that reads Bag inventory (Poké Balls) and party status moves directly from save data, providing per-ball catch probabilities, expected ball count consumption, and a "Capture Readiness Assessment" before major fights.
+- **Strategic Balance:** In the preceding session, `idea-539-save-data-reader-decorator-architecture.md` was proposed for the Foundry System architecture. To strictly maintain the required 50/50 balance between product features (DexHelper) and internal system improvements (Foundry), this session pivots back to a high-value, mechanics-surfacing product feature for DexHelper.

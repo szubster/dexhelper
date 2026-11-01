@@ -1360,3 +1360,97 @@ The target implementation task `task-564-602-pokemon-held-item-tracker-extractio
 
 # QA Rejection for Coder Task
 The tests still contain raw DOM locators in tests/e2e/gen3_pokedex_gaps.spec.ts. They must be updated to use the PokedexGridModel COM.
+
+---
+
+# E2E Test Anti-Pattern: Bypassing the UI
+**Context:** When verifying E2E test tasks for `SaveDataReader` (`task-533-677-savedatareader-e2e-tests`).
+**Observation:** The implemented tests bypassed the application UI entirely. They instantiated the `SaveDataReader` core class with a dummy `ArrayBuffer` directly within the Playwright test runner, essentially creating unit tests disguised as E2E tests.
+**Lesson/Constraint:** E2E tests must validate the full application integration flow. Directly testing class methods with dummy buffers inside Playwright violates the E2E contract. True E2E UI tests must upload the file through the actual application UI and verify the resulting state in the browser. Future E2E verification steps must strictly reject unit tests disguised as E2E tests.
+
+---
+
+# Gen 2 Bag Inventory Parsing QA Rejection
+
+- The upstream implementation (task-563-680) failed verification because it was missing unit tests for the Bag inventory (Items, Key Items, and Balls pockets).
+- A transient rejection was triggered. The status of task-563-680 was updated to FAILED with a rejection reason, and a rejection note was appended to the QA task's markdown body.
+
+---
+
+# QA Session Journal
+
+Task ID: task-564-670-gen2-roamer-qa
+Target Task: task-564-669-gen2-roamer-e2e-tests
+
+## QA Results: FAILED
+The E2E tests for the Gen 2 roamer UI violated the Playwright E2E UI Component Integration Testing policy. They used `page.evaluate()` to directly inject a mock save state into the zustand store, bypassing normal application initialization and rendering paths. E2E tests must verify actual rendered React components.
+
+I have set `task-564-669-gen2-roamer-e2e-tests` to FAILED, updated its `rejection_count` to 1, and provided a clear `rejection_reason`. I have appended a rejection note to my own task.
+
+---
+
+---
+title: QA Journal - Incomplete E2E Tests for Gen3 Save Fixtures
+date: $(date +%Y-%m-%d-%H-%M-%S)
+---
+
+## Target Task
+`task-472-676-implement-e2e-tests-retry-2`
+
+## Details
+During QA verification of `task-472-676-implement-e2e-tests-retry-2`, I observed that the implementation in `tests/e2e/fixtures_integration.spec.ts` only covered 4 out of the 39 save fixtures defined in the `tests/fixtures/manifest.json`.
+
+## Action Taken
+The target implementation task has been marked as `FAILED` to trigger a transient rejection and allow the coder to update the E2E tests to cover all required fixtures in a subsequent session. The acceptance criteria for both the coder's task and this QA task remain unchecked. A rejection note has been appended to the QA task.
+
+---
+
+The implementation of `extractHeldItems` in `src/engine/tracker/heldItemExtractor.ts` uses a `Set` which incorrectly drops duplicate held items. This breaks downstream diffing logic. Target task `task-564-602-pokemon-held-item-tracker-extraction` has been rejected, triggering transient rejection. I will fail this node as required and log the rejection.
+
+---
+
+# QA Memory
+When reviewing constant implementations for save parsing, ensure that if the research notes specify event flags (e.g., `gen3_fossil_revival_offsets.md`), the implementation explicitly defines bitwise mapping constants (relative byte offsets and bit locations) for those flags. The coder task for Gen 3 fossils missed this entirely. This enforces Section 13 standards on Bitwise Mapping.
+
+---
+
+# QA Journal Entry - 2026-10-24
+
+**Task:** task-527-671-pathfinder-chain-viz-qa
+**Target Task:** task-527-669-pathfinder-chain-viz-ui
+
+Rejected `task-527-669-pathfinder-chain-viz-ui` for failing to properly implement the tactical hardware aesthetic guidelines. While it uses `TacticalPanel` successfully, it fails to use `tactical-text` everywhere required. The component uses inline `font-mono text-cyan-500/70 text-xs tracking-widest`, `font-bold text-lg uppercase tracking-wider` (which completely lacks font-mono), `font-mono text-xs`, and `font-mono text-xs text-zinc-400` instead of leveraging `@utility tactical-text` defined in `src/index.css` (`@apply font-mono uppercase tracking-widest`).
+
+This is a recurring failure pattern where developers apply partial tactical styling (like panels and layout) but fall back to raw inline Tailwind typography classes instead of the required primitives. This violates both ADR 008 and ADR 024.
+
+---
+
+---
+title: QA Journal - System Behavior Under Quota Errors and IndexedDB Eviction
+date: $(date +%Y-%m-%d-%H-%M-%S)
+---
+
+# Context
+Task: `task-523-691-save-state-limits-e2e-qa`
+Objective: Verify E2E implementation of save state limits and eviction in indexedDB.
+
+# Observations
+During E2E verification, it was confirmed that modifying the native `IDBObjectStore.prototype.put` within Playwright's `page.evaluate` successfully allows simulation of true browser `QuotaExceededError` bounds without needing actual disk exhaustion. The storage engine accurately handles this exception by catching the `QuotaExceededError`, falling back to its internal eviction algorithm, and purging half of the oldest saved states to ensure the transaction can retry successfully.
+
+This explicitly verifies that the system does not enter a permanent failure loop upon storage saturation, preventing data loss of the most recent save states.
+
+---
+
+---
+title: QA Journal - Persona Skins E2E Verification
+date: $(date +%Y-%m-%d-%H-%M-%S)
+---
+
+## Target Task
+`task-491-691-qa-persona-skins-e2e`
+
+## Details
+During QA verification of the persona skins E2E implementation, I discovered the `persona_skins.spec.ts` E2E test failed. The test was incorrectly expecting to find a `.tactical-flow` element in `DagDashboard`, but `DagDashboard` does not use that element in its current `DagWrapper` architecture. Additionally, `DagKanbanBoard` and `DagTreeItem` were rendering plain text for the persona names instead of utilizing the `PersonaBadge` component, causing `getByTestId('persona-badge')` assertions to fail.
+
+## Action Taken
+I refactored `DagKanbanBoard` and `DagTree` to use the `PersonaBadge` component as requested. I modified `persona_skins.spec.ts` to assert visibility based on expected test fixture data instead of the missing `.tactical-flow` class. All tests, including the updated E2E test and workspace-wide `pnpm lint && pnpm test`, pass successfully. The acceptance criteria for the target task have been checked.
