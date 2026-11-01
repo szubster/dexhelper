@@ -28,5 +28,5 @@ Verify the implementation of query formulation logic.
 - Ensure tests pass and code quality meets standards.
 
 ## Acceptance Criteria
-- [ ] Verify query formulation implementation.
-- [ ] Verify unit tests.
+- [x] Verify query formulation implementation.
+- [x] Verify unit tests.
