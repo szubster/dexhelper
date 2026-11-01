@@ -79,4 +79,15 @@ describe('VersionModal', () => {
     expect(storeState.manualVersion).toBe('red');
     expect(storeState.isVersionModalOpen).toBe(false);
   });
+
+  it('should render decorative brackets with aria-hidden="true"', async () => {
+    useStore.setState({ isVersionModalOpen: true });
+    const { container } = await render(<VersionModal />);
+
+    const ariaHiddenSpans = container.querySelectorAll('span[aria-hidden="true"]');
+    const bracketTexts = Array.from(ariaHiddenSpans).map((s) => s.textContent?.trim());
+
+    expect(bracketTexts).toContain('[');
+    expect(bracketTexts).toContain(']');
+  });
 });
