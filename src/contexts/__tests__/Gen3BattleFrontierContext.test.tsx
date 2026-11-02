@@ -6,7 +6,7 @@ import { useStore } from '../../store';
 import { Gen3BattleFrontierProvider, useGen3BattleFrontier } from '../Gen3BattleFrontierContext';
 
 vi.mock('../../store', () => ({
-  useStore: vi.fn(),
+  useStore: vi.fn<typeof useStore>(),
 }));
 
 const TestComponent = () => {
