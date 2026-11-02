@@ -31,5 +31,5 @@ Write E2E tests for AI script mapping, incorporating findings from the latest re
 Using the approach formulated in the research node, write Playwright E2E test cases simulating uploading the mock fixture. Assert that the UI correctly displays the mapped AI script and AI level for the extracted opponent.
 
 ## Acceptance Criteria
-- [ ] Playwright E2E tests are written for AI script mapping.
-- [ ] Tests simulate save file upload and assert correct AI script and level rendering on the UI.
+- [x] Playwright E2E tests are written for AI script mapping.
+- [x] Tests simulate save file upload and assert correct AI script and level rendering on the UI.
