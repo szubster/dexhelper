@@ -32,6 +32,6 @@ Verify the correctness of the Gen 3 Roamer IV glitch types and the detection tes
 Review the implemented types representing the Roamer IV glitch state and the unit tests designed to detect glitched and non-glitched IV spreads. Ensure the tests are syntactically correct and will properly fail given the absence of the actual implementation.
 
 ## Acceptance Criteria
-- [ ] Verify that the appropriate type/enum for the Roamer IV glitch state is defined.
-- [ ] Verify that unit tests for both glitched and non-glitched IV spreads are implemented.
-- [ ] Confirm that `pnpm lint` and `pnpm test` execute properly on the new code.
+- [x] Verify that the appropriate type/enum for the Roamer IV glitch state is defined.
+- [x] Verify that unit tests for both glitched and non-glitched IV spreads are implemented.
+- [x] Confirm that `pnpm lint` and `pnpm test` execute properly on the new code.
