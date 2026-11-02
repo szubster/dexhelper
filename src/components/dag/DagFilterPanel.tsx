@@ -27,7 +27,7 @@ export const DagFilterPanel = React.memo(function DagFilterPanel({
   onToggleHeatmap,
 }: DagFilterPanelProps) {
   return (
-    <div className="absolute top-4 left-4 z-10 flex flex-col gap-4 border border-dashed border-zinc-800 bg-zinc-950/90 p-4 font-mono text-xs text-zinc-400 backdrop-blur-sm">
+    <div className="pointer-events-none absolute top-4 left-4 z-10 flex flex-col gap-4 border border-dashed border-zinc-800 bg-zinc-950/90 p-4 font-mono text-xs text-zinc-400 backdrop-blur-sm [&>*]:pointer-events-auto">
       <TacticalMultiSelectControl
         ariaLabel="Filter by type"
         legendLabel="[ SYSTEM.FILTER_TYPE ]"
