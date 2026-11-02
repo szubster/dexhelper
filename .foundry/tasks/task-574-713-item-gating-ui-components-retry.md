@@ -2,13 +2,13 @@
 id: task-574-713-item-gating-ui-components-retry
 type: TASK
 title: Item Gating UI Components (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-20T16:13:59Z'
 updated_at: '2026-11-02'
 depends_on:
   - research-574-712-investigate-item-gating-ui-failure
-jules_session_id: null
+jules_session_id: '14393610865589721169'
 pr_number: null
 parent: story-407-574-item-gating-ui-filter
 tags:
