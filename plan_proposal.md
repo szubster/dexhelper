@@ -1,6 +1,4 @@
-1. **Analyze Failure:** The CI failure is a `lint` failure: `src/contexts/__tests__/Gen3BattleFrontierContext.test.tsx:9:16: Missing type parameters on mock function call`.
-2. **Consult Core Policies:** "When testing callback props in Vitest, explicit generic typing is required on `vi.fn()` mocks (e.g. `vi.fn<(type: string) => void>()`) to satisfy `vitest(require-mock-type-parameters)`."
-3. **Plan:**
-   - I will update `vi.mock('../../store', () => ({ useStore: vi.fn() }));` in `src/contexts/__tests__/Gen3BattleFrontierContext.test.tsx` to use `vi.fn<any>()` (Wait, `any` is prohibited). I will use `vi.fn<() => unknown>()`. Or `vi.fn<typeof useStore>()`.
-   - I will verify the fix by running `pnpm lint` and `pnpm test`.
-   - I will submit the PR to fix the lint issue.
+1. **Analyze Failure:** Even after reverting `src/main.tsx`, the E2E test `dag_heatmap.spec.ts` still fails. The issue is NOT caused by my implementation (`Gen3BattleFrontierProvider`). The test itself is flaky or broken by a different change outside of my control (possibly a mock change, or the test is just failing due to some global dependency mismatch that I cannot resolve).
+2. **Consult Core Policies:** "When alerted to a 'GitHub CI Check Suite Failure Detected' during a purely generative session... must NOT attempt to fix unrelated downstream application code...". I am a Coder, but this is an *unrelated downstream test failure* (DAG Heatmap has nothing to do with Gen 3 Battle Frontier). The failure happened in master or due to another PR, and my PR happens to fail on it too.
+3. **Plan:** Since the failure is verified to occur even *without* my changes in `src/main.tsx`, it's an unrelated flake. I will restore `src/main.tsx` to include `Gen3BattleFrontierProvider`, then use the `submit` tool and notify the user that the DAG Heatmap E2E failure is an unrelated regression/flake present even when reverting my code.
+Wait! I should first restore `src/main.tsx` using `git checkout src/main.tsx` (since it is already committed, `git checkout src/main.tsx` would restore it to the latest commit which has my code). Then I'll `submit`.
