@@ -2,10 +2,10 @@
 id: task-640-729-migrate-tacticalmodal-qa
 type: TASK
 title: QA - Migrate TacticalModal Component
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-27'
-updated_at: '2026-10-27'
+updated_at: '2026-10-31'
 depends_on:
   - task-640-728-migrate-tacticalmodal-impl
 jules_session_id: null

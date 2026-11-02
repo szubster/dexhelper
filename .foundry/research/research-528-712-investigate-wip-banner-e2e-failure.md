@@ -2,19 +2,19 @@
 id: research-528-712-investigate-wip-banner-e2e-failure
 type: RESEARCH
 title: Investigate WIP Banner E2E Failure
-status: FAILED
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-21T12:37:25Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5956335546648128941'
 pr_number: null
 parent: story-517-528-wip-documentation-e2e
 tags:
   - e2e
   - debugging
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 locks: []
 ---
 

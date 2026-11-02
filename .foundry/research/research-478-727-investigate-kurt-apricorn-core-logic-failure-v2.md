@@ -5,15 +5,15 @@ title: Investigate Kurt Apricorn Core Logic Failure v2
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '17679688933614039765'
+jules_session_id: '6044738715056111258'
 pr_number: null
 parent: story-404-478-kurt-apricorn-parsing-logic
 tags:
   - gen2
   - failure-investigation
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

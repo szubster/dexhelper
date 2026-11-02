@@ -30,3 +30,5 @@ Perform integration and E2E verification of the updated palette persona prompt a
 ## Acceptance Criteria
 - [ ] Validate that the prompt modifications do not break the orchestrator parsing or workflow.
 - [ ] E2E or integration tests pass successfully with the updated policies.
+- [ ] task-705-734-palette-persona-e2e-verification-impl
+- [ ] task-705-735-palette-persona-e2e-verification-qa

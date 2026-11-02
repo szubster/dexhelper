@@ -2,10 +2,10 @@
 id: idea-541-tracker-collection-data-integrity-guard
 type: IDEA
 title: Tracker Collection Data Integrity Linter & Developer Guideline
-status: ACTIVE
+status: READY
 owner_persona: product_manager
 created_at: '2026-10-26T04:30:00Z'
-updated_at: '2026-10-26'
+updated_at: '2026-11-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,7 @@ tags:
   - engine
   - linter
   - quality
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 ---
 

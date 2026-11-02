@@ -2,10 +2,10 @@
 id: task-679-732-pokeblock-dashboard-ui-impl-retry
 type: TASK
 title: Pokéblock Dashboard UI Component (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-28'
-updated_at: '2026-10-28'
+updated_at: '2026-10-31'
 depends_on:
   - research-679-731-investigate-pokeblock-dashboard-failure
 jules_session_id: null

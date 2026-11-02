@@ -2,13 +2,13 @@
 id: story-402-528-save-file-sync-logic
 type: STORY
 title: Save File Sync Logic and Limits Handling
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-30'
-updated_at: '2026-10-28'
+updated_at: '2026-10-31'
 depends_on:
   - story-402-527-drive-webhook-registration
-jules_session_id: '16537460578067104261'
+jules_session_id: null
 pr_number: null
 parent: epic-336-402-implement-cloudflare-drive-sync
 tags:
