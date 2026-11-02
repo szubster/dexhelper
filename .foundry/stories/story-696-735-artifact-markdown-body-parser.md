@@ -22,4 +22,7 @@ priority: 80
 Extract the markdown body and specifically any paths listed in the acceptance criteria or explicit deliverables section.
 
 ## Acceptance Criteria
-- [ ] TASK breakdown generated.
+- [x] TASK breakdown generated.
+- [ ] task-735-740-markdown-body-extraction-logic
+- [ ] task-735-741-deliverables-parsing-logic
+- [ ] task-735-742-artifact-markdown-body-parser-qa
