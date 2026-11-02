@@ -28,5 +28,5 @@ locks: []
 Verify the migration of `TacticalSegmentedControl` to `@dexhelper/ui`.
 
 ## Acceptance Criteria
-- [ ] Verify `TacticalSegmentedControl` correctly renders in the application view hierarchy.
-- [ ] Verify unit tests pass and test the actual rendered components.
+- [x] Verify `TacticalSegmentedControl` correctly renders in the application view hierarchy.
+- [x] Verify unit tests pass and test the actual rendered components.
