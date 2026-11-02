@@ -222,6 +222,7 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
     - If a parent node has incomplete children, you must leave its own acceptance criteria checkboxes unchecked to keep it in PENDING status.
 16. **Orchestrator Safeguard (E2E/Integration Requirement)**: When breaking down Epics, generative personas must ensure every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`), even for documentation-focused Epics. An EPIC cannot be COMPLETED without it.
 17. **Leaf Node Acceptance Criteria**: Pure leaf nodes (e.g., `TASK`, `RESEARCH`) that do not spawn children do not strictly require Acceptance Criteria checklists, as their completion is binary (e.g., via PR merge). Parent nodes (`IDEA`, `PRD`, `EPIC`, `STORY`) still strictly require them.
+18. **Strict Formatting Enforcement (ADR 034)**: Checkboxes must strictly use the format `- [ ] ` (unchecked) and `- [x] ` (checked). Child nodes must be listed using the exact format `- [ ] <node_id>` without file extensions or directory paths. The orchestrator must parse these exact formats and transition parent nodes only when all listed children are `COMPLETED`.
 
 ---
 
