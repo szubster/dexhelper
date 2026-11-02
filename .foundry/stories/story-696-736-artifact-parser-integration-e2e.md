@@ -2,10 +2,10 @@
 id: story-696-736-artifact-parser-integration-e2e
 type: STORY
 title: Artifact Parser Integration and E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-11-02'
 depends_on:
   - story-696-734-artifact-frontmatter-parser
   - story-696-735-artifact-markdown-body-parser
@@ -16,7 +16,9 @@ tags:
   - testing
   - validation
   - e2e
+locks: []
 priority: 80
+rejection_reason: ''
 ---
 
 # STORY: Artifact Parser Integration and E2E Verification

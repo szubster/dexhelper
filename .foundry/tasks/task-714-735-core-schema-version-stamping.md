@@ -2,10 +2,10 @@
 id: task-714-735-core-schema-version-stamping
 type: TASK
 title: Core Logic for Schema Version Stamping
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-21T08:00:00.000Z'
-updated_at: '2026-10-21T08:00:00.000Z'
+updated_at: '2026-11-02'
 depends_on:
   - task-714-734-type-schema-version-stamping
 jules_session_id: null

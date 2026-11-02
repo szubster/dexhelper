@@ -2,10 +2,10 @@
 id: story-696-734-ast-analyzer-react-context-detection
 type: STORY
 title: AST Analyzer React Context Detection
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-31'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on: []
 jules_session_id: null
 pr_number: null

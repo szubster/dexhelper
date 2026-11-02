@@ -2,12 +2,12 @@
 id: research-618-721-highlight-failure-root-cause
 type: RESEARCH
 title: Investigate Root Cause of Multi-Box Highlight Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: '1409430459402038848'
+jules_session_id: null
 pr_number: null
 parent: story-576-618-multi-box-search-visual-highlighting
 tags:

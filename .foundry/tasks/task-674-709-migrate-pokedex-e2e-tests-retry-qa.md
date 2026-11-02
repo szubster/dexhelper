@@ -2,10 +2,10 @@
 id: task-674-709-migrate-pokedex-e2e-tests-retry-qa
 type: TASK
 title: QA Refactored Pokedex Grid Virtualization E2E Tests (Retry)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-11-02'
 depends_on:
   - task-674-708-migrate-pokedex-e2e-tests-retry-impl
 jules_session_id: null

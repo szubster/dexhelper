@@ -2,10 +2,10 @@
 id: task-649-727-priority-dispatch-coder-retry
 type: TASK
 title: priority orchestrator dispatch coder retry
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - research-649-726-investigate-priority-dispatch-failure
 jules_session_id: null
