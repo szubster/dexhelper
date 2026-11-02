@@ -3539,6 +3539,26 @@ Target artifact: task-completed
       expect(taskContent).toContain('Invalid owner_persona mapping');
     });
 
+
+    test('succeeds valid mapping (TASK -> palette)', () => {
+      createValidTestNode(tmpDir, '.foundry/tasks/task-palette.md', {
+        id: "task-palette",
+        type: "TASK",
+        title: "Task Palette",
+        status: "PENDING",
+        owner_persona: "palette",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      });
+
+      main();
+
+      const taskContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-palette.md'), 'utf-8');
+      expect(taskContent).toContain('status: READY');
+    });
+
     test('succeeds valid mapping (TASK -> coder)', () => {
       createValidTestNode(tmpDir, '.foundry/tasks/task-valid.md', {
         id: "task-valid",
