@@ -27,5 +27,5 @@ locks: []
 Implement the stat advantage calculation logic.
 
 ## Acceptance Criteria
-- [ ] Implement function to calculate stat advantages.
-- [ ] Add unit tests.
+- [x] Implement function to calculate stat advantages.
+- [x] Add unit tests.
