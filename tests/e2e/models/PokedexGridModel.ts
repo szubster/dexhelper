@@ -19,6 +19,20 @@ export class PokedexGridModel {
   }
 
   /**
+   * Retrieves all secured cards (in party or PC).
+   */
+  getSecuredCards(): Locator {
+    return this.page.locator('[data-testid="pokedex-card"].border-emerald-500\\/50');
+  }
+
+  /**
+   * Retrieves all dex-only cards (owned in dex but not in PC/party).
+   */
+  getDexOnlyCards(): Locator {
+    return this.page.locator('[data-testid="pokedex-card"].border-amber-500\\/50');
+  }
+
+  /**
    * Waits for the grid to become visible and cards to load.
    */
   async waitForGridToLoad() {
