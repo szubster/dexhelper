@@ -24,4 +24,6 @@ rejection_reason: ''
 Develop end-to-end and integration tests to verify the entire pipeline of the pre-commit artifact presence validator, from parsing mock tasks to verifying their presence and integration with Git staging.
 
 ## Acceptance Criteria
-- [ ] STORY breakdown generated.
+- [x] STORY breakdown generated.
+- [ ] story-699-734-artifact-validator-integration-tests
+- [ ] story-699-735-artifact-validator-pipeline-e2e

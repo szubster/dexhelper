@@ -2,10 +2,10 @@
 id: story-532-676-scheduled-agents-issue-flow-e2e
 type: STORY
 title: Scheduled Agents Issue Flow E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on: []
 jules_session_id: null
 pr_number: null

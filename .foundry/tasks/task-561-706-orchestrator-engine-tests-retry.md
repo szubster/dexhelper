@@ -2,10 +2,10 @@
 id: task-561-706-orchestrator-engine-tests-retry
 type: TASK
 title: 'Tests: Orchestrator State and Graph Engine (Retry)'
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-11-02'
 depends_on:
   - task-561-705-orchestrator-state-machine-impl-retry
 jules_session_id: null

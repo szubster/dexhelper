@@ -2,17 +2,18 @@
 id: idea-074-refactor-dag-dashboard-context
 type: IDEA
 title: Refactor DagDashboard to use React Context (ADR 013/017)
-status: ACTIVE
+status: PENDING
 owner_persona: curator
 created_at: '2026-06-11'
-updated_at: '2026-10-29'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '16445591236087752335'
+jules_session_id: null
 tags:
   - architecture
   - ui
   - dashboard
 rejection_reason: ''
+confidence_score: 100
 locks: []
 ---
 
@@ -25,3 +26,6 @@ Recent implementation attempts (e.g., `task-085-142`) permanently failed because
 Create a dedicated Epic to properly architect and implement the `DagContext` layer before any further UI dashboard features are added. This foundational work will resolve the friction coders are experiencing and allow the Permanent Failure Dashboard to be completed successfully.
 
 - [ ] .foundry/prds/prd-074-046-dag-context-architecture.md
+
+## Acceptance Criteria
+- [ ] research-074-732-dag-dashboard-context-overlap

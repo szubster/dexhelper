@@ -2,10 +2,10 @@
 id: research-528-731-investigate-safari-zone-bounty-board-ui-failure
 type: RESEARCH
 title: Investigate Safari Zone Bounty Board UI Failure
-status: READY
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-28'
-updated_at: '2026-10-28'
+updated_at: '2026-11-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,8 +15,8 @@ tags:
   - ui
   - safari-zone
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

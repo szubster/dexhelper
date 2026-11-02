@@ -5,7 +5,7 @@ title: 'Routes, Encounters, and Drop Rates Data Fetching (v3)'
 status: FAILED
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on:
   - research-563-704-investigate-routes-encounters-failure-v2
 jules_session_id: null
@@ -15,7 +15,7 @@ tags:
   - dexhelper
   - data
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []

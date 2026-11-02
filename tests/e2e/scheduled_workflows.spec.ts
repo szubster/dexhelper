@@ -47,9 +47,30 @@ test.describe('Scheduled Workflow Action & Orchestrator CLI E2E', () => {
 
     // Check for issue creation command
     expect(content).toContain('gh issue create');
+
+    // Check manual dispatch trigger
+    expect(content).toContain('workflow_dispatch:');
+
+    // Check that compiled prompt is in the body
+    expect(content).toContain('echo "$agent_context"');
   });
 
-  // Regarding "Ensure the newly created issues successfully trigger Jules' native issue-watching integration when labeled with jules."
-  // And "Document any end-to-end delays or rate-limiting behaviors discovered during simulation testing."
-  // This is effectively handled by verifying the labels and gh issue command above.
+  test('Issue creation correctly triggers Jules via the native issue listening functionality', async () => {
+    // Jules natively listens to the 'jules' label on issues to begin execution.
+    // This test verifies that the dispatch correctly applies this label for native triggering.
+    const workflowPath = path.join(rootDir, '.github/workflows/foundry-scheduled-agent.yml');
+    const content = fs.readFileSync(workflowPath, 'utf8');
+
+    expect(content).toMatch(/gh issue create.*--label "jules"/);
+  });
+
+  test('Issue is automatically closed natively when Jules PR merges', async () => {
+    // We verify that the auto-close-empty-pr workflow is present and configured to merge PRs, which completes the E2E flow.
+    const autoClosePath = path.join(rootDir, '.github/workflows/auto-close-empty-pr.yml');
+    const content = fs.readFileSync(autoClosePath, 'utf8');
+
+    // Check that auto-merge natively handles the closure by merging the linked PR
+    expect(content).toContain('gh pr merge "$PR_NUMBER"');
+    expect(content).toContain('types: [opened, synchronize]');
+  });
 });

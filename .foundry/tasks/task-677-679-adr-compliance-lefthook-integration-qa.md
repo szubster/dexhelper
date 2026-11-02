@@ -2,13 +2,13 @@
 id: task-677-679-adr-compliance-lefthook-integration-qa
 type: TASK
 title: QA ADR Compliance Lefthook Integration
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-18T19:00:00.000Z'
-updated_at: '2026-10-29'
+updated_at: '2026-11-01'
 depends_on:
   - task-677-678-adr-compliance-lefthook-integration-impl
-jules_session_id: '16450840253997365060'
+jules_session_id: null
 pr_number: null
 parent: story-418-677-adr-compliance-lefthook-integration
 tags:
