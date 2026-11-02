@@ -2,13 +2,13 @@
 id: task-638-722-extract-constants-to-core-v7
 type: TASK
 title: Extract Constants to Core Package V7
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-11-02'
 depends_on:
   - research-638-721-investigate-constants-extraction-v6-failure
-jules_session_id: null
+jules_session_id: '1042867926839495270'
 parent: story-526-638-extract-constants
 tags:
   - architecture
