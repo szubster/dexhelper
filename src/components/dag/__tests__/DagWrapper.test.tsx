@@ -42,6 +42,11 @@ test('DagWrapper renders DagProvider and DagDashboard without crashing', async (
 
   await expect.element(page.getByText('node-1')).toBeInTheDocument();
 
+  // Test toggles
+  const heatmapBtn = page.getByRole('button', { name: 'Toggle heatmap overlay' });
+  await heatmapBtn.click();
+  await heatmapBtn.click();
+
   // Clean up
   vi.restoreAllMocks();
 });
