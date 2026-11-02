@@ -24,4 +24,5 @@ rejection_reason: ''
 Update the project's `lefthook.yml` to include the Artifact Presence Validator script in the `pre-commit` hook. Ensure the script is executable and the failure correctly blocks the commit.
 
 ## Acceptance Criteria
+- [ ] task-001-740-lefthook-integration-coder
 - [ ] Update `lefthook.yml` to run the Artifact Presence Validator.
