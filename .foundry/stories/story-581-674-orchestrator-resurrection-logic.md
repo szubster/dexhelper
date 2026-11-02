@@ -33,3 +33,4 @@ Following the parsing of termination states, the Orchestrator's resurrection log
 - [ ] task-674-740-update-rejection-count-logic-impl
 - [ ] task-674-741-update-max-rejection-threshold-impl
 - [ ] task-674-742-orchestrator-resurrection-logic-qa
+- [ ] task-674-743-bundlemon-fix
