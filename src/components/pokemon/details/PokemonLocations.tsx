@@ -209,7 +209,7 @@ const GeospatialNode = React.memo(function GeospatialNode({
 
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {e.d.map((d: CompactEncounterDetail, di: number) => {
-              const methodStr = REVERSE_METHOD_MAP[d.m]?.toLowerCase() || 'unknown';
+              const methodStr = REVERSE_METHOD_MAP[d.method]?.toLowerCase() || 'unknown';
               const isRod = methodStr.includes('rod');
               const isSurf = methodStr === 'surf';
               const isGrass = methodStr === 'walk';

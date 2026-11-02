@@ -2,12 +2,12 @@
 id: task-676-712-scheduled-agents-issue-flow-e2e-coder
 type: TASK
 title: Scheduled Agents Issue Flow E2E Verification Coder Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: '1212108492454370518'
+jules_session_id: null
 pr_number: null
 parent: story-532-676-scheduled-agents-issue-flow-e2e
 tags:
@@ -18,7 +18,7 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 locks: []
 ---

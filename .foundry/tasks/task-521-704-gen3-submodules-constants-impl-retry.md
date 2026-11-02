@@ -30,5 +30,5 @@ priority: 50
 Following ADR 028, we need to extract inline magic numbers for memory offsets, lengths, bit locations, and shifts from Gen 3 submodule save parsers (e.g., Feebas, Nature, Static Encounters) into explicitly defined module-level constants. This is a retry of `task-521-676-gen3-submodules-constants-impl`, which previously failed. It relies on `research-521-703-gen3-submodules-constants-failure` for guidance.
 
 ## Acceptance Criteria
-- [ ] Create or update `constants.ts` files for relevant Gen 3 submodules to replace magic numbers with explicit constants.
-- [ ] Ensure offsets use relative variables based on section offsets rather than hardcoded absolute memory values.
+- [x] Create or update `constants.ts` files for relevant Gen 3 submodules to replace magic numbers with explicit constants.
+- [x] Ensure offsets use relative variables based on section offsets rather than hardcoded absolute memory values.

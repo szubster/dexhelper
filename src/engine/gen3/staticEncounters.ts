@@ -5,95 +5,89 @@
  *
  * **Architecture Note:**
  * In Generation 3 Pokémon save files (Emerald, FireRed/LeafGreen, Ruby/Sapphire),
- * SaveBlock1 contains an array of event flags beginning at relative offset `0x1270` (`EVENT_FLAGS_START`).
+ * SaveBlock1 contains an array of event flags beginning at relative offset \`0x1270\` (\`EVENT_FLAGS_START\`).
  * Each flag is represented by a single bit within a specific byte offset of this array.
- * A set bit (`1`) indicates that a static encounter (e.g. Legendary Pokémon like Rayquaza or Mewtwo,
+ * A set bit (\`1\`) indicates that a static encounter (e.g. Legendary Pokémon like Rayquaza or Mewtwo,
  * overworld obstacles like Snorlax or Sudowoodo, or trap encounters like Voltorb/Electrode)
  * has been battled, defeated, or caught.
  */
 
 import { SaveDataReader } from '../saveParser/SaveDataReader';
-
-/** The starting offset of the event flags block relative to SaveBlock1 (Section 1). */
-export const EVENT_FLAGS_START = 0x1270;
-
-// Emerald Offsets & Bits
-export const EMERALD_DEOXYS_BYTE = 0x35;
-export const EMERALD_DEOXYS_BIT = 4;
-export const EMERALD_REGIROCK_BYTE = 0x37;
-export const EMERALD_REGIROCK_BIT = 3;
-export const EMERALD_REGICE_BYTE = 0x37;
-export const EMERALD_REGICE_BIT = 4;
-export const EMERALD_REGISTEEL_BYTE = 0x37;
-export const EMERALD_REGISTEEL_BIT = 5;
-export const EMERALD_KYOGRE_BYTE = 0x37;
-export const EMERALD_KYOGRE_BIT = 6;
-export const EMERALD_GROUDON_BYTE = 0x37;
-export const EMERALD_GROUDON_BIT = 7;
-export const EMERALD_RAYQUAZA_BYTE = 0x38;
-export const EMERALD_RAYQUAZA_BIT = 0;
-export const EMERALD_VOLTORB_1_BYTE = 0x38;
-export const EMERALD_VOLTORB_1_BIT = 1;
-export const EMERALD_VOLTORB_2_BYTE = 0x38;
-export const EMERALD_VOLTORB_2_BIT = 2;
-export const EMERALD_VOLTORB_3_BYTE = 0x38;
-export const EMERALD_VOLTORB_3_BIT = 3;
-export const EMERALD_ELECTRODE_1_BYTE = 0x38;
-export const EMERALD_ELECTRODE_1_BIT = 4;
-export const EMERALD_ELECTRODE_2_BYTE = 0x38;
-export const EMERALD_ELECTRODE_2_BIT = 5;
-export const EMERALD_SUDOWOODO_BYTE = 0x38;
-export const EMERALD_SUDOWOODO_BIT = 6;
-export const EMERALD_MEW_DEFEATED_BYTE = 0x38;
-export const EMERALD_MEW_DEFEATED_BIT = 7;
-export const EMERALD_MEW_CAUGHT_BYTE = 0x39;
-export const EMERALD_MEW_CAUGHT_BIT = 2;
-export const EMERALD_HO_OH_BYTE = 0x3b;
-export const EMERALD_HO_OH_BIT = 4;
-export const EMERALD_LUGIA_BYTE = 0x3b;
-export const EMERALD_LUGIA_BIT = 5;
-
-// FireRed/LeafGreen Offsets & Bits
-export const FRLG_MEWTWO_BYTE = 0x57;
-export const FRLG_MEWTWO_BIT = 4;
-export const FRLG_MOLTRES_BYTE = 0x57;
-export const FRLG_MOLTRES_BIT = 5;
-export const FRLG_ARTICUNO_BYTE = 0x57;
-export const FRLG_ARTICUNO_BIT = 6;
-export const FRLG_ZAPDOS_BYTE = 0x57;
-export const FRLG_ZAPDOS_BIT = 7;
-export const FRLG_DEOXYS_BYTE = 0x5c;
-export const FRLG_DEOXYS_BIT = 4;
-export const FRLG_LUGIA_BYTE = 0x5e;
-export const FRLG_LUGIA_BIT = 2;
-export const FRLG_HO_OH_BYTE = 0x5e;
-export const FRLG_HO_OH_BIT = 3;
-export const FRLG_SNORLAX_ROUTE_12_BYTE = 0x4a;
-export const FRLG_SNORLAX_ROUTE_12_BIT = 3;
-export const FRLG_SNORLAX_ROUTE_16_BYTE = 0x10;
-export const FRLG_SNORLAX_ROUTE_16_BIT = 0;
-
-// Ruby/Sapphire Offsets & Bits
-export const RS_GROUDON_KYOGRE_BYTE = 0x0e;
-export const RS_GROUDON_KYOGRE_BIT = 1;
-export const RS_RAYQUAZA_BYTE = 0x60;
-export const RS_RAYQUAZA_BIT = 5;
-export const RS_REGIROCK_BYTE = 0x74;
-export const RS_REGIROCK_BIT = 7;
-export const RS_REGICE_BYTE = 0x75;
-export const RS_REGICE_BIT = 0;
-export const RS_REGISTEEL_BYTE = 0x75;
-export const RS_REGISTEEL_BIT = 1;
-export const RS_VOLTORB_1_BYTE = 0x79;
-export const RS_VOLTORB_1_BIT = 6;
-export const RS_VOLTORB_2_BYTE = 0x79;
-export const RS_VOLTORB_2_BIT = 7;
-export const RS_VOLTORB_3_BYTE = 0x7a;
-export const RS_VOLTORB_3_BIT = 0;
-export const RS_ELECTRODE_1_BYTE = 0x7a;
-export const RS_ELECTRODE_1_BIT = 1;
-export const RS_ELECTRODE_2_BYTE = 0x7a;
-export const RS_ELECTRODE_2_BIT = 2;
+import {
+  EMERALD_DEOXYS_BIT,
+  EMERALD_DEOXYS_BYTE,
+  EMERALD_ELECTRODE_1_BIT,
+  EMERALD_ELECTRODE_1_BYTE,
+  EMERALD_ELECTRODE_2_BIT,
+  EMERALD_ELECTRODE_2_BYTE,
+  EMERALD_GROUDON_BIT,
+  EMERALD_GROUDON_BYTE,
+  EMERALD_HO_OH_BIT,
+  EMERALD_HO_OH_BYTE,
+  EMERALD_KYOGRE_BIT,
+  EMERALD_KYOGRE_BYTE,
+  EMERALD_LUGIA_BIT,
+  EMERALD_LUGIA_BYTE,
+  EMERALD_MEW_CAUGHT_BIT,
+  EMERALD_MEW_CAUGHT_BYTE,
+  EMERALD_MEW_DEFEATED_BIT,
+  EMERALD_MEW_DEFEATED_BYTE,
+  EMERALD_RAYQUAZA_BIT,
+  EMERALD_RAYQUAZA_BYTE,
+  EMERALD_REGICE_BIT,
+  EMERALD_REGICE_BYTE,
+  EMERALD_REGIROCK_BIT,
+  EMERALD_REGIROCK_BYTE,
+  EMERALD_REGISTEEL_BIT,
+  EMERALD_REGISTEEL_BYTE,
+  EMERALD_SUDOWOODO_BIT,
+  EMERALD_SUDOWOODO_BYTE,
+  EMERALD_VOLTORB_1_BIT,
+  EMERALD_VOLTORB_1_BYTE,
+  EMERALD_VOLTORB_2_BIT,
+  EMERALD_VOLTORB_2_BYTE,
+  EMERALD_VOLTORB_3_BIT,
+  EMERALD_VOLTORB_3_BYTE,
+  EVENT_FLAGS_START,
+  FRLG_ARTICUNO_BIT,
+  FRLG_ARTICUNO_BYTE,
+  FRLG_DEOXYS_BIT,
+  FRLG_DEOXYS_BYTE,
+  FRLG_HO_OH_BIT,
+  FRLG_HO_OH_BYTE,
+  FRLG_LUGIA_BIT,
+  FRLG_LUGIA_BYTE,
+  FRLG_MEWTWO_BIT,
+  FRLG_MEWTWO_BYTE,
+  FRLG_MOLTRES_BIT,
+  FRLG_MOLTRES_BYTE,
+  FRLG_SNORLAX_ROUTE_12_BIT,
+  FRLG_SNORLAX_ROUTE_12_BYTE,
+  FRLG_SNORLAX_ROUTE_16_BIT,
+  FRLG_SNORLAX_ROUTE_16_BYTE,
+  FRLG_ZAPDOS_BIT,
+  FRLG_ZAPDOS_BYTE,
+  RS_ELECTRODE_1_BIT,
+  RS_ELECTRODE_1_BYTE,
+  RS_ELECTRODE_2_BIT,
+  RS_ELECTRODE_2_BYTE,
+  RS_GROUDON_KYOGRE_BIT,
+  RS_GROUDON_KYOGRE_BYTE,
+  RS_RAYQUAZA_BIT,
+  RS_RAYQUAZA_BYTE,
+  RS_REGICE_BIT,
+  RS_REGICE_BYTE,
+  RS_REGIROCK_BIT,
+  RS_REGIROCK_BYTE,
+  RS_REGISTEEL_BIT,
+  RS_REGISTEEL_BYTE,
+  RS_VOLTORB_1_BIT,
+  RS_VOLTORB_1_BYTE,
+  RS_VOLTORB_2_BIT,
+  RS_VOLTORB_2_BYTE,
+  RS_VOLTORB_3_BIT,
+  RS_VOLTORB_3_BYTE,
+} from './staticEncounters/constants';
 
 /** Parsed static encounter flag states for Pokémon Emerald. */
 export interface Gen3EmeraldStaticEncounters {
@@ -151,15 +145,15 @@ export type Gen3StaticEncounters = Gen3EmeraldStaticEncounters | Gen3FRLGStaticE
  *
  * **Architecture Note:**
  * Different Gen 3 titles locate event flags at different byte offsets within SaveBlock1.
- * This function locates `EVENT_FLAGS_START` relative to `section1Offset` and checks individual
+ * This function locates \`EVENT_FLAGS_START\` relative to \`section1Offset\` and checks individual
  * bit positions for legendary encounters, stationary Pokémon (e.g., Snorlax, Sudowoodo),
  * and traps (Voltorb/Electrode in Power Plant / New Mauville).
  *
  * @param saveData - The DataView wrapping the raw binary save file buffer.
  * @param gameVersion - The detected or active GameVersion string.
  * @param section1Offset - The resolved memory offset to the active SaveBlock1 section.
- * @returns Object mapping encounter flags to boolean completion states, or `undefined` for non-Gen 3 versions.
- * @throws Error with "The save file is corrupted or incomplete." if `saveData` bounds are exceeded.
+ * @returns Object mapping encounter flags to boolean completion states, or \`undefined\` for non-Gen 3 versions.
+ * @throws Error with "The save file is corrupted or incomplete." if \`saveData\` bounds are exceeded.
  *
  * @example
  * const flags = extractGen3StaticEncounterFlags(dataView, 'emerald', 0x0000);
@@ -243,3 +237,79 @@ export function extractGen3StaticEncounterFlags(
     throw error;
   }
 }
+
+export {
+  EMERALD_DEOXYS_BIT,
+  EMERALD_DEOXYS_BYTE,
+  EMERALD_ELECTRODE_1_BIT,
+  EMERALD_ELECTRODE_1_BYTE,
+  EMERALD_ELECTRODE_2_BIT,
+  EMERALD_ELECTRODE_2_BYTE,
+  EMERALD_GROUDON_BIT,
+  EMERALD_GROUDON_BYTE,
+  EMERALD_HO_OH_BIT,
+  EMERALD_HO_OH_BYTE,
+  EMERALD_KYOGRE_BIT,
+  EMERALD_KYOGRE_BYTE,
+  EMERALD_LUGIA_BIT,
+  EMERALD_LUGIA_BYTE,
+  EMERALD_MEW_CAUGHT_BIT,
+  EMERALD_MEW_CAUGHT_BYTE,
+  EMERALD_MEW_DEFEATED_BIT,
+  EMERALD_MEW_DEFEATED_BYTE,
+  EMERALD_RAYQUAZA_BIT,
+  EMERALD_RAYQUAZA_BYTE,
+  EMERALD_REGICE_BIT,
+  EMERALD_REGICE_BYTE,
+  EMERALD_REGIROCK_BIT,
+  EMERALD_REGIROCK_BYTE,
+  EMERALD_REGISTEEL_BIT,
+  EMERALD_REGISTEEL_BYTE,
+  EMERALD_SUDOWOODO_BIT,
+  EMERALD_SUDOWOODO_BYTE,
+  EMERALD_VOLTORB_1_BIT,
+  EMERALD_VOLTORB_1_BYTE,
+  EMERALD_VOLTORB_2_BIT,
+  EMERALD_VOLTORB_2_BYTE,
+  EMERALD_VOLTORB_3_BIT,
+  EMERALD_VOLTORB_3_BYTE,
+  EVENT_FLAGS_START,
+  FRLG_ARTICUNO_BIT,
+  FRLG_ARTICUNO_BYTE,
+  FRLG_DEOXYS_BIT,
+  FRLG_DEOXYS_BYTE,
+  FRLG_HO_OH_BIT,
+  FRLG_HO_OH_BYTE,
+  FRLG_LUGIA_BIT,
+  FRLG_LUGIA_BYTE,
+  FRLG_MEWTWO_BIT,
+  FRLG_MEWTWO_BYTE,
+  FRLG_MOLTRES_BIT,
+  FRLG_MOLTRES_BYTE,
+  FRLG_SNORLAX_ROUTE_12_BIT,
+  FRLG_SNORLAX_ROUTE_12_BYTE,
+  FRLG_SNORLAX_ROUTE_16_BIT,
+  FRLG_SNORLAX_ROUTE_16_BYTE,
+  FRLG_ZAPDOS_BIT,
+  FRLG_ZAPDOS_BYTE,
+  RS_ELECTRODE_1_BIT,
+  RS_ELECTRODE_1_BYTE,
+  RS_ELECTRODE_2_BIT,
+  RS_ELECTRODE_2_BYTE,
+  RS_GROUDON_KYOGRE_BIT,
+  RS_GROUDON_KYOGRE_BYTE,
+  RS_RAYQUAZA_BIT,
+  RS_RAYQUAZA_BYTE,
+  RS_REGICE_BIT,
+  RS_REGICE_BYTE,
+  RS_REGIROCK_BIT,
+  RS_REGIROCK_BYTE,
+  RS_REGISTEEL_BIT,
+  RS_REGISTEEL_BYTE,
+  RS_VOLTORB_1_BIT,
+  RS_VOLTORB_1_BYTE,
+  RS_VOLTORB_2_BIT,
+  RS_VOLTORB_2_BYTE,
+  RS_VOLTORB_3_BIT,
+  RS_VOLTORB_3_BYTE,
+} from './staticEncounters/constants';

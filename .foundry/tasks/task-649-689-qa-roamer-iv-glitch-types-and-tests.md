@@ -2,13 +2,13 @@
 id: task-649-689-qa-roamer-iv-glitch-types-and-tests
 type: TASK
 title: QA - Roamer IV Glitch Types and Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-12'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on:
   - task-649-688-write-roamer-iv-glitch-tests
-jules_session_id: null
+jules_session_id: '3880382697413287455'
 pr_number: null
 parent: story-398-649-gen3-roamer-iv-glitch-types-and-tests
 tags:
