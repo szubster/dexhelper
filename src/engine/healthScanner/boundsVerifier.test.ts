@@ -19,6 +19,7 @@ describe('verifyBounds', () => {
   });
 
   const createMockSaveData = (overrides: Partial<SaveData>): SaveData => ({
+    schemaVersion: 1,
     generation: 1,
     owned: new Set(),
     seen: new Set(),
@@ -39,6 +40,7 @@ describe('verifyBounds', () => {
 
   it('should return isValid true when all Pokemon are within bounds', () => {
     const saveData = createMockSaveData({
+      schemaVersion: 1,
       generation: 1,
       partyDetails: [createMockPokemon({ speciesId: 1, dvs: { hp: 15, atk: 15, def: 15, spd: 15, spc: 15 } })],
       pcDetails: [
@@ -59,6 +61,7 @@ describe('verifyBounds', () => {
 
   it('should report OutOfBoundsId for Gen 1 Pokemon ID > 151', () => {
     const saveData = createMockSaveData({
+      schemaVersion: 1,
       generation: 1,
       partyDetails: [createMockPokemon({ speciesId: 152 })],
     });
@@ -77,6 +80,7 @@ describe('verifyBounds', () => {
 
   it('should report OutOfBoundsId for Gen 1 Pokemon ID < 0', () => {
     const saveData = createMockSaveData({
+      schemaVersion: 1,
       generation: 1,
       partyDetails: [createMockPokemon({ speciesId: -1 })],
     });
@@ -118,6 +122,7 @@ describe('verifyBounds', () => {
 
   it('should report InvalidStat for DV > 15', () => {
     const saveData = createMockSaveData({
+      schemaVersion: 1,
       generation: 1,
       // @ts-expect-error test mock
       daycare: [createMockPokemon({ speciesId: 10, dvs: { hp: 16, atk: 15, def: 15, spd: 15, spc: 15 } })],
@@ -137,6 +142,7 @@ describe('verifyBounds', () => {
 
   it('should report InvalidStat for DV < 0', () => {
     const saveData = createMockSaveData({
+      schemaVersion: 1,
       generation: 1,
       partyDetails: [createMockPokemon({ speciesId: 10, dvs: { hp: 10, atk: -1, def: 15, spd: 15, spc: 15 } })],
     });
@@ -150,6 +156,7 @@ describe('verifyBounds', () => {
 
   it('should handle multiple anomalies in a single scan', () => {
     const saveData = createMockSaveData({
+      schemaVersion: 1,
       generation: 1,
       partyDetails: [createMockPokemon({ speciesId: 152, dvs: { hp: 16, atk: 15, def: 16, spd: 15, spc: -1 } })],
     });
@@ -163,6 +170,7 @@ describe('verifyBounds', () => {
 
   it('should test remaining stat anomalies', () => {
     const saveData = createMockSaveData({
+      schemaVersion: 1,
       generation: 1,
       partyDetails: [createMockPokemon({ speciesId: 1, dvs: { hp: 15, atk: 15, def: 16, spd: 16, spc: 16 } })],
     });

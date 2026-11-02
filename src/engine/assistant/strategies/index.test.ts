@@ -24,6 +24,7 @@ describe('getStrategy', () => {
     expect(strategy.generation).toBe(0);
 
     const mockSaveData = {
+      schemaVersion: 1,
       generation: 1 as const,
       owned: new Set<number>(),
       seen: new Set<number>(),
