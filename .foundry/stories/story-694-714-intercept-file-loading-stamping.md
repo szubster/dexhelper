@@ -30,4 +30,8 @@ Update the save file loading routines so that every newly loaded \`ParsedSaveDat
 2. Ensure \`ParsedSaveData\` objects are stamped with \`schemaVersion\`.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-714-734-type-schema-version-stamping
+- [ ] task-714-735-core-schema-version-stamping
+- [ ] task-714-736-test-schema-version-stamping
+- [ ] task-714-737-qa-schema-version-stamping

@@ -2,26 +2,27 @@
 id: task-707-718-qa-validator-core
 type: TASK
 title: QA Validator Core Logic
-status: PENDING
+status: CANCELLED
 owner_persona: qa
-created_at: "2026-10-22T16:28:31Z"
-updated_at: "2026-10-22"
+created_at: '2026-10-22T16:28:31Z'
+updated_at: '2026-11-01'
 depends_on:
   - task-707-717-impl-validator-traversal
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-587-707-implement-validator-core-logic
-priority: 50
-confidence_score: null
 tags:
   - foundry
   - orchestrator
   - validation
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-707-716-impl-validator-parsing
+notes: ''
+locks: []
+priority: 50
 ---
 
 # QA Validator Core Logic

@@ -177,7 +177,7 @@ export const MOVE_DAMAGE_CLASS = {
 
 export interface CompactEncounterDetail {
   c: number; // chance
-  m: number; // method (ENCOUNTER_METHOD)
+  method: number; // method (ENCOUNTER_METHOD)
   min: number; // min_level
   max?: number | undefined; // max_level
   t?: number | undefined; // time of day bitmask (1: morning, 2: day, 4: night)
@@ -206,7 +206,7 @@ export interface UnifiedLocation {
 export type GenericLocation = UnifiedLocation;
 
 interface CompactEvolutionDetail {
-  tr?: number | undefined; // trigger (EVO_TRIGGER)
+  trigger?: number | undefined; // trigger (EVO_TRIGGER)
   ml?: number | undefined; // min_level
   mh?: number | undefined; // min_happiness
   item?: number | undefined; // item id

@@ -21,14 +21,14 @@ describe('PokemonDetails', () => {
 
         efrm: [2, 3],
         eto: [],
-        det: [{ tr: 1, ml: 16 }],
+        det: [{ trigger: 1, ml: 16 }],
         cr: 45,
         baby: false,
       } as unknown as import('../../db/schema').PokemonMetadata,
       enc: [
-        { v: 1, aid: 10, d: [{ c: 100, min: 5, max: 5, m: 1 }] },
-        { v: 1, aid: 11, d: [{ c: 50, min: 3, max: 6, m: 2 }] },
-        { v: 2, aid: 10, d: [{ c: 100, min: 5, max: 5, m: 1 }] },
+        { v: 1, aid: 10, d: [{ c: 100, min: 5, max: 5, method: 1 }] },
+        { v: 1, aid: 11, d: [{ c: 50, min: 3, max: 6, method: 2 }] },
+        { v: 2, aid: 10, d: [{ c: 100, min: 5, max: 5, method: 1 }] },
       ],
       nameMap: { 1: 'Bulbasaur', 2: 'Ivysaur', 3: 'Venusaur' },
       areaNames: { 10: 'Safari Zone', 11: 'Another Area' },
@@ -81,7 +81,7 @@ describe('PokemonDetails', () => {
         id: 4,
 
         efrm: [],
-        eto: [{ id: 5, det: [{ tr: 1, ml: 16 }] }],
+        eto: [{ id: 5, det: [{ trigger: 1, ml: 16 }] }],
         det: [],
         cr: 45,
         baby: true,

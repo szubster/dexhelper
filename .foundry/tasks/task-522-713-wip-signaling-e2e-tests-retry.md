@@ -6,10 +6,10 @@ status: READY
 confidence_score: 100
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-10-29'
+updated_at: '2026-11-01'
 depends_on:
   - research-522-712-investigate-wip-signaling-e2e-failure
-jules_session_id: '7664493583335314017'
+jules_session_id: null
 pr_number: null
 parent: story-518-522-wip-signaling-e2e
 tags:
@@ -17,7 +17,7 @@ tags:
   - testing
   - wip
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

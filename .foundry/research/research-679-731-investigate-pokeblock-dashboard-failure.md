@@ -2,12 +2,12 @@
 id: research-679-731-investigate-pokeblock-dashboard-failure
 type: RESEARCH
 title: Investigate Pokeblock Dashboard UI Component Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-28'
 updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '9726681013756643379'
+jules_session_id: null
 pr_number: null
 parent: story-401-679-pokeblock-viewer-route
 tags:
@@ -15,8 +15,8 @@ tags:
   - gen3
   - react
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

@@ -2,10 +2,10 @@
 id: epic-345-428-source-additional-save-files
 type: EPIC
 title: Source Additional Save Files for Testing
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-24'
-updated_at: '2026-08-24'
+updated_at: '2026-11-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # EPIC: Source Additional Save Files for Testing
@@ -31,6 +32,6 @@ Identify, source, and integrate additional game save files covering multiple gen
 - [x] Break down this epic into stories.
 - [x] Ensure a final STORY dedicated exclusively to Integration and E2E Verification is generated.
 
-- [ ] story-428-470-identify-public-saves
-- [ ] story-428-471-verify-and-integrate-saves
-- [ ] story-428-472-e2e-verification
+- [x] story-428-470-identify-public-saves
+- [x] story-428-471-verify-and-integrate-saves
+- [x] story-428-472-e2e-verification
