@@ -33,5 +33,5 @@ Implement the Zustand store logic for the Mystery Gift data access layer.
 - The store should expose a `loadDataFromAppStore()` action that reads `useStore.getState().saveData`. If the save data is a Gen 3 save and contains `gen3MysteryGift`, it should set it in the mystery gift store; otherwise, it should set it to null.
 
 ## Acceptance Criteria
-- [ ] Create Mystery Gift Zustand store
-- [ ] Implement `loadDataFromAppStore` action logic
+- [x] Create Mystery Gift Zustand store
+- [x] Implement `loadDataFromAppStore` action logic
