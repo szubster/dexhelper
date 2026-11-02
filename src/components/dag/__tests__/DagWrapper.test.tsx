@@ -42,6 +42,12 @@ test('DagWrapper renders DagProvider and DagDashboard without crashing', async (
 
   await expect.element(page.getByText('node-1')).toBeInTheDocument();
 
+  // Test filter panel interactions in DagWrapper using testIds and unique roles
+  await page.getByTestId('TASK').click();
+  await page.getByTestId('COMPLETED').click();
+  await page.getByRole('button', { name: 'Toggle permanent failures only' }).click();
+  await page.getByRole('button', { name: 'Toggle heatmap overlay' }).click();
+
   // Clean up
   vi.restoreAllMocks();
 });
