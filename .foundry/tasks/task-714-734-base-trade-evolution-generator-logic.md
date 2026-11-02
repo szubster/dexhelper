@@ -2,12 +2,12 @@
 id: task-714-734-base-trade-evolution-generator-logic
 type: TASK
 title: Base Trade Evolution Tracking Logic Update
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-31'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2531491705940285115'
 pr_number: null
 parent: story-351-714-base-trade-evolution-tracking
 tags:
