@@ -28,5 +28,5 @@ locks: []
 Verify the migration of `TacticalModal` to `@dexhelper/ui`.
 
 ## Acceptance Criteria
-- [ ] Verify `TacticalModal` correctly renders in the application view hierarchy.
-- [ ] Verify unit tests pass and test the actual rendered components.
+- [x] Verify `TacticalModal` correctly renders in the application view hierarchy.
+- [x] Verify unit tests pass and test the actual rendered components.
