@@ -24,5 +24,5 @@ tags:
 Implement the core logic using `typescript` or `ts-morph` compiler API. The logic should parse TS files, traverse the AST to find `page.goto(...)` calls, and check if the argument is a string literal starting with a single `/`, while excluding protocol-relative (`//`) and external URLs (`http://`, `https://`).
 
 ## Acceptance Criteria
-- [ ] Implement core AST parsing logic
-- [ ] Logic correctly filters and detects `page.goto` calls matching the criteria
+- [x] Implement core AST parsing logic
+- [x] Logic correctly filters and detects `page.goto` calls matching the criteria
