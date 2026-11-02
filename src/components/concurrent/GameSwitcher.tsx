@@ -1,6 +1,6 @@
+import { TacticalSelect } from '@dexhelper/ui';
 import type React from 'react';
 import { useConcurrentGame } from '../../contexts/ConcurrentGameContext';
-import { TacticalSelect } from '../TacticalSelect';
 
 export const GameSwitcher: React.FC = () => {
   const { state, setActivePlaythrough } = useConcurrentGame();
