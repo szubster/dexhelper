@@ -2,10 +2,10 @@
 id: story-581-673-orchestrator-termination-state-parsing
 type: STORY
 title: Parse Orchestrator Termination States
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-09'
-updated_at: '2026-10-13'
+updated_at: '2026-11-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,6 +34,6 @@ This Story focuses on modifying the Orchestrator's rejection processing to parse
 ## Acceptance Criteria
 
 
-- [ ] task-673-683-parse-termination-states-logic
-- [ ] task-673-685-parse-termination-states-coder-tests
-- [ ] task-673-686-parse-termination-states-qa
+- [x] task-673-683-parse-termination-states-logic
+- [x] task-673-685-parse-termination-states-coder-tests
+- [x] task-673-686-parse-termination-states-qa

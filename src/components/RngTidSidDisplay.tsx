@@ -22,16 +22,18 @@ export function RngTidSidDisplay({ tid, sid, className = '' }: RngTidSidDisplayP
   };
 
   return (
-    <div className={`tactical-panel rounded-none border-dashed border-zinc-700/50 p-4 ${className}`}>
+    <div className={`tactical-panel rounded-none border-dashed border-zinc-700/50 p-4 whitespace-nowrap ${className}`}>
       <div className="flex items-center justify-between gap-4">
         <div className="flex flex-col gap-1">
-          <div className="font-mono text-[10px] tracking-widest text-zinc-500 uppercase">RNG Trainer Identifiers</div>
-          <div className="flex items-center gap-6">
-            <div className="flex items-baseline gap-2">
+          <div className="font-mono text-[10px] tracking-widest whitespace-nowrap text-zinc-500 uppercase">
+            RNG Trainer Identifiers
+          </div>
+          <div className="flex items-center gap-6 whitespace-nowrap">
+            <div className="flex items-baseline gap-2 whitespace-nowrap">
               <span className="font-mono text-xs text-zinc-400">TID</span>
               <span className="font-mono text-lg text-zinc-100">{tid.toString().padStart(5, '0')}</span>
             </div>
-            <div className="flex items-baseline gap-2">
+            <div className="flex items-baseline gap-2 whitespace-nowrap">
               <span className="font-mono text-xs text-zinc-400">SID</span>
               <span className="font-mono text-lg text-zinc-100">{sid.toString().padStart(5, '0')}</span>
             </div>

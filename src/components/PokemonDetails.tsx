@@ -33,9 +33,9 @@ const PokerusSpreadPlanner = React.lazy(() =>
   import('./PokerusSpreadPlanner').then((m) => ({ default: m.PokerusSpreadPlanner })),
 );
 
-import { ShinyBadge, TacticalIconButton } from '@dexhelper/ui';
+import { ShinyBadge, TacticalIconButton, TacticalModal } from '@dexhelper/ui';
+import { LazyLoadWrapper } from './LazyLoadWrapper';
 import { ScanlineOverlay } from './ScanlineOverlay';
-import { TacticalModal } from './TacticalModal';
 
 interface PokemonDetailsProps {
   pokemonId: number;
@@ -92,9 +92,9 @@ export function PokemonDetails({
     if (details && details.length > 0) {
       const d = details[0];
       if (!d) return null;
-      if (d.tr === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
-      else if (d.tr === 3) methodStr = 'Use Item';
-      else if (d.tr === 2) methodStr = 'Trade';
+      if (d.trigger === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
+      else if (d.trigger === 3) methodStr = 'Use Item';
+      else if (d.trigger === 2) methodStr = 'Trade';
     }
 
     return {
@@ -124,9 +124,9 @@ export function PokemonDetails({
       let methodStr = 'Unknown';
       const d = evo.det[0];
       if (d) {
-        if (d.tr === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
-        else if (d.tr === 3) methodStr = 'Use Item';
-        else if (d.tr === 2) methodStr = 'Trade';
+        if (d.trigger === 1) methodStr = d.ml ? `Level ${d.ml}` : 'Level up';
+        else if (d.trigger === 3) methodStr = 'Use Item';
+        else if (d.trigger === 2) methodStr = 'Trade';
       }
 
       result.push({
@@ -360,12 +360,12 @@ export function PokemonDetails({
           {/* Left Column Data Feed */}
           <div className="flex flex-col gap-6 xl:gap-8">
             {catchRate !== null && (
-              <React.Suspense fallback={<div className="tactical-skeleton h-24" />}>
+              <LazyLoadWrapper height="h-24">
                 <PokemonCatchProbability catchRate={catchRate} effectivePokeball={effectivePokeball} />
-              </React.Suspense>
+              </LazyLoadWrapper>
             )}
 
-            <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+            <LazyLoadWrapper height="h-48">
               <PokemonEvolutions
                 evoReq={evoReq}
                 evolvesTo={evolvesTo || []}
@@ -377,24 +377,24 @@ export function PokemonDetails({
                 gameVersion={gameVersion}
                 saveData={saveData}
               />
-            </React.Suspense>
+            </LazyLoadWrapper>
           </div>
 
           {/* Right Column Data Feed */}
           <div className="flex flex-col gap-6 xl:gap-8">
-            <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+            <LazyLoadWrapper height="h-48">
               <PokemonCaughtDetails yourPokemon={yourPokemon} />
-            </React.Suspense>
+            </LazyLoadWrapper>
 
             {saveData?.partyDetails?.some((p) => p.pokerus) && (
-              <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+              <LazyLoadWrapper height="h-48">
                 <PokerusSpreadPlanner initialParty={saveData.partyDetails} />
-              </React.Suspense>
+              </LazyLoadWrapper>
             )}
 
             {pokemonId === 201 && saveData?.generation === 2 && <UnownDexPanel yourPokemon={yourPokemon} />}
 
-            <React.Suspense fallback={<div className="tactical-skeleton h-48" />}>
+            <LazyLoadWrapper height="h-48">
               <PokemonLocations
                 pokemonId={pokemonId}
                 gameVersion={gameVersion}
@@ -403,7 +403,7 @@ export function PokemonDetails({
                 evoReq={evoReq}
                 loading={loading}
               />
-            </React.Suspense>
+            </LazyLoadWrapper>
           </div>
         </div>
       </div>

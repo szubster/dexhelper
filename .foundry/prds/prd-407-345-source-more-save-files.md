@@ -2,10 +2,10 @@
 id: prd-407-345-source-more-save-files
 type: PRD
 title: 'PRD: Source additional save files for testing'
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-08-15'
-updated_at: '2026-08-24'
+updated_at: '2026-11-01'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -17,6 +17,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Source additional save files for testing
@@ -30,6 +31,6 @@ As requested in PR comments on Epic 417 and tracked in IDEA 417-407, we need to 
 3. Integrate these new fixtures into the `tests/fixtures/` directory.
 
 ## Acceptance Criteria
-- [ ] Source additional save files for testing.
-- [ ] Integrate the new fixtures into the test suite.
-- [ ] epic-345-428-source-additional-save-files
+- [x] Source additional save files for testing.
+- [x] Integrate the new fixtures into the test suite.
+- [x] epic-345-428-source-additional-save-files

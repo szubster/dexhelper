@@ -2,10 +2,10 @@
 id: epic-044-071-hof-certificate-rendering
 type: EPIC
 title: Hall of Fame Certificate Generation
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-10'
-updated_at: '2026-08-31'
+updated_at: '2026-11-01'
 depends_on:
   - epic-044-070-hof-data-parsing
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 # Hall of Fame Certificate Generation
 
@@ -27,6 +28,6 @@ This epic implements the generation of visually appealing Hall of Fame Certifica
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-071-494-hof-certificate-hidden-component
-- [ ] story-071-495-hof-certificate-export-logic
-- [ ] story-071-496-hof-certificate-e2e-verification
+- [x] story-071-494-hof-certificate-hidden-component
+- [x] story-071-495-hof-certificate-export-logic
+- [x] story-071-496-hof-certificate-e2e-verification

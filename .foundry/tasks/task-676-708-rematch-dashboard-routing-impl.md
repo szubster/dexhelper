@@ -40,6 +40,6 @@ Set up application routing to provide access to the newly implemented `RematchDa
 - Write unit tests to verify that the route correctly renders the `RematchDashboard` component.
 
 ## Acceptance Criteria
-- [ ] Application routing is set up for the `RematchDashboard` view.
-- [ ] Navigation components link correctly to the new route using relative paths.
-- [ ] Unit tests for the routing are written and pass.
+- [x] Application routing is set up for the `RematchDashboard` view.
+- [x] Navigation components link correctly to the new route using relative paths.
+- [x] Unit tests for the routing are written and pass.

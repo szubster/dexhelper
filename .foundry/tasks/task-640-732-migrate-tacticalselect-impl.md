@@ -2,12 +2,12 @@
 id: task-640-732-migrate-tacticalselect-impl
 type: TASK
 title: Migrate TacticalSelect Component Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-27'
-updated_at: '2026-11-01'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: '16905306040310587288'
+jules_session_id: null
 pr_number: null
 parent: story-527-640-migrate-complex-components
 tags:
@@ -15,7 +15,7 @@ tags:
   - components
   - ui
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 notes: ''
 locks: []
 ---

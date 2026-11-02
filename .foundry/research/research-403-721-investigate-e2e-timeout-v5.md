@@ -2,12 +2,12 @@
 id: research-403-721-investigate-e2e-timeout-v5
 type: RESEARCH
 title: Investigate Playwright E2E Session Timeout V5
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11736670144036095876'
 pr_number: null
 parent: story-112-403-integration-e2e
 tags:
