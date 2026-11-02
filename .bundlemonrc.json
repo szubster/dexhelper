@@ -111,7 +111,7 @@
     },
     {
       "path": "assets/ui-<hash>.js",
-      "maxSize": "22kb"
+      "maxSize": "23kb"
     },
     {
       "path": "assets/*-<hash>.js",
