@@ -2,12 +2,12 @@
 id: task-648-726-gen3-ash-dashboard-integration-tests
 type: TASK
 title: 'Task: Implement Gen 3 Ash Dashboard Integration Tests'
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-04T12:00:00.000Z'
-updated_at: '2026-10-04T12:00:00.000Z'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9488009489785951147'
 pr_number: null
 parent: story-269-648-gen3-ash-dashboard-e2e
 tags:

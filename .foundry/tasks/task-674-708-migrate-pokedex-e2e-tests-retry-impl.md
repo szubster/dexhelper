@@ -34,5 +34,5 @@ Refactor existing Pokedex grid-related E2E tests (e.g. \`tests/e2e/pokedex-grid-
 - Apply recommendations from \`research-674-707-investigate-pokedex-e2e-failure\`.
 
 ## Acceptance Criteria
-- [ ] Pokedex tests are refactored to use \`PokedexGridModel\`.
-- [ ] Tests use semantic locators via the COM and avoid raw DOM locators.
+- [x] Pokedex tests are refactored to use \`PokedexGridModel\`.
+- [x] Tests use semantic locators via the COM and avoid raw DOM locators.

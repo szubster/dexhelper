@@ -16,8 +16,8 @@ test.describe('Gen 3 Pokedex Gaps Tracker', () => {
     const securedFilter = page.getByTestId('filter-secured');
     await expect(securedFilter).toBeVisible();
     await securedFilter.click();
-    await expect(page.locator('.border-emerald-500\\/50').first()).toBeVisible({ timeout: 10000 });
-    const emeraldCount = await page.locator('.border-emerald-500\\/50').count();
+    await expect(gridModel.getSecuredCards().first()).toBeVisible({ timeout: 10000 });
+    const emeraldCount = await gridModel.getSecuredCards().count();
     expect(emeraldCount).toBeGreaterThan(0);
     await securedFilter.click(); // toggle off
 
@@ -25,8 +25,8 @@ test.describe('Gen 3 Pokedex Gaps Tracker', () => {
     const dexOnlyFilter = page.getByTestId('filter-dex-only');
     await expect(dexOnlyFilter).toBeVisible();
     await dexOnlyFilter.click();
-    await expect(page.locator('.border-amber-500\\/50').first()).toBeVisible({ timeout: 10000 });
-    const amberCount = await page.locator('.border-amber-500\\/50').count();
+    await expect(gridModel.getDexOnlyCards().first()).toBeVisible({ timeout: 10000 });
+    const amberCount = await gridModel.getDexOnlyCards().count();
     expect(amberCount).toBeGreaterThan(0);
     await dexOnlyFilter.click(); // toggle off
 
@@ -36,6 +36,6 @@ test.describe('Gen 3 Pokedex Gaps Tracker', () => {
     await missingFilter.click();
 
     // UI updates asynchronously, wait for the missing filter to hide the "secured" (emerald) items.
-    await expect(page.locator('.border-emerald-500\\/50')).toHaveCount(0);
+    await expect(gridModel.getSecuredCards()).toHaveCount(0);
   });
 });

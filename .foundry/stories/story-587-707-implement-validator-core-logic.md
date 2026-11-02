@@ -2,17 +2,14 @@
 id: story-587-707-implement-validator-core-logic
 type: STORY
 title: Implement Validator Core Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-18T18:43:00Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: epic-585-587-implement-macro-node-subtree-completeness-validator
-priority: 50
-confidence_score: null
 tags:
   - foundry
   - orchestrator
@@ -21,6 +18,8 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
+priority: 50
 ---
 
 # Implement Validator Core Logic

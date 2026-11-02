@@ -2,10 +2,10 @@
 id: story-574-608-multi-box-text-search-engine
 type: STORY
 title: Multi-Box Text Search Engine
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-22'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
 jules_session_id: null
 pr_number: null

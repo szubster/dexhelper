@@ -25,8 +25,8 @@ describe('Recursive Exclusive Checking', () => {
       missingEncounters: {},
       pokemonMetadata: {
         4: { id: 4, efrm: [], det: [] },
-        5: { id: 5, efrm: [4], det: [{ tr: 1, ml: 16 }] },
-        6: { id: 6, efrm: [5, 4], det: [{ tr: 1, ml: 36 }] }, // Charizard has Charmeleon (5) and Charmander (4) as ancestors
+        5: { id: 5, efrm: [4], det: [{ trigger: 1, ml: 16 }] },
+        6: { id: 6, efrm: [5, 4], det: [{ trigger: 1, ml: 36 }] }, // Charizard has Charmeleon (5) and Charmander (4) as ancestors
       },
       ancestralEncounters: {},
       areaNames: {},

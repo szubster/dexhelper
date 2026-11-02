@@ -2,10 +2,10 @@
 id: research-513-716-investigate-orchestrator-test-updates-failure
 type: RESEARCH
 title: Investigate Orchestrator Test Updates Failure
-status: READY
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-22'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
 jules_session_id: null
 parent: story-018-513-orchestrator-test-updates
@@ -13,7 +13,7 @@ tags:
   - orchestrator
   - typescript
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
