@@ -27,4 +27,4 @@ locks: []
 Following the schema update for the `priority` field, the orchestrator needs to intelligently leverage this field to dispatch nodes based on priority (descending) first, then `critical_weight` (descending), and finally `created_at`. This is a retry of `task-649-702-priority-dispatch-coder` based on the findings from `research-649-726-investigate-priority-dispatch-failure`.
 
 ## Acceptance Criteria
-- [ ] Implement priority-based dispatch logic in `packages/foundry/foundry-orchestrator.ts`.
+- [x] Implement priority-based dispatch logic in `packages/foundry/foundry-orchestrator.ts`.
