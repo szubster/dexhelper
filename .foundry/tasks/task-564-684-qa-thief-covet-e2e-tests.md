@@ -2,13 +2,13 @@
 id: task-564-684-qa-thief-covet-e2e-tests
 type: TASK
 title: QA for Thief/Covet E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-01'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on:
   - task-564-683-thief-covet-e2e-tests
-jules_session_id: null
+jules_session_id: '14459237240525097195'
 pr_number: null
 parent: story-553-564-thief-covet-ui-integration
 tags:

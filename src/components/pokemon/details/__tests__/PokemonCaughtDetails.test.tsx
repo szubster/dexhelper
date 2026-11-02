@@ -5,6 +5,13 @@ import { useParsedSaveData } from '../../../../contexts/EmulatorContext';
 import type { PokemonInstance } from '../../../../engine/saveParser/index';
 import { PokemonCaughtDetails } from '../PokemonCaughtDetails';
 
+vi.mock('../../LazyLoadWrapper', () => ({
+  LazyLoadWrapper: ({ children, height, width }: { children?: React.ReactNode; height?: string; width?: string }) => (
+    <div data-testid="lazy-load-wrapper" data-height={height} data-width={width}>
+      {children}
+    </div>
+  ),
+}));
 vi.mock('../../../../contexts/EmulatorContext', () => ({
   useParsedSaveData: vi.fn<() => void>(),
 }));

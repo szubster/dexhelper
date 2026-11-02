@@ -7,7 +7,7 @@ owner_persona: researcher
 created_at: '2026-10-18'
 updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '13541372440893192005'
+jules_session_id: '11736670144036095876'
 pr_number: null
 parent: story-112-403-integration-e2e
 tags:

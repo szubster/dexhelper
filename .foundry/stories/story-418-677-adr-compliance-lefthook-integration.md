@@ -2,23 +2,23 @@
 id: story-418-677-adr-compliance-lefthook-integration
 type: STORY
 title: Integrate ADR Compliance with Lefthook
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-16T21:05:41.924Z'
-updated_at: '2026-10-19'
+updated_at: '2026-11-01'
 depends_on: []
-parent: epic-142-418-automated-adr-compliance-ci-integration
 jules_session_id: null
 pr_number: null
-rejection_count: 0
-rejection_reason: ''
-notes: ''
-locks: []
+parent: epic-142-418-automated-adr-compliance-ci-integration
 tags:
   - foundry
   - orchestrator
   - compliance
   - adr
+rejection_count: 1
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Integrate ADR Compliance with Lefthook
@@ -32,5 +32,5 @@ To ensure code compliance before it is committed, the ADR compliance checks need
 
 ## Acceptance Criteria
 - [x] Decompose this story into actionable TASK nodes.
-- [ ] task-677-678-adr-compliance-lefthook-integration-impl
-- [ ] task-677-679-adr-compliance-lefthook-integration-qa
+- [x] task-677-678-adr-compliance-lefthook-integration-impl
+- [x] task-677-679-adr-compliance-lefthook-integration-qa

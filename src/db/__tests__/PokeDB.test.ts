@@ -33,7 +33,7 @@ describe('PokeDB', () => {
       const eTx = db.transaction([DB_CONFIG.STORES.ENCOUNTERS, DB_CONFIG.STORES.LOCATIONS], 'readwrite');
       await eTx
         .objectStore(DB_CONFIG.STORES.ENCOUNTERS)
-        .put({ pid: 1, enc: [{ aid: 10, v: 1, d: [{ c: 10, m: 1, min: 2, max: 2 }] }] });
+        .put({ pid: 1, enc: [{ aid: 10, v: 1, d: [{ c: 10, method: 1, min: 2, max: 2 }] }] });
       await eTx.objectStore(DB_CONFIG.STORES.LOCATIONS).put({ id: 100, n: 'Route 1', pids: [1] });
       await eTx.done;
 
@@ -41,7 +41,7 @@ describe('PokeDB', () => {
         ok: true,
         arrayBuffer: async () =>
           pack({
-            enc: [{ pid: 1, enc: [{ aid: 20, v: 2, d: [{ c: 20, m: 2, min: 3, max: 5 }] }] }],
+            enc: [{ pid: 1, enc: [{ aid: 20, v: 2, d: [{ c: 20, method: 2, min: 3, max: 5 }] }] }],
             loc: [
               { id: 100, n: 'Route 1 Modified', pids: [2] },
               { id: 101, n: 'Route 2', pids: [3] },
@@ -449,11 +449,11 @@ describe('PokeDB', () => {
           eto: [
             {
               id: 2,
-              det: [{ tr: 1 }],
+              det: [{ trigger: 1 }],
               eto: [
                 {
                   id: 3,
-                  det: [{ tr: 2 }],
+                  det: [{ trigger: 2 }],
                   eto: [],
                 },
               ],
@@ -474,9 +474,9 @@ describe('PokeDB', () => {
 
     const p1 = await pokeDB.getPokemon(1);
     expect(p1?.eto?.[0]?.id).toBe(2);
-    expect(p1?.eto?.[0]?.det?.[0]?.tr).toBe(1);
+    expect(p1?.eto?.[0]?.det?.[0]?.trigger).toBe(1);
     expect(p1?.eto?.[0]?.eto?.[0]?.id).toBe(3);
-    expect(p1?.eto?.[0]?.eto?.[0]?.det?.[0]?.tr).toBe(2);
+    expect(p1?.eto?.[0]?.eto?.[0]?.det?.[0]?.trigger).toBe(2);
   });
 
   it('resolves area names correctly', async () => {

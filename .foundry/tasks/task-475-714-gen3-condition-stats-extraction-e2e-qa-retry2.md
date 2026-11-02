@@ -4,10 +4,10 @@ type: TASK
 title: >-
   QA Verification for Gen 3 Contest Condition Data Extraction E2E Tests (Retry
   2)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-20T20:38:13.833Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on:
   - task-475-713-gen3-condition-stats-extraction-e2e-tests-retry2
 jules_session_id: null
@@ -20,7 +20,9 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-475-712-gen3-condition-stats-extraction-e2e-failure-retry
 notes: ''
 locks: []
 ---
