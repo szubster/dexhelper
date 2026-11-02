@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: "2026-10-28"
 updated_at: "2026-10-28"
 depends_on:
-  - .foundry/tasks/task-528-731-cloudflare-worker-drive-download.md
+  - task-528-731-cloudflare-worker-drive-download
 jules_session_id: null
 locks: []
 pr_number: null
