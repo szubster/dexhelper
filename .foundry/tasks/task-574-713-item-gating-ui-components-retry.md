@@ -2,7 +2,7 @@
 id: task-574-713-item-gating-ui-components-retry
 type: TASK
 title: Item Gating UI Components (Retry)
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-20T16:13:59Z'
 updated_at: '2026-11-02'
@@ -15,8 +15,8 @@ tags:
   - gen3
   - map
   - ui
-rejection_count: 0
-rejection_reason: 'Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

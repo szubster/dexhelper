@@ -2,7 +2,7 @@
 id: story-582-674-yaml-schema-e2e-verification
 type: STORY
 title: Integration and E2E Verification for system_failure_count Schema Updates
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-09'
 updated_at: '2026-11-02'
@@ -15,10 +15,8 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
-  TASK nodes
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 80

@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-02T06:58:15.678Z*
+*Generated at: 2026-11-02T17:30:09.110Z*
 
 ## Node Statistics
 
@@ -18,22 +18,21 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3559 |
-| ACTIVE | 35 |
-| CANCELLED | 912 |
-| PENDING | 905 |
-| READY | 114 |
+| COMPLETED | 3562 |
+| ACTIVE | 49 |
+| CANCELLED | 924 |
+| PENDING | 880 |
+| READY | 123 |
 | BLOCKED | 14 |
-| FAILED | 13 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 53 |
-| Merged PRs | 8846 |
-| Closed PRs | 1101 |
+| Open PRs | 69 |
+| Merged PRs | 8832 |
+| Closed PRs | 1099 |
 
 ## Rejection Counts
 
@@ -817,6 +816,7 @@
 | research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
+| research-537-721-investigate-hydration-failure-retry-v3.md | 1 |
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
 | research-559-704-investigate-query-formulation-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
@@ -825,6 +825,7 @@
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
 | research-564-690-investigate-gen3-pokedex-gaps-ui-failure.md | 1 |
+| research-564-734-investigate-gen2-roamer-e2e-failure.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
@@ -902,6 +903,7 @@
 | story-576-618-multi-box-search-visual-highlighting.md | 1 |
 | story-580-673-migrate-settings-e2e-tests.md | 1 |
 | story-580-674-migrate-pokedex-e2e-tests.md | 1 |
+| story-582-674-yaml-schema-e2e-verification.md | 1 |
 | task-081-692-preserve-enum-optimizations-retry-v3-qa.md | 1 |
 | task-094-157-moveset-inventory-validation-impl.md | 1 |
 | task-099-157-gen3-extract-pokemon-pids-impl.md | 1 |
@@ -1061,6 +1063,7 @@
 | task-562-590-gen3-dashboard-layout-and-routing-impl.md | 1 |
 | task-562-596-gen3-missed-items-extraction-qa.md | 1 |
 | task-562-621-wild-item-selection-ui-retry.md | 1 |
+| task-562-711-gen2-wild-item-extraction-logic-v4.md | 1 |
 | task-563-589-gen2-room-decoration-ui-impl.md | 1 |
 | task-563-594-gen3-pokeblock-optimizer-ui-components.md | 1 |
 | task-563-681-gen2-bag-inventory-parsing-qa.md | 1 |
@@ -1076,6 +1079,7 @@
 | task-569-578-cva-refactor-tactical-panel-card.md | 1 |
 | task-571-578-cva-refactor-basic-inputs.md | 1 |
 | task-574-659-archival-file-move-automation-qa.md | 1 |
+| task-574-713-item-gating-ui-components-retry.md | 1 |
 | task-575-691-archival-tree-completeness-e2e-tests.md | 1 |
 | task-575-716-implement-heatmap-e2e-tests.md | 1 |
 | task-578-589-visualizer-state-refactor.md | 1 |
@@ -1090,18 +1094,23 @@
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
 | task-620-687-gen1-static-encounters-e2e-coder.md | 1 |
+| task-638-722-extract-constants-to-core-v7.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
 | task-639-724-migrate-inputs-leds-impl-v5.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
 | task-640-653-relocate-foundry-scripts-replacement.md | 1 |
 | task-640-678-qa-relocate-foundry-scripts-replacement-v3.md | 1 |
+| task-640-717-extract-utils-to-core-retry-v3.md | 1 |
+| task-640-732-migrate-tacticalselect-impl.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
 | task-676-703-gen2-pokemon-selection-ui.md | 1 |
 | task-676-712-scheduled-agents-issue-flow-e2e-coder.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
+| task-711-734-gen3-battle-frontier-context-impl.md | 1 |
+| task-714-734-base-trade-evolution-generator-logic.md | 1 |
 
 ## Wait Times
 
