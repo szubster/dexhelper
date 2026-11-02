@@ -27,6 +27,27 @@ export const SPECIES_SUICUNE = 245;
 // Gen 3 Species IDs
 export const SPECIES_LATIAS = 380;
 export const SPECIES_LATIOS = 381;
+export const SPECIES_KYOGRE = 382;
+export const SPECIES_GROUDON = 383;
+
+// Priorities
+export const PRIORITY_WEATHER_ANOMALY = 115;
+export const PRIORITY_ROAMER = 115;
+
+// Emerald Weather Anomaly Location ID Mappings
+export const WEATHER_ANOMALY_MARINE_ROUTES: Record<number, string> = {
+  0: 'Route 105',
+  1: 'Route 125',
+  2: 'Route 127',
+  3: 'Route 129',
+};
+
+export const WEATHER_ANOMALY_TERRA_ROUTES: Record<number, string> = {
+  4: 'Route 114',
+  5: 'Route 115',
+  6: 'Route 116',
+  7: 'Route 118',
+};
 
 // Trade Evolutions & Mythicals
 export const SPECIES_ALAKAZAM = 65;
