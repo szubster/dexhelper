@@ -1,4 +1,4 @@
-import { TacticalBadge, TacticalButton, TacticalInput } from '@dexhelper/ui';
+import { TacticalBadge, TacticalButton, TacticalInput, TacticalModal } from '@dexhelper/ui';
 import type React from 'react';
 import { useState } from 'react';
 import { Gen3MapProvider } from '../contexts/Gen3MapContext';
@@ -9,7 +9,6 @@ import { ShoalCaveDashboard } from './shoal-cave/ShoalCaveDashboard';
 import { TacticalCard } from './TacticalCard';
 import { TacticalCheckbox } from './TacticalCheckbox';
 import { TacticalChip } from './TacticalChip';
-import { TacticalModal } from './TacticalModal';
 import { TacticalPanel } from './TacticalPanel';
 import { TacticalProgressBar } from './TacticalProgressBar';
 
