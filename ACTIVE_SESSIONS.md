@@ -56,3 +56,4 @@
 | [task-711-731-cycle-detection-algorithm-types](.foundry/tasks/task-711-731-cycle-detection-algorithm-types.md) | TASK | Define Cycle Detection Algorithm Types | coder | [12578306338820135292](https://jules.google.com/session/12578306338820135292) |
 | [task-712-734-cycle-detection-engine-types](.foundry/tasks/task-712-734-cycle-detection-engine-types.md) | TASK | TASK - Define Types for Cycle Detection Engine | coder | [11503492555982191089](https://jules.google.com/session/11503492555982191089) |
 | [task-714-734-playwright-guard-script-core](.foundry/tasks/task-714-734-playwright-guard-script-core.md) | TASK | Implement Playwright Guard Script Core Logic | coder | [8354938329754512775](https://jules.google.com/session/8354938329754512775) |
+| [task-731-734-ast-analyzer-core-logic](.foundry/tasks/task-731-734-ast-analyzer-core-logic.md) | TASK | AST Analyzer Core Logic | coder | [7777229208254947407](https://jules.google.com/session/7777229208254947407) |
