@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client';
 import { FeatureFlagProvider } from './contexts/FeatureFlagContext';
 import { Gen3MissedItemsProvider } from './contexts/Gen3MissedItemsContext';
 import { Gen3RTCProvider } from './contexts/Gen3RTCContext';
+import { HighlightProvider } from './contexts/pc-box/HighlightContext';
 import { TimeOverrideProvider } from './contexts/TimeOverrideContext';
 import { pokeDB } from './db/PokeDB';
 import { queryClient } from './queryClient';
@@ -59,7 +60,9 @@ createRoot(rootElement).render(
         <Gen3RTCProvider>
           <TimeOverrideProvider>
             <Gen3MissedItemsProvider>
-              <RouterProvider router={router} />
+              <HighlightProvider>
+                <RouterProvider router={router} />
+              </HighlightProvider>
             </Gen3MissedItemsProvider>
           </TimeOverrideProvider>
         </Gen3RTCProvider>
