@@ -29,6 +29,6 @@ locks: []
 Implement the core cycle detection algorithm (e.g., Kahn's or Tarjan's algorithm) to detect circular dependencies within a set of DAG nodes.
 
 ## Acceptance Criteria
-- [ ] Implement cycle detection algorithm in an isolated utility file using the defined types.
-- [ ] Ensure the algorithm achieves O(V+E) time complexity.
-- [ ] Implement robust handling for nodes in different states and missing references.
+- [x] Implement cycle detection algorithm in an isolated utility file using the defined types.
+- [x] Ensure the algorithm achieves O(V+E) time complexity.
+- [x] Implement robust handling for nodes in different states and missing references.
