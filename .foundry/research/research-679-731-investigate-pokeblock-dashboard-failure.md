@@ -5,7 +5,7 @@ title: Investigate Pokeblock Dashboard UI Component Failure
 status: READY
 owner_persona: researcher
 created_at: '2026-10-28'
-updated_at: '2026-11-01'
+updated_at: '2026-11-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - gen3
   - react
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

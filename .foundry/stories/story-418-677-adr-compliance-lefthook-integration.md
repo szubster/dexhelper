@@ -2,7 +2,7 @@
 id: story-418-677-adr-compliance-lefthook-integration
 type: STORY
 title: Integrate ADR Compliance with Lefthook
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-16T21:05:41.924Z'
 updated_at: '2026-11-01'
@@ -15,10 +15,8 @@ tags:
   - orchestrator
   - compliance
   - adr
-rejection_count: 0
-rejection_reason: >-
-  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
-  TASK nodes
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

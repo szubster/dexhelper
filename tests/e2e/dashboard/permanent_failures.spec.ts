@@ -166,13 +166,16 @@ test.describe('Permanent Failures Dashboard Filter', () => {
     // Toggle the filter
 
     // Find the node container up from the text element
-    const permFailNode = page.locator('.border-dashed.border-zinc-800').filter({ hasText: 'task-perm-fail' }).first();
-    await expect(permFailNode.locator('div.border-red-600')).toBeVisible();
+    const permFailNode = page
+      .getByText('task-perm-fail')
+      .first()
+      .locator('xpath=ancestor::div[contains(@class, "border-dashed")][1]');
+    await expect(permFailNode).toHaveClass(/border-red-600/);
 
     const permCancelNode = page
-      .locator('.border-dashed.border-zinc-800')
-      .filter({ hasText: 'task-perm-cancel' })
-      .first();
-    await expect(permCancelNode.locator('div.border-red-600')).toBeVisible();
+      .getByText('task-perm-cancel')
+      .first()
+      .locator('xpath=ancestor::div[contains(@class, "border-dashed")][1]');
+    await expect(permCancelNode).toHaveClass(/border-red-600/);
   });
 });
