@@ -2,10 +2,10 @@
 id: task-564-735-gen2-roamer-e2e-tests-retry
 type: TASK
 title: Gen 2 Roamer E2E Tests (Retry)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-30'
-updated_at: '2026-10-30'
+updated_at: '2026-11-02'
 depends_on:
   - task-564-668-gen2-roamer-ui-impl
   - research-564-734-investigate-gen2-roamer-e2e-failure

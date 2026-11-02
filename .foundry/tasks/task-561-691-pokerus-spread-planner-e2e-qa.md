@@ -2,13 +2,13 @@
 id: task-561-691-pokerus-spread-planner-e2e-qa
 type: TASK
 title: Pokerus Spread Planner E2E QA
-status: ACTIVE
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-16T02:37:32.074Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - task-561-690-pokerus-spread-planner-e2e-impl
-jules_session_id: '6734014801879083141'
+jules_session_id: null
 pr_number: null
 parent: story-413-561-pokerus-spread-planner-e2e
 tags:
@@ -17,7 +17,9 @@ tags:
   - pokerus
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-561-690-pokerus-spread-planner-e2e-impl
 notes: ''
 locks: []
 ---

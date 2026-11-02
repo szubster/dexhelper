@@ -2,12 +2,12 @@
 id: story-707-731-ast-analyzer-detection-script
 type: STORY
 title: Story Playwright Path AST Detection Script
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-10-30'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '1317540692338740427'
+jules_session_id: null
 pr_number: null
 parent: epic-587-707-playwright-path-ast-analyzer
 tags:

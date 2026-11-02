@@ -2,10 +2,10 @@
 id: task-711-735-gen3-battle-frontier-context-tests
 type: TASK
 title: Unit Tests for Gen 3 Battle Frontier Context
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-11-02'
 depends_on:
   - task-711-734-gen3-battle-frontier-context-impl
 jules_session_id: null

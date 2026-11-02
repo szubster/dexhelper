@@ -2,21 +2,22 @@
 id: task-731-735-ast-analyzer-cli
 type: TASK
 title: AST Analyzer CLI Script
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-11-02'
 depends_on:
   - task-731-734-ast-analyzer-core-logic
 jules_session_id: null
 pr_number: null
 parent: story-707-731-ast-analyzer-detection-script
-priority: 50
-confidence_score: null
 tags:
   - testing
   - linting
   - ast
+locks: []
+priority: 50
+rejection_reason: ''
 ---
 
 # Task: AST Analyzer CLI Script

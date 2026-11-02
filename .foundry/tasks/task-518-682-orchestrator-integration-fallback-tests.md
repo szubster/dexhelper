@@ -2,14 +2,14 @@
 id: task-518-682-orchestrator-integration-fallback-tests
 type: TASK
 title: Orchestrator Integration Fallback Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-12'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on:
   - task-518-680-orchestrator-integration-e2e-fixtures
   - task-518-681-orchestrator-integration-composite-prompt-tests
-jules_session_id: '14732026530675783430'
+jules_session_id: null
 pr_number: null
 parent: story-418-518-orchestrator-integration-e2e
 tags:

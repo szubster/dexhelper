@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-01T19:56:28.939Z*
+*Generated at: 2026-11-02T00:00:35.772Z*
 
 ## Node Statistics
 
@@ -11,28 +11,28 @@
 | EPIC | 543 |
 | IDEA | 238 |
 | PRD | 218 |
-| RESEARCH | 355 |
+| RESEARCH | 359 |
 | STORY | 1134 |
-| TASK | 2954 |
+| TASK | 2993 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3511 |
-| ACTIVE | 95 |
-| CANCELLED | 898 |
-| PENDING | 889 |
-| READY | 77 |
+| COMPLETED | 3543 |
+| ACTIVE | 51 |
+| CANCELLED | 909 |
+| PENDING | 897 |
+| READY | 103 |
 | BLOCKED | 14 |
-| FAILED | 3 |
+| FAILED | 13 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 109 |
-| Merged PRs | 8785 |
+| Open PRs | 53 |
+| Merged PRs | 8841 |
 | Closed PRs | 1106 |
 
 ## Rejection Counts
@@ -294,6 +294,7 @@
 | task-560-609-tm-hm-compatibility-matching-impl-retry.md | 3 |
 | task-561-669-spinda-rendering-ui.md | 3 |
 | task-561-680-orchestrator-dag-graphology-impl.md | 3 |
+| task-561-690-pokerus-spread-planner-e2e-impl.md | 3 |
 | task-562-579-gen2-wild-item-extraction-logic-impl.md | 3 |
 | task-562-579-wild-item-selection-ui.md | 3 |
 | task-562-582-gen2-moms-savings-ui.md | 3 |
@@ -1053,7 +1054,6 @@
 | task-561-614-pokerus-e2e-infected.md | 1 |
 | task-561-615-pokerus-e2e-uninfected-cured.md | 1 |
 | task-561-668-spinda-rendering-types.md | 1 |
-| task-561-690-pokerus-spread-planner-e2e-impl.md | 1 |
 | task-561-690-telemetry-metrics-e2e-coder.md | 1 |
 | task-561-704-orchestrator-dag-graphology-impl-retry.md | 1 |
 | task-562-586-pokeblock-recommendation-logic.md | 1 |

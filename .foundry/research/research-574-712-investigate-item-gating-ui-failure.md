@@ -2,12 +2,12 @@
 id: research-574-712-investigate-item-gating-ui-failure
 type: RESEARCH
 title: Investigate Item Gating UI Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-20T16:13:59Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '14304615230861916100'
+jules_session_id: null
 pr_number: null
 parent: story-407-574-item-gating-ui-filter
 tags:

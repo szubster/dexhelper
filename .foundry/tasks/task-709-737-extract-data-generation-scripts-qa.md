@@ -2,10 +2,10 @@
 id: task-709-737-extract-data-generation-scripts-qa
 type: TASK
 title: Extract Data Generation Scripts QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-31'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - task-709-736-update-workspace-scripts
 jules_session_id: null

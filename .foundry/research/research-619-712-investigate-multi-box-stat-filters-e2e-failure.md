@@ -2,13 +2,13 @@
 id: research-619-712-investigate-multi-box-stat-filters-e2e-failure
 type: RESEARCH
 title: Investigate Multi-Box Stat Filters E2E Failure
-status: ACTIVE
+status: COMPLETED
 confidence_score: 100
 owner_persona: researcher
 created_at: '2026-10-21'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '3277909720907381832'
+jules_session_id: null
 pr_number: null
 parent: story-575-619-multi-box-stat-filters-e2e
 tags:

@@ -2,13 +2,13 @@
 id: story-115-527-pathfinder-chain-visualization
 type: STORY
 title: Pathfinder Chain Visualization UI
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-06-30'
-updated_at: '2026-10-30'
+updated_at: '2026-11-01'
 depends_on:
   - story-115-526-pathfinder-selection-ui
-jules_session_id: '10005656126002242135'
+jules_session_id: null
 pr_number: null
 parent: epic-055-115-egg-move-pathfinder-ui
 tags:

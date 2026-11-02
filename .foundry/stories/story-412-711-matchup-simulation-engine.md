@@ -2,12 +2,12 @@
 id: story-412-711-matchup-simulation-engine
 type: STORY
 title: Matchup Simulation Engine
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '3619996986821309416'
+jules_session_id: null
 pr_number: null
 parent: epic-340-412-matchup-recommendation-engine
 tags:

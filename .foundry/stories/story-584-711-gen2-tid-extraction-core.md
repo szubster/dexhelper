@@ -2,12 +2,12 @@
 id: story-584-711-gen2-tid-extraction-core
 type: STORY
 title: Gen 2 TID Extraction Core
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-21T01:34:56Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '18059228179684092971'
+jules_session_id: null
 pr_number: null
 parent: epic-581-584-gen2-tid-extraction
 tags:

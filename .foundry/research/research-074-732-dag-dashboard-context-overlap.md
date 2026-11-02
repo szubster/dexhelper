@@ -1,24 +1,27 @@
 ---
 id: research-074-732-dag-dashboard-context-overlap
 type: RESEARCH
-title: "Investigate DagDashboard Context Architecture Overlap"
-status: READY
+title: Investigate DagDashboard Context Architecture Overlap
+status: PENDING
 owner_persona: researcher
-created_at: "2026-10-29"
-updated_at: "2026-10-29"
+created_at: '2026-10-29'
+updated_at: '2026-11-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-074-refactor-dag-dashboard-context
-priority: 50
 tags:
   - architecture
   - ui
   - dashboard
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "Investigate architectural overlap between the proposed DagContext refactor and existing ADR 013/017 components."
+rejection_reason: ''
+notes: >-
+  Investigate architectural overlap between the proposed DagContext refactor and
+  existing ADR 013/017 components.
+locks: []
+priority: 50
 ---
 
 # Investigate DagDashboard Context Architecture Overlap

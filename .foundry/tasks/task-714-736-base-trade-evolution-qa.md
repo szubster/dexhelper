@@ -2,10 +2,10 @@
 id: task-714-736-base-trade-evolution-qa
 type: TASK
 title: QA Base Trade Evolution Tracking
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-31'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - task-714-735-base-trade-evolution-tests
 jules_session_id: null

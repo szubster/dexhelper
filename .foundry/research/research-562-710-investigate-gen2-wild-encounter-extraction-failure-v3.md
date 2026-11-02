@@ -2,12 +2,12 @@
 id: research-562-710-investigate-gen2-wild-encounter-extraction-failure-v3
 type: RESEARCH
 title: Investigate Gen 2 Wild Encounter Extraction Logic Failure (v3)
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-20'
-updated_at: '2026-10-29'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '1594257354062834048'
+jules_session_id: null
 pr_number: null
 parent: story-552-562-gen2-wild-item-parsing
 tags:

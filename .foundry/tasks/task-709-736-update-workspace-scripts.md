@@ -2,10 +2,10 @@
 id: task-709-736-update-workspace-scripts
 type: TASK
 title: Update Workspace Scripts
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-31'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - task-709-735-migrate-data-generation-scripts
 jules_session_id: null
