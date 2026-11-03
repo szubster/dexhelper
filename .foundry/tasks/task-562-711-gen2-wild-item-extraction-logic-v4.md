@@ -37,5 +37,5 @@ With the data models defined and the failure investigation complete, this task i
 - Handle `RangeError` for out-of-bounds reads during DataView operations.
 
 ## Acceptance Criteria
-- [ ] Implement extraction logic for Gen 2 wild encounters based on the research provided.
-- [ ] Implement mapping for Gen 2 held item drop rates based on the research provided.
+- [x] Implement extraction logic for Gen 2 wild encounters based on the research provided.
+- [x] Implement mapping for Gen 2 held item drop rates based on the research provided.
