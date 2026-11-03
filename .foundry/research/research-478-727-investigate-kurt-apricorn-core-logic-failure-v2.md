@@ -28,4 +28,4 @@ The child research task `research-478-703-investigate-kurt-apricorn-core-logic-f
 - Document the findings and provide actionable steps for the next coder.
 
 ## Acceptance Criteria
-- [ ] Investigate the root cause of the failure and document findings.
+- [x] Investigate the root cause of the failure and document findings.
