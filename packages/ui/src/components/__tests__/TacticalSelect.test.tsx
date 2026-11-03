@@ -28,7 +28,6 @@ describe('TacticalSelect', () => {
       </TacticalSelect>,
     );
     const select = page.getByTestId('select');
-    // For native select, we need to bypass playwright's missing select wrapper
     const el = select.element() as HTMLSelectElement;
     el.value = '2';
     el.dispatchEvent(new Event('change', { bubbles: true }));
@@ -50,7 +49,28 @@ describe('TacticalSelect', () => {
         <option value="1">Option 1</option>
       </TacticalSelect>,
     );
-    // The select is now wrapped in a div with the container class
     expect(container.querySelector('.wrapper-class')).not.toBeNull();
+  });
+
+  test('renders with edge labels, codeTag, and sublabel', async () => {
+    await render(
+      <TacticalSelect label="SYS.PORT" codeTag="COM.01" sublabel="BAUD: 9600" showLed ledStatus="online">
+        <option value="1">Port 1</option>
+      </TacticalSelect>,
+    );
+
+    await expect.element(page.getByText('SYS.PORT')).toBeVisible();
+    await expect.element(page.getByText('COM.01')).toBeVisible();
+    await expect.element(page.getByText('BAUD: 9600')).toBeVisible();
+  });
+
+  test('renders with CVA theme variants', async () => {
+    await render(
+      <TacticalSelect variant="emerald" data-testid="emerald-select">
+        <option value="1">Option 1</option>
+      </TacticalSelect>,
+    );
+    const select = page.getByTestId('emerald-select');
+    await expect.element(select).toHaveClass(/border-emerald-500/);
   });
 });
