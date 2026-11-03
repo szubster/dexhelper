@@ -23,9 +23,12 @@ locks: []
 # Extract game constants to core package
 
 ## Acceptance Criteria
-- [ ] research-638-721-investigate-constants-extraction-v6-failure
-- [ ] task-638-722-extract-constants-to-core-v7
-- [ ] task-638-723-qa-extract-constants-to-core-v7
+- [ ] research-638-740-investigate-constants-extraction-v7-failure
+- [ ] task-638-741-extract-constants-to-core-v8
+- [ ] task-638-742-qa-extract-constants-to-core-v8
+- [x] research-638-721-investigate-constants-extraction-v6-failure
+- [x] task-638-722-extract-constants-to-core-v7
+- [x] task-638-723-qa-extract-constants-to-core-v7
 - [x] research-638-716-investigate-constants-extraction-v5-failure
 - [x] task-638-717-extract-constants-to-core-v6
 - [x] task-638-718-qa-extract-constants-to-core-v6
