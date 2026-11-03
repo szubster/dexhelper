@@ -33,4 +33,8 @@ Implement AST parsing utilities to accurately detect the creation of custom Reac
 2. Identify and extract context creation expressions.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-734-740-ast-context-detection-types
+- [ ] task-734-741-ast-context-detection-logic
+- [ ] task-734-742-ast-context-detection-tests
+- [ ] task-734-743-ast-context-detection-qa
