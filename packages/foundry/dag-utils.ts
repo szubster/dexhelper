@@ -176,3 +176,14 @@ export function updateActiveSessionsTable(repoRoot: string): void {
   const outputPath = path.join(repoRoot, 'ACTIVE_SESSIONS.md');
   fs.writeFileSync(outputPath, markdown, 'utf-8');
 }
+
+export interface DAGNode {
+  id: string;
+  status?: string;
+  references?: string[];
+}
+
+export interface DAGEdge {
+  source: string;
+  target: string;
+}

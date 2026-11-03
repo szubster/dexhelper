@@ -222,6 +222,7 @@ These are the hard rules the orchestrator, heartbeat, and resurrection loop rely
     - If a parent node has incomplete children, you must leave its own acceptance criteria checkboxes unchecked to keep it in PENDING status.
 16. **Orchestrator Safeguard (E2E/Integration Requirement)**: When breaking down Epics, generative personas must ensure every EPIC generates a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`), even for documentation-focused Epics. An EPIC cannot be COMPLETED without it.
 17. **Leaf Node Acceptance Criteria**: Pure leaf nodes (e.g., `TASK`, `RESEARCH`) that do not spawn children do not strictly require Acceptance Criteria checklists, as their completion is binary (e.g., via PR merge). Parent nodes (`IDEA`, `PRD`, `EPIC`, `STORY`) still strictly require them.
+18. **Strict Formatting Enforcement (ADR 034)**: Checkboxes must strictly use the format `- [ ] ` (unchecked) and `- [x] ` (checked). Child nodes must be listed using the exact format `- [ ] <node_id>` without file extensions or directory paths. The orchestrator must parse these exact formats and transition parent nodes only when all listed children are `COMPLETED`.
 
 ---
 
@@ -338,6 +339,7 @@ To ensure maintainability and readability within the save parsing engine, the fo
 *   **No Magic Numbers:** The use of inline magic numbers (e.g., `0x2dd6`, `>> 4`) directly in parsing functions is strictly forbidden.
 *   **Relative Offsets (Gen 3):** When extracting Gen 3 save blocks, you must pass and utilize the resolved section offset (e.g., `section1Offset` or `section2Offset`) to calculate relative memory offsets rather than absolute hardcoded offsets, supporting the A/B bank flash memory architecture.
 *   **Bitwise Mapping:** When parsing bitwise blocks (e.g., event flags) using the `DataView` API, you must explicitly map the specific bit offsets corresponding to target events. Just extracting the raw array is insufficient.
+*   **Collection Data Integrity:** Extraction pipelines and game tracker utilities (such as held item, move, or inventory extractors) MUST NOT use deduplicating collection data structures (e.g., `Set`) when collecting items or entities where duplicate entries are valid (e.g., multiple Pokémon holding `Leftovers`). Always use standard arrays (`T[]`) and sort deterministically if required, preventing silent data loss and diffing corruptions.
 *   **RangeError Handling:** When using the `DataView` API, you MUST catch `RangeError` for out-of-bounds reads and throw a new error with the message "The save file is corrupted or incomplete." to prevent application crashes.
 *   **WASM Emulator Integration & Memory Extraction (ADR 032):** The system supports a multi-emulator architecture (`binjgb` for Gen 1 & Gen 2; `mGBA` for Gen 3). Emulator state synchronization MUST extract SRAM/Save data directly from the emulator's memory space via Javascript bindings during active gameplay. This live memory buffer is directly passed to the DexHelper parsing engine, bypassing the need for manual file-based exports.
 

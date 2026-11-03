@@ -18,7 +18,7 @@ describe('Evolution Data Integrity', () => {
     // Evolution details: time: 1 (day), mh: 160 (but mh might be compacted out if it's 160)
     // Actually, in generate-pokedata.ts, if `mh === 160`, it's compacted out, but `time: 1` should be there.
     expect(espeon.det).toBeDefined();
-    expect(espeon.det.some((d: { time?: number; tr?: number; item?: number }) => d.time === 1)).toBe(true);
+    expect(espeon.det.some((d: { time?: number; trigger?: number; item?: number }) => d.time === 1)).toBe(true);
   });
 
   it('should have correct evolution details for Eevee -> Flareon', () => {
@@ -33,11 +33,11 @@ describe('Evolution Data Integrity', () => {
     const flareon = pData.find((p: { id: number; det: unknown[] }) => p.id === 136);
     expect(flareon).toBeDefined();
 
-    // Evolution details: tr: 3 (use-item), item: 82 (fire-stone)
+    // Evolution details: trigger: 3 (use-item), item: 82 (fire-stone)
     expect(flareon.det).toBeDefined();
-    expect(flareon.det.some((d: { time?: number; tr?: number; item?: number }) => d.tr === 3 && d.item === 82)).toBe(
-      true,
-    );
+    expect(
+      flareon.det.some((d: { time?: number; trigger?: number; item?: number }) => d.trigger === 3 && d.item === 82),
+    ).toBe(true);
   });
 
   it('should strictly exclude cross-generation species IDs (> 386) from eto, efrm, and det', () => {
