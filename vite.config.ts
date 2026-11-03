@@ -33,12 +33,12 @@ export default defineConfig(() => {
           theme_color: '#ef4444',
           icons: [
             {
-              src: 'pwa-192x192.png',
+              src: 'icon-192.png',
               sizes: '192x192',
               type: 'image/png'
             },
             {
-              src: 'pwa-512x512.png',
+              src: 'icon-512.png',
               sizes: '512x512',
               type: 'image/png'
             }
@@ -46,18 +46,24 @@ export default defineConfig(() => {
         },
         workbox: {
           globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
+          cleanupOutdatedCaches: true,
+          skipWaiting: true,
+          clientsClaim: true,
           runtimeCaching: [
             {
               urlPattern: /^https:\/\/raw\.githubusercontent\.com\/PokeAPI\/sprites\/master\/sprites\/pokemon\/.*\.png$/,
               handler: 'CacheFirst',
+              // (CacheFirst falls through to network on cache miss; failures are not cached)
               options: {
-                cacheName: 'pokemon-sprites',
+                // v2: bumped to drop previously cached opaque (possibly failed) responses
+                cacheName: 'pokemon-sprites-v2',
                 expiration: {
                   maxEntries: 500,
                   maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
                 },
                 cacheableResponse: {
-                  statuses: [0, 200],
+                  // Only cache successful CORS responses; opaque (status 0) can hide errors
+                  statuses: [200],
                 },
               },
             },
