@@ -2,12 +2,12 @@
 id: story-584-714-playwright-guard-script
 type: STORY
 title: Playwright Browser Guard Script Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '11800153256468374086'
+jules_session_id: null
 pr_number: null
 parent: epic-587-584-playwright-browser-guard
 tags:
@@ -34,4 +34,7 @@ Implement a standalone Node.js script (e.g., `scripts/check-playwright-browsers.
 - Do not automatically install binaries; strictly check for presence and gracefully report status.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-714-734-playwright-guard-script-core
+- [ ] task-714-735-playwright-guard-script-tests
+- [ ] task-714-736-playwright-guard-script-qa
