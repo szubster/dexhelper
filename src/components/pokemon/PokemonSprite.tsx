@@ -62,6 +62,9 @@ export const PokemonSprite = React.memo(function PokemonSprite({
       className={`pixelated ${className}`}
       style={{ imageRendering: 'pixelated', ...style }}
       loading={loading}
+      // CORS-enabled request so the service worker receives a real (non-opaque) response
+      // and never caches failed sprite fetches as "successful" opaque entries.
+      crossOrigin="anonymous"
       onError={handleError}
     />
   );
