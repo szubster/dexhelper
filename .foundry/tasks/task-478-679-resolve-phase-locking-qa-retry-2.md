@@ -35,7 +35,7 @@ Verify that the orchestrator's RESOLVE phase correctly aggregates locks from `AC
 - Verify no deadlocks are introduced.
 
 ## Acceptance Criteria
-- [ ] Write and run integration/QA tests for lock aggregation and evaluation.
-- [ ] Confirm `PENDING` nodes are held when locks intersect.
-- [ ] Confirm `PENDING` nodes are released when blocking locks are released.
-- [ ] Ensure `pnpm lint && pnpm test` pass.
+- [x] Write and run integration/QA tests for lock aggregation and evaluation.
+- [x] Confirm `PENDING` nodes are held when locks intersect.
+- [x] Confirm `PENDING` nodes are released when blocking locks are released.
+- [x] Ensure `pnpm lint && pnpm test` pass.
