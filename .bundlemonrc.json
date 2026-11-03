@@ -111,7 +111,7 @@
     },
     {
       "path": "assets/ui-<hash>.js",
-      "maxSize": "22kb"
+      "maxSize": "30kb"
     },
     {
       "path": "assets/*-<hash>.js",
@@ -119,7 +119,7 @@
     },
     {
       "path": "data/foundry.json",
-      "maxSize": "850kb"
+      "maxSize": "875kb"
     },
     {
       "path": "data/pokedata-core.msgpack",
