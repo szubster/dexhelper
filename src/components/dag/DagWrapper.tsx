@@ -1,11 +1,23 @@
 import { DagProvider, useDagContext, type ViewMode } from '../dashboard/DagContext';
 import { DagKanbanBoard } from '../dashboard/kanban/DagKanbanBoard';
 import { TacticalSegmentedControl } from '../TacticalSegmentedControl';
+import { DagFilterPanel } from './DagFilterPanel';
 import { DagTree } from './DagTree';
 import { DagTreeProvider } from './DagTreeContext';
 
 function DagViewSwitcher() {
-  const { activeView, setActiveView } = useDagContext();
+  const {
+    activeView,
+    setActiveView,
+    activeTypes,
+    activeStatuses,
+    showPermanentFailures,
+    showHeatmap,
+    toggleActiveType,
+    toggleActiveStatus,
+    toggleShowPermanentFailures,
+    setShowHeatmap,
+  } = useDagContext();
 
   return (
     <div className="flex h-full flex-col">
@@ -22,7 +34,19 @@ function DagViewSwitcher() {
       </div>
       <div className="relative flex-1 overflow-hidden">
         {activeView === 'board' ? (
-          <DagKanbanBoard />
+          <>
+            <DagFilterPanel
+              activeTypes={activeTypes}
+              activeStatuses={activeStatuses}
+              showPermanentFailures={showPermanentFailures}
+              showHeatmap={showHeatmap}
+              onTypeToggle={toggleActiveType}
+              onStatusToggle={toggleActiveStatus}
+              onTogglePermanentFailures={toggleShowPermanentFailures}
+              onToggleHeatmap={() => setShowHeatmap(!showHeatmap)}
+            />
+            <DagKanbanBoard />
+          </>
         ) : (
           <DagTreeProvider>
             <DagTree />
