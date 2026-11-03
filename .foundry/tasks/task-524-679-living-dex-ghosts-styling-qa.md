@@ -28,6 +28,6 @@ locks: []
 Perform Quality Assurance on the implementation of Ghost slot highlighting and the application of tactical styling to the Living Dex Grid to ensure they meet visual and functional requirements.
 
 ## Acceptance Criteria
-- [ ] Verify that missing Pokémon slots in the Living Dex Grid are accurately highlighted as "ghosts" visually.
-- [ ] Verify that the Living Dex Grid correctly implements tactical styling, notably using sharp edges (`rounded-none`), dashed borders (`border-dashed`), and monospaced telemetry fonts (`font-mono`) as required by ADR 008.
-- [ ] Confirm all related tests pass and provide sufficient coverage.
+- [x] Verify that missing Pokémon slots in the Living Dex Grid are accurately highlighted as "ghosts" visually.
+- [x] Verify that the Living Dex Grid correctly implements tactical styling, notably using sharp edges (`rounded-none`), dashed borders (`border-dashed`), and monospaced telemetry fonts (`font-mono`) as required by ADR 008.
+- [x] Confirm all related tests pass and provide sufficient coverage.
