@@ -288,7 +288,7 @@ describe('useAssistant', () => {
       localEncounters: [
         {
           pid: 16,
-          enc: [{ aid: 1, v: 1, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
+          enc: [{ aid: 1, v: 1, d: [{ c: 50, method: 1, min: 2, max: 4 }] }],
         },
       ],
     } as never);
@@ -366,10 +366,10 @@ describe('useAssistant - generateSuggestions logic', () => {
     areaNames: {},
     ancestralEncounters: {
       40: {
-        39: { pid: 39, enc: [{ aid: 100, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] },
+        39: { pid: 39, enc: [{ aid: 100, v: 3, d: [{ c: 50, method: 1, min: 2, max: 4 }] }] },
       },
       62: {
-        60: { pid: 60, enc: [{ aid: 101, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }] },
+        60: { pid: 60, enc: [{ aid: 101, v: 3, d: [{ c: 50, method: 1, min: 2, max: 4 }] }] },
         61: null,
       },
     },
@@ -391,7 +391,7 @@ describe('useAssistant - generateSuggestions logic', () => {
         gr: 6,
         baby: false,
         efrm: [39],
-        det: [{ tr: 3, item: 81 }],
+        det: [{ trigger: 3, item: 81 }],
         eto: [],
       } as unknown as PokemonMetadata,
       62: {
@@ -401,7 +401,7 @@ describe('useAssistant - generateSuggestions logic', () => {
         gr: 4,
         baby: false,
         efrm: [61, 60],
-        det: [{ tr: 3, item: 84 }],
+        det: [{ trigger: 3, item: 84 }],
         eto: [],
       } as unknown as PokemonMetadata,
     },
@@ -456,14 +456,14 @@ describe('useAssistant - generateSuggestions logic', () => {
       localEncounters: [
         {
           pid: 16,
-          enc: [{ aid: 1, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
+          enc: [{ aid: 1, v: 3, d: [{ c: 50, method: 1, min: 2, max: 4 }] }],
         },
       ],
       localAid: 1,
       missingEncounters: {
         16: {
           pid: 16,
-          enc: [{ aid: 1, v: 3, d: [{ c: 50, m: 1, min: 2, max: 4 }] }],
+          enc: [{ aid: 1, v: 3, d: [{ c: 50, method: 1, min: 2, max: 4 }] }],
         },
       },
     };

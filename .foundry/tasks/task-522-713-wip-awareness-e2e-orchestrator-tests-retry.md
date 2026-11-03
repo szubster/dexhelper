@@ -2,7 +2,7 @@
 id: task-522-713-wip-awareness-e2e-orchestrator-tests-retry
 type: TASK
 title: Implement Orchestrator WIP Awareness Tests (Retry)
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-21'
 updated_at: '2026-11-01'
@@ -18,8 +18,8 @@ tags:
   - wip
   - e2e
 research_references: []
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 experiment_variants: []
 locks: []

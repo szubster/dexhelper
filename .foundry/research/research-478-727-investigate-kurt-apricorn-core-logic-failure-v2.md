@@ -2,12 +2,12 @@
 id: research-478-727-investigate-kurt-apricorn-core-logic-failure-v2
 type: RESEARCH
 title: Investigate Kurt Apricorn Core Logic Failure v2
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-25'
 updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6044738715056111258'
 pr_number: null
 parent: story-404-478-kurt-apricorn-parsing-logic
 tags:

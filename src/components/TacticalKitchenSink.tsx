@@ -1,14 +1,14 @@
-import { TacticalBadge, TacticalButton, TacticalInput } from '@dexhelper/ui';
+import { TacticalBadge, TacticalButton, TacticalInput, TacticalModal, TacticalSelect } from '@dexhelper/ui';
 import type React from 'react';
 import { useState } from 'react';
 import { Gen3MapProvider } from '../contexts/Gen3MapContext';
 import { Gen3EventFlags } from './Gen3EventFlags/Gen3EventFlags';
 import { Gen3MapDashboard } from './map/gen3/Gen3MapDashboard';
 import { SubDataPoint } from './SubDataPoint';
+import { ShoalCaveDashboard } from './shoal-cave/ShoalCaveDashboard';
 import { TacticalCard } from './TacticalCard';
 import { TacticalCheckbox } from './TacticalCheckbox';
 import { TacticalChip } from './TacticalChip';
-import { TacticalModal } from './TacticalModal';
 import { TacticalPanel } from './TacticalPanel';
 import { TacticalProgressBar } from './TacticalProgressBar';
 
@@ -121,6 +121,53 @@ export const TacticalKitchenSink: React.FC = () => {
       {/* Input */}
       <TacticalInput id="input-default" />
 
+      {/* TacticalSelect Showcase */}
+      <div
+        className="grid grid-cols-1 gap-4 border border-dashed border-zinc-800 p-4 sm:grid-cols-2 md:grid-cols-3"
+        id="tacticalselect-showcase"
+      >
+        <TacticalSelect
+          id="select-default"
+          label="CHANNEL"
+          codeTag="CH.01"
+          sublabel="FREQ: 142.80 MHZ"
+          showLed
+          ledStatus="online"
+          defaultValue="A"
+        >
+          <option value="A">ALPHA FREQ</option>
+          <option value="B">BRAVO FREQ</option>
+        </TacticalSelect>
+
+        <TacticalSelect
+          id="select-emerald"
+          variant="emerald"
+          label="SYS_TARGET"
+          codeTag="TGT.EMR"
+          sublabel="STATUS: SYNCED"
+          showLed
+          ledStatus="online"
+          defaultValue="emerald"
+        >
+          <option value="emerald">RAYQUAZA [EMERALD]</option>
+          <option value="ruby">GROUDON [RUBY]</option>
+        </TacticalSelect>
+
+        <TacticalSelect
+          id="select-amber"
+          variant="amber"
+          label="TELEMETRY"
+          codeTag="WARN"
+          sublabel="BUSY TRANSMITTING"
+          showLed
+          ledStatus="busy"
+          defaultValue="amber"
+        >
+          <option value="amber">BUFFER WARNING</option>
+          <option value="normal">NORMAL STREAM</option>
+        </TacticalSelect>
+      </div>
+
       {/* Checkbox Showcase */}
       <div className="flex flex-col gap-2 border border-dashed border-zinc-800 p-4" id="tacticalcheckbox-showcase">
         <TacticalCheckbox
@@ -192,6 +239,13 @@ export const TacticalKitchenSink: React.FC = () => {
           <h3 className="font-mono text-[10px] text-zinc-500">Gen 3 Event Flags</h3>
           <Gen3EventFlags eonTicket={true} mysticTicket={false} auroraTicket={true} oldSeaMap={false} />
         </div>
+      </div>
+
+      <div id="test-shoal-dashboard-1">
+        <ShoalCaveDashboard tide="High" hoursUntilNextTide={2} minutesUntilNextTide={30} shells={2} salts={4} />
+      </div>
+      <div id="test-shoal-dashboard-2">
+        <ShoalCaveDashboard tide="Low" hoursUntilNextTide={0} minutesUntilNextTide={45} shells={4} salts={4} />
       </div>
 
       {/* Gen 3 Map */}

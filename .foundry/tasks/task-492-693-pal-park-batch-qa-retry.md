@@ -2,10 +2,10 @@
 id: task-492-693-pal-park-batch-qa-retry
 type: TASK
 title: QA - Pal Park Batch Generation and Location Mapping (Retry)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-15'
-updated_at: '2026-10-17'
+updated_at: '2026-11-02'
 depends_on:
   - task-492-692-pal-park-batch-ui-tests-retry
 jules_session_id: null

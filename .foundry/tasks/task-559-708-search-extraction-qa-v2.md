@@ -2,18 +2,18 @@
 id: task-559-708-search-extraction-qa-v2
 type: TASK
 title: QA Search and Chunk Extraction Logic (Retry)
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-10-25'
+updated_at: '2026-11-03'
 depends_on:
   - task-559-707-search-extraction-impl-v2
-jules_session_id: null
+jules_session_id: '5080784145801156437'
 parent: story-534-559-rag-dynamic-querying-retrieval
 tags:
   - query
   - qa
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 locks: []
 ---
