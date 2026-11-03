@@ -4397,6 +4397,51 @@ Target artifact: task-completed
     expect(noLockResult).toContain('status: READY');
   });
 
+  test('Locks: PENDING nodes are unblocked when ACTIVE node with overlapping lock completes', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-completed.md', {
+      id: 'task-completed',
+      type: 'TASK',
+      title: 'Completed Task with lock',
+      status: 'COMPLETED',
+      owner_persona: 'coder',
+      locks: ['lock-c'],
+    });
+    createValidTestNode(tmpDir, '.foundry/tasks/task-pending.md', {
+      id: 'task-pending',
+      type: 'TASK',
+      title: 'Pending Task requiring lock',
+      status: 'PENDING',
+      owner_persona: 'coder',
+      locks: ['lock-c'],
+    });
+    main();
+    const pendingResult = require('fs').readFileSync(require('path').join(tmpDir, '.foundry/tasks/task-pending.md'), 'utf-8');
+    expect(pendingResult).toContain('status: READY');
+  });
+
+  test('Locks: PENDING nodes are unblocked when ACTIVE node with overlapping lock fails', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-failed.md', {
+      id: 'task-failed',
+      type: 'TASK',
+      title: 'Failed Task with lock',
+      status: 'FAILED',
+      owner_persona: 'coder',
+      locks: ['lock-d'],
+    });
+    createValidTestNode(tmpDir, '.foundry/tasks/task-pending-2.md', {
+      id: 'task-pending-2',
+      type: 'TASK',
+      title: 'Pending Task requiring lock',
+      status: 'PENDING',
+      owner_persona: 'coder',
+      locks: ['lock-d'],
+    });
+    main();
+    const pendingResult2 = require('fs').readFileSync(require('path').join(tmpDir, '.foundry/tasks/task-pending-2.md'), 'utf-8');
+    expect(pendingResult2).toContain('status: READY');
+  });
+
+
   test('DRAFT or WIP dependencies exit with code 1 in strict mode', () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-wip.md', {
       id: "story-wip",
