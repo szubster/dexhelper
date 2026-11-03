@@ -45,11 +45,18 @@ export default defineConfig(() => {
           ]
         },
         workbox: {
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
+          // index.html is intentionally NOT precached and never served from cache,
+          // so a stale shell can't reference assets removed by a newer deploy.
+          globPatterns: ['**/*.{js,css,ico,png,svg,json}'],
+          navigateFallback: null,
           cleanupOutdatedCaches: true,
           skipWaiting: true,
           clientsClaim: true,
           runtimeCaching: [
+            {
+              urlPattern: ({ request }: { request: Request }) => request.mode === 'navigate',
+              handler: 'NetworkOnly',
+            },
             {
               urlPattern: /^https:\/\/raw\.githubusercontent\.com\/PokeAPI\/sprites\/master\/sprites\/pokemon\/.*\.png$/,
               handler: 'CacheFirst',
