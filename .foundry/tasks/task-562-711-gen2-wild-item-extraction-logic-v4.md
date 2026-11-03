@@ -2,7 +2,7 @@
 id: task-562-711-gen2-wild-item-extraction-logic-v4
 type: TASK
 title: Implement Gen 2 Wild Encounter and Held Item Extraction Logic (v4)
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-20'
 updated_at: '2026-11-03'
@@ -17,8 +17,8 @@ tags:
   - dexhelper
   - typescript
 research_references: []
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-03T00:06:30.821Z*
+*Generated at: 2026-11-03T07:20:35.809Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3567 |
-| ACTIVE | 51 |
+| COMPLETED | 3570 |
+| ACTIVE | 60 |
 | CANCELLED | 924 |
-| PENDING | 876 |
-| READY | 112 |
+| PENDING | 869 |
+| READY | 109 |
 | BLOCKED | 14 |
-| FAILED | 8 |
+| FAILED | 6 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 75 |
-| Merged PRs | 8827 |
-| Closed PRs | 1098 |
+| Open PRs | 85 |
+| Merged PRs | 8819 |
+| Closed PRs | 1096 |
 
 ## Rejection Counts
 
@@ -539,6 +539,7 @@
 | task-562-576-item-selection-route-e2e-impl.md | 2 |
 | task-562-576-schema-linter-checkbox-logic-impl.md | 2 |
 | task-562-594-gen3-missed-items-extraction-logic.md | 2 |
+| task-562-711-gen2-wild-item-extraction-logic-v4.md | 2 |
 | task-563-578-save-file-progress-fixtures-coder.md | 2 |
 | task-563-586-develop-migration-script.md | 2 |
 | task-563-669-gen3-wild-item-data-parsing-logic-retry.md | 2 |
@@ -550,10 +551,13 @@
 | task-565-576-gen3-pokedex-gaps-e2e-coder.md | 2 |
 | task-565-606-hunting-progress-notifications.md | 2 |
 | task-570-618-cva-tactical-aesthetic-e2e-coder-retry.md | 2 |
+| task-574-713-item-gating-ui-components-retry.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
+| task-638-722-extract-constants-to-core-v7.md | 2 |
 | task-639-722-migrate-buttons-impl-v5.md | 2 |
+| task-640-717-extract-utils-to-core-retry-v3.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
@@ -977,6 +981,8 @@
 | task-478-507-gen2-ruins-of-alph-parsing-logic.md | 1 |
 | task-478-508-gen2-ruins-of-alph-qa.md | 1 |
 | task-478-515-impl-pokeblock-parser.md | 1 |
+| task-478-717-orchestrator-cloning-logic-retry-5.md | 1 |
+| task-478-718-orchestrator-prompt-adaptation-retry-5.md | 1 |
 | task-479-609-gen3-pokeblock-e2e-impl-v2.md | 1 |
 | task-479-610-gen3-pokeblock-e2e-qa-v2.md | 1 |
 | task-479-677-e2e-dynamic-bundles.md | 1 |
@@ -1064,7 +1070,6 @@
 | task-562-590-gen3-dashboard-layout-and-routing-impl.md | 1 |
 | task-562-596-gen3-missed-items-extraction-qa.md | 1 |
 | task-562-621-wild-item-selection-ui-retry.md | 1 |
-| task-562-711-gen2-wild-item-extraction-logic-v4.md | 1 |
 | task-563-589-gen2-room-decoration-ui-impl.md | 1 |
 | task-563-594-gen3-pokeblock-optimizer-ui-components.md | 1 |
 | task-563-681-gen2-bag-inventory-parsing-qa.md | 1 |
@@ -1080,7 +1085,6 @@
 | task-569-578-cva-refactor-tactical-panel-card.md | 1 |
 | task-571-578-cva-refactor-basic-inputs.md | 1 |
 | task-574-659-archival-file-move-automation-qa.md | 1 |
-| task-574-713-item-gating-ui-components-retry.md | 1 |
 | task-575-691-archival-tree-completeness-e2e-tests.md | 1 |
 | task-575-716-implement-heatmap-e2e-tests.md | 1 |
 | task-578-589-visualizer-state-refactor.md | 1 |
@@ -1095,14 +1099,12 @@
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
 | task-620-687-gen1-static-encounters-e2e-coder.md | 1 |
-| task-638-722-extract-constants-to-core-v7.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
 | task-639-724-migrate-inputs-leds-impl-v5.md | 1 |
 | task-640-642-extract-core-domain-logic.md | 1 |
 | task-640-653-relocate-foundry-scripts-replacement.md | 1 |
 | task-640-678-qa-relocate-foundry-scripts-replacement-v3.md | 1 |
-| task-640-717-extract-utils-to-core-retry-v3.md | 1 |
 | task-640-732-migrate-tacticalselect-impl.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
@@ -1112,6 +1114,8 @@
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
 | task-711-734-gen3-battle-frontier-context-impl.md | 1 |
 | task-714-734-base-trade-evolution-generator-logic.md | 1 |
+| task-726-727-orchestrator-parsing.md | 1 |
+| task-726-728-ci-check.md | 1 |
 
 ## Wait Times
 
