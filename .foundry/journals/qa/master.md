@@ -1360,3 +1360,13 @@ The target implementation task `task-564-602-pokemon-held-item-tracker-extractio
 
 # QA Rejection for Coder Task
 The tests still contain raw DOM locators in tests/e2e/gen3_pokedex_gaps.spec.ts. They must be updated to use the PokedexGridModel COM.
+# QA Journal Entry - Session 2026-10-31
+
+## Target Task
+`task-561-690-pokerus-spread-planner-e2e-impl`
+
+## Details
+During QA verification, I observed that the E2E tests in `tests/e2e/pokerus.spec.ts` use `page.evaluate()` to directly mutate `window.__store.saveData` to mock the Pokerus states. This violates the E2E component integration testing policy defined in `.foundry/docs/knowledge_base/agents/core_policies.md` which mandates verifying actual rendered React components without tautological tests.
+
+## Action Taken
+The target task was marked as `FAILED` to trigger a transient rejection, and my QA task remains open.

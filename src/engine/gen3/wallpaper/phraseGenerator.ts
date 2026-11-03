@@ -36,7 +36,7 @@ const sWaldaLettersTable = [
 ];
 
 // Based on Pokémon Emerald decompiled source for custom wallpapers
-const WALLPAPER_THEMES = [
+export const WALLPAPER_THEMES = [
   {
     name: 'Pika',
     bgLo: 13,
