@@ -41,6 +41,6 @@ Implement Playwright E2E tests to verify the layout and routing of the Rematch D
 - Avoid `.click({ force: true })` on nested elements; prefer `.dispatchEvent('click')` if interception is an issue in headless mode.
 
 ## Acceptance Criteria
-- [ ] Playwright E2E tests are implemented for the Rematch Dashboard navigation and layout.
-- [ ] Tests simulate real user interactions and do not bypass the application layer.
-- [ ] Tests run successfully in the CI environment (or local headless `xvfb-run -a pnpm test:e2e`).
+- [x] Playwright E2E tests are implemented for the Rematch Dashboard navigation and layout.
+- [x] Tests simulate real user interactions and do not bypass the application layer.
+- [x] Tests run successfully in the CI environment (or local headless `xvfb-run -a pnpm test:e2e`).
