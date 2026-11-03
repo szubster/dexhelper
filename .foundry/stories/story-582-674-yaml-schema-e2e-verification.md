@@ -2,20 +2,20 @@
 id: story-582-674-yaml-schema-e2e-verification
 type: STORY
 title: Integration and E2E Verification for system_failure_count Schema Updates
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-09'
-updated_at: '2026-10-29'
+updated_at: '2026-11-02'
 depends_on:
   - story-582-673-yaml-schema-validation-impl
-jules_session_id: null
+jules_session_id: '14516346573307855852'
 pr_number: null
 parent: epic-586-582-yaml-schema-counters
 tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -32,5 +32,5 @@ This story covers the end-to-end verification and integration testing required f
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-674-716-e2e-schema-system-failure-count
-- [ ] task-674-717-e2e-schema-system-failure-count-qa
+- [x] task-674-716-e2e-schema-system-failure-count
+- [x] task-674-717-e2e-schema-system-failure-count-qa

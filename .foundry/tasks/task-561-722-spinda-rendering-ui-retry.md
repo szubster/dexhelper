@@ -2,10 +2,10 @@
 id: task-561-722-spinda-rendering-ui-retry
 type: TASK
 title: Spinda UI Presentation Component Retry
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-24'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - task-561-668-spinda-rendering-types
   - research-561-721-investigate-spinda-ui-failure
@@ -19,7 +19,9 @@ tags:
   - react
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-561-721-investigate-spinda-ui-failure
 notes: ''
 locks: []
 ---

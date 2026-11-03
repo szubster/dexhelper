@@ -1,6 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { buildDocumentationIndex, buildQuery } from './flexsearch-utils.ts';
+import { buildDocumentationIndex, buildQuery, extractRelevantChunks } from './flexsearch-utils.ts';
 import fs from 'node:fs';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const FlexSearch = require('flexsearch');
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -41,4 +44,23 @@ describe('flexsearch-utils', () => {
     const query = buildQuery(frontmatter);
     expect(query).toBe('Test Title TASK tag1 tag2 layer1');
   });
+  it("should extract relevant chunks from the index", () => {
+    const index = new FlexSearch.Document({
+      document: {
+        id: "id",
+        index: ["content"],
+        store: ["title", "content"]
+      }
+    });
+    index.add({ id: "doc1", title: "Test Doc", content: "This is a test chunk about flexsearch." });
+    index.add({ id: "doc2", title: "Another Doc", content: "This chunk is about something else." });
+
+    const chunks = extractRelevantChunks(index, "flexsearch");
+    expect(chunks).toContain("This is a test chunk about flexsearch.");
+    expect(chunks).not.toContain("This chunk is about something else.");
+
+    const emptyChunks = extractRelevantChunks(index, "");
+    expect(emptyChunks).toBe("");
+  });
+
 });

@@ -2,12 +2,12 @@
 id: task-676-717-in-game-trade-ui-component
 type: TASK
 title: In-Game Trade UI Components
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-22'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '10547586942341319619'
+jules_session_id: null
 pr_number: null
 parent: story-350-676-in-game-trade-dashboard-core-ui
 tags:
@@ -30,7 +30,7 @@ Create presentational React components for the In-Game Trade Dashboard adhering 
 - Enforce tactical styling (sharp edges, dashed borders, monospaced fonts).
 
 ## Acceptance Criteria
-- [ ] Create presentational components (e.g., `NpcTradeList` and `NpcTradeCard`).
-- [ ] Components accept trade data and status as props and render correctly.
-- [ ] Visual tags reflect the correct completion status using tactical aesthetic rules (ADR 008).
-- [ ] Write component tests using `vitest-browser-react` to verify rendering.
+- [x] Create presentational components (e.g., `NpcTradeList` and `NpcTradeCard`).
+- [x] Components accept trade data and status as props and render correctly.
+- [x] Visual tags reflect the correct completion status using tactical aesthetic rules (ADR 008).
+- [x] Write component tests using `vitest-browser-react` to verify rendering.

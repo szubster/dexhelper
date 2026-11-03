@@ -2,13 +2,13 @@
 id: task-676-717-impl-gen3-wallpaper-state-integration
 type: TASK
 title: Integrate State and Phrase Generation for Wallpaper Dashboard
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-22'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - task-676-716-impl-gen3-wallpaper-ui-base
-jules_session_id: '18135463726360046718'
+jules_session_id: null
 pr_number: null
 parent: story-337-676-gen3-wallpaper-ui-component
 tags:
@@ -40,5 +40,5 @@ With the base UI in place, this task connects the component to the application's
 *   Ensure the component correctly updates when the save state or unlocked wallpapers change.
 
 ## Acceptance Criteria
-- [ ] Connect `WallpaperDashboard` to `trainerId` and phrase generator.
-- [ ] Wire checkboxes to `toggleWallpaperUnlocked` action.
+- [x] Connect `WallpaperDashboard` to `trainerId` and phrase generator.
+- [x] Wire checkboxes to `toggleWallpaperUnlocked` action.

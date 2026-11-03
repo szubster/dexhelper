@@ -5,7 +5,7 @@ title: QA Verification for RESOLVE phase locking logic (Retry 2)
 status: READY
 owner_persona: qa
 created_at: '2026-10-10'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - task-478-678-evaluate-locks-for-pending-nodes-retry-2
 jules_session_id: null
@@ -15,7 +15,7 @@ tags:
   - orchestrator
   - qa
 research_references: []
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
