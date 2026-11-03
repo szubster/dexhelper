@@ -2,13 +2,13 @@
 id: task-523-713-gen3-move-tutor-e2e-fixtures-retry-2
 type: TASK
 title: Gen 3 Move Tutor E2E Fixtures Retry 2
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-20'
-updated_at: '2026-10-31'
+updated_at: '2026-11-03'
 depends_on:
   - research-523-712-investigate-gen3-move-tutor-fixtures-failure-retry
-jules_session_id: null
+jules_session_id: '2949053319851209964'
 pr_number: null
 parent: story-407-523-gen3-move-tutor-integration-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - gen3
   - integration
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

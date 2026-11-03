@@ -2,10 +2,10 @@
 id: task-679-733-pokeblock-route-integration-impl-retry
 type: TASK
 title: Pokéblock Route Integration (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-28'
-updated_at: '2026-10-31'
+updated_at: '2026-11-03'
 depends_on:
   - task-679-732-pokeblock-dashboard-ui-impl-retry
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - routing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-679-731-investigate-pokeblock-dashboard-failure
 notes: ''
 locks: []
 ---

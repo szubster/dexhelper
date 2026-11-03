@@ -106,7 +106,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-073-gen3-secret-base-viewer` | Gen 3 Secret Base and Mixed Record Viewer | feature, gen3, secret-base |  | PENDING |
 | `idea-073-refactor-dag-dashboard-context` | Refactor DagDashboard to use React Context (ADR 013/017) | architecture, ui, dashboard |  | PENDING |
 | `idea-074-gen3-battle-frontier-tracker` | Gen 3 Battle Frontier Dashboard | feature, gen3, endgame |  | PENDING |
-| `idea-074-refactor-dag-dashboard-context` | Refactor DagDashboard to use React Context (ADR 013/017) | architecture, ui, dashboard |  | PENDING |
+| `idea-074-refactor-dag-dashboard-context` | Refactor DagDashboard to use React Context (ADR 013/017) | architecture, ui, dashboard | `idea-017-dag-dashboard`, `idea-051-dag-kanban-board-view`, `idea-063-permanent-failure-dashboard` | PENDING |
 | `idea-075-gen3-tv-swarm-tracker` | Gen 3 TV Broadcast and Swarm Tracker | feature, gen3, daily-events |  | PENDING |
 | `idea-076-tpm-journal-bloat` | Investigate TPM Journal Bloat and Orchestrator Logging | architecture, logging, orchestrator |  | COMPLETED |
 | `idea-077-dynamic-pokeapi-data` | Parse items and moveset PPs from repository data during build | refactor, build, db | `idea-117-split-bundles-and-data`, `idea-136-split-bundles-and-data` | PENDING |

@@ -1,7 +1,9 @@
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import React from 'react';
+import { getHeatmapColorClass, getSeverity } from '../../features/node-styling/utils/heatmap';
 import { cn } from '../../utils/cn';
 import { useDagTreeContext } from './DagTreeContext';
+import { PersonaBadge } from './PersonaBadge';
 
 export interface DagTreeItemProps {
   nodeId: string;
@@ -9,14 +11,30 @@ export interface DagTreeItemProps {
   status: string;
   persona?: string;
   isPermanentFailure?: boolean;
+  rejectionCount?: number;
+  showHeatmap?: boolean;
+  maxRejectionThreshold?: number;
   children?: React.ReactNode;
 }
 
-import { PersonaBadge } from './PersonaBadge';
-
-export function DagTreeItem({ nodeId, label, status, persona, isPermanentFailure, children }: DagTreeItemProps) {
+export function DagTreeItem({
+  nodeId,
+  label,
+  status,
+  persona,
+  isPermanentFailure,
+  rejectionCount = 0,
+  showHeatmap = false,
+  maxRejectionThreshold = 3,
+  children,
+}: DagTreeItemProps) {
   const { expandedNodes, toggleNode } = useDagTreeContext();
   const isExpanded = expandedNodes.has(nodeId);
+  const heatmapSeverity = getSeverity({
+    value: rejectionCount,
+    thresholds: { low: 1, medium: 2, high: 3, critical: maxRejectionThreshold },
+  });
+  const heatmapClass = showHeatmap && heatmapSeverity !== 'none' ? getHeatmapColorClass(heatmapSeverity) : '';
   const hasChildren = React.Children.count(children) > 0;
 
   let statusColor = 'text-zinc-500';
@@ -47,9 +65,11 @@ export function DagTreeItem({ nodeId, label, status, persona, isPermanentFailure
       <div
         className={cn(
           'mb-1 flex items-center gap-2 rounded-none border border-dashed p-2 font-mono text-sm transition-colors',
-          isPermanentFailure
-            ? 'border-2 border-red-500 bg-red-900/40 brightness-125'
-            : 'border-zinc-700 bg-zinc-900 hover:bg-zinc-800/50',
+          showHeatmap && heatmapClass
+            ? heatmapClass
+            : isPermanentFailure
+              ? 'border-2 border-red-500 bg-red-900/40 brightness-125'
+              : 'border-zinc-700 bg-zinc-900 hover:bg-zinc-800/50',
         )}
       >
         <button

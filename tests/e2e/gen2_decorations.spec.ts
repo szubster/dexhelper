@@ -12,7 +12,24 @@ test.describe('Gen 2 Decorations E2E', () => {
     await waitForSync(page);
 
     await expect(page.getByText('ROOM DECORATIONS').first()).toBeVisible();
-    // Tests for specific decorations that might exist in crystal.sav,
-    // we should wait for a known category like CONSOLES or BEDS or something that's definitely there, or just check the title
+
+    // We want to test that mystery gift exclusives are correctly highlighted in the UI.
+    // There are mystery gift items like Snorlax Doll, Pikachu Doll, Surf Pikachu Doll, etc.
+    // Some are definitely unlocked in the crystal.sav
+
+    // Let's assert a few categories directly using exact match.
+    // In Gen2RoomDecorationDashboard, the names are Beds, Plants, Posters, Consoles, Ornaments, Dolls
+
+    await expect(page.getByText('Beds').first()).toBeVisible();
+    await expect(page.getByText('Consoles').first()).toBeVisible();
+    await expect(page.getByText('Dolls').first()).toBeVisible();
+    await expect(page.getByText('Ornaments').first()).toBeVisible();
+    await expect(page.getByText('Plants').first()).toBeVisible();
+    await expect(page.getByText('Posters').first()).toBeVisible();
+
+    // Test that the [MG] badge exists for Mystery Gift items.
+    // And test that ACTIVE badge exists for active items.
+    await expect(page.getByText('[MG]').first()).toBeVisible();
+    await expect(page.getByText('ACTIVE').first()).toBeVisible();
   });
 });

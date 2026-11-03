@@ -2,10 +2,10 @@
 id: task-676-730-fuzzer-deadlock-assertions-qa-v3
 type: TASK
 title: Fuzzer Deadlock Detection Assertions QA V3
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-26T07:21:33.000Z'
-updated_at: '2026-10-28'
+updated_at: '2026-11-02'
 depends_on:
   - task-676-729-fuzzer-deadlock-assertions-impl-v3
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - testing
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-676-729-fuzzer-deadlock-assertions-impl-v3
 notes: ''
 locks: []
 ---

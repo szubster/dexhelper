@@ -8,10 +8,12 @@ import { getNature } from '../../../engine/gen3/nature';
 import type { PokemonInstance } from '../../../engine/saveParser/index';
 import { getTimeCapsuleValidation } from '../../../utils/timeCapsule';
 import { HoverScanner } from '../../HoverScanner';
+import { LazyLoadWrapper } from '../../LazyLoadWrapper';
 import { LcdGrid } from '../../LcdGrid';
 import { SectionHeader } from '../../SectionHeader';
 import { SubDataPoint } from '../../SubDataPoint';
 import { TacticalPanel } from '../../TacticalPanel';
+import { FriendshipDisplay } from './FriendshipDisplay';
 
 const ContestConditionStats = React.lazy(() =>
   import('../../ContestConditionStats').then((m) => ({ default: m.ContestConditionStats })),
@@ -158,17 +160,9 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
                 )}
 
                 {p.friendship !== undefined && (
-                  <SubDataPoint label="SYNC_RATE">
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-[11px] text-rose-400">{p.friendship} PT</span>
-                      <div className="h-1 flex-1 bg-zinc-800">
-                        <div
-                          className="h-full bg-rose-500"
-                          style={{ width: `${Math.min(100, (p.friendship / 255) * 100)}%` }}
-                        />
-                      </div>
-                    </div>
-                  </SubDataPoint>
+                  <div className="col-span-1 mt-2 sm:col-span-2">
+                    <FriendshipDisplay friendship={p.friendship} />
+                  </div>
                 )}
 
                 {p.pokerus !== undefined && (
@@ -199,15 +193,15 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
 
               {p.ribbons && generation === 3 && (
                 <div className="relative z-10 border-t border-dashed border-white/10 bg-black/40 p-4">
-                  <React.Suspense fallback={<div className="h-24 w-full animate-pulse bg-white/5" />}>
+                  <LazyLoadWrapper height="h-24">
                     <ContestRibbonsPanel ribbons={p.ribbons} />
-                  </React.Suspense>
+                  </LazyLoadWrapper>
                 </div>
               )}
 
               {p.condition && generation === 3 && (
                 <div className="relative z-10 flex flex-col gap-4 border-t border-dashed border-white/10 bg-black/40 p-4">
-                  <React.Suspense fallback={<div className="h-64 w-full animate-pulse bg-white/5" />}>
+                  <LazyLoadWrapper height="h-64">
                     <ContestConditionStats
                       cool={p.condition.cool}
                       beauty={p.condition.beauty}
@@ -226,7 +220,7 @@ export const PokemonCaughtDetails = React.memo(function PokemonCaughtDetails({
                         sheen={p.condition.sheen}
                       />
                     )}
-                  </React.Suspense>
+                  </LazyLoadWrapper>
                 </div>
               )}
             </TacticalPanel>

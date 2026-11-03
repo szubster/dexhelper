@@ -5,14 +5,14 @@ title: Investigate Orchestrator Test Updates Failure
 status: READY
 owner_persona: researcher
 created_at: '2026-10-22'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on: []
 jules_session_id: null
 parent: story-018-513-orchestrator-test-updates
 tags:
   - orchestrator
   - typescript
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
