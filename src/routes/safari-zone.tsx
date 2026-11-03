@@ -8,6 +8,9 @@ import { useSafariZoneSelection } from '../components/safari-zone/useSafariZoneS
 import { useStore } from '../store';
 
 const SafariZoneEncountersList = React.lazy(() => import('../components/safari-zone/SafariZoneEncountersList'));
+const SafariAreaMap = React.lazy(() =>
+  import('../components/safari-zone/SafariAreaMap').then((m) => ({ default: m.SafariAreaMap })),
+);
 const SafariTargetSelection = React.lazy(() =>
   import('../components/safari-zone/SafariTargetSelection').then((m) => ({ default: m.SafariTargetSelection })),
 );
@@ -60,6 +63,9 @@ function SafariZonePage() {
         <div className="flex flex-col gap-6 lg:flex-row">
           <div className="flex flex-1 flex-col gap-6">
             <SafariTargetSelection selection={selection} />
+            <React.Suspense fallback={<EmptyState label="INITIALIZING MAP..." />}>
+              <SafariAreaMap selection={selection} />
+            </React.Suspense>
             <SafariZoneEncountersList saveData={saveData} />
           </div>
           <div className="w-full shrink-0 lg:w-80">
