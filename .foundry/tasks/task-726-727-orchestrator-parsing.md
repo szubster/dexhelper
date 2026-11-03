@@ -2,7 +2,7 @@
 id: task-726-727-orchestrator-parsing
 type: TASK
 title: Update orchestrator parsing rules for strict checkbox format
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-11-03'
@@ -17,9 +17,9 @@ tags:
   - orchestrator
   - parsing
 research_references: []
-rejection_count: 1
+rejection_count: 2
 system_failure_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_reason: ''
 notes: ''
 ---
 

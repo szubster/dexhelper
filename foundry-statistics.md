@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-03T15:31:18.784Z*
+*Generated at: 2026-11-03T21:19:56.302Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3573 |
-| ACTIVE | 64 |
-| CANCELLED | 924 |
-| PENDING | 870 |
-| READY | 104 |
+| COMPLETED | 3579 |
+| ACTIVE | 67 |
+| CANCELLED | 928 |
+| PENDING | 868 |
+| READY | 92 |
 | BLOCKED | 14 |
-| FAILED | 8 |
+| FAILED | 9 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 84 |
-| Merged PRs | 8820 |
-| Closed PRs | 1096 |
+| Open PRs | 85 |
+| Merged PRs | 8821 |
+| Closed PRs | 1094 |
 
 ## Rejection Counts
 
@@ -320,6 +320,7 @@
 | task-567-586-shoal-cave-e2e-coder.md | 3 |
 | task-570-590-cva-tactical-aesthetic-e2e-coder.md | 3 |
 | task-574-690-item-gating-ui-components.md | 3 |
+| task-574-713-item-gating-ui-components-retry.md | 3 |
 | task-579-687-react-flow-visualizer-e2e-tests.md | 3 |
 | task-581-668-gen3-fossil-constants-impl.md | 3 |
 | task-586-687-multi-box-integration-impl.md | 3 |
@@ -331,6 +332,7 @@
 | task-638-669-extract-constants-to-core-v3.md | 3 |
 | task-638-691-extract-constants-to-core-v4.md | 3 |
 | task-638-717-extract-constants-to-core-v6.md | 3 |
+| task-638-722-extract-constants-to-core-v7.md | 3 |
 | task-639-641-extract-base-save-parsers.md | 3 |
 | task-639-641-extract-data-generation-scripts.md | 3 |
 | task-639-658-migrate-buttons-impl.md | 3 |
@@ -345,6 +347,7 @@
 | task-640-659-extract-utils-to-core.md | 3 |
 | task-640-669-extract-utils-to-core-retry.md | 3 |
 | task-640-688-extract-utils-to-core-retry-v2.md | 3 |
+| task-640-717-extract-utils-to-core-retry-v3.md | 3 |
 | task-641-658-migrate-scanline-crosshairs.md | 3 |
 | task-641-659-migrate-hexstream-telemetry.md | 3 |
 | task-645-668-dashboard-metrics-integration-e2e-impl.md | 3 |
@@ -509,6 +512,8 @@
 | task-478-619-msgpack-prefetch-qa.md | 2 |
 | task-478-677-aggregate-active-locks-retry-2.md | 2 |
 | task-478-679-resolve-phase-locking-qa-retry-2.md | 2 |
+| task-478-717-orchestrator-cloning-logic-retry-5.md | 2 |
+| task-478-718-orchestrator-prompt-adaptation-retry-5.md | 2 |
 | task-479-700-gen2-unown-dex-e2e-coder.md | 2 |
 | task-490-502-render-persona-badges-impl.md | 2 |
 | task-495-550-hof-export-image-renderer.md | 2 |
@@ -552,17 +557,15 @@
 | task-565-576-gen3-pokedex-gaps-e2e-coder.md | 2 |
 | task-565-606-hunting-progress-notifications.md | 2 |
 | task-570-618-cva-tactical-aesthetic-e2e-coder-retry.md | 2 |
-| task-574-713-item-gating-ui-components-retry.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
-| task-638-722-extract-constants-to-core-v7.md | 2 |
 | task-639-722-migrate-buttons-impl-v5.md | 2 |
-| task-640-717-extract-utils-to-core-retry-v3.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
 | task-714-734-base-trade-evolution-generator-logic.md | 2 |
+| task-726-727-orchestrator-parsing.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -982,8 +985,6 @@
 | task-478-507-gen2-ruins-of-alph-parsing-logic.md | 1 |
 | task-478-508-gen2-ruins-of-alph-qa.md | 1 |
 | task-478-515-impl-pokeblock-parser.md | 1 |
-| task-478-717-orchestrator-cloning-logic-retry-5.md | 1 |
-| task-478-718-orchestrator-prompt-adaptation-retry-5.md | 1 |
 | task-479-609-gen3-pokeblock-e2e-impl-v2.md | 1 |
 | task-479-610-gen3-pokeblock-e2e-qa-v2.md | 1 |
 | task-479-677-e2e-dynamic-bundles.md | 1 |
@@ -1052,6 +1053,7 @@
 | task-551-564-verify-priority-schema-e2e.md | 1 |
 | task-551-565-test-curator-dynamic-remediation-spawning.md | 1 |
 | task-551-668-deletion-queue-types-and-sorting.md | 1 |
+| task-551-713-update-orchestrator-priority-tests-v4.md | 1 |
 | task-552-682-curator-e2e-remediation-tests.md | 1 |
 | task-553-567-gen1-pkm-extraction.md | 1 |
 | task-554-567-gen3-pk3-extraction-impl.md | 1 |
@@ -1117,7 +1119,6 @@
 | task-676-712-scheduled-agents-issue-flow-e2e-coder.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
 | task-711-734-gen3-battle-frontier-context-impl.md | 1 |
-| task-726-727-orchestrator-parsing.md | 1 |
 | task-726-728-ci-check.md | 1 |
 
 ## Wait Times
@@ -1130,7 +1131,7 @@
 | task-563-643-map-data-qa-v2.md | 92620800000 |
 | task-550-687-generator-architecture-e2e-qa.md | 77414400000 |
 | task-676-702-add-adr-compliance-scripts.md | 77284800000 |
-| task-527-713-safari-zone-area-map-ui-v4.md | 76982400000 |
+| task-527-713-safari-zone-area-map-ui-v4.md | 77155200000 |
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76896000000 |
 | story-325-528-safari-zone-bounty-board.md | 76896000000 |
 | task-550-685-generator-tree-traversals-e2e-impl.md | 76809600000 |
