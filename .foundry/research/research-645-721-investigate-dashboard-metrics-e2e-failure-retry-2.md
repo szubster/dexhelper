@@ -7,7 +7,7 @@ owner_persona: researcher
 created_at: '2026-10-25T00:00:00.000Z'
 updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '17740183116932640832'
+jules_session_id: '8994497234379160344'
 pr_number: null
 parent: story-571-645-dashboard-metrics-integration-e2e
 tags:
@@ -15,7 +15,7 @@ tags:
   - integration
   - dashboard
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
