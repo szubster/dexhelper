@@ -180,12 +180,6 @@ describe('extractGen2WildEncounterArea - edge cases', () => {
 });
 
 describe('extractGen2WildEncounterArea - more cases', () => {
-  it('should extract when chance falls back to 0', () => {
-    // Let's pretend it's a 8-slot grass somehow, but loop is hardcoded to 7, so we can't easily trigger the fallback via normal parameters.
-    // We'll mock the chances array temporarily or just let it be. The chance fallback `?? 0` in extractGen2WildEncounterArea is technically unreachable normally since numSlots matches the array length.
-    // However, we can mock GEN2_WILD_GRASS_CHANCES in a dirty way if needed, or just skip it.
-  });
-
   it('should throw other errors', () => {
     const fakeView = {
       getUint8: () => {
@@ -306,21 +300,9 @@ describe('extractGen2WildEncounterArea - missing chance fallback 3', () => {
   });
 });
 
-describe('extractGen2WildEncounterArea - missing chance fallback for everything', () => {
-  it('should fall back correctly for empty chance array completely', () => {
-    // Since it's module level, modifying it locally is annoying.
-    // We can mock it, or we can just ensure 100% logic branch coverage by calling it on something else, but actually the missing branches are inside the try catch or what? Let's check lines 71-102:
-    // Lines 71-102 are the `extractGen2WildEncounterArea` function itself.
-    // Why is it getting 54.54% coverage? Oh, maybe because it's not being executed in the test runner properly due to imports?
-    // Let's rewrite the tests for extractGen2WildEncounterArea to import normally instead of `require`.
-  });
-});
-
 describe('extractGen2WildEncounterArea - edge cases (zero slot loop bypass)', () => {
-  const { extractGen2WildEncounterArea } = require('../gen2Wild.ts');
   it('should extract when zero slot bypass happens', () => {
     const buffer = new ArrayBuffer(20);
-
     const view = new DataView(buffer);
 
     const area = extractGen2WildEncounterArea(view, 0, 1, 1, 'other_method_meaning_seven');
