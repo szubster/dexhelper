@@ -26,6 +26,6 @@ confidence_score: 100
 Write integration tests for the Gen 3 Volcanic Ash Tracker Dashboard using `vitest-browser-react` and `vitest`. Verify that the React components integrate correctly with the state management and render expected values for ash levels.
 
 ## Acceptance Criteria
-- [ ] Create integration tests for the Ash Dashboard components.
-- [ ] Verify component rendering and state integration with `vitest-browser-react`.
-- [ ] Ensure tests do not use `@testing-library/react`.
+- [x] Create integration tests for the Ash Dashboard components.
+- [x] Verify component rendering and state integration with `vitest-browser-react`.
+- [x] Ensure tests do not use `@testing-library/react`.
