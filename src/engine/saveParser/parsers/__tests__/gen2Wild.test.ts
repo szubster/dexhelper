@@ -95,6 +95,7 @@ describe('gen2Wild', () => {
 describe('extractGen2WildEncounterArea', () => {
   it('should extract a valid grass encounter area', () => {
     const buffer = new ArrayBuffer(20);
+
     const view = new DataView(buffer);
 
     // Slot 1 (Level 5 Pidgey #16)
@@ -131,6 +132,7 @@ describe('extractGen2WildEncounterArea', () => {
 describe('extractGen2WildEncounterArea - water', () => {
   it('should extract a valid water encounter area', () => {
     const buffer = new ArrayBuffer(20);
+
     const view = new DataView(buffer);
 
     // Slot 1 (Level 15 Tentacool #72)
@@ -154,6 +156,7 @@ describe('extractGen2WildEncounterArea - water', () => {
 describe('extractGen2WildEncounterArea - edge cases', () => {
   it('should extract when some slots are empty', () => {
     const buffer = new ArrayBuffer(20);
+
     const view = new DataView(buffer);
 
     // Slot 1 (empty)
@@ -178,8 +181,7 @@ describe('extractGen2WildEncounterArea - edge cases', () => {
 
 describe('extractGen2WildEncounterArea - more cases', () => {
   it('should extract when chance falls back to 0', () => {
-    const buffer = new ArrayBuffer(20);
-    const _view = new DataView(buffer);
+    const _buffer = new ArrayBuffer(20);
 
     // Let's pretend it's a 8-slot grass somehow, but loop is hardcoded to 7, so we can't easily trigger the fallback via normal parameters.
     // We'll mock the chances array temporarily or just let it be. The chance fallback `?? 0` in extractGen2WildEncounterArea is technically unreachable normally since numSlots matches the array length.
@@ -200,6 +202,7 @@ describe('extractGen2WildEncounterArea - more cases', () => {
 describe('extractGen2WildEncounterArea - missing chance fallback', () => {
   it('should extract when chance falls back to 0', () => {
     const buffer = new ArrayBuffer(20);
+
     const view = new DataView(buffer);
 
     view.setUint8(0, 4);
@@ -228,6 +231,7 @@ describe('extractGen2WildEncounterArea - missing chance fallback 2', () => {
   const { extractGen2WildEncounterArea, GEN2_WILD_WATER_CHANCES } = require('../gen2Wild.ts');
   it('should extract when water chance falls back to 0', () => {
     const buffer = new ArrayBuffer(20);
+
     const view = new DataView(buffer);
 
     view.setUint8(0, 4);
@@ -255,6 +259,7 @@ describe('extractGen2WildEncounterArea - missing chance fallback 2', () => {
 describe('extractGen2WildEncounterArea - missing chance fallback 3', () => {
   it('should fall back to 0 chance for grass when chance index is missing', () => {
     const buffer = new ArrayBuffer(20);
+
     const view = new DataView(buffer);
     view.setUint8(0, 4);
     view.setUint8(1, 19);
@@ -279,6 +284,7 @@ describe('extractGen2WildEncounterArea - missing chance fallback 3', () => {
 
   it('should fall back to 0 chance for water when chance index is missing', () => {
     const buffer = new ArrayBuffer(20);
+
     const view = new DataView(buffer);
     view.setUint8(0, 4);
     view.setUint8(1, 19);
@@ -316,6 +322,7 @@ describe('extractGen2WildEncounterArea - edge cases (zero slot loop bypass)', ()
   const { extractGen2WildEncounterArea } = require('../gen2Wild.ts');
   it('should extract when zero slot bypass happens', () => {
     const buffer = new ArrayBuffer(20);
+
     const view = new DataView(buffer);
 
     const area = extractGen2WildEncounterArea(view, 0, 1, 1, 'other_method_meaning_seven');
