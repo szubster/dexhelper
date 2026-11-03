@@ -137,4 +137,104 @@ describe('Prompt Compilation E2E', () => {
         // Since generic/coder.md is missing, it falls back to coder.md which contains missing-fragment
         expect(compiledPrompt).toContain(loadPromptFixture('missing-fragment.md'));
     });
+
+    test('validates fallback behavior for completely missing persona prompt', async () => {
+        fs.mkdirSync(path.join(tmpDir, '.github/agents/generic'), { recursive: true });
+        fs.mkdirSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents'), { recursive: true });
+        fs.writeFileSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents/core_policies.md'), loadPromptFixture('core-policies.md'));
+
+        createValidTestNode(tmpDir, '.foundry/tasks/task-missing-persona.md', {
+            id: 'task-missing-persona',
+            type: 'TASK',
+            title: 'Missing Persona Task',
+            status: 'READY',
+            owner_persona: 'tpm',
+            created_at: '2026-09-14',
+            updated_at: '2026-09-14',
+            depends_on: [],
+            tags: [],
+            jules_session_id: null
+        });
+
+        const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+        const stderrSpy = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+
+        process.argv.push('--include-prompt');
+        main();
+        process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
+
+        expect(stderrSpy).toHaveBeenCalledWith(expect.stringContaining('::warning::Base persona prompt not found for: tpm, using default generic prompt.'));
+
+        let parsedOutput: any[] = [];
+        for (const call of logSpy.mock.calls) {
+            if (typeof call[0] === 'string' && call[0].startsWith('[')) {
+                try {
+                    const parsed = JSON.parse(call[0]);
+                    if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].id === 'task-missing-persona') {
+                        parsedOutput = parsed;
+                        break;
+                    }
+                } catch {
+                }
+            }
+        }
+
+        expect(parsedOutput).toHaveLength(1);
+        const compiledPrompt = parsedOutput[0].compiled_prompt;
+        expect(compiledPrompt).toContain('As the tpm of The Foundry, your task is described in the provided node file.');
+    });
+
+    test('validates graceful handling of missing specific context layers', async () => {
+        fs.mkdirSync(path.join(tmpDir, '.github/agents/generic'), { recursive: true });
+        fs.mkdirSync(path.join(tmpDir, '.github/agents/specific'), { recursive: true });
+        fs.mkdirSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents'), { recursive: true });
+
+        fs.writeFileSync(path.join(tmpDir, '.github/agents/generic/coder.md'), loadPromptFixture('valid-base-persona.md'));
+        fs.writeFileSync(path.join(tmpDir, '.foundry/docs/knowledge_base/agents/core_policies.md'), loadPromptFixture('core-policies.md'));
+
+        createValidTestNode(tmpDir, '.foundry/tasks/task-missing-layer.md', {
+            id: 'task-missing-layer',
+            type: 'TASK',
+            title: 'Missing Layer Task',
+            status: 'READY',
+            owner_persona: 'coder',
+            created_at: '2026-09-14',
+            updated_at: '2026-09-14',
+            depends_on: [],
+            tags: ['nonexistenttag'],
+            layers: ['nonexistentlayer'],
+            jules_session_id: null
+        });
+
+        const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+        process.argv.push('--include-prompt');
+        main();
+        process.argv.splice(process.argv.indexOf('--include-prompt'), 1);
+
+        let parsedOutput: any[] = [];
+        for (const call of logSpy.mock.calls) {
+            if (typeof call[0] === 'string' && call[0].startsWith('[')) {
+                try {
+                    const parsed = JSON.parse(call[0]);
+                    if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].id === 'task-missing-layer') {
+                        parsedOutput = parsed;
+                        break;
+                    }
+                } catch {
+                }
+            }
+        }
+
+        expect(parsedOutput).toHaveLength(1);
+        const compiledPrompt = parsedOutput[0].compiled_prompt;
+
+        // Verify base prompt still loaded
+        expect(compiledPrompt).toContain(loadPromptFixture('valid-base-persona.md'));
+
+        // Verify we didn't crash and debug was called or logged appropriately, the code doesn't actually call console.debug but debug function from the logger which might use console.log or just return, but we can verify it doesn't crash and compiles correctly.
+        // If debug is not mocked properly, the test passing means it didn't crash.
+        // Actually, we can just assert that the specific tags are missing.
+        expect(compiledPrompt).not.toContain('nonexistenttag');
+    });
 });

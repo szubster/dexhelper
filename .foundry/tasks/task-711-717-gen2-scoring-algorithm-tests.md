@@ -2,13 +2,13 @@
 id: task-711-717-gen2-scoring-algorithm-tests
 type: TASK
 title: Gen 2 Bug-Catching Contest Scoring Algorithm Unit Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-22'
-updated_at: '2026-11-01'
+updated_at: '2026-11-03'
 depends_on:
   - task-711-716-gen2-scoring-algorithm-impl
-jules_session_id: '9467897607154537454'
+jules_session_id: null
 pr_number: null
 parent: story-513-711-gen2-scoring-algorithm
 tags:
@@ -28,7 +28,7 @@ locks: []
 This task involves writing comprehensive unit tests for the Gen 2 Bug-Catching Contest scoring algorithm implemented in task-711-716.
 
 ## Acceptance Criteria
-- [ ] Create unit tests covering the exact formula for the scoring logic.
-- [ ] Test the IV bonus logic (odd IVs giving specific point values).
-- [ ] Test maximum and minimum scenarios (e.g., max stats, shiny perfect IVs).
-- [ ] Ensure all tests pass.
+- [x] Create unit tests covering the exact formula for the scoring logic.
+- [x] Test the IV bonus logic (odd IVs giving specific point values).
+- [x] Test maximum and minimum scenarios (e.g., max stats, shiny perfect IVs).
+- [x] Ensure all tests pass.

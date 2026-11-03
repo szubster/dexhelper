@@ -2,10 +2,10 @@
 id: task-561-724-qa-spinda-rendering-component-retry
 type: TASK
 title: QA Spinda Rendering Component Retry
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-24'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - task-561-723-spinda-rendering-tests-retry
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-561-721-investigate-spinda-ui-failure
 notes: ''
 locks: []
 ---
