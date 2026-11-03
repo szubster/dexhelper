@@ -26,6 +26,6 @@ locks: []
 Perform QA verification for the Friendship display and move power calculation logic. Ensure the formulas for Return and Frustration are correctly applied, the UI progress bar targets 220 correctly, and the component strict adheres to the tactical hardware aesthetic constraints (ADR 008, e.g., sharp edges, monospaced fonts). Verify that adequate unit tests exist for both logic and UI.
 
 ## Acceptance Criteria
-- [ ] Logic for Return and Frustration power calculations is verified.
-- [ ] UI properly displays Friendship value, progress bar, and move powers.
-- [ ] UI aesthetics are verified against tactical hardware constraints.
+- [x] Logic for Return and Frustration power calculations is verified.
+- [x] UI properly displays Friendship value, progress bar, and move powers.
+- [x] UI aesthetics are verified against tactical hardware constraints.
