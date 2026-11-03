@@ -31,5 +31,5 @@ Implement the React component for rendering the Route 119 water tiles layout, co
 - Use `@utility` tactical primitives from `src/index.css` (e.g., `tactical-panel`, `tactical-text`) rather than inline raw Tailwind classes where applicable.
 
 ## Acceptance Criteria
-- [ ] Create the visual map React component for Route 119.
-- [ ] Component strictly adheres to the defined tactical aesthetic constraints.
+- [x] Create the visual map React component for Route 119.
+- [x] Component strictly adheres to the defined tactical aesthetic constraints.
