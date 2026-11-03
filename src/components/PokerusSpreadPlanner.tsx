@@ -1,4 +1,5 @@
-import { PokerusBadge } from '@dexhelper/ui';
+import { PokerusBadge, TacticalIconButton } from '@dexhelper/ui';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import React, { useMemo } from 'react';
 import type { PokemonInstance } from '../engine/saveParser/parsers/common';
 import { usePokerusSpreadPlanner } from '../hooks/usePokerusSpreadPlanner';
@@ -23,7 +24,9 @@ function PokerusSpreadPlannerComponent({ initialParty, className }: PokerusSprea
 
       {party.some((p) => p?.pokerus && p.pokerus.daysRemaining > 0) && (
         <div className="mb-4 flex items-center justify-between border border-dashed border-yellow-500/50 bg-yellow-500/10 px-2 py-1 text-xs text-yellow-400">
-          <span>[WARNING]</span>
+          <span>
+            <span aria-hidden="true">[</span>WARNING<span aria-hidden="true">]</span>
+          </span>
           <span>Clock approaching midnight. Curing possible.</span>
         </div>
       )}
@@ -54,29 +57,33 @@ function PokerusSpreadPlannerComponent({ initialParty, className }: PokerusSprea
               </div>
 
               <div className="flex items-center gap-2">
-                {isAtRisk && <span className="tactical-text text-[10px] text-pink-400">[AT RISK]</span>}
+                {isAtRisk && (
+                  <span className="tactical-text text-[10px] text-pink-400">
+                    <span aria-hidden="true">[</span>AT RISK<span aria-hidden="true">]</span>
+                  </span>
+                )}
                 {hasPokerus && pokemon.pokerus && (
                   <PokerusBadge strain={pokemon.pokerus.strain} daysRemaining={pokemon.pokerus.daysRemaining} />
                 )}
                 {pokemon && index > 0 && (
-                  <button
-                    type="button"
+                  <TacticalIconButton
                     onClick={() => swapSlots(index, index - 1)}
-                    className="tactical-icon-button ml-2 !p-1 text-xs"
-                    title="Move up"
+                    className="ml-2 !p-1"
+                    aria-label={`Move ${pokemon.nickname || `Species ${pokemon.speciesId}`} up`}
+                    title={`Move ${pokemon.nickname || `Species ${pokemon.speciesId}`} up`}
                   >
-                    ↑
-                  </button>
+                    <ChevronUp className="h-3.5 w-3.5" aria-hidden="true" />
+                  </TacticalIconButton>
                 )}
                 {pokemon && index < 5 && (
-                  <button
-                    type="button"
+                  <TacticalIconButton
                     onClick={() => swapSlots(index, index + 1)}
-                    className="tactical-icon-button ml-1 !p-1 text-xs"
-                    title="Move down"
+                    className="ml-1 !p-1"
+                    aria-label={`Move ${pokemon.nickname || `Species ${pokemon.speciesId}`} down`}
+                    title={`Move ${pokemon.nickname || `Species ${pokemon.speciesId}`} down`}
                   >
-                    ↓
-                  </button>
+                    <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
+                  </TacticalIconButton>
                 )}
               </div>
             </div>
