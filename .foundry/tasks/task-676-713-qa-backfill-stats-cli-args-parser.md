@@ -34,3 +34,7 @@ Verify the implementation of the Backfill Stats CLI argument parser implemented 
 - [ ] Arguments are parsed correctly.
 - [ ] Test coverage is sufficient.
 - [ ] Code meets formatting and linting standards.
+
+
+### QA Rejection Note
+Validation failed: Target implementation does not handle missing arguments properly. Test coverage for missing arguments is also absent.
