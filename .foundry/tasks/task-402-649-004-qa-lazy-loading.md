@@ -31,5 +31,5 @@ Perform a QA review of the UI lazy loading refactor. Verify that the Pokemon Det
 - Verify tactical skeletons render correctly during lazy load suspension.
 
 ## Acceptance Criteria
-- [ ] Verify `PokemonDetails` lazy loading behavior.
-- [ ] Verify `Dashboard` lazy loading behavior.
+- [x] Verify `PokemonDetails` lazy loading behavior.
+- [x] Verify `Dashboard` lazy loading behavior.
