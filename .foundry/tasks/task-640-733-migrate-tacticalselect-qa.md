@@ -2,10 +2,10 @@
 id: task-640-733-migrate-tacticalselect-qa
 type: TASK
 title: QA - Migrate TacticalSelect Component
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-27'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - task-640-732-migrate-tacticalselect-impl
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - ui
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-640-732-migrate-tacticalselect-impl
 notes: ''
 locks: []
 ---

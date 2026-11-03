@@ -4,12 +4,11 @@ import { render } from 'vitest-browser-react';
 import { RematchDashboard } from '../RematchDashboard';
 
 describe('RematchDashboard', () => {
-  it('renders RematchDashboard with correct tactical styling', async () => {
+  it('renders correctly', async () => {
     await render(<RematchDashboard />);
-
     await expect.element(page.getByText('[REMATCH_DASHBOARD]')).toBeInTheDocument();
-    await expect.element(page.getByText('[STATUS: ONLINE]')).toBeInTheDocument();
     await expect.element(page.getByText('[AVAILABLE_REMATCHES]')).toBeInTheDocument();
     await expect.element(page.getByText('[LOCATION_DATA]')).toBeInTheDocument();
+    await expect.element(page.getByText('[STATUS: ONLINE]')).toBeInTheDocument();
   });
 });
