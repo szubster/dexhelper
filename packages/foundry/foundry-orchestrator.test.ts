@@ -51,7 +51,7 @@ vi.doMock('node:url', async (importOriginal) => {
   const actual = await importOriginal() as Record<string, any>;
   return {
     ...actual,
-    fileURLToPath: () => require('path').join(tmpDir, 'packages/foundry/file.ts')
+    fileURLToPath: () => path.join(tmpDir, 'packages/foundry/file.ts')
   };
 });
   let foundryDir: string;
@@ -74,7 +74,7 @@ vi.doMock('node:url', async (importOriginal) => {
       const actual = await importOriginal() as Record<string, any>;
       return {
         ...actual,
-        fileURLToPath: () => require('path').join(process.cwd(), 'packages/foundry/file.ts')
+        fileURLToPath: () => path.join(process.cwd(), 'packages/foundry/file.ts')
       };
     });
 
@@ -3685,7 +3685,7 @@ Target artifact: task-completed
 
     main();
 
-    const storyContent = fs.readFileSync(require('path').join(tmpDir, '.foundry/stories/story-complex.md'), 'utf-8');
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-complex.md'), 'utf-8');
     expect(storyContent).toContain('status: FAILED');
     expect(storyContent).toContain('Two-Tasks-Max anti-pattern detected');
   });
@@ -3733,7 +3733,7 @@ Target artifact: task-completed
 
     main();
 
-    const storyContent = fs.readFileSync(require('path').join(tmpDir, '.foundry/stories/story-simple.md'), 'utf-8');
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-simple.md'), 'utf-8');
     expect(storyContent).toContain('status: COMPLETED');
   });
 
@@ -4415,7 +4415,7 @@ Target artifact: task-completed
       locks: ['lock-c'],
     });
     main();
-    const pendingResult = require('fs').readFileSync(require('path').join(tmpDir, '.foundry/tasks/task-pending.md'), 'utf-8');
+    const pendingResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-pending.md'), 'utf-8');
     expect(pendingResult).toContain('status: READY');
   });
 
@@ -4437,7 +4437,7 @@ Target artifact: task-completed
       locks: ['lock-d'],
     });
     main();
-    const pendingResult2 = require('fs').readFileSync(require('path').join(tmpDir, '.foundry/tasks/task-pending-2.md'), 'utf-8');
+    const pendingResult2 = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-pending-2.md'), 'utf-8');
     expect(pendingResult2).toContain('status: READY');
   });
 
