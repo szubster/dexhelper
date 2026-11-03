@@ -2,17 +2,14 @@
 id: idea-542-orchestrator-deadlock-remediation-loop
 type: IDEA
 title: Foundry Orchestrator Hierarchical Deadlock Auto-Remediation Loop
-status: READY
+status: PENDING
 owner_persona: product_manager
 created_at: '2026-11-01'
-updated_at: '2026-11-01'
+updated_at: '2026-11-03'
 depends_on: []
 jules_session_id: null
-locks: []
 pr_number: null
 parent: null
-priority: 50
-confidence_score: 100
 tags:
   - foundry
   - orchestrator
@@ -24,6 +21,8 @@ rejection_count: 0
 system_failure_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
+priority: 50
 ---
 
 # Idea: Foundry Orchestrator Hierarchical Deadlock Auto-Remediation Loop

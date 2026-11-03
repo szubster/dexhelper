@@ -2,7 +2,7 @@
 id: task-523-713-gen3-move-tutor-e2e-fixtures-retry-2
 type: TASK
 title: Gen 3 Move Tutor E2E Fixtures Retry 2
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-20'
 updated_at: '2026-11-03'
@@ -16,8 +16,8 @@ tags:
   - gen3
   - integration
 research_references: []
-rejection_count: 0
-rejection_reason: 'Session terminated with state: FAILED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

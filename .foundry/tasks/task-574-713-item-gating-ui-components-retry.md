@@ -2,13 +2,13 @@
 id: task-574-713-item-gating-ui-components-retry
 type: TASK
 title: Item Gating UI Components (Retry)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-20T16:13:59Z'
 updated_at: '2026-11-03'
 depends_on:
   - research-574-712-investigate-item-gating-ui-failure
-jules_session_id: '1553135251936726087'
+jules_session_id: null
 pr_number: null
 parent: story-407-574-item-gating-ui-filter
 tags:
@@ -16,7 +16,7 @@ tags:
   - map
   - ui
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

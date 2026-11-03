@@ -2,7 +2,7 @@
 id: task-714-734-base-trade-evolution-generator-logic
 type: TASK
 title: Base Trade Evolution Tracking Logic Update
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-31'
 updated_at: '2026-11-03'
@@ -13,8 +13,8 @@ parent: story-351-714-base-trade-evolution-tracking
 tags:
   - backend
   - evolution
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-03T07:20:35.809Z*
+*Generated at: 2026-11-03T15:31:18.784Z*
 
 ## Node Statistics
 
@@ -9,30 +9,30 @@
 |---|---|
 | ADR | 45 |
 | EPIC | 543 |
-| IDEA | 238 |
+| IDEA | 240 |
 | PRD | 218 |
-| RESEARCH | 359 |
+| RESEARCH | 360 |
 | STORY | 1146 |
-| TASK | 3003 |
+| TASK | 3005 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3570 |
-| ACTIVE | 60 |
+| COMPLETED | 3573 |
+| ACTIVE | 64 |
 | CANCELLED | 924 |
-| PENDING | 869 |
-| READY | 109 |
+| PENDING | 870 |
+| READY | 104 |
 | BLOCKED | 14 |
-| FAILED | 6 |
+| FAILED | 8 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 85 |
-| Merged PRs | 8819 |
+| Open PRs | 84 |
+| Merged PRs | 8820 |
 | Closed PRs | 1096 |
 
 ## Rejection Counts
@@ -173,6 +173,7 @@
 | research-641-673-investigate-scanline-crosshairs-failure.md | 3 |
 | research-645-687-investigate-dashboard-metrics-e2e-failure.md | 3 |
 | research-676-721-investigate-fuzzer-deadlock-assertions-failure.md | 3 |
+| research-679-731-investigate-pokeblock-dashboard-failure.md | 3 |
 | story-525-639-extract-data-generation-scripts.md | 3 |
 | story-553-563-gen3-map-data-extraction.md | 3 |
 | task-081-130-preserve-enum-optimizations-impl.md | 3 |
@@ -440,12 +441,12 @@
 | research-560-608-investigate-tm-hm-compatibility-matching-failure.md | 2 |
 | research-563-674-investigate-story-task-breakdown-failure.md | 2 |
 | research-563-704-investigate-routes-encounters-failure-v2.md | 2 |
+| research-564-734-investigate-gen2-roamer-e2e-failure.md | 2 |
 | research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
 | research-645-721-investigate-dashboard-metrics-e2e-failure-retry-2.md | 2 |
-| research-679-731-investigate-pokeblock-dashboard-failure.md | 2 |
 | story-042-081-preserve-enum-optimizations.md | 2 |
 | story-063-605-mirage-island-unified-state-hydration.md | 2 |
 | story-088-638-client-db-jsonl-loader.md | 2 |
@@ -561,6 +562,7 @@
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
+| task-714-734-base-trade-evolution-generator-logic.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -830,7 +832,6 @@
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
 | research-564-690-investigate-gen3-pokedex-gaps-ui-failure.md | 1 |
-| research-564-734-investigate-gen2-roamer-e2e-failure.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
@@ -1012,11 +1013,13 @@
 | task-521-578-restrict-wip-dependencies-impl.md | 1 |
 | task-521-619-box-analyzer-matrix-qa.md | 1 |
 | task-521-677-gen2-parser-refactor.md | 1 |
+| task-521-705-gen3-submodules-logic-impl-retry.md | 1 |
 | task-522-529-update-root-package-json.md | 1 |
 | task-522-668-quota-handling-impl.md | 1 |
 | task-522-684-wip-awareness-e2e-agent-tests.md | 1 |
 | task-522-713-wip-awareness-e2e-orchestrator-tests-retry.md | 1 |
 | task-522-713-wip-signaling-e2e-tests-retry.md | 1 |
+| task-523-713-gen3-move-tutor-e2e-fixtures-retry-2.md | 1 |
 | task-524-568-setup-oxlint-rules.md | 1 |
 | task-524-676-living-dex-ghosts-types.md | 1 |
 | task-526-555-safari-zone-layout-qa.md | 1 |
@@ -1057,6 +1060,7 @@
 | task-557-681-orchestrator-link-resolution-e2e-impl-retry.md | 1 |
 | task-558-564-scheduled-workflows-batch1-impl.md | 1 |
 | task-559-680-battle-frontier-data-e2e-tests.md | 1 |
+| task-559-708-search-extraction-qa-v2.md | 1 |
 | task-559-713-heatmap-waittime-e2e-tests.md | 1 |
 | task-560-570-evaluate-graph-processing-libraries.md | 1 |
 | task-560-583-gen3-berry-pouch-parsing-impl.md | 1 |
@@ -1113,7 +1117,6 @@
 | task-676-712-scheduled-agents-issue-flow-e2e-coder.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
 | task-711-734-gen3-battle-frontier-context-impl.md | 1 |
-| task-714-734-base-trade-evolution-generator-logic.md | 1 |
 | task-726-727-orchestrator-parsing.md | 1 |
 | task-726-728-ci-check.md | 1 |
 
