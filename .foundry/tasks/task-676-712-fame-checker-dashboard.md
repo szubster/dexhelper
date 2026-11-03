@@ -34,6 +34,6 @@ With the base components implemented, we need to integrate them into the `FameCh
 - Integrate Tailwind v4 primitives and utility classes from `src/index.css`.
 
 ## Acceptance Criteria
-- [ ] `FameCheckerDashboard` integrates base components correctly.
-- [ ] NPC selection updates the displayed entries list.
-- [ ] Component is fully tested using Vitest browser tests.
+- [x] `FameCheckerDashboard` integrates base components correctly.
+- [x] NPC selection updates the displayed entries list.
+- [x] Component is fully tested using Vitest browser tests.
