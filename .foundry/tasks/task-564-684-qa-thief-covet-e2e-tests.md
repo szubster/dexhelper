@@ -34,4 +34,4 @@ Verify the implementation of the Playwright E2E tests for the Thief/Covet optimi
 - Verify that the tests pass successfully.
 
 ## Acceptance Criteria
-- [ ] qa: Verify the Thief/Covet E2E tests.
+- [x] qa: Verify the Thief/Covet E2E tests.

@@ -1,8 +1,7 @@
-import { TacticalButton } from '@dexhelper/ui';
+import { TacticalButton, TacticalModal } from '@dexhelper/ui';
 import { AlertTriangle, Cloud, HardDrive } from 'lucide-react';
 import { DataPoint } from './DataPoint';
 import { TacticalBlockHeader } from './TacticalBlockHeader';
-import { TacticalModal } from './TacticalModal';
 import { TacticalPanel } from './TacticalPanel';
 
 export interface SaveMetadata {

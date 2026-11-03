@@ -98,7 +98,7 @@ export async function generateEvolutionSuggestions(
     if (!details || details.length === 0) continue;
 
     for (const detail of details) {
-      const tr = detail.tr ?? (detail.ml || detail.mh || detail.time ? EVO_TRIGGER.LEVEL_UP : undefined);
+      const tr = detail.trigger ?? (detail.ml || detail.mh || detail.time ? EVO_TRIGGER.LEVEL_UP : undefined);
       const min_l = detail.ml;
       const min_h = detail.mh;
       const item = detail.item;

@@ -2,10 +2,10 @@
 id: task-559-708-search-extraction-qa-v2
 type: TASK
 title: QA Search and Chunk Extraction Logic (Retry)
-status: PENDING
+status: FAILED
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-10-25'
+updated_at: '2026-11-03'
 depends_on:
   - task-559-707-search-extraction-impl-v2
 jules_session_id: null
@@ -14,7 +14,7 @@ tags:
   - query
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 locks: []
 ---
 
