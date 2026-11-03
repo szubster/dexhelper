@@ -64,6 +64,7 @@ test.describe('Mock Utils', () => {
       });
     });
 
+    await page.waitForLoadState('networkidle');
     await mockOfflineState(page, true);
 
     const isOffline = await page.evaluate(() => !navigator.onLine);
