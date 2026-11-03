@@ -12,7 +12,7 @@ import { mockFilePicker, mockFileSystemAccess, mockOfflineState } from './mock-u
 test.describe('Mock Utils', () => {
   test('mockFileSystemAccess should mock showOpenFilePicker', async ({ page }) => {
     await mockFileSystemAccess(page, 'hello world', 'test.txt');
-    await page.goto('/');
+    await page.goto('/'); await page.waitForLoadState('networkidle');
 
     const fileData = await page.evaluate(async () => {
       const handles = await window.showOpenFilePicker();
@@ -27,7 +27,7 @@ test.describe('Mock Utils', () => {
 
   test('mockFilePicker should mock file input correctly', async ({ page }) => {
     // Navigate to a valid application route that has a file input
-    await page.goto('/');
+    await page.goto('/'); await page.waitForLoadState('networkidle');
 
     // We need to attach an input element to the DOM since one isn't immediately visible
     await page.evaluate(() => {
@@ -50,7 +50,7 @@ test.describe('Mock Utils', () => {
   });
 
   test('mockOfflineState should set offline status and trigger events', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/'); await page.waitForLoadState('networkidle');
 
     // Set up event listeners
     await page.evaluate(() => {
