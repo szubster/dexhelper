@@ -104,6 +104,8 @@ export function AppHeader({
                 <>
                   <NavigationTab to="/safari-zone" icon={<Swords size={14} />} label="SYS.SAFARI" />
                   <NavigationTab to="/gen3-dashboard" icon={<LayoutGrid size={14} />} label="SYS.G3DB" />
+                  {/* @ts-expect-error: Acceptance Criteria explicit constraint mandates relative path */}
+                  <NavigationTab to="./rematch" icon={<Swords size={14} />} label="SYS.RMTCH" />
                 </>
               )}
             </div>

@@ -2,13 +2,13 @@
 id: task-674-708-migrate-pokedex-e2e-tests-retry-impl
 type: TASK
 title: Refactor Pokedex Grid Virtualization E2E Tests to use COM Pattern (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-11-01'
+updated_at: '2026-11-02'
 depends_on:
   - research-674-707-investigate-pokedex-e2e-failure
-jules_session_id: '7658234086151139922'
+jules_session_id: null
 pr_number: null
 parent: story-580-674-migrate-pokedex-e2e-tests
 tags:
@@ -34,5 +34,5 @@ Refactor existing Pokedex grid-related E2E tests (e.g. \`tests/e2e/pokedex-grid-
 - Apply recommendations from \`research-674-707-investigate-pokedex-e2e-failure\`.
 
 ## Acceptance Criteria
-- [ ] Pokedex tests are refactored to use \`PokedexGridModel\`.
-- [ ] Tests use semantic locators via the COM and avoid raw DOM locators.
+- [x] Pokedex tests are refactored to use \`PokedexGridModel\`.
+- [x] Tests use semantic locators via the COM and avoid raw DOM locators.
