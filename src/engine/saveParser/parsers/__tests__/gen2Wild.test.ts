@@ -151,28 +151,28 @@ describe('extractGen2WildEncounterArea - water', () => {
   });
 });
 
-  describe('extractGen2WildEncounterArea - edge cases', () => {
-    const { extractGen2WildEncounterArea } = require('../gen2Wild.ts');
-    it('should extract when some slots are empty', () => {
-      const buffer = new ArrayBuffer(20);
-      const view = new DataView(buffer);
+describe('extractGen2WildEncounterArea - edge cases', () => {
+  const { extractGen2WildEncounterArea } = require('../gen2Wild.ts');
+  it('should extract when some slots are empty', () => {
+    const buffer = new ArrayBuffer(20);
+    const view = new DataView(buffer);
 
-      // Slot 1 (empty)
-      view.setUint8(0, 0);
-      view.setUint8(1, 0);
+    // Slot 1 (empty)
+    view.setUint8(0, 0);
+    view.setUint8(1, 0);
 
-      // Slot 2 (Level 4 Rattata #19)
-      view.setUint8(2, 4);
-      view.setUint8(3, 19);
+    // Slot 2 (Level 4 Rattata #19)
+    view.setUint8(2, 4);
+    view.setUint8(3, 19);
 
-      const area = extractGen2WildEncounterArea(view, 0, 1, 1, 'grass');
+    const area = extractGen2WildEncounterArea(view, 0, 1, 1, 'grass');
 
-      expect(area.encounters).toHaveLength(1);
-      expect(area.encounters[0]).toEqual({
-        chance: 30, // Corresponds to the 2nd slot chance which is 30
-        pokemonId: 19,
-        minLevel: 4,
-        maxLevel: 4,
-      });
+    expect(area.encounters).toHaveLength(1);
+    expect(area.encounters[0]).toEqual({
+      chance: 30, // Corresponds to the 2nd slot chance which is 30
+      pokemonId: 19,
+      minLevel: 4,
+      maxLevel: 4,
     });
   });
+});
