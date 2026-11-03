@@ -181,8 +181,6 @@ describe('extractGen2WildEncounterArea - edge cases', () => {
 
 describe('extractGen2WildEncounterArea - more cases', () => {
   it('should extract when chance falls back to 0', () => {
-    const _buffer = new ArrayBuffer(20);
-
     // Let's pretend it's a 8-slot grass somehow, but loop is hardcoded to 7, so we can't easily trigger the fallback via normal parameters.
     // We'll mock the chances array temporarily or just let it be. The chance fallback `?? 0` in extractGen2WildEncounterArea is technically unreachable normally since numSlots matches the array length.
     // However, we can mock GEN2_WILD_GRASS_CHANCES in a dirty way if needed, or just skip it.
