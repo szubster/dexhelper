@@ -365,7 +365,7 @@ async function main() {
           d: vd.encounter_details.map((ed) => {
             const det: CompactEncounterDetail = {
               c: ed.chance,
-              m: ENCOUNTER_METHOD_MAP[ed.method.name] || 0,
+              method: ENCOUNTER_METHOD_MAP[ed.method.name] || 0,
               min: ed.min_level,
               max: ed.max_level,
             };
@@ -417,7 +417,7 @@ async function main() {
 
       const bccData = {
         c: bccChance[i] || 5,
-        m: ENCOUNTER_METHOD_MAP['bug-catching-contest'] || 18,
+        method: ENCOUNTER_METHOD_MAP['bug-catching-contest'] || 18,
         min: bccLevelRange[i]?.min || 24,
         max: bccLevelRange[i]?.max || 36
       };
@@ -642,7 +642,7 @@ for (const cid of uniqueChainIds) {
       id,
       eto: gen1To3EvolvesTo.map(l => mapLink(l, false, id)),
       det: validEvolutionDetails.map((ed) => ({
-        tr: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
+        trigger: EVO_TRIGGER_MAP[ed.trigger.name] || 0,
         ml: ed.min_level ?? undefined,
         mh: ed.min_happiness ?? undefined,
         item: ed.item

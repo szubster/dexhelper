@@ -2,12 +2,12 @@
 id: story-694-714-intercept-file-loading-stamping
 type: STORY
 title: Intercept File Loading to Stamp Schema Version
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-21T08:00:00.000Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: '11861168821975954572'
+jules_session_id: null
 pr_number: null
 parent: epic-587-694-indexeddb-hydration-integration
 tags:
@@ -30,4 +30,8 @@ Update the save file loading routines so that every newly loaded \`ParsedSaveDat
 2. Ensure \`ParsedSaveData\` objects are stamped with \`schemaVersion\`.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-714-734-type-schema-version-stamping
+- [ ] task-714-735-core-schema-version-stamping
+- [ ] task-714-736-test-schema-version-stamping
+- [ ] task-714-737-qa-schema-version-stamping

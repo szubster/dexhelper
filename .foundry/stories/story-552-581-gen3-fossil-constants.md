@@ -2,13 +2,13 @@
 id: story-552-581-gen3-fossil-constants
 type: STORY
 title: Define Gen 3 Fossil Constants
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-17T18:41:57Z'
-updated_at: '2026-11-01'
+updated_at: '2026-11-03'
 depends_on:
   - story-552-580-gen3-fossil-schema-docs
-jules_session_id: '17753956139913255966'
+jules_session_id: null
 pr_number: null
 parent: epic-520-552-gen3-fossil-memory-research
 tags:
@@ -32,5 +32,8 @@ Implement module-level constants for Gen 3 fossil offsets as determined by the p
 
 ## Acceptance Criteria
 - [x] Break down this story into tasks.
-- [ ] task-581-668-gen3-fossil-constants-impl
-- [ ] task-581-669-gen3-fossil-constants-qa
+- [x] task-581-668-gen3-fossil-constants-impl
+- [x] task-581-669-gen3-fossil-constants-qa
+- [ ] research-581-732-gen3-fossil-flag-offsets
+- [ ] task-581-735-gen3-fossil-constants-impl-retry
+- [ ] task-581-736-gen3-fossil-constants-qa-retry

@@ -184,4 +184,75 @@ describe('generateSuggestions', () => {
     const s1 = (result.suggestions[0] || {}) as Suggestion;
     expect(s1.priority).toBe(50);
   });
+
+  it('populates ownedSet from party and pc when isLivingDex is true', async () => {
+    mockSaveData.party = [10, 11];
+    mockSaveData.pc = [12, 13];
+    mockSaveData.owned = new Set([1, 2, 3]);
+
+    await generateSuggestions(mockSaveData, true, undefined, mockApiData, mockStrategy);
+
+    expect(tradeGen.generateGiftAndTradeSuggestions).toHaveBeenCalled();
+    const mockCalls = vi.mocked(tradeGen.generateGiftAndTradeSuggestions).mock.calls;
+    const call = mockCalls[0];
+    const ownedSet = (call?.[3] || new Set()) as Set<number>;
+
+    expect(ownedSet.has(10)).toBe(true);
+    expect(ownedSet.has(11)).toBe(true);
+    expect(ownedSet.has(12)).toBe(true);
+    expect(ownedSet.has(13)).toBe(true);
+    expect(ownedSet.has(1)).toBe(false);
+  });
+
+  it('falls back to empty Set when owned is undefined and isLivingDex is false', async () => {
+    mockSaveData.owned = undefined as unknown as Set<number>;
+
+    await generateSuggestions(mockSaveData, false, undefined, mockApiData, mockStrategy);
+
+    expect(tradeGen.generateGiftAndTradeSuggestions).toHaveBeenCalled();
+    const mockCalls = vi.mocked(tradeGen.generateGiftAndTradeSuggestions).mock.calls;
+    const call = mockCalls[0];
+    const ownedSet = (call?.[3] || new Set()) as Set<number>;
+
+    expect(ownedSet.size).toBe(0);
+  });
+
+  it('falls back to genConfig.defaultVersion when effectiveVersion is unknown', async () => {
+    mockSaveData.gameVersion = 'unknown';
+
+    await generateSuggestions(mockSaveData, false, undefined, mockApiData, mockStrategy);
+
+    expect(tradeGen.generateGiftAndTradeSuggestions).toHaveBeenCalled();
+    const mockCalls = vi.mocked(tradeGen.generateGiftAndTradeSuggestions).mock.calls;
+    const call = mockCalls[0];
+    const displayVersion = call?.[2];
+
+    expect(displayVersion).toBe('red');
+  });
+
+  it('sorts suggestions with identical priority by pokemonId, pokemonIds array, or fallback 9999', async () => {
+    const sFallback: Suggestion = {
+      id: 's-fallback',
+      priority: 50,
+      pokemonId: undefined,
+      pokemonIds: [],
+    } as unknown as Suggestion;
+    const sArrayMin: Suggestion = {
+      id: 's-array-min',
+      priority: 50,
+      pokemonId: undefined,
+      pokemonIds: [30, 15],
+    } as unknown as Suggestion;
+    const sSingleId: Suggestion = {
+      id: 's-single-id',
+      priority: 50,
+      pokemonId: 5,
+    } as unknown as Suggestion;
+
+    mockStrategy.getSpecialSuggestions = vi.fn<() => Suggestion[]>().mockReturnValue([sFallback, sArrayMin, sSingleId]);
+
+    const result = await generateSuggestions(mockSaveData, false, undefined, mockApiData, mockStrategy);
+
+    expect(result.suggestions.map((s) => s.id)).toEqual(['s-single-id', 's-array-min', 's-fallback']);
+  });
 });
