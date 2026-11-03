@@ -32,4 +32,8 @@ Implement the `SaveSchemaMigrator` registry to execute sequential data transform
 3. Keep the migrator decoupled from React/UI code.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-714-740-schema-migrator-types-impl
+- [ ] task-714-741-schema-migrator-core-impl
+- [ ] task-714-742-schema-migrator-tests
+- [ ] task-714-743-schema-migrator-qa
