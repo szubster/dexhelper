@@ -2,12 +2,12 @@
 id: task-726-727-orchestrator-parsing
 type: TASK
 title: Update orchestrator parsing rules for strict checkbox format
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-11-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17189804393952035275'
 locks: []
 pr_number: null
 parent: adr-679-726-acceptance-criteria-structure
