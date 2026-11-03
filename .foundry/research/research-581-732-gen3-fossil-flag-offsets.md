@@ -2,12 +2,12 @@
 id: research-581-732-gen3-fossil-flag-offsets
 type: RESEARCH
 title: Investigate Gen 3 Fossil Flag Offsets Root Cause
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-11-01'
-updated_at: '2026-11-01'
+updated_at: '2026-11-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1053404027881185135'
 pr_number: null
 parent: story-552-581-gen3-fossil-constants
 tags:
