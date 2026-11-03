@@ -2,10 +2,10 @@
 id: task-711-718-gen2-scoring-algorithm-qa
 type: TASK
 title: Gen 2 Bug-Catching Contest Scoring Algorithm QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-22'
-updated_at: '2026-10-24'
+updated_at: '2026-11-03'
 depends_on:
   - task-711-716-gen2-scoring-algorithm-impl
   - task-711-717-gen2-scoring-algorithm-tests
