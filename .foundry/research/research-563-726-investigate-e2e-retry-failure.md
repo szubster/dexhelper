@@ -2,7 +2,7 @@
 id: research-563-726-investigate-e2e-retry-failure
 type: RESEARCH
 title: Investigate Save File Progress E2E Retry Failure
-status: FAILED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-25T00:00:00.000Z'
 updated_at: '2026-11-04'
@@ -14,8 +14,8 @@ tags:
   - e2e
   - investigation
 research_references: []
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

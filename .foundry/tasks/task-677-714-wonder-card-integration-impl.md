@@ -2,13 +2,13 @@
 id: task-677-714-wonder-card-integration-impl
 type: TASK
 title: Wonder Card Display Integration
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-20T23:38:11.000Z'
 updated_at: '2026-11-04'
 depends_on:
   - task-677-713-wonder-card-display-impl
-jules_session_id: '1231281391582674492'
+jules_session_id: null
 pr_number: null
 parent: story-346-677-wonder-card-ui-components
 tags:
@@ -18,7 +18,7 @@ tags:
   - components
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

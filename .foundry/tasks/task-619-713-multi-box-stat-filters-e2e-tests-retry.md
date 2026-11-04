@@ -2,13 +2,13 @@
 id: task-619-713-multi-box-stat-filters-e2e-tests-retry
 type: TASK
 title: Multi-Box Stat Filters E2E Tests Retry
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-21'
 updated_at: '2026-11-04'
 depends_on:
   - research-619-712-investigate-multi-box-stat-filters-e2e-failure
-jules_session_id: '701887128452259647'
+jules_session_id: null
 pr_number: null
 parent: story-575-619-multi-box-stat-filters-e2e
 tags:
@@ -19,7 +19,7 @@ tags:
   - e2e
   - playwright
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

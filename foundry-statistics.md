@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-04T01:44:44.290Z*
+*Generated at: 2026-11-04T08:10:10.063Z*
 
 ## Node Statistics
 
@@ -19,21 +19,21 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3579 |
-| ACTIVE | 73 |
-| CANCELLED | 940 |
-| PENDING | 850 |
-| READY | 90 |
+| ACTIVE | 83 |
+| CANCELLED | 945 |
+| PENDING | 845 |
+| READY | 83 |
 | BLOCKED | 14 |
-| FAILED | 11 |
+| FAILED | 8 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 91 |
-| Merged PRs | 8817 |
-| Closed PRs | 1092 |
+| Open PRs | 108 |
+| Merged PRs | 8802 |
+| Closed PRs | 1090 |
 
 ## Rejection Counts
 
@@ -246,6 +246,8 @@
 | task-478-669-orchestrator-cloning-logic-retry-3.md | 3 |
 | task-478-678-kurt-apricorn-core-logic-retry.md | 3 |
 | task-478-688-orchestrator-cloning-logic-retry-4.md | 3 |
+| task-478-717-orchestrator-cloning-logic-retry-5.md | 3 |
+| task-478-718-orchestrator-prompt-adaptation-retry-5.md | 3 |
 | task-479-576-gen3-pokeblock-e2e-impl.md | 3 |
 | task-479-676-gen2-unown-dex-e2e-tests.md | 3 |
 | task-479-700-gen2-unown-dex-e2e-coder.md | 3 |
@@ -362,6 +364,7 @@
 | task-703-704-orchestrator-badge-injection-impl-retry.md | 3 |
 | task-707-716-impl-validator-parsing.md | 3 |
 | task-714-734-base-trade-evolution-generator-logic.md | 3 |
+| task-726-727-orchestrator-parsing.md | 3 |
 | epic-009-atomic-handoff-testing.md | 2 |
 | epic-014-025-enforce-persona-pipeline-handoffs.md | 2 |
 | epic-030-039-cloudflare-r2-save-sync.md | 2 |
@@ -514,8 +517,6 @@
 | task-478-619-msgpack-prefetch-qa.md | 2 |
 | task-478-677-aggregate-active-locks-retry-2.md | 2 |
 | task-478-679-resolve-phase-locking-qa-retry-2.md | 2 |
-| task-478-717-orchestrator-cloning-logic-retry-5.md | 2 |
-| task-478-718-orchestrator-prompt-adaptation-retry-5.md | 2 |
 | task-490-502-render-persona-badges-impl.md | 2 |
 | task-495-550-hof-export-image-renderer.md | 2 |
 | task-513-689-update-orchestrator-tests.md | 2 |
@@ -537,6 +538,7 @@
 | task-537-680-remove-xyflow-deps.md | 2 |
 | task-550-563-implement-idea-matrix-updater.md | 2 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 2 |
+| task-551-713-update-orchestrator-priority-tests-v4.md | 2 |
 | task-552-681-curator-e2e-domain-overlap-tests.md | 2 |
 | task-553-568-gen2-pkm-extraction.md | 2 |
 | task-558-567-flexsearch-tooling-coder.md | 2 |
@@ -560,6 +562,7 @@
 | task-565-576-gen3-pokedex-gaps-e2e-coder.md | 2 |
 | task-565-606-hunting-progress-notifications.md | 2 |
 | task-570-618-cva-tactical-aesthetic-e2e-coder-retry.md | 2 |
+| task-575-716-implement-heatmap-e2e-tests.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
@@ -567,7 +570,6 @@
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
-| task-726-727-orchestrator-parsing.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -835,6 +837,7 @@
 | research-562-710-investigate-gen2-wild-encounter-extraction-failure-v3.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
+| research-563-726-investigate-e2e-retry-failure.md | 1 |
 | research-564-690-investigate-gen2-room-decoration-e2e-failure.md | 1 |
 | research-564-690-investigate-gen3-pokedex-gaps-ui-failure.md | 1 |
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
@@ -930,6 +933,7 @@
 | task-348-508-gen3-ash-ui-qa.md | 1 |
 | task-358-426-gen3-contest-museum-parsing-impl.md | 1 |
 | task-402-649-002-refactor-pokemon-details.md | 1 |
+| task-403-722-playwright-e2e-retry-impl-v5.md | 1 |
 | task-405-486-gen3-mixed-record-parser-qa-v2.md | 1 |
 | task-406-526-gen3-rematch-parser-impl.md | 1 |
 | task-407-679-qa-e2e-secret-base-retry.md | 1 |
@@ -987,6 +991,7 @@
 | task-478-507-gen2-ruins-of-alph-parsing-logic.md | 1 |
 | task-478-508-gen2-ruins-of-alph-qa.md | 1 |
 | task-478-515-impl-pokeblock-parser.md | 1 |
+| task-478-728-kurt-apricorn-core-logic-retry-3.md | 1 |
 | task-479-609-gen3-pokeblock-e2e-impl-v2.md | 1 |
 | task-479-610-gen3-pokeblock-e2e-qa-v2.md | 1 |
 | task-479-677-e2e-dynamic-bundles.md | 1 |
@@ -1053,7 +1058,6 @@
 | task-551-564-verify-priority-schema-e2e.md | 1 |
 | task-551-565-test-curator-dynamic-remediation-spawning.md | 1 |
 | task-551-668-deletion-queue-types-and-sorting.md | 1 |
-| task-551-713-update-orchestrator-priority-tests-v4.md | 1 |
 | task-552-682-curator-e2e-remediation-tests.md | 1 |
 | task-553-567-gen1-pkm-extraction.md | 1 |
 | task-554-567-gen3-pk3-extraction-impl.md | 1 |
@@ -1061,6 +1065,7 @@
 | task-557-581-orchestrator-link-resolution-fixtures.md | 1 |
 | task-557-681-orchestrator-link-resolution-e2e-impl-retry.md | 1 |
 | task-558-564-scheduled-workflows-batch1-impl.md | 1 |
+| task-558-721-heatmap-node-tooltip-impl.md | 1 |
 | task-559-680-battle-frontier-data-e2e-tests.md | 1 |
 | task-559-708-search-extraction-qa-v2.md | 1 |
 | task-559-713-heatmap-waittime-e2e-tests.md | 1 |
@@ -1093,7 +1098,6 @@
 | task-571-578-cva-refactor-basic-inputs.md | 1 |
 | task-574-659-archival-file-move-automation-qa.md | 1 |
 | task-575-691-archival-tree-completeness-e2e-tests.md | 1 |
-| task-575-716-implement-heatmap-e2e-tests.md | 1 |
 | task-578-589-visualizer-state-refactor.md | 1 |
 | task-580-595-gen3-friendship-data-extraction-e2e-coder.md | 1 |
 | task-580-649-gen3-fossil-schema-docs-impl.md | 1 |
@@ -1133,8 +1137,8 @@
 | task-563-643-map-data-qa-v2.md | 92620800000 |
 | task-550-687-generator-architecture-e2e-qa.md | 77414400000 |
 | task-676-702-add-adr-compliance-scripts.md | 77284800000 |
+| task-527-714-safari-zone-area-highlighting-qa-v4.md | 77241600000 |
 | task-527-713-safari-zone-area-map-ui-v4.md | 77155200000 |
-| task-527-714-safari-zone-area-highlighting-qa-v4.md | 77155200000 |
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76896000000 |
 | story-325-528-safari-zone-bounty-board.md | 76896000000 |
 | task-550-685-generator-tree-traversals-e2e-impl.md | 76809600000 |
