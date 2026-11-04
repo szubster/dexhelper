@@ -2,13 +2,13 @@
 id: task-677-714-wonder-card-integration-impl
 type: TASK
 title: Wonder Card Display Integration
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-20T23:38:11.000Z'
 updated_at: '2026-11-04'
 depends_on:
   - task-677-713-wonder-card-display-impl
-jules_session_id: null
+jules_session_id: '3515242003792553944'
 pr_number: null
 parent: story-346-677-wonder-card-ui-components
 tags:
