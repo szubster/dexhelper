@@ -78,4 +78,5 @@
 | [task-714-734-type-schema-version-stamping](.foundry/tasks/task-714-734-type-schema-version-stamping.md) | TASK | Type Definition for Schema Version Stamping | coder | [8641537243885164195](https://jules.google.com/session/8641537243885164195) |
 | [task-726-728-ci-check](.foundry/tasks/task-726-728-ci-check.md) | TASK | Add CI check automation for acceptance criteria formatting | coder | [11394060492027864333](https://jules.google.com/session/11394060492027864333) |
 | [task-726-728-impl-lazy-load-tests](.foundry/tasks/task-726-728-impl-lazy-load-tests.md) | TASK | Implement E2E Tests for Lazy Loading Components | coder | [5323604151249754902](https://jules.google.com/session/5323604151249754902) |
+| [task-726-730-impl-background-fetch-tests](.foundry/tasks/task-726-730-impl-background-fetch-tests.md) | TASK | Implement E2E Tests for Background Fetching | coder | [12661419013885022913](https://jules.google.com/session/12661419013885022913) |
 | [task-731-734-ast-analyzer-core-logic](.foundry/tasks/task-731-734-ast-analyzer-core-logic.md) | TASK | AST Analyzer Core Logic | coder | [7777229208254947407](https://jules.google.com/session/7777229208254947407) |
