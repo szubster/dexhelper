@@ -28,3 +28,7 @@ Implement a strict, reliable YAML frontmatter parsing utility (e.g., `parseFound
 ## Acceptance Criteria
 - [ ] Implement `parseFoundryNode` utility in `.github/scripts/`.
 - [ ] Ensure parsing correctly isolates YAML frontmatter and avoids scanning the markdown body.
+- [ ] task-731-740-parse-foundry-node-types
+- [ ] task-731-741-parse-foundry-node-impl
+- [ ] task-731-742-parse-foundry-node-tests
+- [ ] task-731-743-parse-foundry-node-qa
