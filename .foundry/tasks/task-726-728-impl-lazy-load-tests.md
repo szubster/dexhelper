@@ -27,5 +27,5 @@ Write Playwright E2E tests to verify that all components correctly lazy-load via
 - Ensure Vite cache is cleared locally before running to avoid false positives.
 
 ## Acceptance Criteria
-- [ ] Tests verify lazy-loaded chunks load successfully upon interaction.
-- [ ] No regression or unhandled promise rejections on navigation.
+- [x] Tests verify lazy-loaded chunks load successfully upon interaction.
+- [x] No regression or unhandled promise rejections on navigation.
