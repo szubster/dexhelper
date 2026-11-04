@@ -38,7 +38,11 @@ This story focuses on creating the reusable UI component (likely Canvas or layer
 - [x] task-561-669-spinda-rendering-ui
 - [x] task-561-670-spinda-rendering-tests
 - [x] task-561-671-qa-spinda-rendering-component
-- [ ] research-561-721-investigate-spinda-ui-failure
-- [ ] task-561-722-spinda-rendering-ui-retry
-- [ ] task-561-723-spinda-rendering-tests-retry
-- [ ] task-561-724-qa-spinda-rendering-component-retry
+- [x] research-561-721-investigate-spinda-ui-failure
+- [x] task-561-722-spinda-rendering-ui-retry
+- [x] task-561-723-spinda-rendering-tests-retry
+- [x] task-561-724-qa-spinda-rendering-component-retry
+- [ ] research-561-740-investigate-spinda-ui-failure-v2
+- [ ] task-561-741-spinda-rendering-ui-retry-v2
+- [ ] task-561-742-spinda-rendering-tests-retry-v2
+- [ ] task-561-743-qa-spinda-rendering-component-retry-v2
