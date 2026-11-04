@@ -2,13 +2,13 @@
 id: task-478-728-kurt-apricorn-core-logic-retry-3
 type: TASK
 title: Kurt Apricorn Core Parsing Logic Retry 3
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-11-04'
 depends_on:
   - research-478-727-investigate-kurt-apricorn-core-logic-failure-v2
-jules_session_id: null
+jules_session_id: '15314042114796635423'
 pr_number: null
 parent: story-404-478-kurt-apricorn-parsing-logic
 tags:
