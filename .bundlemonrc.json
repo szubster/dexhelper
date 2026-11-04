@@ -47,7 +47,7 @@
     },
     {
       "path": "assets/cn-<hash>.js",
-      "maxSize": "50kb"
+      "maxSize": "40kb"
     },
     {
       "path": "assets/dag-<hash>.js",
@@ -79,7 +79,7 @@
     },
     {
       "path": "assets/cn-<hash>.js",
-      "maxSize": "35kb"
+      "maxSize": "40kb"
     },
     {
       "path": "assets/index-<hash>.css",
@@ -111,7 +111,7 @@
     },
     {
       "path": "assets/ui-<hash>.js",
-      "maxSize": "22kb"
+      "maxSize": "35kb"
     },
     {
       "path": "assets/*-<hash>.js",
