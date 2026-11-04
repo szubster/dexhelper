@@ -30,6 +30,6 @@ locks: []
 Verify the completed E2E tests for the orchestrator's prompt resolution integration. Ensure that the E2E tests adequately cover composite prompt generation and fallback mechanisms, and run successfully in the CI environment.
 
 ## Acceptance Criteria
-- [ ] Verify that the orchestrator tests run and pass all prompt integration scenarios.
-- [ ] Verify that missing prompt fragment fallbacks are covered and handle the missing state correctly.
-- [ ] Confirm no regressions in other parts of the orchestrator testing suite.
+- [x] Verify that the orchestrator tests run and pass all prompt integration scenarios.
+- [x] Verify that missing prompt fragment fallbacks are covered and handle the missing state correctly.
+- [x] Confirm no regressions in other parts of the orchestrator testing suite.
