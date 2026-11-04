@@ -26,5 +26,5 @@ locks: []
 - Ensure tests run successfully and provide coverage for both valid and invalid markdown schemas.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for the checkbox linting logic.
-- [ ] Ensure all tests pass via `pnpm test`.
+- [x] Implement E2E tests for the checkbox linting logic.
+- [x] Ensure all tests pass via `pnpm test`.
