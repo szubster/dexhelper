@@ -2,12 +2,12 @@
 id: research-336-712-investigate-runtime-interfaces-keys-failure-v3
 type: RESEARCH
 title: Investigate Runtime Interfaces Keys Permanent Failure (v3)
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-21T07:19:05.000Z'
-updated_at: '2026-10-21'
+updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '13321943039019919886'
 pr_number: null
 parent: story-043-336-update-runtime-interfaces-keys
 tags:
