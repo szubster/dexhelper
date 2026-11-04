@@ -34,6 +34,6 @@ To satisfy the Orchestrator Safeguard (E2E/Integration Requirement), we must ver
 - E2E Test Implementation: Create verification that when the Jules PR merges, the issue is automatically closed natively.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests verifying issue creation with correct labels, title pattern, and body payload on manual workflow dispatch.
-- [ ] Implement E2E tests verifying Jules is triggered by issue creation.
-- [ ] Implement E2E tests verifying issue is closed natively when Jules PR merges.
+- [x] Implement E2E tests verifying issue creation with correct labels, title pattern, and body payload on manual workflow dispatch.
+- [x] Implement E2E tests verifying Jules is triggered by issue creation.
+- [x] Implement E2E tests verifying issue is closed natively when Jules PR merges.
