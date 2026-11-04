@@ -50,8 +50,8 @@ test.describe('Mock Utils', () => {
   });
 
   test('mockOfflineState should set offline status and trigger events', async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('domcontentloaded');
+    await page.goto('/_empty.html'); // Just use a blank page or wait until network idle
+    await page.waitForLoadState('networkidle');
 
     // Set up event listeners
     await page.evaluate(() => {
@@ -68,21 +68,15 @@ test.describe('Mock Utils', () => {
     await mockOfflineState(page, true);
 
     await page.waitForFunction(() => !navigator.onLine);
-    const isOffline = true;
-    await page.waitForFunction(() => window.offlineFired);
-    const offlineFired = true;
+    const offlineFired = await page.evaluate(() => window.offlineFired);
 
-    expect(isOffline).toBe(true);
     expect(offlineFired).toBe(true);
 
     await mockOfflineState(page, false);
 
     await page.waitForFunction(() => navigator.onLine);
-    const isOnline = true;
-    await page.waitForFunction(() => window.onlineFired);
-    const onlineFired = true;
+    const onlineFired = await page.evaluate(() => window.onlineFired);
 
-    expect(isOnline).toBe(true);
     expect(onlineFired).toBe(true);
   });
 });
