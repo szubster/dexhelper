@@ -16,7 +16,7 @@ export const TacticalIconButton = React.forwardRef<HTMLButtonElement, TacticalIc
       <button
         ref={ref}
         type={type}
-        aria-label={title}
+        aria-label={title} title={title}
         className={cn('tactical-icon-button group focus-visible:tactical-focus relative', className)}
         {...restProps}
       >
