@@ -3518,6 +3518,46 @@ Target artifact: task-completed
     expect(epicContent).toContain('Missing E2E/integration story');
   });
 
+
+  describe('Priority Sorting v4', () => {
+    test('Sorts by Priority descending, ignoring critical weight if priority differs', () => {
+      createValidTestNode(tmpDir, '.foundry/tasks/task-priority-low.md', {
+        id: "task-priority-low",
+        type: "TASK",
+        title: "Low Priority Task",
+        status: "READY",
+        owner_persona: "coder",
+        priority: 50,
+        critical_weight: 100, // Even with higher weight, it should sort lower because priority is 50
+      });
+
+      createValidTestNode(tmpDir, '.foundry/tasks/task-priority-high.md', {
+        id: "task-priority-high",
+        type: "TASK",
+        title: "High Priority Task",
+        status: "READY",
+        owner_persona: "coder",
+        priority: 100,
+        critical_weight: 10,
+      });
+
+      const consoleSpy = vi.spyOn(console, 'log');
+
+      main();
+
+      const output = consoleSpy.mock.calls.map(call => call[0] as string).join('');
+      const parsedOutput = JSON.parse(output);
+
+      const createdTasks = parsedOutput.filter((n: any) => n.id === 'task-priority-high' || n.id === 'task-priority-low');
+
+      expect(createdTasks.length).toBe(2);
+      expect(createdTasks[0].id).toBe('task-priority-high');
+      expect(createdTasks[1].id).toBe('task-priority-low');
+
+      consoleSpy.mockRestore();
+    });
+  });
+
   describe('Phase 4.8 Mapping Validation', () => {
     test('fails invalid mapping (TASK -> product_manager)', () => {
       createValidTestNode(tmpDir, '.foundry/tasks/task-invalid.md', {
