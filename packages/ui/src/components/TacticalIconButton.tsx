@@ -11,12 +11,14 @@ export const TacticalIconButton = React.forwardRef<HTMLButtonElement, TacticalIc
 
     // Omit title from props passed to button to avoid native browser tooltip
     const { title: _title, ...restProps } = props;
+    const titleAttr = props.title;
 
     return (
       <button
         ref={ref}
         type={type}
         aria-label={title}
+        title={titleAttr}
         className={cn('tactical-icon-button group focus-visible:tactical-focus relative', className)}
         {...restProps}
       >
