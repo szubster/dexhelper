@@ -2,10 +2,10 @@
 id: task-714-736-base-trade-evolution-qa
 type: TASK
 title: QA Base Trade Evolution Tracking
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-31'
-updated_at: '2026-11-02'
+updated_at: '2026-11-04'
 depends_on:
   - task-714-735-base-trade-evolution-tests
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - backend
   - evolution
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-714-734-base-trade-evolution-generator-logic
 notes: ''
 locks: []
 ---

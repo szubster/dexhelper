@@ -2,10 +2,10 @@
 id: task-479-701-gen2-unown-dex-e2e-qa
 type: TASK
 title: QA Gen 2 Unown Dex Data Extraction E2E Tests
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-10-24'
+updated_at: '2026-11-04'
 depends_on:
   - task-479-700-gen2-unown-dex-e2e-coder
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - gen2
   - unown
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-479-700-gen2-unown-dex-e2e-coder
 locks: []
 ---
 

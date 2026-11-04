@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-03T21:19:56.302Z*
+*Generated at: 2026-11-04T01:44:44.290Z*
 
 ## Node Statistics
 
@@ -19,21 +19,21 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3579 |
-| ACTIVE | 67 |
-| CANCELLED | 928 |
-| PENDING | 868 |
-| READY | 92 |
+| ACTIVE | 73 |
+| CANCELLED | 940 |
+| PENDING | 850 |
+| READY | 90 |
 | BLOCKED | 14 |
-| FAILED | 9 |
+| FAILED | 11 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 85 |
-| Merged PRs | 8821 |
-| Closed PRs | 1094 |
+| Open PRs | 91 |
+| Merged PRs | 8817 |
+| Closed PRs | 1092 |
 
 ## Rejection Counts
 
@@ -248,6 +248,7 @@
 | task-478-688-orchestrator-cloning-logic-retry-4.md | 3 |
 | task-479-576-gen3-pokeblock-e2e-impl.md | 3 |
 | task-479-676-gen2-unown-dex-e2e-tests.md | 3 |
+| task-479-700-gen2-unown-dex-e2e-coder.md | 3 |
 | task-490-504-visualize-dag-statuses-impl.md | 3 |
 | task-490-508-identify-update-other-gen1-personas-impl.md | 3 |
 | task-490-550-orchestrator-badge-injection-impl.md | 3 |
@@ -360,6 +361,7 @@
 | task-679-712-pokeblock-dashboard-ui-impl.md | 3 |
 | task-703-704-orchestrator-badge-injection-impl-retry.md | 3 |
 | task-707-716-impl-validator-parsing.md | 3 |
+| task-714-734-base-trade-evolution-generator-logic.md | 3 |
 | epic-009-atomic-handoff-testing.md | 2 |
 | epic-014-025-enforce-persona-pipeline-handoffs.md | 2 |
 | epic-030-039-cloudflare-r2-save-sync.md | 2 |
@@ -514,7 +516,6 @@
 | task-478-679-resolve-phase-locking-qa-retry-2.md | 2 |
 | task-478-717-orchestrator-cloning-logic-retry-5.md | 2 |
 | task-478-718-orchestrator-prompt-adaptation-retry-5.md | 2 |
-| task-479-700-gen2-unown-dex-e2e-coder.md | 2 |
 | task-490-502-render-persona-badges-impl.md | 2 |
 | task-495-550-hof-export-image-renderer.md | 2 |
 | task-513-689-update-orchestrator-tests.md | 2 |
@@ -526,6 +527,8 @@
 | task-520-551-gen2-constants-qa.md | 2 |
 | task-521-528-statistics-e2e.md | 2 |
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
+| task-521-705-gen3-submodules-logic-impl-retry.md | 2 |
+| task-523-713-gen3-move-tutor-e2e-fixtures-retry-2.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-527-675-drive-webhook-qa.md | 2 |
 | task-533-677-savedatareader-e2e-tests.md | 2 |
@@ -564,7 +567,6 @@
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
-| task-714-734-base-trade-evolution-generator-logic.md | 2 |
 | task-726-727-orchestrator-parsing.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
@@ -1014,13 +1016,11 @@
 | task-521-578-restrict-wip-dependencies-impl.md | 1 |
 | task-521-619-box-analyzer-matrix-qa.md | 1 |
 | task-521-677-gen2-parser-refactor.md | 1 |
-| task-521-705-gen3-submodules-logic-impl-retry.md | 1 |
 | task-522-529-update-root-package-json.md | 1 |
 | task-522-668-quota-handling-impl.md | 1 |
 | task-522-684-wip-awareness-e2e-agent-tests.md | 1 |
 | task-522-713-wip-awareness-e2e-orchestrator-tests-retry.md | 1 |
 | task-522-713-wip-signaling-e2e-tests-retry.md | 1 |
-| task-523-713-gen3-move-tutor-e2e-fixtures-retry-2.md | 1 |
 | task-524-568-setup-oxlint-rules.md | 1 |
 | task-524-676-living-dex-ghosts-types.md | 1 |
 | task-526-555-safari-zone-layout-qa.md | 1 |
@@ -1072,6 +1072,7 @@
 | task-561-668-spinda-rendering-types.md | 1 |
 | task-561-690-telemetry-metrics-e2e-coder.md | 1 |
 | task-561-704-orchestrator-dag-graphology-impl-retry.md | 1 |
+| task-561-706-orchestrator-engine-tests-retry.md | 1 |
 | task-562-586-pokeblock-recommendation-logic.md | 1 |
 | task-562-590-gen3-dashboard-layout-and-routing-impl.md | 1 |
 | task-562-596-gen3-missed-items-extraction-qa.md | 1 |
@@ -1117,6 +1118,7 @@
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
 | task-676-703-gen2-pokemon-selection-ui.md | 1 |
 | task-676-712-scheduled-agents-issue-flow-e2e-coder.md | 1 |
+| task-677-714-wonder-card-integration-impl.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
 | task-711-734-gen3-battle-frontier-context-impl.md | 1 |
 | task-726-728-ci-check.md | 1 |
@@ -1132,6 +1134,7 @@
 | task-550-687-generator-architecture-e2e-qa.md | 77414400000 |
 | task-676-702-add-adr-compliance-scripts.md | 77284800000 |
 | task-527-713-safari-zone-area-map-ui-v4.md | 77155200000 |
+| task-527-714-safari-zone-area-highlighting-qa-v4.md | 77155200000 |
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76896000000 |
 | story-325-528-safari-zone-bounty-board.md | 76896000000 |
 | task-550-685-generator-tree-traversals-e2e-impl.md | 76809600000 |
@@ -1140,7 +1143,6 @@
 | task-528-678-safari-zone-bounty-board-e2e.md | 76550400000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
 | story-325-527-safari-zone-area-highlighting.md | 76377600000 |
-| task-527-714-safari-zone-area-highlighting-qa-v4.md | 76377600000 |
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |
 | epic-339-406-jules-agent-skins.md | 75859200000 |
 | task-528-676-safari-zone-bounty-board-data.md | 75859200000 |

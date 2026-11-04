@@ -2,12 +2,12 @@
 id: task-558-721-heatmap-node-tooltip-impl
 type: TASK
 title: Implement Heatmap Node Hover Tooltip
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-24'
-updated_at: '2026-11-03'
+updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: '8151784296755991815'
+jules_session_id: null
 pr_number: null
 parent: story-535-558-heatmap-node-tooltip
 tags:
@@ -16,7 +16,7 @@ tags:
   - heatmap
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 priority: 50
