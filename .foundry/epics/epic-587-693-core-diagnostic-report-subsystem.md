@@ -2,12 +2,12 @@
 id: epic-587-693-core-diagnostic-report-subsystem
 type: EPIC
 title: Core Diagnostic Report Subsystem
-status: READY
+status: ACTIVE
 owner_persona: story_owner
-created_at: "2026-10-22T06:23:22.000Z"
-updated_at: "2026-10-22"
+created_at: '2026-10-22T06:23:22.000Z'
+updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12420462552620102119'
 pr_number: null
 parent: prd-535-587-save-data-validation-report
 tags:
@@ -15,6 +15,7 @@ tags:
   - diagnostics
 locks: []
 confidence_score: 90
+rejection_reason: ''
 ---
 
 # Core Diagnostic Report Subsystem
