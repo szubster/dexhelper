@@ -40,7 +40,11 @@ Modify the Foundry DAG Orchestrator to detect `BLOCKED` node states caused by ci
 - [x] task-566-677-orchestrator-diagnosis-logic-retry-v2
 - [x] task-566-678-orchestrator-diagnosis-tests-retry-v2
 - [x] task-566-679-qa-blocked-diagnosis-retry-v2
-- [ ] research-566-690-investigate-orchestrator-diagnosis-failure-v3
-- [ ] task-566-691-orchestrator-diagnosis-logic-retry-v3
-- [ ] task-566-692-orchestrator-diagnosis-tests-retry-v3
-- [ ] task-566-693-qa-blocked-diagnosis-retry-v3
+- [x] research-566-690-investigate-orchestrator-diagnosis-failure-v3
+- [x] task-566-691-orchestrator-diagnosis-logic-retry-v3
+- [x] task-566-692-orchestrator-diagnosis-tests-retry-v3
+- [x] task-566-693-qa-blocked-diagnosis-retry-v3
+- [ ] research-566-740-investigate-orchestrator-diagnosis-failure-v4
+- [ ] task-566-741-orchestrator-diagnosis-logic-retry-v4
+- [ ] task-566-742-orchestrator-diagnosis-tests-retry-v4
+- [ ] task-566-743-qa-blocked-diagnosis-retry-v4
