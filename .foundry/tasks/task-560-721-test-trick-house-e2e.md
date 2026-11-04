@@ -2,12 +2,12 @@
 id: task-560-721-test-trick-house-e2e
 type: TASK
 title: Implement Gen 3 Trick House E2E Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9108840200385491856'
 pr_number: null
 parent: story-540-560-trick-house-e2e
 tags:
