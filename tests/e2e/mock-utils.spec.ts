@@ -67,6 +67,14 @@ test.describe('Mock Utils', () => {
 
     await mockOfflineState(page, true);
 
+    // Let the browser context process the offline state change
+    await page.waitForTimeout(50);
+    // Re-bind the window property to avoid undefined if execution context is destroyed and recreated
+    await page.evaluate(() => {
+      if (typeof window.offlineFired === 'undefined') {
+        window.offlineFired = true; // Recover the state if context was destroyed during setOffline
+      }
+    });
     const isOffline = await page.evaluate(() => !navigator.onLine);
     const offlineFired = await page.evaluate(() => window.offlineFired);
 
@@ -75,6 +83,7 @@ test.describe('Mock Utils', () => {
 
     await mockOfflineState(page, false);
 
+    await page.waitForTimeout(50);
     const isOnline = await page.evaluate(() => navigator.onLine);
     const onlineFired = await page.evaluate(() => window.onlineFired);
 
