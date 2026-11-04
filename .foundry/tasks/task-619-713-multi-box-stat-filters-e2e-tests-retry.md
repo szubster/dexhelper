@@ -2,13 +2,13 @@
 id: task-619-713-multi-box-stat-filters-e2e-tests-retry
 type: TASK
 title: Multi-Box Stat Filters E2E Tests Retry
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-21'
 updated_at: '2026-11-04'
 depends_on:
   - research-619-712-investigate-multi-box-stat-filters-e2e-failure
-jules_session_id: null
+jules_session_id: '17418596344108986644'
 pr_number: null
 parent: story-575-619-multi-box-stat-filters-e2e
 tags:
