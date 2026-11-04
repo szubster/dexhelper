@@ -32,4 +32,4 @@ priority: 50
 Investigate the root cause of the failure in the previous orchestrator parsing implementation.
 
 ## Acceptance Criteria
-- [ ] Determine root cause of `task-726-727`'s failure.
+- [ ] Determine root cause of the previous failure.

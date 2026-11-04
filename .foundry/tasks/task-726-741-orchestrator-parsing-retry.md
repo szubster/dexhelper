@@ -2,7 +2,7 @@
 id: task-726-741-orchestrator-parsing-retry
 type: TASK
 title: Update orchestrator parsing rules for strict checkbox format (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-11-04'
 updated_at: '2026-11-04'
