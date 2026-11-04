@@ -2,12 +2,12 @@
 id: idea-417-407-more-save-files
 type: IDEA
 title: 'Idea: Source additional save files for testing'
-status: ACTIVE
+status: FAILED
 owner_persona: curator
 created_at: '2026-08-14'
 updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: '2230938811159172255'
+jules_session_id: null
 pr_number: null
 parent: epic-343-417-test-fixtures-sourcing
 tags:
@@ -15,7 +15,7 @@ tags:
   - fixtures
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: COMPLETED'
 notes: ''
 locks: []
 ---

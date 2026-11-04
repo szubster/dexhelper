@@ -2,7 +2,7 @@
 id: adr-679-726-acceptance-criteria-structure
 type: ADR
 title: ADR 034 - Acceptance Criteria Structure
-status: ACTIVE
+status: PENDING
 owner_persona: architect
 created_at: '2026-10-25'
 updated_at: '2026-11-04'

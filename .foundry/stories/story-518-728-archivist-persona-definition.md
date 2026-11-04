@@ -2,19 +2,19 @@
 id: story-518-728-archivist-persona-definition
 type: STORY
 title: Archivist Persona Definition
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-10-25'
 updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: '6619521461430397919'
+jules_session_id: null
 pr_number: null
 parent: epic-346-518-archival-cleanup-automation
 tags:
   - persona
   - archive
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: COMPLETED'
 notes: ''
 locks: []
 ---

@@ -2,7 +2,7 @@
 id: task-561-706-orchestrator-engine-tests-retry
 type: TASK
 title: 'Tests: Orchestrator State and Graph Engine (Retry)'
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-11-04'
@@ -16,8 +16,8 @@ tags:
   - architecture
   - state-machine
   - dag
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

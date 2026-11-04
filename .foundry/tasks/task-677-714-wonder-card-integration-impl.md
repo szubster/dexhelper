@@ -2,7 +2,7 @@
 id: task-677-714-wonder-card-integration-impl
 type: TASK
 title: Wonder Card Display Integration
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-20T23:38:11.000Z'
 updated_at: '2026-11-04'
@@ -17,8 +17,8 @@ tags:
   - ui
   - components
 research_references: []
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

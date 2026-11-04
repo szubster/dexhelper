@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-04T08:10:10.063Z*
+*Generated at: 2026-11-04T16:40:58.041Z*
 
 ## Node Statistics
 
@@ -19,21 +19,21 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3579 |
-| ACTIVE | 83 |
-| CANCELLED | 945 |
-| PENDING | 845 |
-| READY | 83 |
+| ACTIVE | 90 |
+| CANCELLED | 950 |
+| PENDING | 841 |
+| READY | 73 |
 | BLOCKED | 14 |
-| FAILED | 8 |
+| FAILED | 10 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 108 |
-| Merged PRs | 8802 |
-| Closed PRs | 1090 |
+| Open PRs | 115 |
+| Merged PRs | 8796 |
+| Closed PRs | 1089 |
 
 ## Rejection Counts
 
@@ -272,11 +272,13 @@
 | task-520-549-zombie-node-detection-impl.md | 3 |
 | task-521-618-box-analyzer-matrix-component.md | 3 |
 | task-521-676-gen3-submodules-constants-impl.md | 3 |
+| task-521-705-gen3-submodules-logic-impl-retry.md | 3 |
 | task-522-549-gen3-move-tutor-compatibility-logic-coder.md | 3 |
 | task-522-680-wip-signaling-e2e-tests.md | 3 |
 | task-522-685-wip-awareness-e2e-orchestrator-tests.md | 3 |
 | task-523-676-gen3-move-tutor-e2e-fixtures.md | 3 |
 | task-523-707-box-analyzer-matrix-e2e-tabular-data.md | 3 |
+| task-523-713-gen3-move-tutor-e2e-fixtures-retry-2.md | 3 |
 | task-526-554-pathfinder-selection-components-impl.md | 3 |
 | task-527-596-safari-zone-area-map-ui.md | 3 |
 | task-527-669-pathfinder-chain-viz-ui.md | 3 |
@@ -528,8 +530,6 @@
 | task-520-551-gen2-constants-qa.md | 2 |
 | task-521-528-statistics-e2e.md | 2 |
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
-| task-521-705-gen3-submodules-logic-impl-retry.md | 2 |
-| task-523-713-gen3-move-tutor-e2e-fixtures-retry-2.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-527-675-drive-webhook-qa.md | 2 |
 | task-533-677-savedatareader-e2e-tests.md | 2 |
@@ -547,6 +547,7 @@
 | task-558-570-rs-battle-tower-integration.md | 2 |
 | task-560-569-evaluate-state-machine-libraries.md | 2 |
 | task-560-575-pokerus-spread-planner-qa.md | 2 |
+| task-561-706-orchestrator-engine-tests-retry.md | 2 |
 | task-562-576-item-selection-route-e2e-impl.md | 2 |
 | task-562-576-schema-linter-checkbox-logic-impl.md | 2 |
 | task-562-594-gen3-missed-items-extraction-logic.md | 2 |
@@ -570,6 +571,7 @@
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
+| task-677-714-wonder-card-integration-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -1077,7 +1079,6 @@
 | task-561-668-spinda-rendering-types.md | 1 |
 | task-561-690-telemetry-metrics-e2e-coder.md | 1 |
 | task-561-704-orchestrator-dag-graphology-impl-retry.md | 1 |
-| task-561-706-orchestrator-engine-tests-retry.md | 1 |
 | task-562-586-pokeblock-recommendation-logic.md | 1 |
 | task-562-590-gen3-dashboard-layout-and-routing-impl.md | 1 |
 | task-562-596-gen3-missed-items-extraction-qa.md | 1 |
@@ -1109,6 +1110,7 @@
 | task-618-688-multi-box-ev-filters-logic.md | 1 |
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
+| task-619-713-multi-box-stat-filters-e2e-tests-retry.md | 1 |
 | task-620-687-gen1-static-encounters-e2e-coder.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
@@ -1122,7 +1124,6 @@
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
 | task-676-703-gen2-pokemon-selection-ui.md | 1 |
 | task-676-712-scheduled-agents-issue-flow-e2e-coder.md | 1 |
-| task-677-714-wonder-card-integration-impl.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
 | task-711-734-gen3-battle-frontier-context-impl.md | 1 |
 | task-726-728-ci-check.md | 1 |

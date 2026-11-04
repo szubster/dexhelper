@@ -2,7 +2,7 @@
 id: task-523-713-gen3-move-tutor-e2e-fixtures-retry-2
 type: TASK
 title: Gen 3 Move Tutor E2E Fixtures Retry 2
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-20'
 updated_at: '2026-11-04'
@@ -16,8 +16,8 @@ tags:
   - gen3
   - integration
 research_references: []
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
