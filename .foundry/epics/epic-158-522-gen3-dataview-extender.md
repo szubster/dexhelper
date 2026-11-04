@@ -32,3 +32,8 @@ This epic focuses on extending the base `SaveDataReader` to support Gen 3 specif
 - [ ] Add checksum validation utilities specific to Gen 3 save blocks
 - [ ] Write unit tests verifying Gen 3 specific extensions
 - [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification
+
+- [ ] story-522-737-gen3-dataview-core-class
+- [ ] story-522-738-gen3-dataview-relative-offsets
+- [ ] story-522-739-gen3-dataview-checksum-validation
+- [ ] story-522-740-gen3-dataview-integration-e2e
