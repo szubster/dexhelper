@@ -2,7 +2,7 @@
 id: task-560-721-test-trick-house-e2e
 type: TASK
 title: Implement Gen 3 Trick House E2E Tests
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-11-04'
@@ -16,8 +16,8 @@ tags:
   - gen3
   - tracker
   - e2e
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

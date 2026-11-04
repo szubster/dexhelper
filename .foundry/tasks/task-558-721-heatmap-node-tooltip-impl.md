@@ -2,7 +2,7 @@
 id: task-558-721-heatmap-node-tooltip-impl
 type: TASK
 title: Implement Heatmap Node Hover Tooltip
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-24'
 updated_at: '2026-11-04'
@@ -15,8 +15,8 @@ tags:
   - tooltip
   - heatmap
 research_references: []
-rejection_count: 1
-rejection_reason: 'Session terminated with state: COMPLETED'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

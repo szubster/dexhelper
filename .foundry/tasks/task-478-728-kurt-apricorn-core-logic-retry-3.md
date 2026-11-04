@@ -2,7 +2,7 @@
 id: task-478-728-kurt-apricorn-core-logic-retry-3
 type: TASK
 title: Kurt Apricorn Core Parsing Logic Retry 3
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-11-04'
@@ -14,8 +14,8 @@ parent: story-404-478-kurt-apricorn-parsing-logic
 tags:
   - gen2
   - items
-rejection_count: 1
-rejection_reason: 'Session terminated with state: FAILED'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

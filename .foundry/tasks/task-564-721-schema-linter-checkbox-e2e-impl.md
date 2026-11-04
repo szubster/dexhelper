@@ -2,7 +2,7 @@
 id: task-564-721-schema-linter-checkbox-e2e-impl
 type: TASK
 title: Implement E2E Tests for Schema Linter Checkbox Validation
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-11-04'
@@ -13,8 +13,8 @@ tags:
   - foundry
   - linting
   - e2e
-rejection_count: 0
-rejection_reason: 'Session terminated with state: COMPLETED'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

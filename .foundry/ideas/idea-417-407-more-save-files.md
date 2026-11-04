@@ -2,7 +2,7 @@
 id: idea-417-407-more-save-files
 type: IDEA
 title: 'Idea: Source additional save files for testing'
-status: FAILED
+status: READY
 owner_persona: curator
 created_at: '2026-08-14'
 updated_at: '2026-11-04'
@@ -14,8 +14,8 @@ tags:
   - testing
   - fixtures
 research_references: []
-rejection_count: 1
-rejection_reason: 'Session terminated with state: COMPLETED'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
