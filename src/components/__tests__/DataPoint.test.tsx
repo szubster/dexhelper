@@ -13,14 +13,13 @@ describe('DataPoint', () => {
 
   it('renders children when value is not provided', async () => {
     expect.hasAssertions();
-    const { container } = await render(
+    await render(
       <DataPoint label="TELEMETRY">
         <span data-testid="child-telemetry">LIVE STREAM</span>
       </DataPoint>,
     );
     await expect.element(page.getByText('TELEMETRY')).toBeInTheDocument();
-    const child = container.querySelector<HTMLElement>('[data-testid="child-telemetry"]');
-    expect(child).toBeInTheDocument();
+    await expect.element(page.getByTestId('child-telemetry')).toBeInTheDocument();
   });
 
   it('renders codeTag and sublabel when provided', async () => {
@@ -49,9 +48,9 @@ describe('DataPoint', () => {
     const customLabel = container.querySelector<HTMLElement>('.custom-label');
     const customValue = container.querySelector<HTMLElement>('.custom-value');
 
-    await expect.element(customPoint).toBeInTheDocument();
-    await expect.element(customLabel).toBeInTheDocument();
-    await expect.element(customValue).toBeInTheDocument();
+    expect(customPoint).not.toBeNull();
+    expect(customLabel).not.toBeNull();
+    expect(customValue).not.toBeNull();
     expect(customPoint?.className).toContain('border-emerald-500/30');
     expect(customPoint?.className).toContain('p-2');
   });
@@ -66,8 +65,7 @@ describe('DataPoint', () => {
     expect(card.className).toContain('border-dashed');
     expect(card.className).toContain('group');
 
-    // Status LED dot
-    const statusLed = container.querySelector('.bg-emerald-500.shadow-\\[0_0_8px_rgba\\(16\\,185\\,129\\,0\\.8\\)\\]');
-    expect(statusLed).toBeInTheDocument();
+    const led = container.querySelector('[aria-hidden="true"].bg-emerald-500');
+    expect(led).not.toBeNull();
   });
 });

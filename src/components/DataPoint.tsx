@@ -1,4 +1,3 @@
-import { CornerCrosshairs } from '@dexhelper/ui';
 import { cva, type VariantProps } from 'class-variance-authority';
 import React from 'react';
 import { cn } from '../utils/cn';
@@ -105,6 +104,7 @@ export const DataPoint = React.memo(
     ref,
   ) {
     const selectedVariant = variant || 'default';
+    const crosshairClass = crosshairsVariantStyles[selectedVariant] ?? crosshairsVariantStyles['default'];
 
     return (
       <div ref={ref} className={cn(dataPointVariants({ variant, size, className }))} {...props}>
@@ -115,11 +115,32 @@ export const DataPoint = React.memo(
         <ScanlineOverlay opacityClass="opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none" />
 
         {/* 4-Corner Crosshairs */}
-        <CornerCrosshairs
-          thickness={1}
+        <div
+          aria-hidden="true"
           className={cn(
-            'h-2 w-2 transition-colors duration-300',
-            crosshairsVariantStyles[selectedVariant] ?? crosshairsVariantStyles['default'],
+            'pointer-events-none absolute top-0 left-0 h-2 w-2 border-t border-l transition-colors duration-300',
+            crosshairClass,
+          )}
+        />
+        <div
+          aria-hidden="true"
+          className={cn(
+            'pointer-events-none absolute top-0 right-0 h-2 w-2 border-t border-r transition-colors duration-300',
+            crosshairClass,
+          )}
+        />
+        <div
+          aria-hidden="true"
+          className={cn(
+            'pointer-events-none absolute bottom-0 left-0 h-2 w-2 border-b border-l transition-colors duration-300',
+            crosshairClass,
+          )}
+        />
+        <div
+          aria-hidden="true"
+          className={cn(
+            'pointer-events-none absolute right-0 bottom-0 h-2 w-2 border-r border-b transition-colors duration-300',
+            crosshairClass,
           )}
         />
 
