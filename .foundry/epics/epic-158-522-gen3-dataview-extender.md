@@ -2,13 +2,13 @@
 id: epic-158-522-gen3-dataview-extender
 type: EPIC
 title: Gen 3 DataView Extender Implementation
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-03'
-updated_at: '2026-11-03'
+updated_at: '2026-11-04'
 depends_on:
   - epic-158-521-core-dataview-wrapper
-jules_session_id: null
+jules_session_id: '10381714051482611807'
 pr_number: null
 parent: prd-158-516-dataview-composite-wrapper
 tags:
