@@ -2,12 +2,12 @@
 id: story-707-731-implement-yaml-parsing-utility
 type: STORY
 title: Implement YAML Parsing Utility
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-27'
-updated_at: '2026-10-27'
+updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8615889814773964056'
 pr_number: null
 parent: epic-587-707-yaml-parsing-utility
 tags: []
