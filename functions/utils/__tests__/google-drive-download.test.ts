@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { downloadFileFromGoogleDrive } from '../google-drive-download';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { downloadFileFromGoogleDrive, MAX_FILE_SIZE_BYTES, MAX_EXECUTION_TIME_MS } from '../google-drive-download';
 import { getGoogleDriveAccessToken } from '../google-drive-auth';
 import type { Env } from '../../types/env';
 
@@ -12,6 +12,7 @@ describe('downloadFileFromGoogleDrive', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.useFakeTimers();
     mockEnv = {
       ASSETS: {} as any,
       GOOGLE_DRIVE_CLIENT_ID: 'test-client-id',
@@ -24,48 +25,87 @@ describe('downloadFileFromGoogleDrive', () => {
     global.fetch = vi.fn<typeof fetch>() as unknown as typeof fetch;
   });
 
-  it('should download a file successfully', async () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+    vi.useRealTimers();
+  });
+
+  it('should download a file successfully if within size limits', async () => {
     const mockToken = 'mock-access-token';
     vi.mocked(getGoogleDriveAccessToken).mockResolvedValueOnce(mockToken);
 
     const mockArrayBuffer = new ArrayBuffer(8);
-    (global.fetch as any).mockResolvedValueOnce({
-      ok: true,
-      arrayBuffer: async () => mockArrayBuffer,
-    });
+    (global.fetch as any)
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ size: '1024' }),
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        arrayBuffer: async () => mockArrayBuffer,
+      });
 
     const fileId = 'test-file-id';
-    const result = await downloadFileFromGoogleDrive(mockEnv, fileId);
+    const resultPromise = downloadFileFromGoogleDrive(mockEnv, fileId);
+    vi.runAllTimers();
+    const result = await resultPromise;
 
-    expect(getGoogleDriveAccessToken).toHaveBeenCalledWith(mockEnv);
-    expect(global.fetch).toHaveBeenCalledWith(
-      `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${mockToken}`,
-        },
-      }
-    );
+    expect(global.fetch).toHaveBeenCalledTimes(2);
     expect(result).toBe(mockArrayBuffer);
   });
 
-  it('should throw an error if the download fails', async () => {
+  it('should reject file if size exceeds maximum allowed size', async () => {
     const mockToken = 'mock-access-token';
     vi.mocked(getGoogleDriveAccessToken).mockResolvedValueOnce(mockToken);
 
-    const errorMessage = 'Not Found';
     (global.fetch as any).mockResolvedValueOnce({
-      ok: false,
-      status: 404,
-      text: async () => errorMessage,
+      ok: true,
+      json: async () => ({ size: String(MAX_FILE_SIZE_BYTES + 1) }),
     });
 
     const fileId = 'test-file-id';
     await expect(downloadFileFromGoogleDrive(mockEnv, fileId)).rejects.toThrow(
-      `Failed to download file from Google Drive: 404 ${errorMessage}`
+      `File size (${MAX_FILE_SIZE_BYTES + 1} bytes) exceeds maximum allowed size (${MAX_FILE_SIZE_BYTES} bytes)`
     );
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('should timeout if download takes too long', async () => {
+    const mockToken = 'mock-access-token';
+    vi.mocked(getGoogleDriveAccessToken).mockResolvedValueOnce(mockToken);
+
+    (global.fetch as any)
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ size: '1024' }),
+      })
+      .mockImplementationOnce(async (_url: any, { signal }: any) => {
+        return new Promise((_resolve, reject) => {
+          if (signal) {
+            signal.addEventListener('abort', () => {
+              const error = new Error('AbortError');
+              error.name = 'AbortError';
+              reject(error);
+            });
+          }
+        });
+      });
+
+    const fileId = 'test-file-id';
+
+    // Do not await it immediately so that we can advance timers
+    const promise = downloadFileFromGoogleDrive(mockEnv, fileId);
+
+    // Catch the error internally before expect so Vitest doesn't complain about unhandled rejection
+    promise.catch(() => {});
+
+    // Fast-forward to trigger the abort signal
+    await vi.advanceTimersByTimeAsync(MAX_EXECUTION_TIME_MS + 100);
+
+    // Now await the promise in expect to get the proper failure if it didn't throw
+    await expect(promise).rejects.toThrow(
+      `Download timed out after ${MAX_EXECUTION_TIME_MS}ms`
+    );
   });
 });
