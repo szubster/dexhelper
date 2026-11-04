@@ -172,42 +172,52 @@ test.describe('Pokerus Spread Planner', () => {
     await expect(planner.getByText('Clock approaching midnight. Curing possible.')).toBeVisible();
 
     // Get the first slot (index 0) which is #1
-    const bulbaRow = planner.locator('> div > div').filter({ hasText: '#1' }).first();
+    const bulbaRow = planner.locator('> div > div').filter({ hasText: '#1' });
     await expect(bulbaRow).toBeVisible();
     await expect(bulbaRow).toContainText('BULBASAUR');
     await expect(bulbaRow.locator('.tactical-badge', { hasText: '[PKRS INF: 1D]' })).toBeVisible();
 
-    const ivyRow = planner.locator('> div > div').filter({ hasText: '#2' }).first();
+    const ivyRow = planner.locator('> div > div').filter({ hasText: '#2' });
     await expect(ivyRow).toContainText('IVYSAUR');
     await expect(ivyRow.getByText('[AT RISK]')).toBeVisible();
 
-    const venuRow = planner.locator('> div > div').filter({ hasText: '#3' }).first();
+    const venuRow = planner.locator('> div > div').filter({ hasText: '#3' });
     await expect(venuRow).toContainText('VENUSAUR');
     await expect(venuRow.locator('.tactical-badge', { hasText: '[PKRS CURED]' })).toBeVisible();
 
     // Move Bulbasaur down
-    await bulbaRow.locator('button[title*="down"]').first().click();
+    await expect(
+      bulbaRow.locator('button', { hasText: 'down' }).or(bulbaRow.locator('button[title*="down"]')).first(),
+    ).toBeVisible();
+    await bulbaRow.locator('button', { hasText: 'down' }).or(bulbaRow.locator('button[title*="down"]')).first().click();
 
     // Now Slot 1: Ivysaur, Slot 2: Bulbasaur
-    const newIvyRow = planner.locator('> div > div').filter({ hasText: '#1' }).first();
+    const newIvyRow = planner.locator('> div > div').filter({ hasText: '#1' });
     await expect(newIvyRow).toBeVisible();
     await expect(newIvyRow).toContainText('IVYSAUR');
     await expect(newIvyRow.getByText('[AT RISK]')).toBeVisible();
 
-    const newBulbaRow = planner.locator('> div > div').filter({ hasText: '#2' }).first();
+    const newBulbaRow = planner.locator('> div > div').filter({ hasText: '#2' });
     await expect(newBulbaRow).toBeVisible();
     await expect(newBulbaRow).toContainText('BULBASAUR');
 
     // Move Bulbasaur down again
-    await newBulbaRow.locator('button[title*="down"]').first().click();
+    await expect(
+      newBulbaRow.locator('button', { hasText: 'down' }).or(newBulbaRow.locator('button[title*="down"]')).first(),
+    ).toBeVisible();
+    await newBulbaRow
+      .locator('button', { hasText: 'down' })
+      .or(newBulbaRow.locator('button[title*="down"]'))
+      .first()
+      .click();
 
     // Now Slot 1: Ivysaur, Slot 2: Venusaur, Slot 3: Bulbasaur
-    const finalIvyRow = planner.locator('> div > div').filter({ hasText: '#1' }).first();
+    const finalIvyRow = planner.locator('> div > div').filter({ hasText: '#1' });
     await expect(finalIvyRow).toBeVisible();
     await expect(finalIvyRow).toContainText('IVYSAUR');
     await expect(finalIvyRow.getByText('[AT RISK]')).toBeHidden();
 
-    const finalVenuRow = planner.locator('> div > div').filter({ hasText: '#2' }).first();
+    const finalVenuRow = planner.locator('> div > div').filter({ hasText: '#2' });
     await expect(finalVenuRow).toBeVisible();
     await expect(finalVenuRow).toContainText('VENUSAUR');
   });

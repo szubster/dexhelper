@@ -66,7 +66,7 @@ test.describe('Mock Utils', () => {
     });
 
     await mockOfflineState(page, true);
-
+    await page.waitForTimeout(100); // Allow react state to settle
     const isOffline = await page.evaluate(() => !navigator.onLine);
     const offlineFired = await page.evaluate(() => window.offlineFired);
 
@@ -74,7 +74,7 @@ test.describe('Mock Utils', () => {
     expect(offlineFired).toBe(true);
 
     await mockOfflineState(page, false);
-
+    await page.waitForTimeout(100); // Allow react state to settle
     const isOnline = await page.evaluate(() => navigator.onLine);
     const onlineFired = await page.evaluate(() => window.onlineFired);
 
