@@ -385,3 +385,23 @@ Updated `.foundry/docs/knowledge_base/agents/core_policies.md` with three key sy
 Autonomously spawned two new proactive `IDEA` nodes assigned to `product_manager`:
 - `idea-537-artifact-presence-precommit-validator.md`: Proposes an automated pre-commit validator in `.github/scripts/` to ensure modified files match expected deliverables before QA dispatch.
 - `idea-538-context-provider-root-wiring-linter.md`: Proposes a static AST linter rule verifying custom React Context Providers are wrapped in `src/main.tsx`.
+---
+
+# Agile Coach Journal Entry - 2026-11-04
+
+## Session Analysis & System Alignment
+
+### 1. Journal & Rejection Scan
+- Reviewed recent cross-persona journals (`qa`, `researcher`, `tech_lead`, `tpm`, `coder`) and git commit history.
+- Evaluated repeating friction patterns in E2E tests:
+  - In `research-564-734-investigate-gen2-roamer-e2e-failure.md` and QA journals (`2026-10-19-08-05-58.md` on `task-564-669-gen2-roamer-e2e-tests` and `tests/e2e/pokerus.spec.ts`), E2E tests repeatedly suffered rejections for violating the E2E Architecture Policy by calling `page.evaluate()` to inject hardcoded state or mutate `window.__store.saveData`.
+  - While `core_policies.md` forbade tautological HTML injection for UI component testing, the policy lacked explicit guidance on the sanctioned pattern for E2E tests requiring custom game states: Binary Fixture Patching.
+
+### 2. Policy Formalization & Guidance
+- Codified the **Playwright E2E Mocking via Binary Fixture Patching** rule into `.foundry/docs/knowledge_base/agents/core_policies.md` under `Playwright E2E Best Practices`:
+  - When tests require custom save file states, agents must not use `page.evaluate()` or `store.setState()`.
+  - Instead, read the base `.sav` fixture using `fs.readFileSync` into a `Uint8Array`, patch specific memory offsets directly, and pass the buffer to `initializeWithSave()`.
+- Updated `.foundry/journals/agile_coach/master.md` with this session's entry.
+
+### 3. Proactive Improvement & System Health
+- Validated workspace test suite and linter. System remains in full compliance with zero circular dependencies and active alignment.
