@@ -67,7 +67,8 @@ test.describe('Mock Utils', () => {
 
     await mockOfflineState(page, true);
 
-    await page.waitForFunction(() => window.offlineFired === true, { timeout: 5000 });
+    // Let the browser context process the offline state change
+    await page.waitForTimeout(50);
     const isOffline = await page.evaluate(() => !navigator.onLine);
     const offlineFired = await page.evaluate(() => window.offlineFired);
 
@@ -76,6 +77,7 @@ test.describe('Mock Utils', () => {
 
     await mockOfflineState(page, false);
 
+    await page.waitForTimeout(50);
     const isOnline = await page.evaluate(() => navigator.onLine);
     const onlineFired = await page.evaluate(() => window.onlineFired);
 
