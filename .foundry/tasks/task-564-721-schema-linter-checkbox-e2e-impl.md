@@ -2,12 +2,12 @@
 id: task-564-721-schema-linter-checkbox-e2e-impl
 type: TASK
 title: Implement E2E Tests for Schema Linter Checkbox Validation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5936150732622770291'
 parent: story-552-564-schema-linter-checkbox-e2e
 tags:
   - foundry
