@@ -35,8 +35,13 @@ Implement a UI filter that allows users to toggle or see which items on the curr
 - [x] task-574-691-item-gating-ui-state
 - [x] task-574-692-item-gating-ui-tests
 - [x] task-574-693-item-gating-ui-qa
-- [ ] research-574-712-investigate-item-gating-ui-failure
-- [ ] task-574-713-item-gating-ui-components-retry
-- [ ] task-574-714-item-gating-ui-state-retry
-- [ ] task-574-715-item-gating-ui-tests-retry
-- [ ] task-574-716-item-gating-ui-qa-retry
+- [x] research-574-712-investigate-item-gating-ui-failure
+- [x] task-574-713-item-gating-ui-components-retry
+- [x] task-574-714-item-gating-ui-state-retry
+- [x] task-574-715-item-gating-ui-tests-retry
+- [x] task-574-716-item-gating-ui-qa-retry
+- [ ] research-574-740-investigate-item-gating-ui-failure-retry
+- [ ] task-574-741-item-gating-ui-components-retry-2
+- [ ] task-574-742-item-gating-ui-state-retry-2
+- [ ] task-574-743-item-gating-ui-tests-retry-2
+- [ ] task-574-744-item-gating-ui-qa-retry-2
