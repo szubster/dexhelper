@@ -39,5 +39,8 @@ Following the research on Acceptance Criteria usage (`research-534-517-audit-acc
    - Introduce pre-commit hook or CI check automation to validate formatting.
 
 ## Acceptance Criteria
-- [ ] task-726-727-orchestrator-parsing
+- [x] task-726-727-orchestrator-parsing
 - [ ] task-726-728-ci-check
+
+- [ ] research-726-740-investigate-orchestrator-parsing-failure
+- [ ] task-726-741-orchestrator-parsing-retry
