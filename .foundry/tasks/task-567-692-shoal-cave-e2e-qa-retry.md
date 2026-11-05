@@ -2,13 +2,13 @@
 id: task-567-692-shoal-cave-e2e-qa-retry
 type: TASK
 title: Retry QA Playwright E2E Tests for Shoal Cave Dashboard
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-16T12:54:07.509Z'
-updated_at: '2026-11-02'
+updated_at: '2026-11-05'
 depends_on:
   - task-567-691-shoal-cave-e2e-coder-retry
-jules_session_id: null
+jules_session_id: '14174019376019483492'
 pr_number: null
 parent: story-412-567-shoal-cave-e2e-verification
 tags:
