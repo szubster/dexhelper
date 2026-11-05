@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-04T22:17:11.060Z*
+*Generated at: 2026-11-05T02:55:48.756Z*
 
 ## Node Statistics
 
@@ -19,21 +19,21 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3579 |
-| ACTIVE | 100 |
+| ACTIVE | 111 |
 | CANCELLED | 956 |
 | PENDING | 836 |
-| READY | 68 |
+| READY | 55 |
 | BLOCKED | 14 |
-| FAILED | 4 |
+| FAILED | 6 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 127 |
-| Merged PRs | 8786 |
-| Closed PRs | 1087 |
+| Open PRs | 137 |
+| Merged PRs | 8777 |
+| Closed PRs | 1086 |
 
 ## Rejection Counts
 
@@ -302,6 +302,7 @@
 | task-561-669-spinda-rendering-ui.md | 3 |
 | task-561-680-orchestrator-dag-graphology-impl.md | 3 |
 | task-561-690-pokerus-spread-planner-e2e-impl.md | 3 |
+| task-561-706-orchestrator-engine-tests-retry.md | 3 |
 | task-562-579-gen2-wild-item-extraction-logic-impl.md | 3 |
 | task-562-579-wild-item-selection-ui.md | 3 |
 | task-562-582-gen2-moms-savings-ui.md | 3 |
@@ -362,6 +363,7 @@
 | task-674-700-migrate-pokedex-e2e-tests-coder.md | 3 |
 | task-676-712-fuzzer-deadlock-assertions-impl.md | 3 |
 | task-676-729-fuzzer-deadlock-assertions-impl-v3.md | 3 |
+| task-677-714-wonder-card-integration-impl.md | 3 |
 | task-679-712-pokeblock-dashboard-ui-impl.md | 3 |
 | task-703-704-orchestrator-badge-injection-impl-retry.md | 3 |
 | task-707-716-impl-validator-parsing.md | 3 |
@@ -534,6 +536,7 @@
 | task-520-551-gen2-constants-qa.md | 2 |
 | task-521-528-statistics-e2e.md | 2 |
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
+| task-522-713-wip-awareness-e2e-orchestrator-tests-retry.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-527-675-drive-webhook-qa.md | 2 |
 | task-533-677-savedatareader-e2e-tests.md | 2 |
@@ -552,7 +555,6 @@
 | task-558-721-heatmap-node-tooltip-impl.md | 2 |
 | task-560-569-evaluate-state-machine-libraries.md | 2 |
 | task-560-575-pokerus-spread-planner-qa.md | 2 |
-| task-561-706-orchestrator-engine-tests-retry.md | 2 |
 | task-562-576-item-selection-route-e2e-impl.md | 2 |
 | task-562-576-schema-linter-checkbox-logic-impl.md | 2 |
 | task-562-594-gen3-missed-items-extraction-logic.md | 2 |
@@ -576,7 +578,6 @@
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
-| task-677-714-wonder-card-integration-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -958,6 +959,7 @@
 | task-422-496-gen3-static-encounters-e2e-impl.md | 1 |
 | task-423-469-gen3-ai-data-e2e-fixtures-impl.md | 1 |
 | task-423-472-gen3-ai-data-e2e-qa.md | 1 |
+| task-424-713-gen3-lottery-e2e-tests-retry-2.md | 1 |
 | task-428-438-extract-core-data-qa.md | 1 |
 | task-432-449-qa-controls.md | 1 |
 | task-433-447-migrate-segmented-controls-impl.md | 1 |
@@ -1028,7 +1030,6 @@
 | task-522-529-update-root-package-json.md | 1 |
 | task-522-668-quota-handling-impl.md | 1 |
 | task-522-684-wip-awareness-e2e-agent-tests.md | 1 |
-| task-522-713-wip-awareness-e2e-orchestrator-tests-retry.md | 1 |
 | task-522-713-wip-signaling-e2e-tests-retry.md | 1 |
 | task-524-568-setup-oxlint-rules.md | 1 |
 | task-524-676-living-dex-ghosts-types.md | 1 |
