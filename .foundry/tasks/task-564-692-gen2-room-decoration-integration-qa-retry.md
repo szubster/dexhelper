@@ -2,13 +2,13 @@
 id: task-564-692-gen2-room-decoration-integration-qa-retry
 type: TASK
 title: Gen 2 Room Decoration Integration QA Retry
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-16T12:42:28.325Z'
-updated_at: '2026-11-02'
+updated_at: '2026-11-05'
 depends_on:
   - task-564-691-gen2-room-decoration-e2e-tests-retry
-jules_session_id: null
+jules_session_id: '14239881714246810802'
 parent: story-313-564-gen2-room-decoration-integration-e2e
 tags:
   - e2e
