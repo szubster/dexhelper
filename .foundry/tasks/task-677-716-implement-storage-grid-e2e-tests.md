@@ -32,5 +32,5 @@ Ensure that StorageGrid properly integrates and passes its end-to-end integratio
 2. Write tests that ensure the StorageGrid renders correctly, items can be selected, and it integrates well in a complete flow.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for StorageGrid
-- [ ] Ensure `pnpm test:e2e` passes successfully
+- [x] Implement Playwright E2E tests for StorageGrid
+- [x] Ensure `pnpm test:e2e` passes successfully
