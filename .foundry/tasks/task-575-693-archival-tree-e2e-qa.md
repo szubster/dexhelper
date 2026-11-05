@@ -2,14 +2,14 @@
 id: task-575-693-archival-tree-e2e-qa
 type: TASK
 title: Archival Tree Evaluation E2E Verification QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-16T21:02:21.588Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-05'
 depends_on:
   - task-575-691-archival-tree-completeness-e2e-tests
   - task-575-692-archival-file-move-e2e-tests
-jules_session_id: null
+jules_session_id: '11503227848074420861'
 pr_number: null
 parent: story-550-575-archival-tree-evaluation-e2e
 tags:
