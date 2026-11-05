@@ -34,6 +34,6 @@ QA the end-to-end tests for the Shoal Cave UI Dashboard, validating the retry im
 - Run the E2E tests specifically using `xvfb-run -a pnpm test:e2e tests/e2e/shoal-cave-dashboard.spec.ts`.
 
 ## Acceptance Criteria
-- [ ] Review the Playwright E2E test file for correctness and coverage.
-- [ ] Verify tests pass in both desktop and mobile contexts.
-- [ ] Verify there are no regressions via `pnpm lint` and `pnpm test`.
+- [x] Review the Playwright E2E test file for correctness and coverage.
+- [x] Verify tests pass in both desktop and mobile contexts.
+- [x] Verify there are no regressions via `pnpm lint` and `pnpm test`.
