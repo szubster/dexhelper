@@ -26,6 +26,6 @@ locks: []
 Ensure that the Playwright E2E tests for the Gen 2 parsers (Gold/Silver and Crystal) are robust and verify the correct application behavior as per ADR 028 requirements.
 
 ## Acceptance Criteria
-- [ ] Verify that `task-522-712-gen2-gs-parser-e2e-impl` and `task-522-713-gen2-crystal-parser-e2e-impl` have been completed successfully.
-- [ ] Confirm E2E test reliability by ensuring there is no flakiness.
-- [ ] Ensure the tests comprehensively cover the Gen 2 parsing paths and UI rendering.
+- [x] Verify that `task-522-712-gen2-gs-parser-e2e-impl` and `task-522-713-gen2-crystal-parser-e2e-impl` have been completed successfully.
+- [x] Confirm E2E test reliability by ensuring there is no flakiness.
+- [x] Ensure the tests comprehensively cover the Gen 2 parsing paths and UI rendering.
