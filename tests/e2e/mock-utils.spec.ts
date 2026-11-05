@@ -51,7 +51,7 @@ test.describe('Mock Utils', () => {
 
   test('mockOfflineState should set offline status and trigger events', async ({ page }) => {
     await page.goto('/');
-    await page.waitForLoadState('domcontentloaded');
+    await page.waitForLoadState('load');
 
     // Set up event listeners
     await page.evaluate(() => {
