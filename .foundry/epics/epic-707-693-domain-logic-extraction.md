@@ -34,4 +34,7 @@ Extract inline business calculations and domain logic from the monolithic `src/s
 4. When breaking down this Epic into Stories, the Story Owner MUST generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into Stories.
+- [x] Break down this Epic into Stories.
+- [ ] story-693-737-identify-store-domain-logic
+- [ ] story-693-738-extract-store-domain-utilities
+- [ ] story-693-739-store-domain-logic-e2e
