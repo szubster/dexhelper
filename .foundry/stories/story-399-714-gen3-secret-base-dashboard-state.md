@@ -32,4 +32,9 @@ Players need a dedicated dashboard to view the NPC trainer data extracted from m
 - Provide data for NPC trainer data, EV yields, team composition, and daily rematch tracking.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Decompose this story into implementation tasks.
+- [x] Tech Lead: Decompose this story into implementation tasks.
+- [ ] task-714-740-gen3-secret-base-state-types
+- [ ] task-714-741-gen3-secret-base-state-context
+- [ ] task-714-742-gen3-secret-base-state-provider
+- [ ] task-714-743-gen3-secret-base-state-integration
+- [ ] task-714-744-gen3-secret-base-state-qa
