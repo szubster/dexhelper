@@ -17,7 +17,8 @@ export interface DagTreeItemProps {
   children?: React.ReactNode;
 }
 
-export function DagTreeItem({
+// ⚡ Bolt: Wrapped DagTreeItem in React.memo to prevent unnecessary DOM re-evaluations and cascading subtree renders during DAG pan/zoom and filter updates.
+export const DagTreeItem = React.memo(function DagTreeItem({
   nodeId,
   label,
   status,
@@ -103,4 +104,4 @@ export function DagTreeItem({
       {hasChildren && isExpanded && <ul className="ml-3 border-l border-dashed border-zinc-700 pl-6">{children}</ul>}
     </li>
   );
-}
+});
