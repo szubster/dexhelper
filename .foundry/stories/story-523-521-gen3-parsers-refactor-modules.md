@@ -35,8 +35,12 @@ Following the core refactoring, this story addresses the refactoring of Gen 3 su
 - [x] task-521-677-gen3-submodules-logic-impl
 - [x] task-521-678-gen3-submodules-tests-impl
 - [x] task-521-679-gen3-submodules-qa
-- [ ] research-521-703-gen3-submodules-constants-failure
-- [ ] task-521-704-gen3-submodules-constants-impl-retry
-- [ ] task-521-705-gen3-submodules-logic-impl-retry
-- [ ] task-521-706-gen3-submodules-tests-impl-retry
-- [ ] task-521-707-gen3-submodules-qa-retry
+- [x] research-521-703-gen3-submodules-constants-failure
+- [x] task-521-704-gen3-submodules-constants-impl-retry
+- [x] task-521-705-gen3-submodules-logic-impl-retry
+- [x] task-521-706-gen3-submodules-tests-impl-retry
+- [x] task-521-707-gen3-submodules-qa-retry
+- [ ] research-521-740-gen3-submodules-logic-failure
+- [ ] task-521-741-gen3-submodules-logic-impl-retry-v2
+- [ ] task-521-742-gen3-submodules-tests-impl-retry-v2
+- [ ] task-521-743-gen3-submodules-qa-retry-v2
