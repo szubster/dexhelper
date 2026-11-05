@@ -27,4 +27,5 @@ Define the new `archivist` (or `librarian`) persona prompt in `.github/agents/ar
 ## Acceptance Criteria
 - [ ] Create `.github/agents/archivist.md` (or generic equivalent).
 - [ ] Define the base prompt specifying responsibilities for archival cleanup.
-- [ ] Tech Lead: Break this Story down into Tasks.
+- [x] Tech Lead: Break this Story down into Tasks.
+- [ ] task-728-740-create-archivist-persona
