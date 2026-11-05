@@ -2,13 +2,13 @@
 id: task-618-690-multi-box-ev-filters-qa
 type: TASK
 title: 'QA: Multi-Box EV Filters'
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-14'
 updated_at: '2026-11-05'
 depends_on:
   - task-618-689-multi-box-ev-filters-tests
-jules_session_id: '2325484493937005931'
+jules_session_id: null
 pr_number: null
 parent: story-575-618-multi-box-ev-filters
 tags:

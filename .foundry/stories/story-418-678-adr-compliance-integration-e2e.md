@@ -2,10 +2,10 @@
 id: story-418-678-adr-compliance-integration-e2e
 type: STORY
 title: ADR Compliance Integration E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-16T21:05:41.924Z'
-updated_at: '2026-10-17'
+updated_at: '2026-11-05'
 depends_on:
   - story-418-676-adr-compliance-package-scripts
   - story-418-677-adr-compliance-lefthook-integration

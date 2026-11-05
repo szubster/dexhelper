@@ -2,10 +2,10 @@
 id: story-136-620-gen1-static-encounters-e2e
 type: STORY
 title: E2E Verification for Gen 1 Static Encounters
-status: PENDING
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-24'
-updated_at: '2026-10-18'
+updated_at: '2026-11-05'
 depends_on:
   - story-136-330-gen1-checklist-ui-retry
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - gen1
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
+  TASK nodes
 notes: ''
 locks: []
 ---
@@ -32,6 +34,6 @@ As per the Orchestrator Safeguard, this story ensures that the feature works cor
 
 ## Acceptance Criteria
 - [x] Break down this story into a task to implement E2E tests for Gen 1 Static Encounters.
-- [ ] task-620-687-gen1-static-encounters-e2e-coder
+- [x] task-620-687-gen1-static-encounters-e2e-coder
 - [x] Break down this story into a task to QA the E2E tests.
-- [ ] task-620-688-gen1-static-encounters-e2e-qa
+- [x] task-620-688-gen1-static-encounters-e2e-qa

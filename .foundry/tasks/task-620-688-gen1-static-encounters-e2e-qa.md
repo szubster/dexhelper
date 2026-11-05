@@ -2,13 +2,13 @@
 id: task-620-688-gen1-static-encounters-e2e-qa
 type: TASK
 title: QA Gen 1 Static Encounters E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-14'
 updated_at: '2026-11-05'
 depends_on:
   - task-620-687-gen1-static-encounters-e2e-coder
-jules_session_id: '1483252039952399006'
+jules_session_id: null
 pr_number: null
 parent: story-136-620-gen1-static-encounters-e2e
 tags:

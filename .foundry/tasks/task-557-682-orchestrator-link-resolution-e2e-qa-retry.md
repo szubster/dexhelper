@@ -2,7 +2,7 @@
 id: task-557-682-orchestrator-link-resolution-e2e-qa-retry
 type: TASK
 title: Orchestrator Link Resolution E2E Tests QA Retry
-status: FAILED
+status: READY
 owner_persona: qa
 created_at: '2026-10-12'
 updated_at: '2026-11-05'
@@ -11,8 +11,8 @@ depends_on:
 jules_session_id: null
 pr_number: null
 parent: story-551-557-integration-e2e-verification
-rejection_count: 0
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

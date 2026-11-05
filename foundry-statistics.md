@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-05T11:40:02.529Z*
+*Generated at: 2026-11-05T19:07:30.401Z*
 
 ## Node Statistics
 
@@ -18,11 +18,11 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3581 |
-| ACTIVE | 122 |
-| CANCELLED | 960 |
-| PENDING | 832 |
-| READY | 44 |
+| COMPLETED | 3591 |
+| ACTIVE | 126 |
+| CANCELLED | 965 |
+| PENDING | 824 |
+| READY | 33 |
 | BLOCKED | 14 |
 | FAILED | 4 |
 
@@ -31,8 +31,8 @@
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 149 |
-| Merged PRs | 8768 |
+| Open PRs | 153 |
+| Merged PRs | 8764 |
 | Closed PRs | 1083 |
 
 ## Rejection Counts
@@ -503,6 +503,7 @@
 | task-422-590-pc-box-extraction-logic.md | 2 |
 | task-423-470-gen3-ai-data-e2e-extraction-tests-impl.md | 2 |
 | task-424-440-integrate-gen3-fixtures-impl.md | 2 |
+| task-424-713-gen3-lottery-e2e-tests-retry-2.md | 2 |
 | task-425-489-fixtures-integration-e2e-impl.md | 2 |
 | task-428-436-refactor-core-data-generation.md | 2 |
 | task-433-489-save-state-read-write-api-e2e-impl.md | 2 |
@@ -961,7 +962,6 @@
 | task-422-496-gen3-static-encounters-e2e-impl.md | 1 |
 | task-423-469-gen3-ai-data-e2e-fixtures-impl.md | 1 |
 | task-423-472-gen3-ai-data-e2e-qa.md | 1 |
-| task-424-713-gen3-lottery-e2e-tests-retry-2.md | 1 |
 | task-428-438-extract-core-data-qa.md | 1 |
 | task-432-449-qa-controls.md | 1 |
 | task-433-447-migrate-segmented-controls-impl.md | 1 |
@@ -1071,6 +1071,7 @@
 | task-555-682-gen3-pk3-e2e-tests-impl.md | 1 |
 | task-557-581-orchestrator-link-resolution-fixtures.md | 1 |
 | task-557-681-orchestrator-link-resolution-e2e-impl-retry.md | 1 |
+| task-557-682-orchestrator-link-resolution-e2e-qa-retry.md | 1 |
 | task-558-564-scheduled-workflows-batch1-impl.md | 1 |
 | task-559-680-battle-frontier-data-e2e-tests.md | 1 |
 | task-559-708-search-extraction-qa-v2.md | 1 |
