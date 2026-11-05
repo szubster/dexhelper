@@ -30,7 +30,7 @@ locks: []
 Provide QA verification for the archival tree evaluation and file move Playwright E2E tests.
 
 ## Acceptance Criteria
-- [ ] Verify E2E tests correctly cover the test harness setup and teardown
-- [ ] Verify parent/descendant chain completeness logic tests are robust and deterministic
-- [ ] Verify archival file move tests preserve subdirectory structures
-- [ ] Confirm tests run in isolation and do not affect the main repository state
+- [x] Verify E2E tests correctly cover the test harness setup and teardown
+- [x] Verify parent/descendant chain completeness logic tests are robust and deterministic
+- [x] Verify archival file move tests preserve subdirectory structures
+- [x] Confirm tests run in isolation and do not affect the main repository state
