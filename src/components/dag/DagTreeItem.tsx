@@ -60,9 +60,15 @@ export function DagTreeItem({
       break;
   }
 
+  let tooltipTitle = undefined;
+  if (showHeatmap && heatmapSeverity !== 'none') {
+    tooltipTitle = `Metric: ${rejectionCount}`;
+  }
+
   return (
     <li className="list-none">
       <div
+        title={tooltipTitle}
         className={cn(
           'mb-1 flex items-center gap-2 rounded-none border border-dashed p-2 font-mono text-sm transition-colors',
           showHeatmap && heatmapClass

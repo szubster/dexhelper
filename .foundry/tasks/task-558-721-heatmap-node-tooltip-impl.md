@@ -36,5 +36,5 @@ Currently, the nodes are colored based on the heatmap severity, but users cannot
 *   Attach this constructed string to the root `div`'s `title` attribute. If the tooltip string is empty (heatmap off or no metric), omit the `title` attribute or set it to undefined to prevent empty tooltips.
 
 ## Acceptance Criteria
-- [ ] DagNode displays a `title` attribute on hover containing the metric value when `showHeatmap` is active.
-- [ ] No tooltip is displayed regarding the heatmap metric when the heatmap is disabled.
+- [x] DagNode displays a `title` attribute on hover containing the metric value when `showHeatmap` is active.
+- [x] No tooltip is displayed regarding the heatmap metric when the heatmap is disabled.
