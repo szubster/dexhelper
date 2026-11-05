@@ -25,4 +25,8 @@ locks: []
 Develop forecasting logic to calculate and determine future events beyond the current day.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-715-740-gen2-forecasting-types
+- [ ] task-715-741-gen2-forecasting-core
+- [ ] task-715-742-gen2-forecasting-tests
+- [ ] task-715-743-gen2-forecasting-qa
