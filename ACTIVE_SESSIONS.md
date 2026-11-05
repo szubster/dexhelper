@@ -4,6 +4,7 @@
 | --- | --- | --- | --- | --- |
 | [epic-158-522-gen3-dataview-extender](.foundry/epics/epic-158-522-gen3-dataview-extender.md) | EPIC | Gen 3 DataView Extender Implementation | story_owner | [10381714051482611807](https://jules.google.com/session/10381714051482611807) |
 | [epic-587-693-core-diagnostic-report-subsystem](.foundry/epics/epic-587-693-core-diagnostic-report-subsystem.md) | EPIC | Core Diagnostic Report Subsystem | story_owner | [12420462552620102119](https://jules.google.com/session/12420462552620102119) |
+| [epic-707-693-domain-logic-extraction](.foundry/epics/epic-707-693-domain-logic-extraction.md) | EPIC | Extract Domain Logic from Store Action Setters | story_owner | [11222266880508332653](https://jules.google.com/session/11222266880508332653) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
