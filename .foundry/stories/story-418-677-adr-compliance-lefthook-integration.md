@@ -2,12 +2,12 @@
 id: story-418-677-adr-compliance-lefthook-integration
 type: STORY
 title: Integrate ADR Compliance with Lefthook
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-16T21:05:41.924Z'
-updated_at: '2026-11-01'
+updated_at: '2026-11-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5935250917547066760'
 pr_number: null
 parent: epic-142-418-automated-adr-compliance-ci-integration
 tags:
