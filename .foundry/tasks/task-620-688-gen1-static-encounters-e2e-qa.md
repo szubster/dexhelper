@@ -31,6 +31,6 @@ Verify the E2E tests implemented for Gen 1 Static Encounters.
 This task ensures that the E2E tests created by the coder are robust, correct, and adequately cover the integration between parsing and the UI.
 
 ## Acceptance Criteria
-- [ ] Review and verify the E2E tests for Gen 1 Static Encounters.
-- [ ] Ensure tests pass correctly on GitHub CI or locally via `xvfb-run -a pnpm test:e2e`.
-- [ ] Confirm no `.catch()` is used for assertions and that Playwright best practices are followed.
+- [x] Review and verify the E2E tests for Gen 1 Static Encounters.
+- [x] Ensure tests pass correctly on GitHub CI or locally via `xvfb-run -a pnpm test:e2e`.
+- [x] Confirm no `.catch()` is used for assertions and that Playwright best practices are followed.
