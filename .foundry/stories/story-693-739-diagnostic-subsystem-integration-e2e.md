@@ -4,8 +4,8 @@ type: STORY
 title: Diagnostic Subsystem Integration and E2E Verification
 status: READY
 owner_persona: tech_lead
-created_at: "2026-11-04T22:54:29.331Z"
-updated_at: "2026-11-04"
+created_at: "2026-11-05T00:38:52.769Z"
+updated_at: "2026-11-05"
 depends_on:
   - story-693-738-diagnostic-collector-utility
 jules_session_id: null
