@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-04T22:17:11.060Z*
+*Generated at: 2026-11-05T19:07:30.401Z*
 
 ## Node Statistics
 
@@ -18,11 +18,11 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3579 |
-| ACTIVE | 100 |
-| CANCELLED | 956 |
-| PENDING | 836 |
-| READY | 68 |
+| COMPLETED | 3591 |
+| ACTIVE | 126 |
+| CANCELLED | 965 |
+| PENDING | 824 |
+| READY | 33 |
 | BLOCKED | 14 |
 | FAILED | 4 |
 
@@ -31,9 +31,9 @@
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 127 |
-| Merged PRs | 8786 |
-| Closed PRs | 1087 |
+| Open PRs | 153 |
+| Merged PRs | 8764 |
+| Closed PRs | 1083 |
 
 ## Rejection Counts
 
@@ -196,6 +196,7 @@
 | task-403-486-playwright-e2e-retry-impl.md | 3 |
 | task-403-535-playwright-e2e-retry-impl-v2.md | 3 |
 | task-403-674-playwright-e2e-retry-impl-v4.md | 3 |
+| task-403-722-playwright-e2e-retry-impl-v5.md | 3 |
 | task-405-416-gen3-mixed-record-parser-impl.md | 3 |
 | task-406-528-gen3-rematch-e2e-impl.md | 3 |
 | task-407-668-e2e-base-location-parsing.md | 3 |
@@ -248,6 +249,7 @@
 | task-478-688-orchestrator-cloning-logic-retry-4.md | 3 |
 | task-478-717-orchestrator-cloning-logic-retry-5.md | 3 |
 | task-478-718-orchestrator-prompt-adaptation-retry-5.md | 3 |
+| task-478-728-kurt-apricorn-core-logic-retry-3.md | 3 |
 | task-479-576-gen3-pokeblock-e2e-impl.md | 3 |
 | task-479-676-gen2-unown-dex-e2e-tests.md | 3 |
 | task-479-700-gen2-unown-dex-e2e-coder.md | 3 |
@@ -302,6 +304,7 @@
 | task-561-669-spinda-rendering-ui.md | 3 |
 | task-561-680-orchestrator-dag-graphology-impl.md | 3 |
 | task-561-690-pokerus-spread-planner-e2e-impl.md | 3 |
+| task-561-706-orchestrator-engine-tests-retry.md | 3 |
 | task-562-579-gen2-wild-item-extraction-logic-impl.md | 3 |
 | task-562-579-wild-item-selection-ui.md | 3 |
 | task-562-582-gen2-moms-savings-ui.md | 3 |
@@ -362,6 +365,7 @@
 | task-674-700-migrate-pokedex-e2e-tests-coder.md | 3 |
 | task-676-712-fuzzer-deadlock-assertions-impl.md | 3 |
 | task-676-729-fuzzer-deadlock-assertions-impl-v3.md | 3 |
+| task-677-714-wonder-card-integration-impl.md | 3 |
 | task-679-712-pokeblock-dashboard-ui-impl.md | 3 |
 | task-703-704-orchestrator-badge-injection-impl-retry.md | 3 |
 | task-707-716-impl-validator-parsing.md | 3 |
@@ -486,7 +490,6 @@
 | task-340-342-gen3-safari-zone-state-qa.md | 2 |
 | task-349-380-gen3-spinda-extraction-impl.md | 2 |
 | task-359-441-gen3-trainer-card-parsing-e2e-qa.md | 2 |
-| task-403-722-playwright-e2e-retry-impl-v5.md | 2 |
 | task-405-415-gen3-mixed-record-types-impl.md | 2 |
 | task-405-485-gen3-mixed-record-parser-impl-v2.md | 2 |
 | task-408-430-gen1-tm-hm-parsing-impl.md | 2 |
@@ -500,6 +503,7 @@
 | task-422-590-pc-box-extraction-logic.md | 2 |
 | task-423-470-gen3-ai-data-e2e-extraction-tests-impl.md | 2 |
 | task-424-440-integrate-gen3-fixtures-impl.md | 2 |
+| task-424-713-gen3-lottery-e2e-tests-retry-2.md | 2 |
 | task-425-489-fixtures-integration-e2e-impl.md | 2 |
 | task-428-436-refactor-core-data-generation.md | 2 |
 | task-433-489-save-state-read-write-api-e2e-impl.md | 2 |
@@ -522,7 +526,6 @@
 | task-478-619-msgpack-prefetch-qa.md | 2 |
 | task-478-677-aggregate-active-locks-retry-2.md | 2 |
 | task-478-679-resolve-phase-locking-qa-retry-2.md | 2 |
-| task-478-728-kurt-apricorn-core-logic-retry-3.md | 2 |
 | task-490-502-render-persona-badges-impl.md | 2 |
 | task-495-550-hof-export-image-renderer.md | 2 |
 | task-513-689-update-orchestrator-tests.md | 2 |
@@ -534,6 +537,7 @@
 | task-520-551-gen2-constants-qa.md | 2 |
 | task-521-528-statistics-e2e.md | 2 |
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
+| task-522-713-wip-awareness-e2e-orchestrator-tests-retry.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-527-675-drive-webhook-qa.md | 2 |
 | task-533-677-savedatareader-e2e-tests.md | 2 |
@@ -552,7 +556,6 @@
 | task-558-721-heatmap-node-tooltip-impl.md | 2 |
 | task-560-569-evaluate-state-machine-libraries.md | 2 |
 | task-560-575-pokerus-spread-planner-qa.md | 2 |
-| task-561-706-orchestrator-engine-tests-retry.md | 2 |
 | task-562-576-item-selection-route-e2e-impl.md | 2 |
 | task-562-576-schema-linter-checkbox-logic-impl.md | 2 |
 | task-562-594-gen3-missed-items-extraction-logic.md | 2 |
@@ -571,12 +574,12 @@
 | task-575-716-implement-heatmap-e2e-tests.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
+| task-619-713-multi-box-stat-filters-e2e-tests-retry.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
 | task-639-722-migrate-buttons-impl-v5.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
-| task-677-714-wonder-card-integration-impl.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -816,6 +819,7 @@
 | prd-540-727-multi-save-diffing-and-trade-simulation.md | 1 |
 | research-047-586-tv-swarm-extraction-failure.md | 1 |
 | research-246-244-gen3-box-parsing.md | 1 |
+| research-336-712-investigate-runtime-interfaces-keys-failure-v3.md | 1 |
 | research-338-556-investigate-unown-parsing-timeout.md | 1 |
 | research-348-506-investigate-ui-impl-failure.md | 1 |
 | research-360-568-investigate-gen3-roamer-e2e-failure-v2.md | 1 |
@@ -1028,7 +1032,6 @@
 | task-522-529-update-root-package-json.md | 1 |
 | task-522-668-quota-handling-impl.md | 1 |
 | task-522-684-wip-awareness-e2e-agent-tests.md | 1 |
-| task-522-713-wip-awareness-e2e-orchestrator-tests-retry.md | 1 |
 | task-522-713-wip-signaling-e2e-tests-retry.md | 1 |
 | task-524-568-setup-oxlint-rules.md | 1 |
 | task-524-676-living-dex-ghosts-types.md | 1 |
@@ -1068,6 +1071,7 @@
 | task-555-682-gen3-pk3-e2e-tests-impl.md | 1 |
 | task-557-581-orchestrator-link-resolution-fixtures.md | 1 |
 | task-557-681-orchestrator-link-resolution-e2e-impl-retry.md | 1 |
+| task-557-682-orchestrator-link-resolution-e2e-qa-retry.md | 1 |
 | task-558-564-scheduled-workflows-batch1-impl.md | 1 |
 | task-559-680-battle-frontier-data-e2e-tests.md | 1 |
 | task-559-708-search-extraction-qa-v2.md | 1 |
@@ -1113,7 +1117,6 @@
 | task-618-688-multi-box-ev-filters-logic.md | 1 |
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
-| task-619-713-multi-box-stat-filters-e2e-tests-retry.md | 1 |
 | task-620-687-gen1-static-encounters-e2e-coder.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |

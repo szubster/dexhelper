@@ -2,10 +2,10 @@
 id: story-112-403-integration-e2e
 type: STORY
 title: Integration and E2E Verification
-status: PENDING
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-05'
-updated_at: '2026-10-31'
+updated_at: '2026-11-05'
 depends_on:
   - story-112-401-gen2-dv-extraction
   - story-112-402-gen3-iv-pv-extraction
@@ -18,7 +18,7 @@ tags:
   - e2e
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
