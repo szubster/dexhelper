@@ -28,5 +28,5 @@ Verify the integration and E2E tests for the Gen 2 Room Decoration Viewer.
 - Run tests and ensure no regressions.
 
 ## Acceptance Criteria
-- [ ] Verify routing integration
-- [ ] Verify E2E tests pass and cover requirements
+- [x] Verify routing integration
+- [x] Verify E2E tests pass and cover requirements
