@@ -931,8 +931,7 @@ function main(): void {
       }
 
       if (dep && (dep.frontmatter.status === 'DRAFT' || dep.frontmatter.status === 'WIP')) {
-        warn(`Dependency '${depRef}' is marked as ${dep.frontmatter.status} for ${node.frontmatter.status} node: ${node.repoPath}`);
-        hasUnresolvableDeps = true;
+        info(`Dependency '${depRef}' is marked as ${dep.frontmatter.status} for ${node.frontmatter.status} node: ${node.repoPath}`);
         shouldSuspend = true;
         break;
       }
@@ -1268,8 +1267,7 @@ function main(): void {
       }
 
       if (dep && (dep.frontmatter.status === 'DRAFT' || dep.frontmatter.status === 'WIP')) {
-        warn(`Dependency '${depRef}' is marked as ${dep.frontmatter.status} for ${node.frontmatter.status} node: ${node.repoPath}`);
-        hasUnresolvableDeps = true;
+        info(`Dependency '${depRef}' is marked as ${dep.frontmatter.status} for ${node.frontmatter.status} node: ${node.repoPath}`);
         blocked = true;
         break;
       }
