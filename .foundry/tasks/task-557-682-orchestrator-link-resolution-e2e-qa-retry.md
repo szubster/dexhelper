@@ -25,3 +25,6 @@ Perform Quality Assurance verification on the newly implemented Orchestrator Mar
 ## Acceptance Criteria
 - [ ] Run the E2E tests and ensure they pass successfully.
 - [ ] Verify that test coverage meets the requirements and that fixtures are adequately utilized.
+
+### QA Rejection
+The integration tests (`orchestrator_link_resolution_e2e_impl_retry.spec.ts` or similar) for link resolution were not created or delivered by the coder. This violates the Coder Delivery Guard policy. The Coder target task has been failed so that it can be retried properly.
