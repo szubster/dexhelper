@@ -28,6 +28,6 @@ locks: []
 This QA task involves verifying that the Playwright E2E tests for the virtualized \`PokedexGrid\` component pass reliably. You must verify that the implementation task has correctly updated the locators to handle off-screen DOM removal and that no filtering regressions were introduced.
 
 ## Acceptance Criteria
-- [ ] Verify that \`tests/e2e/filtering_logic.spec.ts\` and \`tests/e2e/pokedex-grid-virtualization.spec.ts\` pass consistently.
-- [ ] Run \`pnpm lint\` and \`pnpm test\` to ensure overall system health.
-- [ ] Execute Playwright E2E tests for the changed files using \`xvfb-run -a pnpm test:e2e\`.
+- [x] Verify that \`tests/e2e/filtering_logic.spec.ts\` and \`tests/e2e/pokedex-grid-virtualization.spec.ts\` pass consistently.
+- [x] Run \`pnpm lint\` and \`pnpm test\` to ensure overall system health.
+- [x] Execute Playwright E2E tests for the changed files using \`xvfb-run -a pnpm test:e2e\`.
