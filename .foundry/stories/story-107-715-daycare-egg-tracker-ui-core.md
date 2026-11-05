@@ -39,4 +39,8 @@ Implement the Daycare Status Dashboard UI component, ensuring it aligns with the
 - Utilize tactical hardware aesthetic primitives (`rounded-none`, `border-dashed`, monospaced fonts, etc.).
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks.
+- [x] Break down into Tasks.
+- [ ] task-715-740-daycare-egg-tracker-ui-context
+- [ ] task-715-741-daycare-egg-tracker-ui-component
+- [ ] task-715-742-daycare-egg-tracker-ui-tests
+- [ ] task-715-743-daycare-egg-tracker-ui-qa
