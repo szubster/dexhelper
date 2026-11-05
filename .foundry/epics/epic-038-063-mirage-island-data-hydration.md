@@ -2,10 +2,10 @@
 id: epic-038-063-mirage-island-data-hydration
 type: EPIC
 title: Hydrate Mirage Island State
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-06-08'
-updated_at: '2026-10-07'
+updated_at: '2026-11-05'
 depends_on:
   - epic-038-061-mirage-island-save-parsing
 jules_session_id: null
@@ -33,5 +33,5 @@ Once the daily Mirage Island value and the Pokémon personality values are parse
 
 ## Acceptance Criteria
 - [x] Story Owner: Generate child stories to implement the data hydration and ensure it correctly surfaces the required fields in the application state.
-- [ ] story-063-605-mirage-island-unified-state-hydration
-- [ ] story-063-606-mirage-island-state-hydration-e2e
+- [x] story-063-605-mirage-island-unified-state-hydration
+- [x] story-063-606-mirage-island-state-hydration-e2e

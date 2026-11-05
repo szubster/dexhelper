@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-05T02:55:48.756Z*
+*Generated at: 2026-11-05T11:40:02.529Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3579 |
-| ACTIVE | 111 |
-| CANCELLED | 956 |
-| PENDING | 836 |
-| READY | 55 |
+| COMPLETED | 3581 |
+| ACTIVE | 122 |
+| CANCELLED | 960 |
+| PENDING | 832 |
+| READY | 44 |
 | BLOCKED | 14 |
-| FAILED | 6 |
+| FAILED | 4 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 137 |
-| Merged PRs | 8777 |
-| Closed PRs | 1086 |
+| Open PRs | 149 |
+| Merged PRs | 8768 |
+| Closed PRs | 1083 |
 
 ## Rejection Counts
 
@@ -196,6 +196,7 @@
 | task-403-486-playwright-e2e-retry-impl.md | 3 |
 | task-403-535-playwright-e2e-retry-impl-v2.md | 3 |
 | task-403-674-playwright-e2e-retry-impl-v4.md | 3 |
+| task-403-722-playwright-e2e-retry-impl-v5.md | 3 |
 | task-405-416-gen3-mixed-record-parser-impl.md | 3 |
 | task-406-528-gen3-rematch-e2e-impl.md | 3 |
 | task-407-668-e2e-base-location-parsing.md | 3 |
@@ -248,6 +249,7 @@
 | task-478-688-orchestrator-cloning-logic-retry-4.md | 3 |
 | task-478-717-orchestrator-cloning-logic-retry-5.md | 3 |
 | task-478-718-orchestrator-prompt-adaptation-retry-5.md | 3 |
+| task-478-728-kurt-apricorn-core-logic-retry-3.md | 3 |
 | task-479-576-gen3-pokeblock-e2e-impl.md | 3 |
 | task-479-676-gen2-unown-dex-e2e-tests.md | 3 |
 | task-479-700-gen2-unown-dex-e2e-coder.md | 3 |
@@ -488,7 +490,6 @@
 | task-340-342-gen3-safari-zone-state-qa.md | 2 |
 | task-349-380-gen3-spinda-extraction-impl.md | 2 |
 | task-359-441-gen3-trainer-card-parsing-e2e-qa.md | 2 |
-| task-403-722-playwright-e2e-retry-impl-v5.md | 2 |
 | task-405-415-gen3-mixed-record-types-impl.md | 2 |
 | task-405-485-gen3-mixed-record-parser-impl-v2.md | 2 |
 | task-408-430-gen1-tm-hm-parsing-impl.md | 2 |
@@ -524,7 +525,6 @@
 | task-478-619-msgpack-prefetch-qa.md | 2 |
 | task-478-677-aggregate-active-locks-retry-2.md | 2 |
 | task-478-679-resolve-phase-locking-qa-retry-2.md | 2 |
-| task-478-728-kurt-apricorn-core-logic-retry-3.md | 2 |
 | task-490-502-render-persona-badges-impl.md | 2 |
 | task-495-550-hof-export-image-renderer.md | 2 |
 | task-513-689-update-orchestrator-tests.md | 2 |
@@ -573,6 +573,7 @@
 | task-575-716-implement-heatmap-e2e-tests.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
+| task-619-713-multi-box-stat-filters-e2e-tests-retry.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
 | task-639-722-migrate-buttons-impl-v5.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
@@ -817,6 +818,7 @@
 | prd-540-727-multi-save-diffing-and-trade-simulation.md | 1 |
 | research-047-586-tv-swarm-extraction-failure.md | 1 |
 | research-246-244-gen3-box-parsing.md | 1 |
+| research-336-712-investigate-runtime-interfaces-keys-failure-v3.md | 1 |
 | research-338-556-investigate-unown-parsing-timeout.md | 1 |
 | research-348-506-investigate-ui-impl-failure.md | 1 |
 | research-360-568-investigate-gen3-roamer-e2e-failure-v2.md | 1 |
@@ -1114,7 +1116,6 @@
 | task-618-688-multi-box-ev-filters-logic.md | 1 |
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
-| task-619-713-multi-box-stat-filters-e2e-tests-retry.md | 1 |
 | task-620-687-gen1-static-encounters-e2e-coder.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
