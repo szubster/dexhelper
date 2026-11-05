@@ -29,6 +29,6 @@ locks: []
 Review and verify the implemented E2E tests for React 19 concurrent features and TanStack Query optimizations. Ensure the tests comprehensively cover the frontend refactoring changes and consistently pass without flakiness.
 
 ## Acceptance Criteria
-- [ ] Verify E2E tests for React 19 concurrent features correctly validate the UI state.
-- [ ] Verify E2E tests for TanStack Query effectively test caching and suspense boundaries.
-- [ ] Execute tests locally and verify stability (no flaky tests).
+- [x] Verify E2E tests for React 19 concurrent features correctly validate the UI state.
+- [x] Verify E2E tests for TanStack Query effectively test caching and suspense boundaries.
+- [x] Execute tests locally and verify stability (no flaky tests).
