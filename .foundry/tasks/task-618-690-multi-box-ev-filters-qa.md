@@ -35,5 +35,5 @@ The Multi-Box EV Filters types, logic, and tests have been implemented. A QA rev
 - Validate that the unit tests are comprehensive.
 
 ## Acceptance Criteria
-- [ ] Code review passes for the EV filtering implementation.
-- [ ] Unit tests pass and provide adequate coverage.
+- [x] Code review passes for the EV filtering implementation.
+- [x] Unit tests pass and provide adequate coverage.
