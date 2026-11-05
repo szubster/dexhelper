@@ -21,7 +21,9 @@ export default defineConfig(() => {
     plugins: [
       pokedataPlugin({ sourceDir }),
       foundryPlugin(),
-      tanstackRouter(),
+      tanstackRouter({
+        autoCodeSplitting: true,
+      }),
       react(),
       tailwindcss(),
       VitePWA({
@@ -113,20 +115,20 @@ export default defineConfig(() => {
       rollupOptions: {
         output: {
           manualChunks(id) {
-            if (id.includes('node_modules/')) {
-              if (id.includes('react/') || id.includes('react-dom/')) return 'react';
-              if (id.includes('@tanstack/react-router/')) return 'router';
-              if (id.includes('@tanstack/react-query/')) return 'query';
-              if (id.includes('msgpackr/')) return 'msgpackr';
-              if (id.includes('idb/')) return 'idb';
-              if (id.includes('cn/')) return 'cn';
+            if (id.includes('node_modules')) {
+              if (id.includes('/react/') || id.includes('/react-dom/') || id.includes('/scheduler/')) {
+                return 'react';
+              }
+              if (id.includes('/@tanstack/')) {
+                if (id.includes('router')) return 'router';
+                if (id.includes('query')) return 'query';
+              }
+              if (id.includes('/msgpackr/')) {
+                return 'msgpackr';
+              }
             }
-            if (id.includes('packages/ui/')) {
-              return 'ui';
-            }
-
             return undefined;
-          }
+          },
         },
       },
     },
