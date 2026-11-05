@@ -27,4 +27,8 @@ locks: []
 This story integrates the Gen 3 weather anomaly data into the Map UI to highlight the affected route with a weather icon.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into modular Tasks for the Coder.
+- [x] Break down this Story into modular Tasks for the Coder.
+- [ ] task-712-740-weather-anomaly-map-state-logic
+- [ ] task-712-741-weather-anomaly-map-ui-integration
+- [ ] task-712-742-weather-anomaly-map-integration-tests
+- [ ] task-712-743-weather-anomaly-map-integration-qa
