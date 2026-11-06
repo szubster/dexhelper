@@ -29,4 +29,8 @@ This story is dedicated exclusively to the Integration and E2E Verification of t
 ## Acceptance Criteria
 - [ ] Write Playwright E2E tests covering the complete dashboard flow.
 - [ ] Ensure all integrated widgets display correctly with mock data.
-- [ ] Break down into implementation Tasks.
+- [x] Break down into implementation Tasks.
+- [ ] task-564-740-gen3-dashboard-flow-e2e-tests-impl
+- [ ] task-564-741-qa-gen3-dashboard-flow-e2e-tests
+- [ ] task-564-742-gen3-dashboard-widgets-e2e-tests-impl
+- [ ] task-564-743-qa-gen3-dashboard-widgets-e2e-tests
