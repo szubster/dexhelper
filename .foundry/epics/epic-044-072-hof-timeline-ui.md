@@ -27,4 +27,8 @@ locks: []
 This epic implements the frontend UI that allows users to view multiple past League victories in a timeline format and integrates the certificate generation capabilities.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+
+- [ ] story-072-743-hof-timeline-ui-components
+- [ ] story-072-744-hof-timeline-ui-integration
+- [ ] story-072-745-hof-timeline-ui-e2e
