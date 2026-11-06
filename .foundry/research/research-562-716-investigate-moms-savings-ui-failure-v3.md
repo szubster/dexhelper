@@ -2,12 +2,12 @@
 id: research-562-716-investigate-moms-savings-ui-failure-v3
 type: RESEARCH
 title: Investigate Gen 2 Mom's Savings UI Failure (v3)
-status: ACTIVE
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-10-23'
 updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '2500096924982056108'
+jules_session_id: null
 pr_number: null
 parent: story-312-562-gen2-mom-savings-tracker-ui-core
 tags:
@@ -15,8 +15,8 @@ tags:
   - gen2
   - ui
 research_references: []
-rejection_count: 2
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

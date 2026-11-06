@@ -115,3 +115,11 @@ It tightens type safety for data loaded from IndexedDB, a common source of impli
 - **Issue:** Unsafe `as Gen3SaveData` type assertion in `src/components/pokeblocks/Gen3PokeblocksDashboard.tsx`.
 - **Solution:** Replaced property check `saveData?.generation !== 3` and explicit cast `const gen3Data = saveData as Gen3SaveData;` with the existing `isGen3Save(saveData)` discriminated union type guard from `src/engine/saveParser/parsers/common.ts`.
 - **Learn:** When checking generation/save type in UI components before accessing generation-specific fields (like `gen3Pokeblocks`), prefer using established discriminated union type guards (`isGen3Save`, `isGen2Save`) rather than checking individual numeric flags (`generation === 3`) followed by unsafe `as` assertions.
+
+---
+
+# Nurse Joy Journal Entry
+
+- **Issue:** Unsafe double cast `(saveData.gen3StaticEncounters as unknown as Record<string, boolean | undefined>)[gift.gen3StaticKey]` in `src/engine/assistant/generators/tradeGenerator.ts`.
+- **Solution:** Added a type-safe helper function `isGen3StaticEncounterClaimed(encounters: Gen3StaticEncounters, key: string): boolean` that checks `key in encounters` and safely accesses `encounters[key as keyof typeof encounters]`.
+- **Learn:** When indexing a union of object types (`Gen3EmeraldStaticEncounters | Gen3FRLGStaticEncounters | Gen3RSStaticEncounters`) with a dynamic property string under strict TypeScript (`@tsconfig/strictest`), avoid `as unknown as Record<...>` assertions. Using `key in object` property checking combined with indexed access `object[key as keyof typeof object]` and a type guard check `typeof val === 'boolean'` provides type safety while passing strict type checks cleanly.
