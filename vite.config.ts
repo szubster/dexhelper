@@ -114,18 +114,16 @@ export default defineConfig(() => {
       reportCompressedSize: true,
       rollupOptions: {
         output: {
-          manualChunks(id) {
+          manualChunks(id, { getModuleInfo }) {
             if (id.includes('packages/ui/')) {
-              // Heuristic: complex modal & select controls remain deferred / route-co-located
-              if (
-                id.includes('TacticalModal') ||
-                id.includes('TacticalSelect') ||
-                id.includes('TacticalSegmentedControl')
-              ) {
-                return undefined;
+              const info = getModuleInfo(id);
+              // Heuristic: Consolidate micro-primitives (< 3.5 KB) into a single cacheable chunk
+              // to eliminate micro-chunk request waterfalls and maximize Gzip dictionary efficiency.
+              // Heavier/complex components (>= 3.5 KB) remain dynamic and route-co-located.
+              if ((info?.code?.length ?? 0) < 3500) {
+                return 'ui-primitives';
               }
-              // Core design system primitives share a single compressed chunk
-              return 'ui-primitives';
+              return undefined;
             }
             if (id.includes('node_modules')) {
               if (id.includes('/react/') || id.includes('/react-dom/') || id.includes('/scheduler/')) {
