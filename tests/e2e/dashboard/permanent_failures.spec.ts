@@ -168,14 +168,14 @@ test.describe('Permanent Failures Dashboard Filter', () => {
     // Find the node container up from the text element
     const permFailNode = page
       .getByText('task-perm-fail')
-      .locator('xpath=ancestor::div[contains(@class, "border-red-600")][1]')
-      .first();
+      .first()
+      .locator('xpath=ancestor::div[contains(@class, "border-dashed")][1]');
     await expect(permFailNode).toHaveClass(/border-red-600/);
 
     const permCancelNode = page
       .getByText('task-perm-cancel')
-      .locator('xpath=ancestor::div[contains(@class, "border-red-600")][1]')
-      .first();
+      .first()
+      .locator('xpath=ancestor::div[contains(@class, "border-dashed")][1]');
     await expect(permCancelNode).toHaveClass(/border-red-600/);
   });
 });

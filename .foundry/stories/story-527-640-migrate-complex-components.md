@@ -5,10 +5,10 @@ title: Migrate Complex Layout and Data Components
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - story-527-639-migrate-tactical-primitives
-jules_session_id: '15261211558526928823'
+jules_session_id: '4211243884057994965'
 pr_number: null
 parent: epic-519-527-extract-ui-components
 tags:

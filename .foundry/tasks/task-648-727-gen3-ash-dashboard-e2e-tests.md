@@ -26,6 +26,6 @@ confidence_score: 100
 Write Playwright E2E verification tests for the Gen 3 Volcanic Ash Tracker Dashboard.
 
 ## Acceptance Criteria
-- [ ] Implement Playwright E2E tests for the Ash Tracker UI.
-- [ ] Ensure navigation uses relative paths (e.g., `./dashboard`).
-- [ ] Verify test correctness without using `page.evaluate()` to inject hardcoded DOM nodes.
+- [x] Implement Playwright E2E tests for the Ash Tracker UI.
+- [x] Ensure navigation uses relative paths (e.g., `./dashboard`).
+- [x] Verify test correctness without using `page.evaluate()` to inject hardcoded DOM nodes.

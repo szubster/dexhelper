@@ -4,10 +4,25 @@ import type { PokemonInstance } from '../saveParser/parsers/common';
 export const THIEF_MOVE_ID = 168;
 export const COVET_MOVE_ID = 343;
 
+/**
+ * List of move IDs that can steal items in battle.
+ */
+export const ITEM_STEALING_MOVE_IDS: readonly number[] = [THIEF_MOVE_ID, COVET_MOVE_ID];
+
 export interface ItemStealer {
   instance: PokemonInstance;
   metadata?: PokemonMetadata;
   stealingMoveId: number;
+}
+
+/**
+ * Finds the first item-stealing move known in a list of move IDs.
+ *
+ * @param moves - Array of move IDs.
+ * @returns The item-stealing move ID if found, or undefined.
+ */
+export function findStealingMove(moves: readonly number[]): number | undefined {
+  return moves.find((moveId) => ITEM_STEALING_MOVE_IDS.includes(moveId));
 }
 
 /**
@@ -21,34 +36,24 @@ export function findItemStealers(
   instances: PokemonInstance[],
   metadataMap?: Map<number, PokemonMetadata>,
 ): ItemStealer[] {
-  const stealers: ItemStealer[] = [];
+  return instances.flatMap((instance) => {
+    if (!instance.moves) return [];
 
-  for (const instance of instances) {
-    if (!instance.moves) continue;
+    const stealingMoveId = findStealingMove(instance.moves);
+    if (stealingMoveId === undefined) return [];
 
-    let stealingMoveId: number | null = null;
-    if (instance.moves.includes(THIEF_MOVE_ID)) {
-      stealingMoveId = THIEF_MOVE_ID;
-    } else if (instance.moves.includes(COVET_MOVE_ID)) {
-      stealingMoveId = COVET_MOVE_ID;
+    const itemStealer: ItemStealer = {
+      instance,
+      stealingMoveId,
+    };
+
+    const metadata = metadataMap?.get(instance.speciesId);
+    if (metadata) {
+      itemStealer.metadata = metadata;
     }
 
-    if (stealingMoveId !== null) {
-      const itemStealer: ItemStealer = {
-        instance,
-        stealingMoveId,
-      };
-
-      const metadata = metadataMap?.get(instance.speciesId);
-      if (metadata) {
-        itemStealer.metadata = metadata;
-      }
-
-      stealers.push(itemStealer);
-    }
-  }
-
-  return stealers;
+    return [itemStealer];
+  });
 }
 
 /**

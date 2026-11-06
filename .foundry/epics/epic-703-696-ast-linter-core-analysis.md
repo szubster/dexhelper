@@ -2,12 +2,12 @@
 id: epic-703-696-ast-linter-core-analysis
 type: EPIC
 title: AST Linter Core Context Analysis
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-23'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: '8474987953631413842'
+jules_session_id: null
 pr_number: null
 parent: prd-538-703-ast-linter-context-wiring
 tags:
@@ -34,4 +34,7 @@ Implement the foundational AST parsing capabilities to identify and extract cust
 3. Accurately identify exported Context Provider components associated with the discovered contexts.
 
 ## Acceptance Criteria
-- [ ] Break down into Story.
+- [x] Break down into Story.
+- [ ] story-696-734-ast-analyzer-react-context-detection
+- [ ] story-696-735-ast-analyzer-provider-export-detection
+- [ ] story-696-736-ast-analyzer-context-e2e-verification

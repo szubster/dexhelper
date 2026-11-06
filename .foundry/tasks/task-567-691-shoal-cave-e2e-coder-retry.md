@@ -2,13 +2,13 @@
 id: task-567-691-shoal-cave-e2e-coder-retry
 type: TASK
 title: Retry Write Playwright E2E Tests for Shoal Cave Dashboard
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-16T12:53:56.587Z'
-updated_at: '2026-10-30'
+updated_at: '2026-11-01'
 depends_on:
   - research-567-690-investigate-shoal-cave-e2e-failure
-jules_session_id: '1516442974930998699'
+jules_session_id: null
 pr_number: null
 parent: story-412-567-shoal-cave-e2e-verification
 tags:
@@ -19,6 +19,7 @@ tags:
   - playwright
 research_references: []
 rejection_count: 1
+confidence_score: 100
 rejection_reason: ''
 notes: ''
 locks: []
@@ -39,8 +40,8 @@ This is a retry node. The implementation must incorporate findings from the prec
 - Incorporate findings from `research-567-690-investigate-shoal-cave-e2e-failure`.
 
 ## Acceptance Criteria
-- [ ] Implement a Playwright E2E test file (e.g., `tests/e2e/shoal-cave-dashboard.spec.ts`) for the Shoal Cave UI Dashboard based on research findings.
-- [ ] Add tests verifying the display of the current tide and countdown.
-- [ ] Add tests verifying the display of Shoal Shell and Shoal Salt item counts.
-- [ ] Add tests verifying the Shell Bell crafting readiness visual indicator.
-- [ ] Verify that tests pass successfully in both desktop and mobile contexts.
+- [x] Implement a Playwright E2E test file (e.g., `tests/e2e/shoal-cave-dashboard.spec.ts`) for the Shoal Cave UI Dashboard based on research findings.
+- [x] Add tests verifying the display of the current tide and countdown.
+- [x] Add tests verifying the display of Shoal Shell and Shoal Salt item counts.
+- [x] Add tests verifying the Shell Bell crafting readiness visual indicator.
+- [x] Verify that tests pass successfully in both desktop and mobile contexts.

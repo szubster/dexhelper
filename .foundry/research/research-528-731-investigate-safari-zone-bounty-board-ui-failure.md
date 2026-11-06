@@ -5,9 +5,9 @@ title: Investigate Safari Zone Bounty Board UI Failure
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-28'
-updated_at: '2026-11-01'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: '11189008778261371602'
+jules_session_id: '8826586596969622262'
 pr_number: null
 parent: story-325-528-safari-zone-bounty-board
 tags:
@@ -15,7 +15,7 @@ tags:
   - ui
   - safari-zone
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
