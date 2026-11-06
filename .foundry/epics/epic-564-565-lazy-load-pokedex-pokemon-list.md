@@ -2,12 +2,12 @@
 id: epic-564-565-lazy-load-pokedex-pokemon-list
 type: EPIC
 title: Implement Lazy Loading and Virtualization for Pokedex Grid
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-09-11'
 updated_at: '2026-11-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5350334336354849551'
 pr_number: null
 parent: prd-517-564-lazy-load-pokedex-pokemon-list
 tags:
