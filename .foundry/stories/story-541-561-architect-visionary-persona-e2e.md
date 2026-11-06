@@ -2,13 +2,13 @@
 id: story-541-561-architect-visionary-persona-e2e
 type: STORY
 title: Architect Visionary Persona E2E Integration
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-09'
 updated_at: '2026-11-06'
 depends_on:
   - story-541-560-architect-visionary-persona-implementation
-jules_session_id: '8194876721782871959'
+jules_session_id: null
 pr_number: null
 parent: epic-521-541-code-architect-persona
 tags:
@@ -17,7 +17,7 @@ tags:
   - e2e
   - integration
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---

@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-06T07:11:31.542Z*
+*Generated at: 2026-11-06T07:30:22.824Z*
 
 ## Node Statistics
 
@@ -18,13 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3611 |
-| ACTIVE | 148 |
+| COMPLETED | 3613 |
+| ACTIVE | 143 |
 | CANCELLED | 967 |
 | PENDING | 802 |
-| READY | 15 |
+| READY | 17 |
 | BLOCKED | 14 |
-| FAILED | 3 |
+| FAILED | 4 |
+
+## PR Metrics
+
+| Metric | Count |
+|---|---|
+| Total PRs | 10000 |
+| Open PRs | 171 |
+| Merged PRs | 8760 |
+| Closed PRs | 1069 |
 
 ## Rejection Counts
 
@@ -207,6 +216,7 @@
 | task-423-470-gen3-lottery-ui-component-impl.md | 3 |
 | task-423-471-gen3-ai-data-e2e-mapping-tests-impl.md | 3 |
 | task-424-676-gen3-lottery-e2e-tests.md | 3 |
+| task-424-713-gen3-lottery-e2e-tests-retry-2.md | 3 |
 | task-428-437-update-data-loading-logic.md | 3 |
 | task-429-473-generate-gen-specific-bundles.md | 3 |
 | task-429-553-generate-gen-specific-bundles.md | 3 |
@@ -475,6 +485,7 @@
 | story-512-521-gen2-bug-catching-contest-core-data.md | 2 |
 | story-540-562-gen3-pokeblock-recommendation-engine.md | 2 |
 | story-553-562-gen3-missed-items-parsing.md | 2 |
+| story-565-567-lazy-load-e2e-verification.md | 2 |
 | story-577-586-multi-box-integration-e2e.md | 2 |
 | task-121-327-gen3-tv-block-parser-retry7-impl.md | 2 |
 | task-140-440-ribbon-dashboard-virtualization-impl.md | 2 |
@@ -497,7 +508,6 @@
 | task-422-590-pc-box-extraction-logic.md | 2 |
 | task-423-470-gen3-ai-data-e2e-extraction-tests-impl.md | 2 |
 | task-424-440-integrate-gen3-fixtures-impl.md | 2 |
-| task-424-713-gen3-lottery-e2e-tests-retry-2.md | 2 |
 | task-425-489-fixtures-integration-e2e-impl.md | 2 |
 | task-428-436-refactor-core-data-generation.md | 2 |
 | task-433-489-save-state-read-write-api-e2e-impl.md | 2 |
@@ -548,6 +558,7 @@
 | task-558-570-flexsearch-tooling-e2e.md | 2 |
 | task-558-570-rs-battle-tower-integration.md | 2 |
 | task-558-721-heatmap-node-tooltip-impl.md | 2 |
+| task-559-713-heatmap-waittime-e2e-tests.md | 2 |
 | task-560-569-evaluate-state-machine-libraries.md | 2 |
 | task-560-575-pokerus-spread-planner-qa.md | 2 |
 | task-562-576-item-selection-route-e2e-impl.md | 2 |
@@ -912,7 +923,6 @@
 | story-554-562-gen3-dashboard-layout-and-routing.md | 1 |
 | story-554-563-inventory-item-tracker.md | 1 |
 | story-555-564-lint-schema-frontmatter-validation.md | 1 |
-| story-565-567-lazy-load-e2e-verification.md | 1 |
 | story-566-570-cva-theme-variables-e2e-verification.md | 1 |
 | story-568-644-cva-visual-regression-tests.md | 1 |
 | story-569-582-gen3-secret-base-party-extraction.md | 1 |
@@ -1068,7 +1078,6 @@
 | task-558-564-scheduled-workflows-batch1-impl.md | 1 |
 | task-559-680-battle-frontier-data-e2e-tests.md | 1 |
 | task-559-708-search-extraction-qa-v2.md | 1 |
-| task-559-713-heatmap-waittime-e2e-tests.md | 1 |
 | task-560-570-evaluate-graph-processing-libraries.md | 1 |
 | task-560-583-gen3-berry-pouch-parsing-impl.md | 1 |
 | task-560-594-spinda-coordinate-types.md | 1 |

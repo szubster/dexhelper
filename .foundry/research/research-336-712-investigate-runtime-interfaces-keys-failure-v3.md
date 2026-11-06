@@ -2,12 +2,12 @@
 id: research-336-712-investigate-runtime-interfaces-keys-failure-v3
 type: RESEARCH
 title: Investigate Runtime Interfaces Keys Permanent Failure (v3)
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-10-21T07:19:05.000Z'
 updated_at: '2026-11-06'
 depends_on: []
-jules_session_id: '4023466040967408524'
+jules_session_id: null
 pr_number: null
 parent: story-043-336-update-runtime-interfaces-keys
 tags:
@@ -15,7 +15,7 @@ tags:
   - feature
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---

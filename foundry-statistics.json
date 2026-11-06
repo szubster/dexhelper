@@ -10,13 +10,13 @@
       "TASK": 3007
     },
     "byStatus": {
-      "COMPLETED": 3611,
-      "ACTIVE": 148,
+      "COMPLETED": 3613,
+      "ACTIVE": 143,
       "CANCELLED": 967,
       "PENDING": 802,
-      "READY": 15,
+      "READY": 17,
       "BLOCKED": 14,
-      "FAILED": 3
+      "FAILED": 4
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -3168,7 +3168,7 @@
       "story-556-563-e2e-tests-save-file-progress-tracking.md": 0,
       "story-556-564-e2e-tests-end-to-end-flow.md": 0,
       "story-565-566-virtualize-pokedex-grid.md": 0,
-      "story-565-567-lazy-load-e2e-verification.md": 1,
+      "story-565-567-lazy-load-e2e-verification.md": 2,
       "story-565-580-virtualize-pokedex-grid-implementation.md": 0,
       "story-565-581-pokedex-grid-e2e-verification.md": 0,
       "story-566-570-cva-theme-variables-e2e-verification.md": 1,
@@ -3566,7 +3566,7 @@
       "task-424-441-integrate-gen3-fixtures-qa.md": 0,
       "task-424-676-gen3-lottery-e2e-tests.md": 3,
       "task-424-704-gen3-lottery-e2e-tests-retry.md": 0,
-      "task-424-713-gen3-lottery-e2e-tests-retry-2.md": 2,
+      "task-424-713-gen3-lottery-e2e-tests-retry-2.md": 3,
       "task-425-489-fixtures-integration-e2e-impl.md": 2,
       "task-425-490-fixtures-integration-e2e-qa.md": 0,
       "task-426-439-wasm-emulator-integration-e2e-impl.md": 0,
@@ -4428,7 +4428,7 @@
       "task-559-708-search-extraction-qa-v2.md": 1,
       "task-559-709-rag-dynamic-querying-integration-e2e-v2.md": 0,
       "task-559-712-heatmap-rejection-e2e-tests.md": 0,
-      "task-559-713-heatmap-waittime-e2e-tests.md": 1,
+      "task-559-713-heatmap-waittime-e2e-tests.md": 2,
       "task-560-567-telemetry-utility.md": 0,
       "task-560-568-battle-frontier-dashboard-e2e-coder.md": 0,
       "task-560-568-gen3-match-call-static-data-e2e-coder.md": 0,
@@ -7863,7 +7863,7 @@
       "research-522-712-investigate-wip-signaling-e2e-failure.md": 691200000,
       "research-523-690-investigate-gen3-move-tutor-fixtures-failure.md": 258556002,
       "research-523-712-investigate-gen3-move-tutor-fixtures-failure-retry.md": 1036800000,
-      "research-523-731-investigate-box-analyzer-matrix-e2e-failure.md": 259200000,
+      "research-523-731-investigate-box-analyzer-matrix-e2e-failure.md": 691200000,
       "research-525-708-investigate-data-generation-scripts-failure.md": 1036800000,
       "research-526-602-investigate-pathfinder-ui-failure.md": 691200000,
       "research-527-673-investigate-safari-zone-area-map-failure.md": 518400000,
@@ -10654,6 +10654,11 @@
       "task-731-737-ast-analyzer-qa.md": 1296000000
     }
   },
-  "prs": null,
-  "timestamp": "2026-11-06T07:11:31.542Z"
+  "prs": {
+    "totalPRs": 10000,
+    "openPRs": 171,
+    "mergedPRs": 8760,
+    "closedPRs": 1069
+  },
+  "timestamp": "2026-11-06T07:30:22.824Z"
 }

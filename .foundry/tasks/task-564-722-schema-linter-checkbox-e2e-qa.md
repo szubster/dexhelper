@@ -2,13 +2,13 @@
 id: task-564-722-schema-linter-checkbox-e2e-qa
 type: TASK
 title: QA Schema Linter Checkbox E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-25'
 updated_at: '2026-11-06'
 depends_on:
   - task-564-721-schema-linter-checkbox-e2e-impl
-jules_session_id: '16398947698404669018'
+jules_session_id: null
 parent: story-552-564-schema-linter-checkbox-e2e
 tags:
   - foundry
