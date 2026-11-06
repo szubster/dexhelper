@@ -2,13 +2,13 @@
 id: story-530-561-telemetry-metrics-e2e
 type: STORY
 title: Orchestrator Telemetry Metrics Integration and E2E Verification
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-11-05'
+updated_at: '2026-11-06'
 depends_on:
   - story-530-560-telemetry-metrics-impl
-jules_session_id: '15718588337117489684'
+jules_session_id: null
 pr_number: null
 parent: epic-346-530-orchestrator-telemetry-metrics
 tags:

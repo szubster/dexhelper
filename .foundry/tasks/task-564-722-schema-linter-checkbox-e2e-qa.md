@@ -2,10 +2,10 @@
 id: task-564-722-schema-linter-checkbox-e2e-qa
 type: TASK
 title: QA Schema Linter Checkbox E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-06'
 depends_on:
   - task-564-721-schema-linter-checkbox-e2e-impl
 jules_session_id: null

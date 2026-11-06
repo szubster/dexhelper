@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-05T19:07:30.401Z*
+*Generated at: 2026-11-06T00:37:20.650Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3591 |
-| ACTIVE | 126 |
+| COMPLETED | 3601 |
+| ACTIVE | 134 |
 | CANCELLED | 965 |
-| PENDING | 824 |
-| READY | 33 |
+| PENDING | 816 |
+| READY | 24 |
 | BLOCKED | 14 |
-| FAILED | 4 |
+| FAILED | 3 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 153 |
-| Merged PRs | 8764 |
-| Closed PRs | 1083 |
+| Open PRs | 163 |
+| Merged PRs | 8758 |
+| Closed PRs | 1079 |
 
 ## Rejection Counts
 
@@ -335,6 +335,7 @@
 | task-608-619-multi-box-text-search-engine-e2e.md | 3 |
 | task-618-703-multi-box-search-highlight-impl.md | 3 |
 | task-619-687-multi-box-stat-filters-e2e-tests.md | 3 |
+| task-619-713-multi-box-stat-filters-e2e-tests-retry.md | 3 |
 | task-638-641-extract-constants-to-core.md | 3 |
 | task-638-666-extract-constants-to-core-retry.md | 3 |
 | task-638-669-extract-constants-to-core-v3.md | 3 |
@@ -442,6 +443,7 @@
 | prd-071-044-gen3-roamer-tracker.md | 2 |
 | prd-089-054-gen3-ash-gathering-tracker.md | 2 |
 | prd-421-521-automated-schema-linting.md | 2 |
+| research-336-712-investigate-runtime-interfaces-keys-failure-v3.md | 2 |
 | research-407-676-e2e-failure-investigation.md | 2 |
 | research-472-675-investigate-e2e-tests-failure-v2.md | 2 |
 | research-473-638-investigate-condition-stats-parser-failure-v2.md | 2 |
@@ -467,6 +469,7 @@
 | story-063-605-mirage-island-unified-state-hydration.md | 2 |
 | story-088-638-client-db-jsonl-loader.md | 2 |
 | story-108-246-gen3-box-parsing.md | 2 |
+| story-112-403-integration-e2e.md | 2 |
 | story-330-514-remediation-state-transition-logic.md | 2 |
 | story-332-474-gen3-fame-checker-save-parsing-e2e.md | 2 |
 | story-338-477-gen2-unown-dex-parsing.md | 2 |
@@ -574,7 +577,6 @@
 | task-575-716-implement-heatmap-e2e-tests.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
-| task-619-713-multi-box-stat-filters-e2e-tests-retry.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
 | task-639-722-migrate-buttons-impl-v5.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
@@ -819,7 +821,6 @@
 | prd-540-727-multi-save-diffing-and-trade-simulation.md | 1 |
 | research-047-586-tv-swarm-extraction-failure.md | 1 |
 | research-246-244-gen3-box-parsing.md | 1 |
-| research-336-712-investigate-runtime-interfaces-keys-failure-v3.md | 1 |
 | research-338-556-investigate-unown-parsing-timeout.md | 1 |
 | research-348-506-investigate-ui-impl-failure.md | 1 |
 | research-360-568-investigate-gen3-roamer-e2e-failure-v2.md | 1 |
@@ -865,13 +866,13 @@
 | story-105-649-daycare-save-parsing-e2e.md | 1 |
 | story-109-520-box-analyzer-view-layout.md | 1 |
 | story-109-523-box-analyzer-matrix-e2e.md | 1 |
-| story-112-403-integration-e2e.md | 1 |
 | story-115-527-pathfinder-chain-visualization.md | 1 |
 | story-133-273-living-dex-pc-mapping.md | 1 |
 | story-133-476-gen3-ribbon-e2e-verification.md | 1 |
 | story-134-475-gen3-condition-stats-extraction-e2e.md | 1 |
 | story-134-524-living-dex-ghosts-and-styling.md | 1 |
 | story-136-330-gen1-checklist-ui-retry.md | 1 |
+| story-136-620-gen1-static-encounters-e2e.md | 1 |
 | story-140-564-gen2-roamer-translation-integration.md | 1 |
 | story-269-647-gen3-ash-dashboard-ui.md | 1 |
 | story-335-563-develop-migration-script.md | 1 |
@@ -1008,6 +1009,7 @@
 | task-490-507-pal-park-hm-validator-qa.md | 1 |
 | task-490-507-update-nurse-persona-skin-impl.md | 1 |
 | task-491-503-pal-park-item-logic-impl.md | 1 |
+| task-491-691-qa-persona-skins-e2e.md | 1 |
 | task-494-507-emulator-react-context-impl.md | 1 |
 | task-495-551-hof-export-download-ui.md | 1 |
 | task-495-569-reactive-storage-grid-impl.md | 1 |

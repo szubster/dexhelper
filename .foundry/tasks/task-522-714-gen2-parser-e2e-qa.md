@@ -2,14 +2,14 @@
 id: task-522-714-gen2-parser-e2e-qa
 type: TASK
 title: QA Verification for Gen 2 Parsers E2E
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-20'
-updated_at: '2026-11-05'
+updated_at: '2026-11-06'
 depends_on:
   - task-522-712-gen2-gs-parser-e2e-impl
   - task-522-713-gen2-crystal-parser-e2e-impl
-jules_session_id: '4063022242587422843'
+jules_session_id: null
 pr_number: null
 parent: story-522-522-gen2-parser-refactor-e2e
 tags:
