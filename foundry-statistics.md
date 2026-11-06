@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-06T07:30:22.824Z*
+*Generated at: 2026-11-06T15:28:50.893Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3613 |
-| ACTIVE | 143 |
-| CANCELLED | 967 |
-| PENDING | 802 |
-| READY | 17 |
+| COMPLETED | 3617 |
+| ACTIVE | 150 |
+| CANCELLED | 968 |
+| PENDING | 799 |
+| READY | 7 |
 | BLOCKED | 14 |
-| FAILED | 4 |
+| FAILED | 5 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 171 |
+| Open PRs | 172 |
 | Merged PRs | 8760 |
-| Closed PRs | 1069 |
+| Closed PRs | 1068 |
 
 ## Rejection Counts
 
@@ -116,6 +116,7 @@
 | research-081-575-investigate-retry-failure.md | 3 |
 | research-336-567-investigate-runtime-interfaces-keys-failure.md | 3 |
 | research-336-690-investigate-runtime-interfaces-keys-failure-v2.md | 3 |
+| research-336-712-investigate-runtime-interfaces-keys-failure-v3.md | 3 |
 | research-360-471-investigate-gen3-roamer-e2e-failure.md | 3 |
 | research-404-495-kurt-apricorn-offsets.md | 3 |
 | research-422-638-tm-inventory-extraction-failure.md | 3 |
@@ -444,7 +445,6 @@
 | prd-071-044-gen3-roamer-tracker.md | 2 |
 | prd-089-054-gen3-ash-gathering-tracker.md | 2 |
 | prd-421-521-automated-schema-linting.md | 2 |
-| research-336-712-investigate-runtime-interfaces-keys-failure-v3.md | 2 |
 | research-407-676-e2e-failure-investigation.md | 2 |
 | research-472-675-investigate-e2e-tests-failure-v2.md | 2 |
 | research-473-638-investigate-condition-stats-parser-failure-v2.md | 2 |
@@ -484,6 +484,7 @@
 | story-425-495-reactive-ui-components.md | 2 |
 | story-512-521-gen2-bug-catching-contest-core-data.md | 2 |
 | story-540-562-gen3-pokeblock-recommendation-engine.md | 2 |
+| story-541-561-architect-visionary-persona-e2e.md | 2 |
 | story-553-562-gen3-missed-items-parsing.md | 2 |
 | story-565-567-lazy-load-e2e-verification.md | 2 |
 | story-577-586-multi-box-integration-e2e.md | 2 |
@@ -531,6 +532,7 @@
 | task-478-677-aggregate-active-locks-retry-2.md | 2 |
 | task-478-679-resolve-phase-locking-qa-retry-2.md | 2 |
 | task-490-502-render-persona-badges-impl.md | 2 |
+| task-491-691-qa-persona-skins-e2e.md | 2 |
 | task-495-550-hof-export-image-renderer.md | 2 |
 | task-513-689-update-orchestrator-tests.md | 2 |
 | task-519-546-dashboard-layouts-coder.md | 2 |
@@ -917,9 +919,9 @@
 | story-536-543-integration-e2e-verification.md | 1 |
 | story-537-550-integration-e2e-verification.md | 1 |
 | story-540-563-gen3-pokeblock-optimizer-ui.md | 1 |
-| story-541-561-architect-visionary-persona-e2e.md | 1 |
 | story-550-573-tree-level-completeness-logic.md | 1 |
 | story-552-564-gen3-map-e2e-verification.md | 1 |
+| story-552-564-schema-linter-checkbox-e2e.md | 1 |
 | story-554-562-gen3-dashboard-layout-and-routing.md | 1 |
 | story-554-563-inventory-item-tracker.md | 1 |
 | story-555-564-lint-schema-frontmatter-validation.md | 1 |
@@ -1010,7 +1012,6 @@
 | task-490-507-pal-park-hm-validator-qa.md | 1 |
 | task-490-507-update-nurse-persona-skin-impl.md | 1 |
 | task-491-503-pal-park-item-logic-impl.md | 1 |
-| task-491-691-qa-persona-skins-e2e.md | 1 |
 | task-494-507-emulator-react-context-impl.md | 1 |
 | task-495-551-hof-export-download-ui.md | 1 |
 | task-495-569-reactive-storage-grid-impl.md | 1 |

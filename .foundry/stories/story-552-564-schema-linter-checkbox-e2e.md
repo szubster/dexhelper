@@ -2,7 +2,7 @@
 id: story-552-564-schema-linter-checkbox-e2e
 type: STORY
 title: Integration and E2E Verification for Checkbox Linting
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-12'
 updated_at: '2026-11-06'
@@ -14,10 +14,8 @@ tags:
   - foundry
   - linting
   - e2e
-rejection_count: 0
-rejection_reason: >-
-  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
-  TASK nodes
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

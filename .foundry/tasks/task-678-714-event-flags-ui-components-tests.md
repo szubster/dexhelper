@@ -2,13 +2,13 @@
 id: task-678-714-event-flags-ui-components-tests
 type: TASK
 title: Event Flags UI Components Unit Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-20T23:46:53.426Z'
-updated_at: '2026-11-01'
+updated_at: '2026-11-06'
 depends_on:
   - task-678-712-event-flags-ui-components-impl
-jules_session_id: '10694231621173408612'
+jules_session_id: null
 pr_number: null
 parent: story-346-678-event-flags-ui-components
 tags:

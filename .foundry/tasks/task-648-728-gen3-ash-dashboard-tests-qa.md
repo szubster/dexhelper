@@ -2,10 +2,10 @@
 id: task-648-728-gen3-ash-dashboard-tests-qa
 type: TASK
 title: 'Task: QA Gen 3 Ash Dashboard Integration & E2E Tests'
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-04T12:00:00.000Z'
-updated_at: '2026-10-04T12:00:00.000Z'
+updated_at: '2026-11-06'
 depends_on:
   - task-648-726-gen3-ash-dashboard-integration-tests
   - task-648-727-gen3-ash-dashboard-e2e-tests
@@ -19,7 +19,6 @@ tags:
 research_references: []
 rejection_reason: ''
 locks: []
-confidence_score: 100
 ---
 
 # Task: QA Gen 3 Ash Dashboard Integration & E2E Tests

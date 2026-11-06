@@ -2,13 +2,13 @@
 id: story-565-567-lazy-load-e2e-verification
 type: STORY
 title: Integration and E2E Verification for Virtualized Pokedex Grid
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-11'
 updated_at: '2026-11-06'
 depends_on:
   - story-565-566-virtualize-pokedex-grid
-jules_session_id: '11893407779677360993'
+jules_session_id: null
 pr_number: null
 parent: epic-564-565-lazy-load-pokedex-pokemon-list
 tags:
@@ -17,7 +17,7 @@ tags:
   - pokedex
 research_references: []
 rejection_count: 2
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: FAILED'
 notes: ''
 locks: []
 ---
