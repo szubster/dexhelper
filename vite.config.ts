@@ -115,6 +115,18 @@ export default defineConfig(() => {
       rollupOptions: {
         output: {
           manualChunks(id) {
+            if (id.includes('packages/ui/')) {
+              // Heuristic: complex modal & select controls remain deferred / route-co-located
+              if (
+                id.includes('TacticalModal') ||
+                id.includes('TacticalSelect') ||
+                id.includes('TacticalSegmentedControl')
+              ) {
+                return undefined;
+              }
+              // Core design system primitives share a single compressed chunk
+              return 'ui-primitives';
+            }
             if (id.includes('node_modules')) {
               if (id.includes('/react/') || id.includes('/react-dom/') || id.includes('/scheduler/')) {
                 return 'react';
