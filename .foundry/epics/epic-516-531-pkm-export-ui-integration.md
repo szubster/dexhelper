@@ -28,5 +28,7 @@ This epic focuses on integrating the PKM/PK3 generation logic into the user inte
 - Trigger browser downloads with the correct file name and extension (`.pkm` or `.pk3`).
 
 ## Acceptance Criteria
-- [ ] Story Owner: Break down this Epic into Stories.
-- [ ] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [x] Story Owner: Break down this Epic into Stories.
+- [x] Story Owner: Generate a final STORY dedicated exclusively to Integration and E2E Verification.
+- [ ] story-531-743-pkm-export-ui-component
+- [ ] story-531-744-pkm-export-e2e-verification
