@@ -29,4 +29,7 @@ Define the TypeScript data structures and implement the core diagnostic utility 
 - Implement unit tests for the collector utility to ensure accurate state logging.
 
 ## Acceptance Criteria
-- [ ] Break down into Stories
+- [x] Break down into Stories
+- [ ] story-693-737-diagnostic-data-structures
+- [ ] story-693-738-diagnostic-collector-utility
+- [ ] story-693-739-diagnostic-subsystem-integration-e2e
