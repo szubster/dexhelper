@@ -37,4 +37,7 @@ This Epic tracks the work required to implement list virtualization in the \`Pok
 
 ## Acceptance Criteria
 - [ ] story-565-566-virtualize-pokedex-grid
-- [ ] story-565-567-lazy-load-e2e-verification
+- [x] story-565-567-lazy-load-e2e-verification
+
+- [ ] research-565-745-investigate-lazy-load-e2e-failure
+- [ ] story-565-746-lazy-load-e2e-verification-retry
