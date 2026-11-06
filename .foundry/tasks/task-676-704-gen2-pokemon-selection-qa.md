@@ -33,8 +33,8 @@ priority: 50
 Verify the implementation of the Gen 2 Pokémon Selection Interface, including both state management and UI components.
 
 ## Acceptance Criteria
-- [ ] Verify that the application correctly hooks into the global Gen 2 save file storage (PC and Party).
-- [ ] Verify the accuracy of the displayed species, gender (derived from Attack DV), and DVs (especially Defense and Special).
-- [ ] Verify the tactical hardware aesthetic according to ADR 008, ensuring sharp edges, dashed borders, monospaced fonts, and correct use of `@utility` primitives.
-- [ ] Verify that tests (unit, browser, and Playwright E2E) exist, pass locally, and properly target the UI without relying solely on manual DOM injections.
-- [ ] Run `pnpm lint && pnpm test` and `xvfb-run -a pnpm test:e2e` and verify a clean system state.
+- [x] Verify that the application correctly hooks into the global Gen 2 save file storage (PC and Party).
+- [x] Verify the accuracy of the displayed species, gender (derived from Attack DV), and DVs (especially Defense and Special).
+- [x] Verify the tactical hardware aesthetic according to ADR 008, ensuring sharp edges, dashed borders, monospaced fonts, and correct use of `@utility` primitives.
+- [x] Verify that tests (unit, browser, and Playwright E2E) exist, pass locally, and properly target the UI without relying solely on manual DOM injections.
+- [x] Run `pnpm lint && pnpm test` and `xvfb-run -a pnpm test:e2e` and verify a clean system state.
