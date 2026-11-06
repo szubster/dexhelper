@@ -29,4 +29,5 @@ locks: []
 - Ensure the script passes on valid schemas.
 
 ## Acceptance Criteria
+- [ ] task-565-740-lint-schema-e2e-impl
 - [ ] Create E2E test verifying schema linter functionality.
