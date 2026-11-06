@@ -30,6 +30,6 @@ locks: []
 Verify the correct implementation and styling of the Event Flags UI components created in task-678-712-event-flags-ui-components-impl.
 
 ## Acceptance Criteria
-- [ ] Verify that the Event Flags UI components accurately represent truthy and falsy states for special island event flags.
-- [ ] Verify that the components adhere strictly to the tactical aesthetic styling constraints detailed in ADR 008 (sharp edges, dashes, monospaced fonts).
-- [ ] Ensure unit tests are exhaustive and passing.
+- [x] Verify that the Event Flags UI components accurately represent truthy and falsy states for special island event flags.
+- [x] Verify that the components adhere strictly to the tactical aesthetic styling constraints detailed in ADR 008 (sharp edges, dashes, monospaced fonts).
+- [x] Ensure unit tests are exhaustive and passing.
