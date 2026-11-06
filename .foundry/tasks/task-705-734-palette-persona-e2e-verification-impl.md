@@ -27,5 +27,5 @@ priority: 100
 Implement E2E and integration tests to verify the updated palette persona prompt and domain ownership documentation.
 
 ## Acceptance Criteria
-- [ ] Validate that the prompt modifications do not break the orchestrator parsing or workflow.
-- [ ] E2E or integration tests pass successfully with the updated policies.
+- [x] Validate that the prompt modifications do not break the orchestrator parsing or workflow.
+- [x] E2E or integration tests pass successfully with the updated policies.
