@@ -2,12 +2,12 @@
 id: task-731-740-parse-foundry-node-types
 type: TASK
 title: Define Types for YAML Parsing Utility
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16247395835267554843'
 pr_number: null
 parent: story-707-731-implement-yaml-parsing-utility
 tags:

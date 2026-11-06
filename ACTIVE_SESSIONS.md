@@ -149,3 +149,4 @@
 | [task-726-730-impl-background-fetch-tests](.foundry/tasks/task-726-730-impl-background-fetch-tests.md) | TASK | Implement E2E Tests for Background Fetching | coder | [12661419013885022913](https://jules.google.com/session/12661419013885022913) |
 | [task-726-732-impl-generation-logic-tests](.foundry/tasks/task-726-732-impl-generation-logic-tests.md) | TASK | Implement E2E Tests for Generation-Specific Logic Splitting | coder | [15799343487872142639](https://jules.google.com/session/15799343487872142639) |
 | [task-731-734-ast-analyzer-core-logic](.foundry/tasks/task-731-734-ast-analyzer-core-logic.md) | TASK | AST Analyzer Core Logic | coder | [7777229208254947407](https://jules.google.com/session/7777229208254947407) |
+| [task-731-740-parse-foundry-node-types](.foundry/tasks/task-731-740-parse-foundry-node-types.md) | TASK | Define Types for YAML Parsing Utility | coder | [16247395835267554843](https://jules.google.com/session/16247395835267554843) |
