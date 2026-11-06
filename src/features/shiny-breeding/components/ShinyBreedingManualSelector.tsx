@@ -1,8 +1,8 @@
+import { TacticalSelect } from '@dexhelper/ui';
 import { useQuery } from '@tanstack/react-query';
 import type React from 'react';
 import { useMemo } from 'react';
 import { TacticalPanel } from '../../../components/TacticalPanel';
-import { TacticalSelect } from '../../../components/TacticalSelect';
 import { TelemetryDecoration } from '../../../components/TelemetryDecoration';
 import { useParsedSaveData } from '../../../contexts/EmulatorContext';
 import { pokeDB } from '../../../db/PokeDB';
@@ -66,7 +66,7 @@ export const ShinyBreedingManualSelector: React.FC = () => {
         <div className="font-mono text-xs text-zinc-400">{label}</div>
         <TacticalSelect
           value={allPokemon.find((p) => p.mon === parent)?.indexId || ''}
-          onChange={(e) => {
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
             const selected = allPokemon.find((p) => p.indexId === e.target.value);
             setParent(selected ? selected.mon : null);
           }}

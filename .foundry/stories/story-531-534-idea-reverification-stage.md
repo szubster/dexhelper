@@ -2,10 +2,10 @@
 id: story-531-534-idea-reverification-stage
 type: STORY
 title: IDEA Re-Verification Stage Implementation
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-10-22'
+updated_at: '2026-11-03'
 depends_on:
   - story-531-533-orchestrator-trigger-logic-updates
 jules_session_id: null
@@ -39,7 +39,7 @@ Add support in the Orchestrator for an "IDEA Re-Verification Stage" so that cont
 - [x] task-534-677-orchestrator-idea-reverification-impl-retry
 - [x] task-534-678-orchestrator-idea-reverification-tests-retry
 - [x] task-534-679-orchestrator-idea-reverification-qa-retry
-- [ ] research-534-694-investigate-idea-reverification-failure-v2
-- [ ] task-534-695-orchestrator-idea-reverification-impl-v3
-- [ ] task-534-696-orchestrator-idea-reverification-tests-v3
-- [ ] task-534-697-orchestrator-idea-reverification-qa-v3
+- [x] research-534-694-investigate-idea-reverification-failure-v2
+- [x] task-534-695-orchestrator-idea-reverification-impl-v3
+- [x] task-534-696-orchestrator-idea-reverification-tests-v3
+- [x] task-534-697-orchestrator-idea-reverification-qa-v3

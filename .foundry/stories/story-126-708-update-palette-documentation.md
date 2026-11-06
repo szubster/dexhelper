@@ -2,10 +2,10 @@
 id: story-126-708-update-palette-documentation
 type: STORY
 title: Update Palette Documentation
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-19'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - story-126-707-update-palette-persona-instructions
 jules_session_id: null
@@ -28,5 +28,5 @@ priority: 100
 Update `.foundry/docs/schema.md` or `.foundry/docs/knowledge_base/agents/core_policies.md` to formally document the `palette` persona's new domain ownership within the multi-agent pipeline.
 
 ## Acceptance Criteria
-- [ ] Relevant documentation is updated to reflect this new responsibility.
-- [ ] task-708-712-update-palette-documentation-impl
+- [x] Relevant documentation is updated to reflect this new responsibility.
+- [x] task-708-712-update-palette-documentation-impl

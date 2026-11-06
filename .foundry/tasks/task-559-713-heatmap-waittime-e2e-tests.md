@@ -2,10 +2,10 @@
 id: task-559-713-heatmap-waittime-e2e-tests
 type: TASK
 title: Heatmap Wait Time E2E Tests
-status: READY
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-10-31'
+updated_at: '2026-11-06'
 depends_on:
   - task-558-680-telemetry-extraction-logic
   - task-558-681-telemetry-generator-update
@@ -19,8 +19,8 @@ tags:
   - playwright
   - heatmap
 research_references: []
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 2
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

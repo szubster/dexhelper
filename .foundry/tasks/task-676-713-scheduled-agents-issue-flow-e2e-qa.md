@@ -2,10 +2,10 @@
 id: task-676-713-scheduled-agents-issue-flow-e2e-qa
 type: TASK
 title: Scheduled Agents Issue Flow E2E Verification QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-21'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - task-676-712-scheduled-agents-issue-flow-e2e-coder
 jules_session_id: null
@@ -19,7 +19,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-676-712-scheduled-agents-issue-flow-e2e-coder
 notes: ''
 locks: []
 ---
