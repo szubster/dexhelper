@@ -2,10 +2,10 @@
 id: task-562-742-gen2-moms-savings-qa-v4
 type: TASK
 title: QA Verification for Gen 2 Mom's Savings UI (v4)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-05'
-updated_at: '2026-11-05'
+updated_at: '2026-11-06'
 depends_on:
   - task-562-741-gen2-moms-savings-ui-v4
 jules_session_id: null

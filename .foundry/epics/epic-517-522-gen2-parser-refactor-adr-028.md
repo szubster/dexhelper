@@ -2,10 +2,10 @@
 id: epic-517-522-gen2-parser-refactor-adr-028
 type: EPIC
 title: Refactor Gen 2 Parsers for ADR 028
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-09-03'
-updated_at: '2026-09-05'
+updated_at: '2026-11-06'
 depends_on: []
 jules_session_id: '5258103045503465360'
 pr_number: null
@@ -28,6 +28,6 @@ Following ADR 028, all inline magic numbers used for memory offsets, lengths, bi
 ## Acceptance Criteria
 - [x] Decompose this Epic into actionable Story nodes for Gen 2.
 - [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification.
-- [ ] story-522-520-gen2-constants-extraction
-- [ ] story-522-521-gen2-parser-refactor-impl
-- [ ] story-522-522-gen2-parser-refactor-e2e
+- [x] story-522-520-gen2-constants-extraction
+- [x] story-522-521-gen2-parser-refactor-impl
+- [x] story-522-522-gen2-parser-refactor-e2e

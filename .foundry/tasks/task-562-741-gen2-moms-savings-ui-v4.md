@@ -2,10 +2,10 @@
 id: task-562-741-gen2-moms-savings-ui-v4
 type: TASK
 title: Update Gen 2 Mom's Savings Dashboard UI (v4)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-05'
-updated_at: '2026-11-05'
+updated_at: '2026-11-06'
 depends_on:
   - research-562-740-investigate-moms-savings-ui-failure-v4
 jules_session_id: null
