@@ -44,7 +44,7 @@ describe('PokemonLocations', () => {
         aid: 1,
         v: 1, // 'red' has POKE_VERSION_MAP id 1
         d: [
-          { min: 5, max: 5, m: 1, c: 100 }, // 'walk' maps to 1 in ENCOUNTER_METHOD_MAP
+          { min: 5, max: 5, method: 1, c: 100 }, // 'walk' maps to 1 in ENCOUNTER_METHOD_MAP
         ],
       },
     ];

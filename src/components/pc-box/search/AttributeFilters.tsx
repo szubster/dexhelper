@@ -1,10 +1,9 @@
-import { EdgeLabel, TacticalInput } from '@dexhelper/ui';
+import { EdgeLabel, TacticalInput, TacticalSelect } from '@dexhelper/ui';
 import type React from 'react';
 import type { Nature } from '../../../engine/gen3/contests/types';
 import { NATURES } from '../../../engine/gen3/nature';
 import { useStore } from '../../../store';
 import { TacticalSegmentedControl } from '../../TacticalSegmentedControl';
-import { TacticalSelect } from '../../TacticalSelect';
 
 export function AttributeFilters() {
   const attributeFilters = useStore((s) => s.attributeFilters) || {};

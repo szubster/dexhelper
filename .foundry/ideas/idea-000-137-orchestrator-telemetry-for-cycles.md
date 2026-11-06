@@ -2,10 +2,10 @@
 id: idea-000-137-orchestrator-telemetry-for-cycles
 type: IDEA
 title: Orchestrator Telemetry For Cycles
-status: PENDING
-owner_persona: product_manager
+status: READY
+owner_persona: curator
 created_at: '2026-08-08'
-updated_at: '2026-08-31'
+updated_at: '2026-11-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,6 +18,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Orchestrator Telemetry For Cycles
@@ -29,4 +30,4 @@ During the completion of `epic-334-338-circular-dependency-detection`, we succes
 Implement telemetry metrics in the `foundry-orchestrator.ts` script to count and record instances where the cycle detection fails a node.
 
 ## Acceptance Criteria
-- [ ] prd-137-346-orchestrator-telemetry-for-cycles
+- [x] prd-137-346-orchestrator-telemetry-for-cycles
