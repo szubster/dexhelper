@@ -29,4 +29,7 @@ Define the core TypeScript types and interfaces for the `SaveDataValidationRepor
 - Ensure strict typing for byte range metadata tracking.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+
+- [ ] task-737-745-diagnostic-data-structures-impl
+- [ ] task-737-746-diagnostic-data-structures-qa
