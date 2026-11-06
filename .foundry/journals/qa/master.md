@@ -1454,3 +1454,16 @@ During QA verification of the persona skins E2E implementation, I discovered the
 
 ## Action Taken
 I refactored `DagKanbanBoard` and `DagTree` to use the `PersonaBadge` component as requested. I modified `persona_skins.spec.ts` to assert visibility based on expected test fixture data instead of the missing `.tactical-flow` class. All tests, including the updated E2E test and workspace-wide `pnpm lint && pnpm test`, pass successfully. The acceptance criteria for the target task have been checked.
+
+---
+
+# QA Journal Entry - Session 2026-10-31
+
+## Target Task
+`task-561-690-pokerus-spread-planner-e2e-impl`
+
+## Details
+During QA verification, I observed that the E2E tests in `tests/e2e/pokerus.spec.ts` use `page.evaluate()` to directly mutate `window.__store.saveData` to mock the Pokerus states. This violates the E2E component integration testing policy defined in `.foundry/docs/knowledge_base/agents/core_policies.md` which mandates verifying actual rendered React components without tautological tests.
+
+## Action Taken
+The target task was marked as `FAILED` to trigger a transient rejection, and my QA task remains open.

@@ -55,7 +55,7 @@ describe('catchGenerator', () => {
 
     for (const tc of testCases) {
       const apiData = {
-        localEncounters: [{ pid: tc.pid, enc: [{ aid: 1, v: 1, d: [{ c: 100, m: 1, min: 25, max: 25 }] }] }],
+        localEncounters: [{ pid: tc.pid, enc: [{ aid: 1, v: 1, d: [{ c: 100, method: 1, min: 25, max: 25 }] }] }],
         localAid: 1,
         missingEncounters: {},
         allLocations: [],
@@ -96,7 +96,7 @@ describe('catchGenerator', () => {
               v: 1,
               d: [
                 null, // null ed
-                { c: 10, m: 999, min: 2, max: 5, t: 1 }, // unknown method 999 -> fallback 'walk'
+                { c: 10, method: 999, min: 2, max: 5, t: 1 }, // unknown method 999 -> fallback 'walk'
               ],
             },
           ],
@@ -144,8 +144,8 @@ describe('catchGenerator', () => {
         {
           pid: 1,
           enc: [
-            { aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }, // Wrong aid
-            { aid: 1, v: 2, d: [{ c: 10, m: 1, min: 2, max: 5 }] }, // Wrong version
+            { aid: 2, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }, // Wrong aid
+            { aid: 1, v: 2, d: [{ c: 10, method: 1, min: 2, max: 5 }] }, // Wrong version
           ],
         },
       ],
@@ -226,9 +226,9 @@ describe('catchGenerator', () => {
       localEncounters: [],
       localAid: undefined,
       missingEncounters: {
-        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
-        2: { enc: [{ aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
-        3: { enc: [{ aid: 3, v: 1, d: [{ c: 10, m: 999, min: 2, max: 5 }] }] },
+        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] },
+        2: { enc: [{ aid: 2, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] },
+        3: { enc: [{ aid: 3, v: 1, d: [{ c: 10, method: 999, min: 2, max: 5 }] }] },
       },
       allLocations: [],
     } as unknown as AssistantApiData;
@@ -277,8 +277,8 @@ describe('catchGenerator', () => {
       localEncounters: [],
       localAid: undefined,
       missingEncounters: {
-        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] },
-        2: { enc: [{ aid: 3, v: 2, d: [{ c: 10, m: 1, min: 2, max: 5 }] }] }, // wrong version
+        1: { enc: [{ aid: 2, v: 1, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] },
+        2: { enc: [{ aid: 3, v: 2, d: [{ c: 10, method: 1, min: 2, max: 5 }] }] }, // wrong version
       },
       allLocations: [],
     } as unknown as AssistantApiData;
@@ -494,7 +494,7 @@ describe('catchGenerator', () => {
                 v: 1,
                 d: [
                   null, // null ed
-                  { m: 999, c: 10, min: 5, max: 10, t: 1 }, // unknown method 999
+                  { method: 999, c: 10, min: 5, max: 10, t: 1 }, // unknown method 999
                 ],
               },
             ],
@@ -548,13 +548,13 @@ describe('catchGenerator', () => {
       localEncounters: [],
       localAid: null,
       missingEncounters: {
-        5: { enc: [{ aid: 50, v: 1, d: [{ c: 10, m: 1, min: 5, max: 10 }] }] },
+        5: { enc: [{ aid: 50, v: 1, d: [{ c: 10, method: 1, min: 5, max: 10 }] }] },
       },
       ancestralEncounters: {
         5: {
           4: {
             pid: 4,
-            enc: [{ aid: 50, v: 1, d: [{ c: 10, m: 1, min: 5, max: 10 }] }],
+            enc: [{ aid: 50, v: 1, d: [{ c: 10, method: 1, min: 5, max: 10 }] }],
           },
         },
       },

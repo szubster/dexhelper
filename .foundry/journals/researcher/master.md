@@ -909,3 +909,9 @@ To fix this and preserve duplicate held items:
 # Empty PR Strictness (Zero Modified Files)
 
 When executing an Empty PR for trivial maintenance or non-user-facing changes, the workspace must remain absolutely clean with exactly zero modified files. Do not opportunistically fix unrelated linting errors, unused exports, or formatting issues discovered during pre-commit verification. If `pnpm lint` fails due to pre-existing issues in unrelated files, you must explicitly ignore the failure and proceed to the next step.
+
+---
+
+# Investigated task-423-688-gen3-ai-data-e2e-mapping-tests-impl-v5 timeout
+
+Investigated the failure of `task-423-688-gen3-ai-data-e2e-mapping-tests-impl-v5` and discovered it was a false permanent failure caused by repeated `[ACKNOWLEDGED] Session terminated with state: COMPLETED` agent session crashes rather than actual QA rejections.

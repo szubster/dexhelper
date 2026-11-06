@@ -2,10 +2,10 @@
 id: story-399-523-save-state-limits-e2e
 type: STORY
 title: Save State Limits and LRU Eviction E2E Verification
-status: READY
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-02'
-updated_at: '2026-11-01'
+updated_at: '2026-11-05'
 depends_on:
   - story-399-522-save-state-quota-handling
 jules_session_id: null

@@ -2,13 +2,13 @@
 id: task-402-649-002-refactor-pokemon-details
 type: TASK
 title: Apply Lazy Loading to Pokemon Details UI
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-18T00:21:26Z'
-updated_at: '2026-10-30'
+updated_at: '2026-11-01'
 depends_on:
   - task-402-649-001-lazy-loading-wrapper
-jules_session_id: '14516273577137269042'
+jules_session_id: null
 pr_number: null
 parent: story-402-649-refactor-ui-lazy-loading
 tags:
@@ -20,6 +20,7 @@ research_references: []
 rejection_reason: ''
 locks: []
 rejection_count: 1
+confidence_score: 100
 ---
 
 # Task: Apply Lazy Loading to Pokemon Details UI
@@ -32,6 +33,6 @@ Refactor the UI components within `PokemonDetails.tsx` and `PokemonCaughtDetails
 - Ensure fallbacks are properly sized for the respective content blocks.
 
 ## Acceptance Criteria
-- [ ] Replace `React.Suspense` blocks in `src/components/PokemonDetails.tsx`.
-- [ ] Replace `React.Suspense` blocks in `src/components/pokemon/details/PokemonCaughtDetails.tsx`.
-- [ ] Verify that UI does not flash or block during loading.
+- [x] Replace `React.Suspense` blocks in `src/components/PokemonDetails.tsx`.
+- [x] Replace `React.Suspense` blocks in `src/components/pokemon/details/PokemonCaughtDetails.tsx`.
+- [x] Verify that UI does not flash or block during loading.
