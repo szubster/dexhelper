@@ -35,7 +35,7 @@ QA the Gen 3 Secret Base NPC party extraction logic implemented by the Coder.
 - Verify that `RangeError` is handled.
 
 ## Acceptance Criteria
-- [ ] Verify PokeData property naming schema.
-- [ ] Verify module-level constants are used.
-- [ ] Verify extraction uses Gen 3 section offsets.
-- [ ] Verify `RangeError` catching and throwing of correct message.
+- [x] Verify PokeData property naming schema.
+- [x] Verify module-level constants are used.
+- [x] Verify extraction uses Gen 3 section offsets.
+- [x] Verify `RangeError` catching and throwing of correct message.
