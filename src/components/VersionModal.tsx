@@ -1,9 +1,8 @@
-import { CornerCrosshairs, EdgeLabel } from '@dexhelper/ui';
+import { CornerCrosshairs, EdgeLabel, TacticalModal } from '@dexhelper/ui';
 import { ServerCrash } from 'lucide-react';
 import { useStore } from '../store';
 import { getGenerationConfig } from '../utils/generationConfig';
 import { HoverScanner } from './HoverScanner';
-import { TacticalModal } from './TacticalModal';
 import { TacticalPanel } from './TacticalPanel';
 import { TelemetryDecoration } from './TelemetryDecoration';
 

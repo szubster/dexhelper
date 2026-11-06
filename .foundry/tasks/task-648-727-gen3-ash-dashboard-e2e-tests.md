@@ -2,12 +2,12 @@
 id: task-648-727-gen3-ash-dashboard-e2e-tests
 type: TASK
 title: 'Task: Implement Gen 3 Ash Dashboard Playwright E2E Tests'
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-04T12:00:00.000Z'
-updated_at: '2026-10-04T12:00:00.000Z'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4157191732939856669'
 pr_number: null
 parent: story-269-648-gen3-ash-dashboard-e2e
 tags:
