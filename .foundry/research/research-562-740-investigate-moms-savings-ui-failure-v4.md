@@ -30,5 +30,10 @@ Investigate the root cause of the permanent failure in `task-562-717-gen2-moms-s
 The previous investigation `research-562-716-investigate-moms-savings-ui-failure-v3` reached max rejection count without resolution and was cancelled. The Tech Lead has restarted the investigation via the Impossible Loop to unblock the Mom's Savings Tracker UI integration.
 
 ## Acceptance Criteria
-- [ ] Determine the exact root cause of the rejection by reviewing QA journals or git history.
-- [ ] Document findings and formulate a correct remediation strategy in the research report section of this document.
+- [x] Determine the exact root cause of the rejection by reviewing QA journals or git history.
+- [x] Document findings and formulate a correct remediation strategy in the research report section of this document.
+
+## Research Report
+The root cause for the rejection is that the `Gen2SavingsDashboard` UI implementation still violates ADR 008 and ADR 024 by using raw inline Tailwind typography classes (`font-mono text-xs text-zinc-400`, `font-mono text-2xl text-emerald-400`, etc.) rather than the required `@utility tactical-text` primitive defined in `src/index.css`.
+
+The remediation strategy for the subsequent task is to update `Gen2SavingsDashboard` to fully utilize `tactical-text` and remove unauthorized inline `font-mono` usages (with the exception of cases where sizes might be strictly overridden on top of `tactical-text` if required, but primarily relying on standard tactical primitives).
