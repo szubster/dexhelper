@@ -32,5 +32,7 @@ Verify the integration and functionality of the multi-box IV and EV stat filters
 - [x] task-619-687-multi-box-stat-filters-e2e-tests
 - [x] task-619-688-multi-box-stat-filters-e2e-qa
 - [ ] research-619-712-investigate-multi-box-stat-filters-e2e-failure
-- [ ] task-619-713-multi-box-stat-filters-e2e-tests-retry
-- [ ] task-619-714-multi-box-stat-filters-e2e-qa-retry
+- [x] task-619-713-multi-box-stat-filters-e2e-tests-retry
+- [x] task-619-714-multi-box-stat-filters-e2e-qa-retry
+- [ ] research-619-740-investigate-multi-box-stat-filters-e2e-tests-failure-retry
+- [ ] task-619-741-multi-box-stat-filters-e2e-tests-retry-2
