@@ -31,5 +31,7 @@ Write end-to-end tests to verify that node telemetry data (rejection counts and 
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks
-- [ ] task-559-712-heatmap-rejection-e2e-tests
-- [ ] task-559-713-heatmap-waittime-e2e-tests
+- [x] task-559-712-heatmap-rejection-e2e-tests
+- [x] task-559-713-heatmap-waittime-e2e-tests
+- [ ] research-559-745-investigate-heatmap-waittime-e2e-failure
+- [ ] task-559-746-heatmap-waittime-e2e-tests-retry
