@@ -37,7 +37,7 @@ describe('EVO_TRIGGER.SHED', () => {
           id: 292,
           n: 'Shedinja',
           efrm: [290], // Nincada
-          det: [{ tr: 4 }], // SHED
+          det: [{ trigger: 4 }], // SHED
         },
         290: {
           id: 290,
@@ -97,7 +97,7 @@ it('generates a suggestion for Shedinja (Gen 4+ with Pokeball)', async () => {
         id: 292,
         n: 'Shedinja',
         efrm: [290], // Nincada
-        det: [{ tr: 4 }], // SHED
+        det: [{ trigger: 4 }], // SHED
       },
       290: {
         id: 290,
@@ -156,7 +156,7 @@ it('warns if missing party space', async () => {
         id: 292,
         n: 'Shedinja',
         efrm: [290], // Nincada
-        det: [{ tr: 4 }], // SHED
+        det: [{ trigger: 4 }], // SHED
       },
       290: {
         id: 290,
@@ -215,7 +215,7 @@ it('warns if missing Pokeball in Gen 4+', async () => {
         id: 292,
         n: 'Shedinja',
         efrm: [290], // Nincada
-        det: [{ tr: 4 }], // SHED
+        det: [{ trigger: 4 }], // SHED
       },
       290: {
         id: 290,
@@ -274,7 +274,7 @@ it('suggests standard level up requirement if under leveled', async () => {
         id: 292,
         n: 'Shedinja',
         efrm: [290], // Nincada
-        det: [{ tr: 4 }], // SHED
+        det: [{ trigger: 4 }], // SHED
       },
       290: {
         id: 290,

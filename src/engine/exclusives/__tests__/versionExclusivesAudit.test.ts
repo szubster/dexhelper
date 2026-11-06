@@ -8,7 +8,7 @@ import { GEN3_VERSION_EXCLUSIVES } from '../gen3Exclusives';
 
 interface RawEncounterDetail {
   c: number;
-  m: number;
+  method: number;
   min: number;
   t?: number;
 }

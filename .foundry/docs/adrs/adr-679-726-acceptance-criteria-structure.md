@@ -2,12 +2,12 @@
 id: adr-679-726-acceptance-criteria-structure
 type: ADR
 title: ADR 034 - Acceptance Criteria Structure
-status: ACTIVE
+status: PENDING
 owner_persona: architect
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: '18122965331286005741'
+jules_session_id: '6945528912308533148'
 pr_number: null
 parent: story-535-679-adr-acceptance-criteria
 tags:
@@ -37,3 +37,7 @@ Following the research on Acceptance Criteria usage (`research-534-517-audit-acc
    - Orchestrator parsing rules: The orchestrator must parse these exact formats and transition parent nodes only when all listed children are COMPLETED.
    - Enforce usage of existing tools (like `replace_with_git_merge_diff` or `sed`) via core system memory and `agents.md` prompts.
    - Introduce pre-commit hook or CI check automation to validate formatting.
+
+## Acceptance Criteria
+- [ ] task-726-727-orchestrator-parsing
+- [ ] task-726-728-ci-check

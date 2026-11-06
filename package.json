@@ -50,7 +50,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:bench": "node --experimental-strip-types tests/benchmarks/run-benchmarks.ts",
-    "test:bundle": "bundlemon",
+    "test:bundle": "bundlemon && bundlemon --config packages/ui/.bundlemonrc.json",
     "test:coverage": "vitest run --coverage",
     "test:ct": "vitest --project browser",
     "test:e2e": "playwright test",

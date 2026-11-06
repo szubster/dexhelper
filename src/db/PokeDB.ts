@@ -61,12 +61,12 @@ const DEFAULT_POKEMON_METADATA = {
 };
 
 const DEFAULT_EVO_DETAIL = {
-  tr: 1,
+  trigger: 1,
   mh: 160,
 };
 
 const DEFAULT_ENCOUNTER_DETAIL = {
-  m: 1,
+  method: 1,
 };
 
 const DEFAULT_LOCATION = {
