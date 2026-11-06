@@ -18,6 +18,7 @@
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
+| [idea-130-shoal-cave-tide-tracker](.foundry/ideas/idea-130-shoal-cave-tide-tracker.md) | IDEA | Shoal Cave Tide & Item Tracker (Gen 3) | curator | [10023438150956836054](https://jules.google.com/session/10023438150956836054) |
 | [idea-417-407-more-save-files](.foundry/ideas/idea-417-407-more-save-files.md) | IDEA | Idea: Source additional save files for testing | curator | [17635576926213558376](https://jules.google.com/session/17635576926213558376) |
 | [prd-066-100-save-state-history-diffing](.foundry/prds/prd-066-100-save-state-history-diffing.md) | PRD | Save State Diffing and Metadata Inference Engine | epic_planner | [13000459354199322262](https://jules.google.com/session/13000459354199322262) |
 | [prd-540-727-multi-save-diffing-and-trade-simulation](.foundry/prds/prd-540-727-multi-save-diffing-and-trade-simulation.md) | PRD | Real-Time Multi-Save Diffing Engine and Cross-Save Trade Simulation Pipeline | epic_planner | [16992945806338479651](https://jules.google.com/session/16992945806338479651) |
