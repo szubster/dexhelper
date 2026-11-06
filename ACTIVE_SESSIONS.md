@@ -14,6 +14,7 @@
 | [epic-707-693-domain-logic-extraction](.foundry/epics/epic-707-693-domain-logic-extraction.md) | EPIC | Extract Domain Logic from Store Action Setters | story_owner | [11222266880508332653](https://jules.google.com/session/11222266880508332653) |
 | [epic-707-712-save-data-reader-decorator-implementation](.foundry/epics/epic-707-712-save-data-reader-decorator-implementation.md) | EPIC | Implementation of ISaveDataReader Decorators | story_owner | [3379081896994845907](https://jules.google.com/session/3379081896994845907) |
 | [epic-726-728-crash-recovery-heuristic](.foundry/epics/epic-726-728-crash-recovery-heuristic.md) | EPIC | Crash Recovery Heuristic | story_owner | [4927416435264646145](https://jules.google.com/session/4927416435264646145) |
+| [epic-726-729-sub-tree-completeness-validator](.foundry/epics/epic-726-729-sub-tree-completeness-validator.md) | EPIC | Sub-Tree Completeness Validator | story_owner | [10482530580010588448](https://jules.google.com/session/10482530580010588448) |
 | [idea-058-damage-calculator-integration](.foundry/ideas/idea-058-damage-calculator-integration.md) | IDEA | Damage Calculator and Showdown Export Integration | human | - |
 | [idea-066-rom-hack-support](.foundry/ideas/idea-066-rom-hack-support.md) | IDEA | ROM Hack Support via Custom Adapters | human | - |
 | [idea-085-hidden-power-calculator](.foundry/ideas/idea-085-hidden-power-calculator.md) | IDEA | Hidden Power Type and Base Power Calculator | human | - |
