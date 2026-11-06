@@ -13,7 +13,7 @@ describe('schema', () => {
       expect(ENCOUNTER_METHOD_MAP['walk']).toBe(1);
     });
 
-    it('should preserve walk encounter method m: 1 in generated encounters.jsonl without stripping it to undefined', () => {
+    it('should preserve walk encounter method method: 1 in generated encounters.jsonl without stripping it to undefined', () => {
       const encountersPath = path.join(process.cwd(), 'data/db/encounters.jsonl');
       const encountersLines = fs.readFileSync(encountersPath, 'utf-8').trim().split('\n');
       const encounters: LocationAreaEncounters[] = encountersLines.map((line) => JSON.parse(line));
@@ -24,10 +24,10 @@ describe('schema', () => {
       for (const encRecord of encounters) {
         for (const compactEnc of encRecord.enc) {
           for (const detail of compactEnc.d) {
-            if (detail.m === 1) {
+            if (detail.method === 1) {
               walkCount++;
             }
-            if (detail.m === undefined) {
+            if (detail.method === undefined) {
               undefinedMethodCount++;
             }
           }
@@ -36,6 +36,32 @@ describe('schema', () => {
 
       expect(undefinedMethodCount).toBe(0);
       expect(walkCount).toBeGreaterThan(0);
+    });
+
+    it('should map Gen 1 water routes 19, 20, and 21 to their canonical PokeAPI area IDs with valid encounters', () => {
+      const encountersPath = path.join(process.cwd(), 'data/db/encounters.jsonl');
+      const encountersLines = fs.readFileSync(encountersPath, 'utf-8').trim().split('\n');
+      const encounters: LocationAreaEncounters[] = encountersLines.map((line) => JSON.parse(line));
+
+      const route19Encounters: number[] = [];
+      const route20Encounters: number[] = [];
+      const route21Encounters: number[] = [];
+
+      for (const encRecord of encounters) {
+        for (const compactEnc of encRecord.enc) {
+          if (compactEnc.aid === 29) {
+            route19Encounters.push(encRecord.pid);
+          } else if (compactEnc.aid === 30) {
+            route20Encounters.push(encRecord.pid);
+          } else if (compactEnc.aid === 31) {
+            route21Encounters.push(encRecord.pid);
+          }
+        }
+      }
+
+      expect(route19Encounters.length).toBeGreaterThan(0);
+      expect(route20Encounters.length).toBeGreaterThan(0);
+      expect(route21Encounters.length).toBeGreaterThan(0);
     });
   });
 });

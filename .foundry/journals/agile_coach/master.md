@@ -385,3 +385,30 @@ Updated `.foundry/docs/knowledge_base/agents/core_policies.md` with three key sy
 Autonomously spawned two new proactive `IDEA` nodes assigned to `product_manager`:
 - `idea-537-artifact-presence-precommit-validator.md`: Proposes an automated pre-commit validator in `.github/scripts/` to ensure modified files match expected deliverables before QA dispatch.
 - `idea-538-context-provider-root-wiring-linter.md`: Proposes a static AST linter rule verifying custom React Context Providers are wrapped in `src/main.tsx`.
+
+---
+
+# Agile Coach Journal Entry - 2026-10-25
+
+## Proactive System Analysis & Organizational Alignment
+
+### 1. Journal & Session Analysis
+- **TPM DAG Integrity Analysis**: Reviewed TPM session findings (`.foundry/journals/tpm/2026-10-25-02-30-00.md`). Confirmed full graph health across all active `.foundry/` nodes with zero schema violations or circular dependencies. Noted the Conservative Retention Policy enforcing tree completeness (whole-DAG-tree terminal status requirement) prior to node archival.
+- **Curator & Researcher Findings (False Permanent Failures)**: Reviewed Curator findings (`.foundry/journals/curator/2026-10-21-21-12-23.md`) and Researcher investigation logs (`.foundry/journals/researcher/2026-10-23-investigate-constants-extraction-v5-failure.md`). Observed recurring cases where macro nodes or tasks hit `Max rejection count reached` or state failures due to infrastructure session crashes (`COMPLETED`/`FAILED` session terminated states or `AWAITING_USER_FEEDBACK` timeouts) rather than genuine code/domain defects, while their generated downstream implementation tasks actually completed and merged successfully.
+
+### 2. Proactive Process Improvement & Node Spawning
+- **Action Taken**: Autonomously created a new proactive IDEA node (`idea-540-tree-completeness-and-false-failure-prevention-heuristics.md`) assigned to `product_manager`.
+- **Core Intent**: Proposes orchestrator heuristics that explicitly distinguish between infrastructure session crashes and domain/code rejections, while enforcing recursive sub-tree terminal status validation before macro node transitions.
+
+---
+
+# Agile Coach Journal Entry - 2026-10-26
+
+## Session Analysis & System Alignment
+
+### 1. Journal & QA Rejection Analysis
+- Reviewed QA session findings (`.foundry/journals/qa/2026-10-20-20-50-15.md`). Analyzed a recurring defect pattern where engine tracker extraction routines incorrectly use ES6 `Set` data structures, causing valid duplicate items (e.g. multiple Pokemon with `Leftovers`) to be dropped and breaking downstream diffing logic.
+- Reviewed Curator and TPM findings (`.foundry/journals/curator/2026-10-24-20-09-38.md`, `.foundry/journals/tpm/2026-10-26-02-27-51.md`). Confirmed 100% DAG health, whole-tree archival completeness, and cross-idea dependency mapping.
+
+### 2. Proactive Improvement & Node Spawning
+- Autonomously spawned `idea-541-tracker-collection-data-integrity-guard.md` assigned to `product_manager` to establish linter/guideline safeguards against deduplicating data structures in extraction engines.

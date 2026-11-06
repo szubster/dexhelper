@@ -17,7 +17,7 @@
 ## Actions Taken
 - Executed `node --experimental-strip-types packages/foundry/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
 - Consolidated entries for `agile_coach`, `lens`, `tpm`, `bolt`, `canvas`, `mason`, `oak`, `palette`, and `sentinel`, safely unlinking transient session markdown files upon aggregation.
-- Verified knowledge hygiene across `.serena/memories/` (symlinked to `.foundry/docs/knowledge_base/`) and confirmed no transient logs or obsolete entries remained.
+- Verified knowledge hygiene across `.foundry/docs/knowledge_base/` (symlinked to `.foundry/docs/knowledge_base/`) and confirmed no transient logs or obsolete entries remained.
 - Validated workspace health via `pnpm lint` and `pnpm test`.
 
 ---
@@ -55,7 +55,7 @@
 - Executed `node --experimental-strip-types packages/foundry/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
 - Consolidated entries for `agile_coach`, `coder`, `lens`, `qa`, `researcher`, `canvas`, `nurse`, `oak`, `palette`, `sculptor`, `strategist`, and `trainer`, safely unlinking transient session files upon aggregation.
 - Cleaned up unparsed `2026-10-14` placeholders and redundant session headers in `.jules/trainer/master.md`.
-- Verified no legacy `.Jules/` (uppercase) directory exists and confirmed `.serena/memories/` symlink validity.
+- Verified no legacy `.Jules/` (uppercase) directory exists and confirmed `.foundry/docs/knowledge_base/` symlink validity.
 - Ran project linting and unit test suite via `pnpm lint && pnpm test`.
 
 ---

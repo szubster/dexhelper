@@ -2,10 +2,10 @@
 id: task-679-734-pokeblock-viewer-qa-retry
 type: TASK
 title: Pokéblock Viewer QA (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-28'
-updated_at: '2026-10-31'
+updated_at: '2026-11-03'
 depends_on:
   - task-679-733-pokeblock-route-integration-impl-retry
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - gen3
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-679-731-investigate-pokeblock-dashboard-failure
 notes: ''
 locks: []
 ---
