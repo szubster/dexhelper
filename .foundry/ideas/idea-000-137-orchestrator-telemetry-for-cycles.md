@@ -2,12 +2,12 @@
 id: idea-000-137-orchestrator-telemetry-for-cycles
 type: IDEA
 title: Orchestrator Telemetry For Cycles
-status: READY
+status: ACTIVE
 owner_persona: curator
 created_at: '2026-08-08'
 updated_at: '2026-11-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '16250484017040952001'
 pr_number: null
 parent: null
 tags:
