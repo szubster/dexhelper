@@ -2,10 +2,10 @@
 id: task-562-717-gen2-moms-savings-ui-v3
 type: TASK
 title: Update Gen 2 Mom's Savings Dashboard UI (v3)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-23'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on:
   - research-562-716-investigate-moms-savings-ui-failure-v3
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - react
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-562-716-investigate-moms-savings-ui-failure-v3
 notes: ''
 locks: []
 ---

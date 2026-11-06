@@ -23,8 +23,8 @@ describe('Recursive Evolution Suggestions', () => {
       missingEncounters: {},
       pokemonMetadata: {
         4: { id: 4, efrm: [], det: [] },
-        5: { id: 5, efrm: [4], det: [{ tr: 1, ml: 16 }] },
-        6: { id: 6, efrm: [5, 4], det: [{ tr: 1, ml: 36 }] }, // efrm actually contains [5, 4] for Charizard!
+        5: { id: 5, efrm: [4], det: [{ trigger: 1, ml: 16 }] },
+        6: { id: 6, efrm: [5, 4], det: [{ trigger: 1, ml: 36 }] }, // efrm actually contains [5, 4] for Charizard!
       },
       ancestralEncounters: {},
       areaNames: {},

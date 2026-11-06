@@ -62,3 +62,19 @@ function walkSync(dir: string): string[] {
   });
   return results;
 }
+
+export function extractRelevantChunks(index: any, query: string, topK: number = 3): string {
+  if (!query) return '';
+  const results = index.search(query, { enrich: true, limit: topK });
+  const chunks: string[] = [];
+  for (const fieldResult of results) {
+    if (fieldResult.result) {
+      for (const res of fieldResult.result) {
+        if (res.doc && res.doc.content) {
+          chunks.push(res.doc.content);
+        }
+      }
+    }
+  }
+  return chunks.join('\n\n');
+}

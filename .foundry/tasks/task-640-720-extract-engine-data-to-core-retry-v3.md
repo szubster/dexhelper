@@ -2,10 +2,10 @@
 id: task-640-720-extract-engine-data-to-core-retry-v3
 type: TASK
 title: Migrate pure JS/TS logic from src/engine/data to packages/core (Retry v3)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-23'
-updated_at: '2026-10-31'
+updated_at: '2026-11-03'
 depends_on:
   - task-640-719-qa-extract-utils-retry-v3
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-640-717-extract-utils-to-core-retry-v3
 notes: ''
 locks: []
 ---

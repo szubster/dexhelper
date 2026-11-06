@@ -92,4 +92,62 @@ describe('calculateGen2BugCatchingScore', () => {
 
     expect(calculateGen2BugCatchingScore(stats)).toBe(116);
   });
+
+  it('calculates score for maximum stats scenario (perfect shiny maxed)', () => {
+    const stats: Gen2PokemonStats = {
+      maxHp: 255, // Theoretical max stat
+      currentHp: 255,
+      attack: 255,
+      defense: 255,
+      specialAttack: 255,
+      specialDefense: 255,
+      speed: 255,
+      ivs: {
+        attack: 15, // max IV
+        defense: 15,
+        special: 15,
+        speed: 15,
+      },
+      heldItem: true,
+      isShiny: true,
+    };
+
+    // maxHp (255 * 4) = 1020
+    // stats (255 * 5) = 1275
+    // IVs (shiny) = 29
+    // currentHp (Math.floor(255 / 8)) = 31
+    // item = 1
+    // Total = 1020 + 1275 + 29 + 31 + 1 = 2356
+
+    expect(calculateGen2BugCatchingScore(stats)).toBe(2356);
+  });
+
+  it('calculates score for minimum stats scenario', () => {
+    const stats: Gen2PokemonStats = {
+      maxHp: 1, // Minimum HP
+      currentHp: 1,
+      attack: 1,
+      defense: 1,
+      specialAttack: 1,
+      specialDefense: 1,
+      speed: 1,
+      ivs: {
+        attack: 0,
+        defense: 0,
+        special: 0,
+        speed: 0,
+      },
+      heldItem: false,
+      isShiny: false,
+    };
+
+    // maxHp (1 * 4) = 4
+    // stats (1 * 5) = 5
+    // IVs = 0
+    // currentHp (Math.floor(1 / 8)) = 0
+    // item = 0
+    // Total = 4 + 5 + 0 + 0 + 0 = 9
+
+    expect(calculateGen2BugCatchingScore(stats)).toBe(9);
+  });
 });

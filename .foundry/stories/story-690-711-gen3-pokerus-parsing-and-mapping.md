@@ -2,12 +2,12 @@
 id: story-690-711-gen3-pokerus-parsing-and-mapping
 type: STORY
 title: Gen 3 Pokerus Parsing and Mapping Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-11-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '3134729320481240454'
 pr_number: null
 parent: epic-098-690-gen3-pokerus-data-extraction
 tags:

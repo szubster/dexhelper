@@ -28,5 +28,5 @@ QA session logs (e.g. `2026-10-20-20-50-15.md` during `task-564-602-pokemon-held
 2. Introduce a custom linter rule or AST check in `.github/scripts/` / ESLint / Biome that flags `new Set()` usage in `src/engine/tracker/` and `src/engine/saveParser/` files during pre-commit checks.
 
 ## Acceptance Criteria
-- [ ] Document collection data integrity rules in `.foundry/docs/schema.md`
+- [x] Document collection data integrity rules in `.foundry/docs/schema.md`
 - [ ] Create AST / linter validation rule flagging improper `Set` usage in extraction routines

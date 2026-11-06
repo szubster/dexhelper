@@ -2,22 +2,22 @@
 id: task-491-691-qa-persona-skins-e2e
 type: TASK
 title: QA Jules Agent Skins E2E Verification
-status: READY
+status: FAILED
 owner_persona: qa
 created_at: '2026-10-16T02:13:34.980Z'
-updated_at: '2026-10-29'
+updated_at: '2026-11-06'
 depends_on:
   - task-491-690-implement-persona-skins-e2e
-jules_session_id: '10444753708983096134'
+jules_session_id: null
 pr_number: null
 parent: story-406-491-jules-agent-skins-e2e-verification
 tags:
   - e2e
   - personas
   - gamification
-rejection_count: 0
+rejection_count: 1
 confidence_score: 100
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: NOT_FOUND'
 notes: ''
 locks: []
 ---
