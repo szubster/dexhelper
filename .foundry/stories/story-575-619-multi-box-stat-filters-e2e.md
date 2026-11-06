@@ -2,12 +2,12 @@
 id: story-575-619-multi-box-stat-filters-e2e
 type: STORY
 title: Multi-Box Stat Filters E2E
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-18'
 updated_at: '2026-11-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '425917579289060678'
 pr_number: null
 parent: epic-566-575-multi-box-stat-filters
 tags:
