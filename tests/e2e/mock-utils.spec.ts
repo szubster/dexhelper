@@ -53,6 +53,10 @@ test.describe('Mock Utils', () => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
+    // Add a tiny delay to ensure page JS has completed all synchronous mounting
+    // before we attach variables to the window object that could be wiped out by react hydration or navigations.
+    await page.waitForTimeout(100);
+
     // Set up event listeners
     await page.evaluate(() => {
       window.offlineFired = false;
