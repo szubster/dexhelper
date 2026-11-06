@@ -28,5 +28,5 @@ locks: []
 - Ensure the tests execute without failure and adhere to the architectural constraints.
 
 ## Acceptance Criteria
-- [ ] Run the tests and confirm they pass successfully.
-- [ ] Verify that testing practices adhere to standard guidelines (e.g., using Vitest or appropriate tooling).
+- [x] Run the tests and confirm they pass successfully.
+- [x] Verify that testing practices adhere to standard guidelines (e.g., using Vitest or appropriate tooling).
