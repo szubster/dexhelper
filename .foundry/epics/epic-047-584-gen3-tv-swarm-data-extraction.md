@@ -42,5 +42,9 @@ This epic replaces the cancelled `epic-047-081-gen3-tv-swarm-data-extraction`. I
 - Extract data indicating if events were inherited from another player's save file via the "Mix Record" feature.
 
 ## 3. Acceptance Criteria
-- [ ] Story Owner: Break down into Stories.
-- [ ] Story Owner: Ensure a final story is created for E2E Integration and Verification.
+- [x] Story Owner: Break down into Stories.
+- [x] Story Owner: Ensure a final story is created for E2E Integration and Verification.
+- [ ] research-584-740-gen3-rtc-extraction-conflict
+- [ ] story-584-741-gen3-tv-swarm-parsing-core
+- [ ] story-584-742-gen3-tv-swarm-forecasting
+- [ ] story-584-743-gen3-tv-swarm-e2e
