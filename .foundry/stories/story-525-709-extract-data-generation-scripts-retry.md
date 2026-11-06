@@ -2,13 +2,13 @@
 id: story-525-709-extract-data-generation-scripts-retry
 type: STORY
 title: Extract Data Generation Scripts - Retry
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-19'
-updated_at: '2026-10-31'
+updated_at: '2026-11-01'
 depends_on:
   - research-525-708-investigate-data-generation-scripts-failure
-jules_session_id: '6830061805442138743'
+jules_session_id: null
 pr_number: null
 parent: epic-519-525-extract-build-tooling
 tags:
@@ -27,4 +27,8 @@ Extract data generation scripts into `@dexhelper/pokedata-extractor`. This is a 
 
 ## Acceptance Criteria
 - [ ] Extract data generation scripts into `@dexhelper/pokedata-extractor`
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-709-734-scaffold-pokedata-extractor
+- [ ] task-709-735-migrate-data-generation-scripts
+- [ ] task-709-736-update-workspace-scripts
+- [ ] task-709-737-extract-data-generation-scripts-qa

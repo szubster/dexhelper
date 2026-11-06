@@ -2,14 +2,16 @@
 id: task-563-683-qa-gen3-missed-items-ui
 type: TASK
 title: QA Gen 3 Missed Items UI
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-12'
-updated_at: '2026-10-12'
-parent: story-553-563-gen3-missed-items-ui
+updated_at: '2026-11-04'
 depends_on:
   - task-563-682-gen3-missed-items-integration-tests
-jules_session_id: null
+jules_session_id: '15308999913176641129'
+parent: story-553-563-gen3-missed-items-ui
+locks: []
+rejection_reason: ''
 ---
 
 # Task: QA Gen 3 Missed Items UI
