@@ -120,3 +120,11 @@
 **Outcome:** Merged (Optimistic execution)
 **Why:** Inline tags and item chips (such as wild item selectors and inventory badges) lacked physical hardware depth and tactile telemetry structure. The redesign adheres strictly to the "tactical hardware/snooping" aesthetic (ADR 008) while maintaining full accessibility.
 **Pattern:** Micro tag and item chips should be cased inside dashed hardware boundaries with 4-corner mounting ticks, LED status dots, and optional sublabel badges to elevate tactile telemetry feedback.
+
+---
+
+## 2026-10-18 - [Accepted] - 🖼️ Canvas: Bold TacticalProgressBar Redesign
+**What:** Redesigned `TacticalProgressBar` from a simple left-bordered progress bar into a fully cased, high-density tactical hardware progress gauge module. Added 4-corner crosshair hardware accents (`CornerCrosshairs`), a left border status indicator bar, an active status LED indicator dot with dynamic glow, micro telemetry code tags (`codeTag`), animated scanline hover highlights (`ScanlineOverlay`), and expanded theme variant support (`default`, `emerald`, `amber`, `red`, `blue`, `purple`) while maintaining 100% backward compatibility.
+**Outcome:** Merged (Optimistic execution)
+**Why:** Progress bars across stat meters, contest stats, and sheen meters lacked visual casing, tactile hardware texture, and clear status feedback. The redesign encapsulates telemetry progress inside a heavy hardware module adhering strictly to ADR 008 (tactical hardware / snooping aesthetic).
+**Pattern:** Telemetry progress and stat gauge components should feature cased hardware boundaries with corner crosshair anchors, illuminated LED status dots, and micro telemetry tags to maintain consistent visual hierarchy across data screens.

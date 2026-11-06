@@ -430,3 +430,11 @@ Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing 
 **Outcome:** Merged
 **Why:** The `.github/agents/archivist.md` schedule contained inaccurate statements in its Scope table and Boundaries section claiming that schedule prompts in `.github/agents/` are 'maintained manually'. In reality, agent schedule prompts are maintained and evolved autonomously by the `strategist` persona. Correcting these statements aligns Archivist's prompt boundaries with actual operational reality.
 **Pattern:** Ensure boundary rules and scope tables across agent prompts accurately reflect autonomous system roles and maintenance ownership.
+
+---
+
+## 2026-10-21 - [Accepted] - Prompt improvement - Remove redundant journal reading directive from visionary.md
+**Type:** Prompt improvement
+**Outcome:** Merged
+**Why:** `.github/agents/visionary.md` contained a redundant journal reading directive under its `Boundaries` section ("Read your past journals in `.jules/visionary/master.md` to recall past generated ideas and their outcomes."). Journal reading directives are centrally required in the `## Journal` section across all persona prompts. Removing this duplicate line eliminates redundant instructions, reduces token bloat, and aligns `visionary.md` with system-wide prompt standards.
+**Pattern:** Audit agent persona prompts to ensure journal reading instructions are defined strictly once in the `## Journal` section, eliminating duplicated journal directives from `Boundaries` or `Core Directives` sections.
