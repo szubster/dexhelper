@@ -28,5 +28,8 @@ As per the parent PRD `prd-540-726-tree-completeness-and-false-failure-preventio
 - Write unit tests in `packages/foundry/tests/`.
 
 ## Acceptance Criteria
-- [ ] Break down this EPIC into STORY nodes.
-- [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+- [x] Break down this EPIC into STORY nodes.
+- [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
+
+- [ ] story-728-743-implement-crash-recovery-heuristic
+- [ ] story-728-744-integration-and-e2e-verification
