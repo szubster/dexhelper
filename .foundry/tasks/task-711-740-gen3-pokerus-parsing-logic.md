@@ -31,5 +31,5 @@ Implement the extraction and mapping logic for Pokerus data in Gen 3 Pokémon sa
 - Map the extracted `strain` and `days_remaining` to the `SaveData` payload for Gen 3 Pokémon.
 
 ## Acceptance Criteria
-- [ ] Coder: Implement extraction logic for Gen 3 Pokerus in `src/engine/saveParser/parsers/gen3.ts`.
-- [ ] Coder: Map extracted Pokerus data to the `SaveData` structure.
+- [x] Coder: Implement extraction logic for Gen 3 Pokerus in `src/engine/saveParser/parsers/gen3.ts`.
+- [x] Coder: Map extracted Pokerus data to the `SaveData` structure.
