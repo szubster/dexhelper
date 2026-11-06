@@ -8,6 +8,12 @@ const dirname = path.dirname(filename);
 const SAFE_BASH_PATH = path.resolve(dirname, 'safe_bash.sh');
 
 describe('safe_bash.sh unit tests', () => {
+  it('should execute non-blocking commands successfully', () => {
+    expect.hasAssertions();
+    const result = execSync(`"${SAFE_BASH_PATH}" echo "Hello Timeout"`).toString().trim();
+    expect(result).toBe('Hello Timeout');
+  }, 10_000);
+
   it('should prevent execution of tail -f', () => {
     expect.hasAssertions();
     let status = 0;
