@@ -2,10 +2,10 @@
 id: story-693-738-diagnostic-collector-utility
 type: STORY
 title: Implement Diagnostic Collector Utility
-status: READY
+status: PENDING
 owner_persona: tech_lead
-created_at: "2026-11-04T22:54:29.331Z"
-updated_at: "2026-11-04"
+created_at: '2026-11-04T22:54:29.331Z'
+updated_at: '2026-11-06'
 depends_on:
   - story-693-737-diagnostic-data-structures
 jules_session_id: null
@@ -15,7 +15,7 @@ tags:
   - save-parser
   - diagnostics
 locks: []
-confidence_score: 90
+rejection_reason: ''
 ---
 
 # Implement Diagnostic Collector Utility

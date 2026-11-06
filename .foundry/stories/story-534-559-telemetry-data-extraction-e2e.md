@@ -2,10 +2,10 @@
 id: story-534-559-telemetry-data-extraction-e2e
 type: STORY
 title: Telemetry Data Extraction E2E Tests
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-10-31'
+updated_at: '2026-11-06'
 depends_on:
   - story-534-558-telemetry-data-extraction-impl
 jules_session_id: null

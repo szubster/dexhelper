@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-06T15:28:50.893Z*
+*Generated at: 2026-11-06T21:10:01.436Z*
 
 ## Node Statistics
 
@@ -11,29 +11,29 @@
 | EPIC | 543 |
 | IDEA | 240 |
 | PRD | 218 |
-| RESEARCH | 361 |
-| STORY | 1146 |
-| TASK | 3007 |
+| RESEARCH | 363 |
+| STORY | 1149 |
+| TASK | 3017 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3617 |
-| ACTIVE | 150 |
-| CANCELLED | 968 |
-| PENDING | 799 |
-| READY | 7 |
+| COMPLETED | 3624 |
+| ACTIVE | 148 |
+| CANCELLED | 971 |
+| PENDING | 800 |
 | BLOCKED | 14 |
-| FAILED | 5 |
+| READY | 14 |
+| FAILED | 4 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 172 |
-| Merged PRs | 8760 |
-| Closed PRs | 1068 |
+| Open PRs | 166 |
+| Merged PRs | 8764 |
+| Closed PRs | 1070 |
 
 ## Rejection Counts
 
@@ -177,6 +177,7 @@
 | research-679-731-investigate-pokeblock-dashboard-failure.md | 3 |
 | story-525-639-extract-data-generation-scripts.md | 3 |
 | story-553-563-gen3-map-data-extraction.md | 3 |
+| story-565-567-lazy-load-e2e-verification.md | 3 |
 | task-081-130-preserve-enum-optimizations-impl.md | 3 |
 | task-081-144-preserve-enum-optimizations-retry-impl.md | 3 |
 | task-152-258-gen3-friendship-impl.md | 3 |
@@ -301,6 +302,7 @@
 | task-555-680-gen1-gen2-pkm-e2e-tests-impl.md | 3 |
 | task-557-582-orchestrator-link-resolution-e2e-impl.md | 3 |
 | task-559-668-query-formulation-impl.md | 3 |
+| task-559-713-heatmap-waittime-e2e-tests.md | 3 |
 | task-560-568-tm-hm-compatibility-matching-impl.md | 3 |
 | task-560-609-tm-hm-compatibility-matching-impl-retry.md | 3 |
 | task-561-669-spinda-rendering-ui.md | 3 |
@@ -486,8 +488,8 @@
 | story-540-562-gen3-pokeblock-recommendation-engine.md | 2 |
 | story-541-561-architect-visionary-persona-e2e.md | 2 |
 | story-553-562-gen3-missed-items-parsing.md | 2 |
-| story-565-567-lazy-load-e2e-verification.md | 2 |
 | story-577-586-multi-box-integration-e2e.md | 2 |
+| task-081-692-preserve-enum-optimizations-retry-v3-qa.md | 2 |
 | task-121-327-gen3-tv-block-parser-retry7-impl.md | 2 |
 | task-140-440-ribbon-dashboard-virtualization-impl.md | 2 |
 | task-273-394-living-dex-pc-mapping-retry-impl.md | 2 |
@@ -560,7 +562,6 @@
 | task-558-570-flexsearch-tooling-e2e.md | 2 |
 | task-558-570-rs-battle-tower-integration.md | 2 |
 | task-558-721-heatmap-node-tooltip-impl.md | 2 |
-| task-559-713-heatmap-waittime-e2e-tests.md | 2 |
 | task-560-569-evaluate-state-machine-libraries.md | 2 |
 | task-560-575-pokerus-spread-planner-qa.md | 2 |
 | task-562-576-item-selection-route-e2e-impl.md | 2 |
@@ -932,7 +933,6 @@
 | story-580-673-migrate-settings-e2e-tests.md | 1 |
 | story-580-674-migrate-pokedex-e2e-tests.md | 1 |
 | story-582-674-yaml-schema-e2e-verification.md | 1 |
-| task-081-692-preserve-enum-optimizations-retry-v3-qa.md | 1 |
 | task-094-157-moveset-inventory-validation-impl.md | 1 |
 | task-099-157-gen3-extract-pokemon-pids-impl.md | 1 |
 | task-099-158-gen3-extract-pokemon-pids-qa.md | 1 |
@@ -1037,6 +1037,7 @@
 | task-522-668-quota-handling-impl.md | 1 |
 | task-522-684-wip-awareness-e2e-agent-tests.md | 1 |
 | task-522-713-wip-signaling-e2e-tests-retry.md | 1 |
+| task-523-732-box-analyzer-matrix-e2e-tabular-data-retry.md | 1 |
 | task-524-568-setup-oxlint-rules.md | 1 |
 | task-524-676-living-dex-ghosts-types.md | 1 |
 | task-526-555-safari-zone-layout-qa.md | 1 |
@@ -1134,6 +1135,7 @@
 | task-676-703-gen2-pokemon-selection-ui.md | 1 |
 | task-676-712-scheduled-agents-issue-flow-e2e-coder.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
+| task-709-734-scaffold-pokedata-extractor.md | 1 |
 | task-711-734-gen3-battle-frontier-context-impl.md | 1 |
 | task-726-728-ci-check.md | 1 |
 

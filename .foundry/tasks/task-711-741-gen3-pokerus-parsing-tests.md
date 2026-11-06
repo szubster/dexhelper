@@ -2,10 +2,10 @@
 id: task-711-741-gen3-pokerus-parsing-tests
 type: TASK
 title: Gen 3 Pokerus Parsing and Mapping Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-05'
-updated_at: '2026-11-05'
+updated_at: '2026-11-06'
 depends_on:
   - task-711-740-gen3-pokerus-parsing-logic
 jules_session_id: null

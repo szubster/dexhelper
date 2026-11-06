@@ -2,7 +2,7 @@
 id: story-133-424-gen3-lottery-e2e-verification
 type: STORY
 title: Gen3 Lottery E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-14'
 updated_at: '2026-11-06'

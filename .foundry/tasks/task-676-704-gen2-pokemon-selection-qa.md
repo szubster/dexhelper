@@ -2,17 +2,15 @@
 id: task-676-704-gen2-pokemon-selection-qa
 type: TASK
 title: Gen 2 Pokemon Selection Interface - QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-15'
-updated_at: '2026-10-15'
+updated_at: '2026-11-06'
 depends_on:
   - task-676-703-gen2-pokemon-selection-ui
 jules_session_id: null
 pr_number: null
 parent: story-310-676-pokemon-selection-interface
-priority: 50
-confidence_score: null
 tags:
   - gen2
   - breeding
@@ -26,6 +24,7 @@ system_failure_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+priority: 50
 ---
 
 # Gen 2 Pokemon Selection Interface - QA

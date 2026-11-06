@@ -2,10 +2,10 @@
 id: task-711-742-qa-gen3-pokerus-parsing
 type: TASK
 title: QA Gen 3 Pokerus Parsing and Mapping
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-05'
-updated_at: '2026-11-05'
+updated_at: '2026-11-06'
 depends_on:
   - task-711-740-gen3-pokerus-parsing-logic
   - task-711-741-gen3-pokerus-parsing-tests

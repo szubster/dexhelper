@@ -2,13 +2,13 @@
 id: task-582-709-qa-gen3-secret-base-party-extraction
 type: TASK
 title: QA Gen 3 Secret Base Party Extraction
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-09-30'
 updated_at: '2026-11-06'
 depends_on:
   - task-582-708-gen3-secret-base-party-extraction
-jules_session_id: '4026914786246105758'
+jules_session_id: null
 pr_number: null
 parent: story-569-582-gen3-secret-base-party-extraction
 tags:

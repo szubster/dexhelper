@@ -2,10 +2,10 @@
 id: task-640-742-migrate-tacticalselect-qa-retry
 type: TASK
 title: QA - Retry Migrate TacticalSelect Component
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-02'
-updated_at: '2026-11-02'
+updated_at: '2026-11-06'
 depends_on:
   - task-640-741-migrate-tacticalselect-impl-retry
 jules_session_id: null
