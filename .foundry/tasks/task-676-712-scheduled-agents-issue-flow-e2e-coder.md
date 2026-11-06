@@ -5,9 +5,9 @@ title: Scheduled Agents Issue Flow E2E Verification Coder Implementation
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-10-31'
+updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: '1212108492454370518'
+jules_session_id: '2659329148000072887'
 pr_number: null
 parent: story-532-676-scheduled-agents-issue-flow-e2e
 tags:
@@ -17,7 +17,7 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []

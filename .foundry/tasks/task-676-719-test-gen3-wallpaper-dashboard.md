@@ -2,13 +2,13 @@
 id: task-676-719-test-gen3-wallpaper-dashboard
 type: TASK
 title: Unit Testing for Gen 3 Wallpaper Dashboard
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-22'
-updated_at: '2026-10-24'
+updated_at: '2026-11-03'
 depends_on:
   - task-676-717-impl-gen3-wallpaper-state-integration
-jules_session_id: null
+jules_session_id: '12190484770639486965'
 pr_number: null
 parent: story-337-676-gen3-wallpaper-ui-component
 tags:
