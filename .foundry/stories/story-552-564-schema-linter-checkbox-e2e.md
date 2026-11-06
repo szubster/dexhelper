@@ -2,13 +2,13 @@
 id: story-552-564-schema-linter-checkbox-e2e
 type: STORY
 title: Integration and E2E Verification for Checkbox Linting
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-12'
 updated_at: '2026-11-06'
 depends_on:
   - story-552-563-schema-linter-section-tracking
-jules_session_id: null
+jules_session_id: '7864303026579511878'
 parent: epic-521-552-schema-linter-core-logic
 tags:
   - foundry
