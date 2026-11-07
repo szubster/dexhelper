@@ -2,13 +2,13 @@
 id: task-711-739-moveset-coverage-qa
 type: TASK
 title: QA - Matchup Simulation - Moveset Coverage Logic
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-31'
 updated_at: '2026-11-07'
 depends_on:
   - task-711-738-moveset-coverage-logic
-jules_session_id: null
+jules_session_id: '2199431476209903817'
 pr_number: null
 parent: story-412-711-matchup-simulation-engine
 tags:
