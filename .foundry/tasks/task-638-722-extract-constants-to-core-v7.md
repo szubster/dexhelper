@@ -2,10 +2,10 @@
 id: task-638-722-extract-constants-to-core-v7
 type: TASK
 title: Extract Constants to Core Package V7
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-11-02'
+updated_at: '2026-11-03'
 depends_on:
   - research-638-721-investigate-constants-extraction-v6-failure
 jules_session_id: null
@@ -14,8 +14,8 @@ tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 locks: []
 ---
 

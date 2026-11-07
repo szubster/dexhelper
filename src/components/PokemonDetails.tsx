@@ -33,10 +33,9 @@ const PokerusSpreadPlanner = React.lazy(() =>
   import('./PokerusSpreadPlanner').then((m) => ({ default: m.PokerusSpreadPlanner })),
 );
 
-import { ShinyBadge, TacticalIconButton } from '@dexhelper/ui';
+import { ShinyBadge, TacticalIconButton, TacticalModal } from '@dexhelper/ui';
 import { LazyLoadWrapper } from './LazyLoadWrapper';
 import { ScanlineOverlay } from './ScanlineOverlay';
-import { TacticalModal } from './TacticalModal';
 
 interface PokemonDetailsProps {
   pokemonId: number;

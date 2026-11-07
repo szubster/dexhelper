@@ -2,10 +2,10 @@
 id: task-640-717-extract-utils-to-core-retry-v3
 type: TASK
 title: Migrate pure JS/TS logic from src/utils to packages/core (Retry v3)
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-23'
-updated_at: '2026-11-02'
+updated_at: '2026-11-03'
 depends_on:
   - research-640-716-investigate-extract-utils-timeout-v4
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - monorepo
   - pnpm
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
