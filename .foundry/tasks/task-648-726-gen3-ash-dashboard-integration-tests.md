@@ -2,12 +2,12 @@
 id: task-648-726-gen3-ash-dashboard-integration-tests
 type: TASK
 title: 'Task: Implement Gen 3 Ash Dashboard Integration Tests'
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-04T12:00:00.000Z'
-updated_at: '2026-11-01'
+updated_at: '2026-11-03'
 depends_on: []
-jules_session_id: '9488009489785951147'
+jules_session_id: null
 pr_number: null
 parent: story-269-648-gen3-ash-dashboard-e2e
 tags:
@@ -26,6 +26,6 @@ confidence_score: 100
 Write integration tests for the Gen 3 Volcanic Ash Tracker Dashboard using `vitest-browser-react` and `vitest`. Verify that the React components integrate correctly with the state management and render expected values for ash levels.
 
 ## Acceptance Criteria
-- [ ] Create integration tests for the Ash Dashboard components.
-- [ ] Verify component rendering and state integration with `vitest-browser-react`.
-- [ ] Ensure tests do not use `@testing-library/react`.
+- [x] Create integration tests for the Ash Dashboard components.
+- [x] Verify component rendering and state integration with `vitest-browser-react`.
+- [x] Ensure tests do not use `@testing-library/react`.
