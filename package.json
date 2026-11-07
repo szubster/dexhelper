@@ -27,6 +27,7 @@
     "build": "vite build",
     "build:analyze": "ANALYZE=true vite build",
     "check:biome": "biome check --error-on-warnings .",
+    "check:checkboxes": "node --experimental-strip-types packages/foundry/utils/format-checkboxes.ts --check",
     "check:fix": "biome check --write --unsafe .",
     "clean": "rm -rf dist",
     "data:gen": "node --experimental-strip-types scripts/generate-pokedata.ts",
