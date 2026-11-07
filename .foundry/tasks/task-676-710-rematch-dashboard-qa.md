@@ -41,6 +41,6 @@ Perform QA verification for the Rematch Dashboard layout, routing integration, a
 - Ensure navigation correctly links to the dashboard and functions appropriately across different viewport sizes (including `isMobile`).
 
 ## Acceptance Criteria
-- [ ] Layout adheres to tactical design system constraints (ADR 008).
-- [ ] Application routing functions correctly.
-- [ ] E2E tests and unit tests pass and cover the implemented features appropriately.
+- [x] Layout adheres to tactical design system constraints (ADR 008).
+- [x] Application routing functions correctly.
+- [x] E2E tests and unit tests pass and cover the implemented features appropriately.
