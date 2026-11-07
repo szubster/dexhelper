@@ -2,10 +2,10 @@
 id: prd-130-340-shoal-cave-tide-tracker
 type: PRD
 title: Shoal Cave Tide & Item Tracker (Gen 3)
-status: PENDING
+status: COMPLETED
 owner_persona: epic_planner
 created_at: '2026-08-07'
-updated_at: '2026-08-12'
+updated_at: '2026-11-06'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # PRD: Shoal Cave Tide & Item Tracker (Gen 3)
@@ -51,5 +52,5 @@ The `epic_planner` should decompose this PRD into distinct, modular epics (and d
 - [x] Break down into EPIC(s) for Data Extraction.
 - [x] Break down into EPIC(s) for UI Dashboard.
 
-- [ ] epic-340-411-shoal-cave-data-extraction
-- [ ] epic-340-412-shoal-cave-ui-dashboard
+- [x] epic-340-411-shoal-cave-data-extraction
+- [x] epic-340-412-shoal-cave-ui-dashboard
