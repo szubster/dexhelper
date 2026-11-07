@@ -31,4 +31,4 @@ locks: []
 Write tests to verify that the orchestrator enforces WIP-awareness constraints and properly halts or errors when violating nodes are detected, based on the research findings.
 
 ## Acceptance Criteria
-- [ ] Write tests verifying orchestrator enforcement of WIP constraints.
+- [x] Write tests verifying orchestrator enforcement of WIP constraints.

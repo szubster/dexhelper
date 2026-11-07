@@ -4417,7 +4417,7 @@ Target artifact: task-completed
     expect(noLockResult).toContain('status: READY');
   });
 
-  test('DRAFT or WIP dependencies exit with code 1 in strict mode', () => {
+  test('DRAFT or WIP dependencies suspend dependents without exiting code 1 in strict mode', () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-wip.md', {
       id: "story-wip",
       type: "STORY",
@@ -4461,9 +4461,19 @@ Target artifact: task-completed
     }
 
     const output = stderrSpy.mock.calls.map(call => call[0] as string).join('');
-    expect(output).toContain('::warning::[orchestrator]');
-    expect(output).toContain('Exiting with code 1: DAG resolution warnings or unresolvable dependencies detected (--strict mode).');
-    expect(process.exitCode).toBe(1);
+    // Ensure no warnings are logged for DRAFT or WIP dependencies
+    expect(output).not.toContain('::warning::[orchestrator]');
+    // Ensure informational messages are logged instead
+    expect(output).toContain('is marked as WIP for PENDING node: .foundry/tasks/task-blocked.md');
+    expect(output).toContain('is marked as DRAFT for PENDING node: .foundry/tasks/task-blocked-draft.md');
+    // Ensure strict mode doesn't exit code 1
+    expect(process.exitCode).not.toBe(1);
+
+    // Verify nodes remain suspended (PENDING)
+    const blockedWipResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-blocked.md'), 'utf-8');
+    expect(blockedWipResult).toContain('status: PENDING');
+    const blockedDraftResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-blocked-draft.md'), 'utf-8');
+    expect(blockedDraftResult).toContain('status: PENDING');
 
     // cleanup
     process.exitCode = 0;
