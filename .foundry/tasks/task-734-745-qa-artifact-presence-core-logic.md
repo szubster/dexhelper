@@ -2,10 +2,10 @@
 id: task-734-745-qa-artifact-presence-core-logic
 type: TASK
 title: QA Artifact Presence Core Logic
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-02'
-updated_at: '2026-11-02'
+updated_at: '2026-11-07'
 depends_on:
   - task-734-744-artifact-presence-tests
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - testing
   - linter
   - validation
+locks: []
 priority: 80
+rejection_reason: ''
 ---
 
 # TASK: QA Artifact Presence Core Logic

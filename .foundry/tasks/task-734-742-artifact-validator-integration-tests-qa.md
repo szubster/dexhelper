@@ -2,10 +2,10 @@
 id: task-734-742-artifact-validator-integration-tests-qa
 type: TASK
 title: Artifact Validator Integration Tests - QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-02'
-updated_at: '2026-11-02'
+updated_at: '2026-11-07'
 depends_on:
   - task-734-740-artifact-validator-integration-tests-parser
   - task-734-741-artifact-validator-integration-tests-fs
@@ -15,9 +15,9 @@ parent: story-699-734-artifact-validator-integration-tests
 tags:
   - testing
   - integration
+rejection_reason: ''
 locks: []
 priority: 80
-rejection_reason: ''
 ---
 # TASK: Artifact Validator Integration Tests - QA
 

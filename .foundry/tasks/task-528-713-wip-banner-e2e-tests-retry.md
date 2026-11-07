@@ -2,13 +2,13 @@
 id: task-528-713-wip-banner-e2e-tests-retry
 type: TASK
 title: Implement WIP Banner E2E Tests (Retry)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-21T12:37:25Z'
 updated_at: '2026-11-07'
 depends_on:
   - research-528-712-investigate-wip-banner-e2e-failure
-jules_session_id: '3091678648317349688'
+jules_session_id: null
 pr_number: null
 parent: story-517-528-wip-documentation-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - e2e
   - ui
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 locks: []
 ---
 

@@ -2,10 +2,10 @@
 id: story-694-714-intercept-file-loading-stamping
 type: STORY
 title: Intercept File Loading to Stamp Schema Version
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-21T08:00:00.000Z'
-updated_at: '2026-11-02'
+updated_at: '2026-11-07'
 depends_on: []
 jules_session_id: null
 pr_number: null

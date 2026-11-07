@@ -2,13 +2,13 @@
 id: task-676-709-rematch-dashboard-e2e-tests
 type: TASK
 title: Rematch Dashboard E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-11-03'
+updated_at: '2026-11-07'
 depends_on:
   - task-676-708-rematch-dashboard-routing-impl
-jules_session_id: '6144743304822851722'
+jules_session_id: null
 pr_number: null
 parent: story-085-676-rematch-dashboard-layout-and-routing
 tags:

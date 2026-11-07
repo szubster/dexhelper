@@ -2,10 +2,10 @@
 id: task-676-710-rematch-dashboard-qa
 type: TASK
 title: Rematch Dashboard Layout and Routing QA
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-11-07'
 depends_on:
   - task-676-709-rematch-dashboard-e2e-tests
 jules_session_id: null

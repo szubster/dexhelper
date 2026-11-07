@@ -2,12 +2,12 @@
 id: task-711-734-type-effectiveness-logic
 type: TASK
 title: Matchup Simulation - Type Effectiveness Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-31'
-updated_at: '2026-11-03'
+updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: '12463145513431324382'
+jules_session_id: null
 pr_number: null
 parent: story-412-711-matchup-simulation-engine
 tags:

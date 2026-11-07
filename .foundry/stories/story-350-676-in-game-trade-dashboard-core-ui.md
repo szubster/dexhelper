@@ -2,10 +2,10 @@
 id: story-350-676-in-game-trade-dashboard-core-ui
 type: STORY
 title: In-Game Trade Dashboard Core UI
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-31'
+updated_at: '2026-11-07'
 depends_on: []
 jules_session_id: null
 pr_number: null

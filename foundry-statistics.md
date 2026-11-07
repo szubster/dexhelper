@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-07T14:29:43.015Z*
+*Generated at: 2026-11-07T19:09:37.735Z*
 
 ## Node Statistics
 
@@ -11,29 +11,29 @@
 | EPIC | 543 |
 | IDEA | 240 |
 | PRD | 218 |
-| RESEARCH | 363 |
+| RESEARCH | 364 |
 | STORY | 1149 |
-| TASK | 3024 |
+| TASK | 3039 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3640 |
-| ACTIVE | 150 |
-| CANCELLED | 974 |
-| PENDING | 792 |
+| COMPLETED | 3662 |
+| ACTIVE | 128 |
+| CANCELLED | 975 |
+| PENDING | 796 |
 | BLOCKED | 14 |
-| FAILED | 4 |
-| READY | 8 |
+| READY | 16 |
+| FAILED | 7 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 163 |
-| Merged PRs | 8771 |
-| Closed PRs | 1066 |
+| Open PRs | 136 |
+| Merged PRs | 8799 |
+| Closed PRs | 1065 |
 
 ## Rejection Counts
 
@@ -285,6 +285,7 @@
 | task-523-676-gen3-move-tutor-e2e-fixtures.md | 3 |
 | task-523-707-box-analyzer-matrix-e2e-tabular-data.md | 3 |
 | task-523-713-gen3-move-tutor-e2e-fixtures-retry-2.md | 3 |
+| task-523-732-box-analyzer-matrix-e2e-tabular-data-retry.md | 3 |
 | task-526-554-pathfinder-selection-components-impl.md | 3 |
 | task-527-596-safari-zone-area-map-ui.md | 3 |
 | task-527-669-pathfinder-chain-viz-ui.md | 3 |
@@ -449,6 +450,7 @@
 | prd-089-054-gen3-ash-gathering-tracker.md | 2 |
 | prd-421-521-automated-schema-linting.md | 2 |
 | research-407-676-e2e-failure-investigation.md | 2 |
+| research-424-743-investigate-gen3-lottery-e2e-failure-v3.md | 2 |
 | research-472-675-investigate-e2e-tests-failure-v2.md | 2 |
 | research-473-638-investigate-condition-stats-parser-failure-v2.md | 2 |
 | research-478-676-investigate-locking-failure-retry.md | 2 |
@@ -468,6 +470,7 @@
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
+| research-640-740-investigate-tacticalselect-migration-failure.md | 2 |
 | research-645-721-investigate-dashboard-metrics-e2e-failure-retry-2.md | 2 |
 | story-042-081-preserve-enum-optimizations.md | 2 |
 | story-063-605-mirage-island-unified-state-hydration.md | 2 |
@@ -546,7 +549,6 @@
 | task-521-528-statistics-e2e.md | 2 |
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
 | task-522-713-wip-awareness-e2e-orchestrator-tests-retry.md | 2 |
-| task-523-732-box-analyzer-matrix-e2e-tabular-data-retry.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-527-675-drive-webhook-qa.md | 2 |
 | task-533-677-savedatareader-e2e-tests.md | 2 |
@@ -839,7 +841,6 @@
 | research-422-460-gen3-opponent-ai-data.md | 1 |
 | research-422-658-tm-inventory-extraction-failure-retry.md | 1 |
 | research-423-668-investigate-ai-mapping-test-failure-v2.md | 1 |
-| research-424-743-investigate-gen3-lottery-e2e-failure-v3.md | 1 |
 | research-470-558-japanese-gen2-offsets.md | 1 |
 | research-477-506-gen3-mystery-gift-event-flag-offsets.md | 1 |
 | research-478-676-investigate-kurt-apricorn-types-failure.md | 1 |
@@ -864,7 +865,6 @@
 | research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
-| research-640-740-investigate-tacticalselect-migration-failure.md | 1 |
 | story-018-513-orchestrator-test-updates.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
 | story-061-473-mirage-island-engine-e2e.md | 1 |
@@ -971,6 +971,7 @@
 | task-422-496-gen3-static-encounters-e2e-impl.md | 1 |
 | task-423-469-gen3-ai-data-e2e-fixtures-impl.md | 1 |
 | task-423-472-gen3-ai-data-e2e-qa.md | 1 |
+| task-423-713-gen3-ai-data-e2e-mapping-tests-impl-v6.md | 1 |
 | task-428-438-extract-core-data-qa.md | 1 |
 | task-432-449-qa-controls.md | 1 |
 | task-433-447-migrate-segmented-controls-impl.md | 1 |

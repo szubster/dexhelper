@@ -2,12 +2,12 @@
 id: story-696-735-artifact-markdown-body-parser
 type: STORY
 title: Markdown Body and Deliverables Extraction
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-11-02'
+updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: '8897407530172097162'
+jules_session_id: null
 pr_number: null
 parent: epic-703-696-artifact-presence-parser-engine
 tags:

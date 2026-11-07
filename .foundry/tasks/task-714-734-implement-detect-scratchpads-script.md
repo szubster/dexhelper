@@ -2,12 +2,12 @@
 id: task-714-734-implement-detect-scratchpads-script
 type: TASK
 title: Implement detect-scratchpads.js script
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-31T19:34:45.000Z'
-updated_at: '2026-11-03'
+updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: '15814879622611407789'
+jules_session_id: null
 pr_number: null
 parent: story-584-714-implement-detect-scratchpads-script
 tags:

@@ -2,10 +2,10 @@
 id: task-674-742-orchestrator-resurrection-logic-qa
 type: TASK
 title: QA Orchestrator Resurrection Logic Updates
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-02'
-updated_at: '2026-11-02'
+updated_at: '2026-11-07'
 depends_on:
   - task-674-740-update-rejection-count-logic-impl
   - task-674-741-update-max-rejection-threshold-impl
