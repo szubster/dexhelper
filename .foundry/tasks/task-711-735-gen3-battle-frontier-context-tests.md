@@ -30,5 +30,5 @@ locks: []
 Write comprehensive unit tests for the newly created `Gen3BattleFrontierContext` to ensure the logic appropriately parses the save file data and correctly updates the data provided to the view.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the context provider in `src/contexts/__tests__/Gen3BattleFrontierContext.test.tsx`.
-- [ ] Verify handling of mock save data uploads.
+- [x] Write unit tests for the context provider in `src/contexts/__tests__/Gen3BattleFrontierContext.test.tsx`.
+- [x] Verify handling of mock save data uploads.
