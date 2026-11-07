@@ -2,13 +2,13 @@
 id: story-581-674-orchestrator-resurrection-logic
 type: STORY
 title: Update Orchestrator Resurrection Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-09'
 updated_at: '2026-11-02'
 depends_on:
   - story-581-673-orchestrator-termination-state-parsing
-jules_session_id: null
+jules_session_id: '14848368852919653017'
 pr_number: null
 parent: epic-586-581-orchestrator-rejection-processing
 tags: []
