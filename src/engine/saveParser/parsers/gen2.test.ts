@@ -481,7 +481,7 @@ describe('gen2 parsers', () => {
   });
 
   describe('parseGen2 - Trainer ID', () => {
-    it('should extract trainerId correctly', () => {
+    it('should extract trainerId correctly for GS formats', () => {
       const buffer = new ArrayBuffer(32768);
       const view = new DataView(buffer);
       view.setUint8(0x288a, 1);
@@ -493,6 +493,21 @@ describe('gen2 parsers', () => {
 
       const data = parseGen2(view, false);
       expect(data.trainerId).toBe(12345);
+    });
+
+    it('should extract trainerId correctly for Crystal formats', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x2865, 1);
+      view.setUint8(0x2866, 1);
+      view.setUint8(0x2866 + 7, 1);
+      view.setUint8(0x288a, 7); // force crystal
+
+      // Set trainer ID to 54321 (0xD431)
+      view.setUint16(0x2009, 54321, false);
+
+      const data = parseGen2(view, true);
+      expect(data.trainerId).toBe(54321);
     });
   });
 
