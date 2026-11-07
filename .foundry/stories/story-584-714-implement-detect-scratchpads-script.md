@@ -2,12 +2,12 @@
 id: story-584-714-implement-detect-scratchpads-script
 type: STORY
 title: Implement detect-scratchpads.js script
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2025-01-01'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: '1591831788471293334'
+jules_session_id: null
 pr_number: null
 parent: epic-587-584-root-scratchpad-detector-script
 tags:

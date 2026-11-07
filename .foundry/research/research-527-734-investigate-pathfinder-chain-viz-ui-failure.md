@@ -2,12 +2,12 @@
 id: research-527-734-investigate-pathfinder-chain-viz-ui-failure
 type: RESEARCH
 title: Investigate Pathfinder Chain Visualization UI Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-30'
-updated_at: '2026-10-30'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1337781258637971108'
 pr_number: null
 parent: story-115-527-pathfinder-chain-visualization
 tags:
