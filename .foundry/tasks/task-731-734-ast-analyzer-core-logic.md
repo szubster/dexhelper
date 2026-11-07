@@ -2,12 +2,12 @@
 id: task-731-734-ast-analyzer-core-logic
 type: TASK
 title: AST Analyzer Core Logic
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-11-02'
+updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: '7777229208254947407'
+jules_session_id: null
 pr_number: null
 parent: story-707-731-ast-analyzer-detection-script
 priority: 50

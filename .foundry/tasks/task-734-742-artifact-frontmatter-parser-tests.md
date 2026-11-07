@@ -2,10 +2,10 @@
 id: task-734-742-artifact-frontmatter-parser-tests
 type: TASK
 title: Write Tests for Frontmatter Extraction Logic
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-02'
-updated_at: '2026-11-02'
+updated_at: '2026-11-07'
 depends_on:
   - task-734-741-artifact-frontmatter-parser-logic
 jules_session_id: null
@@ -14,7 +14,9 @@ parent: story-696-734-artifact-frontmatter-parser
 tags:
   - testing
   - vitest
+locks: []
 priority: 80
+rejection_reason: ''
 ---
 
 # TASK: Write Tests for Frontmatter Extraction Logic

@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-07T07:53:59.135Z*
+*Generated at: 2026-11-07T14:29:43.015Z*
 
 ## Node Statistics
 
@@ -13,27 +13,27 @@
 | PRD | 218 |
 | RESEARCH | 363 |
 | STORY | 1149 |
-| TASK | 3017 |
+| TASK | 3024 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3632 |
-| ACTIVE | 157 |
+| COMPLETED | 3640 |
+| ACTIVE | 150 |
 | CANCELLED | 974 |
-| PENDING | 794 |
+| PENDING | 792 |
 | BLOCKED | 14 |
-| READY | 3 |
-| FAILED | 1 |
+| FAILED | 4 |
+| READY | 8 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 178 |
-| Merged PRs | 8754 |
-| Closed PRs | 1068 |
+| Open PRs | 163 |
+| Merged PRs | 8771 |
+| Closed PRs | 1066 |
 
 ## Rejection Counts
 
@@ -108,6 +108,9 @@
 | task-361-495-sorting-algorithms-e2e-impl-retry.md | 3 |
 | task-363-415-trade-extraction-e2e-impl.md | 3 |
 | task-490-525-progression-switcher-e2e-impl.md | 3 |
+| task-517-530-binjgb-emulator-ui-impl.md | 3 |
+| task-518-528-binjgb-bindings-impl.md | 3 |
+| task-518-603-binjgb-memory-sync-impl-v2.md | 3 |
 | task-531-568-mgba-memory-sync-core.md | 3 |
 | epic-037-055-gen3-berry-tracker-data-extraction.md | 3 |
 | epic-041-066-global-ribbon-checklist-dashboard.md | 3 |
@@ -269,10 +272,7 @@
 | task-495-630-reactive-dashboards-impl-retry-v2.md | 3 |
 | task-512-518-qa-idempotent-bypass.md | 3 |
 | task-514-526-remediation-state-transition-logic-impl.md | 3 |
-| task-517-530-binjgb-emulator-ui-impl.md | 3 |
 | task-517-576-orchestrator-fallback-generic-prompt.md | 3 |
-| task-518-528-binjgb-bindings-impl.md | 3 |
-| task-518-603-binjgb-memory-sync-impl-v2.md | 3 |
 | task-519-547-trackers-radars-coder.md | 3 |
 | task-520-539-refactor-gen3-world-event-parsers.md | 3 |
 | task-520-549-zombie-node-detection-impl.md | 3 |
@@ -585,6 +585,7 @@
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
 | task-639-722-migrate-buttons-impl-v5.md | 2 |
+| task-645-722-dashboard-metrics-integration-e2e-impl-retry-3.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
@@ -634,6 +635,7 @@
 | research-327-385-gen3-pc-box-offsets.md | 1 |
 | research-358-406-gen3-trainer-card-offsets.md | 1 |
 | research-408-415-gen3-event-flags-bit-indices.md | 1 |
+| research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |
 | research-564-565-buena-password-offsets.md | 1 |
 | story-006-015-implement-link-checker.md | 1 |
 | story-009-031-deadlock-prevention-tests.md | 1 |
@@ -844,7 +846,6 @@
 | research-478-727-investigate-kurt-apricorn-core-logic-failure-v2.md | 1 |
 | research-479-608-investigate-gen3-pokeblock-e2e-failure.md | 1 |
 | research-494-495-gen3-egg-hatch-fixture.md | 1 |
-| research-518-690-investigate-binjgb-memory-sync-failure.md | 1 |
 | research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
 | research-533-601-investigate-curator-trigger-logic-failure.md | 1 |
@@ -1133,7 +1134,6 @@
 | task-640-678-qa-relocate-foundry-scripts-replacement-v3.md | 1 |
 | task-640-732-migrate-tacticalselect-impl.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
-| task-645-722-dashboard-metrics-integration-e2e-impl-retry-3.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
 | task-676-703-gen2-pokemon-selection-ui.md | 1 |

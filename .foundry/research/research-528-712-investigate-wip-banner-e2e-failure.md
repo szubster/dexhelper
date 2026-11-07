@@ -2,12 +2,12 @@
 id: research-528-712-investigate-wip-banner-e2e-failure
 type: RESEARCH
 title: Investigate WIP Banner E2E Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-21T12:37:25Z'
-updated_at: '2026-11-01'
+updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: '5956335546648128941'
+jules_session_id: null
 pr_number: null
 parent: story-517-528-wip-documentation-e2e
 tags:

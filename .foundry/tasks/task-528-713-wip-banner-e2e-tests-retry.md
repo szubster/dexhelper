@@ -2,10 +2,10 @@
 id: task-528-713-wip-banner-e2e-tests-retry
 type: TASK
 title: Implement WIP Banner E2E Tests (Retry)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-21T12:37:25Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-07'
 depends_on:
   - research-528-712-investigate-wip-banner-e2e-failure
 jules_session_id: null
