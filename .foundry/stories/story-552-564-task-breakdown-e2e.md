@@ -2,13 +2,13 @@
 id: story-552-564-task-breakdown-e2e
 type: STORY
 title: Task Breakdown Validation E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-11'
-updated_at: '2026-11-01'
+updated_at: '2026-11-06'
 depends_on:
   - story-552-563-story-to-task-complexity-validation
-jules_session_id: null
+jules_session_id: '16716254037628096127'
 parent: epic-521-552-task-breakdown-anti-patterns
 tags:
   - e2e
