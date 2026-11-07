@@ -2,13 +2,13 @@
 id: task-618-723-highlight-ui-presentation
 type: TASK
 title: Multi-Box Search Highlight UI Presentation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-11-07'
 depends_on:
   - task-618-722-highlight-state-layer
-jules_session_id: null
+jules_session_id: '16847460232917088442'
 pr_number: null
 parent: story-576-618-multi-box-search-visual-highlighting
 tags:
