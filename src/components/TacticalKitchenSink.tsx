@@ -170,40 +170,14 @@ export const TacticalKitchenSink: React.FC = () => {
       </div>
 
       {/* Checkbox Showcase */}
-      <div className="flex flex-col gap-3 border border-dashed border-zinc-800 p-4" id="tacticalcheckbox-showcase">
-        <h3 className="font-mono text-[10px] tracking-widest text-zinc-500 uppercase">[TACTICAL_CHECKBOX_TELEMETRY]</h3>
+      <div className="flex flex-col gap-2 border border-dashed border-zinc-800 p-4" id="tacticalcheckbox-showcase">
         <TacticalCheckbox
           id="checkbox-default"
           label="Option Active"
-          sublabel="CH_01_FEED_SYNC"
-          codeTag="SYS.OK"
-          variant="default"
           checked={isCheckboxChecked}
           onChange={(e) => setIsCheckboxChecked(e.target.checked)}
         />
-        <TacticalCheckbox
-          id="checkbox-emerald"
-          label="Sensor Grid Online"
-          sublabel="RADAR_SCAN_400MHZ"
-          codeTag="RADAR"
-          variant="emerald"
-          defaultChecked
-        />
-        <TacticalCheckbox
-          id="checkbox-amber"
-          label="Buffer Warning Signal"
-          sublabel="QUEUE_CAP_85%"
-          codeTag="WARN"
-          variant="amber"
-          defaultChecked
-        />
-        <TacticalCheckbox
-          id="checkbox-disabled"
-          label="Option Disabled"
-          sublabel="OVERRIDE_LOCKED"
-          codeTag="LOCK"
-          disabled
-        />
+        <TacticalCheckbox id="checkbox-disabled" label="Option Disabled" disabled />
       </div>
 
       {/* Modal */}
