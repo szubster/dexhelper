@@ -8,6 +8,7 @@ export interface FoundryNodeData {
   depends_on: string[];
   rejection_count: number;
   experiment_variants?: string[] | undefined;
+  body: string;
 }
 
 export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
@@ -36,6 +37,7 @@ export function parseFoundryNode(rawContent: string): FoundryNodeData | null {
       owner_persona: data['owner_persona'],
       depends_on: data['depends_on'],
       rejection_count,
+      body: parsed.content.trim(),
     };
 
     if (Array.isArray(data['experiment_variants'])) {
