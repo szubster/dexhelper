@@ -122,3 +122,21 @@ export interface InjectedPromptContext {
   variants?: VariantConfiguration[];
   cloned_from?: ClonedNodeMetadata;
 }
+
+export interface ReadyNodeItem extends NodeFrontmatter {
+  repo_path: string;
+  critical_weight: number;
+  compiled_prompt?: string;
+}
+
+export interface ParsedNode {
+  /** Absolute path on disk */
+  filePath: string;
+  /** Repo-relative path, e.g. ".foundry/stories/story-001-scaffold.md" */
+  repoPath: string;
+  frontmatter: NodeFrontmatter;
+  /** Full raw file content — needed for surgical in-place mutation */
+  rawContent: string;
+  /** Markdown body content without frontmatter */
+  body: string;
+}
