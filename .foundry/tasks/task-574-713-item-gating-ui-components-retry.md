@@ -2,7 +2,7 @@
 id: task-574-713-item-gating-ui-components-retry
 type: TASK
 title: Item Gating UI Components (Retry)
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-20T16:13:59Z'
 updated_at: '2026-11-03'
@@ -15,8 +15,8 @@ tags:
   - gen3
   - map
   - ui
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
