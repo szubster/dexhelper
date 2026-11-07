@@ -37,4 +37,6 @@ We need to verify the end-to-end integration of the Gen 3 Secret Base parsing fu
 - Verify NPC party extraction.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+
+- [ ] task-583-745-gen3-secret-base-parsing-e2e-tests
