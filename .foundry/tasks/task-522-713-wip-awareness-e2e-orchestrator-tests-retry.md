@@ -2,14 +2,14 @@
 id: task-522-713-wip-awareness-e2e-orchestrator-tests-retry
 type: TASK
 title: Implement Orchestrator WIP Awareness Tests (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-11-01'
+updated_at: '2026-11-05'
 depends_on:
   - research-522-712-investigate-orchestrator-wip-tests-failure
   - task-522-684-wip-awareness-e2e-agent-tests
-jules_session_id: null
+jules_session_id: '13113749359392637715'
 pr_number: null
 parent: story-520-522-wip-awareness-e2e
 tags:
@@ -18,7 +18,7 @@ tags:
   - wip
   - e2e
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 experiment_variants: []

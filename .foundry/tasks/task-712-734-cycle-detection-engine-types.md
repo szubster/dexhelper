@@ -31,4 +31,4 @@ Define the types and interfaces required for the cycle detection engine and diag
 2. Create interfaces for the diagnostic logger output.
 
 ## Acceptance Criteria
-- [ ] Types and interfaces are defined and exported.
+- [x] Types and interfaces are defined and exported.
