@@ -2,12 +2,12 @@
 id: idea-418-replace-xyflow-with-custom-dag
 type: IDEA
 title: Replace @xyflow/react with a lightweight directory tree visualization
-status: READY
+status: ACTIVE
 owner_persona: curator
 created_at: '2026-08-19'
 updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '17705135265485546107'
 parent: null
 tags:
   - performance
