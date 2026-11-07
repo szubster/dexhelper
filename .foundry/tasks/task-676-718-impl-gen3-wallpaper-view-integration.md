@@ -36,4 +36,4 @@ The component needs to be accessible within the application. This task involves 
 *   Ensure the component is rendered and accessible to the user when navigating the application.
 
 ## Acceptance Criteria
-- [ ] Integrate `WallpaperDashboard` into the application view hierarchy.
+- [x] Integrate `WallpaperDashboard` into the application view hierarchy.
