@@ -2,13 +2,13 @@
 id: story-530-538-dagtree-e2e-verification
 type: STORY
 title: Integration and E2E Verification of DagTree
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-05'
 updated_at: '2026-11-07'
 depends_on:
   - story-530-537-xyflow-cleanup
-jules_session_id: null
+jules_session_id: '18294195953588979693'
 pr_number: null
 parent: epic-516-530-replace-xyflow-core
 tags:
