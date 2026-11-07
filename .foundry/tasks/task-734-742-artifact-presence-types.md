@@ -23,4 +23,4 @@ priority: 80
 Define the types and interfaces for the artifact presence verification logic. This includes typing the file paths, validation results, and error structures.
 
 ## Acceptance Criteria
-- [ ] Core logic types defined.
+- [x] Core logic types defined.
