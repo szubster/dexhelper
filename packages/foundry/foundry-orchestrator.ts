@@ -379,6 +379,17 @@ function acknowledgeNodeFailure(node: ParsedNode): void {
   info(`${dryTag}Acknowledged failure in: ${node.repoPath}`);
 }
 
+function isSystemCrash(reason: string | undefined): boolean {
+  if (!reason) return false;
+  return (
+    reason.includes('Session terminated with state: NOT_FOUND') ||
+    reason.includes('Session terminated with state: INTERNAL_ERROR') ||
+    reason.includes('Session terminated with state: ZOMBIE') ||
+    reason.includes('Session terminated with state: TIMEOUT') ||
+    reason.includes('Session terminated with state: CRASHED')
+  );
+}
+
 function isPermanentFailureForCascade(node: ParsedNode): boolean {
   const reason = node.frontmatter.rejection_reason;
   if (node.frontmatter.status === 'CANCELLED') {
@@ -391,7 +402,7 @@ function isPermanentFailureForCascade(node: ParsedNode): boolean {
     );
   }
   if (node.frontmatter.status === 'FAILED') {
-    if ((node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD) {
+    if ((node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD && !isSystemCrash(reason)) {
       return true;
     }
     if (reason) {
@@ -422,10 +433,10 @@ function shouldWakeUpParent(node: ParsedNode): boolean {
   }
   if (node.frontmatter.status === 'FAILED') {
     // Keep parent in PENDING while child is actively retrying
-    if ((node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD) {
+    const reason = node.frontmatter.rejection_reason;
+    if ((node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD && !isSystemCrash(reason)) {
       return true;
     }
-    const reason = node.frontmatter.rejection_reason;
     if (
       reason.includes('Max rejection count reached') ||
       reason.toLowerCase().includes('impossible') ||
@@ -775,7 +786,7 @@ function main(): void {
   for (const node of nodes) {
     if (node.frontmatter.status === 'FAILED' && (node.frontmatter.rejection_count || 0) >= MAX_REJECTION_THRESHOLD) {
       const reason = node.frontmatter.rejection_reason || '';
-      if (reason.includes('Session terminated with state: NOT_FOUND') || reason.includes('Session terminated with state: INTERNAL_ERROR')) {
+      if (isSystemCrash(reason)) {
         warn(`Infrastructure error detected for node ${node.frontmatter.id}. Skipping max rejection threshold cancellation.`);
       } else {
         promoteNodeToCancelledWithReason(node, 'Max rejection count reached');

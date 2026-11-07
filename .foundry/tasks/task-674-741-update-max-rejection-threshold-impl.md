@@ -30,5 +30,5 @@ Following the parsing of termination states and the update to the `rejection_cou
 - Write unit tests to assert that `MAX_REJECTION_THRESHOLD` correctly filters and triggers.
 
 ## Acceptance Criteria
-- [ ] `MAX_REJECTION_THRESHOLD` evaluation logic correctly applies only to domain/QA rejections.
-- [ ] Unit tests are written to verify `MAX_REJECTION_THRESHOLD` behavior in the context of different failure types.
+- [x] `MAX_REJECTION_THRESHOLD` evaluation logic correctly applies only to domain/QA rejections.
+- [x] Unit tests are written to verify `MAX_REJECTION_THRESHOLD` behavior in the context of different failure types.
