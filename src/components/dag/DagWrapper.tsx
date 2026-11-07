@@ -9,8 +9,8 @@ function DagViewSwitcher() {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-dashed border-zinc-800 bg-zinc-950 p-2">
-        <div className="flex items-center">
+      <div className="flex items-center justify-between border-b border-dashed border-zinc-800 bg-zinc-950 p-2">
+        <div className="flex items-center gap-2">
           <button
             type="button"
             aria-label="Toggle heatmap overlay"
@@ -18,7 +18,7 @@ function DagViewSwitcher() {
             aria-pressed={showHeatmap}
             className={`border !border-dashed px-2 py-1 font-mono text-xs focus-visible:ring-[var(--theme-primary)] ${
               showHeatmap
-                ? 'border-amber-500 bg-amber-950/20 text-amber-500 shadow-none'
+                ? 'border-orange-500 bg-orange-950/20 text-orange-500 shadow-none'
                 : 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400'
             }`}
             onClick={() => setShowHeatmap((prev) => !prev)}
@@ -26,17 +26,15 @@ function DagViewSwitcher() {
             [ HEATMAP_OVERLAY ]
           </button>
         </div>
-        <div className="ml-auto">
-          <TacticalSegmentedControl
-            ariaLabel="DAG View Mode"
-            selectedValue={activeView}
-            onValueChange={(val: string) => setActiveView(val as ViewMode)}
-            items={[
-              { id: 'board', label: '[ KANBAN ]', testId: 'view-mode-board' },
-              { id: 'tree', label: '[ TREE ]', testId: 'view-mode-tree' },
-            ]}
-          />
-        </div>
+        <TacticalSegmentedControl
+          ariaLabel="DAG View Mode"
+          selectedValue={activeView}
+          onValueChange={(val: string) => setActiveView(val as ViewMode)}
+          items={[
+            { id: 'board', label: '[ KANBAN ]', testId: 'view-mode-board' },
+            { id: 'tree', label: '[ TREE ]', testId: 'view-mode-tree' },
+          ]}
+        />
       </div>
       <div className="relative flex-1 overflow-hidden">
         {activeView === 'board' ? (
