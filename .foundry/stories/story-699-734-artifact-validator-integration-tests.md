@@ -26,3 +26,6 @@ Provide integration tests to verify that the artifact presence parser engine and
 - Break down into tasks to implement integration tests verifying the pipeline between markdown parser and file system verification.
 
 ## Acceptance Criteria
+- [ ] task-734-740-artifact-validator-integration-tests-parser
+- [ ] task-734-741-artifact-validator-integration-tests-fs
+- [ ] task-734-742-artifact-validator-integration-tests-qa
