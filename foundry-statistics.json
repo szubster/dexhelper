@@ -10,13 +10,13 @@
       "TASK": 3017
     },
     "byStatus": {
-      "COMPLETED": 3629,
-      "ACTIVE": 155,
-      "CANCELLED": 973,
-      "PENDING": 798,
+      "COMPLETED": 3632,
+      "ACTIVE": 157,
+      "CANCELLED": 974,
+      "PENDING": 794,
       "BLOCKED": 14,
-      "FAILED": 4,
-      "READY": 2
+      "READY": 3,
+      "FAILED": 1
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -2415,7 +2415,7 @@
       "research-423-712-investigate-ai-mapping-test-failure-v5.md": 0,
       "research-424-703-investigate-gen3-lottery-e2e-failure.md": 3,
       "research-424-712-investigate-gen3-lottery-e2e-failure-retry.md": 0,
-      "research-424-743-investigate-gen3-lottery-e2e-failure-v3.md": 0,
+      "research-424-743-investigate-gen3-lottery-e2e-failure-v3.md": 1,
       "research-429-531-investigate-gen-specific-bundle-timeout.md": 0,
       "research-429-632-investigate-task-553-failure.md": 3,
       "research-436-441-data-splitting-e2e-failures.md": 0,
@@ -2576,7 +2576,7 @@
       "research-640-676-investigate-relocate-scripts-replacement-failure-retry.md": 1,
       "research-640-687-investigate-extract-utils-timeout-v3.md": 1,
       "research-640-716-investigate-extract-utils-timeout-v4.md": 0,
-      "research-640-740-investigate-tacticalselect-migration-failure.md": 0,
+      "research-640-740-investigate-tacticalselect-migration-failure.md": 1,
       "research-641-668-investigate-hexstream-telemetry-failure.md": 3,
       "research-641-673-investigate-scanline-crosshairs-failure.md": 3,
       "research-645-687-investigate-dashboard-metrics-e2e-failure.md": 3,
@@ -4143,7 +4143,7 @@
       "task-523-713-gen3-move-tutor-e2e-fixtures-retry-2.md": 3,
       "task-523-714-gen3-move-tutor-e2e-tests-retry-2.md": 0,
       "task-523-715-gen3-move-tutor-e2e-qa-retry-2.md": 0,
-      "task-523-732-box-analyzer-matrix-e2e-tabular-data-retry.md": 1,
+      "task-523-732-box-analyzer-matrix-e2e-tabular-data-retry.md": 2,
       "task-523-733-box-analyzer-matrix-e2e-highlighting-retry.md": 0,
       "task-523-734-box-analyzer-matrix-e2e-qa-retry.md": 0,
       "task-524-567-setup-dependency-cruiser.md": 2,
@@ -7157,7 +7157,7 @@
       "epic-054-109-box-analyzer-matrix-ui.md": 6048000000,
       "epic-054-110-box-analyzer-release-workflow.md": 0,
       "epic-054-268-gen3-ash-save-parsing.md": 6652800000,
-      "epic-054-269-gen3-ash-dashboard.md": 7603200000,
+      "epic-054-269-gen3-ash-dashboard.md": 9763200000,
       "epic-054-270-gen3-ash-goal-planner.md": 0,
       "epic-055-114-egg-move-inventory-cross-reference.md": 5616000000,
       "epic-055-115-egg-move-pathfinder-ui.md": 5875200000,
@@ -7351,7 +7351,7 @@
       "epic-520-554-gen3-transition-dashboard.md": 518400000,
       "epic-521-540-foundry-rearchitecture-state-graph.md": 518400000,
       "epic-521-540-orchestrator-priority-scheduling.md": 2073600000,
-      "epic-521-541-code-architect-persona.md": 518400000,
+      "epic-521-541-code-architect-persona.md": 5356800000,
       "epic-521-541-orchestrator-priority-scheduling-e2e.md": 0,
       "epic-521-552-automated-graph-healing.md": 518400000,
       "epic-521-552-schema-linter-core-logic.md": 6393600000,
@@ -8156,7 +8156,7 @@
       "story-309-003-egg-group-validation.md": 3024000000,
       "story-309-004-shiny-odds-computation.md": 3456000000,
       "story-309-473-shiny-breeding-logic-e2e.md": 7516800000,
-      "story-310-676-pokemon-selection-interface.md": 777600000,
+      "story-310-676-pokemon-selection-interface.md": 1987200000,
       "story-310-677-compatibility-odds-display.md": 172800000,
       "story-310-678-shiny-breeding-ui-e2e.md": 172800000,
       "story-311-322-gen2-room-decoration-parsing.md": 3110400000,
@@ -8623,7 +8623,7 @@
       "story-568-646-theming-integration-e2e-verification.md": 1382400000,
       "story-569-581-gen3-secret-base-array-extraction.md": 1209600000,
       "story-569-582-gen3-secret-base-party-extraction.md": 4406400000,
-      "story-569-583-gen3-secret-base-parsing-e2e.md": 0,
+      "story-569-583-gen3-secret-base-parsing-e2e.md": 4492800000,
       "story-571-645-dashboard-metrics-integration-e2e.md": 2537499987,
       "story-574-608-multi-box-text-search-engine.md": 3715200000,
       "story-574-609-multi-box-attribute-filters.md": 1555200000,
@@ -10683,9 +10683,9 @@
   },
   "prs": {
     "totalPRs": 10000,
-    "openPRs": 174,
-    "mergedPRs": 8758,
+    "openPRs": 178,
+    "mergedPRs": 8754,
     "closedPRs": 1068
   },
-  "timestamp": "2026-11-07T01:21:55.108Z"
+  "timestamp": "2026-11-07T07:53:59.135Z"
 }

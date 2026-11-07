@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-07T01:21:55.108Z*
+*Generated at: 2026-11-07T07:53:59.135Z*
 
 ## Node Statistics
 
@@ -18,21 +18,21 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3629 |
-| ACTIVE | 155 |
-| CANCELLED | 973 |
-| PENDING | 798 |
+| COMPLETED | 3632 |
+| ACTIVE | 157 |
+| CANCELLED | 974 |
+| PENDING | 794 |
 | BLOCKED | 14 |
-| FAILED | 4 |
-| READY | 2 |
+| READY | 3 |
+| FAILED | 1 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 174 |
-| Merged PRs | 8758 |
+| Open PRs | 178 |
+| Merged PRs | 8754 |
 | Closed PRs | 1068 |
 
 ## Rejection Counts
@@ -546,6 +546,7 @@
 | task-521-528-statistics-e2e.md | 2 |
 | task-521-602-gen2-bug-catching-contest-core-data-impl.md | 2 |
 | task-522-713-wip-awareness-e2e-orchestrator-tests-retry.md | 2 |
+| task-523-732-box-analyzer-matrix-e2e-tabular-data-retry.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-527-675-drive-webhook-qa.md | 2 |
 | task-533-677-savedatareader-e2e-tests.md | 2 |
@@ -836,6 +837,7 @@
 | research-422-460-gen3-opponent-ai-data.md | 1 |
 | research-422-658-tm-inventory-extraction-failure-retry.md | 1 |
 | research-423-668-investigate-ai-mapping-test-failure-v2.md | 1 |
+| research-424-743-investigate-gen3-lottery-e2e-failure-v3.md | 1 |
 | research-470-558-japanese-gen2-offsets.md | 1 |
 | research-477-506-gen3-mystery-gift-event-flag-offsets.md | 1 |
 | research-478-676-investigate-kurt-apricorn-types-failure.md | 1 |
@@ -861,6 +863,7 @@
 | research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
+| research-640-740-investigate-tacticalselect-migration-failure.md | 1 |
 | story-018-513-orchestrator-test-updates.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
 | story-061-473-mirage-island-engine-e2e.md | 1 |
@@ -1038,7 +1041,6 @@
 | task-522-668-quota-handling-impl.md | 1 |
 | task-522-684-wip-awareness-e2e-agent-tests.md | 1 |
 | task-522-713-wip-signaling-e2e-tests-retry.md | 1 |
-| task-523-732-box-analyzer-matrix-e2e-tabular-data-retry.md | 1 |
 | task-524-568-setup-oxlint-rules.md | 1 |
 | task-524-676-living-dex-ghosts-types.md | 1 |
 | task-526-555-safari-zone-layout-qa.md | 1 |
