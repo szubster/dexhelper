@@ -128,3 +128,4 @@
 | [task-726-732-impl-generation-logic-tests](.foundry/tasks/task-726-732-impl-generation-logic-tests.md) | TASK | Implement E2E Tests for Generation-Specific Logic Splitting | coder | [15799343487872142639](https://jules.google.com/session/15799343487872142639) |
 | [task-731-740-parse-foundry-node-types](.foundry/tasks/task-731-740-parse-foundry-node-types.md) | TASK | Define Types for YAML Parsing Utility | coder | [16247395835267554843](https://jules.google.com/session/16247395835267554843) |
 | [task-734-740-artifact-frontmatter-parser-types](.foundry/tasks/task-734-740-artifact-frontmatter-parser-types.md) | TASK | Define Frontmatter Parser Types | coder | [8740683483356972664](https://jules.google.com/session/8740683483356972664) |
+| [task-734-742-artifact-presence-types](.foundry/tasks/task-734-742-artifact-presence-types.md) | TASK | Artifact Presence Core Logic Types | coder | [4523641164367624208](https://jules.google.com/session/4523641164367624208) |
