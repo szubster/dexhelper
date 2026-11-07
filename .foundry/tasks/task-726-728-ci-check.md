@@ -5,9 +5,9 @@ title: Add CI check automation for acceptance criteria formatting
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-11-02'
+updated_at: '2026-11-03'
 depends_on: []
-jules_session_id: '14988268307177790181'
+jules_session_id: '11394060492027864333'
 locks: []
 pr_number: null
 parent: adr-679-726-acceptance-criteria-structure
@@ -17,7 +17,7 @@ tags:
   - ci
   - tooling
 research_references: []
-rejection_count: 0
+rejection_count: 1
 system_failure_count: 0
 rejection_reason: ''
 notes: ''
