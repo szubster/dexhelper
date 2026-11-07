@@ -32,6 +32,6 @@ Following the CLI scaffolding, we now need to implement the core Git traversal l
 - Write unit tests mocking git commands to verify traversal logic.
 
 ## Acceptance Criteria
-- [ ] Git traversal correctly identifies commits matching the interval.
-- [ ] `.foundry/` directory state can be read at specific SHAs.
-- [ ] Unit tests cover the git interaction logic.
+- [x] Git traversal correctly identifies commits matching the interval.
+- [x] `.foundry/` directory state can be read at specific SHAs.
+- [x] Unit tests cover the git interaction logic.
