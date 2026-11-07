@@ -2,12 +2,12 @@
 id: story-694-714-intercept-file-loading-stamping
 type: STORY
 title: Intercept File Loading to Stamp Schema Version
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-21T08:00:00.000Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: '11861168821975954572'
+jules_session_id: null
 pr_number: null
 parent: epic-587-694-indexeddb-hydration-integration
 tags:

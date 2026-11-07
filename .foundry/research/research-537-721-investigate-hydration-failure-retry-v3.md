@@ -5,12 +5,12 @@ title: Investigate Gen 3 Berry Runtime State Hydration Failure (Retry V3)
 status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-31'
-updated_at: '2026-11-02'
+updated_at: '2026-11-03'
 depends_on: []
-jules_session_id: '10064724432531646494'
+jules_session_id: '14504396288173631445'
 pr_number: null
 parent: story-513-537-gen3-berry-serialization-and-api
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
