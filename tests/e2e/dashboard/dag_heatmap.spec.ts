@@ -77,7 +77,7 @@ test.describe('DAG Heatmap UI', () => {
     await page.goto('./dag');
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden({ timeout: 15000 });
 
-    const toggleBtn = page.getByRole('button', { name: 'Toggle heatmap overlay' });
+    const toggleBtn = page.getByRole('button', { name: 'Toggle heatmap overlay' }).first();
     await expect(toggleBtn).toBeVisible();
     await toggleBtn.click();
 
