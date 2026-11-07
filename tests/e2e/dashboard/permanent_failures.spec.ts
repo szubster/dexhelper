@@ -174,8 +174,8 @@ test.describe('Permanent Failures Dashboard Filter', () => {
 
     const permCancelNode = page
       .getByText('task-perm-cancel')
-      .first()
-      .locator('xpath=ancestor::div[contains(@class, "border-dashed")][1]');
+      .locator('xpath=ancestor::div[contains(@class, "border-dashed")][1]')
+      .first();
     await expect(permCancelNode).toHaveClass(/border-red-600/);
   });
 });

@@ -24,4 +24,8 @@ rejection_reason: ''
 Implement the core verification logic that reads parsed file paths, verifies their existence on disk, checks if they are non-empty, and validates if they are staged for commit.
 
 ## Acceptance Criteria
-- [ ] TASK breakdown generated.
+- [x] TASK breakdown generated.
+- [ ] task-734-742-artifact-presence-types
+- [ ] task-734-743-artifact-presence-impl
+- [ ] task-734-744-artifact-presence-tests
+- [ ] task-734-745-qa-artifact-presence-core-logic

@@ -6,60 +6,16 @@
   "defaultCompression": "none",
   "files": [
     {
-      "path": "assets/BattleFrontierDashboard-<hash>.js",
-      "maxSize": "250kb"
-    },
-    {
-      "path": "assets/GlobalRibbonChecklistDashboard-<hash>.js",
-      "maxSize": "100kb"
-    },
-    {
-      "path": "assets/PokemonCatchProbability-<hash>.js",
-      "maxSize": "25kb"
-    },
-    {
-      "path": "assets/PokemonCaughtDetails-<hash>.js",
-      "maxSize": "40kb"
-    },
-    {
-      "path": "assets/PokemonEvolutions-<hash>.js",
-      "maxSize": "40kb"
-    },
-    {
-      "path": "assets/PokemonLocations-<hash>.js",
-      "maxSize": "35kb"
-    },
-    {
-      "path": "assets/gen1-<hash>.js",
-      "maxSize": "20kb"
-    },
-    {
-      "path": "assets/gen2-<hash>.js",
-      "maxSize": "25kb"
-    },
-    {
-      "path": "assets/gen3-<hash>.js",
-      "maxSize": "40kb"
-    },
-    {
-      "path": "assets/ShinyCarrierBreedingDashboard-<hash>.js",
-      "maxSize": "100kb"
-    },
-    {
-      "path": "assets/cn-<hash>.js",
-      "maxSize": "50kb"
-    },
-    {
-      "path": "assets/dag-<hash>.js",
-      "maxSize": "200kb"
-    },
-    {
-      "path": "assets/xyflow-<hash>.js",
-      "maxSize": "200kb"
+      "path": "index.html",
+      "maxSize": "5kb"
     },
     {
       "path": "assets/index-<hash>.js",
-      "maxSize": "350kb"
+      "maxSize": "130kb"
+    },
+    {
+      "path": "assets/index-<hash>.css",
+      "maxSize": "235kb"
     },
     {
       "path": "assets/react-<hash>.js",
@@ -67,7 +23,7 @@
     },
     {
       "path": "assets/router-<hash>.js",
-      "maxSize": "200kb"
+      "maxSize": "90kb"
     },
     {
       "path": "assets/query-<hash>.js",
@@ -78,14 +34,6 @@
       "maxSize": "35kb"
     },
     {
-      "path": "assets/cn-<hash>.js",
-      "maxSize": "35kb"
-    },
-    {
-      "path": "assets/index-<hash>.css",
-      "maxSize": "225kb"
-    },
-    {
       "path": "assets/press-*<hash>.css",
       "maxSize": "100kb"
     },
@@ -94,44 +42,72 @@
       "maxSize": "150kb"
     },
     {
-      "path": "assets/press-<hash>.css",
-      "maxSize": "50kb"
+      "path": "assets/ui-primitives-<hash>.js",
+      "maxSize": "55kb"
     },
     {
-      "path": "assets/HallOfFameDashboard-<hash>.js",
-      "maxSize": "30kb"
+      "path": "assets/assistant-<hash>.js",
+      "maxSize": "75kb"
     },
     {
       "path": "assets/safariZone-<hash>.js",
-      "maxSize": "60kb"
+      "maxSize": "55kb"
     },
     {
-      "path": "assets/store-<hash>.js",
-      "maxSize": "15kb"
+      "path": "assets/routes-<hash>.js",
+      "maxSize": "45kb"
     },
     {
-      "path": "assets/ui-<hash>.js",
-      "maxSize": "22.5kb"
+      "path": "assets/esm-<hash>.js",
+      "maxSize": "40kb"
+    },
+    {
+      "path": "assets/dist-<hash>.js",
+      "maxSize": "35kb"
+    },
+    {
+      "path": "assets/gen3-<hash>.js",
+      "maxSize": "40kb"
+    },
+    {
+      "path": "assets/gen3-dashboard-<hash>.js",
+      "maxSize": "30kb"
+    },
+    {
+      "path": "assets/pokemon._pokemonId-<hash>.js",
+      "maxSize": "30kb"
+    },
+    {
+      "path": "assets/*Dashboard-<hash>.js",
+      "maxSize": "20kb"
     },
     {
       "path": "assets/*-<hash>.js",
-      "maxSize": "15kb"
+      "maxSize": "25kb"
     },
     {
       "path": "data/foundry.json",
-      "maxSize": "850kb"
+      "maxSize": "870kb"
     },
     {
       "path": "data/pokedata-core.msgpack",
-      "maxSize": "650kb"
+      "maxSize": "600kb"
     },
     {
       "path": "icon-512.png",
       "maxSize": "520kb"
     },
     {
+      "path": "icon-192.png",
+      "maxSize": "50kb"
+    },
+    {
       "path": "workbox-<hash>.js",
-      "maxSize": "150kb"
+      "maxSize": "50kb"
+    },
+    {
+      "path": "sw.js",
+      "maxSize": "15kb"
     },
     {
       "path": "**/*.@(js|css|html|png|msgpack|webmanifest|json|hash|txt)",
