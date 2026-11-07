@@ -53,3 +53,4 @@ Replace `@xyflow/react` entirely with a lightweight, standard DOM-based director
 
 ## Acceptance Criteria
 - [x] prd-418-516-replace-xyflow-with-custom-dag
+- [ ] research-418-744-remediation-legacy-conflict
