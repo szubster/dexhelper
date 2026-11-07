@@ -3,6 +3,7 @@ import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { FeatureFlagProvider } from './contexts/FeatureFlagContext';
+import { Gen3BattleFrontierProvider } from './contexts/Gen3BattleFrontierContext';
 import { Gen3MissedItemsProvider } from './contexts/Gen3MissedItemsContext';
 import { Gen3RTCProvider } from './contexts/Gen3RTCContext';
 import { TimeOverrideProvider } from './contexts/TimeOverrideContext';
@@ -85,7 +86,9 @@ createRoot(rootElement).render(
         <Gen3RTCProvider>
           <TimeOverrideProvider>
             <Gen3MissedItemsProvider>
-              <RouterProvider router={router} />
+              <Gen3BattleFrontierProvider>
+                <RouterProvider router={router} />
+              </Gen3BattleFrontierProvider>
             </Gen3MissedItemsProvider>
           </TimeOverrideProvider>
         </Gen3RTCProvider>
