@@ -23,4 +23,8 @@ rejection_reason: ''
 Extract context variables (like the owner persona and status) from the YAML frontmatter of a Foundry task node.
 
 ## Acceptance Criteria
-- [ ] TASK breakdown generated.
+- [x] TASK breakdown generated.
+- [ ] task-734-740-artifact-frontmatter-parser-types
+- [ ] task-734-741-artifact-frontmatter-parser-logic
+- [ ] task-734-742-artifact-frontmatter-parser-tests
+- [ ] task-734-743-artifact-frontmatter-parser-qa
