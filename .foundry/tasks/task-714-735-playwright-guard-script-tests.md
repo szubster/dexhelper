@@ -29,4 +29,4 @@ priority: 80
 - Write unit tests for the core logic implemented in `task-714-734-playwright-guard-script-core`.
 
 ## Acceptance Criteria
-- [ ] Implement `scripts/check-playwright-browsers.test.ts`
+- [x] Implement `scripts/check-playwright-browsers.test.ts`
