@@ -2,14 +2,14 @@
 id: story-580-675-com-migration-e2e-verification
 type: STORY
 title: COM Migration E2E Verification
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-09'
 updated_at: '2026-11-07'
 depends_on:
   - story-580-673-migrate-settings-e2e-tests
   - story-580-674-migrate-pokedex-e2e-tests
-jules_session_id: null
+jules_session_id: '5688939651649209575'
 pr_number: null
 parent: epic-566-580-e2e-test-migration
 tags:
