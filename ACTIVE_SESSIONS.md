@@ -4,6 +4,7 @@
 | --- | --- | --- | --- | --- |
 | [epic-044-072-hof-timeline-ui](.foundry/epics/epic-044-072-hof-timeline-ui.md) | EPIC | Hall of Fame Timeline UI Architecture | story_owner | [16708773767279134845](https://jules.google.com/session/16708773767279134845) |
 | [epic-047-584-gen3-tv-swarm-data-extraction](.foundry/epics/epic-047-584-gen3-tv-swarm-data-extraction.md) | EPIC | Gen 3 TV Broadcast and Swarm Tracker Data Extraction (Replacement) | story_owner | [5555311576502225688](https://jules.google.com/session/5555311576502225688) |
+| [epic-054-270-gen3-ash-goal-planner](.foundry/epics/epic-054-270-gen3-ash-goal-planner.md) | EPIC | Epic: Gen 3 Volcanic Ash Goal Planner | story_owner | [169453857194922828](https://jules.google.com/session/169453857194922828) |
 | [epic-158-522-gen3-dataview-extender](.foundry/epics/epic-158-522-gen3-dataview-extender.md) | EPIC | Gen 3 DataView Extender Implementation | story_owner | [10381714051482611807](https://jules.google.com/session/10381714051482611807) |
 | [epic-516-531-pkm-export-ui-integration](.foundry/epics/epic-516-531-pkm-export-ui-integration.md) | EPIC | PKM/PK3 Export UI Integration | story_owner | [6883151170347422398](https://jules.google.com/session/6883151170347422398) |
 | [epic-521-541-code-architect-persona](.foundry/epics/epic-521-541-code-architect-persona.md) | EPIC | Epic: Scheduled Weekly Persona - Code Architect (architect_visionary) | story_owner | [2313257089945962256](https://jules.google.com/session/2313257089945962256) |
