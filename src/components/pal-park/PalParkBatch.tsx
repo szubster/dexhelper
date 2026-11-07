@@ -1,4 +1,4 @@
-import type React from 'react';
+import React from 'react';
 import type { PalParkBatchedPokemon } from '../../engine/palPark/batch/batchUtils';
 import { cn } from '../../utils/cn';
 import { DataLabel } from '../DataLabel';
@@ -6,13 +6,18 @@ import { PokemonSprite } from '../pokemon/PokemonSprite';
 import { TacticalCard } from '../TacticalCard';
 import { TacticalPanel } from '../TacticalPanel';
 
+const MAX_BATCH_SIZE = 6;
+const EMPTY_SLOT_INDICES = Array.from({ length: MAX_BATCH_SIZE }, (_, i) => i);
+
 interface PalParkBatchProps {
   batch: PalParkBatchedPokemon[];
   batchIndex: number;
   className?: string;
 }
 
-export const PalParkBatch: React.FC<PalParkBatchProps> = ({ batch, batchIndex, className }) => {
+// ⚡ Bolt: Wrapped PalParkBatch in React.memo to isolate render cycles from parent updates,
+// and replaced dynamic Array.from() inside render with sliced module-level EMPTY_SLOT_INDICES to eliminate intermediate array allocations.
+export const PalParkBatch: React.FC<PalParkBatchProps> = React.memo(({ batch, batchIndex, className }) => {
   return (
     <TacticalPanel className={cn('mb-4 p-4', className)} variant="default">
       <div className="mb-4 flex items-center justify-between">
@@ -52,9 +57,8 @@ export const PalParkBatch: React.FC<PalParkBatchProps> = ({ batch, batchIndex, c
         ))}
 
         {/* Fill remaining slots if batch < 6 */}
-        {Array.from({ length: Math.max(0, 6 - batch.length) }).map((_, i) => (
+        {EMPTY_SLOT_INDICES.slice(0, Math.max(0, MAX_BATCH_SIZE - batch.length)).map((i) => (
           <div
-            // biome-ignore lint/suspicious/noArrayIndexKey: Empty filler slots do not have unique IDs
             key={`empty-${i}`}
             className="flex h-[120px] items-center justify-center rounded-none border border-dashed border-zinc-800 bg-zinc-900/30 opacity-50"
           >
@@ -64,4 +68,4 @@ export const PalParkBatch: React.FC<PalParkBatchProps> = ({ batch, batchIndex, c
       </div>
     </TacticalPanel>
   );
-};
+});

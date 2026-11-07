@@ -2,12 +2,12 @@
 id: epic-703-697-artifact-presence-verification-logic
 type: EPIC
 title: Artifact Presence Validator - Verification Logic
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-18'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: '13274235496546431540'
+jules_session_id: null
 pr_number: null
 parent: prd-537-703-artifact-presence-precommit-validator
 tags:

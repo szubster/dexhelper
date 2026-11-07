@@ -1,3 +1,4 @@
+import { TacticalSelect } from '@dexhelper/ui';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import React, { useMemo } from 'react';
 import { Gen1SafariZone } from '../../engine/data/gen1/safariZone';
@@ -5,7 +6,6 @@ import { HoennSafariZone, KantoSafariZoneGen3 } from '../../engine/data/gen3/saf
 import type { SafariArea } from '../../engine/data/shared/safariZoneTypes';
 import { pokemonListQueryOptions } from '../../utils/pokemonQueries';
 import { TacticalPanel } from '../TacticalPanel';
-import { TacticalSelect } from '../TacticalSelect';
 import { type GameVersion, useSafariZoneSelection } from './useSafariZoneSelection';
 
 interface Props {

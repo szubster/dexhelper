@@ -2,10 +2,10 @@
 id: task-478-718-orchestrator-prompt-adaptation-retry-5
 type: TASK
 title: Orchestrator Prompt Adaptation (Retry 5)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-23'
-updated_at: '2026-10-31'
+updated_at: '2026-11-04'
 depends_on:
   - research-478-716-investigate-cloning-logic-failure-retry-4
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - orchestrator
   - generation
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: Max rejection count reached
 notes: ''
 locks: []
 ---

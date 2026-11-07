@@ -5,10 +5,10 @@ title: Migrate Complex Layout and Data Components
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-30'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on:
   - story-527-639-migrate-tactical-primitives
-jules_session_id: '15261211558526928823'
+jules_session_id: '4211243884057994965'
 pr_number: null
 parent: epic-519-527-extract-ui-components
 tags:
@@ -31,5 +31,8 @@ Migrate complex components like TacticalModal, TacticalSegmentedControl, and Tac
 - [ ] task-640-729-migrate-tacticalmodal-qa
 - [ ] task-640-730-migrate-tacticalsegmentedcontrol-impl
 - [ ] task-640-731-migrate-tacticalsegmentedcontrol-qa
-- [ ] task-640-732-migrate-tacticalselect-impl
-- [ ] task-640-733-migrate-tacticalselect-qa
+- [x] task-640-732-migrate-tacticalselect-impl
+- [x] task-640-733-migrate-tacticalselect-qa
+- [ ] research-640-740-investigate-tacticalselect-migration-failure
+- [ ] task-640-741-migrate-tacticalselect-impl-retry
+- [ ] task-640-742-migrate-tacticalselect-qa-retry

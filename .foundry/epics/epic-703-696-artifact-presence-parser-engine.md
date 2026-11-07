@@ -2,12 +2,12 @@
 id: epic-703-696-artifact-presence-parser-engine
 type: EPIC
 title: Artifact Presence Validator - Parser Engine
-status: ACTIVE
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-10-18'
-updated_at: '2026-10-31'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: '12027668150763017296'
+jules_session_id: null
 pr_number: null
 parent: prd-537-703-artifact-presence-precommit-validator
 tags:
