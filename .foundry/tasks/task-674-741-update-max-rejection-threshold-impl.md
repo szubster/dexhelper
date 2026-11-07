@@ -2,13 +2,13 @@
 id: task-674-741-update-max-rejection-threshold-impl
 type: TASK
 title: Update Max Rejection Threshold Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-11-02'
-updated_at: '2026-11-02'
+updated_at: '2026-11-07'
 depends_on:
   - story-581-673-orchestrator-termination-state-parsing
-jules_session_id: null
+jules_session_id: '5909849240946018681'
 pr_number: null
 parent: story-581-674-orchestrator-resurrection-logic
 tags: []
