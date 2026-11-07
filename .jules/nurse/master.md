@@ -131,3 +131,11 @@ It tightens type safety for data loaded from IndexedDB, a common source of impli
 - **Issue:** Unsafe `(saveData as Gen3SaveData).gen3Pokeblocks` type assertion in `src/features/pokeblock/hooks/usePokeblocks.ts`.
 - **Solution:** Replaced the condition `saveData && saveData.generation === 3` and explicit cast `(saveData as Gen3SaveData)` with the canonical type guard `isGen3Save(saveData)` imported from `src/engine/saveParser/parsers/common`.
 - **Learn:** When accessing generation-specific properties (like `gen3Pokeblocks`) from `SaveData`, always use the established discriminated union type guards (`isGen1Save`, `isGen2Save`, `isGen3Save`) rather than checking `generation` numeric properties followed by unsafe `as` type assertions. This eliminates the cast, avoids potential property drift, and allows TypeScript to automatically narrow the type.
+
+---
+
+# Nurse Joy Journal Entry
+
+- **Issue:** Unsafe `as Gen2SaveVariant` type assertion in `src/engine/healthScanner/checkers/gen2Checksum.ts` when composing the variant string via `${game}_${region}`.
+- **Solution:** Explicitly typed the intermediate variables `game: 'CRYSTAL' | 'GS'` and `region: 'JP' | 'EN'` as string literal unions. TypeScript compiler then automatically infers the template literal expression `${game}_${region}` as the union `'CRYSTAL_JP' | 'CRYSTAL_EN' | 'GS_JP' | 'GS_EN'` (`Gen2SaveVariant`), eliminating the need for an `as` type assertion.
+- **Learn:** When constructing compound keys/variants from boolean flags via template literal interpolation (`${partA}_${partB}`), typing intermediate strings as string literal unions allows TypeScript's template literal types to evaluate to the exact discriminated union type safely without `as` type assertions.
