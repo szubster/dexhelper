@@ -42,4 +42,9 @@ Implement a feature allowing the player to select a target item they wish to exc
 - Follow ADR 024 tactical hardware aesthetics.
 
 ## Acceptance Criteria
-- [ ] Break down this Epic into corresponding STORY nodes.
+- [x] Break down this Epic into corresponding STORY nodes.
+
+- [ ] story-270-745-gen3-ash-goal-mapping
+- [ ] story-270-746-gen3-ash-goal-state
+- [ ] story-270-747-gen3-ash-goal-ui
+- [ ] story-270-748-gen3-ash-goal-e2e
