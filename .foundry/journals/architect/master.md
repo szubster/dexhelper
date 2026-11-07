@@ -39,3 +39,12 @@ When utilizing advanced serializers with object structure deduplication (like `m
 
 ## 2026-09-15
 * **Scheduled Workflow Issue Dispatch:** Decided against duplicating issue creation logic across 19 separate cron schedules. Standardized on modifying the shared `foundry-scheduled-agent.yml` workflow instead. This approach reduces extreme duplication and adheres to DRY principles. Spawned new TASK nodes to implement this and cancelled the previous batch tasks.
+
+
+---
+
+## 2026-10-17: Cloudflare Functions in pnpm Monorepo (ADR 675)
+
+**Context:** Evaluated how to handle Cloudflare Pages functions structure when migrating to a pnpm workspace monorepo where frontend is in `apps/web` and backend in `apps/functions`. Cloudflare Pages assumes a `functions/` directory relative to the web root.
+**Decision:** Selected "Build-step injection" (Option 2) in ADR-675-676. Keeping `apps/functions` as a separate workspace package maintains separation of concerns, keeping backend Cloudflare dependencies apart from frontend ones. A build step (`cp -r`) will copy the functions to the web app's directory before deployment.
+**Impact:** `wrangler.toml` doesn't require path overriding. The GitHub Actions deployment script needs to execute the build/copy step from the web directory before uploading the pages artifact.
