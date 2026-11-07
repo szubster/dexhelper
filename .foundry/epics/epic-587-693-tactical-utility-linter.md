@@ -2,12 +2,12 @@
 id: epic-587-693-tactical-utility-linter
 type: EPIC
 title: 'Epic: Automated Tactical Utility Usage Linter'
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-10-22T06:34:26Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '15783005020308140330'
 pr_number: null
 parent: prd-534-587-automated-tactical-utility-usage-linter-rule
 tags:

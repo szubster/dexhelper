@@ -187,3 +187,15 @@ export interface DAGEdge {
   source: string;
   target: string;
 }
+
+export interface CycleDetectionEngineState {
+    visited: Set<string>;
+    recursionStack: Set<string>;
+    cycles: string[][];
+}
+
+export interface CycleDiagnosticLog {
+    timestamp: string;
+    cyclePath: string[];
+    affectedNodes: string[];
+}
