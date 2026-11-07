@@ -2,17 +2,18 @@
 id: task-734-740-artifact-frontmatter-parser-types
 type: TASK
 title: Define Frontmatter Parser Types
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-11-02'
-updated_at: '2026-11-02'
+updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8740683483356972664'
 pr_number: null
 parent: story-696-734-artifact-frontmatter-parser
 tags:
   - typescript
 priority: 80
+rejection_reason: ''
 ---
 
 # TASK: Define Frontmatter Parser Types
