@@ -34,4 +34,7 @@ Verify that all migrated E2E tests using the COM pattern run successfully in the
 
 ## Acceptance Criteria
 - [ ] All migrated E2E tests pass reliably.
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-675-746-com-migration-e2e-run-tests
+- [ ] task-675-747-com-migration-e2e-fix-flakiness
+- [ ] task-675-748-com-migration-e2e-qa
