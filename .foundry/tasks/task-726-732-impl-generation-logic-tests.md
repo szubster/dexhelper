@@ -27,5 +27,5 @@ Write Playwright E2E tests to guarantee that generation-specific logic remains f
 - Emphasize checks on edge cases specific to each generation's data structures.
 
 ## Acceptance Criteria
-- [ ] Generation-specific logic is fully functional for all supported generations.
-- [ ] Tests accurately simulate parsing and verify output.
+- [x] Generation-specific logic is fully functional for all supported generations.
+- [x] Tests accurately simulate parsing and verify output.
