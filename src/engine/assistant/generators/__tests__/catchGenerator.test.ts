@@ -1,5 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import type { SaveData } from '../../../saveParser/index';
+import {
+  PRIORITY_ROAMER,
+  PRIORITY_WEATHER_ANOMALY,
+  SPECIES_ENTEI,
+  SPECIES_GROUDON,
+  SPECIES_KYOGRE,
+  SPECIES_LATIAS,
+  SPECIES_RAIKOU,
+} from '../../constants';
 import { gen1Strategy } from '../../strategies/gen1Strategy';
 import type { AssistantStrategy, Suggestion } from '../../strategies/types';
 import type { AssistantApiData } from '../../suggestionEngineTypes';
@@ -322,14 +331,14 @@ describe('catchGenerator', () => {
     } as unknown as AssistantApiData;
 
     const myOtIds = new Set<number>();
-    const missingIds = new Set<number>([243, 380]);
-    const queryTargets = [243, 380];
+    const missingIds = new Set<number>([SPECIES_RAIKOU, SPECIES_LATIAS]);
+    const queryTargets = [SPECIES_RAIKOU, SPECIES_LATIAS];
     const saveDataGen2 = {
       generation: 2,
       currentMapId: 1,
       roamingLegendaries: [
-        { speciesId: 243, isActive: true, hp: 100 }, // Active Raikou
-        { speciesId: 244, isActive: true, hp: 0 }, // Defeated Entei
+        { speciesId: SPECIES_RAIKOU, isActive: true, hp: 100 }, // Active Raikou
+        { speciesId: SPECIES_ENTEI, isActive: true, hp: 0 }, // Defeated Entei
       ],
     } as unknown as SaveData;
 
@@ -349,14 +358,14 @@ describe('catchGenerator', () => {
     );
 
     expect(suggestionsGen2).toHaveLength(1);
-    expect(suggestionsGen2[0]?.id).toBe('catch-roamer-243');
-    expect(suggestionsGen2[0]?.priority).toBe(115);
+    expect(suggestionsGen2[0]?.id).toBe(`catch-roamer-${SPECIES_RAIKOU}`);
+    expect(suggestionsGen2[0]?.priority).toBe(PRIORITY_ROAMER);
     expect(suggestionsGen2[0]?.description).toContain('Fast Balls');
 
     const saveDataGen3 = {
       generation: 3,
       currentMapId: 1,
-      roamingLegendaries: [{ speciesId: 380, isActive: true, hp: 80 }],
+      roamingLegendaries: [{ speciesId: SPECIES_LATIAS, isActive: true, hp: 80 }],
     } as unknown as SaveData;
 
     const suggestionsGen3: Suggestion[] = [];
@@ -375,8 +384,8 @@ describe('catchGenerator', () => {
     );
 
     expect(suggestionsGen3).toHaveLength(1);
-    expect(suggestionsGen3[0]?.id).toBe('catch-roamer-380');
-    expect(suggestionsGen3[0]?.priority).toBe(115);
+    expect(suggestionsGen3[0]?.id).toBe(`catch-roamer-${SPECIES_LATIAS}`);
+    expect(suggestionsGen3[0]?.priority).toBe(PRIORITY_ROAMER);
     expect(suggestionsGen3[0]?.description).toContain('Shadow Tag');
   });
 
@@ -389,8 +398,8 @@ describe('catchGenerator', () => {
     } as unknown as AssistantApiData;
 
     const myOtIds = new Set<number>();
-    const missingIds = new Set<number>([382, 383]);
-    const queryTargets = [382, 383];
+    const missingIds = new Set<number>([SPECIES_KYOGRE, SPECIES_GROUDON]);
+    const queryTargets = [SPECIES_KYOGRE, SPECIES_GROUDON];
 
     // Marine Cave active on Route 105 (locationId 0)
     const saveDataKyogre = {
@@ -414,11 +423,11 @@ describe('catchGenerator', () => {
 
     expect(suggestionsKyogre).toHaveLength(1);
     expect(suggestionsKyogre[0]).toMatchObject({
-      id: 'catch-weather-anomaly-382',
+      id: `catch-weather-anomaly-${SPECIES_KYOGRE}`,
       category: 'Catch',
-      pokemonId: 382,
-      priority: 115,
-      title: 'Weather Anomaly: Kyogre (#382)',
+      pokemonId: SPECIES_KYOGRE,
+      priority: PRIORITY_WEATHER_ANOMALY,
+      title: `Weather Anomaly: Kyogre (#${SPECIES_KYOGRE})`,
     });
     expect(suggestionsKyogre[0]?.description).toContain('Route 105');
 
@@ -444,11 +453,11 @@ describe('catchGenerator', () => {
 
     expect(suggestionsGroudon).toHaveLength(1);
     expect(suggestionsGroudon[0]).toMatchObject({
-      id: 'catch-weather-anomaly-383',
+      id: `catch-weather-anomaly-${SPECIES_GROUDON}`,
       category: 'Catch',
-      pokemonId: 383,
-      priority: 115,
-      title: 'Weather Anomaly: Groudon (#383)',
+      pokemonId: SPECIES_GROUDON,
+      priority: PRIORITY_WEATHER_ANOMALY,
+      title: `Weather Anomaly: Groudon (#${SPECIES_GROUDON})`,
     });
     expect(suggestionsGroudon[0]?.description).toContain('Route 118');
 
