@@ -2,14 +2,14 @@
 id: task-711-718-gen2-scoring-algorithm-qa
 type: TASK
 title: Gen 2 Bug-Catching Contest Scoring Algorithm QA
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-22'
 updated_at: '2026-11-03'
 depends_on:
   - task-711-716-gen2-scoring-algorithm-impl
   - task-711-717-gen2-scoring-algorithm-tests
-jules_session_id: null
+jules_session_id: '16667904920406852129'
 pr_number: null
 parent: story-513-711-gen2-scoring-algorithm
 tags:
@@ -29,6 +29,6 @@ locks: []
 This task involves Quality Assurance verification of the Gen 2 Bug-Catching Contest scoring algorithm implementation and its unit tests.
 
 ## Acceptance Criteria
-- [ ] Verify the implementation accurately reflects the PRD formula (`.foundry/prds/prd-144-343-gen2-bug-catching-contest-analyzer.md`).
-- [ ] Verify the unit tests adequately cover edge cases, including IV bonuses, max stat scenarios, and correct item bonuses.
-- [ ] Run the tests and ensure no regressions.
+- [x] Verify the implementation accurately reflects the PRD formula (`.foundry/prds/prd-144-343-gen2-bug-catching-contest-analyzer.md`).
+- [x] Verify the unit tests adequately cover edge cases, including IV bonuses, max stat scenarios, and correct item bonuses.
+- [x] Run the tests and ensure no regressions.

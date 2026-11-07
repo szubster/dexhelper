@@ -27,5 +27,5 @@ locks: []
 Implement the core type effectiveness calculation logic for the matchup simulation engine.
 
 ## Acceptance Criteria
-- [ ] Implement function to calculate type multipliers.
-- [ ] Add comprehensive unit tests.
+- [x] Implement function to calculate type multipliers.
+- [x] Add comprehensive unit tests.

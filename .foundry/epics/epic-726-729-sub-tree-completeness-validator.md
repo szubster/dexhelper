@@ -2,12 +2,12 @@
 id: epic-726-729-sub-tree-completeness-validator
 type: EPIC
 title: Sub-Tree Completeness Validator
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-10-26'
-updated_at: '2026-10-26'
+updated_at: '2026-11-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10482530580010588448'
 pr_number: null
 parent: prd-540-726-tree-completeness-and-false-failure-prevention-heuristics
 tags:
