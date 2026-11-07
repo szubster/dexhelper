@@ -81,4 +81,53 @@ describe('cycle-detection algorithm', () => {
     const result = detectCycle(nodes, edges);
     expect(result).toEqual(['a', 'a']);
   });
+
+  it('should handle duplicate node ids in the input gracefully', () => {
+    const nodes: DAGNode[] = [
+      { id: 'a' },
+      { id: 'a' },
+    ];
+    const edges: DAGEdge[] = [];
+    const result = detectCycle(nodes, edges);
+    expect(result).toBeNull();
+  });
+
+  it('should not falsely detect a cycle when visiting a node already fully explored', () => {
+    // Diamond graph: a -> b, a -> c, b -> d, c -> d
+    const nodes: DAGNode[] = [
+      { id: 'a' },
+      { id: 'b' },
+      { id: 'c' },
+      { id: 'd' },
+    ];
+    const edges: DAGEdge[] = [
+      { source: 'a', target: 'b' },
+      { source: 'a', target: 'c' },
+      { source: 'b', target: 'd' },
+      { source: 'c', target: 'd' },
+    ];
+    const result = detectCycle(nodes, edges);
+    expect(result).toBeNull();
+  });
+
+  it('should verify test coverage for handling nodes in different states', () => {
+    // We add states simulating PENDING, READY, VERIFYING, etc.
+    // The cycle detection logic only cares about structure, but this verifies
+    // that extra properties (like status) don't disrupt the traversal algorithm.
+    const nodes: DAGNode[] = [
+      { id: 'a', status: 'READY' },
+      { id: 'b', status: 'PENDING' },
+      { id: 'c', status: 'VERIFYING' },
+    ];
+    // a -> b -> c -> a (cycle)
+    const edges: DAGEdge[] = [
+      { source: 'a', target: 'b' },
+      { source: 'b', target: 'c' },
+      { source: 'c', target: 'a' },
+    ];
+    const result = detectCycle(nodes, edges);
+    expect(result).not.toBeNull();
+    expect(result).toHaveLength(4);
+    expect(result![0]).toBe(result![3]);
+  });
 });
