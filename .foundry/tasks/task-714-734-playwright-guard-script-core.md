@@ -31,4 +31,4 @@ priority: 80
 - Do not automatically install binaries.
 
 ## Acceptance Criteria
-- [ ] Implement `scripts/check-playwright-browsers.ts`
+- [x] Implement `scripts/check-playwright-browsers.ts`
