@@ -643,10 +643,15 @@ export async function main() {
   // --- Pass 2: Check FAILED Nodes ---
   for (const node of failedNodes) {
     const rejectionCount = node.frontmatter?.rejection_count ?? (node.rawContent ? matter(node.rawContent).data.rejection_count : 0) ?? 0;
+    const rejectionReason = node.frontmatter?.rejection_reason ?? (node.rawContent ? matter(node.rawContent).data.rejection_reason : '') ?? '';
     if (rejectionCount >= 3) {
       info(`Skipping retry for ${node.repoPath} because rejection_count (${rejectionCount}) >= 3.`);
     } else {
-      await transitionNodeToReady(node, repoRoot, `Retry from FAILED status.`);
+      if (rejectionReason.includes('Session terminated with state: NOT_FOUND') || rejectionReason.includes('Session terminated with state: INTERNAL_ERROR')) {
+        await transitionNodeToReadyWithoutPenalty(node, repoRoot, `Retry from infrastructure failure.`);
+      } else {
+        await transitionNodeToReady(node, repoRoot, `Retry from FAILED status.`);
+      }
     }
   }
 
