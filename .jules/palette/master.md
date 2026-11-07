@@ -241,3 +241,20 @@ Wrapped decorative telemetry brackets (`[` and `]`) in `src/components/PokerusBa
 ## Key Learnings
 - **Screen Reader Clarity on Status Badges**: Status indicator badges (such as `PokerusBadge`) that format state labels with ASCII brackets (e.g. `[PKRS STRN: 0]`, `[PKRS INF: 2D]`, `[PKRS CURED]`) should wrap decorative bracket characters in `<span aria-hidden="true">`.
 - This prevents assistive technologies from voicing "left bracket" and "right bracket" when announcing Pokérus status while preserving the tactical hardware design system aesthetic visually.
+
+---
+
+# Palette Journal Entry - Pokérus Spread Planner Tactical Buttons & Telemetry A11y
+
+## Date
+2026-11-01
+
+## Micro-UX / Accessibility Improvement
+- Replaced raw `<button>` elements in `PokerusSpreadPlanner.tsx` with `<TacticalIconButton>` using `ChevronUp` and `ChevronDown` icons from `lucide-react`.
+- Added explicit accessible `aria-label` attributes (`Move ${pokemon.nickname || 'Species ' + pokemon.speciesId} up/down`) and `title` tooltips to slot reorder buttons.
+- Wrapped decorative telemetry brackets (`[` and `]`) in `[WARNING]` and `[AT RISK]` with `<span aria-hidden="true">`.
+
+## Key Learnings
+- **Accessible List Reordering Controls**: Interactive move up/down controls in party management tools must supply descriptive `aria-label` attributes identifying the target Pokémon name or species. Without contextual accessible names, screen reader users only hear unlabeled or generic "Move up" / "Move down" announcements without knowing which slot or Pokémon will be moved.
+- **Design System Cohesion**: Replacing raw buttons with `<TacticalIconButton>` brings party reordering controls in line with the tactical hardware design system, including standard tactical focus states (`focus-visible:tactical-focus`) and tactical CSS tooltips (`.tactical-tooltip`).
+- **Telemetry Brackets A11y**: Wrapping ASCII bracket characters in `<span aria-hidden="true">` eliminates redundant screen reader chatter ("left bracket", "right bracket") across status banners and risk tags.
