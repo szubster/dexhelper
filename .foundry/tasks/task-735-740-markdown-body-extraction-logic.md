@@ -2,12 +2,12 @@
 id: task-735-740-markdown-body-extraction-logic
 type: TASK
 title: Markdown Body Extraction Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-11-02'
-updated_at: '2026-11-02'
+updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '7750268908139152055'
 pr_number: null
 parent: story-696-735-artifact-markdown-body-parser
 tags:
