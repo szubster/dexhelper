@@ -2,12 +2,12 @@
 id: story-696-734-ast-analyzer-react-context-detection
 type: STORY
 title: AST Analyzer React Context Detection
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-31'
-updated_at: '2026-10-31'
+updated_at: '2026-11-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '273500052505827934'
 pr_number: null
 parent: epic-703-696-ast-linter-core-analysis
 tags:
