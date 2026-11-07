@@ -1,6 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { buildDocumentationIndex, buildQuery } from './flexsearch-utils.ts';
+import { buildDocumentationIndex, buildQuery, extractRelevantChunks } from './flexsearch-utils.ts';
 import fs from 'node:fs';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const FlexSearch = require('flexsearch');
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -31,14 +34,69 @@ describe('flexsearch-utils', () => {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
-  it('should build a query string from frontmatter', () => {
-    const frontmatter = {
-      title: 'Test Title',
-      type: 'TASK' as any,
-      tags: ['tag1', 'tag2'],
-      layers: ['layer1']
-    };
-    const query = buildQuery(frontmatter);
-    expect(query).toBe('Test Title TASK tag1 tag2 layer1');
+  describe('buildQuery', () => {
+    it('should build a query string from frontmatter', () => {
+      const frontmatter = {
+        title: 'Test Title',
+        type: 'TASK' as any,
+        tags: ['tag1', 'tag2'],
+        layers: ['layer1']
+      };
+      const query = buildQuery(frontmatter);
+      expect(query).toBe('Test Title TASK tag1 tag2 layer1');
+    });
+
+    it('should handle empty frontmatter gracefully', () => {
+      const frontmatter = {};
+      const query = buildQuery(frontmatter);
+      expect(query).toBe('');
+    });
+
+    it('should handle undefined tags or layers gracefully', () => {
+      const frontmatter = {
+        title: 'Test Title',
+        type: 'TASK' as any,
+      };
+      const query = buildQuery(frontmatter);
+      expect(query).toBe('Test Title TASK');
+    });
+
+    it('should handle missing title or type gracefully', () => {
+      const frontmatter = {
+        tags: ['tag1', 'tag2'],
+        layers: ['layer1']
+      };
+      const query = buildQuery(frontmatter);
+      expect(query).toBe('tag1 tag2 layer1');
+    });
+
+    it('should handle missing type gracefully', () => {
+      const frontmatter = {
+        title: 'Test Title',
+        tags: ['tag1', 'tag2'],
+        layers: ['layer1']
+      };
+      const query = buildQuery(frontmatter);
+      expect(query).toBe('Test Title tag1 tag2 layer1');
+    });
   });
+  it("should extract relevant chunks from the index", () => {
+    const index = new FlexSearch.Document({
+      document: {
+        id: "id",
+        index: ["content"],
+        store: ["title", "content"]
+      }
+    });
+    index.add({ id: "doc1", title: "Test Doc", content: "This is a test chunk about flexsearch." });
+    index.add({ id: "doc2", title: "Another Doc", content: "This chunk is about something else." });
+
+    const chunks = extractRelevantChunks(index, "flexsearch");
+    expect(chunks).toContain("This is a test chunk about flexsearch.");
+    expect(chunks).not.toContain("This chunk is about something else.");
+
+    const emptyChunks = extractRelevantChunks(index, "");
+    expect(emptyChunks).toBe("");
+  });
+
 });

@@ -12,7 +12,7 @@ import { Gen3PokeblocksDashboard, PokeblockOptimizerPanel } from '../components/
 import { TacticalBlockHeader } from '../components/TacticalBlockHeader';
 import { TacticalPanel } from '../components/TacticalPanel';
 import { Gen3DashboardDataProvider } from '../contexts/Gen3DashboardDataContext';
-import { FeebasMapComponent } from '../features/feebas/components/FeebasMapComponent';
+import { Route119Map } from '../features/route-119/components/Route119Map';
 import { useStore } from '../store';
 
 export const Route = createFileRoute('/gen3-dashboard')({
@@ -37,7 +37,7 @@ function Gen3DashboardPage() {
           />
           <div className="flex flex-col gap-4">
             <Gen3MissedItemsDashboard />
-            <FeebasMapComponent />
+            <Route119Map />
             <TrainerCardStatusWidget />
             <MissedMilestonesWidget />
             <PokedexGapVisualizerWidget />

@@ -2,13 +2,13 @@
 id: task-559-707-search-extraction-impl-v2
 type: TASK
 title: Implement Search and Chunk Extraction Logic (Retry)
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-11-01'
+updated_at: '2026-11-03'
 depends_on:
   - task-559-705-query-formulation-impl-v2
-jules_session_id: '2243343800356058810'
+jules_session_id: null
 parent: story-534-559-rag-dynamic-querying-retrieval
 tags:
   - query
@@ -28,5 +28,5 @@ Execute searches against the in-memory flexsearch index and extract relevant chu
 - Extract document chunks.
 
 ## Acceptance Criteria
-- [ ] Implement chunk extraction function.
-- [ ] Write unit tests.
+- [x] Implement chunk extraction function.
+- [x] Write unit tests.

@@ -33,4 +33,4 @@ Implement parser extensions in the Generation 2 engine to accurately extract the
 - Extract the 16-bit `wPlayerID` into the common application state representation.
 
 ## Acceptance Criteria
-- [ ] Trainer ID extraction logic is implemented for Gen 2 save parsing.
+- [x] Trainer ID extraction logic is implemented for Gen 2 save parsing.

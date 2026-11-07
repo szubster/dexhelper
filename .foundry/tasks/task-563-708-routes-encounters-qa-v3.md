@@ -2,10 +2,10 @@
 id: task-563-708-routes-encounters-qa-v3
 type: TASK
 title: 'Routes, Encounters, and Drop Rates QA (v3)'
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-11-02'
 depends_on:
   - task-563-707-routes-encounters-tests-v3
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-563-705-routes-encounters-data-fetching-v3
 notes: ''
 locks: []
 ---
