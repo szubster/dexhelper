@@ -2,10 +2,10 @@
 id: epic-054-269-gen3-ash-dashboard
 type: EPIC
 title: 'Epic: Gen 3 Volcanic Ash Tracker Dashboard UI'
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-17'
-updated_at: '2026-10-13'
+updated_at: '2026-11-07'
 depends_on:
   - epic-054-268-gen3-ash-save-parsing
 jules_session_id: null
@@ -37,5 +37,5 @@ Create a dedicated UI view or panel within DexHelper that explicitly displays th
 
 ## Acceptance Criteria
 - [x] Break down this Epic into corresponding STORY nodes.
-- [ ] story-269-647-gen3-ash-dashboard-ui
-- [ ] story-269-648-gen3-ash-dashboard-e2e
+- [x] story-269-647-gen3-ash-dashboard-ui
+- [x] story-269-648-gen3-ash-dashboard-e2e
