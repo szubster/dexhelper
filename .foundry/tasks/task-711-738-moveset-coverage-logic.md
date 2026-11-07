@@ -27,5 +27,5 @@ locks: []
 Implement moveset coverage analysis.
 
 ## Acceptance Criteria
-- [ ] Implement function to calculate moveset coverage.
-- [ ] Add unit tests.
+- [x] Implement function to calculate moveset coverage.
+- [x] Add unit tests.
