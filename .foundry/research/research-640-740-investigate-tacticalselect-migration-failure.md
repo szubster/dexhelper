@@ -2,12 +2,12 @@
 id: research-640-740-investigate-tacticalselect-migration-failure
 type: RESEARCH
 title: Investigate TacticalSelect Migration Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-11-02'
 updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14092284692467649275'
 pr_number: null
 parent: story-527-640-migrate-complex-components
 tags:
