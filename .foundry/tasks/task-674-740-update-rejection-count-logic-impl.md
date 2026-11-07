@@ -2,13 +2,13 @@
 id: task-674-740-update-rejection-count-logic-impl
 type: TASK
 title: Update Rejection Count Logic for System Failures
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-11-02'
-updated_at: '2026-11-02'
+updated_at: '2026-11-07'
 depends_on:
   - story-581-673-orchestrator-termination-state-parsing
-jules_session_id: null
+jules_session_id: '17797771577982290570'
 pr_number: null
 parent: story-581-674-orchestrator-resurrection-logic
 tags: []
