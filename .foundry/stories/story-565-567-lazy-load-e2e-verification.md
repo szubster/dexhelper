@@ -2,7 +2,7 @@
 id: story-565-567-lazy-load-e2e-verification
 type: STORY
 title: Integration and E2E Verification for Virtualized Pokedex Grid
-status: FAILED
+status: CANCELLED
 owner_persona: tech_lead
 created_at: '2026-09-11'
 updated_at: '2026-11-06'
@@ -16,10 +16,8 @@ tags:
   - integration
   - pokedex
 research_references: []
-rejection_count: 1
-rejection_reason: >-
-  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
-  TASK nodes
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

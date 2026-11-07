@@ -32,5 +32,5 @@ Verify the refactored Pokedex grid-related E2E tests.
 - Verify that the tests utilize \`PokedexGridModel\` COM correctly and consistently, especially \`tests/e2e/gen3_pokedex_gaps.spec.ts\`.
 
 ## Acceptance Criteria
-- [ ] Pokedex grid tests pass reliably.
-- [ ] Tests use \`PokedexGridModel\` and avoid raw DOM locators.
+- [x] Pokedex grid tests pass reliably.
+- [x] Tests use \`PokedexGridModel\` and avoid raw DOM locators.

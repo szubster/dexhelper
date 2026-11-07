@@ -8,14 +8,14 @@ created_at: '2026-10-16T02:13:34.980Z'
 updated_at: '2026-11-06'
 depends_on:
   - task-491-690-implement-persona-skins-e2e
-jules_session_id: '8721135893739084669'
+jules_session_id: '14239257481778973452'
 pr_number: null
 parent: story-406-491-jules-agent-skins-e2e-verification
 tags:
   - e2e
   - personas
   - gamification
-rejection_count: 1
+rejection_count: 2
 confidence_score: 100
 rejection_reason: ''
 notes: ''

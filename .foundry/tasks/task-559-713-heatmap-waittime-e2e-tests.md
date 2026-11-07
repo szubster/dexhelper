@@ -2,7 +2,7 @@
 id: task-559-713-heatmap-waittime-e2e-tests
 type: TASK
 title: Heatmap Wait Time E2E Tests
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-21'
 updated_at: '2026-11-06'
@@ -19,8 +19,8 @@ tags:
   - playwright
   - heatmap
 research_references: []
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
