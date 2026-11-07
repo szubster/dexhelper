@@ -2,7 +2,7 @@
 id: task-731-735-ast-analyzer-cli
 type: TASK
 title: AST Analyzer CLI Script
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-11-07'
@@ -15,9 +15,10 @@ tags:
   - testing
   - linting
   - ast
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_reason: ''
 locks: []
 priority: 50
+rejection_count: 1
 ---
 
 # Task: AST Analyzer CLI Script

@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-07T19:09:37.735Z*
+*Generated at: 2026-11-07T23:11:02.301Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3662 |
-| ACTIVE | 128 |
-| CANCELLED | 975 |
-| PENDING | 796 |
+| COMPLETED | 3665 |
+| ACTIVE | 137 |
+| CANCELLED | 982 |
+| PENDING | 776 |
 | BLOCKED | 14 |
-| READY | 16 |
-| FAILED | 7 |
+| READY | 18 |
+| FAILED | 6 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 136 |
-| Merged PRs | 8799 |
-| Closed PRs | 1065 |
+| Open PRs | 146 |
+| Merged PRs | 8792 |
+| Closed PRs | 1062 |
 
 ## Rejection Counts
 
@@ -368,6 +368,7 @@
 | task-645-668-dashboard-metrics-integration-e2e-impl.md | 3 |
 | task-645-669-tactical-aesthetics-e2e-base-qa.md | 3 |
 | task-645-691-dashboard-metrics-integration-e2e-impl-retry-2.md | 3 |
+| task-645-722-dashboard-metrics-integration-e2e-impl-retry-3.md | 3 |
 | task-649-702-priority-dispatch-coder.md | 3 |
 | task-674-700-migrate-pokedex-e2e-tests-coder.md | 3 |
 | task-676-712-fuzzer-deadlock-assertions-impl.md | 3 |
@@ -551,6 +552,7 @@
 | task-522-713-wip-awareness-e2e-orchestrator-tests-retry.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-527-675-drive-webhook-qa.md | 2 |
+| task-528-713-wip-banner-e2e-tests-retry.md | 2 |
 | task-533-677-savedatareader-e2e-tests.md | 2 |
 | task-536-562-implement-mocking-utilities.md | 2 |
 | task-536-564-playwright-style-guide-mock-utils.md | 2 |
@@ -587,7 +589,6 @@
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
 | task-639-722-migrate-buttons-impl-v5.md | 2 |
-| task-645-722-dashboard-metrics-integration-e2e-impl-retry-3.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
@@ -1051,7 +1052,7 @@
 | task-527-582-update-generators-wip-banner.md | 1 |
 | task-527-671-pathfinder-chain-viz-qa.md | 1 |
 | task-527-674-webhook-renewal-impl.md | 1 |
-| task-528-713-wip-banner-e2e-tests-retry.md | 1 |
+| task-527-735-pathfinder-chain-viz-ui-retry.md | 1 |
 | task-528-714-wip-banner-e2e-qa-retry.md | 1 |
 | task-530-549-isavedatareader-interface-impl.md | 1 |
 | task-530-551-savedatareader-bounds-tests.md | 1 |
@@ -1139,10 +1140,13 @@
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
 | task-676-703-gen2-pokemon-selection-ui.md | 1 |
 | task-676-712-scheduled-agents-issue-flow-e2e-coder.md | 1 |
+| task-676-718-in-game-trade-dashboard-route.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
 | task-709-734-scaffold-pokedata-extractor.md | 1 |
 | task-711-734-gen3-battle-frontier-context-impl.md | 1 |
+| task-714-734-type-schema-version-stamping.md | 1 |
 | task-726-728-ci-check.md | 1 |
+| task-731-735-ast-analyzer-cli.md | 1 |
 
 ## Wait Times
 

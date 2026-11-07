@@ -2,14 +2,14 @@
 id: research-703-740-investigate-badge-injection-failure-v3
 type: RESEARCH
 title: Investigate Badge Injection Failure (v3)
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-11-03'
 updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: '7403361121917198143'
+jules_session_id: null
 parent: research-490-703-investigate-badge-injection-failure-v2
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 locks: []
 ---
 # Investigate Badge Injection Failure (v3)

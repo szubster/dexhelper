@@ -2,12 +2,12 @@
 id: task-001-740-lefthook-integration-coder
 type: TASK
 title: Lefthook Artifact Validation - Implementation
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-11-02'
 updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: '11819104204671177302'
+jules_session_id: null
 pr_number: null
 parent: story-703-698-001-lefthook-integration-impl
 tags:
@@ -15,7 +15,7 @@ tags:
   - workflow
 locks: []
 priority: 80
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 ---
 
 # TASK: Lefthook Artifact Validation - Implementation

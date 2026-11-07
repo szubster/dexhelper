@@ -2,12 +2,12 @@
 id: task-734-741-artifact-validator-integration-tests-fs
 type: TASK
 title: Artifact Validator Integration Tests - File System
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-11-02'
 updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: '6025331259437034140'
+jules_session_id: null
 pr_number: null
 parent: story-699-734-artifact-validator-integration-tests
 tags:
@@ -15,7 +15,7 @@ tags:
   - integration
 locks: []
 priority: 80
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 ---
 # TASK: Artifact Validator Integration Tests - File System
 

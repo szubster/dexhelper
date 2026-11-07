@@ -2,7 +2,7 @@
 id: task-714-734-type-schema-version-stamping
 type: TASK
 title: Type Definition for Schema Version Stamping
-status: FAILED
+status: READY
 owner_persona: coder
 created_at: '2026-10-21T08:00:00.000Z'
 updated_at: '2026-11-07'
@@ -13,8 +13,8 @@ parent: story-694-714-intercept-file-loading-stamping
 tags:
   - save-engine
 research_references: []
-rejection_count: 0
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50
