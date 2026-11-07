@@ -385,3 +385,48 @@ Updated `.foundry/docs/knowledge_base/agents/core_policies.md` with three key sy
 Autonomously spawned two new proactive `IDEA` nodes assigned to `product_manager`:
 - `idea-537-artifact-presence-precommit-validator.md`: Proposes an automated pre-commit validator in `.github/scripts/` to ensure modified files match expected deliverables before QA dispatch.
 - `idea-538-context-provider-root-wiring-linter.md`: Proposes a static AST linter rule verifying custom React Context Providers are wrapped in `src/main.tsx`.
+
+---
+
+# Agile Coach Journal Entry - 2026-10-25
+
+## Proactive System Analysis & Organizational Alignment
+
+### 1. Journal & Session Analysis
+- **TPM DAG Integrity Analysis**: Reviewed TPM session findings (`.foundry/journals/tpm/2026-10-25-02-30-00.md`). Confirmed full graph health across all active `.foundry/` nodes with zero schema violations or circular dependencies. Noted the Conservative Retention Policy enforcing tree completeness (whole-DAG-tree terminal status requirement) prior to node archival.
+- **Curator & Researcher Findings (False Permanent Failures)**: Reviewed Curator findings (`.foundry/journals/curator/2026-10-21-21-12-23.md`) and Researcher investigation logs (`.foundry/journals/researcher/2026-10-23-investigate-constants-extraction-v5-failure.md`). Observed recurring cases where macro nodes or tasks hit `Max rejection count reached` or state failures due to infrastructure session crashes (`COMPLETED`/`FAILED` session terminated states or `AWAITING_USER_FEEDBACK` timeouts) rather than genuine code/domain defects, while their generated downstream implementation tasks actually completed and merged successfully.
+
+### 2. Proactive Process Improvement & Node Spawning
+- **Action Taken**: Autonomously created a new proactive IDEA node (`idea-540-tree-completeness-and-false-failure-prevention-heuristics.md`) assigned to `product_manager`.
+- **Core Intent**: Proposes orchestrator heuristics that explicitly distinguish between infrastructure session crashes and domain/code rejections, while enforcing recursive sub-tree terminal status validation before macro node transitions.
+
+---
+
+# Agile Coach Journal Entry - 2026-10-26
+
+## Session Analysis & System Alignment
+
+### 1. Journal & QA Rejection Analysis
+- Reviewed QA session findings (`.foundry/journals/qa/2026-10-20-20-50-15.md`). Analyzed a recurring defect pattern where engine tracker extraction routines incorrectly use ES6 `Set` data structures, causing valid duplicate items (e.g. multiple Pokemon with `Leftovers`) to be dropped and breaking downstream diffing logic.
+- Reviewed Curator and TPM findings (`.foundry/journals/curator/2026-10-24-20-09-38.md`, `.foundry/journals/tpm/2026-10-26-02-27-51.md`). Confirmed 100% DAG health, whole-tree archival completeness, and cross-idea dependency mapping.
+
+### 2. Proactive Improvement & Node Spawning
+- Autonomously spawned `idea-541-tracker-collection-data-integrity-guard.md` assigned to `product_manager` to establish linter/guideline safeguards against deduplicating data structures in extraction engines.
+
+---
+
+# Agile Coach Journal Entry - 2026-11-01
+
+## Meta-Agent Daily Cycle Analysis & Organizational Alignment
+
+### 1. Engine Collection Data Integrity & Policy Formalization
+- **Observation**: Analyzed QA journals (`.foundry/journals/qa/2026-10-20-20-50-15.md`) and Researcher post-mortems (`.foundry/journals/researcher/2026-10-28-investigate-held-item-extraction-failure.md`). Identified a repeating defect where engine extraction utilities utilized ES6 `Set` data structures to extract collections, silently dropping valid duplicate entries (e.g. multiple Pokémon holding `Leftovers`) and corrupting downstream diffing logic.
+- **Action Taken**: Formally codified Collection Data Integrity into `.foundry/docs/schema.md` Section 13 ("Save File Parsing & Extraction Guidelines") and `.foundry/docs/knowledge_base/agents/core_policies.md` under `## Architectural & Coding Constraints`. Checked off the documentation acceptance criteria in `.foundry/ideas/idea-541-tracker-collection-data-integrity-guard.md`.
+
+### 2. Tactical Typography Primitive Compliance
+- **Observation**: Reviewed QA rejection entries (`.foundry/journals/qa/2026-10-24-22-40-42.md` on `task-527-669-pathfinder-chain-viz-ui`). Coders frequently adopted partial tactical styling (such as `TacticalPanel` and dashed borders) but fell back to raw inline Tailwind typography classes (e.g. `font-mono uppercase tracking-widest` or `text-xs tracking-widest`) rather than using the `@utility tactical-text` primitive from `src/index.css`.
+- **Action Taken**: Reinforced the tactical typography constraints in `core_policies.md` under `UI Aesthetic Constraints (ADR 008 & ADR 024)` to explicitly require `@utility tactical-text` over inline typography styling.
+
+### 3. False Permanent Failure Loop Analysis
+- **Observation**: Evaluated recent researcher findings (`2026-10-28-12-00-00-investigate-fuzzer-deadlock-assertions-failure-v2.md`, `2026-10-26-safari-zone-area-map-ui-failure.md`, `2026-10-25-investigate-primitives-migration-v4-failure.md`, `2026-10-27-investigate-multi-box-integration-failure.md`). Multiple tasks reached `MAX_REJECTION_THRESHOLD` not due to domain or architectural flaws, but rather repeated system session crashes or autonomous execution policy violations (`AWAITING_USER_FEEDBACK`).
+- **Follow-up**: Active ideas `idea-535` and `idea-540` are already tracked in `.foundry/ideas/` for `product_manager` prioritization to build orchestrator-level distinctions between infrastructure crashes and domain rejections.

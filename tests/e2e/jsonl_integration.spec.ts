@@ -104,7 +104,7 @@ test.describe('JSONL Integration E2E', () => {
     await targetCard.click({ force: true });
 
     // Wait for modal to open
-    await expect(page.getByRole('dialog')).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('[role="dialog"]').first()).toBeVisible({ timeout: 15000 });
     // Pikachu exact match isn't reliable due to text nodes having siblings or whitespace. Use a case-insensitive regex without exact
     await expect(page.getByText(/Pikachu/i).first()).toBeVisible({ timeout: 15000 });
   });
