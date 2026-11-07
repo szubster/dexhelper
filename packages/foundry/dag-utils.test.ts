@@ -3,7 +3,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as os from 'node:os';
 import { fileURLToPath } from 'node:url';
-import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, updateActiveSessionsTable, scanActiveNodes, trackCycleDetectionFailure } from './dag-utils';
+import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, updateActiveSessionsTable, scanActiveNodes, trackCycleDetectionFailure, detectCycles } from './dag-utils';
 
 describe('dag-utils', () => {
   it('todayISO format', () => {
@@ -262,5 +262,18 @@ describe('dag-utils', () => {
 
       expect(consoleErrorCalled).toBe(true);
       expect(errorThrown).toBe(false); // Should not throw out of the function
+    });
+  });
+
+  describe('detectCycles', () => {
+    it('finds cycles in graph', () => {
+      const nodes = [{ id: 'A', depends_on: ['B'] }, { id: 'B', depends_on: ['C'] }, { id: 'C', depends_on: ['A'] }];
+      const cycles = detectCycles(nodes as any);
+      expect(cycles).toEqual([['A', 'B', 'C', 'A']]);
+    });
+    it('returns empty for acyclic graph', () => {
+      const nodes = [{ id: 'A', depends_on: ['B'] }, { id: 'B', depends_on: ['C'] }, { id: 'C', depends_on: [] }];
+      const cycles = detectCycles(nodes as any);
+      expect(cycles).toEqual([]);
     });
   });
