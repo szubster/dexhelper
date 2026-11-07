@@ -83,7 +83,7 @@
   },
   "devDependencies": {
     "@11ty/gray-matter": "^3.0.0",
-    "@biomejs/biome": "~2.6.4",
+    "@biomejs/biome": "~2.6.5",
     "@cloudflare/workers-types": "^5.20261104.1",
     "@codecov/vite-plugin": "^2.0.1",
     "@dexhelper/vite-plugins": "workspace:*",
