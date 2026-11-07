@@ -2,13 +2,13 @@
 id: task-731-735-ast-analyzer-cli
 type: TASK
 title: AST Analyzer CLI Script
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-11-07'
 depends_on:
   - task-731-734-ast-analyzer-core-logic
-jules_session_id: null
+jules_session_id: '13185492433991243939'
 pr_number: null
 parent: story-707-731-ast-analyzer-detection-script
 tags:
