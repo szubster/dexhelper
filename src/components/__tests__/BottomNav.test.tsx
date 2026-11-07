@@ -45,10 +45,12 @@ describe('BottomNav', () => {
     await expect.element(page.getByText('DASH')).not.toBeInTheDocument();
     await expect.element(page.getByText('SFRI')).not.toBeInTheDocument();
     await expect.element(page.getByText('G3DB')).not.toBeInTheDocument();
+    await expect.element(page.getByText('RMTCH')).not.toBeInTheDocument();
   });
 
   it('should render DASH button when Gen 2 save data is present', async () => {
     const mockGen2SaveData: SaveData = {
+      schemaVersion: 1,
       generation: 2,
       owned: new Set(),
       seen: new Set(),
@@ -83,6 +85,7 @@ describe('BottomNav', () => {
 
   it('should render DASH, SFRI, and G3DB buttons when Gen 3 save data is present', async () => {
     const mockGen3SaveData: SaveData = {
+      schemaVersion: 1,
       generation: 3,
       owned: new Set(),
       seen: new Set(),
@@ -112,6 +115,7 @@ describe('BottomNav', () => {
     await expect.element(getByText('DASH')).toBeInTheDocument();
     await expect.element(getByText('SFRI')).toBeInTheDocument();
     await expect.element(getByText('G3DB')).toBeInTheDocument();
+    await expect.element(getByText('RMTCH')).toBeInTheDocument();
   });
 
   it('should be visible on small (sm) target screens', async () => {

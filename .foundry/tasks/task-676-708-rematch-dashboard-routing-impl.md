@@ -2,13 +2,13 @@
 id: task-676-708-rematch-dashboard-routing-impl
 type: TASK
 title: Rematch Dashboard Routing Integration
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-11-01'
+updated_at: '2026-11-02'
 depends_on:
   - task-676-707-rematch-dashboard-layout-impl
-jules_session_id: '4252957103588084193'
+jules_session_id: null
 pr_number: null
 parent: story-085-676-rematch-dashboard-layout-and-routing
 tags:
@@ -40,6 +40,6 @@ Set up application routing to provide access to the newly implemented `RematchDa
 - Write unit tests to verify that the route correctly renders the `RematchDashboard` component.
 
 ## Acceptance Criteria
-- [ ] Application routing is set up for the `RematchDashboard` view.
-- [ ] Navigation components link correctly to the new route using relative paths.
-- [ ] Unit tests for the routing are written and pass.
+- [x] Application routing is set up for the `RematchDashboard` view.
+- [x] Navigation components link correctly to the new route using relative paths.
+- [x] Unit tests for the routing are written and pass.
