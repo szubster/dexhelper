@@ -2,21 +2,21 @@
 id: task-574-713-item-gating-ui-components-retry
 type: TASK
 title: Item Gating UI Components (Retry)
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-20T16:13:59Z'
-updated_at: '2026-11-02'
+updated_at: '2026-11-03'
 depends_on:
   - research-574-712-investigate-item-gating-ui-failure
-jules_session_id: '9613599138716232969'
+jules_session_id: null
 pr_number: null
 parent: story-407-574-item-gating-ui-filter
 tags:
   - gen3
   - map
   - ui
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

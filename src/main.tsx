@@ -3,6 +3,7 @@ import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { FeatureFlagProvider } from './contexts/FeatureFlagContext';
+import { Gen3BattleFrontierProvider } from './contexts/Gen3BattleFrontierContext';
 import { Gen3MissedItemsProvider } from './contexts/Gen3MissedItemsContext';
 import { Gen3RTCProvider } from './contexts/Gen3RTCContext';
 import { HighlightProvider } from './contexts/pc-box/HighlightContext';
@@ -32,6 +33,32 @@ if (import.meta.env.MODE === 'development' || import.meta.env.MODE === 'test') {
   window.getPreviousSave = getPreviousSave;
 }
 
+// Self-heal stale PWA installs: if a lazy chunk (e.g. save parsers loaded after picking a save)
+// 404s because a newer deploy removed it, drop the old service worker/caches and reload once.
+const recoverFromStaleBuild = () => {
+  const key = 'dexhelper:preload-reload';
+  if (sessionStorage.getItem(key)) return;
+  sessionStorage.setItem(key, '1');
+  void (async () => {
+    try {
+      const regs = await navigator.serviceWorker?.getRegistrations();
+      await Promise.all((regs ?? []).map((r) => r.unregister()));
+      const names = await caches.keys();
+      await Promise.all(names.map((n) => caches.delete(n)));
+    } finally {
+      window.location.reload();
+    }
+  })();
+};
+window.addEventListener('vite:preloadError', (event) => {
+  event.preventDefault();
+  recoverFromStaleBuild();
+});
+window.addEventListener('unhandledrejection', (event) => {
+  const message = event.reason instanceof Error ? event.reason.message : String(event.reason);
+  if (message.includes('Failed to fetch dynamically imported module')) recoverFromStaleBuild();
+});
+
 // Initialize and sync PokeData
 pokeDB.sync().catch(() => console.error('System: sync failed'));
 
@@ -60,9 +87,11 @@ createRoot(rootElement).render(
         <Gen3RTCProvider>
           <TimeOverrideProvider>
             <Gen3MissedItemsProvider>
-              <HighlightProvider>
-                <RouterProvider router={router} />
-              </HighlightProvider>
+              <Gen3BattleFrontierProvider>
+                <HighlightProvider>
+                  <RouterProvider router={router} />
+                </HighlightProvider>
+              </Gen3BattleFrontierProvider>
             </Gen3MissedItemsProvider>
           </TimeOverrideProvider>
         </Gen3RTCProvider>

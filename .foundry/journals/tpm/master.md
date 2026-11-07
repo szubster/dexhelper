@@ -352,3 +352,120 @@ Date: 2026-10-17 02:16:36
 - **Tree Completeness Rule**: Archiving strictly operates at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`. A completed node cannot be archived if any descendant or parent in its hierarchy is in a non-terminal state (e.g., PENDING, READY, ACTIVE, VERIFYING, BLOCKED, DRAFT).
 - **Archival Evaluation**: Evaluated 171 active DAG tree hierarchies across 2,873 active nodes. Currently, 0 active trees have reached 100% terminal status across their entire root-to-leaf hierarchy.
 - **Conservative Retention Policy**: Prioritized retention over aggressive removal in accordance with core TPM duties. Retained all active nodes to preserve context for ongoing workflows.
+
+---
+
+# TPM Session Journal
+Date: 2026-10-18 02:15:00
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving strictly operates at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`. A completed node cannot be archived if any descendant or parent in its hierarchy is in a non-terminal state (`PENDING`, `READY`, `ACTIVE`, `VERIFYING`, `BLOCKED`, `DRAFT`).
+- **Graph Audit Results**: Evaluated all 2,974 active nodes across `.foundry/`. Identified 0 fully terminal DAG trees ready for archival in this cycle. Retained all active nodes in their respective directories.
+- **Status Integrity**: Verified that no node statuses were altered, adhering to the strict directive never to change status to `COMPLETED` or `FAILED`.
+
+---
+
+# TPM Session Journal
+Date: 2026-10-22 02:41:01
+
+## Archiving Activity
+- Identified 2 terminal DAG trees across `.foundry/` comprising 21 total active nodes where all nodes in the tree hierarchy reached terminal states (`COMPLETED` or `CANCELLED`).
+- Safely relocated 21 node markdown files into their corresponding `.foundry/archive/` subdirectories (`ideas/`, `prds/`, `epics/`, `stories/`, `research/`, `tasks/`).
+
+## Archivable Trees Archived
+1. `idea-488-autonomous-execution-enforcement` tree (8 nodes)
+2. `idea-063-permanent-failure-dashboard` tree (13 active nodes)
+
+---
+
+# TPM Session Journal
+Date: 2026-10-23 02:45:00
+
+## Archiving Activity
+- Identified 3 terminal DAG trees across `.foundry/` comprising 31 total active nodes where all nodes in the tree hierarchy reached terminal states (`COMPLETED` or `CANCELLED`).
+- Safely relocated 31 node markdown files into their corresponding `.foundry/archive/` subdirectories (`ideas/`, `prds/`, `epics/`, `stories/`, `research/`, `tasks/`).
+- Verified that no active nodes outside these trees depended on or referenced the archived node paths/IDs.
+
+## Archivable Trees Archived
+1. `idea-072-strict-macro-node-completion` tree (5 nodes: COMPLETED)
+2. `idea-086-fix-gen3save-mock` tree (10 nodes: COMPLETED)
+3. `epic-421-427-mgba-integration` tree (16 nodes: 9 COMPLETED, 7 CANCELLED)
+
+---
+
+# TPM Session Journal
+Date: 2026-10-24 03:00:00
+
+## Architectural Findings and Lessons Learned
+
+### DAG Integrity and Deadlock Analysis
+- Analyzed 3,181 active nodes across `.foundry/` subdirectories (`ideas`, `prds`, `epics`, `stories`, `tasks`, `research`, `adrs`).
+- Confirmed zero DAG deadlocks, circular dependencies, or invalid path-based `depends_on` or `parent` fields in frontmatter.
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Evaluated 161 connected DAG tree clusters across active nodes.
+- **Retention Decision**: Currently 0 connected trees have reached 100% terminal status (`COMPLETED` or `CANCELLED`) across all root-to-leaf hierarchies.
+- In accordance with the conservative retention policy defined in `.foundry/docs/knowledge_base/agents/core_policies.md`, all active nodes are retained to preserve context for ongoing workflows.
+
+---
+
+# TPM Session Journal
+Date: 2026-10-25 02:30:00
+
+## Architectural Findings and Lessons Learned
+
+### DAG Integrity and Deadlock Resolution
+- Executed full graph scan across all 3,220 active nodes in `.foundry/` to verify YAML frontmatter schema compliance and graph integrity.
+- Confirmed zero deadlocks and zero path-based or extension-based references in `depends_on` and `parent` fields across all active nodes.
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving strictly operates at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`. A completed node cannot be archived if any descendant, parent, or connected node in its hierarchy is in a non-terminal state (e.g., PENDING, READY, ACTIVE, VERIFYING, BLOCKED, DRAFT).
+- **Archival Evaluation**: Analyzed 161 connected DAG tree components comprising 3,220 active nodes. Currently, 0 active trees have reached 100% terminal status across their entire root-to-leaf hierarchy.
+- **Conservative Retention Policy**: Prioritized retention over aggressive removal in accordance with core TPM duties. Retained all active nodes to preserve execution context for ongoing workflows.
+
+---
+
+# TPM Session Journal
+Date: 2026-10-26 02:27:51
+
+## Architectural Findings and Lessons Learned
+
+### DAG Integrity and Deadlock Resolution
+- Evaluated all active nodes across `.foundry/` for schema compliance, frontmatter dependencies, and parent linkages.
+- Verified that all `depends_on` and `parent` fields strictly contain Node IDs rather than repo-relative file paths or extensions.
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving strictly operates at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+- **Archival Activity**: Identified and archived the 100% terminal DAG tree rooted at `idea-095-prevent-blocking-bash-commands` (16 total nodes, comprising 15 COMPLETED nodes and 1 CANCELLED node):
+  - `.foundry/ideas/idea-095-prevent-blocking-bash-commands.md` -> `.foundry/archive/ideas/idea-095-prevent-blocking-bash-commands.md`
+  - `.foundry/prds/prd-095-057-prevent-blocking-bash-commands.md` -> `.foundry/archive/prds/prd-095-057-prevent-blocking-bash-commands.md`
+  - `.foundry/research/research-057-417-investigate-bash-timeout-failure.md` -> `.foundry/archive/research/research-057-417-investigate-bash-timeout-failure.md`
+  - `.foundry/epics/epic-057-420-bash-timeout-wrapper-retry.md` -> `.foundry/archive/epics/epic-057-420-bash-timeout-wrapper-retry.md`
+  - `.foundry/epics/epic-057-421-bash-static-analysis-linter-retry.md` -> `.foundry/archive/epics/epic-057-421-bash-static-analysis-linter-retry.md`
+  - `.foundry/stories/story-420-494-bash-timeout-wrapper-retry-e2e.md` -> `.foundry/archive/stories/story-420-494-bash-timeout-wrapper-retry-e2e.md`
+  - `.foundry/stories/story-420-495-bash-timeout-wrapper-retry-impl.md` -> `.foundry/archive/stories/story-420-495-bash-timeout-wrapper-retry-impl.md`
+  - `.foundry/stories/story-421-526-bash-static-analysis-linter-impl.md` -> `.foundry/archive/stories/story-421-526-bash-static-analysis-linter-impl.md`
+  - `.foundry/stories/story-421-527-bash-static-analysis-linter-integration.md` -> `.foundry/archive/stories/story-421-527-bash-static-analysis-linter-integration.md`
+  - `.foundry/stories/story-421-528-bash-static-analysis-linter-e2e.md` -> `.foundry/archive/stories/story-421-528-bash-static-analysis-linter-e2e.md`
+  - `.foundry/tasks/task-526-562-bash-static-analysis-linter-impl.md` -> `.foundry/archive/tasks/task-526-562-bash-static-analysis-linter-impl.md`
+  - `.foundry/tasks/task-527-590-bash-linter-integration-impl.md` -> `.foundry/archive/tasks/task-527-590-bash-linter-integration-impl.md`
+  - `.foundry/tasks/task-527-591-bash-linter-integration-tests.md` -> `.foundry/archive/tasks/task-527-591-bash-linter-integration-tests.md`
+  - `.foundry/tasks/task-527-592-bash-linter-integration-qa.md` -> `.foundry/archive/tasks/task-527-592-bash-linter-integration-qa.md`
+  - `.foundry/tasks/task-528-683-bash-linter-e2e-tests.md` -> `.foundry/archive/tasks/task-528-683-bash-linter-e2e-tests.md`
+  - `.foundry/tasks/task-528-684-bash-linter-e2e-qa.md` -> `.foundry/archive/tasks/task-528-684-bash-linter-e2e-qa.md`
+
+---
+
+# TPM Session Journal
+Date: 2026-10-28 08:30:00
+
+## Architectural Findings and Lessons Learned
+
+### Terminal Tree Verification and Archival Scope
+- **Tree Completeness Rule**: Archiving strictly operates at the whole DAG tree level as defined in `.foundry/docs/knowledge_base/agents/core_policies.md`.
+- **Archiving Activity**: Identified 2 terminal DAG trees across `.foundry/` comprising 2 total nodes where all nodes in the tree hierarchy reached terminal state (`COMPLETED`).
+- **Summary of Archived Nodes**:
+  - `.foundry/stories/story-571-644-dashboard-metrics-ui-components.md` -> `.foundry/archive/stories/story-571-644-dashboard-metrics-ui-components.md`
+  - `.foundry/tasks/task-000-changelog-backfill.md` -> `.foundry/archive/tasks/task-000-changelog-backfill.md`
