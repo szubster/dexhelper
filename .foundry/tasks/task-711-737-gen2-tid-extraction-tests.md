@@ -2,13 +2,13 @@
 id: task-711-737-gen2-tid-extraction-tests
 type: TASK
 title: Gen 2 TID Extraction Unit Tests
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-31T00:00:00Z'
 updated_at: '2026-11-07'
 depends_on:
   - task-711-736-gen2-tid-extraction-logic
-jules_session_id: null
+jules_session_id: '6025439266700655223'
 pr_number: null
 parent: story-584-711-gen2-tid-extraction-core
 tags:
