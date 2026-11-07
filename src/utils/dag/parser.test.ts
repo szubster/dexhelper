@@ -20,6 +20,7 @@ depends_on:
       owner_persona: 'coder',
       depends_on: ['.foundry/tasks/task-043-073-read-foundry-files.md'],
       rejection_count: 0,
+      body: '# Content here',
     });
   });
 
@@ -40,6 +41,7 @@ depends_on: []
       owner_persona: 'coder',
       depends_on: [],
       rejection_count: 0,
+      body: '# Content here',
     });
   });
 
@@ -61,6 +63,7 @@ rejection_count: 3
       owner_persona: 'coder',
       depends_on: [],
       rejection_count: 3,
+      body: '# Content here',
     });
   });
 
@@ -81,6 +84,36 @@ depends_on: []
       owner_persona: 'coder',
       depends_on: [],
       rejection_count: 0,
+      body: '# Content here',
+    });
+  });
+
+  it('should parse complex markdown content in body', () => {
+    const rawContent = `---
+id: task-2
+type: TASK
+status: PENDING
+owner_persona: coder
+depends_on: []
+---
+# Title
+## Subtitle
+Some text
+- [ ] Checkbox 1
+- [x] Checkbox 2
+
+\`\`\`
+code block
+\`\`\``;
+    const result = parseFoundryNode(rawContent);
+    expect(result).toEqual({
+      id: 'task-2',
+      type: 'TASK',
+      status: 'PENDING',
+      owner_persona: 'coder',
+      depends_on: [],
+      rejection_count: 0,
+      body: '# Title\n## Subtitle\nSome text\n- [ ] Checkbox 1\n- [x] Checkbox 2\n\n```\ncode block\n```',
     });
   });
 

@@ -13,6 +13,7 @@ describe('buildDagGraph', () => {
           owner_persona: 'coder',
           depends_on: [],
           rejection_count: 0,
+          body: '',
         },
       },
       {
@@ -24,6 +25,7 @@ describe('buildDagGraph', () => {
           owner_persona: 'qa',
           depends_on: ['.foundry/tasks/task-1.md'],
           rejection_count: 0,
+          body: '',
         },
       },
     ];
@@ -39,6 +41,7 @@ describe('buildDagGraph', () => {
             status: 'COMPLETED',
             owner_persona: 'coder',
             rejection_count: 0,
+            body: '',
             depends_on: [],
           },
         },
@@ -49,6 +52,7 @@ describe('buildDagGraph', () => {
             status: 'PENDING',
             owner_persona: 'qa',
             rejection_count: 0,
+            body: '',
             depends_on: ['.foundry/tasks/task-1.md'],
           },
         },
@@ -73,6 +77,7 @@ describe('buildDagGraph', () => {
           owner_persona: 'coder',
           depends_on: [],
           rejection_count: 0,
+          body: '',
         },
       },
       {
@@ -84,6 +89,7 @@ describe('buildDagGraph', () => {
           owner_persona: 'qa',
           depends_on: ['./.foundry/tasks/task-1.md'],
           rejection_count: 0,
+          body: '',
         },
       },
     ];
@@ -109,6 +115,7 @@ describe('buildDagGraph', () => {
           owner_persona: 'coder',
           depends_on: ['.foundry/tasks/unknown-task.md'],
           rejection_count: 0,
+          body: '',
         },
       },
     ];
@@ -124,6 +131,7 @@ describe('buildDagGraph', () => {
             status: 'PENDING',
             owner_persona: 'coder',
             rejection_count: 0,
+            body: '',
             depends_on: ['.foundry/tasks/unknown-task.md'],
           },
         },
@@ -143,6 +151,7 @@ describe('buildDagGraph', () => {
           owner_persona: 'coder',
           depends_on: [],
           rejection_count: 0,
+          body: '',
         },
       },
       {
@@ -154,6 +163,7 @@ describe('buildDagGraph', () => {
           owner_persona: 'coder',
           depends_on: [],
           rejection_count: 0,
+          body: '',
         },
       },
       {
@@ -165,6 +175,7 @@ describe('buildDagGraph', () => {
           owner_persona: 'coder',
           depends_on: ['task-1.md', 'task-2.md'],
           rejection_count: 0,
+          body: '',
         },
       },
     ];

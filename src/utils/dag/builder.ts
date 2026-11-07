@@ -14,6 +14,7 @@ export interface GraphNode {
     rejection_count: number;
     depends_on: string[];
     experiment_variants?: string[] | undefined;
+    body: string;
   };
 }
 
@@ -56,6 +57,7 @@ export function buildDagGraph(parsedNodes: ParsedNode[]): DagGraph {
       status: node.data.status,
       owner_persona: node.data.owner_persona,
       rejection_count: node.data.rejection_count,
+      body: node.data.body,
       depends_on: node.data.depends_on,
     };
 
