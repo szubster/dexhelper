@@ -180,7 +180,7 @@ export function updateActiveSessionsTable(repoRoot: string): void {
 export interface DAGNode {
   id: string;
   status?: string;
-  references?: string[];
+  depends_on?: string[];
 }
 
 export interface DAGEdge {
@@ -198,4 +198,49 @@ export interface CycleDiagnosticLog {
     timestamp: string;
     cyclePath: string[];
     affectedNodes: string[];
+}
+
+export function detectCycles(nodes: DAGNode[]): string[][] {
+  const cycles: string[][] = [];
+  const graph = new Map<string, string[]>();
+  for (const node of nodes) {
+    if (!graph.has(node.id)) {
+      graph.set(node.id, []);
+    }
+    if (node.depends_on) {
+      graph.set(node.id, node.depends_on);
+      for (const ref of node.depends_on) {
+        if (!graph.has(ref)) {
+          graph.set(ref, []);
+        }
+      }
+    }
+  }
+  const visited = new Set<string>();
+  const recursionStack = new Set<string>();
+  const path: string[] = [];
+  function dfs(nodeId: string) {
+    visited.add(nodeId);
+    recursionStack.add(nodeId);
+    path.push(nodeId);
+    const neighbors = graph.get(nodeId) || [];
+    for (const neighbor of neighbors) {
+      if (!visited.has(neighbor)) {
+        dfs(neighbor);
+      } else if (recursionStack.has(neighbor)) {
+        const cycleStartIndex = path.indexOf(neighbor);
+        const cyclePath = path.slice(cycleStartIndex);
+        cyclePath.push(neighbor);
+        cycles.push(cyclePath);
+      }
+    }
+    recursionStack.delete(nodeId);
+    path.pop();
+  }
+  for (const nodeId of graph.keys()) {
+    if (!visited.has(nodeId)) {
+      dfs(nodeId);
+    }
+  }
+  return cycles;
 }

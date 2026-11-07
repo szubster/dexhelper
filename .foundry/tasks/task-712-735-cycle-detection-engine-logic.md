@@ -32,4 +32,4 @@ Implement the core engine logic to detect cycle dependencies in the DAG graph.
 2. Return the identified cycle path if a deadlock cycle is detected.
 
 ## Acceptance Criteria
-- [ ] Cycle detection logic is fully implemented.
+- [x] Cycle detection logic is fully implemented.
