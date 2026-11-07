@@ -2,10 +2,10 @@
 id: task-564-722-schema-linter-checkbox-e2e-qa
 type: TASK
 title: QA Schema Linter Checkbox E2E Tests
-status: PENDING
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-06'
 depends_on:
   - task-564-721-schema-linter-checkbox-e2e-impl
 jules_session_id: null
@@ -28,5 +28,5 @@ locks: []
 - Ensure the tests execute without failure and adhere to the architectural constraints.
 
 ## Acceptance Criteria
-- [ ] Run the tests and confirm they pass successfully.
-- [ ] Verify that testing practices adhere to standard guidelines (e.g., using Vitest or appropriate tooling).
+- [x] Run the tests and confirm they pass successfully.
+- [x] Verify that testing practices adhere to standard guidelines (e.g., using Vitest or appropriate tooling).
