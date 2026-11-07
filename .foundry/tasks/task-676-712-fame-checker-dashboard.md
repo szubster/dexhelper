@@ -2,13 +2,13 @@
 id: task-676-712-fame-checker-dashboard
 type: TASK
 title: Implement Fame Checker Dashboard Integration
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-19T16:13:34.000Z'
-updated_at: '2026-11-01'
+updated_at: '2026-11-03'
 depends_on:
   - task-676-711-qa-fame-checker-base-ui
-jules_session_id: '12779977028262046403'
+jules_session_id: null
 pr_number: null
 parent: story-333-676-fame-checker-dashboard-components
 tags:
@@ -34,6 +34,6 @@ With the base components implemented, we need to integrate them into the `FameCh
 - Integrate Tailwind v4 primitives and utility classes from `src/index.css`.
 
 ## Acceptance Criteria
-- [ ] `FameCheckerDashboard` integrates base components correctly.
-- [ ] NPC selection updates the displayed entries list.
-- [ ] Component is fully tested using Vitest browser tests.
+- [x] `FameCheckerDashboard` integrates base components correctly.
+- [x] NPC selection updates the displayed entries list.
+- [x] Component is fully tested using Vitest browser tests.
