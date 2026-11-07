@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-06T21:10:01.436Z*
+*Generated at: 2026-11-07T01:21:55.108Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3624 |
-| ACTIVE | 148 |
-| CANCELLED | 971 |
-| PENDING | 800 |
+| COMPLETED | 3629 |
+| ACTIVE | 155 |
+| CANCELLED | 973 |
+| PENDING | 798 |
 | BLOCKED | 14 |
-| READY | 14 |
 | FAILED | 4 |
+| READY | 2 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 166 |
-| Merged PRs | 8764 |
-| Closed PRs | 1070 |
+| Open PRs | 174 |
+| Merged PRs | 8758 |
+| Closed PRs | 1068 |
 
 ## Rejection Counts
 
@@ -176,6 +176,7 @@
 | research-676-721-investigate-fuzzer-deadlock-assertions-failure.md | 3 |
 | research-679-731-investigate-pokeblock-dashboard-failure.md | 3 |
 | story-525-639-extract-data-generation-scripts.md | 3 |
+| story-541-561-architect-visionary-persona-e2e.md | 3 |
 | story-553-563-gen3-map-data-extraction.md | 3 |
 | story-565-567-lazy-load-e2e-verification.md | 3 |
 | task-081-130-preserve-enum-optimizations-impl.md | 3 |
@@ -486,7 +487,6 @@
 | story-425-495-reactive-ui-components.md | 2 |
 | story-512-521-gen2-bug-catching-contest-core-data.md | 2 |
 | story-540-562-gen3-pokeblock-recommendation-engine.md | 2 |
-| story-541-561-architect-visionary-persona-e2e.md | 2 |
 | story-553-562-gen3-missed-items-parsing.md | 2 |
 | story-577-586-multi-box-integration-e2e.md | 2 |
 | task-081-692-preserve-enum-optimizations-retry-v3-qa.md | 2 |
@@ -905,6 +905,7 @@
 | story-526-639-extract-parsers.md | 1 |
 | story-527-638-setup-ui-package.md | 1 |
 | story-527-639-migrate-tactical-primitives.md | 1 |
+| story-530-538-dagtree-e2e-verification.md | 1 |
 | story-530-550-implement-schema-priority.md | 1 |
 | story-530-561-telemetry-metrics-e2e.md | 1 |
 | story-531-533-orchestrator-trigger-logic-updates.md | 1 |
@@ -1130,6 +1131,7 @@
 | task-640-678-qa-relocate-foundry-scripts-replacement-v3.md | 1 |
 | task-640-732-migrate-tacticalselect-impl.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
+| task-645-722-dashboard-metrics-integration-e2e-impl-retry-3.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
 | task-676-703-gen2-pokemon-selection-ui.md | 1 |

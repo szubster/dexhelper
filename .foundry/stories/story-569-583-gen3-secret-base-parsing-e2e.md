@@ -2,10 +2,10 @@
 id: story-569-583-gen3-secret-base-parsing-e2e
 type: STORY
 title: Gen 3 Secret Base Parsing E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-16'
-updated_at: '2026-09-16'
+updated_at: '2026-11-07'
 depends_on:
   - story-569-582-gen3-secret-base-party-extraction
 jules_session_id: null
@@ -19,11 +19,11 @@ tags:
   - e2e
   - integration
 research_references: []
-priority: 30
 rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
+priority: 30
 ---
 
 # STORY: Gen 3 Secret Base Parsing E2E Verification

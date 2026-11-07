@@ -2,12 +2,12 @@
 id: research-640-740-investigate-tacticalselect-migration-failure
 type: RESEARCH
 title: Investigate TacticalSelect Migration Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-11-02'
-updated_at: '2026-11-06'
+updated_at: '2026-11-07'
 depends_on: []
-jules_session_id: '80472866774664658'
+jules_session_id: null
 pr_number: null
 parent: story-527-640-migrate-complex-components
 tags:
@@ -15,7 +15,7 @@ tags:
   - components
   - ui
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
