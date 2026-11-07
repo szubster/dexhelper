@@ -146,3 +146,13 @@ Following the Late-Binding for Missing Context & Task Suspension protocol:
 
 # Journal Entry: 2026-09-08
 Git history scanning is an ineffective mechanism for detecting autonomous violations. We should prefer alternative approaches like API analysis or orchestrator state monitoring.
+
+
+---
+
+# Product Manager Journal
+*   **Session ID:** idea-540-multi-save-diffing-and-trade-simulation
+*   **Context:** Transforming IDEA `idea-540-multi-save-diffing-and-trade-simulation` into a PRD.
+*   **Learnings:**
+    *   Foundry schema dictates that a newly generated PRD must have the `epic_planner` as the owner_persona.
+    *   Appended the generated downstream PRD as an unchecked task (`- [ ] prd-540-727-multi-save-diffing-and-trade-simulation`) to satisfy DAG orchestrator requirements.

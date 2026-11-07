@@ -2,7 +2,15 @@ import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN1 } from '../../data/gen1/assis
 import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN2 } from '../../data/gen2/assistantData';
 import { STATIC_GIFT_DATA as STATIC_GIFT_DATA_GEN3 } from '../../data/gen3/assistantData';
 import type { SaveData } from '../../saveParser/index';
-import { METHOD_NAMES } from '../constants';
+import {
+  METHOD_NAMES,
+  PRIORITY_ROAMER,
+  PRIORITY_WEATHER_ANOMALY,
+  SPECIES_GROUDON,
+  SPECIES_KYOGRE,
+  WEATHER_ANOMALY_MARINE_ROUTES,
+  WEATHER_ANOMALY_TERRA_ROUTES,
+} from '../constants';
 import type { AssistantStrategy, EncounterDetail, Suggestion } from '../strategies/types';
 import type { AssistantApiData } from '../suggestionEngineTypes';
 
@@ -46,42 +54,30 @@ export function generateCatchSuggestions(
   // Weather Anomaly detection (Emerald Marine Cave / Terra Cave)
   if (saveData.generation === 3 && saveData.gen3WeatherAnomaly?.isActive) {
     const locId = saveData.gen3WeatherAnomaly.locationId;
-    const marineRoutes: Record<number, string> = {
-      0: 'Route 105',
-      1: 'Route 125',
-      2: 'Route 127',
-      3: 'Route 129',
-    };
-    const terraRoutes: Record<number, string> = {
-      4: 'Route 114',
-      5: 'Route 115',
-      6: 'Route 116',
-      7: 'Route 118',
-    };
 
     const staticEnc = saveData.gen3StaticEncounters;
     const isKyogreCaught = staticEnc && 'kyogre' in staticEnc && staticEnc.kyogre;
     const isGroudonCaught = staticEnc && 'groudon' in staticEnc && staticEnc.groudon;
 
-    if (locId in marineRoutes && missingIds.has(382) && !isKyogreCaught) {
-      const routeName = marineRoutes[locId];
+    if (locId in WEATHER_ANOMALY_MARINE_ROUTES && missingIds.has(SPECIES_KYOGRE) && !isKyogreCaught) {
+      const routeName = WEATHER_ANOMALY_MARINE_ROUTES[locId];
       suggestions.push({
-        id: 'catch-weather-anomaly-382',
+        id: `catch-weather-anomaly-${SPECIES_KYOGRE}`,
         category: 'Catch',
-        title: 'Weather Anomaly: Kyogre (#382)',
+        title: `Weather Anomaly: Kyogre (#${SPECIES_KYOGRE})`,
         description: `Heavy rainfall detected at ${routeName}! Enter Marine Cave to encounter Kyogre.`,
-        pokemonId: 382,
-        priority: 115,
+        pokemonId: SPECIES_KYOGRE,
+        priority: PRIORITY_WEATHER_ANOMALY,
       });
-    } else if (locId in terraRoutes && missingIds.has(383) && !isGroudonCaught) {
-      const routeName = terraRoutes[locId];
+    } else if (locId in WEATHER_ANOMALY_TERRA_ROUTES && missingIds.has(SPECIES_GROUDON) && !isGroudonCaught) {
+      const routeName = WEATHER_ANOMALY_TERRA_ROUTES[locId];
       suggestions.push({
-        id: 'catch-weather-anomaly-383',
+        id: `catch-weather-anomaly-${SPECIES_GROUDON}`,
         category: 'Catch',
-        title: 'Weather Anomaly: Groudon (#383)',
+        title: `Weather Anomaly: Groudon (#${SPECIES_GROUDON})`,
         description: `Severe drought detected at ${routeName}! Enter Terra Cave to encounter Groudon.`,
-        pokemonId: 383,
-        priority: 115,
+        pokemonId: SPECIES_GROUDON,
+        priority: PRIORITY_WEATHER_ANOMALY,
       });
     }
   }
@@ -107,7 +103,7 @@ export function generateCatchSuggestions(
           title: `Roaming Legendary: #${pid}`,
           description,
           pokemonId: pid,
-          priority: 115,
+          priority: PRIORITY_ROAMER,
         });
       }
     }
