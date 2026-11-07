@@ -1057,6 +1057,7 @@ export function parseGen2(view: DataView, forceCrystal = false): Gen2SaveData {
   const bugCatchingContestData = extractBugCatchingContestData(view, isCrystal);
 
   return {
+    schemaVersion: 1,
     generation: 2,
     owned,
     seen,

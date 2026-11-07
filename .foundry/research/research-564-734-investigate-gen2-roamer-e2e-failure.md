@@ -7,7 +7,7 @@ owner_persona: researcher
 created_at: '2026-10-30'
 updated_at: '2026-11-03'
 depends_on: []
-jules_session_id: '16526093297540268983'
+jules_session_id: '3772638897904809429'
 pr_number: null
 parent: story-140-564-gen2-roamer-translation-integration
 tags:
@@ -15,7 +15,7 @@ tags:
   - roamer
   - e2e
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []
