@@ -128,3 +128,17 @@
 ## Critical Learnings
 
 - **Knip Configuration Hint Maintenance**: Stale ignore entries in `knip.json` (such as files that exist and are properly imported or refactored) trigger Knip CLI configuration hint warnings. Cleaning up these stale entries and removing duplicate keys keeps the static analysis and linting pipeline warning-free.
+
+---
+
+## Critical Learnings
+- **Knip Ignore Maintenance**: Stale entries in `knip.json` (such as `packages/foundry/update-idea-matrix.ts`) trigger configuration hint warnings from Knip. Removing stale entries keeps the static analysis output clean and prevents CI/local lint noise.
+
+---
+
+# Critical Learnings - Infras 2026-11-01-15-08-07
+
+## Knip Ignore Maintenance & Configuration Hints
+- **Context & Root Cause**: When files or dependencies that were previously untracked or unused become actively integrated into the codebase (such as Cloudflare Pages Functions routes or official plugins like `@cloudflare/pages-plugin-cloudflare-access`), retaining them in Knip's `ignore` or `ignoreDependencies` arrays causes the Knip CLI to emit configuration hints (`Remove from ignore`, `Remove from ignoreDependencies`).
+- **DX Impact**: While `--no-exit-code` prevents developer pre-commit hooks from failing outright, these configuration hints create noisy static analysis logs in CI and locally, which obscures genuine unused export or dependency warnings.
+- **Policy & Best Practice**: Static analysis configurations should be routinely audited and pruned of stale ignore entries whenever files are actively imported or used across the workspace.
