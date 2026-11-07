@@ -42,4 +42,6 @@ This story involves visualizing the breeding compatibility result and calculated
     *   Use Tailwind v4 `@utility` classes (e.g., `tactical-panel`) for consistent styling, incorporating dashed borders (`border-dashed`), sharp corners (`rounded-none`), and monospaced typography (`font-mono`).
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break this story down into actionable TASKS.
+- [x] Tech Lead: Break this story down into actionable TASKS.
+- [ ] task-677-745-gen2-breeding-odds-impl
+- [ ] task-677-746-gen2-breeding-odds-qa
