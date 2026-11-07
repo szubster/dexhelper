@@ -7,7 +7,7 @@ owner_persona: qa
 created_at: "2026-10-28"
 updated_at: "2026-10-28"
 depends_on:
-  - .foundry/tasks/task-528-732-cloudflare-worker-limits-handling.md
+  - task-528-732-cloudflare-worker-limits-handling
 jules_session_id: null
 locks: []
 pr_number: null

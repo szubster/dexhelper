@@ -26,8 +26,8 @@ priority: 50
 - Create `.github/scripts/detect-scratchpads.js` to scan the repository root for uncommitted, ephemeral files.
 
 ## Acceptance Criteria
-- [ ] Create `.github/scripts/detect-scratchpads.js`.
-- [ ] Implement scanning logic for the repository root to detect `.sh`, `.cjs`, `.js`, and `.md` files.
-- [ ] Ignore files that are tracked by Git (i.e., only flag uncommitted/untracked scratchpad files).
-- [ ] Output the paths of any detected scratchpad files.
-- [ ] Ensure the script exits with a non-zero code if scratchpad files are found, and zero if none are found.
+- [x] Create `.github/scripts/detect-scratchpads.js`.
+- [x] Implement scanning logic for the repository root to detect `.sh`, `.cjs`, `.js`, and `.md` files.
+- [x] Ignore files that are tracked by Git (i.e., only flag uncommitted/untracked scratchpad files).
+- [x] Output the paths of any detected scratchpad files.
+- [x] Ensure the script exits with a non-zero code if scratchpad files are found, and zero if none are found.

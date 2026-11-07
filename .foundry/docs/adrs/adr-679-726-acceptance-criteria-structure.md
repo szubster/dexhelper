@@ -5,9 +5,9 @@ title: ADR 034 - Acceptance Criteria Structure
 status: PENDING
 owner_persona: architect
 created_at: '2026-10-25'
-updated_at: '2026-11-02'
+updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '6945528912308533148'
 pr_number: null
 parent: story-535-679-adr-acceptance-criteria
 tags:

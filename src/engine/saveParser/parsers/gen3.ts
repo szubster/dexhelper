@@ -1994,6 +1994,7 @@ export function parseGen3(view: DataView, _forcedVersion?: GameVersion): Gen3Sav
 
     // Dummy scaffold values for now until fully implemented
     const result: Gen3SaveData = {
+      schemaVersion: 1,
       generation: 3,
       owned,
       seen,
