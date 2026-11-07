@@ -2,21 +2,21 @@
 id: task-478-679-resolve-phase-locking-qa-retry-2
 type: TASK
 title: QA Verification for RESOLVE phase locking logic (Retry 2)
-status: FAILED
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-10'
-updated_at: '2026-11-01'
+updated_at: '2026-11-03'
 depends_on:
   - task-478-678-evaluate-locks-for-pending-nodes-retry-2
-jules_session_id: null
+jules_session_id: '10177657314639595628'
 pr_number: null
 parent: story-412-478-implement-resolve-phase-locking
 tags:
   - orchestrator
   - qa
 research_references: []
-rejection_count: 1
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 2
+rejection_reason: ''
 notes: ''
 locks: []
 ---
