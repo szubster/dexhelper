@@ -37,4 +37,36 @@ describe('TacticalCheckbox', () => {
     const el = checkbox.element() as HTMLInputElement;
     expect(el.disabled).toBe(true);
   });
+
+  it('renders with sublabel and codeTag telemetry badges', async () => {
+    await render(
+      <TacticalCheckbox
+        data-testid="test-checkbox"
+        label="Telemetry Channel"
+        sublabel="SENSOR_01_ACTIVE"
+        codeTag="CH.01"
+        variant="emerald"
+      />,
+    );
+    await expect.element(page.getByText('Telemetry Channel')).toBeInTheDocument();
+    await expect.element(page.getByText('SENSOR_01_ACTIVE')).toBeInTheDocument();
+    await expect.element(page.getByText('[CH.01]')).toBeInTheDocument();
+  });
+
+  it('renders with different variants without errors', async () => {
+    await render(
+      <div>
+        <TacticalCheckbox data-testid="cb-default" label="Default" variant="default" />
+        <TacticalCheckbox data-testid="cb-amber" label="Amber" variant="amber" />
+        <TacticalCheckbox data-testid="cb-red" label="Red" variant="red" />
+        <TacticalCheckbox data-testid="cb-blue" label="Blue" variant="blue" />
+        <TacticalCheckbox data-testid="cb-purple" label="Purple" variant="purple" />
+      </div>,
+    );
+    await expect.element(page.getByTestId('cb-default')).toBeInTheDocument();
+    await expect.element(page.getByTestId('cb-amber')).toBeInTheDocument();
+    await expect.element(page.getByTestId('cb-red')).toBeInTheDocument();
+    await expect.element(page.getByTestId('cb-blue')).toBeInTheDocument();
+    await expect.element(page.getByTestId('cb-purple')).toBeInTheDocument();
+  });
 });
