@@ -32,4 +32,4 @@ We need to ensure the Gen 2 extraction logic and models work correctly without r
 - Write comprehensive unit tests for the Gen 2 wild encounter extraction logic and held item mappings.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for extraction logic and data models for Gen 2 wild encounters.
+- [x] Write unit tests for extraction logic and data models for Gen 2 wild encounters.
