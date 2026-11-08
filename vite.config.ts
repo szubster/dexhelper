@@ -21,7 +21,9 @@ export default defineConfig(() => {
     plugins: [
       pokedataPlugin({ sourceDir }),
       foundryPlugin(),
-      tanstackRouter(),
+      tanstackRouter({
+        autoCodeSplitting: true,
+      }),
       react(),
       tailwindcss(),
       VitePWA({
@@ -33,31 +35,44 @@ export default defineConfig(() => {
           theme_color: '#ef4444',
           icons: [
             {
-              src: 'pwa-192x192.png',
+              src: 'icon-192.png',
               sizes: '192x192',
               type: 'image/png'
             },
             {
-              src: 'pwa-512x512.png',
+              src: 'icon-512.png',
               sizes: '512x512',
               type: 'image/png'
             }
           ]
         },
         workbox: {
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
+          // index.html is intentionally NOT precached and never served from cache,
+          // so a stale shell can't reference assets removed by a newer deploy.
+          globPatterns: ['**/*.{js,css,ico,png,svg,json}'],
+          navigateFallback: null,
+          cleanupOutdatedCaches: true,
+          skipWaiting: true,
+          clientsClaim: true,
           runtimeCaching: [
+            {
+              urlPattern: ({ request }: { request: Request }) => request.mode === 'navigate',
+              handler: 'NetworkOnly',
+            },
             {
               urlPattern: /^https:\/\/raw\.githubusercontent\.com\/PokeAPI\/sprites\/master\/sprites\/pokemon\/.*\.png$/,
               handler: 'CacheFirst',
+              // (CacheFirst falls through to network on cache miss; failures are not cached)
               options: {
-                cacheName: 'pokemon-sprites',
+                // v2: bumped to drop previously cached opaque (possibly failed) responses
+                cacheName: 'pokemon-sprites-v2',
                 expiration: {
                   maxEntries: 500,
                   maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
                 },
                 cacheableResponse: {
-                  statuses: [0, 200],
+                  // Only cache successful CORS responses; opaque (status 0) can hide errors
+                  statuses: [200],
                 },
               },
             },
@@ -99,21 +114,31 @@ export default defineConfig(() => {
       reportCompressedSize: true,
       rollupOptions: {
         output: {
-          manualChunks(id) {
-            if (id.includes('node_modules/')) {
-              if (id.includes('react/') || id.includes('react-dom/')) return 'react';
-              if (id.includes('@tanstack/react-router/')) return 'router';
-              if (id.includes('@tanstack/react-query/')) return 'query';
-              if (id.includes('msgpackr/')) return 'msgpackr';
-              if (id.includes('idb/')) return 'idb';
-              if (id.includes('cn/')) return 'cn';
-            }
+          manualChunks(id, { getModuleInfo }) {
             if (id.includes('packages/ui/')) {
-              return 'ui';
+              const info = getModuleInfo(id);
+              // Heuristic: Consolidate micro-primitives (< 3.5 KB) into a single cacheable chunk
+              // to eliminate micro-chunk request waterfalls and maximize Gzip dictionary efficiency.
+              // Heavier/complex components (>= 3.5 KB) remain dynamic and route-co-located.
+              if ((info?.code?.length ?? 0) < 3500) {
+                return 'ui-primitives';
+              }
+              return undefined;
             }
-
+            if (id.includes('node_modules')) {
+              if (id.includes('/react/') || id.includes('/react-dom/') || id.includes('/scheduler/')) {
+                return 'react';
+              }
+              if (id.includes('/@tanstack/')) {
+                if (id.includes('router')) return 'router';
+                if (id.includes('query')) return 'query';
+              }
+              if (id.includes('/msgpackr/')) {
+                return 'msgpackr';
+              }
+            }
             return undefined;
-          }
+          },
         },
       },
     },

@@ -2,10 +2,10 @@
 id: task-676-719-in-game-trade-dashboard-qa
 type: TASK
 title: In-Game Trade Dashboard QA
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-22'
-updated_at: '2026-10-31'
+updated_at: '2026-11-07'
 depends_on:
   - task-676-718-in-game-trade-dashboard-route
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-676-718-in-game-trade-dashboard-route
 notes: ''
 locks: []
 ---
