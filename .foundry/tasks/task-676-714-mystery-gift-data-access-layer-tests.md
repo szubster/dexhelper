@@ -34,5 +34,5 @@ Write unit tests for the Mystery Gift data access layer.
 - Verify `loadDataFromAppStore()` handles missing data and non-Gen 3 data correctly.
 
 ## Acceptance Criteria
-- [ ] Write unit tests for the store
-- [ ] Ensure all store logic is covered by tests
+- [x] Write unit tests for the store
+- [x] Ensure all store logic is covered by tests
