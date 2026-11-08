@@ -4,6 +4,10 @@ import { clearStorage } from './test-utils';
 test.describe('pokedata-core.msgpack Fetch E2E', () => {
   test('should fetch pokedata-core.msgpack during initialization', async ({ page }) => {
     await clearStorage(page);
+    // Clear PokeDB locally as well so it is forced to fetch in this test
+    await page.evaluate(async () => {
+      window.indexedDB.deleteDatabase('PokeDB');
+    });
 
     // Intercept network requests
     let isFetched = false;
@@ -14,6 +18,7 @@ test.describe('pokedata-core.msgpack Fetch E2E', () => {
     });
 
     await page.goto('.');
+    await page.waitForTimeout(2000);
 
     // Wait for the app to initialize
     await expect(page.locator('header')).toBeVisible({ timeout: 15000 });
