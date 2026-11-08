@@ -2,12 +2,12 @@
 id: task-001-740-lefthook-integration-coder
 type: TASK
 title: Lefthook Artifact Validation - Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-11-02'
 updated_at: '2026-11-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11537748034341380804'
 pr_number: null
 parent: story-703-698-001-lefthook-integration-impl
 tags:
