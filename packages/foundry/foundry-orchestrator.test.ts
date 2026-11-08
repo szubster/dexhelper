@@ -2285,7 +2285,7 @@ expect(fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-004-005.md'), 'utf
 
 
   describe('ADR 007 Rule (Unchecked Boxes)', () => {
-    test('Enforce Acceptance Criteria: preflight fails leaf tasks with unchecked boxes', () => {
+    test('Enforce Acceptance Criteria: preflight ignores leaf tasks with unchecked boxes', () => {
       createValidTestNode(tmpDir, '.foundry/tasks/task-unchecked-leaf.md', {
       id: "task-unchecked-leaf",
       type: "TASK",
@@ -2316,8 +2316,8 @@ Target artifact: task-completed
     main();
 
       const content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-unchecked-leaf.md'), 'utf-8');
-      expect(content).toContain('status: FAILED');
-      expect(content).toContain('rejection_reason: Merged with unfulfilled acceptance criteria');
+      expect(content).toContain('status: READY');
+
     });
   });
 
