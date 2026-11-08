@@ -2,12 +2,12 @@
 id: task-650-740-impl-gen3-roamer-iv-glitch-detection
 type: TASK
 title: Implement Gen 3 Roamer IV Glitch Detection Logic
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-11-03'
-updated_at: '2026-11-03'
+updated_at: '2026-11-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10728788298249057458'
 pr_number: null
 parent: story-398-650-gen3-roamer-iv-glitch-implementation
 tags:
