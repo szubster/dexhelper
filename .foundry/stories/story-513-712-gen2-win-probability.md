@@ -2,13 +2,13 @@
 id: story-513-712-gen2-win-probability
 type: STORY
 title: Gen 2 Bug-Catching Win Probability and Max Score
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-11-07'
+updated_at: '2026-11-08'
 depends_on:
   - story-513-711-gen2-scoring-algorithm
-jules_session_id: null
+jules_session_id: '13229586183875818322'
 pr_number: null
 parent: epic-343-513-score-calculation-logic
 tags:
