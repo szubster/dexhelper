@@ -718,3 +718,75 @@ The epic lacked a final STORY dedicated exclusively to Integration and E2E Verif
 1. **E2E Safeguard Policy:** Ensured that a final `STORY` node dedicated to Integration and E2E Verification (tagged with `e2e` and `integration`) was generated for the Epic `epic-071-126-tailwind-designer-persona-v2`. This is required to satisfy the Orchestrator's E2E safeguard policy and allow the Epic to eventually transition to `COMPLETED`.
 2. **DAG ID Strictness:** Appended the generated child nodes to the parent's markdown body using exact Node IDs (without `.md` extensions or paths), in the format `- [ ] <node_id>`. This ensures correct orchestrator validation and parsing.
 3. **Empty PR Policy (Demotion):** Submitted an Empty PR with the Epic's acceptance criteria for breaking down into stories *not* explicitly requested, so its own overarching criteria were left unchecked. This correctly triggers the orchestrator to demote the Epic back to `PENDING` to wait for its new children.
+
+---
+
+# Story Owner Journal
+
+## Breakdown of Orchestrator State Machine Fuzzing - CI Integration & Validation (epic-341-416)
+
+Decomposed the epic into three separate stories:
+1. `story-416-676-fuzzer-deadlock-assertions`: Implements assertions in the orchestrator fuzzer to detect deadlocks.
+2. `story-416-677-fuzzer-ci-integration`: Integrates the orchestrator fuzzer into the project's CI/CD pipeline, depending on the previous story.
+3. `story-416-678-fuzzer-ci-e2e`: Dedicated Integration and E2E verification story for the CI integration and deadlock assertions, satisfying the Orchestrator Safeguard E2E Verification Requirement.
+
+Followed DAG ID Strictness for dependencies (`depends_on`), Parent-Linked ID Schema (`<type>-<parent_NNN>-<NNN>-<slug>`), appended references to newly generated child nodes as unchecked tasks (`- [ ]`) directly into the markdown body of the parent node, and checked off the specific acceptance criteria (`- [x] Break down into Stories.`) without modifying the parent's YAML frontmatter.
+
+---
+
+# Story Owner Journal
+
+## Decomposition of epic-111-401-gen3-trainer-card-dashboard-ui
+
+Decomposed the epic into modular story nodes:
+1. `story-401-676-gen3-trainer-card-core-state`: Core React state management and data fetching.
+2. `story-401-677-gen3-trainer-card-tactical-components`: Foundational tactical UI and stars display.
+3. `story-401-678-gen3-trainer-card-progress-components`: Progress UI components (checkmarks, bars).
+4. `story-401-679-gen3-trainer-card-integration-e2e`: Required integration and E2E verification step, satisfying the E2E Orchestrator Safeguard.
+
+The parent epic checkboxes encompassing the whole feature were left unchecked, while the new story references were appended as unchecked tasks to ensure the orchestrator correctly demotes the epic to PENDING. Checked off the specific drafting acceptance criteria for creating the E2E story.
+
+---
+
+# Story Owner Journal
+
+## Subtree Completeness Validator Breakdown
+
+Assigned to `epic-585-587-implement-macro-node-subtree-completeness-validator`.
+
+*   **Action:** Decomposed the Epic into three specific STORY nodes:
+    1.  `story-587-707-implement-validator-core-logic`: Parses checkboxes and `parent` fields to build the descendant tree.
+    2.  `story-587-708-integrate-validator-with-orchestrator`: Integrates the logic to prevent premature `VERIFYING` transitions.
+    3.  `story-587-709-e2e-verification-macro-node-completeness`: Dedicated E2E integration test story, satisfying the Orchestrator Safeguard.
+*   **Notes:** Replaced placeholder story IDs in the epic's Acceptance Criteria with actual sequence numbers (707, 708, 709) and created the corresponding markdown files. Left the Acceptance Criteria unchecked as required by the Generative Task Scope & Macro Acceptance Criteria Boundaries policy to allow correct down-transition to `PENDING`.
+
+---
+
+# Data Generation Script Extraction Failure Journal
+
+Date: 2026-10-19
+
+## Issue
+The extraction of data generation scripts (`story-525-639-extract-data-generation-scripts`) has failed repeatedly and reached the max rejection count (3). This caused the overarching Epic (`epic-519-525-extract-build-tooling`) to stall and trigger the Impossible Loop, as its dependent E2E task (`story-525-641-build-tooling-e2e-verification`) was also permanently cancelled.
+
+## Lesson Learned
+When a story fails repeatedly and hits the max rejection limit, we must spawn a dedicated `RESEARCH` node to investigate the root cause of the previous failure. New implementation nodes (and their corresponding E2E nodes) must then depend explicitly on the completion of the research node to ensure the architectural context is fully understood before retrying. This conforms to the "Impossible Loop" handling process.
+
+---
+
+# Strict Formatting for Appending Acceptance Criteria
+
+When appending references to generated child nodes in a parent node's markdown body, you must strictly use the exact format `- [ ] <node_id>`. Do not check off functional acceptance criteria of the parent macro node during decomposition (e.g. replacing `- [ ]` with `- [x]`).
+Functional acceptance criteria must remain unchecked until the generated descendant nodes implement them. Prematurely checking them off causes the orchestrator to transition the parent node to the `VERIFYING` state before the work is complete, which violates the DAG graph constraints.
+
+---
+
+# 2026-10-25 - Archival Cleanup Automation Story Breakdown
+
+## Observations
+- Epic `epic-346-518-archival-cleanup-automation` required breakdown into STORIES.
+
+## Learnings & Actions
+- Ensured a final STORY node dedicated to Integration and E2E Verification (`story-518-730-archival-cleanup-automation-e2e`) was generated to satisfy the Orchestrator's E2E safeguard policy.
+- Appended the generated child nodes to the parent's markdown body using exact Node IDs.
+- Checked off the explicit acceptance criteria regarding the generation of the E2E verification story since it pertained to the story_owner persona's responsibilities.
