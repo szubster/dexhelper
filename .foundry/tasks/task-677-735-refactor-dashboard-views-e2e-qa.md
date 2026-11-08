@@ -26,6 +26,6 @@ locks: []
 Verify that the Kanban and Permanent Failures views have been correctly refactored to consume data from `DagContext` and ensure there are no regressions in their rendering.
 
 ## Acceptance Criteria
-- [ ] Verify `DagKanbanBoard` correctly filters and groups nodes from `DagContext`.
-- [ ] Verify that toggling `showPermanentFailures` works correctly in the Kanban view.
-- [ ] Ensure unit tests have been updated and pass successfully.
+- [x] Verify `DagKanbanBoard` correctly filters and groups nodes from `DagContext`.
+- [x] Verify that toggling `showPermanentFailures` works correctly in the Kanban view.
+- [x] Ensure unit tests have been updated and pass successfully.

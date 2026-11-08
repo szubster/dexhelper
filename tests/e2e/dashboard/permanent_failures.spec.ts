@@ -7,7 +7,7 @@ test.describe('Permanent Failures Dashboard Filter', () => {
     // We are getting 675 nodes because Vite's preview server in CI is fetching via native JS fetch,
     // and Playwright's `page.route` might be missing it due to Service Workers or Vite's dev/preview server network proxy setup.
     // Let's use evaluateOnNewDocument to mock the global window.fetch function
-    await page.addInitScript((threshold) => {
+    await page.addInitScript(() => {
       const mockData = [
         {
           filePath: '.foundry/tasks/task-perm-fail.md',
@@ -16,7 +16,7 @@ test.describe('Permanent Failures Dashboard Filter', () => {
             type: 'TASK',
             title: 'Permanent Failure Task',
             status: 'FAILED',
-            rejection_count: threshold,
+            rejection_count: 3,
             depends_on: [],
             owner_persona: 'coder',
           },
@@ -28,7 +28,7 @@ test.describe('Permanent Failures Dashboard Filter', () => {
             type: 'TASK',
             title: 'Permanent Cancelled Task',
             status: 'CANCELLED',
-            rejection_count: threshold,
+            rejection_count: 3,
             depends_on: [],
             owner_persona: 'coder',
           },
@@ -178,4 +178,69 @@ test.describe('Permanent Failures Dashboard Filter', () => {
       .first();
     await expect(permCancelNode).toHaveClass(/border-red-600/);
   });
+});
+
+test('toggling showPermanentFailures button on kanban board filters correctly', async ({ page }) => {
+  await page.addInitScript(() => {
+    const mockData = [
+      {
+        filePath: '.foundry/tasks/task-success.md',
+        data: {
+          id: 'task-success',
+          type: 'TASK',
+          title: 'Successful Task',
+          status: 'COMPLETED',
+          rejection_count: 0,
+          depends_on: [],
+          owner_persona: 'coder',
+        },
+      },
+    ];
+
+    const originalFetch = window.fetch;
+    window.fetch = async (input, init) => {
+      let url = '';
+      if (typeof input === 'string') {
+        url = input;
+      } else if (input instanceof URL) {
+        url = input.toString();
+      } else if (input && typeof input === 'object' && 'url' in input) {
+        url = input.url;
+      }
+
+      if (url.includes('foundry.json')) {
+        return new Response(JSON.stringify(mockData), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+
+      return originalFetch(input, init);
+    };
+  }, 3);
+
+  await page.goto('./dag');
+
+  // Default mode is Kanban
+  // Wait for the DAG loading screen to disappear
+  const loadingEl = page.getByText('[ SYSTEM.LOADING_DAG ]');
+  await expect(loadingEl).toHaveCount(0, { timeout: 15000 });
+
+  // Look for our specific node using a generic locator
+  const successText = page.getByText('task-success');
+  await expect(successText.first()).toBeVisible({ timeout: 15000 });
+
+  // Ensure we are on Kanban board by checking KANBAN is selected
+  const boardBtn = page.getByTestId('view-mode-board');
+  await expect(boardBtn).toHaveAttribute('aria-checked', 'true');
+
+  // Toggle the filter
+  const toggleBtn = page.getByTestId('btn-toggle-failures');
+  await toggleBtn.click();
+
+  await expect(successText.first()).toBeHidden();
+
+  // Toggle back
+  await toggleBtn.click();
+  await expect(successText.first()).toBeVisible();
 });
