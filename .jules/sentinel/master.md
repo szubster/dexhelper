@@ -207,3 +207,59 @@ Learned that running coverage reports can clutter the working directory, and ens
 
 **Result:**
 - Increased statement and branch test coverage for `src/engine/saveParser/gen3/pokemon/parser.ts` without modifying application source code.
+
+---
+
+# Sentinel Session Log
+
+## Target
+`src/engine/saveParser/utils/movePlanner.ts`
+
+## Action
+Added unit test coverage in `src/engine/saveParser/utils/movePlanner.test.ts` to cover edge cases in PC move planning logic:
+- `extractBoxSlot` fallbacks when storage locations are non-Box locations or missing slots.
+- Large 4-node movement cycles requiring temp storage staging.
+- Chained relocations feeding into vacated slots.
+
+## Learnings
+- **Edge cases in helper functions**: Internal utility functions like `extractBoxSlot` can easily have un-tested fallback paths if tests only supply standard inputs. Explicitly testing non-standard locations (like `'Party'`) ensures robust parsing.
+
+---
+
+# Sentinel Session: Common Save Parser Gen 3 String Decoding
+
+**Target File:** `src/engine/saveParser/parsers/common.ts`
+
+**Observations & Actions:**
+- Identified that `decodeGen3String` in `src/engine/saveParser/parsers/common.ts` had un-tested branches covering Gen 3 character mapping, digit/letter character ranges, `0xff` termination, unmapped byte codes falling back to `?`, graceful loop termination on `RangeError`, and non-`RangeError` exception re-throwing.
+- Added comprehensive unit test coverage in `src/engine/saveParser/parsers/common.test.ts`.
+- Brought `src/engine/saveParser/parsers/common.ts` to 100% statement, branch, function, and line coverage.
+
+**Learnings & Gotchas:**
+- `GEN3_CHAR_MAP` contains mappings for byte codes such as `0x01` (`À`), so ensure unmapped test bytes (like `0x18`) are verified against `GEN3_CHAR_MAP` before testing fallback branches.
+- Biome import sorting requires imported names to be alphabetically ordered (`decodeGen3String` before `decodeGen12String`).
+
+---
+
+# Sentinel Session: Assistant Suggestion Engine Test Coverage
+
+**Target File:** `src/engine/assistant/suggestionEngine.ts`
+
+**Coverage Gap:**
+- `suggestionEngine.ts` is the central recommendation orchestration loop for DexHelper.
+- While statement coverage was high (>96%), branch coverage had unvisited paths:
+  1. `isLivingDex === true`: building `ownedSet` from `saveData.party` and `saveData.pc` rather than `saveData.owned`.
+  2. `isLivingDex === false` when `saveData.owned` is undefined (falling back to `new Set<number>()`).
+  3. `saveData.gameVersion === 'unknown'`: falling back to `genConfig.defaultVersion` for `displayVersion`.
+  4. Secondary sorting tie-break for suggestions with identical `priority`:
+     - Comparing single `pokemonId`.
+     - Comparing `pokemonIds` array using `Math.min(...pokemonIds)` when `pokemonId` is undefined.
+     - Fallback constant `9999` when neither `pokemonId` nor `pokemonIds` is set on a suggestion.
+
+**Actions & Learnings:**
+- Extended `src/engine/assistant/__tests__/suggestionEngine.test.ts` to assert that:
+  - `isLivingDex: true` creates an `ownedSet` aggregating party and PC IDs, correctly excluding `saveData.owned`.
+  - Missing `saveData.owned` defaults safely to an empty set without throwing.
+  - Game version `'unknown'` resolves to the generation's default version (`'red'`).
+  - Identical-priority suggestions order deterministically using `pokemonId`, `pokemonIds`, and `9999` fallbacks.
+- Ran tests with coverage to confirm the branches in `suggestionEngine.ts` are now exercised.
