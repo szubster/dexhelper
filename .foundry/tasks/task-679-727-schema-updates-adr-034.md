@@ -2,10 +2,10 @@
 id: task-679-727-schema-updates-adr-034
 type: TASK
 title: Update schema.md for ADR 034
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-11-08'
 depends_on:
   - adr-679-726-acceptance-criteria-structure
 jules_session_id: null

@@ -1,3 +1,4 @@
+import { TacticalButton } from '@dexhelper/ui';
 import { useMemo } from 'react';
 import { useDagContext } from '../dashboard/DagContext';
 import { useDagTreeContext } from './DagTreeContext';
@@ -63,22 +64,12 @@ export function DagTree() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex gap-2">
-        <button
-          type="button"
-          onClick={handleExpandAll}
-          title="Expand All Nodes"
-          className="focus-visible:tactical-focus rounded-none border border-dashed border-zinc-700 bg-zinc-900 px-3 py-1 font-mono text-sm text-zinc-300 transition-colors hover:bg-zinc-800"
-        >
+        <TacticalButton size="sm" variant="secondary" onClick={handleExpandAll} title="Expand All Nodes">
           Expand All
-        </button>
-        <button
-          type="button"
-          onClick={collapseAll}
-          title="Collapse All Nodes"
-          className="focus-visible:tactical-focus rounded-none border border-dashed border-zinc-700 bg-zinc-900 px-3 py-1 font-mono text-sm text-zinc-300 transition-colors hover:bg-zinc-800"
-        >
+        </TacticalButton>
+        <TacticalButton size="sm" variant="secondary" onClick={collapseAll} title="Collapse All Nodes">
           Collapse All
-        </button>
+        </TacticalButton>
       </div>
       <ul className="m-0 flex flex-col gap-1 p-0">{rootNodes.map((node) => renderNode(node.id))}</ul>
     </div>

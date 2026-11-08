@@ -186,7 +186,7 @@ test.describe('Pokerus Spread Planner', () => {
     await expect(venuRow.locator('.tactical-badge', { hasText: '[PKRS CURED]' })).toBeVisible();
 
     // Move Bulbasaur down
-    await bulbaRow.locator('button[aria-label^="Move "][aria-label$=" down"]').first().click();
+    await bulbaRow.locator('button[aria-label*="down"]').first().click();
 
     // Now Slot 1: Ivysaur, Slot 2: Bulbasaur
     const newIvyRow = planner.locator('> div > div').filter({ hasText: '#1' }).first();
@@ -199,7 +199,7 @@ test.describe('Pokerus Spread Planner', () => {
     await expect(newBulbaRow).toContainText('BULBASAUR');
 
     // Move Bulbasaur down again
-    await newBulbaRow.locator('button[aria-label^="Move "][aria-label$=" down"]').first().click();
+    await newBulbaRow.locator('button[aria-label*="down"]').first().click();
 
     // Now Slot 1: Ivysaur, Slot 2: Venusaur, Slot 3: Bulbasaur
     const finalIvyRow = planner.locator('> div > div').filter({ hasText: '#1' }).first();
