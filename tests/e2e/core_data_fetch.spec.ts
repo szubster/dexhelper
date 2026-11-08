@@ -9,7 +9,6 @@ test.describe('pokedata-core.msgpack Fetch E2E', () => {
       window.indexedDB.deleteDatabase('PokeDB');
     });
 
-
     // Intercept network requests
     let isFetched = false;
     page.on('request', (request) => {
