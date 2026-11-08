@@ -27,5 +27,5 @@ Write Playwright E2E tests to validate that background fetching functions execut
 - Handle any necessary network request mocking or assertions on outgoing requests.
 
 ## Acceptance Criteria
-- [ ] Background fetching correctly retrieves data in tests.
-- [ ] Data reflects accurately in the application state and UI.
+- [x] Background fetching correctly retrieves data in tests.
+- [x] Data reflects accurately in the application state and UI.
