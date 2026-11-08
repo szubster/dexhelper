@@ -2,13 +2,13 @@
 id: task-561-706-orchestrator-engine-tests-retry
 type: TASK
 title: 'Tests: Orchestrator State and Graph Engine (Retry)'
-status: ACTIVE
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-11-04'
+updated_at: '2026-11-05'
 depends_on:
   - task-561-705-orchestrator-state-machine-impl-retry
-jules_session_id: '2835079083798179256'
+jules_session_id: null
 pr_number: null
 parent: story-540-561-implement-orchestrator-state-graph-engine
 tags:
@@ -16,8 +16,8 @@ tags:
   - architecture
   - state-machine
   - dag
-rejection_count: 1
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

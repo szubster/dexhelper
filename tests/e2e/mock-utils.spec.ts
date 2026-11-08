@@ -12,7 +12,8 @@ import { mockFilePicker, mockFileSystemAccess, mockOfflineState } from './mock-u
 test.describe('Mock Utils', () => {
   test('mockFileSystemAccess should mock showOpenFilePicker', async ({ page }) => {
     await mockFileSystemAccess(page, 'hello world', 'test.txt');
-    await page.goto('/', { waitUntil: 'networkidle' });
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
 
     const fileData = await page.evaluate(async () => {
       const handles = await window.showOpenFilePicker();
@@ -27,9 +28,10 @@ test.describe('Mock Utils', () => {
 
   test('mockFilePicker should mock file input correctly', async ({ page }) => {
     // Navigate to a valid application route that has a file input
-    await page.goto('/', { waitUntil: 'networkidle' });
+    await page.goto('/');
 
     // We need to attach an input element to the DOM since one isn't immediately visible
+    await page.waitForLoadState('networkidle');
     await page.evaluate(() => {
       const input = document.createElement('input');
       input.type = 'file';
@@ -42,7 +44,7 @@ test.describe('Mock Utils', () => {
     await mockFilePicker(page, fileInput, 'hello world', 'test.txt');
 
     // Wait for the input to register the files
-    await page.waitForTimeout(50);
+    await page.waitForTimeout(500);
 
     // We can evaluate the input to see its files property directly
     const files = await fileInput.evaluate((node: HTMLInputElement) => node.files?.length);
@@ -50,10 +52,18 @@ test.describe('Mock Utils', () => {
   });
 
   test('mockOfflineState should set offline status and trigger events', async ({ page }) => {
-    await page.goto('/', { waitUntil: 'networkidle' });
-    await page.waitForLoadState('domcontentloaded');
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    // Add a tiny delay to ensure page JS has completed all synchronous mounting
+    // before we attach variables to the window object that could be wiped out by react hydration or navigations.
+    await page.waitForTimeout(100);
+
+    // Ensure navigation finishes
+    await page.waitForLoadState('networkidle');
 
     // Set up event listeners
+    await page.waitForLoadState('networkidle');
     await page.evaluate(() => {
       window.offlineFired = false;
       window.onlineFired = false;
@@ -65,20 +75,15 @@ test.describe('Mock Utils', () => {
       });
     });
 
+    await page.waitForLoadState('networkidle');
     await mockOfflineState(page, true);
 
-    const isOffline = await page.evaluate(() => !navigator.onLine);
-    const offlineFired = await page.evaluate(() => window.offlineFired);
-
-    expect(isOffline).toBe(true);
-    expect(offlineFired).toBe(true);
+    await expect.poll(() => page.evaluate(() => !navigator.onLine)).toBe(true);
+    await expect.poll(() => page.evaluate(() => window.offlineFired)).toBe(true);
 
     await mockOfflineState(page, false);
 
-    const isOnline = await page.evaluate(() => navigator.onLine);
-    const onlineFired = await page.evaluate(() => window.onlineFired);
-
-    expect(isOnline).toBe(true);
-    expect(onlineFired).toBe(true);
+    await expect.poll(() => page.evaluate(() => navigator.onLine)).toBe(true);
+    await expect.poll(() => page.evaluate(() => window.onlineFired)).toBe(true);
   });
 });
