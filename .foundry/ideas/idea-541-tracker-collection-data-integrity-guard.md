@@ -2,12 +2,12 @@
 id: idea-541-tracker-collection-data-integrity-guard
 type: IDEA
 title: Tracker Collection Data Integrity Linter & Developer Guideline
-status: READY
+status: ACTIVE
 owner_persona: product_manager
 created_at: '2026-10-26T04:30:00Z'
-updated_at: '2026-11-01'
+updated_at: '2026-11-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '5785078191602189683'
 pr_number: null
 parent: null
 tags:
@@ -28,5 +28,5 @@ QA session logs (e.g. `2026-10-20-20-50-15.md` during `task-564-602-pokemon-held
 2. Introduce a custom linter rule or AST check in `.github/scripts/` / ESLint / Biome that flags `new Set()` usage in `src/engine/tracker/` and `src/engine/saveParser/` files during pre-commit checks.
 
 ## Acceptance Criteria
-- [ ] Document collection data integrity rules in `.foundry/docs/schema.md`
+- [x] Document collection data integrity rules in `.foundry/docs/schema.md`
 - [ ] Create AST / linter validation rule flagging improper `Set` usage in extraction routines
