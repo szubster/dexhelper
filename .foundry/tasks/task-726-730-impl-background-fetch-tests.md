@@ -2,12 +2,12 @@
 id: task-726-730-impl-background-fetch-tests
 type: TASK
 title: Implement E2E Tests for Background Fetching
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12661419013885022913'
 parent: story-421-726-splitting-validation
 tags:
   - e2e

@@ -2,10 +2,10 @@
 id: task-424-713-gen3-lottery-e2e-tests-retry-2
 type: TASK
 title: Implement Gen3 Lottery E2E Tests (Retry 2)
-status: READY
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-20'
-updated_at: '2026-11-02'
+updated_at: '2026-11-06'
 depends_on:
   - research-424-712-investigate-gen3-lottery-e2e-failure-retry
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - e2e
   - integration
 research_references: []
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---
