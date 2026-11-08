@@ -2316,7 +2316,7 @@ Target artifact: task-completed
     main();
 
       const content = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-unchecked-leaf.md'), 'utf-8');
-      expect(content).toContain('status: READY');
+      expect(content).toContain('status: COMPLETED');
 
     });
   });
