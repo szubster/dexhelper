@@ -160,7 +160,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-116-gen3-pc-box-wallpaper-customizer` | Gen 3 PC Box Wallpaper Customizer | gen3, pc-box, customization, endgame |  | PENDING |
 | `idea-116-zod-schema-validation-orchestrator` | Implement Zod for Strict Node Schema Validation in Foundry Orchestrator | foundry, orchestrator, architecture |  | COMPLETED |
 | `idea-117-split-bundles-and-data` | Split bundles and data by game generation | performance, architecture, bundles |  | PENDING |
-| `idea-118-centralize-prompt-reminders` | Centralize Coder and QA Task Prompt Reminders | foundry, agents, prompts |  | PENDING |
+| `idea-118-centralize-prompt-reminders` | Centralize Coder and QA Task Prompt Reminders | foundry, agents, prompts |  | COMPLETED |
 | `idea-118-centralize-prompt-reminders-complete` | Re-evaluate Need for Coder/QA Reminders | foundry, agents, prompts |  | PENDING |
 | `idea-118-orchestrator-circular-dependency-detection` | Implement Circular Dependency Detection in DAG Orchestrator | foundry, orchestrator, architecture |  | PENDING |
 | `idea-119-gen2-unown-dex-tracker` | Gen 2 Unown Dex Progress Tracker | feature, gen2, unown |  | PENDING |
