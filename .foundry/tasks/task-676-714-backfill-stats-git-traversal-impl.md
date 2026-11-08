@@ -2,7 +2,7 @@
 id: task-676-714-backfill-stats-git-traversal-impl
 type: TASK
 title: Implement Backfill Stats Git Traversal Logic
-status: COMPLETED
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-11-07'
@@ -17,7 +17,8 @@ tags:
   - orchestrator
 locks: []
 priority: 50
-rejection_reason: ''
+rejection_count: 1
+rejection_reason: 'Implementation missing for git traversal logic and tests.'
 ---
 
 # Implement Backfill Stats Git Traversal Logic
@@ -32,6 +33,10 @@ Following the CLI scaffolding, we now need to implement the core Git traversal l
 - Write unit tests mocking git commands to verify traversal logic.
 
 ## Acceptance Criteria
-- [x] Git traversal correctly identifies commits matching the interval.
-- [x] `.foundry/` directory state can be read at specific SHAs.
-- [x] Unit tests cover the git interaction logic.
+- [ ] Git traversal correctly identifies commits matching the interval.
+- [ ] `.foundry/` directory state can be read at specific SHAs.
+- [ ] Unit tests cover the git interaction logic.
+
+
+### QA Rejection
+Implementation missing for git traversal logic and tests. The file `.github/scripts/foundry-backfill-stats.ts` only contains the CLI args parser. Please implement the required git traversal logic and associated tests.
