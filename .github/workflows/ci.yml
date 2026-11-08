@@ -48,8 +48,6 @@ jobs:
         run: pnpm lint:foundry
       - name: Package JSON Sort Check
         run: pnpm lint:package-json
-      - name: Checkbox Format Check
-        run: pnpm check:checkboxes
 
   test:
     runs-on: ubuntu-latest

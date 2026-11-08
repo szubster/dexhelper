@@ -1,5 +1,5 @@
 import { useLocation } from '@tanstack/react-router';
-import { ArrowRightLeft, Database, GitGraph, LayoutGrid, Network, Settings2, Sparkles, Swords } from 'lucide-react';
+import { Database, GitGraph, LayoutGrid, Network, Settings2, Sparkles, Swords } from 'lucide-react';
 import { useStore } from '../store';
 import { NavButton } from './NavButton';
 import { TelemetryDecoration } from './TelemetryDecoration';
@@ -104,17 +104,6 @@ export function BottomNav() {
             />
           </div>
         )}
-
-        <div className="h-full min-w-[52px] flex-1">
-          <NavButton
-            to="/in-game-trades"
-            ariaLabel="In-Game Trades"
-            label="TRDS"
-            activeLabel="TRDS"
-            icon={ArrowRightLeft}
-            isActive={location.pathname === '/in-game-trades'}
-          />
-        </div>
 
         {saveData?.generation === 3 && (
           <>

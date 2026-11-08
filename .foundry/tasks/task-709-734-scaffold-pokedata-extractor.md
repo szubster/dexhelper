@@ -5,16 +5,16 @@ title: Scaffold Pokedata Extractor Package
 status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-31'
-updated_at: '2026-11-06'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: '3370691731574158157'
+jules_session_id: '10849396650520955407'
 pr_number: null
 parent: story-525-709-extract-data-generation-scripts-retry
 tags:
   - architecture
   - monorepo
   - pnpm
-rejection_count: 1
+rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []

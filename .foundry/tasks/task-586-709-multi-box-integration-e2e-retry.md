@@ -2,13 +2,13 @@
 id: task-586-709-multi-box-integration-e2e-retry
 type: TASK
 title: Multi-Box Search Integration E2E Tests (Retry)
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-10-19'
-updated_at: '2026-11-04'
+updated_at: '2026-10-31'
 depends_on:
   - task-586-708-multi-box-integration-impl-retry
-jules_session_id: '8572650762958077910'
+jules_session_id: null
 pr_number: null
 parent: story-577-586-multi-box-integration-e2e
 tags:

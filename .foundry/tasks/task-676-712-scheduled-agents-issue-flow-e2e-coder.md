@@ -2,12 +2,12 @@
 id: task-676-712-scheduled-agents-issue-flow-e2e-coder
 type: TASK
 title: Scheduled Agents Issue Flow E2E Verification Coder Implementation
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-11-04'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: '2659329148000072887'
+jules_session_id: null
 pr_number: null
 parent: story-532-676-scheduled-agents-issue-flow-e2e
 tags:

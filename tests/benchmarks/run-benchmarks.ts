@@ -40,11 +40,8 @@ for (const file of files) {
   }
 }
 
-const outputArg = process.argv.find((a) => a.startsWith('--output='));
-const customOutputPath = outputArg ? outputArg.slice('--output='.length) : null;
-
 if (isJsonReporter) {
-  generateJSON(results, customOutputPath || 'benchmarks.json');
+  generateJSON(results, 'benchmarks.json');
 } else if (isCsvReporter) {
-  generateCSV(results, customOutputPath || 'benchmarks.csv');
+  generateCSV(results, 'benchmarks.csv');
 }

@@ -7,7 +7,6 @@ test.describe('Shoal Items Save Parsing E2E', () => {
   });
 
   test('extracts Shoal Salt and Shoal Shells counts', async ({ page }) => {
-    await page.waitForTimeout(100);
     await initializeWithSave(page, 'tests/fixtures/emerald.sav');
 
     await page.goto('./dashboard');

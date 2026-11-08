@@ -2,12 +2,12 @@
 id: epic-587-693-fallback-storage-telemetry
 type: EPIC
 title: EPIC - IndexedDB Fallback Storage Synchronization and Telemetry
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-10-22T06:25:40Z'
-updated_at: '2026-11-06'
+updated_at: '2026-10-22T06:25:40Z'
 depends_on: []
-jules_session_id: '17346888899071110431'
+jules_session_id: null
 pr_number: null
 parent: prd-532-587-indexeddb-fallback-storage-telemetry
 tags:

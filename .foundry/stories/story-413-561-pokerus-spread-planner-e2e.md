@@ -2,13 +2,13 @@
 id: story-413-561-pokerus-spread-planner-e2e
 type: STORY
 title: Pokerus Spread Planner E2E
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-09'
-updated_at: '2026-11-06'
+updated_at: '2026-11-02'
 depends_on:
   - story-413-560-pokerus-spread-planner-ui
-jules_session_id: '15506826979883421357'
+jules_session_id: null
 pr_number: null
 parent: epic-038-413-pokerus-spread-planner-retry
 tags:

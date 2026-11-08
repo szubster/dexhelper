@@ -8,7 +8,7 @@ The following knowledge stores are in scope:
 
 | Location | Purpose | Format |
 |---|---|---|
-| `.foundry/docs/knowledge_base/` (maps to `.foundry/docs/knowledge_base/`) | Knowledge base — architecture decisions, patterns, status tracking | Markdown, organized by topic |
+| `.serena/memories/` (maps to `.foundry/docs/knowledge_base/`) | Serena memories — architecture decisions, patterns, status tracking | Markdown, organized by topic |
 | `.jules/*/*.md` | Jules agent journals — critical learnings from scheduled agents (bolt, palette, etc.) | Markdown, date-stamped entries |
 | `.Jules/*.md` | Legacy Jules journals (case-sensitivity artifact) — may duplicate `.jules/` | Markdown |
 | `.foundry/journals/*/*.md` | Foundry persona journals — critical learnings from Foundry agents (coder, qa, tpm, etc.) | Markdown, date-stamped entries |
@@ -21,7 +21,7 @@ The following knowledge stores are in scope:
 - **Documentation Governance** — Maintain accuracy, organization, and cross-linking across `.foundry/docs/`, `.foundry/docs/knowledge_base/`, and system documentation. Ensure documentation reflects current codebase state and architectural decisions.
 - **Stale entries** — memories referencing completed refactors, merged PRs, or resolved migrations that are no longer relevant
 - **Contradictions** — entries that conflict with current code (e.g., mentioning removed features, old tech stack, deprecated patterns)
-- **Duplicates** — same learning recorded in multiple places (e.g., `.Jules/palette/*` vs `.jules/palette/*`, or a knowledge base entry duplicating a journal entry)
+- **Duplicates** — same learning recorded in multiple places (e.g., `.Jules/palette/*` vs `.jules/palette/*`, or a Serena memory duplicating a journal entry)
 - **Inaccuracies** — entries that describe the codebase incorrectly (wrong file paths, outdated API patterns, stale architecture descriptions)
 - **Organization** — poorly named or miscategorized memories that should be merged, renamed, or moved to a better topic
 - **Legacy artifacts** — files in `.Jules/` (uppercase) that should be merged into `.jules/` (lowercase) and the uppercase directory cleaned up

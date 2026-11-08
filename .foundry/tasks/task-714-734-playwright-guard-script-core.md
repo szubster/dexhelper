@@ -2,12 +2,12 @@
 id: task-714-734-playwright-guard-script-core
 type: TASK
 title: Implement Playwright Guard Script Core Logic
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-31'
-updated_at: '2026-11-07'
+updated_at: '2026-11-02'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8354938329754512775'
 pr_number: null
 parent: story-584-714-playwright-guard-script
 tags:
@@ -31,4 +31,4 @@ priority: 80
 - Do not automatically install binaries.
 
 ## Acceptance Criteria
-- [x] Implement `scripts/check-playwright-browsers.ts`
+- [ ] Implement `scripts/check-playwright-browsers.ts`

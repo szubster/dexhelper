@@ -12,11 +12,6 @@ export const Gen3PokeblocksDashboard: React.FC = () => {
     return null;
   }
 
-  const gameVersion = saveData.gameVersion;
-  if (gameVersion === 'firered' || gameVersion === 'leafgreen') {
-    return null;
-  }
-
   const pokeblocks = saveData.gen3Pokeblocks;
 
   if (!pokeblocks || pokeblocks.length === 0) {

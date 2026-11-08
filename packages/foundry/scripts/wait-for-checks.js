@@ -45,7 +45,7 @@ while (true) {
     (r) =>
       !isCurrentRun(r) &&
       r.status === "completed" &&
-      !["success", "skipped", "neutral", "cancelled"].includes(r.conclusion)
+      !["success", "skipped", "neutral"].includes(r.conclusion)
   );
 
   if (failed.length > 0) {

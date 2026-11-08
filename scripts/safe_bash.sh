@@ -15,8 +15,8 @@ if [[ "$COMMAND_STR" == *"tail -f"* ]]; then
     exit 1
 fi
 
-# Set a threshold of 30 seconds (overridable via SAFE_BASH_TIMEOUT for testing)
-TIMEOUT_DURATION="${SAFE_BASH_TIMEOUT:-30}"
+# Set a threshold of 30 seconds
+TIMEOUT_DURATION=30
 
 timeout "$TIMEOUT_DURATION"s "$@"
 EXIT_CODE=$?

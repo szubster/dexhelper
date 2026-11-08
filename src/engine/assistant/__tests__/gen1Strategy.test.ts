@@ -11,7 +11,6 @@ const mockLocations: UnifiedLocation[] = [
 ];
 
 const makeSaveData = (overrides: Partial<SaveData> = {}): SaveData => ({
-  schemaVersion: 1,
   generation: 1,
   gameVersion: 'yellow',
   trainerName: 'TEST',

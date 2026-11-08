@@ -2,10 +2,10 @@
 id: task-714-735-core-schema-version-stamping
 type: TASK
 title: Core Logic for Schema Version Stamping
-status: CANCELLED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-21T08:00:00.000Z'
-updated_at: '2026-11-07'
+updated_at: '2026-11-02'
 depends_on:
   - task-714-734-type-schema-version-stamping
 jules_session_id: null
@@ -15,9 +15,7 @@ tags:
   - save-engine
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-714-734-type-schema-version-stamping
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

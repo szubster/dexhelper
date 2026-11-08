@@ -2,13 +2,13 @@
 id: epic-516-531-pkm-export-ui-integration
 type: EPIC
 title: PKM/PK3 Export UI Integration
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-11-06'
+updated_at: '2026-10-31'
 depends_on:
   - epic-516-530-pkm-data-extraction-generation
-jules_session_id: '6883151170347422398'
+jules_session_id: null
 parent: prd-159-516-individual-pokemon-pkm-exporter
 tags:
   - ui

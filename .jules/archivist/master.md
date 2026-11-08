@@ -17,7 +17,7 @@
 ## Actions Taken
 - Executed `node --experimental-strip-types packages/foundry/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
 - Consolidated entries for `agile_coach`, `lens`, `tpm`, `bolt`, `canvas`, `mason`, `oak`, `palette`, and `sentinel`, safely unlinking transient session markdown files upon aggregation.
-- Verified knowledge hygiene across `.foundry/docs/knowledge_base/` (symlinked to `.foundry/docs/knowledge_base/`) and confirmed no transient logs or obsolete entries remained.
+- Verified knowledge hygiene across `.serena/memories/` (symlinked to `.foundry/docs/knowledge_base/`) and confirmed no transient logs or obsolete entries remained.
 - Validated workspace health via `pnpm lint` and `pnpm test`.
 
 ---
@@ -55,7 +55,7 @@
 - Executed `node --experimental-strip-types packages/foundry/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
 - Consolidated entries for `agile_coach`, `coder`, `lens`, `qa`, `researcher`, `canvas`, `nurse`, `oak`, `palette`, `sculptor`, `strategist`, and `trainer`, safely unlinking transient session files upon aggregation.
 - Cleaned up unparsed `2026-10-14` placeholders and redundant session headers in `.jules/trainer/master.md`.
-- Verified no legacy `.Jules/` (uppercase) directory exists and confirmed `.foundry/docs/knowledge_base/` symlink validity.
+- Verified no legacy `.Jules/` (uppercase) directory exists and confirmed `.serena/memories/` symlink validity.
 - Ran project linting and unit test suite via `pnpm lint && pnpm test`.
 
 ---
@@ -99,16 +99,3 @@
 ## Critical Learnings
 - **Automated Journal Aggregation**: Executing `node --experimental-strip-types packages/foundry/aggregate-journals.ts` successfully consolidates scattered individual session files from `.foundry/journals/` and `.jules/` into persona `master.md` files while safely unlinking the processed session files.
 - **Knowledge Hygiene Workflow**: Combining automated aggregation with workspace linting and testing ensures agent knowledge repositories remain clean, deduplicated, and fully compliant without disrupting codebase integrity.
-
----
-
-# Archivist Journal Entry - 2026-11-01-15-06-33
-
-## Actions Taken
-- Executed `node --experimental-strip-types packages/foundry/aggregate-journals.ts` to aggregate timestamped `.md` journal files across `.foundry/journals/` and `.jules/` into each persona's `master.md`.
-- Consolidated scattered individual session files for agile_coach, architect, architect_visionary, auditor, coder, curator, epic_planner, lens, product_manager, qa, researcher, story_owner, tech_lead, tpm, canvas, deduplication, infras, mason, nurse, oak, palette, scribe, sculptor, sentinel, shield, strategist, and visionary.
-- Verified absence of legacy uppercase `.Jules/` directory and confirmed `.serena/memories/` symlink health.
-- Validated workspace health using `pnpm lint` and `pnpm test`.
-
-## Critical Learnings
-- **Scheduled Journal Aggregation & Context Window Maintenance**: Periodic consolidation using `aggregate-journals.ts` unlinks transient session markdown files and appends critical learnings into persona `master.md` repositories, reducing repository file sprawl and preventing LLM context window rot.

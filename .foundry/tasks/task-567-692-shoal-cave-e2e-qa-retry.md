@@ -2,10 +2,10 @@
 id: task-567-692-shoal-cave-e2e-qa-retry
 type: TASK
 title: Retry QA Playwright E2E Tests for Shoal Cave Dashboard
-status: COMPLETED
+status: READY
 owner_persona: qa
 created_at: '2026-10-16T12:54:07.509Z'
-updated_at: '2026-11-05'
+updated_at: '2026-11-02'
 depends_on:
   - task-567-691-shoal-cave-e2e-coder-retry
 jules_session_id: null
@@ -34,6 +34,6 @@ QA the end-to-end tests for the Shoal Cave UI Dashboard, validating the retry im
 - Run the E2E tests specifically using `xvfb-run -a pnpm test:e2e tests/e2e/shoal-cave-dashboard.spec.ts`.
 
 ## Acceptance Criteria
-- [x] Review the Playwright E2E test file for correctness and coverage.
-- [x] Verify tests pass in both desktop and mobile contexts.
-- [x] Verify there are no regressions via `pnpm lint` and `pnpm test`.
+- [ ] Review the Playwright E2E test file for correctness and coverage.
+- [ ] Verify tests pass in both desktop and mobile contexts.
+- [ ] Verify there are no regressions via `pnpm lint` and `pnpm test`.

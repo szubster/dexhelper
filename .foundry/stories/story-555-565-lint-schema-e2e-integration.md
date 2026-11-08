@@ -2,13 +2,13 @@
 id: story-555-565-lint-schema-e2e-integration
 type: STORY
 title: Schema Linter Integration & E2E Verification
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-11-06'
+updated_at: '2026-10-31'
 depends_on:
   - story-555-564-lint-schema-frontmatter-validation
-jules_session_id: '16445984698743352325'
+jules_session_id: null
 parent: epic-521-555-schema-linter-frontmatter-logic
 tags:
   - foundry

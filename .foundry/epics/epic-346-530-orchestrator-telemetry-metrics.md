@@ -2,10 +2,10 @@
 id: epic-346-530-orchestrator-telemetry-metrics
 type: EPIC
 title: Orchestrator Telemetry Metrics
-status: COMPLETED
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-09-04'
-updated_at: '2026-11-06'
+updated_at: '2026-09-10'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -30,8 +30,8 @@ Based on PRD `prd-137-346-orchestrator-telemetry-for-cycles`, this epic handles 
 - The orchestrator must already have cycle detection functionality in place.
 
 ## Acceptance Criteria
-- [x] Implement telemetry tracking for circular dependency detection events.
-- [x] Ensure the core execution pipeline of the orchestrator is not degraded by telemetry operations.
-- [x] A final STORY dedicated exclusively to Integration and E2E Verification is completed.
-- [x] story-530-560-telemetry-metrics-impl
-- [x] story-530-561-telemetry-metrics-e2e
+- [ ] Implement telemetry tracking for circular dependency detection events.
+- [ ] Ensure the core execution pipeline of the orchestrator is not degraded by telemetry operations.
+- [ ] A final STORY dedicated exclusively to Integration and E2E Verification is completed.
+- [ ] story-530-560-telemetry-metrics-impl
+- [ ] story-530-561-telemetry-metrics-e2e

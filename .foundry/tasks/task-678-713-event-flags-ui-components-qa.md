@@ -2,10 +2,10 @@
 id: task-678-713-event-flags-ui-components-qa
 type: TASK
 title: Event Flags UI Components QA
-status: COMPLETED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-20T23:41:51.099Z'
-updated_at: '2026-11-06'
+updated_at: '2026-10-25'
 depends_on:
   - task-678-712-event-flags-ui-components-impl
   - task-678-714-event-flags-ui-components-tests
@@ -30,6 +30,6 @@ locks: []
 Verify the correct implementation and styling of the Event Flags UI components created in task-678-712-event-flags-ui-components-impl.
 
 ## Acceptance Criteria
-- [x] Verify that the Event Flags UI components accurately represent truthy and falsy states for special island event flags.
-- [x] Verify that the components adhere strictly to the tactical aesthetic styling constraints detailed in ADR 008 (sharp edges, dashes, monospaced fonts).
-- [x] Ensure unit tests are exhaustive and passing.
+- [ ] Verify that the Event Flags UI components accurately represent truthy and falsy states for special island event flags.
+- [ ] Verify that the components adhere strictly to the tactical aesthetic styling constraints detailed in ADR 008 (sharp edges, dashes, monospaced fonts).
+- [ ] Ensure unit tests are exhaustive and passing.

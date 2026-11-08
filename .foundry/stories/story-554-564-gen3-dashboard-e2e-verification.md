@@ -2,13 +2,13 @@
 id: story-554-564-gen3-dashboard-e2e-verification
 type: STORY
 title: Gen 3 Dashboard E2E Verification
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-11-06'
+updated_at: '2026-11-02'
 depends_on:
   - story-554-563-gen3-dashboard-data-integration
-jules_session_id: '6178216486618912617'
+jules_session_id: null
 pr_number: null
 parent: epic-520-554-gen3-transition-dashboard
 tags:

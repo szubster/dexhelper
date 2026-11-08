@@ -29,15 +29,8 @@ Stores the ID of the fossil currently being revived:
 - `1`: Root Fossil (Lileep)
 - `2`: Claw Fossil (Anorith)
 
-
 ### Relevant Event Flags
 The `flags` array is also in `SaveBlock1` (R/S offset: `0x1220`, Emerald offset: `0x1270`).
-
-**Relative Byte Offsets (from start of flags array):**
-- `FLAG_CHOSE_ROOT_FOSSIL`: Relative Byte Offset: `0x29`, Bit Offset: `7`
-- `FLAG_CHOSE_CLAW_FOSSIL`: Relative Byte Offset: `0x2A`, Bit Offset: `0`
-- `FLAG_RECEIVED_REVIVED_FOSSIL_MON`: Relative Byte Offset: `0x21`, Bit Offset: `3`
-
 
 | Flag | ID | R/S Offset (Bit) | Emerald Offset (Bit) | Description |
 | :--- | :--- | :--- | :--- | :--- |
@@ -68,15 +61,8 @@ Tracks which fossil is currently handed over to the researcher:
 
 *Unlike RSE, this variable stores the actual Item ID of the fossil.*
 
-
 ### Relevant Event Flags
 The `flags` array in FRLG starts at offset `0x0EE0` in `SaveBlock1`.
-
-**Relative Byte Offsets (from start of flags array):**
-- `FLAG_GOT_DOME_FOSSIL`: Relative Byte Offset: `0x4E`, Bit Offset: `2`
-- `FLAG_GOT_HELIX_FOSSIL`: Relative Byte Offset: `0x4E`, Bit Offset: `3`
-- `FLAG_GOT_OLD_AMBER`: Relative Byte Offset: `0x4B`, Bit Offset: `6`
-
 
 | Flag | ID | Offset (Bit) | Description |
 | :--- | :--- | :--- | :--- |

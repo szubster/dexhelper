@@ -2,10 +2,10 @@
 id: task-677-715-wonder-card-ui-qa
 type: TASK
 title: Wonder Card UI QA Verification
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-20T23:38:11.000Z'
-updated_at: '2026-11-05'
+updated_at: '2026-10-22'
 depends_on:
   - task-677-714-wonder-card-integration-impl
 jules_session_id: null
@@ -19,9 +19,7 @@ tags:
   - qa
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-677-714-wonder-card-integration-impl
+rejection_reason: ''
 notes: ''
 locks: []
 ---

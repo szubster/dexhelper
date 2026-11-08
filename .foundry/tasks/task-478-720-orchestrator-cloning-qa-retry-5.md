@@ -2,10 +2,10 @@
 id: task-478-720-orchestrator-cloning-qa-retry-5
 type: TASK
 title: Orchestrator Cloning QA (Retry 5)
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-23'
-updated_at: '2026-11-04'
+updated_at: '2026-10-31'
 depends_on:
   - task-478-719-orchestrator-cloning-tests-retry-5
 jules_session_id: null
@@ -16,9 +16,7 @@ tags:
   - generation
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-478-717-orchestrator-cloning-logic-retry-5
+rejection_reason: ''
 notes: ''
 locks: []
 ---

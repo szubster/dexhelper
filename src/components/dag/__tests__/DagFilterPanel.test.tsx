@@ -3,36 +3,26 @@ import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 import { DagFilterPanel } from '../DagFilterPanel';
 
-const mockUseDagContext = vi.fn<() => Record<string, unknown>>();
-
-vi.mock('../../dashboard/DagContext', async (importOriginal) => {
-  const mod = await importOriginal<typeof import('../../dashboard/DagContext')>();
-  return {
-    ...mod,
-    useDagContext: () => mockUseDagContext(),
-  };
-});
-
 test('DagFilterPanel renders all types and statuses', async () => {
   const activeTypes = new Set(['TASK']);
   const activeStatuses = new Set(['COMPLETED', 'ACTIVE']);
-  const mockToggleActiveType = vi.fn<(type: string) => void>();
-  const mockToggleActiveStatus = vi.fn<(status: string) => void>();
-  const mockToggleShowPermanentFailures = vi.fn<() => void>();
-  const mockSetShowHeatmap = vi.fn<() => void>();
+  const mockOnTypeToggle = vi.fn<(type: string) => void>();
+  const mockOnStatusToggle = vi.fn<(status: string) => void>();
+  const mockOnTogglePermanentFailures = vi.fn<() => void>();
+  const mockOnToggleHeatmap = vi.fn<() => void>();
 
-  mockUseDagContext.mockReturnValue({
-    activeTypes,
-    activeStatuses,
-    showPermanentFailures: false,
-    showHeatmap: false,
-    toggleActiveType: mockToggleActiveType,
-    toggleActiveStatus: mockToggleActiveStatus,
-    toggleShowPermanentFailures: mockToggleShowPermanentFailures,
-    setShowHeatmap: mockSetShowHeatmap,
-  });
-
-  await render(<DagFilterPanel />);
+  await render(
+    <DagFilterPanel
+      activeTypes={activeTypes}
+      activeStatuses={activeStatuses}
+      showPermanentFailures={false}
+      showHeatmap={false}
+      onTypeToggle={mockOnTypeToggle}
+      onStatusToggle={mockOnStatusToggle}
+      onTogglePermanentFailures={mockOnTogglePermanentFailures}
+      onToggleHeatmap={mockOnToggleHeatmap}
+    />,
+  );
 
   await expect.element(page.getByText('TASK')).toBeInTheDocument();
   await expect.element(page.getByText('IDEA')).toBeInTheDocument();
@@ -42,14 +32,14 @@ test('DagFilterPanel renders all types and statuses', async () => {
 
   // Test toggling
   await page.getByText('IDEA').click();
-  expect(mockToggleActiveType).toHaveBeenCalledWith('IDEA');
+  expect(mockOnTypeToggle).toHaveBeenCalledWith('IDEA');
 
   await page.getByText('READY').click();
-  expect(mockToggleActiveStatus).toHaveBeenCalledWith('READY');
+  expect(mockOnStatusToggle).toHaveBeenCalledWith('READY');
 
   await page.getByText('[ PERMANENT_FAILURES_ONLY ]').click();
-  expect(mockToggleShowPermanentFailures).toHaveBeenCalled();
+  expect(mockOnTogglePermanentFailures).toHaveBeenCalled();
 
   await page.getByText('[ HEATMAP_OVERLAY ]').click();
-  expect(mockSetShowHeatmap).toHaveBeenCalled();
+  expect(mockOnToggleHeatmap).toHaveBeenCalled();
 });

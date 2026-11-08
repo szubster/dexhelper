@@ -29,13 +29,13 @@ test.describe('DagTree UI Interactions', () => {
     const rootRow = page.locator('li').filter({ hasText: 'idea-001' }).first().locator('> div');
     const toggleBtn = rootRow.locator('button').first();
 
-    await toggleBtn.click({ force: true, position: { x: 5, y: 5 } });
+    await toggleBtn.click();
 
     // Check prd is hidden
     await expect(page.locator('li').filter({ hasText: 'prd-001-001' }).first()).toBeHidden();
 
     // Expand root node
-    await toggleBtn.click({ force: true, position: { x: 5, y: 5 } });
+    await toggleBtn.click();
 
     // Check children are visible
     await expect(page.locator('li').filter({ hasText: 'prd-001-001' }).first()).toBeVisible();
@@ -43,7 +43,7 @@ test.describe('DagTree UI Interactions', () => {
     // Find the toggle button for prd
     const prdRow = page.locator('li').filter({ hasText: 'prd-001-001' }).first().locator('> div');
     const collapsePrdBtn = prdRow.locator('button').first();
-    await collapsePrdBtn.click({ force: true, position: { x: 5, y: 5 } });
+    await collapsePrdBtn.click();
 
     // Check task is hidden
     await expect(page.locator('li').filter({ hasText: 'task-001-001-001' }).first()).toBeHidden();

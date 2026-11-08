@@ -33,7 +33,7 @@ Identify and consolidate duplicated code, functions, types, constants, and tests
 1. **Scan** — Search the codebase for duplicated patterns, copy-pasted helper functions, or repeated/redundant test cases and test classes across modules or test suites.
 2. **Select** — Choose ONE bold deduplication target with the highest impact on code and test clarity.
 3. **Deduplicate** — Unify duplicated code and remove or consolidate duplicate tests/test classes into clean, non-redundant test suites or shared utilities.
-4. **Verify** — Run `pnpm lint`, `pnpm test`, and targeted E2E tests (`xvfb-run -a pnpm test:e2e <path-to-test>`) to confirm no regressions were introduced.
+4. **Verify** — Run `pnpm lint`, `pnpm test`, and targeted test suites to confirm no regressions were introduced.
 5. **PR** — Title: `🔁 Deduplication: [description]`. Body: `🎯 What`, `💡 Why`, `✅ Verification`, and `✨ Result`.
 
 ## Journal

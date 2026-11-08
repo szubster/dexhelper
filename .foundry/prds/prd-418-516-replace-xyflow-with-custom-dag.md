@@ -2,10 +2,10 @@
 id: prd-418-516-replace-xyflow-with-custom-dag
 type: PRD
 title: Replace @xyflow/react with a lightweight directory tree visualization
-status: COMPLETED
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-09-02'
-updated_at: '2026-11-07'
+updated_at: '2026-09-04'
 depends_on: []
 jules_session_id: null
 parent: idea-418-replace-xyflow-with-custom-dag
@@ -18,7 +18,6 @@ tags:
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # PRD: Replace @xyflow/react with a lightweight directory tree visualization
@@ -54,8 +53,8 @@ Additionally, `@xyflow/react` is designed for editable node graphs, which leads 
 - Styling must follow the "tactical hardware/snooping" aesthetic outlined in ADR 008 (sharp edges `rounded-none`, dashed borders, monospaced telemetry fonts).
 
 ## Acceptance Criteria
-- [x] Time To Interactive is significantly reduced due to the removal of `@xyflow/react` and `dagre`.
-- [x] The DAG is displayed as a nested, DOM-based directory tree instead of a 2D canvas.
-- [x] epic-516-530-replace-xyflow-core
-- [x] Node branches can be expanded and collapsed, and 'Expand All' / 'Collapse All' controls are functional.
-- [x] The UI adheres to the tactical hardware aesthetic (sharp edges, dashed borders, monospaced fonts).
+- [ ] Time To Interactive is significantly reduced due to the removal of `@xyflow/react` and `dagre`.
+- [ ] The DAG is displayed as a nested, DOM-based directory tree instead of a 2D canvas.
+- [ ] epic-516-530-replace-xyflow-core
+- [ ] Node branches can be expanded and collapsed, and 'Expand All' / 'Collapse All' controls are functional.
+- [ ] The UI adheres to the tactical hardware aesthetic (sharp edges, dashed borders, monospaced fonts).

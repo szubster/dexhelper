@@ -8,7 +8,6 @@ describe('PokemonEvolutions', () => {
   const mockOnNavigate = vi.fn<(id: number, name: string) => void>();
 
   const baseSaveData: SaveData = {
-    schemaVersion: 1,
     generation: 1,
     gameVersion: 'red',
     trainerId: 12345,

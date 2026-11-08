@@ -2,12 +2,12 @@
 id: story-518-711-weather-anomaly-dashboard-overlay
 type: STORY
 title: Weather Anomaly Dashboard Overlay
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-11-05'
+updated_at: '2026-10-21'
 depends_on: []
-jules_session_id: '8511353427150931295'
+jules_session_id: null
 pr_number: null
 parent: epic-343-518-gen3-weather-anomaly-ui
 tags:

@@ -2,12 +2,12 @@
 id: research-490-703-investigate-badge-injection-failure-v2
 type: RESEARCH
 title: Investigate Badge Injection Failure (v2)
-status: COMPLETED
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-10-18'
-updated_at: '2026-11-07'
+updated_at: '2026-11-03'
 depends_on: []
-jules_session_id: null
+jules_session_id: '11016582206133759250'
 parent: story-408-490-orchestrator-themed-output-impl
 rejection_reason: ''
 locks: []
@@ -20,7 +20,7 @@ Investigate the root cause behind the permanent failure of `research-490-676-inv
 ## Acceptance Criteria
 - [x] Researcher: Investigate the rejection history and root cause of the failure for badge injection.
 - [x] Researcher: Document findings and proposed solution within this research node.
-- [x] task-703-704-orchestrator-badge-injection-impl-retry
+- [ ] task-703-704-orchestrator-badge-injection-impl-retry
 
 ## Findings
 The git history of the original implementation task (`task-490-550-orchestrator-badge-injection-impl`) reveals that its prior rejections were due to `[ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK`.
@@ -33,5 +33,3 @@ This is a false permanent failure in terms of technical feasibility. The badge i
 The original approach to map statuses and personas to Pokemon Gen 1 emojis in `.github/scripts/foundry-orchestrator.ts` remains technically sound.
 
 I propose spawning a new retry task for the Coder to implement this. I will dynamically spawn `task-703-704-orchestrator-badge-injection-impl-retry` using Late Binding and append it to this node's Acceptance Criteria. This new task should ensure the coder autonomously maps standard Gen 1 emojis to statuses/personas without asking for user feedback.
-- [ ] research-703-740-investigate-badge-injection-failure-v3
-- [ ] task-703-741-orchestrator-badge-injection-impl-v4

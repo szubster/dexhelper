@@ -2,13 +2,13 @@
 id: task-640-729-migrate-tacticalmodal-qa
 type: TASK
 title: QA - Migrate TacticalModal Component
-status: COMPLETED
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-27'
-updated_at: '2026-11-07'
+updated_at: '2026-11-02'
 depends_on:
   - task-640-728-migrate-tacticalmodal-impl
-jules_session_id: null
+jules_session_id: '12033435297427493237'
 pr_number: null
 parent: story-527-640-migrate-complex-components
 tags:
@@ -28,5 +28,5 @@ locks: []
 Verify the migration of `TacticalModal` to `@dexhelper/ui`.
 
 ## Acceptance Criteria
-- [x] Verify `TacticalModal` correctly renders in the application view hierarchy.
-- [x] Verify unit tests pass and test the actual rendered components.
+- [ ] Verify `TacticalModal` correctly renders in the application view hierarchy.
+- [ ] Verify unit tests pass and test the actual rendered components.

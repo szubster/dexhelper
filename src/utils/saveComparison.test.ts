@@ -5,7 +5,6 @@ import { compareSaves, findTradePossibilities } from './saveComparison';
 describe('saveComparison', () => {
   const createMockSave = (ownedIds: number[]): SaveData => {
     return {
-      schemaVersion: 1,
       generation: 1,
       owned: new Set(ownedIds),
       seen: new Set(),

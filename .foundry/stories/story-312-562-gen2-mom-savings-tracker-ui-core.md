@@ -2,12 +2,12 @@
 id: story-312-562-gen2-mom-savings-tracker-ui-core
 type: STORY
 title: Gen 2 Mom's Savings Tracker UI Core
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-11-06'
+updated_at: '2026-11-01'
 depends_on: []
-jules_session_id: '6446383000486517360'
+jules_session_id: null
 pr_number: null
 parent: epic-112-312-gen2-mom-savings-tracker-ui
 tags:
@@ -38,9 +38,6 @@ Implement the UI logic in `Gen2SavingsDashboard` to display progression toward t
 - [x] research-562-703-investigate-moms-savings-ui-failure-v2
 - [x] task-562-704-gen2-moms-savings-ui-v2
 - [x] task-562-705-gen2-moms-savings-qa-v2
-- [x] research-562-716-investigate-moms-savings-ui-failure-v3
-- [x] task-562-717-gen2-moms-savings-ui-v3
-- [x] task-562-718-gen2-moms-savings-qa-v3
-- [ ] research-562-740-investigate-moms-savings-ui-failure-v4
-- [ ] task-562-741-gen2-moms-savings-ui-v4
-- [ ] task-562-742-gen2-moms-savings-qa-v4
+- [ ] research-562-716-investigate-moms-savings-ui-failure-v3
+- [ ] task-562-717-gen2-moms-savings-ui-v3
+- [ ] task-562-718-gen2-moms-savings-qa-v3

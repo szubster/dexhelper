@@ -2,10 +2,10 @@
 id: story-412-567-shoal-cave-e2e-verification
 type: STORY
 title: E2E Verification for Shoal Cave UI Dashboard
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-11-05'
+updated_at: '2026-10-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,6 +31,6 @@ This story implements the E2E verification for the Shoal Cave UI Dashboard, fulf
 - [x] Break down into Tasks to write E2E tests for the Shoal Cave Dashboard.
 - [x] task-567-586-shoal-cave-e2e-coder
 - [x] task-567-587-shoal-cave-e2e-qa
-- [x] research-567-690-investigate-shoal-cave-e2e-failure
-- [x] task-567-691-shoal-cave-e2e-coder-retry
-- [x] task-567-692-shoal-cave-e2e-qa-retry
+- [ ] research-567-690-investigate-shoal-cave-e2e-failure
+- [ ] task-567-691-shoal-cave-e2e-coder-retry
+- [ ] task-567-692-shoal-cave-e2e-qa-retry

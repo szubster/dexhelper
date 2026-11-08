@@ -5,7 +5,7 @@ title: In-Game Trade Dashboard Core UI
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-11-07'
+updated_at: '2026-10-31'
 depends_on: []
 jules_session_id: null
 pr_number: null

@@ -2,10 +2,10 @@
 id: story-333-676-fame-checker-dashboard-components
 type: STORY
 title: Fame Checker Dashboard Components
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-15T19:32:39.601Z'
-updated_at: '2026-11-08'
+updated_at: '2026-10-23'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -36,8 +36,8 @@ To visualize the Fame Checker data from FireRed and LeafGreen, we need a set of 
 - Provide mock data structures to render these components in isolation.
 
 ## Acceptance Criteria
-- [x] task-676-710-fame-checker-base-ui
-- [x] task-676-711-qa-fame-checker-base-ui
-- [x] task-676-712-fame-checker-dashboard
-- [x] task-676-713-qa-fame-checker-dashboard
-- [x] Components are built and adhere to the tactical hardware aesthetic.
+- [ ] task-676-710-fame-checker-base-ui
+- [ ] task-676-711-qa-fame-checker-base-ui
+- [ ] task-676-712-fame-checker-dashboard
+- [ ] task-676-713-qa-fame-checker-dashboard
+- [ ] Components are built and adhere to the tactical hardware aesthetic.

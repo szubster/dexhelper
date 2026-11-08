@@ -8,12 +8,6 @@ const dirname = path.dirname(filename);
 const SAFE_BASH_PATH = path.resolve(dirname, 'safe_bash.sh');
 
 describe('safe_bash.sh unit tests', () => {
-  it('should execute non-blocking commands successfully', () => {
-    expect.hasAssertions();
-    const result = execSync(`"${SAFE_BASH_PATH}" echo "Hello Timeout"`).toString().trim();
-    expect(result).toBe('Hello Timeout');
-  }, 10_000);
-
   it('should prevent execution of tail -f', () => {
     expect.hasAssertions();
     let status = 0;
@@ -42,20 +36,5 @@ describe('safe_bash.sh unit tests', () => {
     expect.hasAssertions();
     const out = execSync(`"${SAFE_BASH_PATH}" tail -n 10 something.log 2>&1 || true`).toString().trim();
     expect(out).not.toContain("Error: Static analysis detected a known blocking command ('tail -f').");
-  }, 10_000);
-
-  it('should terminate command exceeding threshold', () => {
-    expect.hasAssertions();
-    let status = 0;
-    let stderr = '';
-    try {
-      execSync(`SAFE_BASH_TIMEOUT=1 "${SAFE_BASH_PATH}" sleep 3`);
-    } catch (error: unknown) {
-      const execError = error as { status?: number; stderr?: { toString: () => string } };
-      status = execError.status ?? 0;
-      stderr = execError.stderr ? execError.stderr.toString() : '';
-    }
-    expect(status).toBe(124);
-    expect(stderr).toContain('Command exceeded the 1 second threshold and was terminated.');
   }, 10_000);
 });

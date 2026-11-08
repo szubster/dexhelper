@@ -2,10 +2,10 @@
 id: research-336-712-investigate-runtime-interfaces-keys-failure-v3
 type: RESEARCH
 title: Investigate Runtime Interfaces Keys Permanent Failure (v3)
-status: CANCELLED
+status: READY
 owner_persona: researcher
 created_at: '2026-10-21T07:19:05.000Z'
-updated_at: '2026-11-06'
+updated_at: '2026-10-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,8 +14,8 @@ tags:
   - architecture
   - feature
 research_references: []
-rejection_count: 3
-rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
+rejection_count: 0
+rejection_reason: ''
 notes: ''
 locks: []
 ---

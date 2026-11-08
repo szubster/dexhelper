@@ -113,7 +113,7 @@ test.describe('DagProvider Data Fetching', () => {
     await expect(page.locator('text=[ SYSTEM.LOADING_DAG ]')).toBeHidden();
 
     // Test that the app doesn't crash completely - the flow container should still render, maybe empty
-    const p = page.getByText('PENDING').first();
+    const p = page.getByText('PENDING');
     await expect(p).toBeVisible();
 
     // We could also check the console, but checking that the UI renders empty is good enough for 'graceful' without crashing.

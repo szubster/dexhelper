@@ -2,12 +2,12 @@
 id: story-063-715-gen2-forecasting-logic
 type: STORY
 title: Gen 2 Forecasting Logic
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-24'
-updated_at: '2026-11-04'
+updated_at: '2026-10-24'
 depends_on: []
-jules_session_id: '15805379688094676443'
+jules_session_id: null
 pr_number: null
 parent: epic-038-063-gen2-smart-filtering-forecasting
 tags:

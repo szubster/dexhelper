@@ -2,13 +2,13 @@
 id: task-676-709-rematch-dashboard-e2e-tests
 type: TASK
 title: Rematch Dashboard E2E Tests
-status: COMPLETED
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-11-07'
+updated_at: '2026-11-03'
 depends_on:
   - task-676-708-rematch-dashboard-routing-impl
-jules_session_id: null
+jules_session_id: '6144743304822851722'
 pr_number: null
 parent: story-085-676-rematch-dashboard-layout-and-routing
 tags:
@@ -41,6 +41,6 @@ Implement Playwright E2E tests to verify the layout and routing of the Rematch D
 - Avoid `.click({ force: true })` on nested elements; prefer `.dispatchEvent('click')` if interception is an issue in headless mode.
 
 ## Acceptance Criteria
-- [x] Playwright E2E tests are implemented for the Rematch Dashboard navigation and layout.
-- [x] Tests simulate real user interactions and do not bypass the application layer.
-- [x] Tests run successfully in the CI environment (or local headless `xvfb-run -a pnpm test:e2e`).
+- [ ] Playwright E2E tests are implemented for the Rematch Dashboard navigation and layout.
+- [ ] Tests simulate real user interactions and do not bypass the application layer.
+- [ ] Tests run successfully in the CI environment (or local headless `xvfb-run -a pnpm test:e2e`).

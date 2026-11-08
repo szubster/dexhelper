@@ -32,5 +32,5 @@ Verify the implementation of the Route 119 visual map component and layout data.
 - Verify the usage of `@utility` tactical primitives from `src/index.css`.
 
 ## Acceptance Criteria
- - [x] Visual map component renders correctly without errors and consumes the data constants.
- - [x] Component satisfies all tactical aesthetic constraints.
+- [ ] Visual map component renders correctly without errors and consumes the data constants.
+- [ ] Component satisfies all tactical aesthetic constraints.

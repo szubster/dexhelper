@@ -2,12 +2,12 @@
 id: story-398-714-gen3-secret-base-radar-data-layer
 type: STORY
 title: Gen 3 Secret Base Radar Data Layer Integration
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-22'
-updated_at: '2026-11-04'
+updated_at: '2026-10-22'
 depends_on: []
-jules_session_id: '13381305841002054866'
+jules_session_id: null
 pr_number: null
 parent: epic-045-398-gen3-secret-base-radar-integration-v3
 tags:

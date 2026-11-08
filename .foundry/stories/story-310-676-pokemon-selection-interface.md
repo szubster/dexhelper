@@ -2,10 +2,10 @@
 id: story-310-676-pokemon-selection-interface
 type: STORY
 title: Gen 2 Shiny Breeding UI - Pokémon Selection Interface
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-15'
-updated_at: '2026-11-07'
+updated_at: '2026-10-24'
 depends_on:
   - epic-112-309-gen2-shiny-breeding-logic
 jules_session_id: null
@@ -40,6 +40,6 @@ This story focuses on creating the UI component that allows users to select two 
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break this story down into actionable TASKS.
-- [x] task-676-702-gen2-pokemon-selection-state
-- [x] task-676-703-gen2-pokemon-selection-ui
-- [x] task-676-704-gen2-pokemon-selection-qa
+- [ ] task-676-702-gen2-pokemon-selection-state
+- [ ] task-676-703-gen2-pokemon-selection-ui
+- [ ] task-676-704-gen2-pokemon-selection-qa

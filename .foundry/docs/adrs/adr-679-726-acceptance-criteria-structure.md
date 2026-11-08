@@ -2,10 +2,10 @@
 id: adr-679-726-acceptance-criteria-structure
 type: ADR
 title: ADR 034 - Acceptance Criteria Structure
-status: COMPLETED
+status: PENDING
 owner_persona: architect
 created_at: '2026-10-25'
-updated_at: '2026-11-08'
+updated_at: '2026-11-02'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -39,5 +39,5 @@ Following the research on Acceptance Criteria usage (`research-534-517-audit-acc
    - Introduce pre-commit hook or CI check automation to validate formatting.
 
 ## Acceptance Criteria
-- [x] task-726-727-orchestrator-parsing
-- [x] task-726-728-ci-check
+- [ ] task-726-727-orchestrator-parsing
+- [ ] task-726-728-ci-check

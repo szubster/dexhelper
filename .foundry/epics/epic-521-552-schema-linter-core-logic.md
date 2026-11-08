@@ -2,10 +2,10 @@
 id: epic-521-552-schema-linter-core-logic
 type: EPIC
 title: 'Schema Linter Core Logic: Markdown Checkboxes'
-status: COMPLETED
+status: PENDING
 owner_persona: auditor
 created_at: '2026-08-24'
-updated_at: '2026-11-06'
+updated_at: '2026-09-13'
 depends_on: []
 jules_session_id: null
 parent: prd-421-521-automated-schema-linting

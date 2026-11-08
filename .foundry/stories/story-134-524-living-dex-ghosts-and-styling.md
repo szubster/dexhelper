@@ -2,10 +2,10 @@
 id: story-134-524-living-dex-ghosts-and-styling
 type: STORY
 title: Highlight Ghosts and Apply Tactical Styling to Living Dex Grid
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-11-08'
+updated_at: '2026-10-13'
 depends_on:
   - story-134-523-living-dex-state-overlay
 jules_session_id: null
@@ -30,7 +30,7 @@ To complete the visual requirements of the Living Dex Grid, we must visually hig
 ## Acceptance Criteria
 - [x] Visually highlight missing Pokémon slots as "ghosts".
 - [x] Implement sharp edges (rounded-none), dashed borders, and monospaced telemetry fonts (font-mono) according to ADR 008.
-- [x] task-524-676-living-dex-ghosts-types
-- [x] task-524-677-living-dex-ghosts-styling-ui
-- [x] task-524-678-living-dex-ghosts-styling-tests
-- [x] task-524-679-living-dex-ghosts-styling-qa
+- [ ] task-524-676-living-dex-ghosts-types
+- [ ] task-524-677-living-dex-ghosts-styling-ui
+- [ ] task-524-678-living-dex-ghosts-styling-tests
+- [ ] task-524-679-living-dex-ghosts-styling-qa

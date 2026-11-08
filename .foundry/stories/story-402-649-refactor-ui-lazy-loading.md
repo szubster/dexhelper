@@ -2,10 +2,10 @@
 id: story-402-649-refactor-ui-lazy-loading
 type: STORY
 title: Refactor UI Components for Lazy Loading
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-12T16:56:51Z'
-updated_at: '2026-11-08'
+updated_at: '2026-10-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -27,7 +27,7 @@ Refactor existing UI components in DexHelper to support dynamic importing via `R
 
 ## Acceptance Criteria
 - [x] Decompose into granular TASK nodes
-- [x] task-402-649-001-lazy-loading-wrapper
-- [x] task-402-649-002-refactor-pokemon-details
-- [x] task-402-649-003-refactor-dashboard-ui
-- [x] task-402-649-004-qa-lazy-loading
+- [ ] task-402-649-001-lazy-loading-wrapper
+- [ ] task-402-649-002-refactor-pokemon-details
+- [ ] task-402-649-003-refactor-dashboard-ui
+- [ ] task-402-649-004-qa-lazy-loading

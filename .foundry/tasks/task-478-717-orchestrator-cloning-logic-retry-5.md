@@ -2,7 +2,7 @@
 id: task-478-717-orchestrator-cloning-logic-retry-5
 type: TASK
 title: Implement DAG Node Cloning Logic (Retry 5)
-status: CANCELLED
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-23'
 updated_at: '2026-11-04'
@@ -15,8 +15,8 @@ tags:
   - orchestrator
   - generation
 research_references: []
-rejection_count: 3
-rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
+rejection_count: 2
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

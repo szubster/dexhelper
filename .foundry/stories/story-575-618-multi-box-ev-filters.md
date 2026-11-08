@@ -2,10 +2,10 @@
 id: story-575-618-multi-box-ev-filters
 type: STORY
 title: Multi-Box EV Filters
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-18'
-updated_at: '2026-11-05'
+updated_at: '2026-10-18'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -29,7 +29,7 @@ Implement stat filters to allow users to search for Pokémon with specific EVs (
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down this Story into implementation and testing tasks.
-- [x] task-618-687-multi-box-ev-filters-types
-- [x] task-618-688-multi-box-ev-filters-logic
-- [x] task-618-689-multi-box-ev-filters-tests
-- [x] task-618-690-multi-box-ev-filters-qa
+- [ ] task-618-687-multi-box-ev-filters-types
+- [ ] task-618-688-multi-box-ev-filters-logic
+- [ ] task-618-689-multi-box-ev-filters-tests
+- [ ] task-618-690-multi-box-ev-filters-qa

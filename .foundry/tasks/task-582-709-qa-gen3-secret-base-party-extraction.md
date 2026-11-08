@@ -2,10 +2,10 @@
 id: task-582-709-qa-gen3-secret-base-party-extraction
 type: TASK
 title: QA Gen 3 Secret Base Party Extraction
-status: COMPLETED
+status: READY
 owner_persona: qa
 created_at: '2026-09-30'
-updated_at: '2026-11-06'
+updated_at: '2026-10-31'
 depends_on:
   - task-582-708-gen3-secret-base-party-extraction
 jules_session_id: null
@@ -35,7 +35,7 @@ QA the Gen 3 Secret Base NPC party extraction logic implemented by the Coder.
 - Verify that `RangeError` is handled.
 
 ## Acceptance Criteria
-- [x] Verify PokeData property naming schema.
-- [x] Verify module-level constants are used.
-- [x] Verify extraction uses Gen 3 section offsets.
-- [x] Verify `RangeError` catching and throwing of correct message.
+- [ ] Verify PokeData property naming schema.
+- [ ] Verify module-level constants are used.
+- [ ] Verify extraction uses Gen 3 section offsets.
+- [ ] Verify `RangeError` catching and throwing of correct message.

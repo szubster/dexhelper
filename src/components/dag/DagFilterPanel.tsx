@@ -1,25 +1,33 @@
 import React from 'react';
 import { TacticalMultiSelectControl } from '../TacticalMultiSelectControl';
 
+export interface DagFilterPanelProps {
+  activeTypes: Set<string>;
+  activeStatuses: Set<string>;
+  showPermanentFailures: boolean;
+  showHeatmap: boolean;
+  onTypeToggle: (type: string) => void;
+  onStatusToggle: (status: string) => void;
+  onTogglePermanentFailures: () => void;
+  onToggleHeatmap: () => void;
+}
+
 const ALL_TYPES = ['RESEARCH', 'IDEA', 'ADR', 'PRD', 'EPIC', 'STORY', 'TASK'];
 const ALL_STATUSES = ['PENDING', 'READY', 'ACTIVE', 'COMPLETED', 'FAILED', 'BLOCKED', 'CANCELLED'];
 
 // ⚡ Bolt: Wrapped in React.memo to prevent unnecessary re-renders of the filter panel during DAG pan/zoom
-import { useDagContext } from '../dashboard/DagContext';
-
-export const DagFilterPanel = React.memo(function DagFilterPanel() {
-  const {
-    activeTypes,
-    activeStatuses,
-    showPermanentFailures,
-    showHeatmap,
-    toggleActiveType,
-    toggleActiveStatus,
-    toggleShowPermanentFailures,
-    setShowHeatmap,
-  } = useDagContext();
+export const DagFilterPanel = React.memo(function DagFilterPanel({
+  activeTypes,
+  activeStatuses,
+  showPermanentFailures,
+  showHeatmap,
+  onTypeToggle,
+  onStatusToggle,
+  onTogglePermanentFailures,
+  onToggleHeatmap,
+}: DagFilterPanelProps) {
   return (
-    <div className="pointer-events-none absolute top-4 left-4 z-10 flex flex-col gap-4 border border-dashed border-zinc-800 bg-zinc-950/90 p-4 font-mono text-xs text-zinc-400 backdrop-blur-sm [&>*]:pointer-events-auto">
+    <div className="absolute top-4 left-4 z-10 flex flex-col gap-4 border border-dashed border-zinc-800 bg-zinc-950/90 p-4 font-mono text-xs text-zinc-400 backdrop-blur-sm">
       <TacticalMultiSelectControl
         ariaLabel="Filter by type"
         legendLabel="[ SYSTEM.FILTER_TYPE ]"
@@ -27,7 +35,7 @@ export const DagFilterPanel = React.memo(function DagFilterPanel() {
         containerClassName="gap-2 [&>div]:flex-wrap [&>div]:gap-2 [&>div]:border-none [&>button]:border"
         buttonBaseClassName="!border-dashed !border focus-visible:ring-[var(--theme-primary)] px-2 py-1 text-xs"
         selectedValues={activeTypes}
-        onValueToggle={(val) => toggleActiveType(val)}
+        onValueToggle={(val) => onTypeToggle(val)}
         items={ALL_TYPES.map((type) => ({
           id: type,
           label: type,
@@ -42,7 +50,7 @@ export const DagFilterPanel = React.memo(function DagFilterPanel() {
         containerClassName="gap-2 [&>div]:flex-wrap [&>div]:gap-2 [&>div]:border-none [&>button]:border"
         buttonBaseClassName="!border-dashed !border focus-visible:ring-[var(--theme-primary)] px-2 py-1 text-xs"
         selectedValues={activeStatuses}
-        onValueToggle={(val) => toggleActiveStatus(val)}
+        onValueToggle={(val) => onStatusToggle(val)}
         items={ALL_STATUSES.map((status) => {
           let itemVariant: 'emerald' | 'amber' | 'red' | 'ghost' = 'ghost';
 
@@ -79,7 +87,7 @@ export const DagFilterPanel = React.memo(function DagFilterPanel() {
               ? 'border-red-500 bg-red-950/20 text-red-500 shadow-none'
               : 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400'
           }`}
-          onClick={toggleShowPermanentFailures}
+          onClick={onTogglePermanentFailures}
         >
           [ PERMANENT_FAILURES_ONLY ]
         </button>
@@ -94,7 +102,7 @@ export const DagFilterPanel = React.memo(function DagFilterPanel() {
               ? 'border-amber-500 bg-amber-950/20 text-amber-500 shadow-none'
               : 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400'
           }`}
-          onClick={() => setShowHeatmap((prev) => !prev)}
+          onClick={onToggleHeatmap}
         >
           [ HEATMAP_OVERLAY ]
         </button>

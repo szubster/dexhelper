@@ -2,10 +2,10 @@
 id: task-561-707-orchestrator-engine-qa-retry
 type: TASK
 title: 'QA: Orchestrator State and Graph Engine (Retry)'
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-11-05'
+updated_at: '2026-10-18'
 depends_on:
   - task-561-706-orchestrator-engine-tests-retry
 jules_session_id: null
@@ -17,9 +17,7 @@ tags:
   - state-machine
   - dag
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-561-706-orchestrator-engine-tests-retry
+rejection_reason: ''
 notes: ''
 locks: []
 ---

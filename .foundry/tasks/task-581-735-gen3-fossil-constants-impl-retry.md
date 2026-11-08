@@ -2,13 +2,13 @@
 id: task-581-735-gen3-fossil-constants-impl-retry
 type: TASK
 title: Implement Gen 3 Fossil Constants Retry
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-01'
-updated_at: '2026-11-08'
+updated_at: '2026-11-03'
 depends_on:
   - research-581-732-gen3-fossil-flag-offsets
-jules_session_id: '16975974318938897822'
+jules_session_id: null
 pr_number: null
 parent: story-552-581-gen3-fossil-constants
 tags:

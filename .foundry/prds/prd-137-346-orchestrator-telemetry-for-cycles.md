@@ -2,10 +2,10 @@
 id: prd-137-346-orchestrator-telemetry-for-cycles
 type: PRD
 title: Orchestrator Telemetry For Cycles
-status: COMPLETED
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-08-31'
-updated_at: '2026-11-06'
+updated_at: '2026-09-07'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,7 +18,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # PRD: Orchestrator Telemetry For Cycles
@@ -32,4 +31,4 @@ During the completion of epic-334-338-circular-dependency-detection, logic was i
 3. Record instances where the cycle detection fails a node so it can be effectively measured.
 
 ## Acceptance Criteria
-- [x] epic-346-530-orchestrator-telemetry-metrics
+- [ ] epic-346-530-orchestrator-telemetry-metrics

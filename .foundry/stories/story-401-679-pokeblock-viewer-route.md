@@ -2,13 +2,13 @@
 id: story-401-679-pokeblock-viewer-route
 type: STORY
 title: Gen 3 Pokéblock Viewer Route and Dashboard
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-11-04'
+updated_at: '2026-11-03'
 depends_on:
   - epic-114-400-gen3-pokeblock-case-parsing-retry
-jules_session_id: '14557245823975440030'
+jules_session_id: null
 pr_number: null
 parent: epic-114-401-gen3-pokeblock-dashboard-ui-retry
 tags:

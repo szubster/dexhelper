@@ -14,9 +14,6 @@ vi.mock('../../dashboard/DagContext', () => ({
       { id: '2', data: { status: 'ACTIVE', title: 'Child Node 1', type: 'TASK' } },
       { id: '3', data: { status: 'READY', title: 'Child Node 2', type: 'TASK' } },
     ],
-    activeTypes: new Set(['TASK', 'STORY']),
-    activeStatuses: new Set(['COMPLETED', 'ACTIVE', 'READY']),
-    showPermanentFailures: false,
     edges: [
       { source: '1', target: '2' },
       { source: '1', target: '3' },

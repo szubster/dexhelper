@@ -33,7 +33,6 @@ describe('generateSuggestions', () => {
     const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
     ownedSet.delete(208); // Missing Steelix
     const mockSaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'gold',
       trainerName: 'ASH',
@@ -83,7 +82,6 @@ describe('generateSuggestions', () => {
 
     const mockStrategy = {
       ...(await getStrategy(1)),
-      schemaVersion: 1,
       generation: 2,
     };
 
@@ -98,7 +96,6 @@ describe('generateSuggestions', () => {
     const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
     ownedSet.delete(208); // Missing Steelix
     const mockSaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'gold',
       trainerName: 'ASH',
@@ -157,7 +154,6 @@ describe('generateSuggestions', () => {
 
     const mockStrategy = {
       ...(await getStrategy(1)),
-      schemaVersion: 1,
       generation: 2,
     };
 
@@ -174,7 +170,6 @@ describe('generateSuggestions', () => {
     const ownedSet = new Set(Array.from({ length: 251 }, (_, i) => i + 1));
     ownedSet.delete(36); // Missing Clefable
     const mockSaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'gold',
       trainerName: 'ASH',
@@ -233,7 +228,6 @@ describe('generateSuggestions', () => {
 
     const mockStrategy = {
       ...(await getStrategy(1)),
-      schemaVersion: 1,
       generation: 2,
     };
 
@@ -246,7 +240,6 @@ describe('generateSuggestions', () => {
 
   it('should generate "Catch Right Here" (catch-local) suggestions', async () => {
     const mockSaveData: SaveData = {
-      schemaVersion: 1,
       generation: 1,
       gameVersion: 'red',
       owned: new Set([1, 2, 3]), // Missing many, e.g. 4 (Charmander), 16 (Pidgey)
@@ -301,7 +294,6 @@ describe('generateSuggestions', () => {
 
   it('should generate "Nearby" (catch-nearby) suggestions', async () => {
     const mockSaveData: SaveData = {
-      schemaVersion: 1,
       generation: 1,
       gameVersion: 'red',
       owned: new Set([1, 2, 3]), // Missing 19 (Rattata)
@@ -370,7 +362,6 @@ describe('generateSuggestions', () => {
     // Do not set 0x190 (Lapras gift flag)
 
     const mockSaveData: SaveData = {
-      schemaVersion: 1,
       generation: 1,
       gameVersion: 'red',
       owned: new Set([1, 2, 3]), // Missing 131 (Lapras)
@@ -407,7 +398,6 @@ describe('generateSuggestions', () => {
     const eventFlags = new Uint8Array(300);
 
     const mockSaveData: SaveData = {
-      schemaVersion: 1,
       generation: 1,
       gameVersion: 'red',
       owned: new Set([1, 2, 3]), // Missing 131 (Lapras)
@@ -447,7 +437,6 @@ describe('generateSuggestions', () => {
     eventFlags[byteIndex] |= 1 << bitIndex;
 
     const mockSaveData: SaveData = {
-      schemaVersion: 1,
       generation: 1,
       gameVersion: 'red',
       owned: new Set([1, 2, 3]), // Missing 131 (Lapras)
@@ -480,7 +469,6 @@ describe('generateSuggestions', () => {
 
   it('should not generate "Trade" suggestions when tradeIndex flag is set', async () => {
     const mockSaveData: SaveData = {
-      schemaVersion: 1,
       generation: 1,
       gameVersion: 'red',
       owned: new Set([1, 2, 3]), // Missing 122 (Mr. Mime), requires trade index 1
@@ -512,7 +500,6 @@ describe('generateSuggestions', () => {
 
   it('should generate "Breed" suggestions for Gen 2 based on daycare egg status', async () => {
     const mockSaveData: SaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'crystal',
       owned: new Set([153, ...Array.from({ length: 251 }, (_, i) => i + 1).filter((i) => i !== 152)]), // Missing 152 (Chikorita), owns 153 (Bayleef)
@@ -584,7 +571,6 @@ describe('generateSuggestions', () => {
     // Use a strategy with generation 2
     const mockStrategy = {
       ...(await getStrategy(1)),
-      schemaVersion: 1,
       generation: 2, // Must be 2 for Gen2 logic
     };
 
@@ -666,7 +652,6 @@ describe('generateSuggestions', () => {
     ownedSet.add(133); // Owns Eevee (133)
 
     const mockSaveData: SaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'gold',
       owned: ownedSet,
@@ -709,7 +694,6 @@ describe('generateSuggestions', () => {
     // Use a strategy with generation 2
     const mockStrategy = {
       ...(await getStrategy(1)),
-      schemaVersion: 1,
       generation: 2,
     };
 
@@ -724,7 +708,6 @@ describe('generateSuggestions', () => {
 
   it('should penalize priority and add warnings for Headbutt and Rock Smash encounters if items are missing', async () => {
     const localSaveData: SaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'gold',
       owned: new Set([1, ...Array.from({ length: 251 }, (_, i) => i + 1).filter((i) => i !== 2)]), // Only missing 2
@@ -755,7 +738,6 @@ describe('generateSuggestions', () => {
 
     const localStrategy = {
       ...(await getStrategy(1)),
-      schemaVersion: 1,
       generation: 2,
       getMapDistance: () => ({ distance: 1, name: 'Route 1' }),
     };
@@ -849,7 +831,6 @@ describe('generateSuggestions', () => {
 
     const mockStrategy = {
       ...(await getStrategy(1)),
-      schemaVersion: 1,
       generation: 2,
     };
 
@@ -860,7 +841,6 @@ describe('generateSuggestions', () => {
         ownedSet.delete(id);
       });
       return {
-        schemaVersion: 1,
         generation: 2,
         gameVersion: 'gold',
         owned: ownedSet,
@@ -936,7 +916,6 @@ describe('generateSuggestions', () => {
     } as unknown as AssistantApiData;
 
     const mockSaveData: SaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'gold',
       owned: new Set([4, 6]), // Owns Charmander and Charizard, missing Charmeleon (5)
@@ -976,7 +955,6 @@ describe('generateSuggestions', () => {
     fullOwnedSet.delete(172);
 
     const mockSaveData: SaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'gold',
       owned: fullOwnedSet, // Owns Pikachu, missing Pichu
@@ -1001,7 +979,6 @@ describe('generateSuggestions', () => {
   });
   it('should properly handle suggestion.pokemonIds and warnings when some or all encounters require missing tools', async () => {
     const localSaveData: SaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'gold',
       owned: new Set([1]),
@@ -1055,7 +1032,6 @@ describe('generateSuggestions', () => {
 
     const localStrategy = {
       ...(await getStrategy(1)),
-      schemaVersion: 1,
       generation: 2,
       getMapDistance: () => ({ distance: 0, name: 'Route 2' }), // same location
       getSpecialSuggestions: () => [] as unknown as import('../strategies/types').Suggestion[],
@@ -1119,7 +1095,6 @@ describe('generateSuggestions', () => {
     ownedSet.delete(1); // Missing Bulbasaur
 
     const mockSaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'gold',
       trainerName: 'ASH',
@@ -1188,7 +1163,6 @@ describe('generateSuggestions', () => {
     ownedSet.delete(1); // Missing Bulbasaur
 
     const mockSaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'gold',
       trainerName: 'ASH',
@@ -1258,7 +1232,6 @@ describe('generateSuggestions', () => {
     ownedSet.delete(1); // Missing final evolution
 
     const mockSaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'gold',
       trainerName: 'ASH',
@@ -1328,7 +1301,6 @@ describe('generateSuggestions', () => {
     ownedSet.delete(1); // Missing final evolution
 
     const mockSaveData = {
-      schemaVersion: 1,
       generation: 2,
       gameVersion: 'gold',
       trainerName: 'ASH',

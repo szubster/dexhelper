@@ -5,7 +5,6 @@ import { compareSaves, findTradePossibilities } from '../../src/utils/saveCompar
 test.describe('Multi-Save Comparison Algorithms E2E', () => {
   const createMockSave = (ownedIds: number[]): SaveData => {
     return {
-      schemaVersion: 1,
       generation: 1,
       owned: new Set(ownedIds),
       seen: new Set(),

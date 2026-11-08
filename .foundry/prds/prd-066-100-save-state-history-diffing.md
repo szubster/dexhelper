@@ -2,13 +2,13 @@
 id: prd-066-100-save-state-history-diffing
 type: PRD
 title: Save State Diffing and Metadata Inference Engine
-status: ACTIVE
+status: PENDING
 owner_persona: epic_planner
 created_at: '2026-07-01'
-updated_at: '2026-11-06'
+updated_at: '2026-07-01'
 depends_on:
   - prd-066-099-save-state-history-storage
-jules_session_id: '13000459354199322262'
+jules_session_id: null
 pr_number: null
 parent: idea-066-save-state-history
 tags:
@@ -19,7 +19,6 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
-locks: []
 ---
 
 # PRD: Save State Diffing and Metadata Inference Engine

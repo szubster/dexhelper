@@ -1,5 +1,3 @@
-import { TacticalButton } from '@dexhelper/ui';
-
 export interface NPC {
   id: number;
   name: string;
@@ -36,14 +34,16 @@ export function NPCList({ npcs = MOCK_NPCS, selectedNpcId, onSelect }: NPCListPr
       <h2 className="tactical-text mb-2 border-b border-dashed border-zinc-700 pb-2 text-xl">Fame Checker Targets</h2>
       <div className="flex flex-col gap-2">
         {npcs.map((npc) => (
-          <TacticalButton
+          <button
             key={npc.id}
-            variant={selectedNpcId === npc.id ? 'danger' : 'default'}
+            type="button"
             onClick={() => onSelect(npc.id)}
-            className="w-full justify-start text-left"
+            className={`tactical-button w-full text-left ${
+              selectedNpcId === npc.id ? 'border-red-500 bg-red-500/20 text-red-500' : ''
+            }`}
           >
             {npc.name}
-          </TacticalButton>
+          </button>
         ))}
       </div>
     </div>

@@ -52,7 +52,6 @@ function renderWithProviders(ui: React.ReactNode) {
 }
 
 const mockSaveData: SaveData = {
-  schemaVersion: 1,
   generation: 1,
   gameVersion: 'red',
   trainerId: 12345,

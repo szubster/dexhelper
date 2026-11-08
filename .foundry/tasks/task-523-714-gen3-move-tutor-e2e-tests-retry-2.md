@@ -2,10 +2,10 @@
 id: task-523-714-gen3-move-tutor-e2e-tests-retry-2
 type: TASK
 title: Gen 3 Move Tutor E2E Tests Retry 2
-status: CANCELLED
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-20'
-updated_at: '2026-11-04'
+updated_at: '2026-10-31'
 depends_on:
   - task-523-713-gen3-move-tutor-e2e-fixtures-retry-2
 jules_session_id: null
@@ -17,9 +17,7 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-523-713-gen3-move-tutor-e2e-fixtures-retry-2
+rejection_reason: ''
 notes: ''
 locks: []
 ---

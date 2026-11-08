@@ -16,7 +16,6 @@ import { Route as DagRouteImport } from './routes/dag'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as EmulatorRouteImport } from './routes/emulator'
 import { Route as Gen3DashboardRouteImport } from './routes/gen3-dashboard'
-import { Route as InGameTradesRouteImport } from './routes/in-game-trades'
 import { Route as RematchRouteImport } from './routes/rematch'
 import { Route as SafariZoneRouteImport } from './routes/safari-zone'
 import { Route as StorageRouteImport } from './routes/storage'
@@ -57,11 +56,6 @@ const Gen3DashboardRoute = Gen3DashboardRouteImport.update({
   path: '/gen3-dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InGameTradesRoute = InGameTradesRouteImport.update({
-  id: '/in-game-trades',
-  path: '/in-game-trades',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const RematchRoute = RematchRouteImport.update({
   id: '/rematch',
   path: '/rematch',
@@ -91,7 +85,6 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/emulator': typeof EmulatorRoute
   '/gen3-dashboard': typeof Gen3DashboardRoute
-  '/in-game-trades': typeof InGameTradesRoute
   '/rematch': typeof RematchRoute
   '/safari-zone': typeof SafariZoneRoute
   '/storage': typeof StorageRoute
@@ -105,7 +98,6 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/emulator': typeof EmulatorRoute
   '/gen3-dashboard': typeof Gen3DashboardRoute
-  '/in-game-trades': typeof InGameTradesRoute
   '/rematch': typeof RematchRoute
   '/safari-zone': typeof SafariZoneRoute
   '/storage': typeof StorageRoute
@@ -120,7 +112,6 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/emulator': typeof EmulatorRoute
   '/gen3-dashboard': typeof Gen3DashboardRoute
-  '/in-game-trades': typeof InGameTradesRoute
   '/rematch': typeof RematchRoute
   '/safari-zone': typeof SafariZoneRoute
   '/storage': typeof StorageRoute
@@ -136,7 +127,6 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/emulator'
     | '/gen3-dashboard'
-    | '/in-game-trades'
     | '/rematch'
     | '/safari-zone'
     | '/storage'
@@ -150,7 +140,6 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/emulator'
     | '/gen3-dashboard'
-    | '/in-game-trades'
     | '/rematch'
     | '/safari-zone'
     | '/storage'
@@ -164,7 +153,6 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/emulator'
     | '/gen3-dashboard'
-    | '/in-game-trades'
     | '/rematch'
     | '/safari-zone'
     | '/storage'
@@ -179,7 +167,6 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   EmulatorRoute: typeof EmulatorRoute
   Gen3DashboardRoute: typeof Gen3DashboardRoute
-  InGameTradesRoute: typeof InGameTradesRoute
   RematchRoute: typeof RematchRoute
   SafariZoneRoute: typeof SafariZoneRoute
   StorageRoute: typeof StorageRoute
@@ -237,13 +224,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Gen3DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/in-game-trades': {
-      id: '/in-game-trades'
-      path: '/in-game-trades'
-      fullPath: '/in-game-trades'
-      preLoaderRoute: typeof InGameTradesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/rematch': {
       id: '/rematch'
       path: '/rematch'
@@ -283,7 +263,6 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   EmulatorRoute: EmulatorRoute,
   Gen3DashboardRoute: Gen3DashboardRoute,
-  InGameTradesRoute: InGameTradesRoute,
   RematchRoute: RematchRoute,
   SafariZoneRoute: SafariZoneRoute,
   StorageRoute: StorageRoute,

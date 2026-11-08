@@ -51,10 +51,7 @@ export const useShinyBreedingStore = create<ShinyBreedingState>((set, get) => ({
         set({ metadataCache: newCache });
       }
     } catch (e) {
-      console.error(
-        'Failed to load metadata for shiny breeding store:',
-        e instanceof Error ? e.message : 'Unknown error',
-      );
+      console.error('Failed to load metadata for shiny breeding store', e);
     }
   },
 }));

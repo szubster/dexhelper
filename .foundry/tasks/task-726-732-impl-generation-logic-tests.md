@@ -2,12 +2,12 @@
 id: task-726-732-impl-generation-logic-tests
 type: TASK
 title: Implement E2E Tests for Generation-Specific Logic Splitting
-status: ACTIVE
+status: READY
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-11-04'
+updated_at: '2026-10-25'
 depends_on: []
-jules_session_id: '15799343487872142639'
+jules_session_id: null
 parent: story-421-726-splitting-validation
 tags:
   - e2e
@@ -27,5 +27,5 @@ Write Playwright E2E tests to guarantee that generation-specific logic remains f
 - Emphasize checks on edge cases specific to each generation's data structures.
 
 ## Acceptance Criteria
-- [x] Generation-specific logic is fully functional for all supported generations.
-- [x] Tests accurately simulate parsing and verify output.
+- [ ] Generation-specific logic is fully functional for all supported generations.
+- [ ] Tests accurately simulate parsing and verify output.

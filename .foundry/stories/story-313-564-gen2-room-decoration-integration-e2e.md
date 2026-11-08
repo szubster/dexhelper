@@ -2,10 +2,10 @@
 id: story-313-564-gen2-room-decoration-integration-e2e
 type: STORY
 title: Gen 2 Room Decoration Integration & E2E
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-11-05'
+updated_at: '2026-10-20'
 depends_on: []
 jules_session_id: null
 parent: epic-112-313-gen2-room-decoration-viewer-ui
@@ -28,9 +28,9 @@ Integrate the Gen 2 Room Decoration state logic and UI components into the main 
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [x] task-564-586-gen2-room-decoration-route-integration
+- [ ] task-564-586-gen2-room-decoration-route-integration
 - [x] task-564-587-gen2-room-decoration-e2e-tests
 - [x] task-564-588-gen2-room-decoration-integration-qa
-- [x] research-564-690-investigate-gen2-room-decoration-e2e-failure
-- [x] task-564-691-gen2-room-decoration-e2e-tests-retry
-- [x] task-564-692-gen2-room-decoration-integration-qa-retry
+- [ ] research-564-690-investigate-gen2-room-decoration-e2e-failure
+- [ ] task-564-691-gen2-room-decoration-e2e-tests-retry
+- [ ] task-564-692-gen2-room-decoration-integration-qa-retry

@@ -2,13 +2,13 @@
 id: task-528-732-safari-zone-bounty-board-ui-retry
 type: TASK
 title: Safari Zone Bounty Board UI Components Retry
-status: ACTIVE
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-28'
-updated_at: '2026-11-07'
+updated_at: '2026-10-31'
 depends_on:
   - research-528-731-investigate-safari-zone-bounty-board-ui-failure
-jules_session_id: '15061489910122629708'
+jules_session_id: null
 pr_number: null
 parent: story-325-528-safari-zone-bounty-board
 tags:

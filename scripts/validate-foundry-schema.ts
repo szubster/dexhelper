@@ -288,7 +288,7 @@ function validateSchema() {
       }
 
       if (/^\s*[-*+]\s*\[[\sXx]*\]/.test(line)) {
-        if (!/^\s*- \[( |x)\] /.test(line) && !/^\s*- \[x\] /.test(line)) {
+        if (!/^\s*- \[( |x)\] /.test(line)) {
           console.error(`Error: Invalid checkbox syntax in file ${file} at line ${index + 1}: ${line.trim()}`);
           hasError = true;
         }

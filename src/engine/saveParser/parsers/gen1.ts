@@ -779,7 +779,6 @@ export function parseGen1(view: DataView, forcedVersion?: GameVersion): Gen1Save
   }
 
   return {
-    schemaVersion: 1,
     generation: 1,
     owned,
     seen,

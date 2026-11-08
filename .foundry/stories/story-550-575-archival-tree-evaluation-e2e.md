@@ -2,10 +2,10 @@
 id: story-550-575-archival-tree-evaluation-e2e
 type: STORY
 title: Archival Tree Evaluation E2E Verification
-status: COMPLETED
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-09-15T23:23:46Z'
-updated_at: '2026-11-05'
+updated_at: '2026-10-22'
 depends_on:
   - story-550-573-tree-level-completeness-logic
   - story-550-574-archival-file-move-automation
@@ -30,10 +30,10 @@ Generate E2E verification story for the tree completeness evaluation and file mo
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [x] Verify entire parent/descendant chain is correctly evaluated
-- [x] Verify systematic file moves preserving subdirectories
-- [x] Ensure archival operation is deterministic via orchestrator
-- [x] task-575-690-archival-tree-e2e-harness
-- [x] task-575-691-archival-tree-completeness-e2e-tests
-- [x] task-575-692-archival-file-move-e2e-tests
-- [x] task-575-693-archival-tree-e2e-qa
+- [ ] Verify entire parent/descendant chain is correctly evaluated
+- [ ] Verify systematic file moves preserving subdirectories
+- [ ] Ensure archival operation is deterministic via orchestrator
+- [ ] task-575-690-archival-tree-e2e-harness
+- [ ] task-575-691-archival-tree-completeness-e2e-tests
+- [ ] task-575-692-archival-file-move-e2e-tests
+- [ ] task-575-693-archival-tree-e2e-qa

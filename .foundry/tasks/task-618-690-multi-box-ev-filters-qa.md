@@ -2,10 +2,10 @@
 id: task-618-690-multi-box-ev-filters-qa
 type: TASK
 title: 'QA: Multi-Box EV Filters'
-status: COMPLETED
+status: READY
 owner_persona: qa
 created_at: '2026-10-14'
-updated_at: '2026-11-05'
+updated_at: '2026-11-02'
 depends_on:
   - task-618-689-multi-box-ev-filters-tests
 jules_session_id: null
@@ -35,5 +35,5 @@ The Multi-Box EV Filters types, logic, and tests have been implemented. A QA rev
 - Validate that the unit tests are comprehensive.
 
 ## Acceptance Criteria
-- [x] Code review passes for the EV filtering implementation.
-- [x] Unit tests pass and provide adequate coverage.
+- [ ] Code review passes for the EV filtering implementation.
+- [ ] Unit tests pass and provide adequate coverage.

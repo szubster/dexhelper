@@ -2,10 +2,10 @@
 id: story-690-711-gen3-pokerus-parsing-and-mapping
 type: STORY
 title: Gen 3 Pokerus Parsing and Mapping Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-11-06'
+updated_at: '2026-10-21'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,7 +32,4 @@ Implement the logic to extract the Pokerus status byte from the Gen 3 Pokémon M
 - Utilize the Gen 3 decryption and parsing infrastructure previously established.
 
 ## Acceptance Criteria
-- [x] Tech Lead: Break down this Story into modular Tasks for the Coder and QA.
-- [ ] task-711-740-gen3-pokerus-parsing-logic
-- [ ] task-711-741-gen3-pokerus-parsing-tests
-- [ ] task-711-742-qa-gen3-pokerus-parsing
+- [ ] Tech Lead: Break down this Story into modular Tasks for the Coder and QA.

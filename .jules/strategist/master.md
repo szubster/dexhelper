@@ -430,19 +430,3 @@ Both `.github/agents/canvas.md` and `.github/agents/strategist.md` were missing 
 **Outcome:** Merged
 **Why:** The `.github/agents/archivist.md` schedule contained inaccurate statements in its Scope table and Boundaries section claiming that schedule prompts in `.github/agents/` are 'maintained manually'. In reality, agent schedule prompts are maintained and evolved autonomously by the `strategist` persona. Correcting these statements aligns Archivist's prompt boundaries with actual operational reality.
 **Pattern:** Ensure boundary rules and scope tables across agent prompts accurately reflect autonomous system roles and maintenance ownership.
-
----
-
-## 2026-10-21 - [Accepted] - Prompt improvement - Remove redundant journal reading directive from visionary.md
-**Type:** Prompt improvement
-**Outcome:** Merged
-**Why:** `.github/agents/visionary.md` contained a redundant journal reading directive under its `Boundaries` section ("Read your past journals in `.jules/visionary/master.md` to recall past generated ideas and their outcomes."). Journal reading directives are centrally required in the `## Journal` section across all persona prompts. Removing this duplicate line eliminates redundant instructions, reduces token bloat, and aligns `visionary.md` with system-wide prompt standards.
-**Pattern:** Audit agent persona prompts to ensure journal reading instructions are defined strictly once in the `## Journal` section, eliminating duplicated journal directives from `Boundaries` or `Core Directives` sections.
-
----
-
-## 2026-10-31 - [Accepted] - Prompt improvement - Integrate reusable component replacement into Mason schedule
-**Type:** Prompt improvement
-**Outcome:** Merged
-**Why:** `.foundry/docs/knowledge_base/agents/core_policies.md` contains an explicit policy under `### Mason Prompt Adjustments` stating: "When finding standard HTML elements or repeated JSX patterns, it is perfectly acceptable and encouraged to reuse existing reusable components (e.g. replacing `<button>` with `<TacticalButton>`) rather than strictly creating a new component, as long as it improves modularity and reduces code duplication." However, `.github/agents/mason.md` was narrowly defined around extracting new components from repeated JSX, omitting instructions for replacing raw HTML elements with existing tactical primitives. Updating `mason.md` aligns the agent's prompt with system policies and enables Mason to opportunistically adopt existing design system components.
-**Pattern:** Align individual agent prompt definitions with agent-specific adjustments and policies specified in `core_policies.md` to prevent discrepancies between policy directives and prompt boundaries.

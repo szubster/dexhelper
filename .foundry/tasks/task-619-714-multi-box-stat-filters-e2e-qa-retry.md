@@ -2,10 +2,10 @@
 id: task-619-714-multi-box-stat-filters-e2e-qa-retry
 type: TASK
 title: Multi-Box Stat Filters E2E QA Verification Retry
-status: CANCELLED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-21'
-updated_at: '2026-11-06'
+updated_at: '2026-10-21'
 depends_on:
   - task-619-713-multi-box-stat-filters-e2e-tests-retry
 jules_session_id: null
@@ -16,9 +16,7 @@ tags:
   - qa
   - e2e
 rejection_count: 0
-rejection_reason: >-
-  Cancelled due to permanent failure of dependency:
-  task-619-713-multi-box-stat-filters-e2e-tests-retry
+rejection_reason: ''
 notes: ''
 locks: []
 ---

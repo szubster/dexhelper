@@ -1,54 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-let isCheckMode: boolean = false;
-
-function processFile(fullPath: string) {
-    let content = fs.readFileSync(fullPath, 'utf8');
-    let modified = false;
-
-    const lines = content.split('\n');
-    let inAcceptanceCriteria = false;
-
-    for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-
-        if (line.match(/^#+ Acceptance Criteria\s*$/i)) {
-            inAcceptanceCriteria = true;
-            continue;
-        }
-
-        if (inAcceptanceCriteria && line.match(/^#/)) {
-            inAcceptanceCriteria = false;
-        }
-
-        if (inAcceptanceCriteria) {
-            const originalLine = line;
-            // Format unchecked: -[], - [ ], * [ ], -[  ], etc.
-            let formattedLine = line.replace(/^(\s*)[-*]\s*\[\s*\]/g, '$1- [ ]');
-
-            // Format checked: -[x], - [X], * [x], -[ x ], etc.
-            formattedLine = formattedLine.replace(/^(\s*)[-*]\s*\[\s*[xX]\s*\]/g, '$1- [x]');
-
-            if (originalLine !== formattedLine) {
-                lines[i] = formattedLine;
-                modified = true;
-            }
-        }
-    }
-
-    if (modified) {
-        if (isCheckMode) {
-            console.error(`Error: Checkboxes in ${fullPath} are not formatted correctly.`);
-            process.exitCode = 1;
-        } else {
-            fs.writeFileSync(fullPath, lines.join('\n'));
-            console.log(`Formatted checkboxes in ${fullPath}`);
-        }
-    }
-}
-
-function processDirectory(dir: string) {
+function formatCheckboxes(dir: string) {
     const files = fs.readdirSync(dir);
 
     for (const file of files) {
@@ -56,37 +9,48 @@ function processDirectory(dir: string) {
         const stat = fs.statSync(fullPath);
 
         if (stat.isDirectory()) {
-            processDirectory(fullPath);
+            formatCheckboxes(fullPath);
         } else if (file.endsWith('.md')) {
-            processFile(fullPath);
-        }
-    }
-}
+            let content = fs.readFileSync(fullPath, 'utf8');
+            let modified = false;
 
-const args = process.argv.slice(2);
-const filteredArgs = [];
+            const lines = content.split('\n');
+            let inAcceptanceCriteria = false;
 
-for (const arg of args) {
-    if (arg === '--check') {
-        isCheckMode = true;
-    } else {
-        filteredArgs.push(arg);
-    }
-}
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
 
-if (filteredArgs.length > 0) {
-    for (const arg of filteredArgs) {
-        const fullPath = path.resolve(process.cwd(), arg);
-        if (fs.existsSync(fullPath)) {
-            const stat = fs.statSync(fullPath);
-            if (stat.isDirectory()) {
-                processDirectory(fullPath);
-            } else if (fullPath.endsWith('.md')) {
-                processFile(fullPath);
+                if (line.match(/^#+ Acceptance Criteria\s*$/i)) {
+                    inAcceptanceCriteria = true;
+                    continue;
+                }
+
+                if (inAcceptanceCriteria && line.match(/^#/)) {
+                    inAcceptanceCriteria = false;
+                }
+
+                if (inAcceptanceCriteria) {
+                    const originalLine = line;
+                    // Format unchecked: -[], - [ ], * [ ], -[  ], etc.
+                    let formattedLine = line.replace(/^(\s*)[-*]\s*\[\s*\]/g, '$1- [ ]');
+
+                    // Format checked: -[x], - [X], * [x], -[ x ], etc.
+                    formattedLine = formattedLine.replace(/^(\s*)[-*]\s*\[\s*[xX]\s*\]/g, '$1- [x]');
+
+                    if (originalLine !== formattedLine) {
+                        lines[i] = formattedLine;
+                        modified = true;
+                    }
+                }
+            }
+
+            if (modified) {
+                fs.writeFileSync(fullPath, lines.join('\n'));
+                console.log(`Formatted checkboxes in ${fullPath}`);
             }
         }
     }
-} else {
-    const foundryDir = path.resolve(process.cwd(), '.foundry');
-    processDirectory(foundryDir);
 }
+
+const foundryDir = path.resolve(process.cwd(), '.foundry');
+formatCheckboxes(foundryDir);

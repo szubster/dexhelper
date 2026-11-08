@@ -2,12 +2,12 @@
 id: epic-587-693-save-parser-linter-rule-development
 type: EPIC
 title: Save Parser Linter Rule Development
-status: ACTIVE
+status: READY
 owner_persona: story_owner
 created_at: '2026-10-21'
-updated_at: '2026-11-06'
+updated_at: '2026-10-31'
 depends_on: []
-jules_session_id: '8426398907967003141'
+jules_session_id: null
 pr_number: null
 parent: prd-533-587-save-parser-constant-extraction-linter
 tags: []

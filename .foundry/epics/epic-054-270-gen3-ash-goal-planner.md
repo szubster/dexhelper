@@ -1,14 +1,14 @@
 ---
 id: epic-054-270-gen3-ash-goal-planner
 type: EPIC
-title: 'Epic: Gen 3 Volcanic Ash Goal Planner'
-status: ACTIVE
+title: "Epic: Gen 3 Volcanic Ash Goal Planner"
+status: PENDING
 owner_persona: story_owner
-created_at: '2026-07-17'
-updated_at: '2026-11-07'
+created_at: "2026-07-17"
+updated_at: "2026-07-17"
 depends_on:
-  - epic-054-269-gen3-ash-dashboard
-jules_session_id: '169453857194922828'
+  - "epic-054-269-gen3-ash-dashboard"
+jules_session_id: null
 pr_number: null
 parent: prd-089-054-gen3-ash-gathering-tracker
 tags:
@@ -18,9 +18,8 @@ tags:
   - planning
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-notes: ''
-locks: []
+rejection_reason: ""
+notes: ""
 ---
 
 # Epic: Gen 3 Volcanic Ash Goal Planner

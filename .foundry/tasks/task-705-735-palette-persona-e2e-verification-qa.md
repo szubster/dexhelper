@@ -2,13 +2,13 @@
 id: task-705-735-palette-persona-e2e-verification-qa
 type: TASK
 title: QA E2E Integration and Verification for Palette Persona
-status: ACTIVE
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-31T22:38:55Z'
-updated_at: '2026-11-07'
+updated_at: '2026-10-31T22:38:55Z'
 depends_on:
   - task-705-734-palette-persona-e2e-verification-impl
-jules_session_id: '4630027656951160674'
+jules_session_id: null
 pr_number: null
 parent: story-126-705-palette-persona-integration-verification
 tags:
