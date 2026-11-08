@@ -29,5 +29,5 @@ locks: []
 Verify the stat advantage calculation logic.
 
 ## Acceptance Criteria
-- [ ] Review PR for stat advantage implementation.
-- [ ] Verify unit tests.
+- [x] Review PR for stat advantage implementation.
+- [x] Verify unit tests.
