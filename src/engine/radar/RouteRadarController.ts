@@ -1,5 +1,74 @@
-import type { Suggestion } from '../assistant/strategies/types';
+import type { CatchSuggestion, Suggestion } from '../assistant/strategies/types';
 import type { RouteRadarHeatmap } from './types';
+
+export interface AreaBikeRequirements {
+  mach: boolean;
+  acro: boolean;
+}
+
+export interface ExtractedAreaRequirements {
+  uniqueAreaIds: Set<number>;
+  areaBikeReqs: Map<number, AreaBikeRequirements>;
+}
+
+/**
+ * Extracts unique area IDs and aggregates bike prerequisites across all encounters
+ * in a catch suggestion's encounter info mapping.
+ *
+ * @param encounterInfo - Map of mapId to array of encounter details.
+ * @returns An object containing the set of unique areaIds and their aggregated bike requirements.
+ */
+export function extractEncounterAreaRequirements(
+  encounterInfo: CatchSuggestion['encounterInfo'],
+): ExtractedAreaRequirements {
+  const uniqueAreaIds = new Set<number>();
+  const areaBikeReqs = new Map<number, AreaBikeRequirements>();
+
+  if (!encounterInfo) {
+    return { uniqueAreaIds, areaBikeReqs };
+  }
+
+  for (const mapId in encounterInfo) {
+    const encounters = encounterInfo[mapId];
+    if (encounters) {
+      for (const encounter of encounters) {
+        uniqueAreaIds.add(encounter.areaId);
+
+        let reqs = areaBikeReqs.get(encounter.areaId);
+        if (!reqs) {
+          reqs = { mach: false, acro: false };
+          areaBikeReqs.set(encounter.areaId, reqs);
+        }
+        if (encounter.requiresMachBike) reqs.mach = true;
+        if (encounter.requiresAcroBike) reqs.acro = true;
+      }
+    }
+  }
+
+  return { uniqueAreaIds, areaBikeReqs };
+}
+
+/**
+ * Updates a heatmap entry for a specific area, incrementing its density and merging bike requirements.
+ *
+ * @param heatmap - The mutable heatmap object to update.
+ * @param areaId - The target area ID being updated.
+ * @param bikeReqs - Optional bike requirements associated with encounters in this area.
+ */
+export function updateHeatmapForArea(
+  heatmap: RouteRadarHeatmap,
+  areaId: number,
+  bikeReqs?: AreaBikeRequirements,
+): void {
+  if (!heatmap[areaId]) {
+    heatmap[areaId] = { density: 0, requiresMachBike: false, requiresAcroBike: false };
+  }
+
+  heatmap[areaId].density += 1;
+
+  if (bikeReqs?.mach) heatmap[areaId].requiresMachBike = true;
+  if (bikeReqs?.acro) heatmap[areaId].requiresAcroBike = true;
+}
 
 /**
  * RouteRadarController bridges the dynamic suggestionEngine output
@@ -48,38 +117,10 @@ export class RouteRadarController {
 
     for (const suggestion of suggestions) {
       if (suggestion.category === 'Catch' && suggestion.encounterInfo) {
-        const uniqueAreaIds = new Set<number>();
-        const areaBikeReqs = new Map<number, { mach: boolean; acro: boolean }>();
+        const { uniqueAreaIds, areaBikeReqs } = extractEncounterAreaRequirements(suggestion.encounterInfo);
 
-        // Iterate through all map IDs (keys) and extract areaIds (areaId) from the encounter details
-        for (const mapId in suggestion.encounterInfo) {
-          const encounters = suggestion.encounterInfo[mapId];
-          if (encounters) {
-            for (const encounter of encounters) {
-              uniqueAreaIds.add(encounter.areaId);
-
-              let reqs = areaBikeReqs.get(encounter.areaId);
-              if (!reqs) {
-                reqs = { mach: false, acro: false };
-                areaBikeReqs.set(encounter.areaId, reqs);
-              }
-              if (encounter.requiresMachBike) reqs.mach = true;
-              if (encounter.requiresAcroBike) reqs.acro = true;
-            }
-          }
-        }
-
-        // Increment the density score for each unique areaId found for this suggestion
         for (const areaId of uniqueAreaIds) {
-          if (!heatmap[areaId]) {
-            heatmap[areaId] = { density: 0, requiresMachBike: false, requiresAcroBike: false };
-          }
-          // Increase density count by 1 for this missing encounter
-          heatmap[areaId].density += 1;
-
-          const reqs = areaBikeReqs.get(areaId);
-          if (reqs?.mach) heatmap[areaId].requiresMachBike = true;
-          if (reqs?.acro) heatmap[areaId].requiresAcroBike = true;
+          updateHeatmapForArea(heatmap, areaId, areaBikeReqs.get(areaId));
         }
       }
     }
