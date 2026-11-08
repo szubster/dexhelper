@@ -24,4 +24,4 @@ jobs:
           node-version: "22"
 
       - name: Run actionlint
-        run: npx actionlint -color
+        run: npx github-actionlint -color
