@@ -32,3 +32,5 @@ Implement the thematic visual view of the Trainer Card in the main Gen 3 dashboa
 - [ ] Implement tactical UI layout for the Trainer Card using `@utility` primitives and sharp edges.
 - [ ] Display the current number of earned stars prominently.
 - [ ] Integrate with the core state layer.
+- [ ] task-677-746-gen3-trainer-card-tactical-ui-impl
+- [ ] task-677-747-gen3-trainer-card-tactical-ui-qa
