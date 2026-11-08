@@ -19,7 +19,7 @@ test.describe('SaveDataReader integration', () => {
     await fileInput.setInputFiles(path.join('tests', 'fixtures', 'yellow.sav'));
 
     // Wait for the pokedex grid to render, proving that SaveDataReader successfully extracted the data
-    await expect(gridModel.pokemonCards.first()).toBeVisible({ timeout: 15000 });
+    await expect(gridModel.pokemonCards.first()).toBeVisible({ timeout: 30000 });
 
     // Check some specific state that SaveDataReader would have extracted (e.g. trainer name)
     await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible();

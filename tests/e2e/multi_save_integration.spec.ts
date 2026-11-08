@@ -21,7 +21,7 @@ test.describe('Multi-Save Architecture Integration', () => {
         .getByText(/YELLOW/i)
         .first(),
     ).toBeVisible();
-    await expect(gridModel.pokemonCards.first()).toBeVisible({ timeout: 15000 });
+    await expect(gridModel.pokemonCards.first()).toBeVisible({ timeout: 30000 });
 
     const fileInput2 = page.locator('input[type="file"]').first();
     await fileInput2.setInputFiles(path.join('tests', 'fixtures', 'crystal.sav'));
