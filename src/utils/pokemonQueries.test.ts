@@ -1,10 +1,11 @@
 import type { QueryFunctionContext } from '@tanstack/react-query';
 import { describe, expect, it, vi } from 'vitest';
-import { getDB } from '../db/PokeDB';
+import { getDB, pokeDB } from '../db/PokeDB';
 import type { PokeDBSchema } from '../db/schema';
 import { pokemonListQueryOptions } from './pokemonQueries';
 
 vi.mock('../db/PokeDB', () => ({
+  pokeDB: { getAllPokemon: vi.fn<() => Promise<import('../db/schema').PokemonMetadata[]>>() },
   getDB: vi.fn<() => Promise<import('idb').IDBPDatabase<PokeDBSchema>>>(),
 }));
 
@@ -21,6 +22,11 @@ describe('pokemonQueries', () => {
         { id: 3, n: 'venusaur' },
       ]);
 
+      vi.mocked(pokeDB.getAllPokemon).mockResolvedValue([
+        { id: 2, n: 'ivysaur' },
+        { id: 1, n: 'bulbasaur' },
+        { id: 3, n: 'venusaur' },
+      ] as unknown as import('../db/schema').PokemonMetadata[]);
       vi.mocked(getDB).mockResolvedValue({
         getAll: mockGetAll,
       } as unknown as import('idb').IDBPDatabase<PokeDBSchema>);
@@ -33,7 +39,7 @@ describe('pokemonQueries', () => {
 
       const result = await pokemonListQueryOptions.queryFn?.(context);
 
-      expect(mockGetAll).toHaveBeenCalledWith('pokemon');
+      expect(pokeDB.getAllPokemon).toHaveBeenCalled();
       expect(result).toEqual([
         { id: 1, name: 'Bulbasaur', nameLower: 'bulbasaur', idString: '1' },
         { id: 2, name: 'Ivysaur', nameLower: 'ivysaur', idString: '2' },
