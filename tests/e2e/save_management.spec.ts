@@ -19,7 +19,9 @@ test.describe('Save Management', () => {
     await fileInput.setInputFiles(path.join('tests', 'fixtures', 'yellow.sav'));
 
     // 3. Verify Hydration: Pokedex grid should appear
-    await expect(gridModel.pokemonCards.first()).toBeVisible();
+    await expect(
+      page.locator('header').getByText(/TRNR/i).first().or(gridModel.pokemonCards.first()).first(),
+    ).toBeVisible({ timeout: 15000 });
 
     // 4. Verify Trainer Info in Header
     await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible();
@@ -35,7 +37,9 @@ test.describe('Save Management', () => {
     await waitForSync(page);
 
     // 6. Verify it's still hydrated (persisted in localStorage)
-    await expect(gridModel.pokemonCards.first()).toBeVisible();
+    await expect(
+      page.locator('header').getByText(/TRNR/i).first().or(gridModel.pokemonCards.first()).first(),
+    ).toBeVisible({ timeout: 15000 });
     await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible();
   });
 

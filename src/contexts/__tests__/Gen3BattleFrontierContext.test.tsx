@@ -61,6 +61,21 @@ describe('Gen3BattleFrontierContext', () => {
     await expect.element((await screen).getByTestId('symbols')).toHaveTextContent('no_symbols');
   });
 
+  it('handles missing gen3 battle frontier data on gen 3 gracefully', async () => {
+    vi.mocked(useStore).mockReturnValue({
+      generation: 3,
+    } as unknown as BaseSaveData);
+
+    const screen = render(
+      <Gen3BattleFrontierProvider>
+        <TestComponent />
+      </Gen3BattleFrontierProvider>,
+    );
+
+    await expect.element((await screen).getByTestId('streaks')).toHaveTextContent('no_streaks');
+    await expect.element((await screen).getByTestId('symbols')).toHaveTextContent('no_symbols');
+  });
+
   it('provides data when present and generation 3', async () => {
     vi.mocked(useStore).mockReturnValue({
       generation: 3,
