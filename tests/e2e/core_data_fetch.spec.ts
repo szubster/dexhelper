@@ -5,6 +5,10 @@ test.describe('pokedata-core.msgpack Fetch E2E', () => {
   test('should fetch pokedata-core.msgpack during initialization', async ({ page }) => {
     await clearStorage(page);
 
+    await page.evaluate(async () => {
+      window.indexedDB.deleteDatabase('PokeDB');
+    });
+
     // Intercept network requests
     let isFetched = false;
     page.on('request', (request) => {
