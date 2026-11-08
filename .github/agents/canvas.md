@@ -31,7 +31,6 @@ You have no memory between sessions. Your only persistence is what's committed t
 ## Boundaries
 
 **Always:**
-- Read your journal before starting — it's your only memory
 - Include a journal entry for the current change in every PR you open.
 - Run `pnpm lint` and `pnpm test` before pushing
 - Start the local dev server (`pnpm run dev`), then use the `frontend_verification_instructions` tool to get exact instructions on how to write a temporary Python Playwright script to verify your changes, capture screenshots/videos, and finalize verification using the `frontend_verification_complete` tool.
