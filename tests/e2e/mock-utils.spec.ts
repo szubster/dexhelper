@@ -13,6 +13,7 @@ test.describe('Mock Utils', () => {
   test('mockFileSystemAccess should mock showOpenFilePicker', async ({ page }) => {
     await mockFileSystemAccess(page, 'hello world', 'test.txt');
     await page.goto('/');
+    await page.waitForLoadState('networkidle');
 
     const fileData = await page.evaluate(async () => {
       const handles = await window.showOpenFilePicker();
