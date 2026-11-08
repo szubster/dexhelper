@@ -39,7 +39,11 @@ Implement end-to-end testing for the Duplicate Analyzer Comparison Matrix view.
 - [x] task-523-707-box-analyzer-matrix-e2e-tabular-data
 - [x] task-523-708-box-analyzer-matrix-e2e-highlighting
 - [x] task-523-709-box-analyzer-matrix-e2e-qa
-- [ ] research-523-731-investigate-box-analyzer-matrix-e2e-failure
-- [ ] task-523-732-box-analyzer-matrix-e2e-tabular-data-retry
-- [ ] task-523-733-box-analyzer-matrix-e2e-highlighting-retry
-- [ ] task-523-734-box-analyzer-matrix-e2e-qa-retry
+- [x] research-523-731-investigate-box-analyzer-matrix-e2e-failure
+- [x] task-523-732-box-analyzer-matrix-e2e-tabular-data-retry
+- [x] task-523-733-box-analyzer-matrix-e2e-highlighting-retry
+- [x] task-523-734-box-analyzer-matrix-e2e-qa-retry
+- [ ] research-523-746-investigate-box-analyzer-matrix-e2e-failure-retry-2
+- [ ] task-523-747-box-analyzer-matrix-e2e-tabular-data-retry-2
+- [ ] task-523-748-box-analyzer-matrix-e2e-highlighting-retry-2
+- [ ] task-523-749-box-analyzer-matrix-e2e-qa-retry-2
