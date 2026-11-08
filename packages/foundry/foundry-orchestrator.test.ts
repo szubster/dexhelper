@@ -2349,6 +2349,42 @@ Target artifact: task-completed
     });
   });
 
+  describe('Artifact Presence Validator - File System', () => {
+    test('Idempotent Generation Check detects pre-existing artifacts on disk via fs.existsSync', () => {
+      // Create a macro node (EPIC) that generates a STORY
+      createValidTestNode(tmpDir, '.foundry/epics/epic-idempotent-fs.md', {
+        id: "epic-idempotent-fs",
+        type: "EPIC",
+        title: "Epic Idempotent FS",
+        status: "PENDING",
+        owner_persona: "story_owner",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      }, `## Acceptance Criteria
+- [x] story-disk-001
+- [x] story-disk-001-e2e`);
+
+      // Write the child stories directly to the filesystem to simulate them being created outside the active nodeMap loop
+      const childStoryPath = path.join(tmpDir, '.foundry/stories/story-disk-001.md');
+      const childE2eStoryPath = path.join(tmpDir, '.foundry/stories/story-disk-001-e2e.md');
+
+      fs.mkdirSync(path.dirname(childStoryPath), { recursive: true });
+      fs.writeFileSync(childStoryPath, `---\nid: story-disk-001\ntype: STORY\ntitle: "Story Disk 1"\nstatus: COMPLETED\nowner_persona: tech_lead\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: epic-idempotent-fs\ndepends_on: []\njules_session_id: null\n---\n\n# Title`, 'utf-8');
+
+      fs.writeFileSync(childE2eStoryPath, `---\nid: story-disk-001-e2e\ntype: STORY\ntitle: "Story Disk 1 E2E"\nstatus: COMPLETED\nowner_persona: tech_lead\ncreated_at: "2026-04-20"\nupdated_at: "2026-04-20"\nparent: epic-idempotent-fs\ntags: [e2e]\ndepends_on: []\njules_session_id: null\n---\n\n# Title`, 'utf-8');
+
+      main();
+
+      const epicContent = fs.readFileSync(path.join(tmpDir, '.foundry/epics/epic-idempotent-fs.md'), 'utf-8');
+
+      // Since the children exist on disk and all acceptance criteria are checked, the idempotent
+      // check should bypass dispatch and auto-complete the node.
+      expect(epicContent).toContain('status: COMPLETED');
+    });
+  });
+
   test('Leaf task: bypasses dispatch and marks COMPLETED if all acceptance criteria checkboxes are checked', () => {
     createValidTestNode(tmpDir, '.foundry/tasks/task-checked-leaf.md', {
       id: "task-checked-leaf",
