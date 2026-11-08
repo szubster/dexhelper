@@ -2,13 +2,13 @@
 id: task-714-735-qa-detect-scratchpads-script
 type: TASK
 title: QA detect-scratchpads.js script
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-31T19:34:45.000Z'
-updated_at: '2026-11-07'
+updated_at: '2026-11-08'
 depends_on:
   - task-714-734-implement-detect-scratchpads-script
-jules_session_id: null
+jules_session_id: '2661488191550903209'
 pr_number: null
 parent: story-584-714-implement-detect-scratchpads-script
 tags:
