@@ -58,6 +58,9 @@ test.describe('Mock Utils', () => {
     // before we attach variables to the window object that could be wiped out by react hydration or navigations.
     await page.waitForTimeout(100);
 
+    // Ensure navigation finishes
+    await page.waitForLoadState('networkidle');
+
     // Set up event listeners
     await page.evaluate(() => {
       window.offlineFired = false;
