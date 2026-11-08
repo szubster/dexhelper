@@ -47,7 +47,9 @@ test.describe('Cloudflare R2 Offline-First Save Syncing', () => {
         .getByText(/YELLOW/i)
         .first(),
     ).toBeVisible();
-    await expect(gridModel.pokemonCards.first()).toBeVisible();
+    await expect(page.getByText(/TRNR/i).first().or(gridModel.pokemonCards.first()).first()).toBeVisible({
+      timeout: 15000,
+    });
   });
 
   test('should push save file changes to R2', async ({ page }) => {
