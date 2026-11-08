@@ -2,13 +2,13 @@
 id: task-562-712-gen2-wild-item-extraction-tests-v4
 type: TASK
 title: Write Unit Tests for Gen 2 Wild Encounter Extraction (v4)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-20'
 updated_at: '2026-11-08'
 depends_on:
   - task-562-711-gen2-wild-item-extraction-logic-v4
-jules_session_id: null
+jules_session_id: '8392031102170028789'
 pr_number: null
 parent: story-552-562-gen2-wild-item-parsing
 tags:
