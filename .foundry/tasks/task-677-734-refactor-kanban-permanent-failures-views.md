@@ -2,12 +2,12 @@
 id: task-677-734-refactor-kanban-permanent-failures-views
 type: TASK
 title: Refactor Kanban and Permanent Failures Views to use DagContext
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-14'
-updated_at: '2026-11-03'
+updated_at: '2026-11-08'
 depends_on: []
-jules_session_id: '14075858658288563169'
+jules_session_id: null
 pr_number: null
 parent: story-072-677-refactor-dashboard-views
 tags:

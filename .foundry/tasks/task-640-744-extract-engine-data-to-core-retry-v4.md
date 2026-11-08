@@ -2,10 +2,10 @@
 id: task-640-744-extract-engine-data-to-core-retry-v4
 type: TASK
 title: Migrate pure JS/TS logic from src/engine/data to packages/core (Retry v4)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-03'
-updated_at: '2026-11-03'
+updated_at: '2026-11-08'
 depends_on:
   - task-640-743-qa-extract-utils-retry-v4
 jules_session_id: null

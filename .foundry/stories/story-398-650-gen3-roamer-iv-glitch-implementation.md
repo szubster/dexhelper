@@ -2,13 +2,13 @@
 id: story-398-650-gen3-roamer-iv-glitch-implementation
 type: STORY
 title: Implementation of Roamer IV Glitch Detection
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-12'
-updated_at: '2026-11-03'
+updated_at: '2026-11-08'
 depends_on:
   - story-398-649-gen3-roamer-iv-glitch-types-and-tests
-jules_session_id: '8185987871918455555'
+jules_session_id: null
 pr_number: null
 parent: epic-044-398-gen3-roamer-iv-glitch-v5
 tags:

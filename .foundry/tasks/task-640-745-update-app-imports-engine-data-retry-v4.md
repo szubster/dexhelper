@@ -2,10 +2,10 @@
 id: task-640-745-update-app-imports-engine-data-retry-v4
 type: TASK
 title: Update application imports to use @dexhelper/core for engine/data (Retry v4)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-03'
-updated_at: '2026-11-03'
+updated_at: '2026-11-08'
 depends_on:
   - task-640-744-extract-engine-data-to-core-retry-v4
 jules_session_id: null

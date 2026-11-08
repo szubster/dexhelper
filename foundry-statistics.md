@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-08T16:27:09.404Z*
+*Generated at: 2026-11-08T20:52:26.415Z*
 
 ## Node Statistics
 
@@ -11,28 +11,28 @@
 | EPIC | 543 |
 | IDEA | 240 |
 | PRD | 218 |
-| RESEARCH | 364 |
+| RESEARCH | 366 |
 | STORY | 1149 |
-| TASK | 3043 |
+| TASK | 3053 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3682 |
-| ACTIVE | 143 |
+| COMPLETED | 3684 |
+| ACTIVE | 146 |
 | CANCELLED | 984 |
-| PENDING | 767 |
+| PENDING | 762 |
 | BLOCKED | 14 |
-| READY | 9 |
-| FAILED | 3 |
+| FAILED | 5 |
+| READY | 19 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 162 |
-| Merged PRs | 8781 |
+| Open PRs | 167 |
+| Merged PRs | 8776 |
 | Closed PRs | 1057 |
 
 ## Rejection Counts
@@ -588,10 +588,13 @@
 | task-575-716-implement-heatmap-e2e-tests.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
+| task-618-723-highlight-ui-presentation.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
 | task-639-722-migrate-buttons-impl-v5.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
+| task-649-728-priority-dispatch-tests-coder-retry.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
+| task-676-712-backfill-stats-cli-args-parser.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
 | task-731-735-ast-analyzer-cli.md | 2 |
 | task-734-740-artifact-validator-integration-tests-parser.md | 2 |
@@ -1092,6 +1095,7 @@
 | task-558-564-scheduled-workflows-batch1-impl.md | 1 |
 | task-559-680-battle-frontier-data-e2e-tests.md | 1 |
 | task-559-708-search-extraction-qa-v2.md | 1 |
+| task-559-709-rag-dynamic-querying-integration-e2e-v2.md | 1 |
 | task-560-570-evaluate-graph-processing-libraries.md | 1 |
 | task-560-583-gen3-berry-pouch-parsing-impl.md | 1 |
 | task-560-594-spinda-coordinate-types.md | 1 |
@@ -1133,7 +1137,6 @@
 | task-618-688-multi-box-ev-filters-logic.md | 1 |
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
-| task-618-723-highlight-ui-presentation.md | 1 |
 | task-620-687-gen1-static-encounters-e2e-coder.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
@@ -1143,7 +1146,6 @@
 | task-640-678-qa-relocate-foundry-scripts-replacement-v3.md | 1 |
 | task-640-732-migrate-tacticalselect-impl.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
-| task-649-728-priority-dispatch-tests-coder-retry.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
 | task-676-703-gen2-pokemon-selection-ui.md | 1 |

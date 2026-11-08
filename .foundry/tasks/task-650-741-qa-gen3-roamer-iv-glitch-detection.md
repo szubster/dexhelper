@@ -2,10 +2,10 @@
 id: task-650-741-qa-gen3-roamer-iv-glitch-detection
 type: TASK
 title: QA Gen 3 Roamer IV Glitch Detection Logic
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-03'
-updated_at: '2026-11-03'
+updated_at: '2026-11-08'
 depends_on:
   - task-650-740-impl-gen3-roamer-iv-glitch-detection
 jules_session_id: null
