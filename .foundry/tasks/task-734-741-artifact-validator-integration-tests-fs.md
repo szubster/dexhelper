@@ -2,12 +2,12 @@
 id: task-734-741-artifact-validator-integration-tests-fs
 type: TASK
 title: Artifact Validator Integration Tests - File System
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-11-02'
 updated_at: '2026-11-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '18440569756248944233'
 pr_number: null
 parent: story-699-734-artifact-validator-integration-tests
 tags:
