@@ -37,4 +37,4 @@ Ensure the component renders correctly and handles state interactions properly u
 *   Mock state and generation logic as necessary for isolated testing.
 
 ## Acceptance Criteria
-- [ ] Write unit tests using `vitest-browser-react` covering rendering and interactions.
+- [x] Write unit tests using `vitest-browser-react` covering rendering and interactions.
