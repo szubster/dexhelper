@@ -25,4 +25,4 @@ rejection_count: 1
 Implement the update to the project's `lefthook.yml` file to include the Artifact Presence Validator script in the `pre-commit` hook. Make sure the script is properly invoked to check for missing deliverables and correctly blocks commits when any are missing.
 
 ## Acceptance Criteria
-- [ ] Update `lefthook.yml` to run the Artifact Presence Validator in the `pre-commit` hook.
+- [x] Update `lefthook.yml` to run the Artifact Presence Validator in the `pre-commit` hook.
