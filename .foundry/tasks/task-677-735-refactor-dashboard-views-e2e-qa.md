@@ -2,10 +2,10 @@
 id: task-677-735-refactor-dashboard-views-e2e-qa
 type: TASK
 title: QA Dashboard Views Refactor
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-14'
-updated_at: '2026-11-02'
+updated_at: '2026-11-08'
 depends_on:
   - task-677-734-refactor-kanban-permanent-failures-views
 jules_session_id: null

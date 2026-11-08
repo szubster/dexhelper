@@ -2,20 +2,20 @@
 id: task-649-728-priority-dispatch-tests-coder-retry
 type: TASK
 title: priority orchestrator dispatch tests coder retry
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-08'
 depends_on:
   - task-649-727-priority-dispatch-coder-retry
-jules_session_id: null
+jules_session_id: '17209002132846237581'
 pr_number: null
 parent: story-531-649-priority-orchestrator-dispatch-impl
 tags:
   - orchestrator
   - scheduling
   - logic
-rejection_count: 0
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

@@ -2,10 +2,10 @@
 id: story-420-492-pal-park-batch-generation
 type: STORY
 title: Pal Park Batch Generation and Location Mapping
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-15'
+updated_at: '2026-11-08'
 depends_on:
   - story-420-490-pal-park-hm-validation
   - story-420-491-pal-park-item-identification
@@ -35,12 +35,12 @@ Group flagged Pokémon into batches of 6 and locate their physical Box and Slot 
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down into Tasks.
-- [ ] task-492-668-pal-park-batch-logic-impl
-- [ ] task-492-669-pal-park-batch-logic-tests
+- [x] task-492-668-pal-park-batch-logic-impl
+- [x] task-492-669-pal-park-batch-logic-tests
 - [x] task-492-670-pal-park-batch-ui-impl
 - [x] task-492-671-pal-park-batch-ui-tests
 - [x] task-492-672-pal-park-batch-qa
-- [ ] research-492-690-investigate-pal-park-batch-ui-failure
-- [ ] task-492-691-pal-park-batch-ui-impl-retry
-- [ ] task-492-692-pal-park-batch-ui-tests-retry
-- [ ] task-492-693-pal-park-batch-qa-retry
+- [x] research-492-690-investigate-pal-park-batch-ui-failure
+- [x] task-492-691-pal-park-batch-ui-impl-retry
+- [x] task-492-692-pal-park-batch-ui-tests-retry
+- [x] task-492-693-pal-park-batch-qa-retry

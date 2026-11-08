@@ -2,10 +2,10 @@
 id: story-418-676-historical-stats-git-parser
 type: STORY
 title: Historical Stats Git Parser CLI
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-10-31'
+updated_at: '2026-11-08'
 depends_on: []
 jules_session_id: null
 pr_number: null
