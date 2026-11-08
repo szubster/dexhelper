@@ -11,7 +11,6 @@ export interface PokemonListItem {
 export const pokemonListQueryOptions = queryOptions({
   queryKey: ['pokemonList'],
   queryFn: async (): Promise<PokemonListItem[]> => {
-
     const data = await pokeDB.getAllPokemon();
     return data
       .map((p) => ({

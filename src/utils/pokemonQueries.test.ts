@@ -5,7 +5,8 @@ import type { PokeDBSchema } from '../db/schema';
 import { pokemonListQueryOptions } from './pokemonQueries';
 
 vi.mock('../db/PokeDB', () => ({
-  pokeDB: { getAllPokemon: vi.fn() }, getDB: vi.fn<() => Promise<import('idb').IDBPDatabase<PokeDBSchema>>>(),
+  pokeDB: { getAllPokemon: vi.fn<() => Promise<import('../db/schema').PokemonMetadata[]>>() },
+  getDB: vi.fn<() => Promise<import('idb').IDBPDatabase<PokeDBSchema>>>(),
 }));
 
 describe('pokemonQueries', () => {
@@ -21,7 +22,11 @@ describe('pokemonQueries', () => {
         { id: 3, n: 'venusaur' },
       ]);
 
-      vi.mocked(pokeDB.getAllPokemon).mockResolvedValue([ { id: 2, n: 'ivysaur' }, { id: 1, n: 'bulbasaur' }, { id: 3, n: 'venusaur' } ] as any);
+      vi.mocked(pokeDB.getAllPokemon).mockResolvedValue([
+        { id: 2, n: 'ivysaur' },
+        { id: 1, n: 'bulbasaur' },
+        { id: 3, n: 'venusaur' },
+      ] as unknown as import('../db/schema').PokemonMetadata[]);
       vi.mocked(getDB).mockResolvedValue({
         getAll: mockGetAll,
       } as unknown as import('idb').IDBPDatabase<PokeDBSchema>);
