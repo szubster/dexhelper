@@ -29,6 +29,10 @@ Implement tracking and flagging of Pokémon that are ready to evolve via trade b
 
 ## Acceptance Criteria
 - [x] Tech Lead: Break down this Story into Tasks.
-- [ ] task-714-734-base-trade-evolution-generator-logic
-- [ ] task-714-735-base-trade-evolution-tests
-- [ ] task-714-736-base-trade-evolution-qa
+- [x] task-714-734-base-trade-evolution-generator-logic
+- [x] task-714-735-base-trade-evolution-tests
+- [x] task-714-736-base-trade-evolution-qa
+- [ ] research-714-740-investigate-trade-evolution-logic-failure
+- [ ] task-714-741-base-trade-evolution-generator-logic-retry
+- [ ] task-714-742-base-trade-evolution-tests-retry
+- [ ] task-714-743-base-trade-evolution-qa-retry
