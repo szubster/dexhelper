@@ -29,5 +29,5 @@ locks: []
 Verify moveset coverage analysis.
 
 ## Acceptance Criteria
-- [ ] Review PR for moveset coverage implementation.
-- [ ] Verify unit tests.
+- [x] Review PR for moveset coverage implementation.
+- [x] Verify unit tests.
