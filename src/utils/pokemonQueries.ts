@@ -1,5 +1,5 @@
 import { queryOptions } from '@tanstack/react-query';
-import { getDB } from '../db/PokeDB';
+import { getDB, pokeDB } from '../db/PokeDB';
 
 export interface PokemonListItem {
   id: number;
@@ -11,6 +11,7 @@ export interface PokemonListItem {
 export const pokemonListQueryOptions = queryOptions({
   queryKey: ['pokemonList'],
   queryFn: async (): Promise<PokemonListItem[]> => {
+    await pokeDB.ready();
     const db = await getDB();
     const data = await db.getAll('pokemon');
     return data

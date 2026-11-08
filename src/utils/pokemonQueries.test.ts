@@ -6,6 +6,7 @@ import { pokemonListQueryOptions } from './pokemonQueries';
 
 vi.mock('../db/PokeDB', () => ({
   getDB: vi.fn<() => Promise<import('idb').IDBPDatabase<PokeDBSchema>>>(),
+  pokeDB: { ready: vi.fn<() => Promise<void>>().mockResolvedValue(undefined) },
 }));
 
 describe('pokemonQueries', () => {
