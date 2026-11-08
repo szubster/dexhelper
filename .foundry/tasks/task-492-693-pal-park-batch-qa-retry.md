@@ -34,4 +34,4 @@ Verify the implementation of Pal Park batching logic, UI, and unit tests.
 - Verify that unit and component tests comprehensively cover the implemented features and adhere to testing guidelines.
 
 ## Acceptance Criteria
-- [ ] Verify Pal Park batch generation logic, UI, and tests.
+- [x] Verify Pal Park batch generation logic, UI, and tests.

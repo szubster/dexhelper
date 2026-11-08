@@ -2,10 +2,10 @@
 id: story-412-479-orchestrator-locking-e2e-verification
 type: STORY
 title: E2E Verification for Orchestrator Locking
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-11-08'
 depends_on:
   - story-412-478-implement-resolve-phase-locking
 jules_session_id: '1428006663748828254'
