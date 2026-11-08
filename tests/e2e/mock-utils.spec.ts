@@ -78,18 +78,12 @@ test.describe('Mock Utils', () => {
     await page.waitForLoadState('networkidle');
     await mockOfflineState(page, true);
 
-    const isOffline = await page.evaluate(() => !navigator.onLine);
-    const offlineFired = await page.evaluate(() => window.offlineFired);
-
-    expect(isOffline).toBe(true);
-    expect(offlineFired).toBe(true);
+    await expect.poll(() => page.evaluate(() => !navigator.onLine)).toBe(true);
+    await expect.poll(() => page.evaluate(() => window.offlineFired)).toBe(true);
 
     await mockOfflineState(page, false);
 
-    const isOnline = await page.evaluate(() => navigator.onLine);
-    const onlineFired = await page.evaluate(() => window.onlineFired);
-
-    expect(isOnline).toBe(true);
-    expect(onlineFired).toBe(true);
+    await expect.poll(() => page.evaluate(() => navigator.onLine)).toBe(true);
+    await expect.poll(() => page.evaluate(() => window.onlineFired)).toBe(true);
   });
 });
