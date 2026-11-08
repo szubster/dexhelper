@@ -2,13 +2,13 @@
 id: task-676-712-friendship-display-qa
 type: TASK
 title: QA Verification for Friendship Display and Power Calculation
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-19'
-updated_at: '2026-11-03'
+updated_at: '2026-11-08'
 depends_on:
   - task-676-711-friendship-display-ui
-jules_session_id: '6729979656834009675'
+jules_session_id: null
 pr_number: null
 parent: story-095-676-friendship-display-and-power-calc
 tags:

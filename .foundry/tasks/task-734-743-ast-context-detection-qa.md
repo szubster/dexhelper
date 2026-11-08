@@ -2,10 +2,10 @@
 id: task-734-743-ast-context-detection-qa
 type: TASK
 title: AST Context Detection QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-02'
-updated_at: '2026-11-02'
+updated_at: '2026-11-08'
 depends_on:
   - task-734-742-ast-context-detection-tests
 jules_session_id: null

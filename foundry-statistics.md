@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-08T02:49:08.317Z*
+*Generated at: 2026-11-08T09:38:59.927Z*
 
 ## Node Statistics
 
@@ -13,17 +13,17 @@
 | PRD | 218 |
 | RESEARCH | 364 |
 | STORY | 1149 |
-| TASK | 3039 |
+| TASK | 3043 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3665 |
-| ACTIVE | 148 |
+| COMPLETED | 3676 |
+| ACTIVE | 138 |
 | CANCELLED | 984 |
-| PENDING | 774 |
+| PENDING | 775 |
 | BLOCKED | 14 |
-| READY | 10 |
+| READY | 12 |
 | FAILED | 3 |
 
 ## PR Metrics
@@ -31,9 +31,9 @@
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 158 |
-| Merged PRs | 8782 |
-| Closed PRs | 1060 |
+| Open PRs | 157 |
+| Merged PRs | 8786 |
+| Closed PRs | 1057 |
 
 ## Rejection Counts
 
@@ -592,6 +592,7 @@
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
+| task-731-735-ast-analyzer-cli.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -1130,6 +1131,7 @@
 | task-618-688-multi-box-ev-filters-logic.md | 1 |
 | task-618-689-multi-box-ev-filters-tests.md | 1 |
 | task-618-690-multi-box-ev-filters-qa.md | 1 |
+| task-618-723-highlight-ui-presentation.md | 1 |
 | task-620-687-gen1-static-encounters-e2e-coder.md | 1 |
 | task-639-652-settings-modal-model-integration.md | 1 |
 | task-639-683-jsonl-integration-e2e-impl.md | 1 |
@@ -1139,6 +1141,7 @@
 | task-640-678-qa-relocate-foundry-scripts-replacement-v3.md | 1 |
 | task-640-732-migrate-tacticalselect-impl.md | 1 |
 | task-644-654-cva-visual-regression-base-components-impl.md | 1 |
+| task-649-728-priority-dispatch-tests-coder-retry.md | 1 |
 | task-673-683-parse-termination-states-logic.md | 1 |
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
 | task-676-703-gen2-pokemon-selection-ui.md | 1 |
@@ -1149,7 +1152,6 @@
 | task-711-734-gen3-battle-frontier-context-impl.md | 1 |
 | task-714-734-type-schema-version-stamping.md | 1 |
 | task-726-728-ci-check.md | 1 |
-| task-731-735-ast-analyzer-cli.md | 1 |
 | task-734-740-artifact-validator-integration-tests-parser.md | 1 |
 | task-734-741-artifact-validator-integration-tests-fs.md | 1 |
 

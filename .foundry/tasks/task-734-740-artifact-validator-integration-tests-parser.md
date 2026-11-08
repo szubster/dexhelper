@@ -2,12 +2,12 @@
 id: task-734-740-artifact-validator-integration-tests-parser
 type: TASK
 title: Artifact Validator Integration Tests - Parser
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-11-02'
 updated_at: '2026-11-08'
 depends_on: []
-jules_session_id: '3766047944225314886'
+jules_session_id: null
 pr_number: null
 parent: story-699-734-artifact-validator-integration-tests
 tags:
@@ -15,7 +15,7 @@ tags:
   - integration
 locks: []
 priority: 80
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 rejection_count: 1
 ---
 # TASK: Artifact Validator Integration Tests - Parser

@@ -2,10 +2,10 @@
 id: task-734-742-ast-context-detection-tests
 type: TASK
 title: AST Context Detection Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-02'
-updated_at: '2026-11-02'
+updated_at: '2026-11-08'
 depends_on:
   - task-734-741-ast-context-detection-logic
 jules_session_id: null
