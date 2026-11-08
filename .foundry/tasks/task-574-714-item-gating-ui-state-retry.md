@@ -2,10 +2,10 @@
 id: task-574-714-item-gating-ui-state-retry
 type: TASK
 title: Item Gating UI State and Integration (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-20T16:13:59Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-03'
 depends_on:
   - task-574-713-item-gating-ui-components-retry
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - map
   - ui
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-574-713-item-gating-ui-components-retry
 notes: ''
 locks: []
 ---

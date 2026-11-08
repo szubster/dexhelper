@@ -2,14 +2,14 @@
 id: story-401-651-engine-code-splitting-e2e
 type: STORY
 title: 'Story: Engine Code Splitting Integration & E2E'
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-12T07:40:28.000Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-05'
 depends_on:
   - story-401-649-dynamic-import-save-parsers
   - story-401-650-dynamic-import-assistant-strategies
-jules_session_id: null
+jules_session_id: '17231933966139607675'
 pr_number: null
 parent: epic-337-401-engine-code-splitting
 tags:
