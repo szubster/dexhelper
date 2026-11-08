@@ -5,16 +5,36 @@ import { useDagTreeContext } from './DagTreeContext';
 import { DagTreeItem } from './DagTreeItem';
 
 export function DagTree() {
-  const { nodes, edges, maxRejectionThreshold, showHeatmap } = useDagContext();
+  const { nodes, edges, maxRejectionThreshold, showHeatmap, activeTypes, activeStatuses, showPermanentFailures } =
+    useDagContext();
   const { expandAll, collapseAll } = useDagTreeContext();
+
+  const filteredNodes = useMemo(() => {
+    return nodes.filter((node) => {
+      const type = node.data.type;
+      const status = node.data.status;
+
+      let shouldInclude = type && status && activeTypes.has(type) && activeStatuses.has(status);
+
+      if (shouldInclude && showPermanentFailures) {
+        shouldInclude =
+          (node.data.status === 'FAILED' || node.data.status === 'CANCELLED') &&
+          node.data.rejection_count >= maxRejectionThreshold;
+      }
+
+      return shouldInclude;
+    });
+  }, [nodes, activeTypes, activeStatuses, showPermanentFailures, maxRejectionThreshold]);
+
+  const filteredNodeIds = useMemo(() => new Set(filteredNodes.map((n) => n.id)), [filteredNodes]);
 
   const nodeMap = useMemo(() => new Map(nodes.map((n) => [n.id, n])), [nodes]);
 
   // Find root nodes (nodes with no incoming edges)
   const rootNodes = useMemo(() => {
     const hasIncomingEdge = new Set(edges.map((e) => e.target));
-    return nodes.filter((n) => !hasIncomingEdge.has(n.id));
-  }, [nodes, edges]);
+    return filteredNodes.filter((n) => !hasIncomingEdge.has(n.id));
+  }, [filteredNodes, edges]);
 
   // Build a map of children for each node
   const childrenMap = useMemo(() => {
@@ -32,7 +52,7 @@ export function DagTree() {
     const node = nodeMap.get(nodeId);
     if (!node) return null;
 
-    const children = childrenMap.get(nodeId) || [];
+    const children = (childrenMap.get(nodeId) || []).filter((id) => filteredNodeIds.has(id));
     const isPermanentFailure =
       (node.data.status === 'FAILED' || node.data.status === 'CANCELLED') &&
       node.data.rejection_count >= maxRejectionThreshold;
