@@ -34,6 +34,6 @@ A previous task (task-581-668-gen3-fossil-constants-impl) reached its maximum re
 - Refer to research-581-732-gen3-fossil-flag-offsets for missing event flag offsets.
 
 ## Acceptance Criteria
-- [ ] Constants are defined and accurately match gen3_fossil_revival_offsets.md.
-- [ ] Constants for event flags are properly added and conform to the project schema.
-- [ ] Code passes all lint checks (pnpm lint).
+- [x] Constants are defined and accurately match gen3_fossil_revival_offsets.md.
+- [x] Constants for event flags are properly added and conform to the project schema.
+- [x] Code passes all lint checks (pnpm lint).
