@@ -266,6 +266,7 @@ export interface Gen3BattleFrontierSymbols {
 }
 
 export interface BaseSaveData {
+  schemaVersion: number;
   /** The daily Mirage Island random value, used to determine if Mirage Island appears. */
   mirageIslandValue?: number;
   /** A set of Pokémon species IDs that have been caught (O(1) lookup). */

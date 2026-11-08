@@ -25,7 +25,7 @@ locks: []
 Refactor the Kanban view and the Permanent Failures view (if it's a separate component) within the DagDashboard to consume their node and edge data directly from `DagContext` instead of maintaining their own state. Ensure they respect filtering such as `showPermanentFailures`.
 
 ## Acceptance Criteria
-- [ ] Refactor `DagKanbanBoard` to fully rely on `DagContext` for state (nodes, filters).
-- [ ] Refactor Permanent Failures view (if distinct) or its logic in Kanban/DagContext to consume context correctly.
-- [ ] Update corresponding unit tests to mock and test context values.
-- [ ] Ensure seamless rendering across different views in `DagWrapper`.
+- [x] Refactor `DagKanbanBoard` to fully rely on `DagContext` for state (nodes, filters).
+- [x] Refactor Permanent Failures view (if distinct) or its logic in Kanban/DagContext to consume context correctly.
+- [x] Update corresponding unit tests to mock and test context values.
+- [x] Ensure seamless rendering across different views in `DagWrapper`.

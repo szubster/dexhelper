@@ -51,7 +51,7 @@ vi.doMock('node:url', async (importOriginal) => {
   const actual = await importOriginal() as Record<string, any>;
   return {
     ...actual,
-    fileURLToPath: () => require('path').join(tmpDir, 'packages/foundry/file.ts')
+    fileURLToPath: () => path.join(tmpDir, 'packages/foundry/file.ts')
   };
 });
   let foundryDir: string;
@@ -74,7 +74,7 @@ vi.doMock('node:url', async (importOriginal) => {
       const actual = await importOriginal() as Record<string, any>;
       return {
         ...actual,
-        fileURLToPath: () => require('path').join(process.cwd(), 'packages/foundry/file.ts')
+        fileURLToPath: () => path.join(process.cwd(), 'packages/foundry/file.ts')
       };
     });
 
@@ -3539,6 +3539,26 @@ Target artifact: task-completed
       expect(taskContent).toContain('Invalid owner_persona mapping');
     });
 
+
+    test('succeeds valid mapping (TASK -> palette)', () => {
+      createValidTestNode(tmpDir, '.foundry/tasks/task-palette.md', {
+        id: "task-palette",
+        type: "TASK",
+        title: "Task Palette",
+        status: "PENDING",
+        owner_persona: "palette",
+        created_at: "2026-04-20",
+        updated_at: "2026-04-20",
+        depends_on: [],
+        jules_session_id: null,
+      });
+
+      main();
+
+      const taskContent = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-palette.md'), 'utf-8');
+      expect(taskContent).toContain('status: READY');
+    });
+
     test('succeeds valid mapping (TASK -> coder)', () => {
       createValidTestNode(tmpDir, '.foundry/tasks/task-valid.md', {
         id: "task-valid",
@@ -3685,7 +3705,7 @@ Target artifact: task-completed
 
     main();
 
-    const storyContent = fs.readFileSync(require('path').join(tmpDir, '.foundry/stories/story-complex.md'), 'utf-8');
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-complex.md'), 'utf-8');
     expect(storyContent).toContain('status: FAILED');
     expect(storyContent).toContain('Two-Tasks-Max anti-pattern detected');
   });
@@ -3733,7 +3753,7 @@ Target artifact: task-completed
 
     main();
 
-    const storyContent = fs.readFileSync(require('path').join(tmpDir, '.foundry/stories/story-simple.md'), 'utf-8');
+    const storyContent = fs.readFileSync(path.join(tmpDir, '.foundry/stories/story-simple.md'), 'utf-8');
     expect(storyContent).toContain('status: COMPLETED');
   });
 
@@ -4396,6 +4416,51 @@ Target artifact: task-completed
     const noLockResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-pending-nolock.md'), 'utf-8');
     expect(noLockResult).toContain('status: READY');
   });
+
+  test('Locks: PENDING nodes are unblocked when ACTIVE node with overlapping lock completes', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-completed.md', {
+      id: 'task-completed',
+      type: 'TASK',
+      title: 'Completed Task with lock',
+      status: 'COMPLETED',
+      owner_persona: 'coder',
+      locks: ['lock-c'],
+    });
+    createValidTestNode(tmpDir, '.foundry/tasks/task-pending.md', {
+      id: 'task-pending',
+      type: 'TASK',
+      title: 'Pending Task requiring lock',
+      status: 'PENDING',
+      owner_persona: 'coder',
+      locks: ['lock-c'],
+    });
+    main();
+    const pendingResult = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-pending.md'), 'utf-8');
+    expect(pendingResult).toContain('status: READY');
+  });
+
+  test('Locks: PENDING nodes are unblocked when ACTIVE node with overlapping lock fails', () => {
+    createValidTestNode(tmpDir, '.foundry/tasks/task-failed.md', {
+      id: 'task-failed',
+      type: 'TASK',
+      title: 'Failed Task with lock',
+      status: 'FAILED',
+      owner_persona: 'coder',
+      locks: ['lock-d'],
+    });
+    createValidTestNode(tmpDir, '.foundry/tasks/task-pending-2.md', {
+      id: 'task-pending-2',
+      type: 'TASK',
+      title: 'Pending Task requiring lock',
+      status: 'PENDING',
+      owner_persona: 'coder',
+      locks: ['lock-d'],
+    });
+    main();
+    const pendingResult2 = fs.readFileSync(path.join(tmpDir, '.foundry/tasks/task-pending-2.md'), 'utf-8');
+    expect(pendingResult2).toContain('status: READY');
+  });
+
 
   test('DRAFT or WIP dependencies exit with code 1 in strict mode', () => {
     createValidTestNode(tmpDir, '.foundry/stories/story-wip.md', {
