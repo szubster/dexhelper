@@ -31,6 +31,7 @@ const createBaseSaveData = (): BaseSaveData & { generation: 2 } => ({
   partyDetails: [],
   pcDetails: [],
   gameVersion: 'crystal',
+  schemaVersion: 1,
   generation: 2,
   badges: 0,
   trainerName: 'TEST',

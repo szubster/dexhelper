@@ -2,12 +2,12 @@
 id: task-726-728-ci-check
 type: TASK
 title: Add CI check automation for acceptance criteria formatting
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-11-03'
+updated_at: '2026-11-08'
 depends_on: []
-jules_session_id: '11394060492027864333'
+jules_session_id: null
 locks: []
 pr_number: null
 parent: adr-679-726-acceptance-criteria-structure

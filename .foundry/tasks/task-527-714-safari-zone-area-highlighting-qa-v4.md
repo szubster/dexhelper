@@ -2,13 +2,13 @@
 id: task-527-714-safari-zone-area-highlighting-qa-v4
 type: TASK
 title: Safari Zone Area Highlighting QA V4
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2024-05-24'
-updated_at: '2026-11-03'
+updated_at: '2026-11-04'
 depends_on:
   - task-527-713-safari-zone-area-map-ui-v4
-jules_session_id: null
+jules_session_id: '9717049142225387149'
 pr_number: null
 parent: story-325-527-safari-zone-area-highlighting
 tags:
