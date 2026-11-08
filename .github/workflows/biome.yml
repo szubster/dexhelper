@@ -20,10 +20,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Setup Biome
-        uses: biomejs/setup-biome@v2
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          version: "2.6.4"
+          node-version: "22"
 
-      - name: Run Biome
-        run: biome ci --error-on-warnings .
+      - name: Install and Run Biome
+        run: npx @biomejs/biome@2.6.4 ci --error-on-warnings .
