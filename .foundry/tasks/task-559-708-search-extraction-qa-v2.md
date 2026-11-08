@@ -27,5 +27,5 @@ Verify the implementation of search and chunk extraction logic.
 - Verify extraction logic handles various index results.
 
 ## Acceptance Criteria
-- [ ] Verify search logic implementation.
-- [ ] Verify unit tests.
+- [x] Verify search logic implementation.
+- [x] Verify unit tests.
