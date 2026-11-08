@@ -2,10 +2,10 @@
 id: story-095-677-friendship-filtering-and-sorting
 type: STORY
 title: Friendship-Evolving Pokémon Filtering and Sorting
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-15'
-updated_at: '2026-10-19'
+updated_at: '2026-11-08'
 depends_on:
   - story-095-676-friendship-display-and-power-calc
 jules_session_id: null

@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-08T09:38:59.927Z*
+*Generated at: 2026-11-08T16:27:09.404Z*
 
 ## Node Statistics
 
@@ -18,12 +18,12 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3676 |
-| ACTIVE | 138 |
+| COMPLETED | 3682 |
+| ACTIVE | 143 |
 | CANCELLED | 984 |
-| PENDING | 775 |
+| PENDING | 767 |
 | BLOCKED | 14 |
-| READY | 12 |
+| READY | 9 |
 | FAILED | 3 |
 
 ## PR Metrics
@@ -31,8 +31,8 @@
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 157 |
-| Merged PRs | 8786 |
+| Open PRs | 162 |
+| Merged PRs | 8781 |
 | Closed PRs | 1057 |
 
 ## Rejection Counts
@@ -557,6 +557,7 @@
 | task-536-562-implement-mocking-utilities.md | 2 |
 | task-536-564-playwright-style-guide-mock-utils.md | 2 |
 | task-537-680-remove-xyflow-deps.md | 2 |
+| task-537-719-gen3-berry-hydration-retry-v3.md | 2 |
 | task-550-563-implement-idea-matrix-updater.md | 2 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 2 |
 | task-551-713-update-orchestrator-priority-tests-v4.md | 2 |
@@ -593,6 +594,8 @@
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
 | task-731-735-ast-analyzer-cli.md | 2 |
+| task-734-740-artifact-validator-integration-tests-parser.md | 2 |
+| task-734-741-artifact-validator-integration-tests-fs.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -1067,7 +1070,6 @@
 | task-536-565-playwright-style-guide-qa.md | 1 |
 | task-537-599-gen3-berry-pipeline-integration.md | 1 |
 | task-537-624-testing-style-guide-e2e-coder.md | 1 |
-| task-537-719-gen3-berry-hydration-retry-v3.md | 1 |
 | task-542-550-draft-migration-plan-coder.md | 1 |
 | task-545-550-dynamic-spawning-e2e-research-adr.md | 1 |
 | task-546-562-usetransition-search-filters.md | 1 |
@@ -1152,8 +1154,6 @@
 | task-711-734-gen3-battle-frontier-context-impl.md | 1 |
 | task-714-734-type-schema-version-stamping.md | 1 |
 | task-726-728-ci-check.md | 1 |
-| task-734-740-artifact-validator-integration-tests-parser.md | 1 |
-| task-734-741-artifact-validator-integration-tests-fs.md | 1 |
 
 ## Wait Times
 

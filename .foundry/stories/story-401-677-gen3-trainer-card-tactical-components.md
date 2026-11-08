@@ -2,10 +2,10 @@
 id: story-401-677-gen3-trainer-card-tactical-components
 type: STORY
 title: Story - Gen 3 Trainer Card Tactical UI Components
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-22'
+updated_at: '2026-11-08'
 depends_on:
   - story-401-676-gen3-trainer-card-core-state
 jules_session_id: null

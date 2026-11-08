@@ -7,7 +7,7 @@ owner_persona: architect
 created_at: '2026-10-25'
 updated_at: '2026-11-08'
 depends_on: []
-jules_session_id: '6945528912308533148'
+jules_session_id: null
 pr_number: null
 parent: story-535-679-adr-acceptance-criteria
 tags:

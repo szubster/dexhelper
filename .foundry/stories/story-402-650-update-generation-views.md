@@ -2,10 +2,10 @@
 id: story-402-650-update-generation-views
 type: STORY
 title: Update Specific Generation Views
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-12T16:56:51Z'
-updated_at: '2026-10-17'
+updated_at: '2026-11-08'
 depends_on:
   - story-402-649-refactor-ui-lazy-loading
 jules_session_id: null
