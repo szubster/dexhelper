@@ -31,6 +31,7 @@ test.describe('Mock Utils', () => {
     await page.goto('/');
 
     // We need to attach an input element to the DOM since one isn't immediately visible
+    await page.waitForLoadState('networkidle');
     await page.evaluate(() => {
       const input = document.createElement('input');
       input.type = 'file';
@@ -43,7 +44,7 @@ test.describe('Mock Utils', () => {
     await mockFilePicker(page, fileInput, 'hello world', 'test.txt');
 
     // Wait for the input to register the files
-    await page.waitForTimeout(50);
+    await page.waitForTimeout(500);
 
     // We can evaluate the input to see its files property directly
     const files = await fileInput.evaluate((node: HTMLInputElement) => node.files?.length);
@@ -62,6 +63,7 @@ test.describe('Mock Utils', () => {
     await page.waitForLoadState('networkidle');
 
     // Set up event listeners
+    await page.waitForLoadState('networkidle');
     await page.evaluate(() => {
       window.offlineFired = false;
       window.onlineFired = false;
