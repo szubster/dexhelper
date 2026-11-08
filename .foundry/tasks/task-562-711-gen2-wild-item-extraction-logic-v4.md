@@ -2,14 +2,14 @@
 id: task-562-711-gen2-wild-item-extraction-logic-v4
 type: TASK
 title: Implement Gen 2 Wild Encounter and Held Item Extraction Logic (v4)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-20'
 updated_at: '2026-11-03'
 depends_on:
   - task-562-578-gen2-wild-item-models-impl
   - research-562-710-investigate-gen2-wild-encounter-extraction-failure-v3
-jules_session_id: null
+jules_session_id: '8652892883082181061'
 pr_number: null
 parent: story-552-562-gen2-wild-item-parsing
 tags:
@@ -37,5 +37,5 @@ With the data models defined and the failure investigation complete, this task i
 - Handle `RangeError` for out-of-bounds reads during DataView operations.
 
 ## Acceptance Criteria
-- [ ] Implement extraction logic for Gen 2 wild encounters based on the research provided.
-- [ ] Implement mapping for Gen 2 held item drop rates based on the research provided.
+- [x] Implement extraction logic for Gen 2 wild encounters based on the research provided.
+- [x] Implement mapping for Gen 2 held item drop rates based on the research provided.
