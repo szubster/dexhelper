@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-07T23:11:02.301Z*
+*Generated at: 2026-11-08T02:49:08.317Z*
 
 ## Node Statistics
 
@@ -19,21 +19,21 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3665 |
-| ACTIVE | 137 |
-| CANCELLED | 982 |
-| PENDING | 776 |
+| ACTIVE | 148 |
+| CANCELLED | 984 |
+| PENDING | 774 |
 | BLOCKED | 14 |
-| READY | 18 |
-| FAILED | 6 |
+| READY | 10 |
+| FAILED | 3 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 146 |
-| Merged PRs | 8792 |
-| Closed PRs | 1062 |
+| Open PRs | 158 |
+| Merged PRs | 8782 |
+| Closed PRs | 1060 |
 
 ## Rejection Counts
 
@@ -866,6 +866,7 @@
 | research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
+| research-703-740-investigate-badge-injection-failure-v3.md | 1 |
 | story-018-513-orchestrator-test-updates.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
 | story-061-473-mirage-island-engine-e2e.md | 1 |
@@ -939,6 +940,7 @@
 | story-580-673-migrate-settings-e2e-tests.md | 1 |
 | story-580-674-migrate-pokedex-e2e-tests.md | 1 |
 | story-582-674-yaml-schema-e2e-verification.md | 1 |
+| task-001-740-lefthook-integration-coder.md | 1 |
 | task-094-157-moveset-inventory-validation-impl.md | 1 |
 | task-099-157-gen3-extract-pokemon-pids-impl.md | 1 |
 | task-099-158-gen3-extract-pokemon-pids-qa.md | 1 |
@@ -1064,6 +1066,7 @@
 | task-536-565-playwright-style-guide-qa.md | 1 |
 | task-537-599-gen3-berry-pipeline-integration.md | 1 |
 | task-537-624-testing-style-guide-e2e-coder.md | 1 |
+| task-537-719-gen3-berry-hydration-retry-v3.md | 1 |
 | task-542-550-draft-migration-plan-coder.md | 1 |
 | task-545-550-dynamic-spawning-e2e-research-adr.md | 1 |
 | task-546-562-usetransition-search-filters.md | 1 |
@@ -1147,6 +1150,8 @@
 | task-714-734-type-schema-version-stamping.md | 1 |
 | task-726-728-ci-check.md | 1 |
 | task-731-735-ast-analyzer-cli.md | 1 |
+| task-734-740-artifact-validator-integration-tests-parser.md | 1 |
+| task-734-741-artifact-validator-integration-tests-fs.md | 1 |
 
 ## Wait Times
 
