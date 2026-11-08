@@ -1327,12 +1327,12 @@ function main(): void {
 
       const acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
       const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
-      const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
+      const hasUncheckedTasks = (['IDEA', 'PRD', 'EPIC', 'STORY'].includes(node.frontmatter.type)) ? /^\s*-\s*\[ \] /m.test(acceptanceCriteriaText) : false;
 
       if (bypassDispatch) {
         if (hasUncheckedTasks) {
-          const type = node.frontmatter.type;
-          const isLateBindingParent = (children.length > 0 && type !== 'TASK') || ['IDEA', 'PRD', 'EPIC', 'STORY'].includes(type);
+
+          const isLateBindingParent = (children.length > 0 && node.frontmatter.type !== 'TASK') || ['IDEA', 'PRD', 'EPIC', 'STORY'].includes(node.frontmatter.type);
           if (isLateBindingParent) {
             info(`Preflight success: Valid target artifacts exist and are completed, but ${node.repoPath} still has unchecked tasks. Promoting to READY.`);
             eligible.push(node);
@@ -1353,7 +1353,7 @@ function main(): void {
         // We MUST NOT push it to eligible here. Phase 4.1 will wake it up if all children are completed.
         info(`Late-Binding Parent: ${node.repoPath} is waiting for children to complete.`);
       } else {
-        const hasCheckboxes = /^\s*-\s*\[\s*[xX\s]\s*\]/m.test(acceptanceCriteriaText);
+        const hasCheckboxes = /^\s*-\s*\[[xX]\] /m.test(acceptanceCriteriaText);
         if (hasCheckboxes && !hasUncheckedTasks) {
           info(`Leaf node ${node.repoPath} has all acceptance criteria checked. Promoting directly to COMPLETED to prevent reawakening.`);
           if (node.frontmatter.type === 'IDEA' && node.frontmatter.owner_persona !== 'curator' && node.frontmatter.owner_persona !== 'auditor') {
@@ -1368,7 +1368,7 @@ function main(): void {
             if (childTasks.length > 0 && childTasks.length <= 2) {
               const acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
               const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
-              const acceptanceCriteriaCount = (acceptanceCriteriaText.match(/^\s*-\s*\[[xX\s]\]/gm) || []).length;
+              const acceptanceCriteriaCount = (acceptanceCriteriaText.match(/^\s*-\s*\[[xX]\] /gm) || []).length;
               if (acceptanceCriteriaCount > 2) {
                 info(`Two-Tasks-Max anti-pattern detected for ${node.repoPath}: ${childTasks.length} tasks for ${acceptanceCriteriaCount} criteria. Promoting to FAILED.`);
                 promoteNodeToFailedWithReason(node, 'Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few TASK nodes');
@@ -1444,12 +1444,12 @@ function main(): void {
             // since all child tasks created to fulfill this parent node are COMPLETED or CANCELLED.
             const acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
             const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
-            const hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
+            const hasUncheckedTasks = (['IDEA', 'PRD', 'EPIC', 'STORY'].includes(node.frontmatter.type)) ? /^\s*-\s*\[ \] /m.test(acceptanceCriteriaText) : false;
 
             if (hasUncheckedTasks) {
               info(`Auto-remediating parent node stall for ${node.repoPath}: checking off remaining acceptance criteria.`);
               const updatedBody = node.body.replace(/(## Acceptance Criteria\s*[\s\S]*?)(?:\n## |$)/, (match) => {
-                return match.replace(/^(\s*-\s*\[)\s(\])/gm, '$1x$2');
+                return match.replace(/^(\s*-\s*\[) (\]) /gm, '$1x$2 ');
               });
               node.body = updatedBody;
               const newContent = matter.stringify(node.body, node.frontmatter);
@@ -1485,7 +1485,7 @@ function main(): void {
                 if (childTasks.length > 0 && childTasks.length <= 2) {
                   const acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
                   const acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
-                  const acceptanceCriteriaCount = (acceptanceCriteriaText.match(/^\s*-\s*\[[xX\s]\]/gm) || []).length;
+                  const acceptanceCriteriaCount = (acceptanceCriteriaText.match(/^\s*-\s*\[[xX]\] /gm) || []).length;
                   if (acceptanceCriteriaCount > 2) {
                     info(`Late-Binding Parent Complete: ${node.repoPath} has completed children, but violates Two-Tasks-Max anti-pattern (${childTasks.length} tasks for ${acceptanceCriteriaCount} criteria). Promoting to FAILED.`);
                     promoteNodeToFailedWithReason(node, 'Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few TASK nodes');
@@ -1565,7 +1565,7 @@ function main(): void {
 
     let acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
     let acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
-    let hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
+    let hasUncheckedTasks = (['IDEA', 'PRD', 'EPIC', 'STORY'].includes(node.frontmatter.type)) ? /^\s*-\s*\[ \] /m.test(acceptanceCriteriaText) : false;
 
     if (shouldBypass) {
       if (hasUncheckedTasks) {
@@ -1588,7 +1588,7 @@ function main(): void {
           }
           acceptanceCriteriaMatch = node.body.match(/## Acceptance Criteria\s*([\s\S]*?)(?:\n## |$)/);
           acceptanceCriteriaText = acceptanceCriteriaMatch ? acceptanceCriteriaMatch[1] : '';
-          hasUncheckedTasks = /^\s*-\s*\[\s\]/m.test(acceptanceCriteriaText);
+          hasUncheckedTasks = (['IDEA', 'PRD', 'EPIC', 'STORY'].includes(node.frontmatter.type)) ? /^\s*-\s*\[ \] /m.test(acceptanceCriteriaText) : false;
         }
       }
 
