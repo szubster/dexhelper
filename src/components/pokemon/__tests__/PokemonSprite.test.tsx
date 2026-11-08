@@ -16,7 +16,7 @@ describe('PokemonSprite', () => {
     await expect.element(img).toBeInTheDocument();
     await expect.element(img).toHaveAttribute('src', expectedPrimaryUrl);
     await expect.element(img).toHaveAttribute('loading', 'eager');
-    await expect.element(img).not.toHaveAttribute('crossorigin');
+    await expect.element(img).toHaveAttribute('crossorigin', 'anonymous');
   });
 
   it('respects custom loading attribute', async () => {
