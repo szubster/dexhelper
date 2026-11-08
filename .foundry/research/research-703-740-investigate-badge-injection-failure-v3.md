@@ -2,12 +2,12 @@
 id: research-703-740-investigate-badge-injection-failure-v3
 type: RESEARCH
 title: Investigate Badge Injection Failure (v3)
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-11-03'
 updated_at: '2026-11-08'
 depends_on: []
-jules_session_id: null
+jules_session_id: '9735354296466096185'
 parent: research-490-703-investigate-badge-injection-failure-v2
 rejection_reason: ''
 locks: []
