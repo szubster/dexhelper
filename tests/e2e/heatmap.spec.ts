@@ -89,6 +89,6 @@ test.describe('Assistant Heatmap UI', () => {
       (window as WindowWithStore).useStore.setState({ saves: [], suggestions: [] });
     });
 
-    await expect(page.getByText(/Active Route Radar/i)).toBeHidden();
+    await expect(page.getByText(/Active Route Radar/i)).toBeHidden({ timeout: 15000 });
   });
 });

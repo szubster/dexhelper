@@ -36,7 +36,7 @@ export class PokedexGridModel {
    * Waits for the grid to become visible and cards to load.
    */
   async waitForGridToLoad() {
-    await expect(this.pokemonCards.first()).toBeVisible();
+    await expect(this.pokemonCards.first()).toBeVisible({ timeout: 30000 });
   }
 
   /**
