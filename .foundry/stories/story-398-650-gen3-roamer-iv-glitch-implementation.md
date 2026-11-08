@@ -33,4 +33,6 @@ Analyze the 32-bit IV field from the parsed `Roamer` struct to determine if it e
 ## Acceptance Criteria
 - [ ] Implement the function to analyze the 32-bit IV field and detect the Roamer IV Glitch signature.
 - [ ] Return the correct boolean or enum state indicating if the glitch is present.
-- [ ] Tech Lead: Break down this Story into executable Tasks.
+- [x] Tech Lead: Break down this Story into executable Tasks.
+- [ ] task-650-740-impl-gen3-roamer-iv-glitch-detection
+- [ ] task-650-741-qa-gen3-roamer-iv-glitch-detection
