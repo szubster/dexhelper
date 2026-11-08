@@ -601,27 +601,69 @@ describe('evolutionGenerator', () => {
         },
       } as unknown as AssistantApiData;
 
-      const instancesBySpecies = new Map<number, PokemonInstance[]>([
-        [349, [{ speciesId: 349, level: 15 } as PokemonInstance]],
+      // Case 1: Beauty < 170 (in progress)
+      const instancesUnder170 = new Map<number, PokemonInstance[]>([
+        [
+          349,
+          [
+            {
+              speciesId: 349,
+              level: 15,
+              condition: { cool: 0, beauty: 50, cute: 0, smart: 0, tough: 0, sheen: 0 },
+            } as PokemonInstance,
+          ],
+        ],
       ]);
 
-      const suggestions: Suggestion[] = [];
+      const suggestions1: Suggestion[] = [];
       await generateEvolutionSuggestions(
         [350],
         mockSaveData,
         apiData,
-        instancesBySpecies,
-        suggestions,
+        instancesUnder170,
+        suggestions1,
         'emerald',
         new Set([350]),
       );
 
-      expect(suggestions).toHaveLength(1);
-      expect(suggestions[0]?.id).toBe('evo-beauty-350');
-      expect(suggestions[0]?.category).toBe('Evolve');
-      expect(suggestions[0]?.title).toBe('Beauty Evolution: #350');
-      expect(suggestions[0]?.description).toContain('Dry Pokéblocks');
-      expect(suggestions[0]?.priority).toBe(80);
+      expect(suggestions1).toHaveLength(1);
+      expect(suggestions1[0]?.id).toBe('evo-beauty-350');
+      expect(suggestions1[0]?.category).toBe('Evolve');
+      expect(suggestions1[0]?.title).toBe('Beauty Evolution: #350');
+      expect(suggestions1[0]?.description).toContain('50/170 Beauty');
+      expect(suggestions1[0]?.priority).toBe(80);
+
+      // Case 2: Beauty >= 170 (ready to evolve)
+      const instancesReady = new Map<number, PokemonInstance[]>([
+        [
+          349,
+          [
+            {
+              speciesId: 349,
+              level: 15,
+              condition: { cool: 0, beauty: 175, cute: 0, smart: 0, tough: 0, sheen: 0 },
+            } as PokemonInstance,
+          ],
+        ],
+      ]);
+
+      const suggestions2: Suggestion[] = [];
+      await generateEvolutionSuggestions(
+        [350],
+        mockSaveData,
+        apiData,
+        instancesReady,
+        suggestions2,
+        'emerald',
+        new Set([350]),
+      );
+
+      expect(suggestions2).toHaveLength(1);
+      expect(suggestions2[0]?.id).toBe('evo-beauty-350');
+      expect(suggestions2[0]?.category).toBe('Evolve');
+      expect(suggestions2[0]?.title).toBe('Ready to Evolve: #350!');
+      expect(suggestions2[0]?.description).toContain('reached the required Beauty (175/170)');
+      expect(suggestions2[0]?.priority).toBe(90);
     });
 
     it('predicts Wurmple branch based on personalityValue in Gen 3', async () => {
