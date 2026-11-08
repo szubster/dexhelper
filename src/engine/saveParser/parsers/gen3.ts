@@ -1,3 +1,42 @@
+/**
+ * @module gen3Parser
+ *
+ * Contains logic for parsing Generation 3 (Ruby, Sapphire, Emerald, FireRed, LeafGreen)
+ * Game Boy Advance flash save files.
+ *
+ * ## Architecture Overview
+ *
+ * Unlike Generation 1 and 2 monolithic save structures, Generation 3 uses a complex
+ * A/B banked flash memory layout designed for flash wear-leveling and atomic writes:
+ *
+ * 1. **A/B Flash Memory Banks & Sector Resolution:**
+ *    The save file alternates writes between two 56KB blocks (`0x0000` Bank A and `0xE000` Bank B).
+ *    Each bank is subdivided into 14 distinct 4KB sectors (numbered 0 through 13). Each sector
+ *    contains a 12-byte footer at offset `0x0FF4` specifying:
+ *    - `sectionId` (uint16 LE)
+ *    - `checksum` (uint16 LE)
+ *    - `signature` (`0x08012025` uint32 LE)
+ *    - `saveIndex` (uint32 LE counter)
+ *    The parser scans both banks and chooses the sector with the highest `saveIndex` for each `sectionId`.
+ *
+ * 2. **PC Box Buffer Reconstruction:**
+ *    PC storage is not stored contiguously in a single block; it spans across 9 separate 4KB
+ *    sections (Sections 5 through 13). Sections 5 to 12 contain 3,968 bytes each, and Section 13
+ *    contains 2,000 bytes. `parseGen3PCBuffer` extracts the latest version of each section and stitches
+ *    them into a contiguous 33,744-byte buffer representing the PC boxes.
+ *
+ * 3. **48-byte GAEM Substructure Decryption:**
+ *    Each 100-byte Pokémon struct contains a 48-byte data block that is encrypted via XOR.
+ *    - Decryption key: `Personality Value (PV) ^ Original Trainer ID (OT_ID)`.
+ *    - 4 substructures (12 bytes each): Growth (G), Attacks (A), EVs & Condition (E), Miscellaneous (M).
+ *    - Block permutation: The ordering of G, A, E, M is determined by `PV % 24` across 24 fixed permutations.
+ *
+ * 4. **Version-Specific Memory Offsets (RSE vs. FRLG):**
+ *    Game Freak continually refactored SaveBlock1 between Ruby/Sapphire, Emerald, and FireRed/LeafGreen.
+ *    For example, Roamer data shifts between `0x3144` (RS), `0x31dc` (Emerald), and `0x30d0` (FRLG),
+ *    and party counts/offsets differ between Hoenn and Kanto engines.
+ */
+
 export * from '../gen3/ribbons/constants';
 
 import {
@@ -1280,6 +1319,27 @@ export function parseGen3RoamerStruct(dataView: DataView, offset: number): Gen3R
   }
 }
 
+/**
+ * Parses the Generation 3 Roamer data block for the active game version, returning
+ * roamer status, species ID, level, remaining HP, condition stats, personality value, and IVs.
+ *
+ * It dynamically selects the version-specific memory offset in SaveBlock1:
+ * - Ruby / Sapphire: `SaveBlock1 + 0x3144` (`GEN3_ROAMER_OFFSET_RS`)
+ * - Emerald: `SaveBlock1 + 0x31dc` (`GEN3_ROAMER_OFFSET_EMERALD`)
+ * - FireRed / LeafGreen: `SaveBlock1 + 0x30d0` (`GEN3_ROAMER_OFFSET_FRLG`)
+ *
+ * @param view - The raw save file DataView.
+ * @param saveBlock1Offset - The memory offset where active SaveBlock1 starts.
+ * @param gameVersion - Detected or forced Gen 3 game version.
+ * @returns The parsed roamer state, including contest condition stats and unpacked IVs.
+ * @throws {Error} If reading outside the buffer boundaries occurs.
+ *
+ * @example
+ * const roamer = parseGen3Roamer(view, saveBlock1Offset, 'emerald');
+ * if (roamer.isActive) {
+ *   console.log(`Roamer ${roamer.speciesId} is at ${roamer.hp} HP`);
+ * }
+ */
 export function parseGen3Roamer(view: DataView, saveBlock1Offset: number, gameVersion: GameVersion) {
   let offset = saveBlock1Offset;
   if (gameVersion === 'ruby' || gameVersion === 'sapphire') {
