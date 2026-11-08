@@ -1,4 +1,5 @@
 export * from './types.ts';
+export * from './src/ast/index.ts';
 export * from './model-selector.ts';
 export * from './prompt-compiler.ts';
 export * from './agentapi.ts';
