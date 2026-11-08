@@ -624,6 +624,49 @@ describe('evolutionGenerator', () => {
       expect(suggestions[0]?.priority).toBe(80);
     });
 
+    it('generates ready to evolve Milotic suggestion when Feebas Beauty is >= 170 in Gen 3', async () => {
+      const apiData: AssistantApiData = {
+        pokemonMetadata: {
+          350: {
+            id: 350,
+            efrm: [349],
+            det: [{}, { trigger: EVO_TRIGGER.TRADE, held: 580 }, {}],
+          },
+        },
+      } as unknown as AssistantApiData;
+
+      const instancesBySpecies = new Map<number, PokemonInstance[]>([
+        [
+          349,
+          [
+            {
+              speciesId: 349,
+              level: 25,
+              condition: { cool: 0, beauty: 175, cute: 0, smart: 0, tough: 0, sheen: 50 },
+            } as PokemonInstance,
+          ],
+        ],
+      ]);
+
+      const suggestions: Suggestion[] = [];
+      await generateEvolutionSuggestions(
+        [350],
+        mockSaveData,
+        apiData,
+        instancesBySpecies,
+        suggestions,
+        'emerald',
+        new Set([350]),
+      );
+
+      expect(suggestions).toHaveLength(1);
+      expect(suggestions[0]?.id).toBe('evo-beauty-350');
+      expect(suggestions[0]?.category).toBe('Evolve');
+      expect(suggestions[0]?.title).toBe('Ready to Evolve: #350!');
+      expect(suggestions[0]?.description).toContain('maxed out its Beauty stat (175/170 Beauty)');
+      expect(suggestions[0]?.priority).toBe(90);
+    });
+
     it('predicts Wurmple branch based on personalityValue in Gen 3', async () => {
       const apiData: AssistantApiData = {
         pokemonMetadata: {
