@@ -1,11 +1,4 @@
-import {
-  TacticalBadge,
-  TacticalButton,
-  TacticalIconButton,
-  TacticalInput,
-  TacticalModal,
-  TacticalSelect,
-} from '@dexhelper/ui';
+import { TacticalBadge, TacticalButton, TacticalInput, TacticalModal, TacticalSelect } from '@dexhelper/ui';
 import type React from 'react';
 import { useState } from 'react';
 import { Gen3MapProvider } from '../contexts/Gen3MapContext';
@@ -71,28 +64,6 @@ export const TacticalKitchenSink: React.FC = () => {
       <TacticalButton variant="sidebar" id="btn-sidebar">
         Sidebar
       </TacticalButton>
-
-      {/* Tactical Icon Buttons */}
-      <div className="flex flex-wrap items-center gap-3 border border-dashed border-zinc-800/80 bg-zinc-950/60 p-4">
-        <TacticalIconButton variant="default" title="Default Icon Trigger">
-          ⚙️
-        </TacticalIconButton>
-        <TacticalIconButton variant="primary" ledStatus="active" title="Primary Active Trigger">
-          ⚡
-        </TacticalIconButton>
-        <TacticalIconButton variant="danger" ledStatus="danger" title="Danger Action">
-          ✕
-        </TacticalIconButton>
-        <TacticalIconButton variant="amber" ledStatus="warning" title="Warning Action">
-          ▲
-        </TacticalIconButton>
-        <TacticalIconButton variant="emerald" ledStatus="active" title="Status Online">
-          ●
-        </TacticalIconButton>
-        <TacticalIconButton variant="purple" title="Radar Scanner">
-          ◎
-        </TacticalIconButton>
-      </div>
 
       {/* Modal Trigger */}
       <TacticalButton variant="primary" id="btn-open-modal" onClick={() => setIsModalOpen(true)}>
