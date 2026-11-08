@@ -35,6 +35,6 @@ Write Playwright E2E tests for the Gen 2 roamer translation UI.
 - Use Playwright relative paths and correct assertions as per E2E policies.
 
 ## Acceptance Criteria
-- [ ] E2E tests successfully verify the rendering of roamer locations.
-- [ ] Tests use relative paths and correct strict mode assertions.
-- [ ] Tests adhere to the Playwright E2E Architecture Policy (no direct store manipulation via evaluate).
+- [x] E2E tests successfully verify the rendering of roamer locations.
+- [x] Tests use relative paths and correct strict mode assertions.
+- [x] Tests adhere to the Playwright E2E Architecture Policy (no direct store manipulation via evaluate).
