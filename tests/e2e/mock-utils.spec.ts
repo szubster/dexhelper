@@ -13,6 +13,7 @@ test.describe('Mock Utils', () => {
   test('mockFileSystemAccess should mock showOpenFilePicker', async ({ page }) => {
     await mockFileSystemAccess(page, 'hello world', 'test.txt');
     await page.goto('/');
+    await page.waitForLoadState('networkidle');
 
     const fileData = await page.evaluate(async () => {
       const handles = await window.showOpenFilePicker();
@@ -51,6 +52,11 @@ test.describe('Mock Utils', () => {
 
   test('mockOfflineState should set offline status and trigger events', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    // Add a tiny delay to ensure page JS has completed all synchronous mounting
+    // before we attach variables to the window object that could be wiped out by react hydration or navigations.
+    await page.waitForTimeout(100);
 
     // Ensure navigation finishes
     await page.waitForLoadState('networkidle');
