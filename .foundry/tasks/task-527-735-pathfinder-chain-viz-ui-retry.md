@@ -27,7 +27,7 @@ locks: []
 Implement the React presentation component that visually renders the calculated breeding chain(s), ensuring strict adherence to the tactical hardware aesthetic guidelines.
 
 ## Acceptance Criteria
-- [ ] Read the findings from `research-527-734`.
-- [ ] Create a React component to render the breeding chain visually using the defined types.
-- [ ] Render each step of the chain, showing intermediate species and the passed-down move.
-- [ ] Ensure strict adherence to the tactical hardware aesthetic (ADR 008, 024) - use `rounded-none`, `@utility` classes like `tactical-panel`, `border-dashed`, and monospace fonts (`font-mono`).
+- [x] Read the findings from `research-527-734`.
+- [x] Create a React component to render the breeding chain visually using the defined types.
+- [x] Render each step of the chain, showing intermediate species and the passed-down move.
+- [x] Ensure strict adherence to the tactical hardware aesthetic (ADR 008, 024) - use `rounded-none`, `@utility` classes like `tactical-panel`, `border-dashed`, and monospace fonts (`font-mono`).

@@ -26,11 +26,11 @@ export const PathfinderChainViz: React.FC<PathfinderChainVizProps> = ({ chain, t
             <TacticalPanel className="flex-1 p-4" variant="cyan">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="mb-1 font-mono text-xs tracking-widest text-cyan-500/70">STEP {index + 1}</div>
-                  <div className="text-lg font-bold tracking-wider uppercase">{step.speciesName}</div>
+                  <div className="tactical-text mb-1 text-xs text-cyan-500/70">STEP {index + 1}</div>
+                  <div className="tactical-text text-lg font-bold">{step.speciesName}</div>
 
                   {targetMoveId && moveData && !(moveData instanceof Error) && (
-                    <div className="mt-2 font-mono text-xs">
+                    <div className="tactical-text mt-2 text-xs">
                       <span className="text-zinc-500">PASSING MOVE:</span>{' '}
                       <span className="font-bold text-cyan-400">{moveData.name}</span>
                     </div>
@@ -38,7 +38,7 @@ export const PathfinderChainViz: React.FC<PathfinderChainVizProps> = ({ chain, t
                 </div>
                 <div className="text-right">
                   {step.requiredGender && (
-                    <div className="mb-1 font-mono text-xs text-zinc-400">REQ: {step.requiredGender.toUpperCase()}</div>
+                    <div className="tactical-text mb-1 text-xs text-zinc-400">REQ: {step.requiredGender}</div>
                   )}
                 </div>
               </div>
