@@ -1,11 +1,11 @@
 ---
 id: task-676-747-backfill-stats-cli-args-parser-retry
 type: TASK
-title: Scaffold Backfill Stats CLI & Args Parser Retry
+title: Backfill Stats CLI Args Parser (Retry)
 status: PENDING
 owner_persona: coder
-created_at: '2026-11-08'
-updated_at: '2026-11-08'
+created_at: '2026-11-09'
+updated_at: '2026-11-09'
 depends_on:
   - research-676-749-investigate-backfill-stats-cli-args-failure
 jules_session_id: null
@@ -13,26 +13,23 @@ pr_number: null
 parent: story-418-676-historical-stats-git-parser
 tags:
   - CLI
-  - orchestrator
+  - node
+rejection_count: 0
+rejection_reason: ''
+notes: ''
 locks: []
-rejection_reason: ""
 priority: 50
 ---
 
-# Scaffold Backfill Stats CLI & Args Parser Retry
+# Backfill Stats CLI Args Parser (Retry)
 
 ## Context
-As part of the Historical Statistics Backfilling Engine epic, we need a CLI script to traverse git history. The previous task failed QA because missing arguments were not handled correctly. This task focuses on scaffolding the CLI script and its argument parser, ensuring robust error handling for missing arguments.
+We need to implement the input parameter parsing for intervals (e.g., `--daily`, or specific commit SHAs) for the `.github/scripts/foundry-backfill-stats.ts` script. A previous attempt failed due to incorrect `parseArgs` usage.
 
 ## Objectives
-- Create or update `.github/scripts/foundry-backfill-stats.ts`.
-- Implement argument parsing using standard library (e.g., `util.parseArgs`) to accept intervals (e.g., `--daily`, `--commit <sha>`).
-- Fix the logic to properly handle missing arguments. When executed without arguments, it must print the help output and exit, rather than proceeding with `{}`.
-- Add basic CLI help and usage output.
-- Write unit tests for the argument parsing logic, including tests for the missing arguments case.
+- Read the findings from `research-676-749-investigate-backfill-stats-cli-args-failure`.
+- Implement input parameter parsing for intervals (e.g., `--daily`, or specific commit SHAs) correctly.
 
 ## Acceptance Criteria
-- [ ] Script is created/updated and executable.
-- [ ] Argument parsing correctly identifies intervals.
-- [ ] Missing arguments properly trigger the help message and exit.
-- [ ] Unit tests pass and include coverage for missing arguments.
+- [ ] Implement `util.parseArgs` with correct configuration.
+- [ ] Write unit tests to verify parsing behavior.
