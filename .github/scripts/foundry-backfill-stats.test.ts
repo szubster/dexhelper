@@ -22,4 +22,8 @@ describe('foundry-backfill-stats CLI args parser', () => {
   it('throws an error for unknown arguments', () => {
     expect(() => parseCliArgs(['--unknown'])).toThrow(/Unknown option/);
   });
+
+  it('throws an error when no arguments are provided', () => {
+    expect(() => parseCliArgs([])).toThrow('No arguments provided');
+  });
 });
