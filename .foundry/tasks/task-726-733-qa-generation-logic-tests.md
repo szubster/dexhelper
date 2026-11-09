@@ -2,13 +2,13 @@
 id: task-726-733-qa-generation-logic-tests
 type: TASK
 title: QA Verification for Generation-Specific Logic Splitting Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-25'
 updated_at: '2026-11-09'
 depends_on:
   - task-726-732-impl-generation-logic-tests
-jules_session_id: null
+jules_session_id: '2346366041516045913'
 parent: story-421-726-splitting-validation
 tags:
   - e2e
