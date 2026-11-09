@@ -2,13 +2,13 @@
 id: story-333-677-fame-checker-dashboard-integration
 type: STORY
 title: Fame Checker Dashboard Integration
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-15T19:32:39.601Z'
 updated_at: '2026-11-09'
 depends_on:
   - story-333-676-fame-checker-dashboard-components
-jules_session_id: null
+jules_session_id: '9498707407616392245'
 pr_number: null
 parent: epic-115-333-gen3-fame-checker-dashboard-ui
 tags:
