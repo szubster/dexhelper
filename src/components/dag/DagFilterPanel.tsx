@@ -83,21 +83,6 @@ export const DagFilterPanel = React.memo(function DagFilterPanel() {
         >
           [ PERMANENT_FAILURES_ONLY ]
         </button>
-
-        <button
-          type="button"
-          aria-label="Toggle heatmap overlay"
-          title="Toggle heatmap overlay"
-          aria-pressed={showHeatmap}
-          className={`border !border-dashed px-2 py-1 text-xs focus-visible:ring-[var(--theme-primary)] ${
-            showHeatmap
-              ? 'border-amber-500 bg-amber-950/20 text-amber-500 shadow-none'
-              : 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400'
-          }`}
-          onClick={() => setShowHeatmap((prev) => !prev)}
-        >
-          [ HEATMAP_OVERLAY ]
-        </button>
       </div>
     </div>
   );
