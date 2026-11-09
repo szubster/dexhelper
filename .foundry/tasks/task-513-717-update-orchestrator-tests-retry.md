@@ -2,13 +2,13 @@
 id: task-513-717-update-orchestrator-tests-retry
 type: TASK
 title: Update Orchestrator Idempotent Tests Retry
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-22'
 updated_at: '2026-11-09'
 depends_on:
   - research-513-716-investigate-orchestrator-test-updates-failure
-jules_session_id: null
+jules_session_id: '10750724296045999232'
 parent: story-018-513-orchestrator-test-updates
 tags:
   - orchestrator
