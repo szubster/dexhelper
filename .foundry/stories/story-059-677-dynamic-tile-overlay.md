@@ -2,13 +2,13 @@
 id: story-059-677-dynamic-tile-overlay
 type: STORY
 title: Dynamic Tile Overlay Implementation
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-16T21:14:46.232Z'
 updated_at: '2026-11-09'
 depends_on:
   - story-059-676-route-119-visual-map
-jules_session_id: null
+jules_session_id: '14836637262030148261'
 pr_number: null
 parent: epic-036-059-feebas-frontend-visualization
 tags:
