@@ -1,9 +1,16 @@
 import { expect, test } from '@playwright/test';
-import { clearStorage } from './test-utils';
 
 test.describe('pokedata-core.msgpack Fetch E2E', () => {
   test('should fetch pokedata-core.msgpack during initialization', async ({ page }) => {
-    await clearStorage(page);
+    await page.goto('.');
+    await page.evaluate(async () => {
+      localStorage.clear();
+      const databases = (await window.indexedDB.databases?.()) || [];
+      for (const db of databases) {
+        if (db.name) window.indexedDB.deleteDatabase(db.name);
+      }
+    });
+    await page.reload();
 
     // Intercept network requests
     let isFetched = false;
