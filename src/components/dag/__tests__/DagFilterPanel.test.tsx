@@ -50,7 +50,10 @@ test('DagFilterPanel renders all types and statuses', async () => {
   await page.getByText('[ PERMANENT_FAILURES_ONLY ]').click();
   expect(mockToggleShowPermanentFailures).toHaveBeenCalled();
 
-  const overlays = page.getByText('[ HEATMAP_OVERLAY ]');
-  await overlays.first().click();
+  const overlays = page.getByText('[ HEATMAP_OVERLAY ]').all();
+  if (overlays && overlays.length > 0) {
+    const el = overlays[0];
+    if (el) await el.click();
+  }
   expect(mockSetShowHeatmap).toHaveBeenCalled();
 });
