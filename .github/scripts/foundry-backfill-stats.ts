@@ -14,6 +14,10 @@ export function parseCliArgs(args: string[]) {
     help: { type: 'boolean' as const },
   };
 
+  if (args.length === 0) {
+    throw new Error('No arguments provided');
+  }
+
   const { values } = parseArgs({ args, options, strict: true });
   return values;
 }
