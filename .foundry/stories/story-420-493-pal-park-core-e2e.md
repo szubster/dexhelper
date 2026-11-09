@@ -33,4 +33,6 @@ Verify the Pal Park Core Engine functionality using End-to-End tests.
 - Write Playwright E2E tests to verify HM validation, item identification, and batch generation workflows.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+- [ ] task-493-747-pal-park-core-e2e-impl
+- [ ] task-493-748-pal-park-core-e2e-qa
