@@ -15,7 +15,6 @@ export const DagKanbanBoard: React.FC = () => {
     activeStatuses,
     showPermanentFailures,
     showHeatmap,
-    setShowHeatmap,
   } = useDagContext();
 
   const nodesByStatus = useMemo(() => {
