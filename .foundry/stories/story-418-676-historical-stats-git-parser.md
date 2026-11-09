@@ -34,7 +34,10 @@ As part of the Historical Statistics Backfilling Engine epic, we need a CLI scri
 
 ## Acceptance Criteria
 - [x] Break down this Story into modular Tasks for the Coder.
-- [ ] task-676-712-backfill-stats-cli-args-parser
-- [ ] task-676-713-qa-backfill-stats-cli-args-parser
+- [x] task-676-712-backfill-stats-cli-args-parser
+- [x] task-676-713-qa-backfill-stats-cli-args-parser
 - [ ] task-676-714-backfill-stats-git-traversal-impl
 - [ ] task-676-715-qa-backfill-stats-git-traversal
+- [ ] research-676-749-investigate-backfill-stats-cli-args-failure
+- [ ] task-676-747-backfill-stats-cli-args-parser-retry
+- [ ] task-676-748-qa-backfill-stats-cli-args-parser-retry
