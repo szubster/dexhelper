@@ -2,13 +2,13 @@
 id: task-559-709-rag-dynamic-querying-integration-e2e-v2
 type: TASK
 title: Integration and E2E Verification for RAG Dynamic Querying (Retry)
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-18'
 updated_at: '2026-11-09'
 depends_on:
   - task-559-708-search-extraction-qa-v2
-jules_session_id: null
+jules_session_id: '1469116850802057261'
 parent: story-534-559-rag-dynamic-querying-retrieval
 tags:
   - query
