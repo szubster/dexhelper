@@ -19,17 +19,14 @@ test('DagFilterPanel renders all types and statuses', async () => {
   const mockToggleActiveType = vi.fn<(type: string) => void>();
   const mockToggleActiveStatus = vi.fn<(status: string) => void>();
   const mockToggleShowPermanentFailures = vi.fn<() => void>();
-  const mockSetShowHeatmap = vi.fn<() => void>();
 
   mockUseDagContext.mockReturnValue({
     activeTypes,
     activeStatuses,
     showPermanentFailures: false,
-    showHeatmap: false,
     toggleActiveType: mockToggleActiveType,
     toggleActiveStatus: mockToggleActiveStatus,
     toggleShowPermanentFailures: mockToggleShowPermanentFailures,
-    setShowHeatmap: mockSetShowHeatmap,
   });
 
   await render(<DagFilterPanel />);
@@ -49,7 +46,4 @@ test('DagFilterPanel renders all types and statuses', async () => {
 
   await page.getByText('[ PERMANENT_FAILURES_ONLY ]').click();
   expect(mockToggleShowPermanentFailures).toHaveBeenCalled();
-
-  await page.getByText('[ HEATMAP_OVERLAY ]').click();
-  expect(mockSetShowHeatmap).toHaveBeenCalled();
 });
