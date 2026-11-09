@@ -27,5 +27,5 @@ Verify the correctness and reliability of the E2E tests for lazy-loaded componen
 - Review test code to ensure it effectively targets lazy-loaded components.
 
 ## Acceptance Criteria
-- [ ] E2E tests pass consistently without flakiness.
-- [ ] Implementation aligns with Playwright best practices.
+- [x] E2E tests pass consistently without flakiness.
+- [x] Implementation aligns with Playwright best practices.
