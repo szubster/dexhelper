@@ -1,9 +1,9 @@
 import { expect, test } from '@playwright/test';
-import { clearStorage } from './test-utils';
+import { clearStorageWipeAll } from './test-utils';
 
 test.describe('pokedata-core.msgpack Fetch E2E', () => {
   test('should fetch pokedata-core.msgpack during initialization', async ({ page }) => {
-    await clearStorage(page);
+    await clearStorageWipeAll(page);
 
     // Intercept network requests
     let isFetched = false;

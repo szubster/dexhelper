@@ -81,6 +81,18 @@ export async function clearStorage(page: Page) {
     localStorage.clear();
     const databases = (await window.indexedDB.databases?.()) || [];
     for (const db of databases) {
+      if (db.name && db.name !== 'PokeDB') window.indexedDB.deleteDatabase(db.name);
+    }
+  });
+  await page.reload();
+}
+
+export async function clearStorageWipeAll(page: Page) {
+  await page.goto('.');
+  await page.evaluate(async () => {
+    localStorage.clear();
+    const databases = (await window.indexedDB.databases?.()) || [];
+    for (const db of databases) {
       if (db.name) window.indexedDB.deleteDatabase(db.name);
     }
   });

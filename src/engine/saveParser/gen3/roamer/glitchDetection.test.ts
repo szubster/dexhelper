@@ -3,7 +3,7 @@ import { detectRoamerIVGlitch } from './glitchDetection';
 import { ROAMER_IV_GLITCH_STATE } from './types';
 
 describe('detectRoamerIVGlitch', () => {
-  it.fails('should correctly identify a glitched IV spread (HP 0-31, Attack 0-7, other 0)', () => {
+  it('should correctly identify a glitched IV spread (HP 0-31, Attack 0-7, other 0)', () => {
     const glitchedIVs = {
       hp: 15,
       attack: 3,

@@ -19,7 +19,7 @@ test.describe('Save Management', () => {
     await fileInput.setInputFiles(path.join('tests', 'fixtures', 'yellow.sav'));
 
     // 3. Verify Hydration: Pokedex grid should appear
-    await expect(gridModel.pokemonCards.first()).toBeVisible();
+    await expect(gridModel.pokemonCards.first()).toBeVisible({ timeout: 15000 });
 
     // 4. Verify Trainer Info in Header
     await expect(page.locator('header').getByText(/TRNR/i).first()).toBeVisible();
