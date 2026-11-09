@@ -19,44 +19,48 @@ export interface EVSortState {
   direction: 'asc' | 'desc';
 }
 
+export const EV_STAT_EXTRACTORS: Record<
+  Exclude<EVStat, 'total'>,
+  (evs: NonNullable<PokemonInstance['evs']>) => number
+> = {
+  hp: (evs) => evs.hp,
+  attack: (evs) => evs.atk,
+  defense: (evs) => evs.def,
+  specialAttack: (evs) => evs.spa,
+  specialDefense: (evs) => evs.spd,
+  speed: (evs) => evs.spe,
+};
+
+export function calculateTotalEVs(evs: NonNullable<PokemonInstance['evs']>): number {
+  return evs.hp + evs.atk + evs.def + evs.spa + evs.spd + evs.spe;
+}
+
+export function isEVTotalStat(stat: EVStat): stat is 'total' {
+  return stat === 'total';
+}
+
+export const EV_OPERATORS: Record<EVOperator, (actual: number, expected: number) => boolean> = {
+  eq: (actual, expected) => actual === expected,
+  gt: (actual, expected) => actual > expected,
+  lt: (actual, expected) => actual < expected,
+  gte: (actual, expected) => actual >= expected,
+  lte: (actual, expected) => actual <= expected,
+};
+
 export function getEVValue(pokemon: PokemonInstance, stat: EVStat): number {
   if (!pokemon.evs) return 0;
 
-  switch (stat) {
-    case 'hp':
-      return pokemon.evs.hp;
-    case 'attack':
-      return pokemon.evs.atk;
-    case 'defense':
-      return pokemon.evs.def;
-    case 'specialAttack':
-      return pokemon.evs.spa;
-    case 'specialDefense':
-      return pokemon.evs.spd;
-    case 'speed':
-      return pokemon.evs.spe;
-    case 'total':
-      return pokemon.evs.hp + pokemon.evs.atk + pokemon.evs.def + pokemon.evs.spa + pokemon.evs.spd + pokemon.evs.spe;
-    default:
-      return 0;
+  if (isEVTotalStat(stat)) {
+    return calculateTotalEVs(pokemon.evs);
   }
+
+  const extractor = EV_STAT_EXTRACTORS[stat];
+  return extractor ? extractor(pokemon.evs) : 0;
 }
 
 export function evaluateEVOperator(actual: number, operator: EVOperator, expected: number): boolean {
-  switch (operator) {
-    case 'eq':
-      return actual === expected;
-    case 'gt':
-      return actual > expected;
-    case 'lt':
-      return actual < expected;
-    case 'gte':
-      return actual >= expected;
-    case 'lte':
-      return actual <= expected;
-    default:
-      return false;
-  }
+  const comparator = EV_OPERATORS[operator];
+  return comparator ? comparator(actual, expected) : false;
 }
 
 export function filterByEVs(pokemonList: PokemonInstance[], filterState: EVFilterState = {}): PokemonInstance[] {

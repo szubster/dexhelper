@@ -1,11 +1,26 @@
 import { describe, expect, it } from 'vitest';
 import type { PokemonInstance } from '../saveParser/parsers/common';
-import { evaluateEVOperator, filterByEVs, getEVValue, sortByEVs } from './EVFilters';
+import { calculateTotalEVs, evaluateEVOperator, filterByEVs, getEVValue, isEVTotalStat, sortByEVs } from './EVFilters';
 
 describe('EVFilters', () => {
   const p1 = { evs: { hp: 10, atk: 20, def: 30, spa: 40, spd: 50, spe: 60 } } as unknown as PokemonInstance;
   const p2 = { evs: { hp: 5, atk: 5, def: 5, spa: 5, spd: 5, spe: 5 } } as unknown as PokemonInstance;
   const p3 = {} as unknown as PokemonInstance;
+
+  describe('calculateTotalEVs & isEVTotalStat', () => {
+    it('calculates total EVs correctly', () => {
+      const evs1 = p1.evs ?? { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
+      const evs2 = p2.evs ?? { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
+      expect(calculateTotalEVs(evs1)).toBe(210);
+      expect(calculateTotalEVs(evs2)).toBe(30);
+    });
+
+    it('identifies total stat correctly', () => {
+      expect(isEVTotalStat('total')).toBe(true);
+      expect(isEVTotalStat('hp')).toBe(false);
+      expect(isEVTotalStat('attack')).toBe(false);
+    });
+  });
 
   describe('getEVValue', () => {
     it('returns the correct stat values', () => {
