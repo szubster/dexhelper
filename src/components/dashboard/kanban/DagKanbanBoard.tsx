@@ -1,4 +1,4 @@
-import type React from 'react';
+I'mimport type React from 'react';
 import { useMemo } from 'react';
 import { getHeatmapColorClass, getSeverity } from '../../../features/node-styling/utils/heatmap';
 import { PersonaBadge } from '../../dag/PersonaBadge';
@@ -45,7 +45,6 @@ export const DagKanbanBoard: React.FC = () => {
 
   return (
     <div className="flex h-full w-full flex-col bg-zinc-950 font-mono">
-      <div className="flex items-center gap-2 border-b border-dashed border-zinc-800 p-2">
       <div className="flex flex-1 gap-4 overflow-x-auto p-4">
         {COLUMNS.map((col) => {
           const columnNodes = nodesByStatus[col] ?? [];
