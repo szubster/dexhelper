@@ -1,13 +1,11 @@
 import type { QueryFunctionContext } from '@tanstack/react-query';
 import { describe, expect, it, vi } from 'vitest';
-import { pokeDB } from '../db/PokeDB';
-import type { PokemonMetadata } from '../db/schema';
+import { getDB } from '../db/PokeDB';
+import type { PokeDBSchema } from '../db/schema';
 import { pokemonListQueryOptions } from './pokemonQueries';
 
 vi.mock('../db/PokeDB', () => ({
-  pokeDB: {
-    getAllPokemon: vi.fn<() => Promise<PokemonMetadata[]>>(),
-  },
+  getDB: vi.fn<() => Promise<import('idb').IDBPDatabase<PokeDBSchema>>>(),
 }));
 
 describe('pokemonQueries', () => {
@@ -17,13 +15,15 @@ describe('pokemonQueries', () => {
     });
 
     it('should fetch, map, and sort pokemon data correctly', async () => {
-      const mockPokemon = [
+      const mockGetAll = vi.fn<() => Promise<Array<{ id: number; n: string }>>>().mockResolvedValue([
         { id: 2, n: 'ivysaur' },
         { id: 1, n: 'bulbasaur' },
         { id: 3, n: 'venusaur' },
-      ] as unknown as PokemonMetadata[];
+      ]);
 
-      vi.mocked(pokeDB.getAllPokemon).mockResolvedValue(mockPokemon);
+      vi.mocked(getDB).mockResolvedValue({
+        getAll: mockGetAll,
+      } as unknown as import('idb').IDBPDatabase<PokeDBSchema>);
 
       const context = {
         queryKey: ['pokemonList'] as string[],
@@ -33,7 +33,7 @@ describe('pokemonQueries', () => {
 
       const result = await pokemonListQueryOptions.queryFn?.(context);
 
-      expect(pokeDB.getAllPokemon).toHaveBeenCalled();
+      expect(mockGetAll).toHaveBeenCalledWith('pokemon');
       expect(result).toEqual([
         { id: 1, name: 'Bulbasaur', nameLower: 'bulbasaur', idString: '1' },
         { id: 2, name: 'Ivysaur', nameLower: 'ivysaur', idString: '2' },
