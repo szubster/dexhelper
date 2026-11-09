@@ -87,6 +87,18 @@ export async function clearStorage(page: Page) {
   await page.reload();
 }
 
+export async function clearStorageWipeAll(page: Page) {
+  await page.goto('.');
+  await page.evaluate(async () => {
+    localStorage.clear();
+    const databases = (await window.indexedDB.databases?.()) || [];
+    for (const db of databases) {
+      if (db.name) window.indexedDB.deleteDatabase(db.name);
+    }
+  });
+  await page.reload();
+}
+
 export const HEADER_TRAINER_NAME_REGEX =
   /RED|YELLOW|ASH|BLUE|GREEN|GOLD|SILVER|CRYSTAL|DUDE|TRNR|RUBY|SAPPHIRE|EMERALD|Player/i;
 
