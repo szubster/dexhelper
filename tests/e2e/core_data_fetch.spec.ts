@@ -1,5 +1,4 @@
 import { expect, test } from '@playwright/test';
-import { clearStorage } from './test-utils';
 
 test.describe('pokedata-core.msgpack Fetch E2E', () => {
   test('should fetch pokedata-core.msgpack during initialization', async ({ page }) => {
