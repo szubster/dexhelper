@@ -2,12 +2,12 @@
 id: story-699-734-artifact-validator-integration-tests
 type: STORY
 title: Artifact Validator Integration Tests
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-18'
 updated_at: '2026-11-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14827843004790303082'
 pr_number: null
 parent: epic-703-699-artifact-presence-e2e
 tags:
