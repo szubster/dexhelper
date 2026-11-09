@@ -2,12 +2,12 @@
 id: research-638-740-investigate-constants-extraction-v7-failure
 type: RESEARCH
 title: Investigate Constants Extraction V7 Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '12740676646623876455'
 parent: story-526-638-extract-constants
 tags:
   - architecture
