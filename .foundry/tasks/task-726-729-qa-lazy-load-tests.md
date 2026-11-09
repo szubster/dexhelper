@@ -2,13 +2,13 @@
 id: task-726-729-qa-lazy-load-tests
 type: TASK
 title: QA Verification for Lazy Loading Components Tests
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-25'
 updated_at: '2026-11-09'
 depends_on:
   - task-726-728-impl-lazy-load-tests
-jules_session_id: null
+jules_session_id: '1886900314526778658'
 parent: story-421-726-splitting-validation
 tags:
   - e2e
