@@ -2,10 +2,10 @@
 id: research-424-743-investigate-gen3-lottery-e2e-failure-v3
 type: RESEARCH
 title: Investigate Gen3 Lottery E2E Failure (v3)
-status: FAILED
+status: CANCELLED
 owner_persona: researcher
 created_at: '2026-11-06'
-updated_at: '2026-11-08'
+updated_at: '2026-11-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,9 +15,8 @@ tags:
   - investigation
   - gen3
 research_references: []
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
-confidence_score: 100
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

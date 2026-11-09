@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-08T20:52:26.415Z*
+*Generated at: 2026-11-09T00:12:06.730Z*
 
 ## Node Statistics
 
@@ -11,29 +11,29 @@
 | EPIC | 543 |
 | IDEA | 240 |
 | PRD | 218 |
-| RESEARCH | 366 |
+| RESEARCH | 367 |
 | STORY | 1149 |
-| TASK | 3053 |
+| TASK | 3056 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3684 |
-| ACTIVE | 146 |
+| COMPLETED | 3690 |
+| ACTIVE | 145 |
 | CANCELLED | 984 |
-| PENDING | 762 |
+| PENDING | 770 |
 | BLOCKED | 14 |
-| FAILED | 5 |
-| READY | 19 |
+| FAILED | 8 |
+| READY | 7 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 167 |
-| Merged PRs | 8776 |
-| Closed PRs | 1057 |
+| Open PRs | 168 |
+| Merged PRs | 8777 |
+| Closed PRs | 1055 |
 
 ## Rejection Counts
 
@@ -128,6 +128,7 @@
 | research-423-673-investigate-ai-mapping-test-failure-v3.md | 3 |
 | research-423-687-investigate-ai-mapping-test-failure-v4.md | 3 |
 | research-424-703-investigate-gen3-lottery-e2e-failure.md | 3 |
+| research-424-743-investigate-gen3-lottery-e2e-failure-v3.md | 3 |
 | research-429-632-investigate-task-553-failure.md | 3 |
 | research-440-581-investigate-synergy-integration-failure.md | 3 |
 | research-472-668-investigate-e2e-tests-failure.md | 3 |
@@ -291,11 +292,13 @@
 | task-527-669-pathfinder-chain-viz-ui.md | 3 |
 | task-528-677-safari-zone-bounty-board-ui.md | 3 |
 | task-528-692-wip-banner-e2e-tests.md | 3 |
+| task-528-713-wip-banner-e2e-tests-retry.md | 3 |
 | task-533-536-orchestrator-curator-trigger-logic-impl.md | 3 |
 | task-533-617-orchestrator-curator-trigger-logic-retry.md | 3 |
 | task-534-668-orchestrator-idea-reverification-impl.md | 3 |
 | task-537-600-gen3-berry-runtime-api.md | 3 |
 | task-537-665-gen3-berry-runtime-state-hydration.md | 3 |
+| task-537-719-gen3-berry-hydration-retry-v3.md | 3 |
 | task-540-546-benchmark-runner-script-coder.md | 3 |
 | task-546-565-mirage-island-ui-component.md | 3 |
 | task-547-562-tanstack-query-core-logic.md | 3 |
@@ -379,6 +382,7 @@
 | task-707-716-impl-validator-parsing.md | 3 |
 | task-714-734-base-trade-evolution-generator-logic.md | 3 |
 | task-726-727-orchestrator-parsing.md | 3 |
+| task-734-740-artifact-validator-integration-tests-parser.md | 3 |
 | epic-009-atomic-handoff-testing.md | 2 |
 | epic-014-025-enforce-persona-pipeline-handoffs.md | 2 |
 | epic-030-039-cloudflare-r2-save-sync.md | 2 |
@@ -451,7 +455,6 @@
 | prd-089-054-gen3-ash-gathering-tracker.md | 2 |
 | prd-421-521-automated-schema-linting.md | 2 |
 | research-407-676-e2e-failure-investigation.md | 2 |
-| research-424-743-investigate-gen3-lottery-e2e-failure-v3.md | 2 |
 | research-472-675-investigate-e2e-tests-failure-v2.md | 2 |
 | research-473-638-investigate-condition-stats-parser-failure-v2.md | 2 |
 | research-478-676-investigate-locking-failure-retry.md | 2 |
@@ -552,12 +555,10 @@
 | task-522-713-wip-awareness-e2e-orchestrator-tests-retry.md | 2 |
 | task-524-567-setup-dependency-cruiser.md | 2 |
 | task-527-675-drive-webhook-qa.md | 2 |
-| task-528-713-wip-banner-e2e-tests-retry.md | 2 |
 | task-533-677-savedatareader-e2e-tests.md | 2 |
 | task-536-562-implement-mocking-utilities.md | 2 |
 | task-536-564-playwright-style-guide-mock-utils.md | 2 |
 | task-537-680-remove-xyflow-deps.md | 2 |
-| task-537-719-gen3-berry-hydration-retry-v3.md | 2 |
 | task-550-563-implement-idea-matrix-updater.md | 2 |
 | task-550-686-generator-pagination-engines-e2e-impl.md | 2 |
 | task-551-713-update-orchestrator-priority-tests-v4.md | 2 |
@@ -597,7 +598,6 @@
 | task-676-712-backfill-stats-cli-args-parser.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
 | task-731-735-ast-analyzer-cli.md | 2 |
-| task-734-740-artifact-validator-integration-tests-parser.md | 2 |
 | task-734-741-artifact-validator-integration-tests-fs.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
@@ -1150,6 +1150,7 @@
 | task-676-702-gen2-pokemon-selection-state.md | 1 |
 | task-676-703-gen2-pokemon-selection-ui.md | 1 |
 | task-676-712-scheduled-agents-issue-flow-e2e-coder.md | 1 |
+| task-676-713-qa-backfill-stats-cli-args-parser.md | 1 |
 | task-676-718-in-game-trade-dashboard-route.md | 1 |
 | task-679-711-pokeblock-state-access-layer-impl.md | 1 |
 | task-709-734-scaffold-pokedata-extractor.md | 1 |

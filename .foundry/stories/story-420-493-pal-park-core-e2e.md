@@ -2,10 +2,10 @@
 id: story-420-493-pal-park-core-e2e
 type: STORY
 title: Pal Park Core Engine E2E Verification
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-08-26'
+updated_at: '2026-11-09'
 depends_on:
   - story-420-492-pal-park-batch-generation
 jules_session_id: null
@@ -19,8 +19,9 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
 ---
 
 # Story: Pal Park Core Engine E2E Verification

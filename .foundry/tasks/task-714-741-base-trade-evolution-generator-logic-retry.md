@@ -2,10 +2,10 @@
 id: task-714-741-base-trade-evolution-generator-logic-retry
 type: TASK
 title: Base Trade Evolution Tracking Logic Update Retry
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-09'
 depends_on:
   - research-714-740-investigate-trade-evolution-logic-failure
 jules_session_id: null

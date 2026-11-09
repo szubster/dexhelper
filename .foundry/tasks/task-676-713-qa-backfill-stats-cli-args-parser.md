@@ -2,10 +2,10 @@
 id: task-676-713-qa-backfill-stats-cli-args-parser
 type: TASK
 title: QA Verification for Backfill Stats CLI Args Parser
-status: FAILED
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-11-08'
+updated_at: '2026-11-09'
 depends_on:
   - task-676-712-backfill-stats-cli-args-parser
 jules_session_id: null
@@ -15,7 +15,8 @@ tags:
   - CLI
   - orchestrator
   - qa
-rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
+rejection_count: 1
+rejection_reason: ''
 locks: []
 priority: 50
 ---

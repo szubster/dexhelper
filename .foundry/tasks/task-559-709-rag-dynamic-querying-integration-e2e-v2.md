@@ -2,19 +2,19 @@
 id: task-559-709-rag-dynamic-querying-integration-e2e-v2
 type: TASK
 title: Integration and E2E Verification for RAG Dynamic Querying (Retry)
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-11-08'
+updated_at: '2026-11-09'
 depends_on:
   - task-559-708-search-extraction-qa-v2
-jules_session_id: '8244543713591468362'
+jules_session_id: null
 parent: story-534-559-rag-dynamic-querying-retrieval
 tags:
   - query
   - e2e
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Session terminated with state: FAILED'
 locks: []
 ---
 
