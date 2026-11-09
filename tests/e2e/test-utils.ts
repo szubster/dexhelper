@@ -81,7 +81,8 @@ export async function clearStorage(page: Page) {
     localStorage.clear();
     const databases = (await window.indexedDB.databases?.()) || [];
     for (const db of databases) {
-      if (db.name) window.indexedDB.deleteDatabase(db.name);
+      // DONT delete PokeDB because we want static fetches to succeed without re-fetching
+      if (db.name && db.name !== 'PokeDB') window.indexedDB.deleteDatabase(db.name);
     }
   });
   await page.reload();
