@@ -2,7 +2,7 @@
 id: task-676-747-backfill-stats-cli-args-parser-retry
 type: TASK
 title: Scaffold Backfill Stats CLI & Args Parser Retry
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-08'
 updated_at: '2026-11-08'
