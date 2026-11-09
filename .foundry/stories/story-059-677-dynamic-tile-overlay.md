@@ -27,3 +27,6 @@ Implement dynamic overlays on the Route 119 visual map to accurately indicate th
 ## Acceptance Criteria
 - [ ] Connect the visual map component to the backend's extracted Feebas seed coordinates.
 - [ ] Dynamically render markers or highlights on the exact 6 calculated tiles.
+- [ ] task-677-747-dynamic-tile-overlay-state-connection-impl
+- [ ] task-677-748-dynamic-tile-overlay-rendering-impl
+- [ ] task-677-749-dynamic-tile-overlay-qa
