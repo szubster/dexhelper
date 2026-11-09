@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-09T07:19:34.954Z*
+*Generated at: 2026-11-09T17:54:47.253Z*
 
 ## Node Statistics
 
@@ -19,21 +19,21 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3691 |
-| ACTIVE | 154 |
-| CANCELLED | 992 |
-| PENDING | 760 |
+| ACTIVE | 157 |
+| CANCELLED | 997 |
+| PENDING | 755 |
 | BLOCKED | 14 |
-| FAILED | 5 |
-| READY | 2 |
+| READY | 3 |
+| FAILED | 1 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 184 |
-| Merged PRs | 8762 |
-| Closed PRs | 1054 |
+| Open PRs | 194 |
+| Merged PRs | 8755 |
+| Closed PRs | 1051 |
 
 ## Rejection Counts
 
@@ -871,11 +871,13 @@
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
+| research-638-740-investigate-constants-extraction-v7-failure.md | 1 |
 | research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
 | research-640-740-investigate-extract-utils-timeout-v5.md | 1 |
 | research-703-740-investigate-badge-injection-failure-v3.md | 1 |
+| research-714-740-investigate-trade-evolution-logic-failure.md | 1 |
 | story-018-513-orchestrator-test-updates.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
 | story-061-473-mirage-island-engine-e2e.md | 1 |
@@ -888,6 +890,7 @@
 | story-109-523-box-analyzer-matrix-e2e.md | 1 |
 | story-115-527-pathfinder-chain-visualization.md | 1 |
 | story-133-273-living-dex-pc-mapping.md | 1 |
+| story-133-424-gen3-lottery-e2e-verification.md | 1 |
 | story-133-476-gen3-ribbon-e2e-verification.md | 1 |
 | story-134-475-gen3-condition-stats-extraction-e2e.md | 1 |
 | story-134-524-living-dex-ghosts-and-styling.md | 1 |

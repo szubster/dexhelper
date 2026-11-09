@@ -2,12 +2,12 @@
 id: research-640-740-investigate-extract-utils-timeout-v5
 type: RESEARCH
 title: Investigate timeout during utils extraction v5
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-11-03'
 updated_at: '2026-11-09'
 depends_on: []
-jules_session_id: '11885357913628045614'
+jules_session_id: null
 pr_number: null
 parent: story-526-640-extract-domain-logic
 tags:
@@ -16,7 +16,7 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
