@@ -8,8 +8,14 @@ import { useDagContext } from '../DagContext';
 const COLUMNS = ['PENDING', 'READY', 'ACTIVE', 'BLOCKED', 'COMPLETED', 'FAILED', 'CANCELLED'];
 
 export const DagKanbanBoard: React.FC = () => {
-  const { nodes, maxRejectionThreshold, activeTypes, activeStatuses, showPermanentFailures, showHeatmap } =
-    useDagContext();
+  const {
+    nodes,
+    maxRejectionThreshold,
+    activeTypes,
+    activeStatuses,
+    showPermanentFailures,
+    showHeatmap,
+  } = useDagContext();
 
   const nodesByStatus = useMemo(() => {
     const grouped: Record<string, DagNodeData[]> = {};
