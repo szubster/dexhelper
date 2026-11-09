@@ -44,8 +44,8 @@ test('DagWrapper renders DagProvider and DagDashboard without crashing', async (
 
   // Test clicking heatmap overlay button
   const heatmapBtn = page.getByRole('button', { name: 'Toggle heatmap overlay' });
-  await expect.element(heatmapBtn).toBeInTheDocument();
-  await heatmapBtn.click();
+  await expect.element(heatmapBtn.first()).toBeInTheDocument();
+  await heatmapBtn.first().click();
 
   // Test switching view mode to tree
   const treeTab = page.getByTestId('view-mode-tree');
