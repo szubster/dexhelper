@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-09T00:12:06.730Z*
+*Generated at: 2026-11-09T07:19:34.954Z*
 
 ## Node Statistics
 
@@ -18,22 +18,22 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3690 |
-| ACTIVE | 145 |
-| CANCELLED | 984 |
-| PENDING | 770 |
+| COMPLETED | 3691 |
+| ACTIVE | 154 |
+| CANCELLED | 992 |
+| PENDING | 760 |
 | BLOCKED | 14 |
-| FAILED | 8 |
-| READY | 7 |
+| FAILED | 5 |
+| READY | 2 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 168 |
-| Merged PRs | 8777 |
-| Closed PRs | 1055 |
+| Open PRs | 184 |
+| Merged PRs | 8762 |
+| Closed PRs | 1054 |
 
 ## Rejection Counts
 
@@ -343,6 +343,7 @@
 | task-586-687-multi-box-integration-impl.md | 3 |
 | task-608-619-multi-box-text-search-engine-e2e.md | 3 |
 | task-618-703-multi-box-search-highlight-impl.md | 3 |
+| task-618-723-highlight-ui-presentation.md | 3 |
 | task-619-687-multi-box-stat-filters-e2e-tests.md | 3 |
 | task-619-713-multi-box-stat-filters-e2e-tests-retry.md | 3 |
 | task-638-641-extract-constants-to-core.md | 3 |
@@ -373,6 +374,7 @@
 | task-645-691-dashboard-metrics-integration-e2e-impl-retry-2.md | 3 |
 | task-645-722-dashboard-metrics-integration-e2e-impl-retry-3.md | 3 |
 | task-649-702-priority-dispatch-coder.md | 3 |
+| task-649-728-priority-dispatch-tests-coder-retry.md | 3 |
 | task-674-700-migrate-pokedex-e2e-tests-coder.md | 3 |
 | task-676-712-fuzzer-deadlock-assertions-impl.md | 3 |
 | task-676-729-fuzzer-deadlock-assertions-impl-v3.md | 3 |
@@ -569,6 +571,7 @@
 | task-558-570-flexsearch-tooling-e2e.md | 2 |
 | task-558-570-rs-battle-tower-integration.md | 2 |
 | task-558-721-heatmap-node-tooltip-impl.md | 2 |
+| task-559-709-rag-dynamic-querying-integration-e2e-v2.md | 2 |
 | task-560-569-evaluate-state-machine-libraries.md | 2 |
 | task-560-575-pokerus-spread-planner-qa.md | 2 |
 | task-562-576-item-selection-route-e2e-impl.md | 2 |
@@ -589,11 +592,9 @@
 | task-575-716-implement-heatmap-e2e-tests.md | 2 |
 | task-580-602-virtualize-storage-grid-ui.md | 2 |
 | task-608-617-multi-box-text-search-engine-impl.md | 2 |
-| task-618-723-highlight-ui-presentation.md | 2 |
 | task-638-640-migrate-pokedata-plugin.md | 2 |
 | task-639-722-migrate-buttons-impl-v5.md | 2 |
 | task-647-673-gen3-ash-dashboard-ui-impl.md | 2 |
-| task-649-728-priority-dispatch-tests-coder-retry.md | 2 |
 | task-676-707-rematch-dashboard-layout-impl.md | 2 |
 | task-676-712-backfill-stats-cli-args-parser.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
@@ -873,6 +874,7 @@
 | research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
+| research-640-740-investigate-extract-utils-timeout-v5.md | 1 |
 | research-703-740-investigate-badge-injection-failure-v3.md | 1 |
 | story-018-513-orchestrator-test-updates.md | 1 |
 | story-048-089-route-radar-density-aggregation.md | 1 |
@@ -1095,7 +1097,6 @@
 | task-558-564-scheduled-workflows-batch1-impl.md | 1 |
 | task-559-680-battle-frontier-data-e2e-tests.md | 1 |
 | task-559-708-search-extraction-qa-v2.md | 1 |
-| task-559-709-rag-dynamic-querying-integration-e2e-v2.md | 1 |
 | task-560-570-evaluate-graph-processing-libraries.md | 1 |
 | task-560-583-gen3-berry-pouch-parsing-impl.md | 1 |
 | task-560-594-spinda-coordinate-types.md | 1 |

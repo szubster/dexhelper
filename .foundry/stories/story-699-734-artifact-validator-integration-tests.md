@@ -2,7 +2,7 @@
 id: story-699-734-artifact-validator-integration-tests
 type: STORY
 title: Artifact Validator Integration Tests
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-18'
 updated_at: '2026-11-09'

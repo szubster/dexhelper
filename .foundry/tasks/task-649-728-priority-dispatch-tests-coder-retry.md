@@ -2,7 +2,7 @@
 id: task-649-728-priority-dispatch-tests-coder-retry
 type: TASK
 title: priority orchestrator dispatch tests coder retry
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-25'
 updated_at: '2026-11-09'
@@ -15,8 +15,8 @@ tags:
   - orchestrator
   - scheduling
   - logic
-rejection_count: 2
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

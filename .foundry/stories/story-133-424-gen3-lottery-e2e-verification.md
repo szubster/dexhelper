@@ -2,13 +2,13 @@
 id: story-133-424-gen3-lottery-e2e-verification
 type: STORY
 title: Gen3 Lottery E2E Verification
-status: ACTIVE
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-14'
 updated_at: '2026-11-09'
 depends_on:
   - story-133-423-gen3-lottery-ui-integration
-jules_session_id: '5233376983823693773'
+jules_session_id: null
 pr_number: null
 parent: epic-105-133-lottery-matching-logic
 tags:
@@ -17,7 +17,7 @@ tags:
   - e2e
   - integration
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---

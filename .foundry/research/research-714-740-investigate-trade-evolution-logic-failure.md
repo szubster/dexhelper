@@ -2,19 +2,19 @@
 id: research-714-740-investigate-trade-evolution-logic-failure
 type: RESEARCH
 title: Investigate Base Trade Evolution Generator Logic Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-11-04'
 updated_at: '2026-11-09'
 depends_on: []
-jules_session_id: '10096629746527673854'
+jules_session_id: null
 pr_number: null
 parent: story-351-714-base-trade-evolution-tracking
 tags:
   - backend
   - evolution
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
 notes: ''
 locks: []
 ---
