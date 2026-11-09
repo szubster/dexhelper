@@ -81,7 +81,7 @@ export async function clearStorage(page: Page) {
     localStorage.clear();
     const databases = (await window.indexedDB.databases?.()) || [];
     for (const db of databases) {
-      if (db.name) window.indexedDB.deleteDatabase(db.name);
+      if (db.name !== 'PokeDB') window.indexedDB.deleteDatabase(db.name);
     }
   });
   await page.reload();
