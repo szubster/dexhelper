@@ -2,12 +2,12 @@
 id: research-714-740-investigate-trade-evolution-logic-failure
 type: RESEARCH
 title: Investigate Base Trade Evolution Generator Logic Failure
-status: READY
+status: ACTIVE
 owner_persona: researcher
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10096629746527673854'
 pr_number: null
 parent: story-351-714-base-trade-evolution-tracking
 tags:
