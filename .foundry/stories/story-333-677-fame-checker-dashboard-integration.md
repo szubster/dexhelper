@@ -38,3 +38,11 @@ With the presentational components built, we need to integrate them with the app
 
 ## Acceptance Criteria
 - [ ] Dashboard is accessible via routing and displays real save file data.
+- [ ] task-677-747-fame-checker-mapping-logic
+- [ ] task-677-748-qa-fame-checker-mapping-logic
+- [ ] task-677-749-fame-checker-state-hooks
+- [ ] task-677-750-qa-fame-checker-state-hooks
+- [ ] task-677-751-fame-checker-routing-integration
+- [ ] task-677-752-qa-fame-checker-routing-integration
+- [ ] task-677-753-fame-checker-e2e-tests
+- [ ] task-677-754-qa-fame-checker-e2e-tests
