@@ -30,7 +30,10 @@ Following the schema update for the `priority` field, the orchestrator needs to 
 - [x] task-649-702-priority-dispatch-coder
 - [x] task-649-703-priority-dispatch-tests-coder
 - [x] task-649-704-priority-dispatch-qa
-- [ ] research-649-726-investigate-priority-dispatch-failure
-- [ ] task-649-727-priority-dispatch-coder-retry
-- [ ] task-649-728-priority-dispatch-tests-coder-retry
-- [ ] task-649-729-priority-dispatch-qa-retry
+- [x] research-649-726-investigate-priority-dispatch-failure
+- [x] task-649-727-priority-dispatch-coder-retry
+- [x] task-649-728-priority-dispatch-tests-coder-retry
+- [x] task-649-729-priority-dispatch-qa-retry
+- [ ] research-649-747-investigate-priority-dispatch-tests-failure
+- [ ] task-649-748-priority-dispatch-tests-coder-v3
+- [ ] task-649-749-priority-dispatch-qa-v3
