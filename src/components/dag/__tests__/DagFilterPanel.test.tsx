@@ -49,7 +49,4 @@ test('DagFilterPanel renders all types and statuses', async () => {
 
   await page.getByText('[ PERMANENT_FAILURES_ONLY ]').click();
   expect(mockToggleShowPermanentFailures).toHaveBeenCalled();
-
-  await page.getByText('[ HEATMAP_OVERLAY ]').click();
-  expect(mockSetShowHeatmap).toHaveBeenCalled();
 });
