@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { getGen2Gender } from '../engine/breeding/gender';
 import { calculateGen2Gender, calculateGen3Gender } from './gender.ts';
 
 describe('calculateGen2Gender', () => {
@@ -100,5 +101,36 @@ describe('calculateGen3Gender', () => {
     // Non-standard genderRate = 3: femaleThreshold = Math.floor((3 / 8) * 256) - 1 = 95
     expect(calculateGen3Gender(95, 3)).toBe('female');
     expect(calculateGen3Gender(96, 3)).toBe('male');
+  });
+});
+
+describe('getGen2Gender', () => {
+  it('should return Genderless for gender rate -1', () => {
+    expect(getGen2Gender(0, -1)).toBe('Genderless');
+    expect(getGen2Gender(15, -1)).toBe('Genderless');
+  });
+
+  it('should return Male for gender rate 0 (100% Male)', () => {
+    expect(getGen2Gender(0, 0)).toBe('Male');
+    expect(getGen2Gender(15, 0)).toBe('Male');
+  });
+
+  it('should return Female for gender rate 8 (100% Female)', () => {
+    expect(getGen2Gender(0, 8)).toBe('Female');
+    expect(getGen2Gender(15, 8)).toBe('Female');
+  });
+
+  it('should correctly calculate gender for 50/50 ratio', () => {
+    expect(getGen2Gender(0, 4)).toBe('Female');
+    expect(getGen2Gender(7, 4)).toBe('Female');
+    expect(getGen2Gender(8, 4)).toBe('Male');
+    expect(getGen2Gender(15, 4)).toBe('Male');
+  });
+
+  it('should correctly calculate gender for 1/8 Female ratio', () => {
+    expect(getGen2Gender(0, 1)).toBe('Female');
+    expect(getGen2Gender(1, 1)).toBe('Female');
+    expect(getGen2Gender(2, 1)).toBe('Male');
+    expect(getGen2Gender(15, 1)).toBe('Male');
   });
 });

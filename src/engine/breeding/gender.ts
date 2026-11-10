@@ -1,7 +1,8 @@
+import { calculateGen2Gender } from '../../utils/gender';
+
 export function getGen2Gender(attackDV: number, genderRate: number): 'Male' | 'Female' | 'Genderless' {
-  if (genderRate === -1) return 'Genderless';
-  if (genderRate === 0) return 'Male';
-  if (genderRate === 8) return 'Female';
-  const femaleThreshold = genderRate * 2;
-  return attackDV < femaleThreshold ? 'Female' : 'Male';
+  const gender = calculateGen2Gender(attackDV, genderRate);
+  if (gender === 'male') return 'Male';
+  if (gender === 'female') return 'Female';
+  return 'Genderless';
 }
