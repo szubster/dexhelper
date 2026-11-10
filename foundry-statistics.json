@@ -11,11 +11,10 @@
     },
     "byStatus": {
       "COMPLETED": 3691,
-      "ACTIVE": 160,
-      "CANCELLED": 997,
-      "PENDING": 755,
-      "BLOCKED": 14,
-      "FAILED": 1
+      "ACTIVE": 161,
+      "CANCELLED": 1004,
+      "PENDING": 748,
+      "BLOCKED": 14
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -8514,7 +8513,7 @@
       "story-525-710-build-tooling-e2e-verification-retry.md": 86400000,
       "story-526-638-extract-constants.md": 3369600000,
       "story-526-639-extract-parsers.md": 259200000,
-      "story-526-640-extract-domain-logic.md": 3369600000,
+      "story-526-640-extract-domain-logic.md": 3542400000,
       "story-526-641-core-domain-integration-e2e.md": 0,
       "story-527-638-setup-ui-package.md": 259200000,
       "story-527-639-migrate-tactical-primitives.md": 2332800000,
@@ -10508,14 +10507,14 @@
       "task-640-731-migrate-tacticalsegmentedcontrol-qa.md": 950400000,
       "task-640-732-migrate-tacticalselect-impl.md": 950400000,
       "task-640-733-migrate-tacticalselect-qa.md": 518400000,
-      "task-640-741-extract-utils-to-core-retry-v4.md": 432000000,
+      "task-640-741-extract-utils-to-core-retry-v4.md": 604800000,
       "task-640-741-migrate-tacticalselect-impl-retry.md": 345600000,
       "task-640-742-migrate-tacticalselect-qa-retry.md": 345600000,
-      "task-640-742-update-app-imports-utils-retry-v4.md": 432000000,
-      "task-640-743-qa-extract-utils-retry-v4.md": 432000000,
-      "task-640-744-extract-engine-data-to-core-retry-v4.md": 432000000,
-      "task-640-745-update-app-imports-engine-data-retry-v4.md": 432000000,
-      "task-640-746-qa-extract-engine-data-retry-v4.md": 432000000,
+      "task-640-742-update-app-imports-utils-retry-v4.md": 604800000,
+      "task-640-743-qa-extract-utils-retry-v4.md": 604800000,
+      "task-640-744-extract-engine-data-to-core-retry-v4.md": 604800000,
+      "task-640-745-update-app-imports-engine-data-retry-v4.md": 604800000,
+      "task-640-746-qa-extract-engine-data-retry-v4.md": 604800000,
       "task-641-658-migrate-scanline-crosshairs.md": 518400000,
       "task-641-659-migrate-hexstream-telemetry.md": 259200000,
       "task-641-660-qa-migrate-decorations.md": 259200000,
@@ -10758,9 +10757,9 @@
   },
   "prs": {
     "totalPRs": 10000,
-    "openPRs": 194,
-    "mergedPRs": 8757,
+    "openPRs": 196,
+    "mergedPRs": 8755,
     "closedPRs": 1049
   },
-  "timestamp": "2026-11-10T16:44:00.499Z"
+  "timestamp": "2026-11-10T22:03:17.642Z"
 }
