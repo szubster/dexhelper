@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-09T17:54:47.253Z*
+*Generated at: 2026-11-10T00:56:57.381Z*
 
 ## Node Statistics
 
@@ -19,12 +19,12 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3691 |
-| ACTIVE | 157 |
+| ACTIVE | 159 |
 | CANCELLED | 997 |
 | PENDING | 755 |
 | BLOCKED | 14 |
-| READY | 3 |
 | FAILED | 1 |
+| READY | 1 |
 
 ## PR Metrics
 
@@ -32,8 +32,8 @@
 |---|---|
 | Total PRs | 10000 |
 | Open PRs | 194 |
-| Merged PRs | 8755 |
-| Closed PRs | 1051 |
+| Merged PRs | 8756 |
+| Closed PRs | 1050 |
 
 ## Rejection Counts
 
@@ -476,6 +476,7 @@
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
+| research-640-740-investigate-extract-utils-timeout-v5.md | 2 |
 | research-640-740-investigate-tacticalselect-migration-failure.md | 2 |
 | research-645-721-investigate-dashboard-metrics-e2e-failure-retry-2.md | 2 |
 | story-042-081-preserve-enum-optimizations.md | 2 |
@@ -875,7 +876,6 @@
 | research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
-| research-640-740-investigate-extract-utils-timeout-v5.md | 1 |
 | research-703-740-investigate-badge-injection-failure-v3.md | 1 |
 | research-714-740-investigate-trade-evolution-logic-failure.md | 1 |
 | story-018-513-orchestrator-test-updates.md | 1 |
