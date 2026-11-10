@@ -2,10 +2,10 @@
 id: task-640-741-extract-utils-to-core-retry-v4
 type: TASK
 title: Migrate pure JS/TS logic from src/utils to packages/core (Retry v4)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-11-03'
-updated_at: '2026-11-08'
+updated_at: '2026-11-10'
 depends_on:
   - research-640-740-investigate-extract-utils-timeout-v5
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-640-740-investigate-extract-utils-timeout-v5
 notes: ''
 locks: []
 ---

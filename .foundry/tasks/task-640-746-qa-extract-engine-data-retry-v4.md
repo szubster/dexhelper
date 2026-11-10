@@ -2,10 +2,10 @@
 id: task-640-746-qa-extract-engine-data-retry-v4
 type: TASK
 title: QA Verification for Engine Data Extraction (Retry v4)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-11-03'
-updated_at: '2026-11-08'
+updated_at: '2026-11-10'
 depends_on:
   - task-640-745-update-app-imports-engine-data-retry-v4
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-640-740-investigate-extract-utils-timeout-v5
 notes: ''
 locks: []
 ---

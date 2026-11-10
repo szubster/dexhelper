@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-10T08:56:30.342Z*
+*Generated at: 2026-11-10T16:44:00.499Z*
 
 ## Node Statistics
 
@@ -19,11 +19,10 @@
 | Status | Count |
 |---|---|
 | COMPLETED | 3691 |
-| ACTIVE | 159 |
+| ACTIVE | 160 |
 | CANCELLED | 997 |
 | PENDING | 755 |
 | BLOCKED | 14 |
-| READY | 1 |
 | FAILED | 1 |
 
 ## PR Metrics
@@ -31,8 +30,8 @@
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 193 |
-| Merged PRs | 8758 |
+| Open PRs | 194 |
+| Merged PRs | 8757 |
 | Closed PRs | 1049 |
 
 ## Rejection Counts
@@ -174,6 +173,7 @@
 | research-639-675-investigate-primitives-migration-failures-v2.md | 3 |
 | research-639-726-investigate-primitives-migration-failures-v5.md | 3 |
 | research-640-668-investigate-relocate-scripts-replacement-failure.md | 3 |
+| research-640-740-investigate-extract-utils-timeout-v5.md | 3 |
 | research-641-668-investigate-hexstream-telemetry-failure.md | 3 |
 | research-641-673-investigate-scanline-crosshairs-failure.md | 3 |
 | research-645-687-investigate-dashboard-metrics-e2e-failure.md | 3 |
@@ -477,7 +477,6 @@
 | research-638-740-investigate-constants-extraction-v7-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
-| research-640-740-investigate-extract-utils-timeout-v5.md | 2 |
 | research-640-740-investigate-tacticalselect-migration-failure.md | 2 |
 | research-645-721-investigate-dashboard-metrics-e2e-failure-retry-2.md | 2 |
 | story-042-081-preserve-enum-optimizations.md | 2 |

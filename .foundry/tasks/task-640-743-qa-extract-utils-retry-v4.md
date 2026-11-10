@@ -2,10 +2,10 @@
 id: task-640-743-qa-extract-utils-retry-v4
 type: TASK
 title: QA Verification for Utils Extraction (Retry v4)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-11-03'
-updated_at: '2026-11-08'
+updated_at: '2026-11-10'
 depends_on:
   - task-640-742-update-app-imports-utils-retry-v4
 jules_session_id: null
@@ -17,7 +17,9 @@ tags:
   - pnpm
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-640-740-investigate-extract-utils-timeout-v5
 notes: ''
 locks: []
 ---
