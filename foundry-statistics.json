@@ -15,8 +15,8 @@
       "CANCELLED": 997,
       "PENDING": 755,
       "BLOCKED": 14,
-      "FAILED": 1,
-      "READY": 1
+      "READY": 1,
+      "FAILED": 1
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -2577,7 +2577,7 @@
       "research-638-712-investigate-constants-extraction-v4-failure.md": 3,
       "research-638-716-investigate-constants-extraction-v5-failure.md": 0,
       "research-638-721-investigate-constants-extraction-v6-failure.md": 0,
-      "research-638-740-investigate-constants-extraction-v7-failure.md": 1,
+      "research-638-740-investigate-constants-extraction-v7-failure.md": 2,
       "research-639-658-investigate-extract-data-scripts-failure.md": 3,
       "research-639-668-investigate-extract-data-scripts-failure-v2.md": 2,
       "research-639-668-investigate-primitives-migration-failures.md": 3,
@@ -10759,9 +10759,9 @@
   },
   "prs": {
     "totalPRs": 10000,
-    "openPRs": 194,
-    "mergedPRs": 8756,
-    "closedPRs": 1050
+    "openPRs": 193,
+    "mergedPRs": 8758,
+    "closedPRs": 1049
   },
-  "timestamp": "2026-11-10T00:56:57.381Z"
+  "timestamp": "2026-11-10T08:56:30.342Z"
 }

@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-10T00:56:57.381Z*
+*Generated at: 2026-11-10T08:56:30.342Z*
 
 ## Node Statistics
 
@@ -23,17 +23,17 @@
 | CANCELLED | 997 |
 | PENDING | 755 |
 | BLOCKED | 14 |
-| FAILED | 1 |
 | READY | 1 |
+| FAILED | 1 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 194 |
-| Merged PRs | 8756 |
-| Closed PRs | 1050 |
+| Open PRs | 193 |
+| Merged PRs | 8758 |
+| Closed PRs | 1049 |
 
 ## Rejection Counts
 
@@ -474,6 +474,7 @@
 | research-564-734-investigate-gen2-roamer-e2e-failure.md | 2 |
 | research-567-690-investigate-shoal-cave-e2e-failure.md | 2 |
 | research-570-617-investigate-cva-tactical-aesthetic-e2e-failure.md | 2 |
+| research-638-740-investigate-constants-extraction-v7-failure.md | 2 |
 | research-639-668-investigate-extract-data-scripts-failure-v2.md | 2 |
 | research-639-673-investigate-extract-data-scripts-failure-v3.md | 2 |
 | research-640-740-investigate-extract-utils-timeout-v5.md | 2 |
@@ -872,7 +873,6 @@
 | research-609-637-tm-hm-learnsets-data-source.md | 1 |
 | research-638-665-investigate-constants-extraction.md | 1 |
 | research-638-690-investigate-constants-extraction-v3-failure.md | 1 |
-| research-638-740-investigate-constants-extraction-v7-failure.md | 1 |
 | research-639-721-investigate-primitives-migration-failures-v4.md | 1 |
 | research-640-676-investigate-relocate-scripts-replacement-failure-retry.md | 1 |
 | research-640-687-investigate-extract-utils-timeout-v3.md | 1 |
