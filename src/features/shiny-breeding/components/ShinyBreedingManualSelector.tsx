@@ -6,6 +6,7 @@ import { TacticalPanel } from '../../../components/TacticalPanel';
 import { TelemetryDecoration } from '../../../components/TelemetryDecoration';
 import { useParsedSaveData } from '../../../contexts/EmulatorContext';
 import { pokeDB } from '../../../db/PokeDB';
+import type { PokemonMetadata } from '../../../db/schema';
 import type { PokemonWithMetadata } from '../../../engine/breeding/pair_algorithm';
 import { calculateShinyOdds } from '../../../engine/breeding/shiny';
 import type { PokemonInstance } from '../../../engine/saveParser/parsers/common';
@@ -27,7 +28,7 @@ export const ShinyBreedingManualSelector: React.FC = () => {
   });
 
   const metadataMap = useMemo(() => {
-    const map = new Map();
+    const map = new Map<number, PokemonMetadata>();
     if (pokemonMetaList) {
       for (const p of pokemonMetaList) map.set(p.id, p);
     }
@@ -91,14 +92,9 @@ export const ShinyBreedingManualSelector: React.FC = () => {
   };
 
   let oddsResult = null;
-  if (
-    store.parent1 &&
-    store.parent2 &&
-    metadataMap.has(store.parent1.speciesId) &&
-    metadataMap.has(store.parent2.speciesId)
-  ) {
-    const m1 = metadataMap.get(store.parent1.speciesId) as import('../../../db/schema').PokemonMetadata;
-    const m2 = metadataMap.get(store.parent2.speciesId) as import('../../../db/schema').PokemonMetadata;
+  const m1 = store.parent1 ? metadataMap.get(store.parent1.speciesId) : undefined;
+  const m2 = store.parent2 ? metadataMap.get(store.parent2.speciesId) : undefined;
+  if (store.parent1 && store.parent2 && m1 && m2) {
     const s1 = getDerivedParentStats(store.parent1, m1);
     const s2 = getDerivedParentStats(store.parent2, m2);
     if (s1 && s2 && store.parent1.dvs && store.parent2.dvs) {
