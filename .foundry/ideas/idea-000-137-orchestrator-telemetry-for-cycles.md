@@ -31,3 +31,5 @@ Implement telemetry metrics in the `foundry-orchestrator.ts` script to count and
 
 ## Acceptance Criteria
 - [x] prd-137-346-orchestrator-telemetry-for-cycles
+
+- [ ] research-137-743-orchestrator-telemetry-metrics-overlap
