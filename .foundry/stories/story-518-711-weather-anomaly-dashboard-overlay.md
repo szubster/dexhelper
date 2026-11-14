@@ -27,4 +27,8 @@ locks: []
 This story implements the dashboard overlay to display the current active anomaly (Drought/Drizzle) for Gen 3. It should fetch the anomaly state and present it to the user.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into modular Tasks for the Coder.
+- [x] Break down this Story into modular Tasks for the Coder.
+- [ ] task-711-740-weather-anomaly-dashboard-overlay-impl
+- [ ] task-711-741-weather-anomaly-dashboard-overlay-qa
+- [ ] task-711-742-weather-anomaly-dashboard-state-impl
+- [ ] task-711-743-weather-anomaly-dashboard-state-qa
