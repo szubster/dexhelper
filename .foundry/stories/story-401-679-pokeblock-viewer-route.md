@@ -35,7 +35,11 @@ As part of `epic-114-401-gen3-pokeblock-dashboard-ui-retry`, we need to create t
 - [x] task-679-712-pokeblock-dashboard-ui-impl
 - [x] task-679-713-pokeblock-route-integration-impl
 - [x] task-679-714-pokeblock-viewer-qa
-- [ ] research-679-731-investigate-pokeblock-dashboard-failure
-- [ ] task-679-732-pokeblock-dashboard-ui-impl-retry
-- [ ] task-679-733-pokeblock-route-integration-impl-retry
-- [ ] task-679-734-pokeblock-viewer-qa-retry
+- [x] research-679-731-investigate-pokeblock-dashboard-failure
+- [x] task-679-732-pokeblock-dashboard-ui-impl-retry
+- [x] task-679-733-pokeblock-route-integration-impl-retry
+- [x] task-679-734-pokeblock-viewer-qa-retry
+- [ ] research-679-740-investigate-pokeblock-dashboard-failure-retry
+- [ ] task-679-741-pokeblock-dashboard-ui-impl-v3
+- [ ] task-679-742-pokeblock-route-integration-impl-v3
+- [ ] task-679-743-pokeblock-viewer-qa-v3
