@@ -37,5 +37,10 @@ test.describe('Gen 3 Pokedex Gaps Tracker', () => {
 
     // UI updates asynchronously, wait for the missing filter to hide the "secured" (emerald) items.
     await expect(gridModel.getSecuredCards()).toHaveCount(0);
+
+    // Verify some missing items exist (in Gen3 Emerald, we expect some missing)
+    // Actually wait, let's just make sure there are SOME pokemon cards shown and they are missing
+    const missingCount = await gridModel.pokemonCards.count();
+    expect(missingCount).toBeGreaterThan(0);
   });
 });
