@@ -35,8 +35,11 @@ This story covers the implementation of the new Foundry orchestrator engine, int
 - [x] task-561-681-orchestrator-state-machine-impl
 - [x] task-561-682-orchestrator-engine-tests
 - [x] task-561-683-orchestrator-engine-qa
-- [ ] research-561-703-orchestrator-dag-graphology-failure
-- [ ] task-561-704-orchestrator-dag-graphology-impl-retry
-- [ ] task-561-705-orchestrator-state-machine-impl-retry
-- [ ] task-561-706-orchestrator-engine-tests-retry
-- [ ] task-561-707-orchestrator-engine-qa-retry
+- [x] research-561-703-orchestrator-dag-graphology-failure
+- [x] task-561-704-orchestrator-dag-graphology-impl-retry
+- [x] task-561-705-orchestrator-state-machine-impl-retry
+- [x] task-561-706-orchestrator-engine-tests-retry
+- [x] task-561-707-orchestrator-engine-qa-retry
+- [ ] research-561-740-investigate-orchestrator-tests-failure
+- [ ] task-561-741-orchestrator-engine-tests-v3
+- [ ] task-561-742-orchestrator-engine-qa-v3
