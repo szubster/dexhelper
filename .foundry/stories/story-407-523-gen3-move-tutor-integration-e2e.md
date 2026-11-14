@@ -41,7 +41,11 @@ Verify the Gen 3 Move Tutor compatibility cross-referencing logic integrates cor
 - [x] task-523-691-gen3-move-tutor-e2e-fixtures-retry
 - [x] task-523-692-gen3-move-tutor-e2e-tests-retry
 - [x] task-523-693-gen3-move-tutor-e2e-qa-retry
-- [ ] research-523-712-investigate-gen3-move-tutor-fixtures-failure-retry
-- [ ] task-523-713-gen3-move-tutor-e2e-fixtures-retry-2
-- [ ] task-523-714-gen3-move-tutor-e2e-tests-retry-2
-- [ ] task-523-715-gen3-move-tutor-e2e-qa-retry-2
+- [x] research-523-712-investigate-gen3-move-tutor-fixtures-failure-retry
+- [x] task-523-713-gen3-move-tutor-e2e-fixtures-retry-2
+- [x] task-523-714-gen3-move-tutor-e2e-tests-retry-2
+- [x] task-523-715-gen3-move-tutor-e2e-qa-retry-2
+- [ ] research-523-740-investigate-gen3-move-tutor-fixtures-failure-retry-3
+- [ ] task-523-741-gen3-move-tutor-e2e-fixtures-retry-3
+- [ ] task-523-742-gen3-move-tutor-e2e-tests-retry-3
+- [ ] task-523-743-gen3-move-tutor-e2e-qa-retry-3
