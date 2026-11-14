@@ -177,7 +177,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-124-librarian-persona-context-optimizer` | Librarian Persona for Context Token Optimization | foundry, orchestrator, optimization, token-usage |  | COMPLETED |
 | `idea-128-gen3-acro-bike-route-planner` | Gen 3 Acro Bike / Mach Bike Route Requirements | gen3, map, quality-of-life |  | PENDING |
 | `idea-129-epic-level-distillation-archival` | Epic-Level Distillation and Cold Storage Archival | foundry, infrastructure, performance | `idea-152-archival-cleanup-and-retention-policy`, `idea-152-deterministic-dag-tree-archival` | PENDING |
-| `idea-130-shoal-cave-tide-tracker` | Shoal Cave Tide & Item Tracker (Gen 3) | feature, gen3, time-based, item-tracker |  | PENDING |
+| `idea-130-shoal-cave-tide-tracker` | Shoal Cave Tide & Item Tracker (Gen 3) | feature, gen3, time-based, item-tracker | `idea-078-settle-rtc-strategy` | PENDING |
 | `idea-131-orchestrator-resource-locking-mutex` | Implement Resource Locking (Mutex) in DAG Orchestrator | orchestrator, architecture |  | PENDING |
 | `idea-132-gen3-pal-park-migration-planner` | Gen 3 Pal Park Migration Planner | feature, gen3, migration |  | PENDING |
 | `idea-133-automated-dag-visualizer` | Automated DAG Visualizer via Mermaid Generation | orchestrator, tooling, visualization |  | BLOCKED |
