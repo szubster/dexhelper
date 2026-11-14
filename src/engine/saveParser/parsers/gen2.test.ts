@@ -625,6 +625,65 @@ describe('gen2 parsers', () => {
   });
 
   describe('parseGen2 - Bag Inventory', () => {
+    it('should handle empty bag inventory correctly', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // Avoid error in other parser part by setting valid current map group
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+      view.setUint8(0x288b + 7 + 20, 1);
+
+      // Gold/Silver offsets
+      view.setUint8(0x2420, 0); // 0 items
+      view.setUint8(0x244a, 0); // 0 key items
+      view.setUint8(0x2465, 0); // 0 balls
+
+      const data = parseGen2(view, false);
+      expect(data.inventory).toEqual([]);
+    });
+
+    it('should ignore inventory when pocket counts are out of bounds (exceed MAX)', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // Avoid error in other parser part by setting valid current map group
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+      view.setUint8(0x288b + 7 + 20, 1);
+
+      // Set values greater than max
+      view.setUint8(0x2420, 255);
+      view.setUint8(0x244a, 255);
+      view.setUint8(0x2465, 255);
+
+      const data = parseGen2(view, false);
+      expect(data.inventory).toEqual([]);
+    });
+
+    it('should throw corrupted file error when inventory parsing is out of bounds', () => {
+      const buffer = new ArrayBuffer(0x8000);
+      const view = new DataView(buffer);
+
+      // Avoid error in other parser part by setting valid current map group
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+      view.setUint8(0x288b + 7 + 20, 1);
+
+      const originalGetUint8 = view.getUint8.bind(view);
+      view.getUint8 = (offset: number) => {
+        if (offset === 0x2420) {
+          throw new RangeError('Out of bounds');
+        }
+        return originalGetUint8(offset);
+      };
+
+      expect(() => parseGen2(view, false)).toThrow('The save file is corrupted or incomplete.');
+    });
+
     it('should parse Bag Inventory correctly for Gold/Silver', () => {
       const buffer = new ArrayBuffer(0x8000);
       const view = new DataView(buffer);
