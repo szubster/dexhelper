@@ -2041,7 +2041,7 @@
 {"id":2097,"name":"Red Dish","category":55,"sprite":"red-dish.png"}
 {"id":2098,"name":"White Dish","category":55,"sprite":"white-dish.png"}
 {"id":2099,"name":"Yellow Dish","category":55,"sprite":"yellow-dish.png"}
-{"id":2100,"name":"Roto Stick","category":21,"sprite":"roto-stick.png"}
+{"id":2100,"name":"Roto-Stick","category":21,"sprite":"roto-stick.png"}
 {"id":2101,"name":"Teal Style Card","category":21,"sprite":"teal-style-card.png"}
 {"id":2102,"name":"Teal Mask","category":20,"sprite":"teal-mask.png"}
 {"id":2103,"name":"Glimmering Charm","category":21,"sprite":"glimmering-charm.png"}
