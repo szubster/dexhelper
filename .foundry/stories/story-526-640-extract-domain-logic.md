@@ -62,13 +62,20 @@ locks: []
 - [x] task-640-721-update-app-imports-engine-data-retry-v3
 - [x] task-640-722-qa-extract-engine-data-retry-v3
 
-- [ ] research-640-740-investigate-extract-utils-timeout-v5
-- [ ] task-640-741-extract-utils-to-core-retry-v4
-- [ ] task-640-742-update-app-imports-utils-retry-v4
-- [ ] task-640-743-qa-extract-utils-retry-v4
-- [ ] task-640-744-extract-engine-data-to-core-retry-v4
-- [ ] task-640-745-update-app-imports-engine-data-retry-v4
-- [ ] task-640-746-qa-extract-engine-data-retry-v4
+- [x] research-640-740-investigate-extract-utils-timeout-v5
+- [x] task-640-741-extract-utils-to-core-retry-v4
+- [x] task-640-742-update-app-imports-utils-retry-v4
+- [x] task-640-743-qa-extract-utils-retry-v4
+- [x] task-640-744-extract-engine-data-to-core-retry-v4
+- [x] task-640-745-update-app-imports-engine-data-retry-v4
+- [x] task-640-746-qa-extract-engine-data-retry-v4
+- [ ] research-640-747-investigate-extract-utils-timeout-v6
+- [ ] task-640-748-extract-utils-to-core-retry-v5
+- [ ] task-640-749-update-app-imports-utils-retry-v5
+- [ ] task-640-750-qa-extract-utils-retry-v5
+- [ ] task-640-751-extract-engine-data-to-core-retry-v5
+- [ ] task-640-752-update-app-imports-engine-data-retry-v5
+- [ ] task-640-753-qa-extract-engine-data-retry-v5
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
