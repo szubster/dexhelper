@@ -29,5 +29,8 @@ This story is dedicated exclusively to Integration and E2E Verification of the P
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-561-690-pokerus-spread-planner-e2e-impl
-- [ ] task-561-691-pokerus-spread-planner-e2e-qa
+- [x] task-561-690-pokerus-spread-planner-e2e-impl
+- [x] task-561-691-pokerus-spread-planner-e2e-qa
+- [ ] research-561-740-investigate-pokerus-e2e-failure
+- [ ] task-561-741-pokerus-spread-planner-e2e-impl-v2
+- [ ] task-561-742-pokerus-spread-planner-e2e-qa-v2
