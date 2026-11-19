@@ -219,7 +219,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-157-pnpm-workspaces-architecture` | Step-by-Step Monorepo Architectural Migration to pnpm Workspaces | architecture, monorepo, pnpm, dx, cloudflare | `idea-055-cloudflare-sync-and-future-features`, `idea-062-drive-cloudflare-sync` | PENDING |
 | `idea-158-dataview-composite-wrapper` | DataView Composite Wrapper & Save Parser Abstraction | architecture, dataview, save-parser, abstraction, testing, refactoring |  | PENDING |
 | `idea-159-individual-pokemon-pkm-exporter` | Individual Pokémon PKM/PK3 Exporter | feature, gen1, gen2, gen3, export |  | PENDING |
-| `idea-417-407-more-save-files` | Idea: Source additional save files for testing | testing, fixtures | Parent: `epic-343-417-test-fixtures-sourcing` | PENDING |
+| `idea-417-407-more-save-files` | Idea: Source additional save files for testing | testing, fixtures | Parent: `epic-343-417-test-fixtures-sourcing`, `idea-147-add-more-test-fixtures` | PENDING |
 | `idea-418-replace-xyflow-with-custom-dag` | Replace @xyflow/react with a lightweight directory tree visualization | performance, bundle-size, memory, architecture, ui-ux |  | PENDING |
 | `idea-419-scheduled-agents-dashboard` | Scheduled Agents Dispatch via GitHub Issues and Execution Tracking | foundry, scheduled-agents, github-issues, zero-inbox |  | PENDING |
 | `idea-420-task-breakdown-anti-patterns` | Enforce Specific Task Breakdown Anti-Patterns for Tech Leads | Uncategorized |  | PENDING |
