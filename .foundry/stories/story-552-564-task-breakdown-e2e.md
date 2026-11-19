@@ -23,6 +23,8 @@ locks: []
 This story is dedicated to the integration and end-to-end verification of the automated complexity validation logic. It must ensure that the orchestration pipeline properly flags or rejects non-modular breakdown attempts by the Tech Lead.
 
 ## Acceptance Criteria
+
 - [ ] Add e2e tests for the STORY to TASK complexity validation
 - [ ] Verify that non-compliant monolithic TASK structures fail validation
 - [ ] Verify that compliant, modular breakdowns pass validation
+- [ ] task-564-740-task-breakdown-e2e-impl
