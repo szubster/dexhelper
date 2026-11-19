@@ -13,8 +13,9 @@
       "COMPLETED": 3692,
       "ACTIVE": 160,
       "CANCELLED": 1004,
-      "PENDING": 748,
-      "BLOCKED": 14
+      "PENDING": 747,
+      "BLOCKED": 14,
+      "READY": 1
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -10724,7 +10725,7 @@
       "task-726-728-impl-lazy-load-tests.md": 1296000000,
       "task-726-729-qa-lazy-load-tests.md": 1296000000,
       "task-726-730-impl-background-fetch-tests.md": 2160000000,
-      "task-726-731-qa-background-fetch-tests.md": 518400000,
+      "task-726-731-qa-background-fetch-tests.md": 2160000000,
       "task-726-732-impl-generation-logic-tests.md": 1296000000,
       "task-726-733-qa-generation-logic-tests.md": 1296000000,
       "task-731-734-ast-analyzer-core-logic.md": 1728000000,
@@ -10761,5 +10762,5 @@
     "mergedPRs": 8757,
     "closedPRs": 1048
   },
-  "timestamp": "2026-11-19T02:55:03.763Z"
+  "timestamp": "2026-11-19T10:52:13.950Z"
 }
