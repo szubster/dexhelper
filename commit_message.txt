@@ -1,0 +1,7 @@
+Draft STORY nodes for IndexedDB Fallback Storage Synchronization and Telemetry epic
+
+- Drafted STORY to implement Storage Health Event Emitters and `useStorageHealth` hook.
+- Drafted STORY to implement the Tactical Storage Health UI Badge.
+- Drafted STORY to implement LocalStorage/SessionStorage bridge for fallback maps.
+- Drafted STORY to implement IndexedDB Rehydration & Re-sync Protocol.
+- Drafted STORY for E2E Verification of Fallback Storage and Telemetry.
