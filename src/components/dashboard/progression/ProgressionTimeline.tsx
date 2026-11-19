@@ -47,7 +47,7 @@ export const ProgressionTimeline: React.FC = () => {
           const metadata = iterCursor.value;
 
           newEvents.push({
-            id: iterCursor.primaryKey as string,
+            id: typeof iterCursor.primaryKey === 'string' ? iterCursor.primaryKey : String(iterCursor.primaryKey),
             type: metadata.type || 'SAVE',
             description: metadata.description || 'Game saved.',
             timestamp: metadata.timestamp || Date.now(),

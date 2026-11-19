@@ -2,10 +2,10 @@
 id: task-649-729-priority-dispatch-qa-retry
 type: TASK
 title: priority orchestrator dispatch qa retry
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-09'
 depends_on:
   - task-649-727-priority-dispatch-coder-retry
   - task-649-728-priority-dispatch-tests-coder-retry
@@ -17,7 +17,9 @@ tags:
   - scheduling
   - logic
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-649-728-priority-dispatch-tests-coder-retry
 notes: ''
 locks: []
 ---

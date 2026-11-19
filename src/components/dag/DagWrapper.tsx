@@ -1,6 +1,7 @@
 import { DagProvider, useDagContext, type ViewMode } from '../dashboard/DagContext';
 import { DagKanbanBoard } from '../dashboard/kanban/DagKanbanBoard';
 import { TacticalSegmentedControl } from '../TacticalSegmentedControl';
+import { DagFilterPanel } from './DagFilterPanel';
 import { DagTree } from './DagTree';
 import { DagTreeProvider } from './DagTreeContext';
 
@@ -38,7 +39,10 @@ function DagViewSwitcher() {
       </div>
       <div className="relative flex-1 overflow-hidden">
         {activeView === 'board' ? (
-          <DagKanbanBoard />
+          <>
+            <DagFilterPanel />
+            <DagKanbanBoard />
+          </>
         ) : (
           <DagTreeProvider>
             <DagTree />

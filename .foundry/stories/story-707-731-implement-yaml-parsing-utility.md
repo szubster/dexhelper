@@ -2,12 +2,12 @@
 id: story-707-731-implement-yaml-parsing-utility
 type: STORY
 title: Implement YAML Parsing Utility
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-27'
-updated_at: '2026-11-04'
+updated_at: '2026-11-06'
 depends_on: []
-jules_session_id: '8615889814773964056'
+jules_session_id: null
 pr_number: null
 parent: epic-587-707-yaml-parsing-utility
 tags: []
@@ -28,3 +28,7 @@ Implement a strict, reliable YAML frontmatter parsing utility (e.g., `parseFound
 ## Acceptance Criteria
 - [ ] Implement `parseFoundryNode` utility in `.github/scripts/`.
 - [ ] Ensure parsing correctly isolates YAML frontmatter and avoids scanning the markdown body.
+- [ ] task-731-740-parse-foundry-node-types
+- [ ] task-731-741-parse-foundry-node-impl
+- [ ] task-731-742-parse-foundry-node-tests
+- [ ] task-731-743-parse-foundry-node-qa
