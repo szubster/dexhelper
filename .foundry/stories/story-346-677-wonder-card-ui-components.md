@@ -34,8 +34,12 @@ Develop reusable UI components (e.g., TacticalPanel, TacticalCard) to display in
 - [x] Tech Lead: Break this Story down into actionable Tasks.
 - [ ] task-677-712-wonder-card-primitives-impl
 - [ ] task-677-713-wonder-card-display-impl
-- [ ] task-677-714-wonder-card-integration-impl
-- [ ] task-677-715-wonder-card-ui-qa
+- [x] task-677-714-wonder-card-integration-impl
+- [x] task-677-715-wonder-card-ui-qa
 
 ### SCHEMA
 https://github.com/szubster/dexhelper/blob/main/.foundry/docs/schema.md
+
+- [ ] research-677-740-investigate-wonder-card-integration-failure
+- [ ] task-677-741-wonder-card-integration-impl-retry
+- [ ] task-677-742-wonder-card-ui-qa-retry
