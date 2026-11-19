@@ -27,4 +27,5 @@ locks: []
 Create Integration and E2E tests to verify that the generation-specific save parsers and assistant strategies are dynamically imported correctly and that the application functions seamlessly without bundle bloat.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into coder TASK nodes for E2E verification.
+- [x] Break down this Story into coder TASK nodes for E2E verification.
+- [ ] task-651-740-e2e-dynamic-import-tests
