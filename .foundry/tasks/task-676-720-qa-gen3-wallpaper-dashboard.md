@@ -2,14 +2,14 @@
 id: task-676-720-qa-gen3-wallpaper-dashboard
 type: TASK
 title: QA Verification for Gen 3 Wallpaper Dashboard Component
-status: PENDING
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-22'
-updated_at: '2026-10-24'
+updated_at: '2026-11-08'
 depends_on:
   - task-676-718-impl-gen3-wallpaper-view-integration
   - task-676-719-test-gen3-wallpaper-dashboard
-jules_session_id: null
+jules_session_id: '10170335587182864704'
 pr_number: null
 parent: story-337-676-gen3-wallpaper-ui-component
 tags:

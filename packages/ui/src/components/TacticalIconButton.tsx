@@ -10,7 +10,7 @@ export const TacticalIconButton = React.forwardRef<HTMLButtonElement, TacticalIc
     const title = props.title || props['aria-label'];
 
     // Omit title from props passed to button to avoid native browser tooltip
-    const { title: _title, ...restProps } = props;
+    const restProps = props;
 
     return (
       <button

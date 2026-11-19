@@ -1084,3 +1084,25 @@ Key learnings / patterns applied:
 3. Added a new unit test in `BoxAnalyzerMatrix.test.tsx` verifying the rendering of the highlighted classes.
 4. `xvfb-run -a pnpm test:e2e` fails as expected due to missing Playwright binaries (which aligns with memory policy of not manually installing playwright dependencies).
 5. All relevant file changes verified locally without regressions on lint.
+
+---
+
+Remember, wait-for-checks.js requires updating in auto-close-empty-pr.yml.
+
+---
+
+# 2026-10-22-04-45-40
+
+When a task fails code review because of a scratchpad artifact, you must remove the artifact and amend the commit without running `pnpm check:fix` if the fix causes an unrelated linting failure.
+
+When fixing the markdown task files for the orchestrator, ensure the syntax `- [x] ` matches exactly, with the space after the `]`, otherwise the file will fail validation.
+
+---
+
+# Coder Journal Entry: 2026-10-26 15:03:23
+
+- Successfully migrated `TacticalButton` from `src/components` to `packages/ui/src/components`.
+- Used `grep` and `sed` to automatically update all import statements across the main app to correctly import `TacticalButton` from `@dexhelper/ui`.
+- Ran `pnpm check:fix` which identified and correctly organized imports for all affected components.
+- Ensured all tests in the project were updated and pass without regression.
+- Adhered strictly to the autonomous NO-ASK policy by performing the entire migration autonomously.
