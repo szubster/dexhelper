@@ -2,10 +2,10 @@
 id: epic-112-313-gen2-room-decoration-viewer-ui
 type: EPIC
 title: Gen 2 Room Decoration Viewer UI
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-07-14'
-updated_at: '2026-09-13'
+updated_at: '2026-11-06'
 depends_on:
   - epic-112-311-gen2-decoration-savings-extraction
 jules_session_id: null
@@ -32,6 +32,6 @@ This Epic encompasses the user interface for viewing unlocked room decorations, 
 
 ## Acceptance Criteria
 - [x] Break down into Stories
-- [ ] story-313-562-gen2-room-decoration-state-logic
-- [ ] story-313-563-gen2-room-decoration-ui-components
-- [ ] story-313-564-gen2-room-decoration-integration-e2e
+- [x] story-313-562-gen2-room-decoration-state-logic
+- [x] story-313-563-gen2-room-decoration-ui-components
+- [x] story-313-564-gen2-room-decoration-integration-e2e

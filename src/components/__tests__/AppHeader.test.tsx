@@ -17,6 +17,7 @@ describe('AppHeader', () => {
   });
 
   const mockGen3SaveData: SaveData = {
+    schemaVersion: 1,
     generation: 3,
     owned: new Set(),
     seen: new Set(),

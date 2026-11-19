@@ -21,7 +21,7 @@ export const PalParkBatch: React.FC<PalParkBatchProps> = React.memo(({ batch, ba
   return (
     <TacticalPanel className={cn('mb-4 p-4', className)} variant="default">
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="font-mono text-sm font-bold tracking-widest text-zinc-300 uppercase">
+        <h3 className="tactical-text text-sm font-bold text-zinc-300">
           Batch {batchIndex + 1} <span className="text-zinc-500">[{batch.length}/6]</span>
         </h3>
       </div>
@@ -43,7 +43,7 @@ export const PalParkBatch: React.FC<PalParkBatchProps> = React.memo(({ batch, ba
             </div>
 
             <div className="flex w-full flex-col items-center gap-1">
-              <span className="font-mono text-xs font-bold text-zinc-200">
+              <span className="tactical-text text-xs font-bold text-zinc-200">
                 {p.pokemon.nickname || p.pokemon.otName || '???'}
               </span>
               <div className="mt-1 flex gap-2">
@@ -60,9 +60,9 @@ export const PalParkBatch: React.FC<PalParkBatchProps> = React.memo(({ batch, ba
         {EMPTY_SLOT_INDICES.slice(0, Math.max(0, MAX_BATCH_SIZE - batch.length)).map((i) => (
           <div
             key={`empty-${i}`}
-            className="flex h-[120px] items-center justify-center rounded-none border border-dashed border-zinc-800 bg-zinc-900/30 opacity-50"
+            className="tactical-panel flex h-[120px] items-center justify-center border-zinc-800 bg-zinc-900/30 opacity-50"
           >
-            <span className="font-mono text-xs text-zinc-600">EMPTY SLOT</span>
+            <span className="tactical-text text-xs text-zinc-600">EMPTY SLOT</span>
           </div>
         ))}
       </div>

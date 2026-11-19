@@ -92,7 +92,11 @@ export function DagTreeItem({
           )}
         </button>
 
-        <span className={cn('w-24 shrink-0 font-bold tracking-widest uppercase', statusColor)}>[{status}]</span>
+        <span className={cn('w-24 shrink-0 font-bold tracking-widest uppercase', statusColor)}>
+          <span aria-hidden="true">[</span>
+          {status}
+          <span aria-hidden="true">]</span>
+        </span>
 
         <div className="flex min-w-0 flex-1 items-center justify-between gap-2">
           <span className="truncate text-zinc-300">{label}</span>

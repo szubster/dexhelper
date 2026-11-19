@@ -2,10 +2,10 @@
 id: task-336-713-update-runtime-interfaces-keys-impl-v4
 type: TASK
 title: Update Runtime Interfaces to Verbose Keys Implementation (v4)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-21T07:19:05.000Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-06'
 depends_on:
   - research-336-712-investigate-runtime-interfaces-keys-failure-v3
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - architecture
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-336-712-investigate-runtime-interfaces-keys-failure-v3
 notes: ''
 locks: []
 ---
