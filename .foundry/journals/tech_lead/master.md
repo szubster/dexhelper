@@ -1591,3 +1591,88 @@ The permanently failed child task and its cancelled dependent task have been che
 Triggered the Impossible Loop protocol for `story-401-679-pokeblock-viewer-route` due to the permanent failure of `task-679-712-pokeblock-dashboard-ui-impl` (Max rejection count reached) and the consequent cancellation of its dependent tasks. I spawned `research-679-731-investigate-pokeblock-dashboard-failure` to investigate the root cause, followed by a replacement task `task-679-732-pokeblock-dashboard-ui-impl-retry` that depends on it, and replacement tasks for the downstream route integration and QA.
 
 The permanently failed and cancelled child tasks have been checked off in the parent story, and the new nodes have been appended to its acceptance criteria to ensure the Orchestrator continues to track them before verifying the story.
+
+---
+
+# Tech Lead Journal: Decomposing Dashboard Views Refactor
+
+When decomposing `story-072-677-refactor-dashboard-views`, which requires refactoring the Kanban and Permanent Failures views to use `DagContext`, I broke the work down into two distinct, highly-focused tasks:
+1. `task-677-734-refactor-kanban-permanent-failures-views` (Coder implementation task)
+2. `task-677-735-refactor-dashboard-views-e2e-qa` (QA verification task)
+
+By creating separate TASK nodes for the actual implementation and its subsequent QA verification, this breakdown successfully adheres to the Intelligent Verification Protocol and avoids the 'Two-Tasks-Max' anti-pattern. This ensures proper verification without creating a monolithic task. I correctly appended these to the markdown body and avoided modifying the parent node's YAML frontmatter.
+
+---
+
+# Tech Lead Journal: 2026-10-30 Impossible Loop Execution
+
+Triggered the Impossible Loop protocol for `story-115-527-pathfinder-chain-visualization` due to the permanent failure of `task-527-669-pathfinder-chain-viz-ui` (Max rejection count reached) and the subsequent cancellation of its dependent QA task `task-527-671-pathfinder-chain-viz-qa`. I spawned `research-527-734-investigate-pathfinder-chain-viz-ui-failure` to investigate the root cause, followed by a replacement task `task-527-735-pathfinder-chain-viz-ui-retry` that depends on it, and its QA task `task-527-736-pathfinder-chain-viz-qa-retry`.
+
+The permanently failed/cancelled child tasks have been checked off in the parent story, and the new nodes have been appended to its acceptance criteria to ensure the Orchestrator continues to track them before verifying the story.
+
+---
+
+# Impossible Loop Execution: Gen 2 Roamer E2E Tests
+
+Triggered the Impossible Loop protocol for `story-140-564-gen2-roamer-translation-integration` due to the permanent failure of `task-564-669-gen2-roamer-e2e-tests` and subsequent cancellation of `task-564-670-gen2-roamer-qa`. The tests were rejected for violating the Playwright E2E Architecture Policy (injecting state via `page.evaluate()`).
+
+To resolve this, I have:
+1. Spawned a new RESEARCH node (`research-564-734-investigate-gen2-roamer-e2e-failure`) to investigate and document how to write these tests correctly.
+2. Created replacement TASK nodes (`task-564-735-gen2-roamer-e2e-tests-retry` and `task-564-736-gen2-roamer-qa-retry`) that correctly depend on the new research.
+3. Checked off the permanently failed tasks in the parent story `story-140-564-gen2-roamer-translation-integration.md` and appended the new nodes to the acceptance criteria to prevent premature verification.
+
+---
+
+# Tech Lead Journal: 2026-10-31
+
+Triggered the Impossible Loop protocol for `story-513-537-gen3-berry-serialization-and-api` due to the permanent failure of `task-537-709-gen3-berry-hydration-retry-v2` and its dependent task `task-537-710-gen3-berry-qa-retry-v2` (which were cancelled because their dependency `research-537-708` reached max rejection count).
+
+I have created replacement tasks `task-537-719-gen3-berry-hydration-retry-v3` and `task-537-720-gen3-berry-qa-retry-v3` which now depend on the previously completed `research-537-690-berry-serialization-deprecation`. The failed/cancelled tasks have been checked off in the parent STORY to allow it to await the new nodes.
+
+---
+
+# TacticalSelect Component Migration Retry
+
+- Found that `task-640-732-migrate-tacticalselect-impl` failed permanently and its dependent QA task was cancelled.
+- Spawned a `RESEARCH` task `research-640-740-investigate-tacticalselect-migration-failure` to investigate the failure.
+- Drafted replacement `task-640-741-migrate-tacticalselect-impl-retry` and `task-640-742-migrate-tacticalselect-qa-retry` to retry the migration.
+- Appended the research and the new retry nodes to the parent story `story-527-640-migrate-complex-components` as unchecked checkboxes to follow late binding rules.
+- Checked off the permanently failed / cancelled child tasks to satisfy the Completeness Rule.
+
+---
+
+# Artifact Anomaly: Save State Limits E2E Tasks
+
+Date: 2026-11-05 03:26:41
+
+During the execution for node `story-399-523-save-state-limits-e2e`, I noticed that the generated tasks `task-523-690-save-state-limits-e2e-impl` and `task-523-691-save-state-limits-e2e-qa` already existed in the file system before I started generating them. The checkboxes in the parent story were also already checked off.
+
+This is logged for future review per the Node Generation Rules regarding Artifact Anomaly Detection. Proceeding with the Empty PR flow to gracefully complete the DAG.
+
+---
+
+# Artifact Anomaly Detection: Pre-completed tasks
+
+The dependent tasks (`task-564-721-schema-linter-checkbox-e2e-impl` and `task-564-722-schema-linter-checkbox-e2e-qa`) for `story-552-564-schema-linter-checkbox-e2e.md` were unexpectedly already in the `COMPLETED` state prior to the session, and the E2E tests have already been successfully implemented and passing.
+
+---
+
+# Tech Lead Journal: 2026-11-06 Impossible Loop Execution for Gen3 Lottery E2E Verification
+
+Encountered the Impossible Loop execution for `story-133-424-gen3-lottery-e2e-verification` because `task-424-713-gen3-lottery-e2e-tests-retry-2` permanently failed (Max rejection count reached: 3) and was CANCELLED.
+
+Following the Impossible Loop protocol:
+1. Spawned a new RESEARCH node `research-424-743-investigate-gen3-lottery-e2e-failure-v3` to investigate the root cause of the E2E test failures and rejection cycles.
+2. Created replacement task `task-424-744-gen3-lottery-e2e-tests-retry-3` that depends on `research-424-743-investigate-gen3-lottery-e2e-failure-v3`.
+3. Checked off the cancelled task node `task-424-713-gen3-lottery-e2e-tests-retry-2` and completed research `research-424-712-investigate-gen3-lottery-e2e-failure-retry` in `story-133-424-gen3-lottery-e2e-verification` to satisfy ADR 007 completeness requirements.
+4. Appended the newly generated research and task nodes (`research-424-743-investigate-gen3-lottery-e2e-failure-v3` and `task-424-744-gen3-lottery-e2e-tests-retry-3`) to the story's acceptance criteria as unchecked checkboxes (`- [ ]`) to ensure proper DAG tracking and prevent premature verification.
+
+---
+
+# Artifact Anomaly: DagTree E2E Verification Tasks
+
+Date: 2026-11-07 01:29:57
+
+During the execution for node `story-530-538-dagtree-e2e-verification`, I noticed that the generated tasks `task-538-721-dagtree-e2e-tests-coder` and `task-538-722-dagtree-e2e-tests-qa` already existed in the file system before I started generating them. The checkboxes in the parent story were also already checked off.
+
+This is logged for future review per the Node Generation Rules regarding Artifact Anomaly Detection. Proceeding with the Empty PR flow to gracefully complete the DAG.

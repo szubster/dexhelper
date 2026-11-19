@@ -1,7 +1,7 @@
 import type { Page } from '@playwright/test';
 
 /**
- * Mocks the File System Access API (\`window['showOpenFilePicker']\`) to return a simulated file.
+ * Mocks the File System Access API (`window['showOpenFilePicker']`) to return a simulated file.
  */
 export async function mockFileSystemAccess(
   page: Page,
@@ -66,11 +66,16 @@ export async function mockOfflineState(page: Page, isOffline: boolean = true) {
   await page.context().setOffline(isOffline);
 
   // Ensure the DOM fires the event immediately if already loaded
-  await page.evaluate((offline) => {
-    Object.defineProperty(navigator, 'onLine', {
-      value: !offline,
-      configurable: true,
-    });
-    window.dispatchEvent(new Event(offline ? 'offline' : 'online'));
-  }, isOffline);
+  // Wrap in a try/catch because if we are in the middle of a navigation the execution context might be destroyed
+  try {
+    await page.evaluate((offline) => {
+      Object.defineProperty(navigator, 'onLine', {
+        value: !offline,
+        configurable: true,
+      });
+      window.dispatchEvent(new Event(offline ? 'offline' : 'online'));
+    }, isOffline);
+  } catch {
+    // Ignore execution context destroyed errors
+  }
 }

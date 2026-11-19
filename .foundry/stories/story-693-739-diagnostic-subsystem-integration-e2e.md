@@ -2,10 +2,10 @@
 id: story-693-739-diagnostic-subsystem-integration-e2e
 type: STORY
 title: Diagnostic Subsystem Integration and E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
-created_at: "2026-11-04T22:54:29.331Z"
-updated_at: "2026-11-04"
+created_at: '2026-11-04T22:54:29.331Z'
+updated_at: '2026-11-06'
 depends_on:
   - story-693-738-diagnostic-collector-utility
 jules_session_id: null
@@ -17,7 +17,7 @@ tags:
   - integration
   - e2e
 locks: []
-confidence_score: 90
+rejection_reason: ''
 ---
 
 # Diagnostic Subsystem Integration and E2E Verification

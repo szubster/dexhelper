@@ -1467,3 +1467,30 @@ During QA verification, I observed that the E2E tests in `tests/e2e/pokerus.spec
 
 ## Action Taken
 The target task was marked as `FAILED` to trigger a transient rejection, and my QA task remains open.
+
+
+---
+
+# QA Journal Entry - Gen 3 Dashboard Data Integration Verification
+
+Verified the implementation of the Gen 3 Dashboard Data Integration logic. The state management and data fetching for the Pokédex gap, Missed Milestones, and Trainer Card widgets have been successfully implemented and integrated using React Context (`Gen3DashboardDataContext`) and Zustand store `useStore`.
+The UI components (`PokedexGapVisualizerWidget`, `MissedMilestonesWidget`, `TrainerCardStatusWidget`) follow the tactical hardware UI aesthetics, utilizing `TacticalCard`, `TacticalChecklistItem`, `TacticalHeaderDivider`, and `PokedexCard` without relying on rounded corners or non-tactical primitives.
+Vitest component tests (`src/components/dashboard/gen3/__tests__/Gen3Widgets.test.tsx`) are passing. Playwright E2E tests (`tests/e2e/gen3_pokedex_gaps.spec.ts`, `tests/e2e/dashboard/trainer-card/gen3_trainer_card_ui.spec.ts`) and newly created tests (`tests/e2e/dashboard/gen3_missed_milestones.spec.ts`) confirm the integrations work correctly in the Gen 3 Dashboard layout.
+
+Acceptance criteria are successfully met and checked off.
+
+---
+
+---
+title: QA Journal - WIP Schema Integration QA
+date: 2026-10-30T16-51-27-854Z
+---
+
+## Target Task
+task-528-690-wip-schema-integration-tests
+
+## Details
+During QA verification of the schema validator integration tests for `DRAFT` and `WIP` statuses, I observed that the tests were properly implemented in both `schema-fixtures.test.ts` and `schema-e2e.test.ts` in the `packages/foundry` directory. I manually verified the parsing logic for new nodes.
+
+## Action Taken
+I successfully executed the tests locally using Vitest. All tests passed, validating the new statuses correctly. I have checked off the acceptance criteria for my QA task and added a confidence score.

@@ -443,3 +443,16 @@
 - **Proposed Idea:** Gen 1-3 Wild Capture Rate & Poké Ball Efficiency Calculator (IDEA-540)
 - **Rationale & Concept:** Wild Pokémon capture mechanics across Gen 1-3 involve intricate, generation-specific formulas (HP percentages, status conditions, species base catch rates, and special Poké Ball multipliers such as Timer Ball turn counts, Net Ball type bonuses, and Gen 2 Apricorn Ball bugged multipliers). Currently, players embarking on static legendary encounters or rare wild hunts must rely on manual external calculators and spreadsheet modeling to determine if their inventory of Poké Balls is sufficient. This idea proposes a DexHelper feature that reads Bag inventory (Poké Balls) and party status moves directly from save data, providing per-ball catch probabilities, expected ball count consumption, and a "Capture Readiness Assessment" before major fights.
 - **Strategic Balance:** In the preceding session, `idea-539-save-data-reader-decorator-architecture.md` was proposed for the Foundry System architecture. To strictly maintain the required 50/50 balance between product features (DexHelper) and internal system improvements (Foundry), this session pivots back to a high-value, mechanics-surfacing product feature for DexHelper.
+
+---
+
+# Visionary Journal - Session 2026-11-01-03-30-00
+
+## Session Overview
+- Date: 2026-11-01
+- Task: Proposed IDEA node `idea-542-orchestrator-deadlock-remediation-loop` for Foundry DAG Orchestrator infrastructure.
+
+## Critical Learnings & Strategic Insights
+- **Proposed Idea:** Foundry Orchestrator Hierarchical Deadlock Auto-Remediation Loop (`idea-542-orchestrator-deadlock-remediation-loop`)
+- **Rationale & Concept:** Analysis of `packages/foundry/foundry-orchestrator.ts` revealed that while Phase 3.9 and Phase 3.10 detect circular dependencies and hierarchical deadlocks (where child nodes declare a dependency on ancestors, or parent nodes await children that await parents), the orchestrator's only current response is to fail nodes (`promoteNodeToFailedWithReason`). This often locks the entire subtree in a permanent failure loop. Instead of passive failure, the orchestrator should execute active self-healing: surgically severing the redundant/illegal ancestor reference from the child node's `depends_on` frontmatter, logging the remediation event for TPM audit, and allowing the pipeline to proceed autonomously.
+- **Strategic Balance:** In the preceding sessions, `idea-540-gen1-3-capture-rate-pokeball-efficiency-calculator` and `idea-541-tracker-collection-data-integrity-guard` addressed product features and save data integrity. To maintain the strict 50/50 balance between DexHelper product features and Foundry system orchestrator infrastructure, this session targets the DAG orchestrator's resilience and autonomous graph self-healing.

@@ -915,3 +915,134 @@ When executing an Empty PR for trivial maintenance or non-user-facing changes, t
 # Investigated task-423-688-gen3-ai-data-e2e-mapping-tests-impl-v5 timeout
 
 Investigated the failure of `task-423-688-gen3-ai-data-e2e-mapping-tests-impl-v5` and discovered it was a false permanent failure caused by repeated `[ACKNOWLEDGED] Session terminated with state: COMPLETED` agent session crashes rather than actual QA rejections.
+
+
+---
+
+# False Permanent Failure in task-551-669-update-orchestrator-priority-tests-v2
+Investigated the failure of `task-551-669-update-orchestrator-priority-tests-v2` and discovered it was a false permanent failure caused by repeated `[ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK` system crashes. The agent repeatedly paused execution to ask the user a question instead of acting autonomously. Also noted that the orchestrator tests have been relocated from `.github/scripts/` to `packages/foundry/foundry-orchestrator.test.ts`.
+
+---
+
+# False Permanent Failures in Gen3 Lottery E2E Tests
+
+## Context
+Investigated the failure of `task-424-676-gen3-lottery-e2e-tests`.
+
+## Learnings
+The failure of `task-424-676-gen3-lottery-e2e-tests` (and subsequently its retry node `task-424-704-gen3-lottery-e2e-tests-retry`) were false permanent failures caused by repeated `[ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK` system-level agent session crashes, rather than actual flaws in the implementation.
+
+Because the orchestrator increments the `rejection_count` for these system-level crashes, the node hit the `MAX_REJECTION_THRESHOLD` and was auto-cancelled. The underlying implementation of Gen3 Lottery extraction logic exists, however, the E2E tests are still missing and the replacement task must fully implement them.
+
+---
+
+# False Permanent Failure in task-640-688-extract-utils-to-core-retry-v2
+
+## Context
+Investigated the permanent failure of `task-640-688-extract-utils-to-core-retry-v2`.
+
+## Learnings
+The failure was a false permanent failure caused by repeated `Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK` errors. This indicates the coder agent crashed the session by asking for user input. It is not an architectural defect, and replacement tasks should proceed autonomously.
+
+---
+
+# Investigation of Item Gating UI Failure
+
+Investigated the failure of `task-574-690-item-gating-ui-components`. Traced the failure back to repeated `[ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK` crashes, culminating in a `Session terminated with state: FAILED` crash.
+
+This is a false permanent failure. The underlying logic/implementation was not inherently flawed, but rather the agent stalled the session. The replacement retry tasks can proceed autonomously without requiring architectural changes.
+
+---
+
+# Investigation of Multi-Box Search Highlight Failure
+
+Investigated the permanent failure of `task-618-703-multi-box-search-highlight-impl`. The git history lacks any QA rejections or explicitly logged technical errors prior to hitting the max rejection count, suggesting unlogged system crashes caused the false permanent failure. The original technical scope and requirements remain valid for the retry task.
+
+---
+
+# 2026-10-31: Investigating DAG Node Cloning Logic Failure (Retry 4)
+
+Investigated the failure of `task-478-688-orchestrator-cloning-logic-retry-4` and its predecessor tasks. The root cause for these repeated permanent failures is the **Autonomous No-Ask Policy Violation**.
+
+Coders attempting to implement the DAG node cloning logic repeatedly paused their execution to ask the user for input or clarification (entering the `AWAITING_USER_FEEDBACK` state). The orchestrator heartbeat detects this state and forces the task to fail. When this happens repeatedly, the task reaches its maximum rejection count and permanently fails, triggering the parent's Impossible Loop.
+
+Future coder nodes must understand that they cannot ask for hints or permissions. They must autonomously implement the cloning logic using deterministic sequence number generation (scanning `.foundry/` for max sequence ID) and resetting node metadata during duplication, and then submit a PR immediately.
+
+---
+
+# False Permanent Failure in task-638-717-extract-constants-to-core-v6
+
+## Context
+When investigating the permanent failure (`Max rejection count reached`) of `task-638-717-extract-constants-to-core-v6`.
+
+## Learnings
+The git history showed its prior rejection reasons were `Session terminated with state: COMPLETED`. This means the task was a false permanent failure due to repeated system-level agent session crashes (likely submitting empty PRs without checking off completion boxes), rather than a flaw in the actual namespaced exports strategy.
+
+Because the orchestrator's logic increments the `rejection_count` for these system-level crashes just like it does for standard task rejections, the node eventually hit the `MAX_REJECTION_THRESHOLD` (3) and was auto-cancelled. The namespaced exports deduplication strategy should still be implemented in the replacement node (V7).
+
+---
+
+# False Permanent Failure in task-619-687-multi-box-stat-filters-e2e-tests
+
+## Context
+Investigating the failure of `task-619-687-multi-box-stat-filters-e2e-tests`.
+
+## Learnings
+The git history showed its prior rejection reasons were `Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK`. This is a false permanent failure caused by system-level agent session crashes due to violating the No-Ask policy (likely asking for feedback instead of acting autonomously), rather than an actual flaw in the tests or the approach. The original testing requirements remain sound and should be implemented in the replacement node.
+
+---
+
+# Investigation: Kurt Apricorn Core Logic False Permanent Failure
+
+## Context
+Investigated the permanent failure of `research-478-703-investigate-kurt-apricorn-core-logic-failure` and its underlying task `task-478-678-kurt-apricorn-core-logic-retry`.
+
+## Findings
+Looking at the git history for the previous tasks, they suffered rejections primarily due to:
+- `Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK`
+- `Session terminated with state: FAILED` (session crash)
+
+This indicates that these tasks were **False Permanent Failures** caused by system-level crashes and NO-ASK policy violations. The agent continually paused execution to ask the user a question instead of acting autonomously. This is a system-level crash regarding the task logic; the original scope and logic of the task are completely valid.
+
+## Conclusion for retry tasks
+Since this was a false permanent failure driven by agent behavioral policy violations rather than code, no architectural changes are required. The retry tasks simply need to ensure strict adherence to the "Autonomous No-Ask Policy"—the coder must execute the work autonomously and submit the PR immediately without asking questions or seeking confirmation in chat.
+
+---
+
+# Investigation of Box Analyzer Matrix E2E Failure
+
+## Summary
+Investigated the repeated failures of `task-523-707-box-analyzer-matrix-e2e-tabular-data`.
+
+## Findings
+The rejections leading to the task's cancellation (`[ACKNOWLEDGED] Max rejection count reached`) were actually false permanent failures. The git history shows the previous rejection reasons were `Session terminated with state: NOT_FOUND`, indicating agent session crashes rather than actual E2E technical limitations or QA rejections.
+
+## Impact
+This confirms that the task is not technically impossible and should be retried in a new session. It also highlights the ongoing issue of system-level crashes masking true task feasibility, matching patterns seen in `.foundry/prds/prd-535-586-false-permanent-failure-detection.md`.
+
+---
+
+# Playwright E2E Session Timeout V5 Findings
+
+When investigating the permanent failure of `task-403-674-playwright-e2e-retry-impl-v4`, I discovered two major issues:
+1.  **False Positives on Failure Cause:** The task was failing because of an `Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK` error, where the coder agent violated the core policy by stalling the session for user input. This masked the underlying issue.
+2.  **Improper E2E Test Execution:** The underlying tasks originally failed because they attempted to run the entire Playwright E2E suite (`xvfb-run -a pnpm test:e2e`). This violates the core policy on targeting specific files and leads directly to the 400-second session timeout limit.
+
+**Lessons:**
+- Do not assume a chain of tasks fails for the same reason. Always verify the `rejection_reason` in the git history or frontmatter to correctly diagnose the root cause of a task's failure, especially when Autonomous No-Ask Policy violations might mask underlying implementation status.
+- Ensure all E2E retry tasks explicitly update their Acceptance Criteria to mandate executing only the targeted E2E test files (e.g., `xvfb-run -a pnpm test:e2e tests/e2e/core_data_extraction.spec.ts`) rather than running the full test suite locally.
+
+---
+
+---
+title: False Permanent Failure in Dashboard Metrics E2E Test Implementation
+date: 2026-11-01-15-01-46
+---
+
+# Investigation: Dashboard Metrics E2E Test Implementation Failure (Retry 2)
+
+Investigated the permanent failure of `task-645-691-dashboard-metrics-integration-e2e-impl-retry-2`.
+
+The git history confirmed that the prior rejection reasons were repeatedly `[ACKNOWLEDGED] Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK`. Because the orchestrator increments the rejection count for these system-level crashes, it eventually hit the maximum rejection limit and was auto-cancelled.
+
+This was a false permanent failure driven by agent behavioral policy violations. There are no architectural changes required. The replacement tasks can proceed to implement the E2E tests autonomously without waiting for user input.

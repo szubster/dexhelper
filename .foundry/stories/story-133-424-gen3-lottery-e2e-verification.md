@@ -5,10 +5,10 @@ title: Gen3 Lottery E2E Verification
 status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-08-14'
-updated_at: '2026-11-06'
+updated_at: '2026-11-09'
 depends_on:
   - story-133-423-gen3-lottery-ui-integration
-jules_session_id: '17200634123303498309'
+jules_session_id: '7862386909447724245'
 pr_number: null
 parent: epic-105-133-lottery-matching-logic
 tags:
@@ -16,7 +16,7 @@ tags:
   - gen3
   - e2e
   - integration
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -35,5 +35,7 @@ Ensure end-to-end integration of the Lottery Matching Logic Module.
 - [x] task-424-676-gen3-lottery-e2e-tests
 - [x] research-424-703-investigate-gen3-lottery-e2e-failure
 - [x] task-424-704-gen3-lottery-e2e-tests-retry
-- [ ] research-424-712-investigate-gen3-lottery-e2e-failure-retry
-- [ ] task-424-713-gen3-lottery-e2e-tests-retry-2
+- [x] research-424-712-investigate-gen3-lottery-e2e-failure-retry
+- [x] task-424-713-gen3-lottery-e2e-tests-retry-2
+- [ ] research-424-743-investigate-gen3-lottery-e2e-failure-v3
+- [ ] task-424-744-gen3-lottery-e2e-tests-retry-3

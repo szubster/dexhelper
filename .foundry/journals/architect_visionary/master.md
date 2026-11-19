@@ -19,3 +19,11 @@
 ## Critical Learnings & Observations
 - **Off-Main-Thread Processing for Save File Operations**: Offloading heavy binary parsing and multi-save matrix comparisons into Web Workers prevents main-thread rendering frame drops and UI jank during save imports and WASM emulator synchronization.
 - **Foundry Global Sequence Numbering**: Sequence numbers for new nodes must be calculated by finding the global maximum across all `.foundry/` node directories to avoid sequence collisions.
+
+---
+
+# Architect Visionary Journal — 2026-11-01
+
+## Critical Learnings & Observations
+- **Package Isolation & Boundary Enforcement**: In monorepos containing heavy binary parsing engines alongside React UI components, collocating domain logic under `src/engine/` introduces architectural gravity towards bundling UI and DOM concepts into pure computational routines. Extracting pure models and parsers into `@dexhelper/core` (`packages/core/`) formalizes a strict zero-DOM boundary, allowing seamless consumption in WebWorkers, Cloudflare serverless edge handlers, and Node CLI tools without bundler alias overhead.
+- **Backward Compatibility via Re-Exports**: In accordance with the Workspace Component Migration Strategy, moving modules into dedicated workspace packages should be accompanied by root re-exports (e.g. `src/engine/saveParser/index.ts` re-exporting from `@dexhelper/core`). This avoids sweeping file churn across hundreds of application imports and eliminates regression risks during multi-agent parallel execution.
