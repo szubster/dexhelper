@@ -41,3 +41,5 @@ This feature reduces player frustration by eliminating the need to guess the cur
 
 ## Acceptance Criteria
 - [x] prd-130-340-shoal-cave-tide-tracker
+
+- [ ] research-130-743-shoal-cave-rtc-strategy
