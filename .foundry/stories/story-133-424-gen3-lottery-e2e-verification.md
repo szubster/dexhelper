@@ -37,5 +37,7 @@ Ensure end-to-end integration of the Lottery Matching Logic Module.
 - [x] task-424-704-gen3-lottery-e2e-tests-retry
 - [x] research-424-712-investigate-gen3-lottery-e2e-failure-retry
 - [x] task-424-713-gen3-lottery-e2e-tests-retry-2
-- [ ] research-424-743-investigate-gen3-lottery-e2e-failure-v3
-- [ ] task-424-744-gen3-lottery-e2e-tests-retry-3
+- [x] research-424-743-investigate-gen3-lottery-e2e-failure-v3
+- [x] task-424-744-gen3-lottery-e2e-tests-retry-3
+- [ ] research-424-747-investigate-gen3-lottery-e2e-failure-v4
+- [ ] task-424-748-gen3-lottery-e2e-tests-retry-4
