@@ -33,8 +33,8 @@ Cloudflare Workers have execution time and memory limits. Downloading and proces
 Implement file size checking before downloading and monitor execution time to prevent limit-related crashes.
 
 ## Acceptance Criteria
-- [ ] Check the file metadata (size) before initiating the download.
-- [ ] Reject or gracefully fail downloads that exceed a predefined safe size limit.
-- [ ] Implement error handling for timeouts or memory limit exceeded scenarios during processing.
-- [ ] Log errors appropriately for debugging.
-- [ ] Add unit tests verifying the limit handling logic.
+- [x] Check the file metadata (size) before initiating the download.
+- [x] Reject or gracefully fail downloads that exceed a predefined safe size limit.
+- [x] Implement error handling for timeouts or memory limit exceeded scenarios during processing.
+- [x] Log errors appropriately for debugging.
+- [x] Add unit tests verifying the limit handling logic.

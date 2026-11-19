@@ -2,10 +2,10 @@
 id: task-523-734-box-analyzer-matrix-e2e-qa-retry
 type: TASK
 title: Box Analyzer Matrix E2E QA Verification Retry
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-29'
-updated_at: '2026-10-31'
+updated_at: '2026-11-07'
 depends_on:
   - task-523-733-box-analyzer-matrix-e2e-highlighting-retry
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - e2e
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-523-732-box-analyzer-matrix-e2e-tabular-data-retry
 notes: ''
 locks: []
 ---

@@ -2,13 +2,13 @@
 id: story-310-677-compatibility-odds-display
 type: STORY
 title: Gen 2 Shiny Breeding UI - Compatibility & Odds Display
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-15'
-updated_at: '2026-10-17'
+updated_at: '2026-11-07'
 depends_on:
   - story-310-676-pokemon-selection-interface
-jules_session_id: null
+jules_session_id: '17535106558536465054'
 pr_number: null
 parent: epic-112-310-gen2-shiny-breeding-ui
 tags:
