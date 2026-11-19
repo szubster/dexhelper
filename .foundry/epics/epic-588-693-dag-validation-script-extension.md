@@ -2,12 +2,12 @@
 id: epic-588-693-dag-validation-script-extension
 type: EPIC
 title: EPIC - DAG Script Extension for E2E Dependency Validation
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-10-22T11:11:37.000Z'
-updated_at: '2026-10-22T11:11:37.000Z'
+updated_at: '2026-11-05'
 depends_on: []
-jules_session_id: null
+jules_session_id: '8584088219454728825'
 pr_number: null
 parent: prd-532-588-e2e-dependency-validator-lint
 tags:

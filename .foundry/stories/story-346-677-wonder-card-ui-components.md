@@ -2,13 +2,13 @@
 id: story-346-677-wonder-card-ui-components
 type: STORY
 title: Wonder Card UI Components
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-15T18:49:48.604Z'
-updated_at: '2026-10-22'
+updated_at: '2026-11-05'
 depends_on:
   - epic-121-345-gen3-mystery-gift-data-extraction
-jules_session_id: null
+jules_session_id: '4603132767684781009'
 pr_number: null
 parent: epic-121-346-gen3-mystery-gift-dashboard-ui
 tags:

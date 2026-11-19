@@ -2,13 +2,13 @@
 id: task-679-727-schema-updates-adr-034
 type: TASK
 title: Update schema.md for ADR 034
-status: PENDING
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-11-08'
 depends_on:
   - adr-679-726-acceptance-criteria-structure
-jules_session_id: null
+jules_session_id: '3501274159238440027'
 pr_number: null
 parent: story-535-679-adr-acceptance-criteria
 tags:

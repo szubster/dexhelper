@@ -2,12 +2,12 @@
 id: epic-726-728-crash-recovery-heuristic
 type: EPIC
 title: Crash Recovery Heuristic
-status: READY
+status: ACTIVE
 owner_persona: story_owner
 created_at: '2026-10-26'
-updated_at: '2026-10-26'
+updated_at: '2026-11-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4927416435264646145'
 pr_number: null
 parent: prd-540-726-tree-completeness-and-false-failure-prevention-heuristics
 tags:
