@@ -30,3 +30,5 @@ QA session logs (e.g. `2026-10-20-20-50-15.md` during `task-564-602-pokemon-held
 ## Acceptance Criteria
 - [x] Document collection data integrity rules in `.foundry/docs/schema.md`
 - [ ] Create AST / linter validation rule flagging improper `Set` usage in extraction routines
+
+- [ ] prd-541-743-tracker-collection-data-integrity-guard
