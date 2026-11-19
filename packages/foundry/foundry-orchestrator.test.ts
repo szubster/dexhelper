@@ -3123,6 +3123,80 @@ Target artifact: task-completed
     expect(parentResult).toContain("status: READY");
   });
 
+  test("Impossible Loop: keeps dependent nodes in PENDING if dependency has system crash", () => {
+    // Upstream task permanently failed due to crash
+    createValidTestNode(tmpDir, ".foundry/tasks/task-crash-dep.md", {
+      id: "task-crash-dep",
+      type: "TASK",
+      title: "Crashed Task",
+      status: "FAILED",
+      owner_persona: "coder",
+      rejection_reason: "Session terminated with state: INTERNAL_ERROR",
+      rejection_count: 3,
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    });
+
+    // Dependent task in PENDING
+    createValidTestNode(tmpDir, ".foundry/tasks/task-crash-downstream.md", {
+      id: "task-crash-downstream",
+      type: "TASK",
+      title: "Crash Downstream Task",
+      status: "PENDING",
+      owner_persona: "coder",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [".foundry/tasks/task-crash-dep.md"],
+      jules_session_id: null,
+    });
+
+    main();
+
+    const downstreamContent = fs.readFileSync(path.join(tmpDir, ".foundry/tasks/task-crash-downstream.md"), "utf-8");
+    expect(downstreamContent).toContain("status: PENDING");
+    expect(downstreamContent).not.toContain("status: CANCELLED");
+  });
+
+  test("Impossible Loop: keeps parent in PENDING if child has system crash", () => {
+    // Parent Story: PENDING
+    createValidTestNode(tmpDir, ".foundry/stories/story-parent-crash.md", {
+      id: "story-parent-crash",
+      type: "STORY",
+      title: "Parent Story",
+      status: "PENDING",
+      owner_persona: "tech_lead",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+    }, "- [ ] .foundry/tasks/task-child-crash.md");
+
+    // Child Task: FAILED with rejection_count: 3 (crashed)
+    createValidTestNode(tmpDir, ".foundry/tasks/task-child-crash.md", {
+      id: "task-child-crash",
+      type: "TASK",
+      title: "Crash Child Task",
+      status: "FAILED",
+      owner_persona: "coder",
+      parent: "story-parent-crash",
+      rejection_reason: "Session terminated with state: INTERNAL_ERROR",
+      created_at: "2026-04-20",
+      updated_at: "2026-04-20",
+      depends_on: [],
+      jules_session_id: null,
+      rejection_count: 3,
+    });
+
+    main();
+
+    // Parent should remain in PENDING
+    const parentResult = fs.readFileSync(path.join(tmpDir, ".foundry/stories/story-parent-crash.md"), "utf-8");
+    expect(parentResult).toContain("status: PENDING");
+    expect(parentResult).not.toContain("status: READY");
+  });
+
   test("Impossible Loop: auto-cancels dependent nodes when dependency is an acknowledged permanently failed node", () => {
     // Upstream task permanently failed and already acknowledged in previous run
     createValidTestNode(tmpDir, ".foundry/tasks/task-ack-fail.md", {
