@@ -2,6 +2,7 @@ import { TacticalBadge, TacticalButton, TacticalInput, TacticalModal, TacticalSe
 import type React from 'react';
 import { useState } from 'react';
 import { Gen3MapProvider } from '../contexts/Gen3MapContext';
+import { DataPoint } from './DataPoint';
 import { Gen3EventFlags } from './Gen3EventFlags/Gen3EventFlags';
 import { Gen3MapDashboard } from './map/gen3/Gen3MapDashboard';
 import { SubDataPoint } from './SubDataPoint';
@@ -191,6 +192,38 @@ export const TacticalKitchenSink: React.FC = () => {
           </div>
         </TacticalPanel>
       </TacticalModal>
+
+      {/* DataPoint Showcase */}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4" id="datapoint-showcase">
+        <DataPoint label="LOCATION" value="ROUTE 119" codeTag="MAP.01" sublabel="WEATHER: RAIN" />
+        <DataPoint
+          label="SPECIES"
+          value="RAYQUAZA"
+          variant="emerald"
+          codeTag="LEG.01"
+          showLed
+          ledStatus="online"
+          sublabel="HP: 100%"
+        />
+        <DataPoint
+          label="BATTERY"
+          value="CHARGING"
+          variant="amber"
+          codeTag="PWR"
+          showLed
+          ledStatus="busy"
+          sublabel="LEVEL: 84%"
+        />
+        <DataPoint
+          label="SECURITY"
+          value="BREACH"
+          variant="red"
+          codeTag="SEC.99"
+          showLed
+          ledStatus="offline"
+          sublabel="SECTOR: 04"
+        />
+      </div>
 
       {/* SubDataPoint Showcase */}
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-4" id="subdatapoint-showcase">

@@ -2,12 +2,12 @@
 id: story-037-676-trading-core-transfer-logic
 type: STORY
 title: Core Transfer Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-13'
-updated_at: '2026-10-31'
+updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '1284383970466802113'
 pr_number: null
 parent: epic-031-037-inter-save-trading
 tags:

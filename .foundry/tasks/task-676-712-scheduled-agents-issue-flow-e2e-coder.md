@@ -2,12 +2,12 @@
 id: task-676-712-scheduled-agents-issue-flow-e2e-coder
 type: TASK
 title: Scheduled Agents Issue Flow E2E Verification Coder Implementation
-status: READY
+status: ACTIVE
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-11-02'
+updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '2659329148000072887'
 pr_number: null
 parent: story-532-676-scheduled-agents-issue-flow-e2e
 tags:
@@ -34,6 +34,6 @@ To satisfy the Orchestrator Safeguard (E2E/Integration Requirement), we must ver
 - E2E Test Implementation: Create verification that when the Jules PR merges, the issue is automatically closed natively.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests verifying issue creation with correct labels, title pattern, and body payload on manual workflow dispatch.
-- [ ] Implement E2E tests verifying Jules is triggered by issue creation.
-- [ ] Implement E2E tests verifying issue is closed natively when Jules PR merges.
+- [x] Implement E2E tests verifying issue creation with correct labels, title pattern, and body payload on manual workflow dispatch.
+- [x] Implement E2E tests verifying Jules is triggered by issue creation.
+- [x] Implement E2E tests verifying issue is closed natively when Jules PR merges.

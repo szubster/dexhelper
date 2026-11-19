@@ -2,13 +2,13 @@
 id: task-676-718-qa-trainer-card-state
 type: TASK
 title: Task - QA Trainer Card State
-status: ACTIVE
+status: COMPLETED
 owner_persona: qa
 created_at: '2026-10-22'
-updated_at: '2026-11-03'
+updated_at: '2026-11-08'
 depends_on:
   - task-676-717-trainer-card-state-layer
-jules_session_id: '11580308379333955841'
+jules_session_id: null
 pr_number: null
 parent: story-401-676-gen3-trainer-card-core-state
 tags:

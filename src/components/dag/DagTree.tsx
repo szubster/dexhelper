@@ -1,19 +1,40 @@
+import { TacticalButton } from '@dexhelper/ui';
 import { useMemo } from 'react';
 import { useDagContext } from '../dashboard/DagContext';
 import { useDagTreeContext } from './DagTreeContext';
 import { DagTreeItem } from './DagTreeItem';
 
 export function DagTree() {
-  const { nodes, edges, maxRejectionThreshold, showHeatmap } = useDagContext();
+  const { nodes, edges, maxRejectionThreshold, showHeatmap, activeTypes, activeStatuses, showPermanentFailures } =
+    useDagContext();
   const { expandAll, collapseAll } = useDagTreeContext();
+
+  const filteredNodes = useMemo(() => {
+    return nodes.filter((node) => {
+      const type = node.data.type;
+      const status = node.data.status;
+
+      let shouldInclude = type && status && activeTypes.has(type) && activeStatuses.has(status);
+
+      if (shouldInclude && showPermanentFailures) {
+        shouldInclude =
+          (node.data.status === 'FAILED' || node.data.status === 'CANCELLED') &&
+          node.data.rejection_count >= maxRejectionThreshold;
+      }
+
+      return shouldInclude;
+    });
+  }, [nodes, activeTypes, activeStatuses, showPermanentFailures, maxRejectionThreshold]);
+
+  const filteredNodeIds = useMemo(() => new Set(filteredNodes.map((n) => n.id)), [filteredNodes]);
 
   const nodeMap = useMemo(() => new Map(nodes.map((n) => [n.id, n])), [nodes]);
 
   // Find root nodes (nodes with no incoming edges)
   const rootNodes = useMemo(() => {
     const hasIncomingEdge = new Set(edges.map((e) => e.target));
-    return nodes.filter((n) => !hasIncomingEdge.has(n.id));
-  }, [nodes, edges]);
+    return filteredNodes.filter((n) => !hasIncomingEdge.has(n.id));
+  }, [filteredNodes, edges]);
 
   // Build a map of children for each node
   const childrenMap = useMemo(() => {
@@ -31,7 +52,7 @@ export function DagTree() {
     const node = nodeMap.get(nodeId);
     if (!node) return null;
 
-    const children = childrenMap.get(nodeId) || [];
+    const children = (childrenMap.get(nodeId) || []).filter((id) => filteredNodeIds.has(id));
     const isPermanentFailure =
       (node.data.status === 'FAILED' || node.data.status === 'CANCELLED') &&
       node.data.rejection_count >= maxRejectionThreshold;
@@ -63,22 +84,12 @@ export function DagTree() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex gap-2">
-        <button
-          type="button"
-          onClick={handleExpandAll}
-          title="Expand All Nodes"
-          className="focus-visible:tactical-focus rounded-none border border-dashed border-zinc-700 bg-zinc-900 px-3 py-1 font-mono text-sm text-zinc-300 transition-colors hover:bg-zinc-800"
-        >
+        <TacticalButton size="sm" variant="secondary" onClick={handleExpandAll} title="Expand All Nodes">
           Expand All
-        </button>
-        <button
-          type="button"
-          onClick={collapseAll}
-          title="Collapse All Nodes"
-          className="focus-visible:tactical-focus rounded-none border border-dashed border-zinc-700 bg-zinc-900 px-3 py-1 font-mono text-sm text-zinc-300 transition-colors hover:bg-zinc-800"
-        >
+        </TacticalButton>
+        <TacticalButton size="sm" variant="secondary" onClick={collapseAll} title="Collapse All Nodes">
           Collapse All
-        </button>
+        </TacticalButton>
       </div>
       <ul className="m-0 flex flex-col gap-1 p-0">{rootNodes.map((node) => renderNode(node.id))}</ul>
     </div>

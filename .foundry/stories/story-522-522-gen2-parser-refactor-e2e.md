@@ -2,10 +2,10 @@
 id: story-522-522-gen2-parser-refactor-e2e
 type: STORY
 title: E2E Verification of Gen 2 Parser Refactoring
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-03'
-updated_at: '2026-10-31'
+updated_at: '2026-11-06'
 depends_on:
   - story-522-521-gen2-parser-refactor-impl
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - e2e
   - integration
   - gen2
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # STORY: E2E Verification of Gen 2 Parser Refactoring
@@ -26,6 +26,6 @@ Following the refactoring of Gen 2 parsers to adhere to ADR 028, we must ensure 
 
 ## Acceptance Criteria
 - [x] Decompose this Story into actionable Tasks to run and verify E2E integration tests for the Gen 2 parsers.
-- [ ] task-522-712-gen2-gs-parser-e2e-impl
-- [ ] task-522-713-gen2-crystal-parser-e2e-impl
-- [ ] task-522-714-gen2-parser-e2e-qa
+- [x] task-522-712-gen2-gs-parser-e2e-impl
+- [x] task-522-713-gen2-crystal-parser-e2e-impl
+- [x] task-522-714-gen2-parser-e2e-qa
