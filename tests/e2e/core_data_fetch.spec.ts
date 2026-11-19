@@ -15,11 +15,6 @@ test.describe('pokedata-core.msgpack Fetch E2E', () => {
       await route.continue();
     });
 
-    // We must manually delete the PokeDB so that it's forced to re-fetch on reload, since we fixed clearStorage to preserve it
-    await page.evaluate(() => {
-      window.indexedDB.deleteDatabase('PokeDB');
-    });
-
     await page.goto('.');
 
     // Wait for the app to initialize
