@@ -29,6 +29,9 @@ priority: 50
 Extend the DAG validation script to identify E2E tasks and verify that they have an explicit `depends_on` requirement targeting at least one valid implementation task.
 
 ## Acceptance Criteria
+- [ ] story-693-740-dag-validation-e2e-task-identification
+- [ ] story-693-741-dag-validation-depends-on-check
+- [ ] story-693-742-dag-validation-e2e-verification
 - [ ] Ensure the validation script correctly identifies E2E tasks by tag or slug.
 - [ ] Validate that E2E tasks contain a non-empty `depends_on` array.
 - [ ] Generate an exclusive STORY dedicated to Integration and E2E Verification.
