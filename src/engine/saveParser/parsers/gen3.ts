@@ -78,7 +78,7 @@ import {
   FLAG_RECEIVED_TM_TORMENT,
   FLAG_RECEIVED_TM_WATER_PULSE,
 } from '../gen3/tmFlags/constants';
-import type { SpindaSpotCoordinate } from './common';
+import { parsePokerus, type SpindaSpotCoordinate } from './common';
 
 /**
  * @module gen3Parser
@@ -850,6 +850,8 @@ export function* iterateGen3Party(view: DataView, section1Offset: number, gameVe
 
       const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
+      const rawPokerus = decryptedData.getUint8(3 * SUBSTRUCTURE_SIZE);
+
       const gen3Spinda = speciesId === GEN3_SPINDA_SPECIES_ID ? { pid: pv } : undefined;
 
       const partyDetail: PokemonInstance = {
@@ -875,6 +877,7 @@ export function* iterateGen3Party(view: DataView, section1Offset: number, gameVe
         condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),
         ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
         nature: pv % 25,
+        pokerus: parsePokerus(rawPokerus),
       };
 
       yield { speciesId, partyDetail, gen3Spinda };
@@ -936,6 +939,8 @@ export function* iterateGen3PCBoxes(pcBufferView: DataView) {
 
         const moves = [move1, move2, move3, move4].filter((m) => m > 0);
 
+        const rawPokerus = decryptedData.getUint8(3 * SUBSTRUCTURE_SIZE);
+
         const gen3Spinda = speciesId === GEN3_SPINDA_SPECIES_ID ? { pid: pv } : undefined;
 
         const isShiny = false; // We can skip full shiny calculation for PC boxes for now unless requested
@@ -955,6 +960,7 @@ export function* iterateGen3PCBoxes(pcBufferView: DataView) {
           condition: parseGen3ConditionStats(decryptedData, 2 * SUBSTRUCTURE_SIZE),
           ribbons: parseGen3Ribbons(decryptedData, 3 * SUBSTRUCTURE_SIZE + RIBBONS_OFFSET_IN_M),
           nature: pv % 25,
+          pokerus: parsePokerus(rawPokerus),
         };
 
         yield { speciesId, pcDetail, gen3Spinda };
