@@ -211,7 +211,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 | `idea-152-archival-cleanup-and-retention-policy` | Archival Cleanup & Incremental Node Retention Policy | foundry, archive, retention, garbage-collection, persona |  | PENDING |
 | `idea-152-deterministic-dag-tree-archival` | Deterministic DAG Tree Archival in Orchestrator | foundry, infrastructure, orchestrator |  | PENDING |
 | `idea-153-foundry-rearchitecture-and-code-architect-persona` | Foundry Rearchitecture: State Machine/Graph Libraries & Scheduled Code Architect Persona | foundry, architecture, state-machine, dag, refactoring, personas |  | PENDING |
-| `idea-154-ecosystem-modernization-and-generators` | Bleeding-Edge Ecosystem Modernization, TypeScript 7.x & Generator Architecture | typescript, typescript-7, generators, nodejs, refactoring, adr, research, tech-stack |  | PENDING |
+| `idea-154-ecosystem-modernization-and-generators` | Bleeding-Edge Ecosystem Modernization, TypeScript 7.x & Generator Architecture | typescript, typescript-7, generators, nodejs, refactoring, adr, research, tech-stack | `idea-158-dataview-composite-wrapper` | PENDING |
 | `idea-155-gen3-trick-house-tracker` | Gen 3 Trick House Tracker Dashboard | dexhelper, feature, gen3, tracker |  | PENDING |
 | `idea-156-automated-graph-healing` | Automated Graph Healing for BLOCKED Nodes | foundry, orchestrator, dag, self-healing |  | PENDING |
 | `idea-156-foundry-node-status-health-heatmap` | Foundry DAG Node Health Heatmap Visualizer | foundry, orchestrator, UI, tooling |  | PENDING |

@@ -58,6 +58,7 @@ Crucially, this process must operate continuously: whenever an agent or develope
 ---
 
 ## Acceptance Criteria
+- [ ] research-154-743-generator-dataview-overlap
 - [x] task-154-525-tech-lead-dynamic-node-spawning-guidelines
 - [x] task-154-524-architect-tech-stack-audit
 - [x] prd-154-518-ecosystem-modernization
