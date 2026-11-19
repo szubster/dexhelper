@@ -48,6 +48,8 @@ This story ensures that the backend logic to parse and extract hidden values fro
 - [x] research-403-673-investigate-e2e-timeout-v4
 - [x] task-403-674-playwright-e2e-retry-impl-v4
 - [x] task-403-675-playwright-e2e-retry-qa-v4
-- [ ] research-403-721-investigate-e2e-timeout-v5
-- [ ] task-403-722-playwright-e2e-retry-impl-v5
-- [ ] task-403-723-playwright-e2e-retry-qa-v5
+- [x] research-403-721-investigate-e2e-timeout-v5
+- [x] task-403-722-playwright-e2e-retry-impl-v5
+- [x] task-403-723-playwright-e2e-retry-qa-v5
+- [ ] research-403-740-investigate-e2e-timeout-v6
+- [ ] task-403-741-playwright-e2e-retry-impl-v6
