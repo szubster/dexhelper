@@ -120,3 +120,27 @@
 **Outcome:** Merged (Optimistic execution)
 **Why:** Inline tags and item chips (such as wild item selectors and inventory badges) lacked physical hardware depth and tactile telemetry structure. The redesign adheres strictly to the "tactical hardware/snooping" aesthetic (ADR 008) while maintaining full accessibility.
 **Pattern:** Micro tag and item chips should be cased inside dashed hardware boundaries with 4-corner mounting ticks, LED status dots, and optional sublabel badges to elevate tactile telemetry feedback.
+
+---
+
+## 2026-10-18 - [Accepted] - 🖼️ Canvas: Bold TacticalProgressBar Redesign
+**What:** Redesigned `TacticalProgressBar` from a simple left-bordered progress bar into a fully cased, high-density tactical hardware progress gauge module. Added 4-corner crosshair hardware accents (`CornerCrosshairs`), a left border status indicator bar, an active status LED indicator dot with dynamic glow, micro telemetry code tags (`codeTag`), animated scanline hover highlights (`ScanlineOverlay`), and expanded theme variant support (`default`, `emerald`, `amber`, `red`, `blue`, `purple`) while maintaining 100% backward compatibility.
+**Outcome:** Merged (Optimistic execution)
+**Why:** Progress bars across stat meters, contest stats, and sheen meters lacked visual casing, tactile hardware texture, and clear status feedback. The redesign encapsulates telemetry progress inside a heavy hardware module adhering strictly to ADR 008 (tactical hardware / snooping aesthetic).
+**Pattern:** Telemetry progress and stat gauge components should feature cased hardware boundaries with corner crosshair anchors, illuminated LED status dots, and micro telemetry tags to maintain consistent visual hierarchy across data screens.
+
+---
+
+## 2026-11-01 - [Accepted] - 🖼️ Canvas: Bold TacticalSelect Hardware Redesign
+**What:** Redesigned `TacticalSelect` into an encapsulated tactical hardware dropdown selection module. Added full CVA theme variants (`default`, `emerald`, `amber`, `red`, `blue`, `purple`), active LED status dot with glowing telemetry states (`online`, `busy`, `offline`, `warning`), upper-left `label` and upper-right `codeTag` badges via `EdgeLabel`, bottom `sublabel` readout row, four-corner crosshairs (`CornerCrosshairs`), interactive hover/focus scanline overlay (`ScanlineOverlay`), and responsive chevron styling while maintaining 100% backward compatibility.
+**Outcome:** Merged (Optimistic execution)
+**Why:** Dropdown selection controls across RTC controls, Game Switcher, and Safari Zone were flat single-line selectors lacking tactile casing and status feedback. The redesign encapsulates select elements inside a heavy hardware module adhering strictly to ADR 008 (tactical hardware / snooping aesthetic).
+**Pattern:** Form and selector components should feature cased hardware boundaries, corner crosshairs, active status LEDs, and telemetry code tags to elevate visual feedback and maintain consistent hardware hierarchy across data input interfaces.
+
+---
+
+## 2026-11-04 - [Accepted] - 🖼️ Canvas: Bold DataPoint Hardware Redesign
+**What:** Redesigned `DataPoint` from a simple unencapsulated key-value block into a structured tactical hardware telemetry module. Added support for CVA theme variants (`default`, `emerald`, `amber`, `red`, `blue`, `purple`), active LED status indicator dot with status glow, telemetry `codeTag` chip slot, micro telemetry readout row (`sublabel`), 4-corner crosshair hardware accents (`CornerCrosshairs`), and subtle scanline hover highlights (`ScanlineOverlay`) while maintaining full backward compatibility.
+**Outcome:** Merged (Optimistic execution)
+**Why:** Primary data metrics across Trick House, Mirage Island, Mystery Events, Shoal Cave, Roamer Dossier, and Conflict Resolution modals lacked physical hardware depth, variant theming, and status indicators. The redesign encapsulates metrics inside a tactical telemetry module adhering strictly to ADR 008 (tactical hardware / snooping aesthetic).
+**Pattern:** Primary data display cells should feature cased hardware boundaries, corner crosshairs, active status LEDs, and telemetry code tags to convey live system telemetry states cleanly.

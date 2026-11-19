@@ -2,12 +2,12 @@
 id: idea-130-shoal-cave-tide-tracker
 type: IDEA
 title: Shoal Cave Tide & Item Tracker (Gen 3)
-status: PENDING
-owner_persona: product_manager
+status: ACTIVE
+owner_persona: curator
 created_at: '2026-07-30'
-updated_at: '2026-08-08'
+updated_at: '2026-11-06'
 depends_on: []
-jules_session_id: null
+jules_session_id: '10023438150956836054'
 pr_number: null
 parent: null
 tags:
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Idea: Shoal Cave Tide & Item Tracker (Gen 3)
@@ -39,4 +40,4 @@ This feature reduces player frustration by eliminating the need to guess the cur
 - [x] Product Manager: Convert this idea into a PRD outlining the technical approach for extracting the RTC and inventory counts for Shoal items.
 
 ## Acceptance Criteria
-- [ ] prd-130-340-shoal-cave-tide-tracker
+- [x] prd-130-340-shoal-cave-tide-tracker
