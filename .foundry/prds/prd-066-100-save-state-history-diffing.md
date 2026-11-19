@@ -38,3 +38,7 @@ Once save states are stored sequentially, we need an engine to compare two state
 - [ ] Define the diffing algorithm logic.
 - [ ] Implement Pokémon identification across states (how do we know it's the *same* Pokémon if it leveled up?).
 - [ ] Implement metadata inference rules (date caught, location).
+
+- [ ] epic-100-743-diffing-algorithm-core
+- [ ] epic-100-744-pokemon-identity-tracking
+- [ ] epic-100-745-metadata-inference-rules
