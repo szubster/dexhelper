@@ -55,5 +55,10 @@ Architect a dedicated **Real-Time Multi-Save Diffing Engine and Cross-Save Trade
 Significantly enhances DexHelper's multi-save analysis capabilities, unlocks automated trade path generation across concurrent playthroughs, guarantees trade rule compliance before user exports, and addresses critical DX gaps in multi-game living dex completion.
 
 ## Acceptance Criteria
-- [ ] Break down this PRD into Epics.
-- [ ] E2E integration test Epic required.
+- [x] Break down this PRD into Epics.
+- [x] E2E integration test Epic required.
+
+- [ ] epic-727-743-multi-save-diffing-engine
+- [ ] epic-727-744-cross-save-trade-simulator
+- [ ] epic-727-745-multi-save-diff-viewer-ui
+- [ ] epic-727-746-multi-save-e2e-integration
