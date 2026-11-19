@@ -75,9 +75,9 @@ export const GEN2_CHECKSUM_SPECS: Record<Gen2SaveVariant, Gen2ChecksumRegionSpec
 };
 
 export function getGen2ChecksumSpec(isCrystal: boolean, isJapanese: boolean = false): Gen2ChecksumRegionSpec {
-  const game = isCrystal ? 'CRYSTAL' : 'GS';
-  const region = isJapanese ? 'JP' : 'EN';
-  const variant = `${game}_${region}` as Gen2SaveVariant;
+  const game: 'CRYSTAL' | 'GS' = isCrystal ? 'CRYSTAL' : 'GS';
+  const region: 'JP' | 'EN' = isJapanese ? 'JP' : 'EN';
+  const variant: Gen2SaveVariant = `${game}_${region}`;
   return GEN2_CHECKSUM_SPECS[variant];
 }
 

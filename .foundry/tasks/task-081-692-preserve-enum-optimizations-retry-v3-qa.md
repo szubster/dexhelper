@@ -2,15 +2,15 @@
 id: task-081-692-preserve-enum-optimizations-retry-v3-qa
 type: TASK
 title: QA Preserve Enum Optimizations (Retry v3)
-status: READY
+status: ACTIVE
 owner_persona: qa
 created_at: '2026-10-16T17:44:50.707Z'
-updated_at: '2026-11-02'
+updated_at: '2026-11-06'
 depends_on:
   - task-081-691-preserve-enum-optimizations-retry-v3-impl
-jules_session_id: null
+jules_session_id: '5985615411552529744'
 parent: story-042-081-preserve-enum-optimizations
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: >-
   Replacement for cancelled

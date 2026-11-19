@@ -50,6 +50,7 @@ describe('BottomNav', () => {
 
   it('should render DASH button when Gen 2 save data is present', async () => {
     const mockGen2SaveData: SaveData = {
+      schemaVersion: 1,
       generation: 2,
       owned: new Set(),
       seen: new Set(),
@@ -84,6 +85,7 @@ describe('BottomNav', () => {
 
   it('should render DASH, SFRI, and G3DB buttons when Gen 3 save data is present', async () => {
     const mockGen3SaveData: SaveData = {
+      schemaVersion: 1,
       generation: 3,
       owned: new Set(),
       seen: new Set(),

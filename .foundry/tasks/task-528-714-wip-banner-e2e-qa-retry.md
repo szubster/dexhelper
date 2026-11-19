@@ -2,10 +2,10 @@
 id: task-528-714-wip-banner-e2e-qa-retry
 type: TASK
 title: QA WIP Banner E2E Tests (Retry)
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-21T12:37:25Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-09'
 depends_on:
   - task-528-713-wip-banner-e2e-tests-retry
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - e2e
   - ui
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-528-713-wip-banner-e2e-tests-retry
 locks: []
 ---
 

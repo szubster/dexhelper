@@ -2,10 +2,10 @@
 id: task-564-721-schema-linter-checkbox-e2e-impl
 type: TASK
 title: Implement E2E Tests for Schema Linter Checkbox Validation
-status: READY
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-11-06'
 depends_on: []
 jules_session_id: null
 parent: story-552-564-schema-linter-checkbox-e2e
@@ -13,7 +13,7 @@ tags:
   - foundry
   - linting
   - e2e
-rejection_count: 0
+rejection_count: 1
 rejection_reason: ''
 notes: ''
 locks: []
@@ -26,5 +26,5 @@ locks: []
 - Ensure tests run successfully and provide coverage for both valid and invalid markdown schemas.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests for the checkbox linting logic.
-- [ ] Ensure all tests pass via `pnpm test`.
+- [x] Implement E2E tests for the checkbox linting logic.
+- [x] Ensure all tests pass via `pnpm test`.

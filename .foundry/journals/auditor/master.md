@@ -120,3 +120,19 @@ The reliance on Jules API endpoint to monitor states like `AWAITING_USER_FEEDBAC
 
 ## Conclusion
 The idea `idea-488-autonomous-execution-enforcement` is fully verified and its descendants correctly deployed the desired architecture. It will be submitted as an empty PR to transition to the `COMPLETED` state.
+
+---
+
+## Verification of idea-086-fix-gen3save-mock
+Verified `idea-086-fix-gen3save-mock`. All tasks in its sub-tree have fully transitioned to `COMPLETED` and functionality is properly implemented in the latest E2E integration verification step. Therefore, it is eligible for an Empty PR verification to formally close and demote it out of VERIFYING into COMPLETED.
+
+## Learnings
+The integration of a heuristic function (in this case `isGen3Save`) heavily relies on having a complete execution path in E2E environments rather than mocked short circuits. Removing the mock effectively forced an actual fix for the implementation which makes tests and actual applications aligned.
+
+---
+
+## Verification of idea-072-strict-macro-node-completion
+Verified `idea-072-strict-macro-node-completion`. All descendants in its sub-tree have fully transitioned to `COMPLETED` and the strict macro node completion enforcement logic was correctly integrated into the orchestrator. E2E verification tests successfully ran and passed.
+
+## Learnings
+Enforcing strict hierarchical completion at the orchestrator level ensures macro generation nodes wait for functional requirements to be implemented and merged by downstream child tasks. This avoids premature verification state transitions that hide incomplete functional work.

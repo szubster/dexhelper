@@ -1,23 +1,24 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import pkg from './package.json' with { type: 'json' };
+
+const externalDeps = [
+  ...Object.keys(pkg.dependencies || {}),
+  ...Object.keys(pkg.peerDependencies || {}),
+  'react/jsx-runtime',
+];
 
 export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
       entry: 'src/index.ts',
-      name: 'DexhelperUi',
       formats: ['es'],
-      fileName: 'index'
+      fileName: 'index',
     },
+    sourcemap: true,
     rollupOptions: {
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM'
-        }
-      }
-    }
-  }
+      external: (id) => externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`)),
+    },
+  },
 });

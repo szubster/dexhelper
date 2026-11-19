@@ -2,10 +2,10 @@
 id: task-618-725-highlight-qa
 type: TASK
 title: QA Verification for Multi-Box Search Highlight
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-09'
 depends_on:
   - task-618-724-highlight-tests
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - dexhelper
   - qa
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-618-723-highlight-ui-presentation
 notes: ''
 locks: []
 ---

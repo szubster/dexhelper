@@ -2,12 +2,12 @@
 id: story-063-714-gen2-smart-filtering-logic
 type: STORY
 title: Gen 2 Smart Filtering Logic
-status: READY
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-10-24'
-updated_at: '2026-10-24'
+updated_at: '2026-11-04'
 depends_on: []
-jules_session_id: null
+jules_session_id: '4448560175041893205'
 pr_number: null
 parent: epic-038-063-gen2-smart-filtering-forecasting
 tags:

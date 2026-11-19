@@ -2,10 +2,10 @@
 id: task-618-723-highlight-ui-presentation
 type: TASK
 title: Multi-Box Search Highlight UI Presentation
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-09'
 depends_on:
   - task-618-722-highlight-state-layer
 jules_session_id: null
@@ -15,8 +15,8 @@ tags:
   - dexhelper
   - react
   - ui
-rejection_count: 0
-rejection_reason: ''
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 notes: ''
 locks: []
 ---

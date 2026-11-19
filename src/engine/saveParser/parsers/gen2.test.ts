@@ -480,6 +480,22 @@ describe('gen2 parsers', () => {
     });
   });
 
+  describe('parseGen2 - Trainer ID', () => {
+    it('should extract trainerId correctly', () => {
+      const buffer = new ArrayBuffer(32768);
+      const view = new DataView(buffer);
+      view.setUint8(0x288a, 1);
+      view.setUint8(0x288b, 1);
+      view.setUint8(0x288b + 7, 1);
+
+      // Set trainer ID to 12345 (0x3039)
+      view.setUint16(0x2009, 12345, false);
+
+      const data = parseGen2(view, false);
+      expect(data.trainerId).toBe(12345);
+    });
+  });
+
   describe('Gen 2 Egg Parsing', () => {
     it('should correctly calculate eggSteps for an Egg (speciesId 253)', () => {
       const buffer = new ArrayBuffer(32768);
