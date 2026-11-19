@@ -22,14 +22,14 @@ export class PokedexGridModel {
    * Retrieves all secured cards (in party or PC).
    */
   getSecuredCards(): Locator {
-    return this.page.locator('[data-testid="pokedex-card"].border-emerald-500\\/50');
+    return this.pokemonCards.filter({ has: this.page.locator('.text-emerald-500') });
   }
 
   /**
    * Retrieves all dex-only cards (owned in dex but not in PC/party).
    */
   getDexOnlyCards(): Locator {
-    return this.page.locator('[data-testid="pokedex-card"].border-amber-500\\/50');
+    return this.pokemonCards.filter({ has: this.page.locator('.text-amber-500') });
   }
 
   /**

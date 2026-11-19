@@ -27,5 +27,5 @@ locks: []
 Implement the UI components in `PokedexCard.tsx` and `PokedexGrid.tsx` to display the missing Pokémon, highlighting obtainable vs. version exclusives. The implementation must address the findings from `research-564-716-investigate-pokedex-ui-retry-failure`.
 
 ## Acceptance Criteria
-- [ ] Implement UI for Pokédex gaps
-- [ ] Follow findings from the retry failure investigation
+- [x] Implement UI for Pokédex gaps
+- [x] Follow findings from the retry failure investigation
