@@ -58,6 +58,14 @@ test.describe('Gen 3 AI Data Extraction E2E', () => {
     const hasOpponentSection = await page.getByText(/Opponent/i).count();
     if (hasOpponentSection > 0) {
       await expect(page.getByText(/Opponent/i).first()).toBeVisible();
+      const hasAiScript = await page.getByText(/AI Script/i).count();
+      if (hasAiScript > 0) {
+        await expect(page.getByText(/AI Script/i).first()).toBeVisible();
+      }
+      const hasAiLevel = await page.getByText(/AI Level/i).count();
+      if (hasAiLevel > 0) {
+        await expect(page.getByText(/AI Level/i).first()).toBeVisible();
+      }
     }
   });
 });
