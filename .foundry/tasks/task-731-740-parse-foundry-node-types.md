@@ -28,5 +28,5 @@ priority: 50
 Define the TypeScript types, interfaces, and function signatures required for the parseFoundryNode utility in .github/scripts/.
 
 ## Acceptance Criteria
-- [ ] Define the output interface (e.g., ParsedFoundryNode) containing frontmatter properties and markdown body.
-- [ ] Define the function signature for parseFoundryNode.
+- [x] Define the output interface (e.g., ParsedFoundryNode) containing frontmatter properties and markdown body.
+- [x] Define the function signature for parseFoundryNode.
