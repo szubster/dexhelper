@@ -30,6 +30,27 @@ export interface CommitClassification {
 const STATE_FILE_PATH = path.join(process.cwd(), '.foundry', 'changelog-state.json');
 const TASK_NODE_PATH = path.join(process.cwd(), '.foundry', 'tasks', 'task-000-changelog-backfill.md');
 
+/**
+ * Resolves the corresponding `.foundry/archive/tasks/` path for an active task path,
+ * or returns `null` if the path is already archived or outside `.foundry/tasks/`.
+ */
+export function getArchivedTaskPath(taskPath: string): string | null {
+  const normalized = taskPath.split(path.sep).join('/');
+  if (normalized.includes('/.foundry/archive/') || normalized.startsWith('.foundry/archive/')) {
+    return null;
+  }
+
+  const marker = '.foundry/tasks/';
+  const markerIndex = normalized.lastIndexOf(marker);
+  if (markerIndex === -1 || (markerIndex > 0 && normalized[markerIndex - 1] !== '/')) {
+    return null;
+  }
+
+  const prefix = normalized.slice(0, markerIndex);
+  const suffix = normalized.slice(markerIndex + marker.length);
+  return `${prefix}.foundry/archive/tasks/${suffix}`.split('/').join(path.sep);
+}
+
 export function loadState(statePath: string = STATE_FILE_PATH): ChangelogState {
   if (!fs.existsSync(statePath)) {
     return {
@@ -300,9 +321,12 @@ export function updateTaskNodeForBatch(
   if (batch.length === 0) return;
 
   const today = new Date().toISOString().split('T')[0]!;
+  const archivedTaskPath = getArchivedTaskPath(taskPath);
   let rawContent = '';
   if (fs.existsSync(taskPath)) {
     rawContent = fs.readFileSync(taskPath, 'utf8');
+  } else if (archivedTaskPath && fs.existsSync(archivedTaskPath)) {
+    rawContent = fs.readFileSync(archivedTaskPath, 'utf8');
   }
 
   const primaryEntry = batch[batch.length - 1]!;
@@ -331,10 +355,21 @@ export function updateTaskNodeForBatch(
     : `[\`${lastSha.slice(0, 7)}\`](https://github.com/\${repo}/commit/${lastSha})`;
 
   const parsed = matter(rawContent);
+  const taskId =
+    typeof parsed.data.id === 'string' && parsed.data.id.trim() !== ''
+      ? parsed.data.id
+      : path.basename(taskPath, '.md');
+  parsed.data.id = taskId;
+  parsed.data.type = parsed.data.type || 'TASK';
+  parsed.data.title = parsed.data.title || 'Changelog Backfill Commit Evaluation';
   parsed.data.status = 'READY';
-  parsed.data.jules_session_id = null;
-  parsed.data.updated_at = today;
   parsed.data.owner_persona = 'changelogger';
+  parsed.data.created_at = parsed.data.created_at || today;
+  parsed.data.updated_at = today;
+  parsed.data.depends_on = Array.isArray(parsed.data.depends_on) ? parsed.data.depends_on : [];
+  parsed.data.jules_session_id = null;
+  parsed.data.rejection_count = parsed.data.rejection_count ?? 0;
+  parsed.data.rejection_reason = parsed.data.rejection_reason ?? '';
 
   const commitsOverview = batch
     .map(
@@ -392,6 +427,10 @@ Synthesize the technical changes across all commits in this batch:
     fs.mkdirSync(dir, { recursive: true });
   }
   fs.writeFileSync(taskPath, newContent, 'utf8');
+
+  if (archivedTaskPath && archivedTaskPath !== taskPath && fs.existsSync(archivedTaskPath)) {
+    fs.unlinkSync(archivedTaskPath);
+  }
 }
 
 export function updateTaskNodeForCommit(
@@ -446,6 +485,28 @@ Whenever an \`IDEA\` node is completed in the Foundry Engine (via \`foundry-hear
   process.stdout.write(`[changelog-engine] Created IDEA node: idea-000-changelog-continuous-maintenance.md\n`);
 }
 
+function syncStateFromTaskContent(
+  taskRaw: string,
+  state: ChangelogState,
+  statePath: string
+): void {
+  const taskShaMatches = [...taskRaw.matchAll(/- \*\*Commit SHA:\*\* `([a-f0-9]+)`/gi)];
+  if (taskShaMatches.length === 0) return;
+
+  const lastTaskSha = taskShaMatches[taskShaMatches.length - 1]![1]!;
+  const commits = getCommitList();
+  const taskIdx = commits.findIndex((c) => c === lastTaskSha || c.startsWith(lastTaskSha));
+  const lastCommit = state.last_processed_commit;
+  const stateIdx = lastCommit
+    ? commits.findIndex((c) => c === lastCommit || c.startsWith(lastCommit))
+    : -1;
+
+  if (taskIdx > stateIdx) {
+    state.last_processed_commit = lastTaskSha;
+    saveState(state, statePath);
+  }
+}
+
 export async function runChangelogEngine(
   statePath: string = STATE_FILE_PATH,
   taskPath: string = TASK_NODE_PATH,
@@ -459,7 +520,8 @@ export async function runChangelogEngine(
     return;
   }
 
-  // Check current status of the task node
+  // Check current status of the task node (or archived copy if moved to archive)
+  const archivedTaskPath = getArchivedTaskPath(taskPath);
   if (fs.existsSync(taskPath)) {
     try {
       const taskRaw = fs.readFileSync(taskPath, 'utf8');
@@ -471,22 +533,14 @@ export async function runChangelogEngine(
         return;
       }
 
-      // If task was completed, check if task node body has commit SHAs ahead of state.last_processed_commit
-      const taskShaMatches = [...taskRaw.matchAll(/- \*\*Commit SHA:\*\* `([a-f0-9]+)`/gi)];
-      if (taskShaMatches.length > 0) {
-        const lastTaskSha = taskShaMatches[taskShaMatches.length - 1]![1]!;
-        const commits = getCommitList();
-        const taskIdx = commits.findIndex((c) => c === lastTaskSha || c.startsWith(lastTaskSha));
-        const lastCommit = state.last_processed_commit;
-        const stateIdx = lastCommit
-          ? commits.findIndex((c) => c === lastCommit || c.startsWith(lastCommit))
-          : -1;
-
-        if (taskIdx > stateIdx) {
-          state.last_processed_commit = lastTaskSha;
-          saveState(state, statePath);
-        }
-      }
+      syncStateFromTaskContent(taskRaw, state, statePath);
+    } catch {
+      // parse error
+    }
+  } else if (archivedTaskPath && fs.existsSync(archivedTaskPath)) {
+    try {
+      const archivedRaw = fs.readFileSync(archivedTaskPath, 'utf8');
+      syncStateFromTaskContent(archivedRaw, state, statePath);
     } catch {
       // parse error
     }

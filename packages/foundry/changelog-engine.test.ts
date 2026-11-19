@@ -9,6 +9,7 @@ import {
   classifyCommit,
   determineSemverBump,
   generateContinuousMaintenanceIdeaNode,
+  getArchivedTaskPath,
   getCommitDetails,
   getLatestVersion,
   loadState,
@@ -20,6 +21,7 @@ import {
 describe('changelog-engine', () => {
   const testStatePath = path.join(process.cwd(), '.foundry', 'test-changelog-state.json');
   const testTaskPath = path.join(process.cwd(), '.foundry', 'tasks', 'test-task-000-backfill.md');
+  const testArchivedTaskPath = path.join(process.cwd(), '.foundry', 'archive', 'tasks', 'test-task-000-backfill.md');
   const testIdeaPath = path.join(process.cwd(), '.foundry', 'ideas', 'idea-000-changelog-continuous-maintenance.md');
 
   beforeEach(() => {
@@ -29,6 +31,9 @@ describe('changelog-engine', () => {
     if (fs.existsSync(testTaskPath)) {
       fs.unlinkSync(testTaskPath);
     }
+    if (fs.existsSync(testArchivedTaskPath)) {
+      fs.unlinkSync(testArchivedTaskPath);
+    }
   });
 
   afterEach(() => {
@@ -37,6 +42,9 @@ describe('changelog-engine', () => {
     }
     if (fs.existsSync(testTaskPath)) {
       fs.unlinkSync(testTaskPath);
+    }
+    if (fs.existsSync(testArchivedTaskPath)) {
+      fs.unlinkSync(testArchivedTaskPath);
     }
     if (fs.existsSync(testIdeaPath)) {
       fs.unlinkSync(testIdeaPath);
@@ -288,6 +296,104 @@ describe('changelog-engine', () => {
       expect(content).toContain('id: idea-000-changelog-continuous-maintenance');
       expect(content).toContain('Continuous Changelog Maintenance for Merged Ideas');
     });
+
+    it('resolves archive task paths only for active .foundry/tasks paths', () => {
+      expect(getArchivedTaskPath('.foundry/tasks/task-000-changelog-backfill.md')).toBe(
+        path.join('.foundry', 'archive', 'tasks', 'task-000-changelog-backfill.md')
+      );
+      expect(getArchivedTaskPath(testTaskPath)).toBe(testArchivedTaskPath);
+      expect(getArchivedTaskPath(testArchivedTaskPath)).toBeNull();
+      expect(getArchivedTaskPath('/tmp/other-task.md')).toBeNull();
+    });
+
+    it('writes required Foundry schema frontmatter fields when taskPath does not exist', () => {
+      const batch = [
+        {
+          details: {
+            sha: 'abcdef1234567890',
+            message: 'feat(ui): add widget',
+            date: '2026-08-15',
+            files: ['src/App.tsx'],
+            diffStat: '1 file changed, 5 insertions(+)'
+          },
+          classification: {
+            action: 'dispatch' as const,
+            reason: 'Ad-hoc user-facing Dexhelper code modification',
+            domain: 'dexhelper' as const
+          },
+          previousSha: '1234567890abcdef'
+        }
+      ];
+
+      updateTaskNodeForBatch(batch, testTaskPath);
+
+      const parsed = matter(fs.readFileSync(testTaskPath, 'utf8'));
+      expect(parsed.data.id).toBe('test-task-000-backfill');
+      expect(parsed.data.type).toBe('TASK');
+      expect(parsed.data.title).toBe('Changelog Backfill Commit Evaluation');
+      expect(parsed.data.status).toBe('READY');
+      expect(parsed.data.owner_persona).toBe('changelogger');
+      expect(typeof parsed.data.created_at).toBe('string');
+      expect(typeof parsed.data.updated_at).toBe('string');
+      expect(parsed.data.depends_on).toEqual([]);
+      expect(parsed.data.jules_session_id).toBeNull();
+      expect(parsed.data.rejection_count).toBe(0);
+      expect(parsed.data.rejection_reason).toBe('');
+    });
+
+    it('restores metadata from archived task and removes archived duplicate', () => {
+      fs.mkdirSync(path.dirname(testArchivedTaskPath), { recursive: true });
+      const archivedContent = `---
+id: task-000-changelog-backfill
+type: TASK
+title: Changelog Backfill Commit Evaluation
+status: COMPLETED
+owner_persona: changelogger
+created_at: '2026-04-20'
+updated_at: '2026-10-28'
+depends_on: []
+jules_session_id: null
+tags:
+  - changelog
+  - backfill
+priority: 100
+rejection_count: 0
+rejection_reason: ''
+---
+# Archived Task
+`;
+      fs.writeFileSync(testArchivedTaskPath, archivedContent, 'utf8');
+
+      const batch = [
+        {
+          details: {
+            sha: 'abcdef1234567890',
+            message: 'feat(ui): add widget',
+            date: '2026-08-15',
+            files: ['src/App.tsx'],
+            diffStat: '1 file changed, 5 insertions(+)'
+          },
+          classification: {
+            action: 'dispatch' as const,
+            reason: 'Ad-hoc user-facing Dexhelper code modification',
+            domain: 'dexhelper' as const
+          },
+          previousSha: '1234567890abcdef'
+        }
+      ];
+
+      updateTaskNodeForBatch(batch, testTaskPath);
+
+      expect(fs.existsSync(testTaskPath)).toBe(true);
+      expect(fs.existsSync(testArchivedTaskPath)).toBe(false);
+
+      const parsed = matter(fs.readFileSync(testTaskPath, 'utf8'));
+      expect(parsed.data.id).toBe('task-000-changelog-backfill');
+      expect(parsed.data.created_at).toBe('2026-04-20');
+      expect(parsed.data.tags).toEqual(['changelog', 'backfill']);
+      expect(parsed.data.priority).toBe(100);
+      expect(parsed.data.status).toBe('READY');
+    });
   });
 
   describe('runChangelogEngine task guards', () => {
@@ -444,6 +550,76 @@ rejection_reason: ''
       const taskRaw = fs.readFileSync(testTaskPath, 'utf8');
       const taskParsed = matter(taskRaw);
       expect(taskParsed.data.status).toBe('READY');
+      expect(taskParsed.content).toContain(commit3);
+    });
+
+    it('syncs state from archived task and unarchives it with complete frontmatter', async () => {
+      const commit1 = '75e6919a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e';
+      const commit2 = '86f7020b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f';
+      const commit3 = '97a8131c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a';
+
+      fs.mkdirSync(path.dirname(testArchivedTaskPath), { recursive: true });
+      const archivedContent = `---
+id: task-000-changelog-backfill
+type: TASK
+title: Changelog Backfill Commit Evaluation
+status: COMPLETED
+owner_persona: changelogger
+created_at: '2026-04-20'
+updated_at: '2026-10-28'
+depends_on: []
+jules_session_id: null
+rejection_count: 0
+rejection_reason: ''
+---
+# Archived Task
+
+- **Commit SHA:** \`${commit2}\`
+`;
+      fs.writeFileSync(testArchivedTaskPath, archivedContent, 'utf8');
+
+      saveState(
+        {
+          mode: 'backfill',
+          last_processed_commit: commit1,
+          status: 'idle'
+        },
+        testStatePath
+      );
+
+      vi.spyOn(childProcess, 'execSync').mockImplementation((cmd: unknown) => {
+        const cmdStr = String(cmd);
+        if (cmdStr.includes('rev-list')) {
+          return `${commit1}\n${commit2}\n${commit3}\n`;
+        }
+        if (cmdStr.includes('format=%B')) {
+          return 'feat(app): third commit message';
+        }
+        if (cmdStr.includes('format=%cs')) {
+          return '2026-09-09';
+        }
+        if (cmdStr.includes('diff-tree')) {
+          return 'src/App.tsx\n';
+        }
+        return '';
+      });
+
+      vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+      await runChangelogEngine(testStatePath, testTaskPath);
+
+      const updatedState = loadState(testStatePath);
+      expect(updatedState.status).toBe('pending_jules');
+      expect(updatedState.last_processed_commit).toBe(commit3);
+
+      expect(fs.existsSync(testTaskPath)).toBe(true);
+      expect(fs.existsSync(testArchivedTaskPath)).toBe(false);
+
+      const taskParsed = matter(fs.readFileSync(testTaskPath, 'utf8'));
+      expect(taskParsed.data.id).toBe('task-000-changelog-backfill');
+      expect(taskParsed.data.type).toBe('TASK');
+      expect(taskParsed.data.status).toBe('READY');
+      expect(taskParsed.data.created_at).toBe('2026-04-20');
       expect(taskParsed.content).toContain(commit3);
     });
   });
