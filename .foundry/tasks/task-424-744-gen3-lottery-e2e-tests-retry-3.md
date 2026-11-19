@@ -2,10 +2,10 @@
 id: task-424-744-gen3-lottery-e2e-tests-retry-3
 type: TASK
 title: Implement Gen3 Lottery E2E Tests (Retry 3)
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-11-06'
-updated_at: '2026-11-06'
+updated_at: '2026-11-09'
 depends_on:
   - research-424-743-investigate-gen3-lottery-e2e-failure-v3
 jules_session_id: null
@@ -18,8 +18,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
-confidence_score: 100
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  research-424-743-investigate-gen3-lottery-e2e-failure-v3
 notes: ''
 locks: []
 ---

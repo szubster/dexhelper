@@ -2,10 +2,10 @@
 id: task-734-740-artifact-validator-integration-tests-parser
 type: TASK
 title: Artifact Validator Integration Tests - Parser
-status: FAILED
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-11-02'
-updated_at: '2026-11-08'
+updated_at: '2026-11-09'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -13,10 +13,10 @@ parent: story-699-734-artifact-validator-integration-tests
 tags:
   - testing
   - integration
+rejection_count: 3
+rejection_reason: '[ACKNOWLEDGED] Max rejection count reached'
 locks: []
 priority: 80
-rejection_reason: 'Autonomous No-Ask Policy Violation: Session entered AWAITING_USER_FEEDBACK'
-rejection_count: 2
 ---
 # TASK: Artifact Validator Integration Tests - Parser
 

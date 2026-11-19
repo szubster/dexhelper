@@ -2,12 +2,12 @@
 id: research-513-716-investigate-orchestrator-test-updates-failure
 type: RESEARCH
 title: Investigate Orchestrator Test Updates Failure
-status: ACTIVE
+status: COMPLETED
 owner_persona: researcher
 created_at: '2026-10-22'
-updated_at: '2026-11-03'
+updated_at: '2026-11-09'
 depends_on: []
-jules_session_id: '15461387627490089233'
+jules_session_id: null
 parent: story-018-513-orchestrator-test-updates
 tags:
   - orchestrator

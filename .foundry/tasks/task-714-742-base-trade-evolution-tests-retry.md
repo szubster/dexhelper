@@ -2,10 +2,10 @@
 id: task-714-742-base-trade-evolution-tests-retry
 type: TASK
 title: Tests for Base Trade Evolution Tracking Retry
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-09'
 depends_on:
   - task-714-741-base-trade-evolution-generator-logic-retry
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-714-743-base-trade-evolution-qa-retry
 type: TASK
 title: QA Base Trade Evolution Tracking Retry
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-09'
 depends_on:
   - task-714-742-base-trade-evolution-tests-retry
 jules_session_id: null

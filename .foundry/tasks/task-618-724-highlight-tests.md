@@ -2,10 +2,10 @@
 id: task-618-724-highlight-tests
 type: TASK
 title: Multi-Box Search Highlight Tests
-status: PENDING
+status: CANCELLED
 owner_persona: coder
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-09'
 depends_on:
   - task-618-723-highlight-ui-presentation
 jules_session_id: null
@@ -15,7 +15,9 @@ tags:
   - dexhelper
   - testing
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-618-723-highlight-ui-presentation
 notes: ''
 locks: []
 ---

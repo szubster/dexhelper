@@ -2,13 +2,13 @@
 id: story-513-537-gen3-berry-serialization-and-api
 type: STORY
 title: Gen 3 Berry Serialization and Runtime API Integration
-status: PENDING
+status: ACTIVE
 owner_persona: tech_lead
 created_at: '2026-09-04'
-updated_at: '2026-11-01'
+updated_at: '2026-11-09'
 depends_on:
   - story-513-536-gen3-berry-dataview-parsing
-jules_session_id: null
+jules_session_id: '12948618050700946607'
 pr_number: null
 parent: epic-037-513-gen3-berry-tracker-data-extraction-retry
 tags:
@@ -16,7 +16,6 @@ tags:
   - serialization
   - api
 rejection_count: 1
-confidence_score: 100
 rejection_reason: ''
 locks: []
 ---

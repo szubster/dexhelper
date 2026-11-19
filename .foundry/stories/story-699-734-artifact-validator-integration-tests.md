@@ -5,17 +5,17 @@ title: Artifact Validator Integration Tests
 status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-11-07'
+updated_at: '2026-11-09'
 depends_on: []
-jules_session_id: null
+jules_session_id: '14827843004790303082'
 pr_number: null
 parent: epic-703-699-artifact-presence-e2e
 tags:
   - testing
   - integration
+rejection_reason: ''
 locks: []
 priority: 80
-rejection_reason: ''
 ---
 # STORY: Artifact Validator Integration Tests
 
