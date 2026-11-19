@@ -24,12 +24,12 @@ export function generateSynergyData(saves: Record<string, SaveData>): SynergyDat
   const opportunities: SynergyTradeOpportunity[] = [];
   const saveIds = Object.keys(saves);
 
-  // Precompute game exclusives for each save to avoid redundant work in nested loop
-  const targetExclusivesMap: Record<string, number[]> = {};
+  // ⚡ Bolt: Precompute game exclusives as Set<number> to optimize inner loop lookups from O(N * M) to O(1) Set.has() checks.
+  const targetExclusivesMap: Record<string, Set<number>> = {};
   for (const id of saveIds) {
     const save = saves[id];
     if (save) {
-      targetExclusivesMap[id] = getGameExclusives(save).missing;
+      targetExclusivesMap[id] = new Set(getGameExclusives(save).missing);
     }
   }
 
@@ -45,11 +45,11 @@ export function generateSynergyData(saves: Record<string, SaveData>): SynergyDat
       const targetSave = saves[targetSaveId];
       if (!targetSave) continue;
 
-      const missingExclusives = targetExclusivesMap[targetSaveId] || [];
+      const missingExclusives = targetExclusivesMap[targetSaveId];
 
       for (const pokemonId of sourceSave.owned) {
         if (!targetSave.owned.has(pokemonId)) {
-          const isExclusive = missingExclusives.includes(pokemonId);
+          const isExclusive = missingExclusives ? missingExclusives.has(pokemonId) : false;
           opportunities.push({
             sourceSaveId,
             targetSaveId,
