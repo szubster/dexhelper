@@ -24,6 +24,6 @@ locks: []
 Verify that the enum-to-number optimizations are preserved when the data generation pipeline is transitioned to verbose keys. Ensure the implementation task resolved the findings from `research-081-690-investigate-retry-failure-v2`.
 
 ## Acceptance Criteria
-- [ ] Generation script runs successfully without type errors (`pnpm run data:gen`).
-- [ ] Generated `data/db/*.jsonl` files contain verbose keys mapped to integer values (e.g., `{"method": 1}`).
-- [ ] The schema correctly type-checks against the newly generated data format.
+- [x] Generation script runs successfully without type errors (`pnpm run data:gen`).
+- [x] Generated `data/db/*.jsonl` files contain verbose keys mapped to integer values (e.g., `{"method": 1}`).
+- [x] The schema correctly type-checks against the newly generated data format.
