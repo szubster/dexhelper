@@ -55,3 +55,12 @@
 ## Learnings
 - **Duplicate Component Test Suite Elimination**: Consolidated `src/components/gen3/WallpaperDashboard.test.tsx` (which resided outside standard `__tests__` directories) into `src/components/gen3/__tests__/WallpaperDashboard.test.tsx`.
 - **Preserved Comprehensive Coverage**: Preserved full test suite covering default fallback TID, save data TID, checklist click handler, and acquired state verification within the unified standard test suite.
+
+---
+
+# Gen 2 Gender Calculation Deduplication
+
+## Learnings
+- **Unified Algorithm Implementation**: Replaced duplicated gender calculation logic in `src/engine/breeding/gender.ts` (`getGen2Gender`) with a delegating wrapper around `calculateGen2Gender` from `src/utils/gender.ts`.
+- **Title-case Adaptation**: `getGen2Gender` converts the lowercase `'male' | 'female' | 'genderless'` output from `calculateGen2Gender` into title-cased `'Male' | 'Female' | 'Genderless'`, preserving exact backwards compatibility for breeding engine consumers.
+- **Consolidated Test Suite**: Deleted duplicate standalone test file `src/engine/breeding/gender.test.ts` and consolidated `getGen2Gender` coverage into `src/utils/gender.test.ts`.
