@@ -25,6 +25,6 @@ locks: []
 Create the initial scaffolding for the new `@dexhelper/pokedata-extractor` package.
 
 ## Acceptance Criteria
-- [ ] Create `packages/pokedata-extractor` directory with basic `package.json` and `tsconfig.json`
-- [ ] Configure it as a workspace package
-- [ ] Ensure `pnpm install` succeeds
+- [x] Create `packages/pokedata-extractor` directory with basic `package.json` and `tsconfig.json`
+- [x] Configure it as a workspace package
+- [x] Ensure `pnpm install` succeeds
