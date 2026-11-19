@@ -34,7 +34,7 @@ The Idea Dependency Matrix is a lightweight historical mapping index designed to
 ## The Matrix
 | Idea ID | Title | Domain Boundaries | Dependencies / Overlaps | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| `idea-000-137-orchestrator-telemetry-for-cycles` | Orchestrator Telemetry For Cycles | foundry, orchestrator, telemetry |  | PENDING |
+| `idea-000-137-orchestrator-telemetry-for-cycles` | Orchestrator Telemetry For Cycles | foundry, orchestrator, telemetry | `idea-146-foundry-system-statistics`, `idea-521-agent-confidence-metrics-dashboard`, `idea-521-foundry-persona-execution-time-profiler` | PENDING |
 | `idea-001-the-foundry` | The Foundry: Autonomous Software Factory | Uncategorized |  | COMPLETED |
 | `idea-002-collision-free-ids` | Distributed IDs & Concurrency Resilience | Uncategorized | Parent: `idea-001-the-foundry` | COMPLETED |
 | `idea-002-tpm-scheduling` | Agent Scheduling | infrastructure |  | COMPLETED |
