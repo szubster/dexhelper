@@ -36,4 +36,5 @@ After integrating the ADR compliance check into `package.json` scripts, the `pnp
 - Confirm that normal workflows pass without issue when no violations are present.
 
 ## Acceptance Criteria
-- [ ] Decompose this story into actionable TASK nodes.
+- [x] Decompose this story into actionable TASK nodes.
+- [ ] task-678-740-adr-compliance-integration-e2e-impl
