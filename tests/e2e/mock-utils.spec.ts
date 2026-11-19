@@ -77,11 +77,13 @@ test.describe('Mock Utils', () => {
 
     await page.waitForLoadState('networkidle');
     await mockOfflineState(page, true);
+    await page.waitForTimeout(100);
 
     await expect.poll(() => page.evaluate(() => !navigator.onLine)).toBe(true);
     await expect.poll(() => page.evaluate(() => window.offlineFired)).toBe(true);
 
     await mockOfflineState(page, false);
+    await page.waitForTimeout(100);
 
     await expect.poll(() => page.evaluate(() => navigator.onLine)).toBe(true);
     await expect.poll(() => page.evaluate(() => window.onlineFired)).toBe(true);
