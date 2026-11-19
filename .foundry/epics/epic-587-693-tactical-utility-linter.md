@@ -28,5 +28,9 @@ locks: []
 This Epic tracks the implementation of an automated linter rule or standalone script to detect raw inline Tailwind utility combinations (e.g., `rounded-none border-dashed font-mono`) that should be standardized as `@utility` primitives (e.g., `tactical-panel`, `tactical-text`). It covers developing the analysis logic, mapping violations to their tactical equivalents, and integrating the check into the `pnpm lint` workflow with actionable error messages.
 
 ## Acceptance Criteria
-- [ ] Decompose this Epic into discrete STORY nodes.
-- [ ] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+- [x] Decompose this Epic into discrete STORY nodes.
+- [x] Generate a final STORY dedicated exclusively to Integration and E2E Verification (tagged with `e2e` or `integration`).
+
+- [ ] story-693-743-tactical-utility-linter-core-logic
+- [ ] story-693-744-tactical-utility-linter-workflow-integration
+- [ ] story-693-745-tactical-utility-linter-e2e
