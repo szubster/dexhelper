@@ -31,3 +31,8 @@ Integration and E2E verification for the Orchestrator Curator Loop feature.
 - Add extensive tests that simulate an end-to-end flow from Idea generation -> Implementation -> Curator Triggering -> New Node Spawning -> Idea Re-verification.
 - Ensure all logic branches in DAG Orchestrator are verified.
 - The tests should simulate the github workflow environments appropriately.
+
+## Acceptance Criteria
+- [ ] task-535-740-orchestrator-curator-test-fixtures
+- [ ] task-535-741-orchestrator-curator-loop-e2e-tests
+- [ ] task-535-742-qa-orchestrator-curator-loop-e2e
