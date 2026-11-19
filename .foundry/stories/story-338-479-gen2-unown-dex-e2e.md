@@ -30,6 +30,9 @@ This story is dedicated to the Integration and E2E verification of the Gen 2 Uno
 - [x] Break down into Tasks
 - [ ] Implement E2E verification to ensure correct extraction of Unown forms and Ruins of Alph puzzle flags.
 - [x] task-479-676-gen2-unown-dex-e2e-tests
-- [ ] research-479-703-e2e-timeout
-- [ ] task-479-700-gen2-unown-dex-e2e-coder
-- [ ] task-479-701-gen2-unown-dex-e2e-qa
+- [x] research-479-703-e2e-timeout
+- [x] task-479-700-gen2-unown-dex-e2e-coder
+- [x] task-479-701-gen2-unown-dex-e2e-qa
+- [ ] research-479-740-investigate-unown-e2e-failure
+- [ ] task-479-741-gen2-unown-dex-e2e-coder-v3
+- [ ] task-479-742-gen2-unown-dex-e2e-qa-v3
