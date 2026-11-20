@@ -28,5 +28,5 @@ Verify the correctness and coverage of the E2E tests targeting generation-specif
 - Check compliance with testing standards and Playwright best practices.
 
 ## Acceptance Criteria
-- [ ] E2E tests comprehensively cover generation-specific functionalities.
-- [ ] Tests pass without error.
+- [x] E2E tests comprehensively cover generation-specific functionalities.
+- [x] Tests pass without error.
