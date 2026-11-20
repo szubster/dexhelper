@@ -55,4 +55,15 @@ test.describe('Storage UI', () => {
       await expect(page.getByText('Party').first()).toBeVisible();
     }
   });
+
+  test('should navigate to pokemon details when an item is selected', async ({ page }) => {
+    await page.goto('./storage');
+    await waitForSync(page);
+
+    const firstCard = page.getByLabel(/View details for/).first();
+    await expect(firstCard).toBeVisible();
+    await firstCard.click();
+
+    await expect(page).toHaveURL(/.*\/pokemon\/\d+\?from=%2Fstorage/);
+  });
 });
