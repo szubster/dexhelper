@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { CatchSuggestion, StandardSuggestion } from '../../assistant/strategies/types';
-import { RouteRadarController } from '../RouteRadarController';
+import { extractEncounterAreaRequirements, RouteRadarController, updateHeatmapForArea } from '../RouteRadarController';
+import type { RouteRadarHeatmap } from '../types';
 
 describe('RouteRadarController', () => {
   it('should instantiate correctly', () => {
@@ -139,6 +140,62 @@ describe('RouteRadarController', () => {
 
       const heatmap = controller.calculateHeatmap([suggestion]);
       expect(heatmap).toEqual({});
+    });
+  });
+
+  describe('extractEncounterAreaRequirements', () => {
+    it('returns empty sets when encounterInfo is undefined', () => {
+      const result = extractEncounterAreaRequirements(undefined);
+      expect(result.uniqueAreaIds.size).toBe(0);
+      expect(result.areaBikeReqs.size).toBe(0);
+    });
+
+    it('accurately indexes unique area IDs and bike flags from encounter records', () => {
+      const encounterInfo: CatchSuggestion['encounterInfo'] = {
+        1: [
+          { chance: 20, method: 'walk', minLevel: 5, areaId: 101, requiresMachBike: true },
+          { chance: 30, method: 'walk', minLevel: 6, areaId: 101, requiresAcroBike: true },
+        ],
+        2: [{ chance: 10, method: 'surf', minLevel: 15, areaId: 102, requiresMachBike: false }],
+      };
+
+      const { uniqueAreaIds, areaBikeReqs } = extractEncounterAreaRequirements(encounterInfo);
+      expect(Array.from(uniqueAreaIds)).toEqual([101, 102]);
+      expect(areaBikeReqs.get(101)).toEqual({ mach: true, acro: true });
+      expect(areaBikeReqs.get(102)).toEqual({ mach: false, acro: false });
+    });
+  });
+
+  describe('updateHeatmapForArea', () => {
+    it('initializes and increments area density without bike requirements', () => {
+      const heatmap: RouteRadarHeatmap = {};
+      updateHeatmapForArea(heatmap, 50);
+
+      expect(heatmap[50]).toEqual({
+        density: 1,
+        requiresMachBike: false,
+        requiresAcroBike: false,
+      });
+
+      updateHeatmapForArea(heatmap, 50);
+      expect(heatmap[50]?.density).toBe(2);
+    });
+
+    it('merges bike requirement flags correctly into heatmap entries', () => {
+      const heatmap: RouteRadarHeatmap = {};
+      updateHeatmapForArea(heatmap, 50, { mach: true, acro: false });
+      expect(heatmap[50]).toEqual({
+        density: 1,
+        requiresMachBike: true,
+        requiresAcroBike: false,
+      });
+
+      updateHeatmapForArea(heatmap, 50, { mach: false, acro: true });
+      expect(heatmap[50]).toEqual({
+        density: 2,
+        requiresMachBike: true,
+        requiresAcroBike: true,
+      });
     });
   });
 });
