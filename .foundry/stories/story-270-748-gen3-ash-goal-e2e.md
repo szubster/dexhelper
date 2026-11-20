@@ -2,10 +2,10 @@
 id: story-270-748-gen3-ash-goal-e2e
 type: STORY
 title: 'Story: Gen 3 Ash Goal E2E Verification'
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-11-07'
-updated_at: '2026-11-07'
+updated_at: '2026-11-20'
 depends_on:
   - story-270-747-gen3-ash-goal-ui
 jules_session_id: null

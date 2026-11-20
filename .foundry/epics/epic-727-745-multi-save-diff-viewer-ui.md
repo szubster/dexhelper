@@ -2,10 +2,10 @@
 id: epic-727-745-multi-save-diff-viewer-ui
 type: EPIC
 title: Visual Tactical Comparison Component
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-11-01'
-updated_at: '2026-11-01'
+updated_at: '2026-11-20'
 depends_on:
   - epic-727-743-multi-save-diffing-engine
   - epic-727-744-cross-save-trade-simulator

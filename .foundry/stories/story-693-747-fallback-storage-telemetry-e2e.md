@@ -2,10 +2,10 @@
 id: story-693-747-fallback-storage-telemetry-e2e
 type: STORY
 title: STORY - E2E Verification of Fallback Storage and Telemetry
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-22T06:25:40Z'
-updated_at: '2026-10-22T06:25:40Z'
+updated_at: '2026-11-20'
 depends_on:
   - story-693-746-indexeddb-rehydration-resync
   - story-693-744-tactical-storage-health-badge

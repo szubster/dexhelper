@@ -2,10 +2,10 @@
 id: task-493-748-pal-park-core-e2e-qa
 type: TASK
 title: Pal Park Core Engine E2E QA
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-09'
-updated_at: '2026-11-09'
+updated_at: '2026-11-20'
 depends_on:
   - task-493-747-pal-park-core-e2e-impl
 jules_session_id: null

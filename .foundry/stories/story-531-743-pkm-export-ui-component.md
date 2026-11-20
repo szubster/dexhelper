@@ -2,18 +2,18 @@
 id: story-531-743-pkm-export-ui-component
 type: STORY
 title: PKM/PK3 Export UI Component Integration
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-11-06'
-updated_at: '2026-11-06'
+updated_at: '2026-11-20'
 depends_on: []
 jules_session_id: null
 parent: epic-516-531-pkm-export-ui-integration
 tags:
   - ui
   - export
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # Story: PKM/PK3 Export UI Component Integration

@@ -2,10 +2,10 @@
 id: story-729-744-sub-tree-completeness-e2e
 type: STORY
 title: Sub-Tree Completeness Validator - E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-26'
-updated_at: '2026-10-26'
+updated_at: '2026-11-20'
 depends_on:
   - story-729-743-sub-tree-completeness-core-logic
 jules_session_id: null
@@ -18,6 +18,7 @@ tags:
   - integration
 rejection_count: 0
 rejection_reason: ''
+locks: []
 ---
 
 # STORY: Sub-Tree Completeness Validator - E2E Verification

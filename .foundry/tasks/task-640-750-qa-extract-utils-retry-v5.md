@@ -2,10 +2,10 @@
 id: task-640-750-qa-extract-utils-retry-v5
 type: TASK
 title: QA Verification for Utils Extraction (Retry v5)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-10'
-updated_at: '2026-11-10'
+updated_at: '2026-11-20'
 depends_on:
   - task-640-749-update-app-imports-utils-retry-v5
 jules_session_id: null

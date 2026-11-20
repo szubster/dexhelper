@@ -2,10 +2,10 @@
 id: story-522-738-gen3-dataview-relative-offsets
 type: STORY
 title: Gen 3 Relative Section Offset Resolution
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - story-522-737-gen3-dataview-core-class
 jules_session_id: null

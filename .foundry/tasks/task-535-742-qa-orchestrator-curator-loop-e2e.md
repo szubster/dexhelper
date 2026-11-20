@@ -2,10 +2,10 @@
 id: task-535-742-qa-orchestrator-curator-loop-e2e
 type: TASK
 title: QA Orchestrator Curator Loop E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-11-20'
 depends_on:
   - task-535-741-orchestrator-curator-loop-e2e-tests
 jules_session_id: null

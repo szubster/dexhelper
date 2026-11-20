@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-19T19:16:11.356Z*
+*Generated at: 2026-11-20T01:31:56.907Z*
 
 ## Node Statistics
 
@@ -8,31 +8,33 @@
 | Type | Count |
 |---|---|
 | ADR | 45 |
-| EPIC | 543 |
-| IDEA | 240 |
-| PRD | 218 |
-| RESEARCH | 367 |
-| STORY | 1149 |
-| TASK | 3056 |
+| EPIC | 550 |
+| IDEA | 242 |
+| PRD | 219 |
+| RESEARCH | 389 |
+| STORY | 1187 |
+| TASK | 3130 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3692 |
-| ACTIVE | 160 |
+| COMPLETED | 3715 |
+| ACTIVE | 82 |
 | CANCELLED | 1004 |
-| PENDING | 747 |
+| PENDING | 821 |
+| VERIFYING | 1 |
+| READY | 122 |
 | BLOCKED | 14 |
-| READY | 1 |
+| FAILED | 3 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 195 |
-| Merged PRs | 8757 |
-| Closed PRs | 1048 |
+| Open PRs | 100 |
+| Merged PRs | 8851 |
+| Closed PRs | 1049 |
 
 ## Rejection Counts
 
@@ -443,6 +445,7 @@
 | task-346-352-gen3-pv-iv-extraction-impl.md | 2 |
 | task-353-405-lift-rejection-constant-e2e-retry-impl.md | 2 |
 | task-404-408-gen3-secret-base-parser-impl.md | 2 |
+| task-563-586-develop-migration-script.md | 2 |
 | adr-586-584-failure-tracking-architecture.md | 2 |
 | epic-008-018-session-dispatch-bypass.md | 2 |
 | epic-046-078-gen3-battle-frontier-data-extraction.md | 2 |
@@ -580,7 +583,6 @@
 | task-562-594-gen3-missed-items-extraction-logic.md | 2 |
 | task-562-711-gen2-wild-item-extraction-logic-v4.md | 2 |
 | task-563-578-save-file-progress-fixtures-coder.md | 2 |
-| task-563-586-develop-migration-script.md | 2 |
 | task-563-669-gen3-wild-item-data-parsing-logic-retry.md | 2 |
 | task-563-675-complexity-validation-tests-retry.md | 2 |
 | task-563-680-gen2-bag-inventory-parsing-impl.md | 2 |
@@ -631,6 +633,7 @@
 | idea-066-enforce-gray-matter-linter.md | 1 |
 | idea-067-extract-dag-utils.md | 1 |
 | idea-086-fix-gen3save-mock.md | 1 |
+| idea-118-centralize-prompt-reminders.md | 1 |
 | prd-006-017-gen2-expansion-phase-3-4.md | 1 |
 | prd-020-020-enforce-acceptance-criteria-completion.md | 1 |
 | prd-124-339-librarian-persona-context-optimizer.md | 1 |
@@ -675,6 +678,7 @@
 | story-322-323-pokerus-strain-detail-ui.md | 1 |
 | story-323-322-pokerus-strain-badge-component.md | 1 |
 | story-324-322-gen2-dv-extraction.md | 1 |
+| story-335-563-develop-migration-script.md | 1 |
 | story-569-585-confidence-metrics-schema-e2e.md | 1 |
 | task-006-migrate-memory-system.md | 1 |
 | task-013-scaffold-agile-coach.md | 1 |
@@ -810,7 +814,6 @@
 | idea-083-daycare-egg-tracker.md | 1 |
 | idea-116-gen3-pc-box-wallpaper-customizer.md | 1 |
 | idea-117-split-bundles-and-data.md | 1 |
-| idea-118-centralize-prompt-reminders.md | 1 |
 | idea-122-foundry-lead-time-metrics.md | 1 |
 | idea-122-pokemon-themed-foundry-personas.md | 1 |
 | idea-137-builtin-emulator.md | 1 |
@@ -897,7 +900,6 @@
 | story-136-620-gen1-static-encounters-e2e.md | 1 |
 | story-140-564-gen2-roamer-translation-integration.md | 1 |
 | story-269-647-gen3-ash-dashboard-ui.md | 1 |
-| story-335-563-develop-migration-script.md | 1 |
 | story-346-560-spinda-spot-coordinate-algorithm.md | 1 |
 | story-346-561-spinda-pattern-rendering-component.md | 1 |
 | story-397-360-gen3-roamer-integration-e2e.md | 1 |
@@ -1169,9 +1171,9 @@
 | task-563-641-map-data-extraction-logic-v2.md | 92620800000 |
 | task-563-642-map-data-tests-v2.md | 92620800000 |
 | task-563-643-map-data-qa-v2.md | 92620800000 |
+| task-527-714-safari-zone-area-highlighting-qa-v4.md | 78624000000 |
 | task-550-687-generator-architecture-e2e-qa.md | 77414400000 |
 | task-676-702-add-adr-compliance-scripts.md | 77284800000 |
-| task-527-714-safari-zone-area-highlighting-qa-v4.md | 77241600000 |
 | task-527-713-safari-zone-area-map-ui-v4.md | 77155200000 |
 | research-527-712-investigate-safari-zone-area-map-failure-v3.md | 76896000000 |
 | story-325-528-safari-zone-bounty-board.md | 76896000000 |

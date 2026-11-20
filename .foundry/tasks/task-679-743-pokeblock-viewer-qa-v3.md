@@ -2,10 +2,10 @@
 id: task-679-743-pokeblock-viewer-qa-v3
 type: TASK
 title: Pokéblock Viewer QA (v3)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - task-679-742-pokeblock-route-integration-impl-v3
 jules_session_id: null

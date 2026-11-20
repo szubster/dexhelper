@@ -2,10 +2,10 @@
 id: task-475-741-gen3-condition-stats-extraction-e2e-tests-retry3
 type: TASK
 title: Write E2E Tests for Gen 3 Contest Condition Data Extraction (Retry 3)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-05T03:20:56.489Z'
-updated_at: '2026-11-05T03:20:56.489Z'
+updated_at: '2026-11-20'
 depends_on:
   - research-475-740-investigate-gen3-condition-stats-extraction-e2e-failure
 jules_session_id: null

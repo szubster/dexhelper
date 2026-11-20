@@ -2,10 +2,10 @@
 id: task-478-741-kurt-apricorn-core-logic-retry-4
 type: TASK
 title: Kurt Apricorn Core Parsing Logic Retry 4
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-05'
-updated_at: '2026-11-05'
+updated_at: '2026-11-20'
 depends_on:
   - research-478-740-investigate-kurt-apricorn-core-logic-failure-v3
 jules_session_id: null

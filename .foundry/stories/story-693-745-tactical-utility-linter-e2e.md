@@ -2,10 +2,10 @@
 id: story-693-745-tactical-utility-linter-e2e
 type: STORY
 title: 'Story: Tactical Utility Linter E2E Verification'
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-11-01T00:00:00Z'
-updated_at: '2026-11-01'
+updated_at: '2026-11-20'
 depends_on:
   - story-693-744-tactical-utility-linter-workflow-integration
 jules_session_id: null

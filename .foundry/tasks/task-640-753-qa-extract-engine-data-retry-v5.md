@@ -2,10 +2,10 @@
 id: task-640-753-qa-extract-engine-data-retry-v5
 type: TASK
 title: QA Verification for Engine Data Extraction (Retry v5)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-10'
-updated_at: '2026-11-10'
+updated_at: '2026-11-20'
 depends_on:
   - task-640-752-update-app-imports-engine-data-retry-v5
 jules_session_id: null

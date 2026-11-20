@@ -2,10 +2,10 @@
 id: story-270-746-gen3-ash-goal-state
 type: STORY
 title: 'Story: Gen 3 Ash Goal State Management'
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-11-07'
-updated_at: '2026-11-07'
+updated_at: '2026-11-20'
 depends_on:
   - story-270-745-gen3-ash-goal-mapping
 jules_session_id: null

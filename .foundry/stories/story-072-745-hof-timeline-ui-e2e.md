@@ -2,10 +2,10 @@
 id: story-072-745-hof-timeline-ui-e2e
 type: STORY
 title: Hall of Fame Timeline UI E2E
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-11-01'
-updated_at: '2026-11-01'
+updated_at: '2026-11-20'
 depends_on:
   - story-072-744-hof-timeline-ui-integration
 jules_session_id: null

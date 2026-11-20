@@ -1,11 +1,11 @@
 ---
 id: research-130-743-shoal-cave-rtc-strategy
 type: RESEARCH
-title: "Shoal Cave Tide Tracker vs RTC-Independent Fallback Strategy"
-status: READY
+title: Shoal Cave Tide Tracker vs RTC-Independent Fallback Strategy
+status: PENDING
 owner_persona: researcher
-created_at: "2026-11-06"
-updated_at: "2026-11-06"
+created_at: '2026-11-06'
+updated_at: '2026-11-20'
 depends_on:
   - idea-078-settle-rtc-strategy
 jules_session_id: null
@@ -18,8 +18,9 @@ tags:
   - rtc
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "Investigate overlap between idea-130 and ADR 025."
+rejection_reason: ''
+notes: Investigate overlap between idea-130 and ADR 025.
+locks: []
 ---
 
 # Research: Shoal Cave Tide Tracker vs RTC-Independent Fallback Strategy

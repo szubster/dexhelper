@@ -2,26 +2,25 @@
 id: task-714-749-schema-migrator-tests
 type: TASK
 title: Write tests for SaveSchemaMigrator
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-09'
-updated_at: '2026-11-09'
+updated_at: '2026-11-20'
 depends_on:
   - task-714-748-schema-migrator-core-logic
 jules_session_id: null
-locks: []
 pr_number: null
 parent: story-693-714-save-schema-migrator-logic
-priority: 50
-confidence_score: null
 tags:
   - schema
   - testing
 research_references: []
 rejection_count: 0
 system_failure_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Write tests for SaveSchemaMigrator

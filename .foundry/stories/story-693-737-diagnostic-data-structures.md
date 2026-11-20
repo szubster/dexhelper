@@ -2,12 +2,12 @@
 id: story-693-737-diagnostic-data-structures
 type: STORY
 title: Define Diagnostic Data Structures
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-11-04T22:54:29.331Z'
-updated_at: '2026-11-06'
+updated_at: '2026-11-20'
 depends_on: []
-jules_session_id: '6048750769427676090'
+jules_session_id: null
 pr_number: null
 parent: epic-587-693-core-diagnostic-report-subsystem
 tags:

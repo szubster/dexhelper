@@ -2,10 +2,10 @@
 id: story-042-081-preserve-enum-optimizations
 type: STORY
 title: Preserve Enum-to-Number Optimizations in Generation Pipeline
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-05-21'
-updated_at: '2026-10-20'
+updated_at: '2026-11-20'
 depends_on: []
 jules_session_id: null
 parent: epic-032-042-generation-pipeline-keys
@@ -29,7 +29,7 @@ Ensure that the enum-to-number mapping logic (like `EVO_TRIGGER`, `ENCOUNTER_MET
 - [x] task-081-131-preserve-enum-optimizations-qa
 - [x] task-081-130-preserve-enum-optimizations-impl
 - [x] research-081-006-investigate-enum-optimizations-failure
-- [ ] research-081-690-investigate-retry-failure-v2
-- [ ] task-081-691-preserve-enum-optimizations-retry-v3-impl
-- [ ] task-081-692-preserve-enum-optimizations-retry-v3-qa
-- [ ] Enum-to-number optimizations are preserved.
+- [x] research-081-690-investigate-retry-failure-v2
+- [x] task-081-691-preserve-enum-optimizations-retry-v3-impl
+- [x] task-081-692-preserve-enum-optimizations-retry-v3-qa
+- [x] Enum-to-number optimizations are preserved.

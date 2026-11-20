@@ -2,10 +2,10 @@
 id: task-737-746-diagnostic-data-structures-qa
 type: TASK
 title: QA Diagnostic Data Structures
-status: READY
+status: PENDING
 owner_persona: qa
-created_at: "2026-11-04T22:54:29.331Z"
-updated_at: "2026-11-04"
+created_at: '2026-11-04T22:54:29.331Z'
+updated_at: '2026-11-20'
 depends_on:
   - task-737-745-diagnostic-data-structures-impl
 jules_session_id: null
@@ -15,7 +15,7 @@ tags:
   - save-parser
   - diagnostics
 locks: []
-confidence_score: 90
+rejection_reason: ''
 ---
 
 # QA Diagnostic Data Structures

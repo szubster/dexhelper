@@ -2,10 +2,10 @@
 id: task-535-741-orchestrator-curator-loop-e2e-tests
 type: TASK
 title: Implement Orchestrator Curator Loop E2E Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-18'
-updated_at: '2026-10-18'
+updated_at: '2026-11-20'
 depends_on:
   - task-535-740-orchestrator-curator-test-fixtures
 jules_session_id: null

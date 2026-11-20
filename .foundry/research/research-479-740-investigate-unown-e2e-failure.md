@@ -2,10 +2,10 @@
 id: research-479-740-investigate-unown-e2e-failure
 type: RESEARCH
 title: Investigate Max Rejection Count for task-479-700-gen2-unown-dex-e2e-coder
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on: []
 jules_session_id: null
 parent: story-338-479-gen2-unown-dex-e2e
@@ -13,7 +13,7 @@ tags:
   - investigate
   - failure
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 locks: []
 ---
 

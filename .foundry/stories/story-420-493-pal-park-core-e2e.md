@@ -2,13 +2,13 @@
 id: story-420-493-pal-park-core-e2e
 type: STORY
 title: Pal Park Core Engine E2E Verification
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-11-09'
+updated_at: '2026-11-20'
 depends_on:
   - story-420-492-pal-park-batch-generation
-jules_session_id: '2185071966634459531'
+jules_session_id: null
 pr_number: null
 parent: epic-340-420-pal-park-core-engine
 tags:

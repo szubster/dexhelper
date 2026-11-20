@@ -2,25 +2,25 @@
 id: task-715-743-daycare-egg-tracker-ui-qa
 type: TASK
 title: QA Verification for Daycare Status Dashboard UI
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-11-20'
 depends_on:
   - task-715-742-daycare-egg-tracker-ui-tests
 jules_session_id: null
 pr_number: null
 parent: story-107-715-daycare-egg-tracker-ui-core
-priority: 50
-confidence_score: null
 tags:
   - qa
   - verification
 research_references: []
 rejection_count: 0
 system_failure_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Task: QA Verification for Daycare Status Dashboard UI

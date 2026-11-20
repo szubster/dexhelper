@@ -2,10 +2,10 @@
 id: task-711-740-weather-anomaly-dashboard-overlay-impl
 type: TASK
 title: Implement Weather Anomaly Dashboard Overlay
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-11-20'
 depends_on:
   - task-711-742-weather-anomaly-dashboard-state-impl
 jules_session_id: null

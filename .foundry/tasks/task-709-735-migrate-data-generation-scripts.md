@@ -2,10 +2,10 @@
 id: task-709-735-migrate-data-generation-scripts
 type: TASK
 title: Migrate Data Generation Scripts
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-31'
-updated_at: '2026-11-02'
+updated_at: '2026-11-20'
 depends_on:
   - task-709-734-scaffold-pokedata-extractor
 jules_session_id: null

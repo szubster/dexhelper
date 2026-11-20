@@ -2,10 +2,10 @@
 id: research-137-743-orchestrator-telemetry-metrics-overlap
 type: RESEARCH
 title: Orchestrator Telemetry Metrics Overlap
-status: READY
+status: PENDING
 owner_persona: researcher
 created_at: '2026-11-06'
-updated_at: '2026-11-06'
+updated_at: '2026-11-20'
 depends_on: []
 jules_session_id: null
 pr_number: null

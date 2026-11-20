@@ -2,10 +2,10 @@
 id: story-693-738-save-parser-static-analysis-e2e
 type: STORY
 title: Save Parser Static Analysis E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-31'
-updated_at: '2026-10-31'
+updated_at: '2026-11-20'
 depends_on:
   - story-693-737-develop-save-parser-static-analysis-script
 jules_session_id: null

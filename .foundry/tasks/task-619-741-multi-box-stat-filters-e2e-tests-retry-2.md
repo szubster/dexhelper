@@ -2,10 +2,10 @@
 id: task-619-741-multi-box-stat-filters-e2e-tests-retry-2
 type: TASK
 title: Multi-Box Stat Filters E2E Tests Retry 2
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-06'
-updated_at: '2026-11-06'
+updated_at: '2026-11-20'
 depends_on:
   - research-619-740-investigate-multi-box-stat-filters-e2e-tests-failure-retry
 jules_session_id: null

@@ -2,12 +2,12 @@
 id: story-693-714-save-schema-migrator-logic
 type: STORY
 title: Core Schema Migrator Engine
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-24T00:00:28.000Z'
-updated_at: '2026-11-09'
+updated_at: '2026-11-20'
 depends_on: []
-jules_session_id: '11303689762537514276'
+jules_session_id: null
 pr_number: null
 parent: epic-587-693-schema-migration-registry
 tags:

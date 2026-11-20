@@ -2,10 +2,10 @@
 id: epic-727-746-multi-save-e2e-integration
 type: EPIC
 title: Multi-Save and Trade Simulation E2E Integration
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-11-01'
-updated_at: '2026-11-01'
+updated_at: '2026-11-20'
 depends_on:
   - epic-727-745-multi-save-diff-viewer-ui
 jules_session_id: null

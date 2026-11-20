@@ -2,10 +2,10 @@
 id: task-640-748-extract-utils-to-core-retry-v5
 type: TASK
 title: Migrate pure JS/TS logic from src/utils to packages/core (Retry v5)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-10'
-updated_at: '2026-11-10'
+updated_at: '2026-11-20'
 depends_on:
   - research-640-747-investigate-extract-utils-timeout-v6
 jules_session_id: null

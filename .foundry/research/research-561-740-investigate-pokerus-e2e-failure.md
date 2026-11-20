@@ -2,10 +2,10 @@
 id: research-561-740-investigate-pokerus-e2e-failure
 type: RESEARCH
 title: Investigate Pokerus E2E Failure
-status: ACTIVE
+status: FAILED
 owner_persona: researcher
 created_at: '2026-11-06T01:05:54.000Z'
-updated_at: '2026-11-06T01:05:54.000Z'
+updated_at: '2026-11-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -15,7 +15,7 @@ tags:
   - debugging
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: ACTIVE node missing or malformed session ID
 notes: ''
 locks: []
 ---

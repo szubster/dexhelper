@@ -2,10 +2,10 @@
 id: task-564-718-qa-gen3-pokedex-gaps-ui-v3
 type: TASK
 title: QA Gen 3 Pokédex Gaps UI V3
-status: PENDING
+status: FAILED
 owner_persona: qa
 created_at: '2026-10-23'
-updated_at: '2026-10-31'
+updated_at: '2026-11-20'
 depends_on:
   - task-564-717-gen3-pokedex-gaps-ui-impl-v3
 jules_session_id: null
@@ -17,8 +17,8 @@ tags:
   - pokedex
   - ui
 research_references: []
+rejection_reason: Merged with unfulfilled acceptance criteria
 locks: []
-rejection_reason: ''
 ---
 
 # QA Gen 3 Pokédex Gaps UI V3

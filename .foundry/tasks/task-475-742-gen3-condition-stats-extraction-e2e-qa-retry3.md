@@ -1,11 +1,13 @@
 ---
 id: task-475-742-gen3-condition-stats-extraction-e2e-qa-retry3
 type: TASK
-title: QA Verification for Gen 3 Contest Condition Data Extraction E2E Tests (Retry 3)
-status: READY
+title: >-
+  QA Verification for Gen 3 Contest Condition Data Extraction E2E Tests (Retry
+  3)
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-05T03:20:56.489Z'
-updated_at: '2026-11-05T03:20:56.489Z'
+updated_at: '2026-11-20'
 depends_on:
   - task-475-741-gen3-condition-stats-extraction-e2e-tests-retry3
 jules_session_id: null

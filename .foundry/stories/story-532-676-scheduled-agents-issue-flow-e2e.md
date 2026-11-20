@@ -2,10 +2,10 @@
 id: story-532-676-scheduled-agents-issue-flow-e2e
 type: STORY
 title: Scheduled Agents Issue Flow E2E Verification
-status: PENDING
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-11-02'
+updated_at: '2026-11-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -18,7 +18,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
+  TASK nodes
 notes: ''
 locks: []
 ---
@@ -35,5 +37,5 @@ To satisfy the Orchestrator Safeguard (E2E/Integration Requirement), we must ver
 
 ## Acceptance Criteria
 - [x] Break down into TASK nodes for E2E test implementation.
-- [ ] task-676-712-scheduled-agents-issue-flow-e2e-coder
-- [ ] task-676-713-scheduled-agents-issue-flow-e2e-qa
+- [x] task-676-712-scheduled-agents-issue-flow-e2e-coder
+- [x] task-676-713-scheduled-agents-issue-flow-e2e-qa

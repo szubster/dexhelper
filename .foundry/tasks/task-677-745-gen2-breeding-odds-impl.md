@@ -2,10 +2,10 @@
 id: task-677-745-gen2-breeding-odds-impl
 type: TASK
 title: Implement Gen 2 Shiny Breeding Compatibility & Odds Display
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-11-07'
-updated_at: '2026-11-07'
+updated_at: '2026-11-20'
 depends_on:
   - story-310-676-pokemon-selection-interface
   - epic-112-309-gen2-shiny-breeding-logic
@@ -23,7 +23,6 @@ rejection_count: 0
 rejection_reason: ''
 notes: ''
 locks: []
-confidence_score: 90
 ---
 
 # Implement Gen 2 Shiny Breeding Compatibility & Odds Display

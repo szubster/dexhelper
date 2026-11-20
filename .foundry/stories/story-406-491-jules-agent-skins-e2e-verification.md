@@ -2,10 +2,10 @@
 id: story-406-491-jules-agent-skins-e2e-verification
 type: STORY
 title: Jules Agent Skins E2E Verification
-status: PENDING
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-08-26'
-updated_at: '2026-10-19'
+updated_at: '2026-11-20'
 depends_on:
   - story-406-490-update-jules-persona-definitions
 jules_session_id: null
@@ -16,7 +16,9 @@ tags:
   - personas
   - gamification
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
+  TASK nodes
 notes: ''
 locks: []
 ---
@@ -31,6 +33,6 @@ Integration and E2E verification for the Jules agent skins integration.
 - Ensure tests validate the updated contexts.
 
 ## Acceptance Criteria
-- [ ] task-491-690-implement-persona-skins-e2e
-- [ ] task-491-691-qa-persona-skins-e2e
+- [x] task-491-690-implement-persona-skins-e2e
+- [x] task-491-691-qa-persona-skins-e2e
 - [x] Tech Lead: Break down into Tasks to write E2E tests for the new persona skins.

@@ -2,10 +2,10 @@
 id: task-478-743-kurt-apricorn-qa-retry-4
 type: TASK
 title: Kurt Apricorn QA Retry 4
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-05'
-updated_at: '2026-11-05'
+updated_at: '2026-11-20'
 depends_on:
   - task-478-742-kurt-apricorn-unit-tests-retry-4
 jules_session_id: null

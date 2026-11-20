@@ -2,10 +2,10 @@
 id: story-554-563-inventory-item-tracker
 type: STORY
 title: Wild Item Inventory Tracker
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-08-15'
-updated_at: '2026-10-24'
+updated_at: '2026-11-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -32,9 +32,9 @@ To help players track progress during a hunt, we need to scan the Bag inventory 
 
 ## Acceptance Criteria
 - [x] Break down this Story into Tasks.
-- [ ] task-563-680-gen2-bag-inventory-parsing-impl
-- [ ] task-563-681-gen2-bag-inventory-parsing-qa
-- [ ] task-563-682-gen3-bag-inventory-parsing-impl
-- [ ] task-563-683-gen3-bag-inventory-parsing-qa
-- [ ] task-563-684-inventory-diffing-logic-impl
-- [ ] task-563-685-inventory-diffing-logic-qa
+- [x] task-563-680-gen2-bag-inventory-parsing-impl
+- [x] task-563-681-gen2-bag-inventory-parsing-qa
+- [x] task-563-682-gen3-bag-inventory-parsing-impl
+- [x] task-563-683-gen3-bag-inventory-parsing-qa
+- [x] task-563-684-inventory-diffing-logic-impl
+- [x] task-563-685-inventory-diffing-logic-qa

@@ -2,10 +2,10 @@
 id: task-731-741-parse-foundry-node-impl
 type: TASK
 title: Implement YAML Parsing Utility Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - task-731-740-parse-foundry-node-types
 jules_session_id: null

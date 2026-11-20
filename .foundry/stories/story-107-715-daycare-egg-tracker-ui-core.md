@@ -2,12 +2,12 @@
 id: story-107-715-daycare-egg-tracker-ui-core
 type: STORY
 title: Daycare Status Dashboard Component Implementation
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-11-05'
+updated_at: '2026-11-20'
 depends_on: []
-jules_session_id: '1854174274800515135'
+jules_session_id: null
 pr_number: null
 parent: epic-053-107-daycare-egg-tracker-ui
 priority: 50

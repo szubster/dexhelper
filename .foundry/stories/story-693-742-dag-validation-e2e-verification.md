@@ -2,10 +2,10 @@
 id: story-693-742-dag-validation-e2e-verification
 type: STORY
 title: STORY - DAG Validation E2E Verification
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-11-05T19:56:30.000Z'
-updated_at: '2026-11-05T19:56:30.000Z'
+updated_at: '2026-11-20'
 depends_on:
   - story-693-740-dag-validation-e2e-task-identification
   - story-693-741-dag-validation-depends-on-check

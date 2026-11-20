@@ -2,10 +2,10 @@
 id: epic-100-744-pokemon-identity-tracking
 type: EPIC
 title: Pokémon Identity Tracking Across States
-status: READY
+status: PENDING
 owner_persona: story_owner
 created_at: '2026-11-06'
-updated_at: '2026-11-06'
+updated_at: '2026-11-20'
 depends_on:
   - epic-100-743-diffing-algorithm-core
 jules_session_id: null

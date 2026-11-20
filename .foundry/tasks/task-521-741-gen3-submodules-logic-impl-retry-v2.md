@@ -2,10 +2,10 @@
 id: task-521-741-gen3-submodules-logic-impl-retry-v2
 type: TASK
 title: Implement Gen 3 Submodule Logic Refactoring (Retry v2)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-05'
-updated_at: '2026-11-05'
+updated_at: '2026-11-20'
 depends_on:
   - research-521-740-gen3-submodules-logic-failure
 jules_session_id: null

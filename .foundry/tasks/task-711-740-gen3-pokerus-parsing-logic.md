@@ -2,12 +2,12 @@
 id: task-711-740-gen3-pokerus-parsing-logic
 type: TASK
 title: Gen 3 Pokerus Parsing and Mapping Implementation
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-11-05'
-updated_at: '2026-11-06'
+updated_at: '2026-11-20'
 depends_on: []
-jules_session_id: '12973542852960826517'
+jules_session_id: null
 pr_number: null
 parent: story-690-711-gen3-pokerus-parsing-and-mapping
 tags:

@@ -2,10 +2,10 @@
 id: story-693-738-extract-store-domain-utilities
 type: STORY
 title: Extract Store Domain Utilities
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-31'
-updated_at: '2026-10-31'
+updated_at: '2026-11-20'
 depends_on:
   - story-693-737-identify-store-domain-logic
 jules_session_id: null

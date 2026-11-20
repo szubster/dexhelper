@@ -2,10 +2,10 @@
 id: story-584-741-gen3-tv-swarm-parsing-core
 type: STORY
 title: Gen 3 TV Broadcast and Swarm Save Data Parsing
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-16T18:00:00.000Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-20'
 depends_on:
   - research-584-740-gen3-rtc-extraction-conflict
 jules_session_id: null

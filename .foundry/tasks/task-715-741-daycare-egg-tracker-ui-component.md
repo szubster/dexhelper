@@ -2,17 +2,15 @@
 id: task-715-741-daycare-egg-tracker-ui-component
 type: TASK
 title: Implement Daycare Status Dashboard UI Component
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-11-20'
 depends_on:
   - task-715-740-daycare-egg-tracker-ui-context
 jules_session_id: null
 pr_number: null
 parent: story-107-715-daycare-egg-tracker-ui-core
-priority: 50
-confidence_score: null
 tags:
   - react
   - ui
@@ -20,8 +18,10 @@ tags:
 research_references: []
 rejection_count: 0
 system_failure_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Task: Implement Daycare Status Dashboard UI Component
