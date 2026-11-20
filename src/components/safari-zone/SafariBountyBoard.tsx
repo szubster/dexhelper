@@ -26,7 +26,7 @@ export function SafariBountyBoard() {
     return (
       <TacticalPanel className="flex h-full flex-col p-4" variant="default">
         <div className="flex items-center justify-between border-b border-dashed border-zinc-800 pb-2">
-          <h2 className="font-mono text-sm font-bold tracking-tight text-white uppercase">BOUNTY BOARD</h2>
+          <h2 className="tactical-text text-sm font-bold text-white">BOUNTY BOARD</h2>
           <TacticalBadge variant="emerald" dot pulse>
             [ ALL SECURED ]
           </TacticalBadge>
@@ -44,7 +44,7 @@ export function SafariBountyBoard() {
   return (
     <TacticalPanel className="flex h-full flex-col p-4" variant="default">
       <div className="flex items-center justify-between border-b border-dashed border-zinc-800 pb-2">
-        <h2 className="font-mono text-sm font-bold tracking-tight text-white uppercase">BOUNTY BOARD</h2>
+        <h2 className="tactical-text text-sm font-bold text-white">BOUNTY BOARD</h2>
         <TacticalBadge variant="amber" dot pulse>
           [ {totalMissing} TARGETS ]
         </TacticalBadge>
@@ -57,7 +57,7 @@ export function SafariBountyBoard() {
 
           return (
             <div key={area.name} className="flex flex-col gap-3">
-              <h3 className="font-mono text-xs font-bold tracking-widest text-zinc-400 uppercase">
+              <h3 className="tactical-text text-xs font-bold text-zinc-400">
                 {area.name} <span className="text-zinc-600">[{encounters.length}]</span>
               </h3>
               <div className="grid grid-cols-2 gap-3">
@@ -77,10 +77,10 @@ export function SafariBountyBoard() {
                           alt={pokemonName}
                           className="h-12 w-12 object-contain"
                         />
-                        <span className="mt-1 truncate font-mono text-[10px] font-bold text-white uppercase">
+                        <span className="tactical-text mt-1 truncate text-[10px] font-bold text-white">
                           {pokemonName}
                         </span>
-                        <div className="mt-0.5 flex items-center gap-1 font-mono text-[9px] text-amber-500/80">
+                        <div className="tactical-text mt-0.5 flex items-center gap-1 text-[9px] text-amber-500/80">
                           <span>{enc.chance}%</span>
                           {enc.minLevel && <span>• L{enc.minLevel}</span>}
                         </div>

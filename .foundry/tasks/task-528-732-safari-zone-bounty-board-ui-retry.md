@@ -28,6 +28,6 @@ locks: []
 Implement the UI components for the "bounty board" side panel displaying uncaught rare encounters, applying findings from the investigation to avoid previous failures. Ensure adherence to ADR 024 (tactical UI aesthetics).
 
 ## Acceptance Criteria
-- [ ] Implement the `SafariBountyBoard` component with tactical UI CSS utilities
-- [ ] Integrate with the data hook
-- [ ] Include unit tests
+- [x] Implement the `SafariBountyBoard` component with tactical UI CSS utilities
+- [x] Integrate with the data hook
+- [x] Include unit tests
