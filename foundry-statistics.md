@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-20T18:04:26.606Z*
+*Generated at: 2026-11-20T21:29:05.827Z*
 
 ## Node Statistics
 
@@ -18,20 +18,21 @@
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3765 |
-| ACTIVE | 10 |
+| COMPLETED | 3771 |
+| ACTIVE | 6 |
 | CANCELLED | 1004 |
-| PENDING | 945 |
-| READY | 129 |
+| PENDING | 923 |
+| READY | 148 |
 | BLOCKED | 14 |
+| FAILED | 1 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 8 |
-| Merged PRs | 8933 |
+| Open PRs | 1 |
+| Merged PRs | 8940 |
 | Closed PRs | 1059 |
 
 ## Rejection Counts
@@ -1178,6 +1179,7 @@
 | task-563-641-map-data-extraction-logic-v2.md | 92620800000 |
 | task-563-642-map-data-tests-v2.md | 92620800000 |
 | task-563-643-map-data-qa-v2.md | 92620800000 |
+| research-418-744-remediation-legacy-conflict.md | 83894400000 |
 | story-325-527-safari-zone-area-highlighting.md | 78624000000 |
 | task-527-714-safari-zone-area-highlighting-qa-v4.md | 78624000000 |
 | task-550-687-generator-architecture-e2e-qa.md | 77414400000 |
@@ -1223,4 +1225,3 @@
 | task-564-565-gen3-trainer-card-e2e-tests.md | 64454400000 |
 | idea-055-cloudflare-sync-and-future-features.md | 63244800000 |
 | task-323-331-pokerus-strain-ui-impl.md | 63244800000 |
-| idea-136-split-bundles-and-data.md | 63244800000 |

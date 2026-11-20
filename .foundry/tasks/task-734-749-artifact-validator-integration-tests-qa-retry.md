@@ -2,7 +2,7 @@
 id: task-734-749-artifact-validator-integration-tests-qa-retry
 type: TASK
 title: Artifact Validator Integration Tests - QA - Retry
-status: PENDING
+status: CANCELLED
 owner_persona: qa
 created_at: '2026-11-09'
 updated_at: '2026-11-20'
@@ -15,7 +15,9 @@ parent: story-699-734-artifact-validator-integration-tests
 tags:
   - testing
   - integration
-rejection_reason: ''
+rejection_reason: >-
+  Cancelled due to permanent failure of dependency:
+  task-734-741-artifact-validator-integration-tests-fs
 locks: []
 priority: 80
 ---

@@ -2,21 +2,21 @@
 id: task-734-741-artifact-validator-integration-tests-fs
 type: TASK
 title: Artifact Validator Integration Tests - File System
-status: ACTIVE
+status: FAILED
 owner_persona: coder
 created_at: '2026-11-02'
-updated_at: '2026-11-08'
+updated_at: '2026-11-20'
 depends_on: []
-jules_session_id: '18440569756248944233'
+jules_session_id: null
 pr_number: null
 parent: story-699-734-artifact-validator-integration-tests
 tags:
   - testing
   - integration
+rejection_count: 2
+rejection_reason: '[ACKNOWLEDGED] Merged with unfulfilled acceptance criteria'
 locks: []
 priority: 80
-rejection_reason: ''
-rejection_count: 2
 ---
 # TASK: Artifact Validator Integration Tests - File System
 

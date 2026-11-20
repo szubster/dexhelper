@@ -2,10 +2,10 @@
 id: task-679-729-acceptance-criteria-qa
 type: TASK
 title: QA Verification for ADR 034 Orchestrator Updates
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-25'
-updated_at: '2026-10-25'
+updated_at: '2026-11-20'
 depends_on:
   - task-679-728-orchestrator-updates-adr-034
 jules_session_id: null

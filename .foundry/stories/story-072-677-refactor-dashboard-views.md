@@ -2,10 +2,10 @@
 id: story-072-677-refactor-dashboard-views
 type: STORY
 title: Refactor other DAG views to consume DagContext
-status: PENDING
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-10-14'
-updated_at: '2026-11-01'
+updated_at: '2026-11-20'
 depends_on:
   - story-072-676-refactor-dag-visualizer
 jules_session_id: null
@@ -13,8 +13,9 @@ pr_number: null
 parent: epic-045-072-refactor-views
 tags: []
 rejection_count: 0
-confidence_score: 100
-rejection_reason: ''
+rejection_reason: >-
+  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
+  TASK nodes
 notes: ''
 locks: []
 ---
@@ -30,5 +31,5 @@ Ensure other views in the DagDashboard (e.g., Kanban, Permanent Failures) consum
 
 ## Acceptance Criteria
 - [x] Break down into Tasks
-- [ ] task-677-734-refactor-kanban-permanent-failures-views
-- [ ] task-677-735-refactor-dashboard-views-e2e-qa
+- [x] task-677-734-refactor-kanban-permanent-failures-views
+- [x] task-677-735-refactor-dashboard-views-e2e-qa

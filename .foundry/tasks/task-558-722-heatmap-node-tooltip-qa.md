@@ -2,10 +2,10 @@
 id: task-558-722-heatmap-node-tooltip-qa
 type: TASK
 title: QA Verification for Heatmap Node Hover Tooltip
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-24'
-updated_at: '2026-10-24'
+updated_at: '2026-11-20'
 depends_on:
   - task-558-721-heatmap-node-tooltip-impl
 jules_session_id: null

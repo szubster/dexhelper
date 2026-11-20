@@ -2,10 +2,10 @@
 id: story-534-560-rag-retrieval-injection-invariants
 type: STORY
 title: Inject Retrieved Chunks and Preserve Prompt Safety Invariants
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-10-10'
+updated_at: '2026-11-20'
 depends_on:
   - story-534-559-rag-dynamic-querying-retrieval
 jules_session_id: null
