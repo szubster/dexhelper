@@ -33,7 +33,7 @@ import Graph from 'graphology';
 import { hasCycle } from 'graphology-dag';
 import { buildDocumentationIndex } from "./flexsearch-utils.ts";
 import { todayISO, buildReverseDependencyGraph, getOrphanedNodes, logToJournal, updateActiveSessionsTable, trackCycleDetectionFailure } from './dag-utils.ts';
-import { NodeFrontmatterSchema, type NodeFrontmatter } from './schema.ts';
+import { NodeFrontmatterSchema, type NodeFrontmatter, type ReadyNodeItem, type ParsedNode } from './schema.ts';
 
 // gray-matter is CJS; import via require() for clean ESM interop.
 const require = createRequire(import.meta.url);
@@ -41,23 +41,6 @@ const matter = require('gray-matter') as typeof import('gray-matter');
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-export interface ReadyNodeItem extends NodeFrontmatter {
-  repo_path: string;
-  critical_weight: number;
-  compiled_prompt?: string;
-}
-
-interface ParsedNode {
-  /** Absolute path on disk */
-  filePath: string;
-  /** Repo-relative path, e.g. ".foundry/stories/story-001-scaffold.md" */
-  repoPath: string;
-  frontmatter: NodeFrontmatter;
-  /** Full raw file content — needed for surgical in-place mutation */
-  rawContent: string;
-  /** Markdown body content without frontmatter */
-  body: string;
-}
 
 // ─── CLI flags ────────────────────────────────────────────────────────────────
 

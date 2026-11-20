@@ -22,4 +22,4 @@ rejection_reason: ''
 Define the TypeScript interfaces and types required for extracting context variables (such as `owner_persona`, `status`, `id`) from the YAML frontmatter of Foundry task nodes. This will provide type safety for the extraction logic.
 
 ## Acceptance Criteria
-- [ ] TypeScript interfaces defined for the frontmatter parsing results.
+- [x] TypeScript interfaces defined for the frontmatter parsing results.
