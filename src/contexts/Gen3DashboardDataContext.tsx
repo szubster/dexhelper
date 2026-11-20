@@ -1,6 +1,6 @@
 import type React from 'react';
 import { createContext, useContext, useMemo } from 'react';
-import type { Gen3TrainerCardState as Gen3TrainerCard } from '../features/trainer-card/types';
+import type { Gen3TrainerCardState } from '../features/trainer-card/types';
 import { useStore } from '../store';
 
 export interface Gen3DashboardData {
@@ -8,7 +8,7 @@ export interface Gen3DashboardData {
   missingHoenn: Set<number>;
   missedMasterBall: boolean;
   missedLegendaries: string[];
-  trainerCard: Gen3TrainerCard | null;
+  trainerCard: Gen3TrainerCardState | null;
 }
 
 const Gen3DashboardDataContext = createContext<Gen3DashboardData | null>(null);
