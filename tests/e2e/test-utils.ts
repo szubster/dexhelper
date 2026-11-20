@@ -88,7 +88,7 @@ export async function clearStorage(page: Page) {
 }
 
 export const HEADER_TRAINER_NAME_REGEX =
-  /RED|YELLOW|ASH|BLUE|GREEN|GOLD|SILVER|CRYSTAL|DUDE|TRNR|RUBY|SAPPHIRE|EMERALD|Player/i;
+  /\b(RED|YELLOW|ASH|BLUE|GREEN|GOLD|SILVER|CRYSTAL|DUDE|TRNR|RUBY|SAPPHIRE|EMERALD|Player)\b/i;
 
 export async function assertSaveLoadedHeader(page: Page) {
   await expect(page.locator('header').getByText(HEADER_TRAINER_NAME_REGEX).first()).toBeVisible({ timeout: 5000 });

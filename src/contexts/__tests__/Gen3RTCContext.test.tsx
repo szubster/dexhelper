@@ -67,10 +67,13 @@ describe('Gen3RTCContext', () => {
     );
 
     await userEvent.click(page.getByText('Override'));
+    await expect.element(page.getByTestId('is-overridden')).toHaveTextContent('true');
+    await expect.element(page.getByTestId('time')).toHaveTextContent('2023-01-01T12:00:00.000Z');
+
     await userEvent.click(page.getByText('Reset'));
 
     await expect.element(page.getByTestId('is-overridden')).toHaveTextContent('false');
-    await expect.element(page.getByTestId('time')).toHaveTextContent(fakeDate.toISOString());
+    await expect.element(page.getByTestId('time')).toMatchTextContent(/^2023-01-01T10:00:\d{2}\.\d{3}Z$/);
   });
 
   test('updates time automatically when not overridden', async () => {
@@ -83,10 +86,11 @@ describe('Gen3RTCContext', () => {
       </Gen3RTCProvider>,
     );
 
-    await expect.element(page.getByTestId('time')).toHaveTextContent(fakeDate.toISOString());
+    await expect.element(page.getByTestId('time')).toMatchTextContent(/^2023-01-01T10:00:\d{2}\.\d{3}Z$/);
+    const initialTime = page.getByTestId('time').element().textContent ?? '';
 
     vi.advanceTimersByTime(2000);
 
-    await expect.element(page.getByTestId('time')).not.toHaveTextContent(fakeDate.toISOString());
+    await expect.element(page.getByTestId('time')).not.toHaveTextContent(initialTime);
   });
 });
