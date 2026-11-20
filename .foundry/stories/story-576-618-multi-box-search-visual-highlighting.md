@@ -36,8 +36,12 @@ When searching or filtering through boxes, non-matching Pokémon should be visua
 - [x] task-618-703-multi-box-search-highlight-impl
 - [x] task-618-704-multi-box-search-highlight-tests
 - [x] task-618-705-multi-box-search-highlight-qa
-- [ ] research-618-721-highlight-failure-root-cause
-- [ ] task-618-722-highlight-state-layer
-- [ ] task-618-723-highlight-ui-presentation
-- [ ] task-618-724-highlight-tests
-- [ ] task-618-725-highlight-qa
+- [x] research-618-721-highlight-failure-root-cause
+- [x] task-618-722-highlight-state-layer
+- [x] task-618-723-highlight-ui-presentation
+- [x] task-618-724-highlight-tests
+- [x] task-618-725-highlight-qa
+- [ ] research-618-747-highlight-ui-presentation-failure-root-cause
+- [ ] task-618-748-highlight-ui-presentation-retry
+- [ ] task-618-749-highlight-tests-retry
+- [ ] task-618-750-highlight-qa-retry
