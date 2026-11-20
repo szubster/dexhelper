@@ -1,4 +1,6 @@
-import { CornerCrosshairs, EdgeLabel, ScanlineOverlay } from '@dexhelper/ui';
+import { CornerCrosshairs } from './CornerCrosshairs';
+import { EdgeLabel } from './EdgeLabel';
+import { ScanlineOverlay } from './ScanlineOverlay';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { ChevronDown } from 'lucide-react';
 import React from 'react';
