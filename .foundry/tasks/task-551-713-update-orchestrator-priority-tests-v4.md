@@ -21,6 +21,6 @@ rejection_count: 2
 This is a replacement for `task-551-691-update-orchestrator-priority-tests-v3`, incorporating the findings from the research task `research-551-712-investigate-orchestrator-priority-tests-v3-failure`.
 
 ## Acceptance Criteria
-- [ ] Add unit tests specifically validating the priority-based sorting logic in `.github/scripts/foundry-orchestrator.ts`.
-- [ ] Ensure the tests assert that a node with a higher priority (e.g., 100) is placed before a node with a lower priority (e.g., 50), even if the lower priority node has a higher `critical_weight`.
-- [ ] Address any architectural constraints or root causes identified in the research node.
+- [x] Add unit tests specifically validating the priority-based sorting logic in `.github/scripts/foundry-orchestrator.ts`.
+- [x] Ensure the tests assert that a node with a higher priority (e.g., 100) is placed before a node with a lower priority (e.g., 50), even if the lower priority node has a higher `critical_weight`.
+- [x] Address any architectural constraints or root causes identified in the research node.
