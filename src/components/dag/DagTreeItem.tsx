@@ -61,9 +61,12 @@ export const DagTreeItem = React.memo(function DagTreeItem({
       break;
   }
 
+  const tooltipTitle = showHeatmap && heatmapSeverity !== 'none' ? `Metric: ${rejectionCount}` : undefined;
+
   return (
     <li className="list-none">
       <div
+        title={tooltipTitle}
         className={cn(
           'mb-1 flex items-center gap-2 rounded-none border border-dashed p-2 font-mono text-sm transition-colors',
           showHeatmap && heatmapClass
