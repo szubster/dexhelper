@@ -27,4 +27,4 @@ Ensure that the full end-to-end flow of dynamic querying works properly.
 - Write integration tests.
 
 ## Acceptance Criteria
-- [ ] Add integration tests.
+- [x] Add integration tests.
