@@ -80,6 +80,7 @@ export const DagFilterPanel = React.memo(function DagFilterPanel() {
               : 'border-zinc-800 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-400'
           }`}
           onClick={toggleShowPermanentFailures}
+          data-testid="btn-toggle-failures"
         >
           [ PERMANENT_FAILURES_ONLY ]
         </button>
