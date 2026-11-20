@@ -309,3 +309,37 @@ describe('extractGen2WildEncounterArea - edge cases (zero slot loop bypass)', ()
     expect(area.encounters).toHaveLength(0);
   });
 });
+
+describe('extractGen2WildEncounterArea - additional coverage', () => {
+  it('should extract encounters with correct version ID and method', () => {
+    const buffer = new ArrayBuffer(20);
+    const view = new DataView(buffer);
+
+    // Setting up slot 1 for grass
+    view.setUint8(0, 10); // min/max level
+    view.setUint8(1, 25); // Pikachu
+
+    const area = extractGen2WildEncounterArea(view, 0, 42, 2, 'grass');
+
+    expect(area.areaId).toBe(42);
+    expect(area.versionId).toBe(2);
+    expect(area.method).toBe('grass');
+    expect(area.encounters).toHaveLength(1);
+    expect(area.encounters[0]).toEqual({
+      chance: 30,
+      pokemonId: 25,
+      minLevel: 10,
+      maxLevel: 10,
+    });
+  });
+});
+
+describe('determineGen2HeldItemProbabilities - additional coverage', () => {
+  it('should return empty array if both items are 0 or less', () => {
+    const drops = determineGen2HeldItemProbabilities(0, -1);
+    expect(drops).toHaveLength(0);
+
+    const drops2 = determineGen2HeldItemProbabilities(-5, 0);
+    expect(drops2).toHaveLength(0);
+  });
+});
