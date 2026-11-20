@@ -28,4 +28,7 @@ locks: []
 This story calculates the win probability against specific NPC competitors in the Gen 2 Bug-Catching Contest and computes the theoretical maximum possible score for the currently caught species.
 
 ## Acceptance Criteria
-- [ ] Break down this Story into Tasks to calculate win probabilities and max scores.
+- [x] Break down this Story into Tasks to calculate win probabilities and max scores.
+- [ ] task-712-746-gen2-win-probability-impl
+- [ ] task-712-747-gen2-win-probability-tests
+- [ ] task-712-748-gen2-win-probability-qa
