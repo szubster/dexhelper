@@ -31,5 +31,5 @@ As part of the Orchestrator Resurrection Logic updates, we need to ensure that i
 - Write unit tests to verify that `rejection_count` remains unaffected during system failures while properly incrementing during standard domain failures.
 
 ## Acceptance Criteria
-- [ ] Orchestrator's resurrection loop is updated to bypass `rejection_count` incrementing on system/infrastructure crashes.
-- [ ] Unit tests are written to assert this behavior.
+- [x] Orchestrator's resurrection loop is updated to bypass `rejection_count` incrementing on system/infrastructure crashes.
+- [x] Unit tests are written to assert this behavior.

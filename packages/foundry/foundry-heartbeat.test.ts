@@ -1179,6 +1179,83 @@ ok: true,
 
 
   describe('Resurrection Loop / Rejection Count', () => {
+    it('should transition to READY without penalty for system crashes (NOT_FOUND)', async () => {
+      const nodePath = path.join(mockRepoRoot, '.foundry/tasks/task-system-crash.md');
+      const nodeContent = `---
+id: task-system-crash
+type: TASK
+status: FAILED
+jules_session_id: null
+rejection_count: 1
+rejection_reason: "Session terminated with state: NOT_FOUND"
+---
+Body`;
+
+      const mockNode = {
+        filePath: nodePath,
+        repoPath: '.foundry/tasks/task-system-crash.md',
+        frontmatter: { id: 'task-system-crash', type: 'TASK', status: 'FAILED', jules_session_id: null, rejection_count: 1, rejection_reason: "Session terminated with state: NOT_FOUND" },
+        rawContent: nodeContent, body: nodeContent
+      } as any;
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue([nodePath]);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode);
+
+      await main();
+
+      expect(fs.writeFileSync).toHaveBeenCalledWith(
+        expect.stringContaining('task-system-crash.md'),
+        expect.stringContaining('status: READY'),
+        'utf-8'
+      );
+      expect(fs.writeFileSync).toHaveBeenCalledWith(
+        expect.stringContaining('task-system-crash.md'),
+        expect.stringContaining("rejection_reason: ''"),
+        'utf-8'
+      );
+      expect(fs.writeFileSync).not.toHaveBeenCalledWith(
+        expect.stringContaining('task-system-crash.md'),
+        expect.stringContaining("rejection_count: 2"),
+        'utf-8'
+      );
+    });
+
+    it('should transition to READY without penalty for system crashes (INTERNAL_ERROR)', async () => {
+      const nodePath = path.join(mockRepoRoot, '.foundry/tasks/task-internal-error.md');
+      const nodeContent = `---
+id: task-internal-error
+type: TASK
+status: FAILED
+jules_session_id: null
+rejection_count: 2
+rejection_reason: "Session terminated with state: INTERNAL_ERROR"
+---
+Body`;
+
+      const mockNode = {
+        filePath: nodePath,
+        repoPath: '.foundry/tasks/task-internal-error.md',
+        frontmatter: { id: 'task-internal-error', type: 'TASK', status: 'FAILED', jules_session_id: null, rejection_count: 2, rejection_reason: "Session terminated with state: INTERNAL_ERROR" },
+        rawContent: nodeContent, body: nodeContent
+      } as any;
+
+      vi.mocked(orchestrator.discoverNodeFiles).mockReturnValue([nodePath]);
+      vi.mocked(orchestrator.parseNodeFile).mockReturnValue(mockNode);
+
+      await main();
+
+      expect(fs.writeFileSync).toHaveBeenCalledWith(
+        expect.stringContaining('task-internal-error.md'),
+        expect.stringContaining('status: READY'),
+        'utf-8'
+      );
+      expect(fs.writeFileSync).toHaveBeenCalledWith(
+        expect.stringContaining('task-internal-error.md'),
+        expect.stringContaining("rejection_reason: ''"),
+        'utf-8'
+      );
+    });
+
     it('should transition to FAILED instead of READY if rejection_count reaches 3', async () => {
       const nodePath = path.join(mockRepoRoot, '.foundry/tasks/task-max-rejections.md');
       const nodeContent = `---
