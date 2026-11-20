@@ -42,8 +42,13 @@ Once an item is selected, we need to display the recommended routes, encounter t
 - [x] task-563-678-routes-encounters-ui-components-retry
 - [x] task-563-679-routes-encounters-tests-retry
 - [x] task-563-680-routes-encounters-qa-retry
-- [ ] research-563-704-investigate-routes-encounters-failure-v2
-- [ ] task-563-705-routes-encounters-data-fetching-v3
-- [ ] task-563-706-routes-encounters-ui-components-v3
-- [ ] task-563-707-routes-encounters-tests-v3
-- [ ] task-563-708-routes-encounters-qa-v3
+- [x] research-563-704-investigate-routes-encounters-failure-v2
+- [x] task-563-705-routes-encounters-data-fetching-v3
+- [x] task-563-706-routes-encounters-ui-components-v3
+- [x] task-563-707-routes-encounters-tests-v3
+- [x] task-563-708-routes-encounters-qa-v3
+- [ ] research-563-744-investigate-routes-encounters-failure-v3
+- [ ] task-563-740-routes-encounters-data-fetching-v4
+- [ ] task-563-741-routes-encounters-ui-components-v4
+- [ ] task-563-742-routes-encounters-tests-v4
+- [ ] task-563-743-routes-encounters-qa-v4
