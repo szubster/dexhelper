@@ -33,4 +33,6 @@ Perform Integration and E2E Verification for the orchestrator locking logic.
 - Run the orchestrator test suite (`cd .github/scripts && pnpm install && npx vitest`) and ensure all tests pass and locking tests are added if necessary.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+- [ ] task-479-746-write-orchestrator-locking-tests
+- [ ] task-479-747-qa-orchestrator-locking-tests
