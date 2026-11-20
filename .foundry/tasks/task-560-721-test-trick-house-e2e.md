@@ -34,4 +34,4 @@ We need Playwright E2E tests to verify the Gen 3 Trick House Tracker UI integrat
 - Ensure tests interact with the actual rendered React components.
 
 ## Acceptance Criteria
-- [ ] Implement E2E tests in `tests/e2e/gen3_trick_house.spec.ts`.
+- [x] Implement E2E tests in `tests/e2e/gen3_trick_house.spec.ts`.
