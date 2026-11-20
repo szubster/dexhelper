@@ -28,3 +28,19 @@ export const FRLG_VAR_WHICH_FOSSIL_REVIVED = 0x10d2 - FRLG_VARS_OFFSET; // Relat
 export const FRLG_FOSSIL_ID_HELIX = 357;
 export const FRLG_FOSSIL_ID_DOME = 358;
 export const FRLG_FOSSIL_ID_OLD_AMBER = 354;
+
+// RSE Event Flags Relative Byte Offsets
+export const RSE_FLAG_CHOSE_ROOT_FOSSIL_BYTE = 0x29;
+export const RSE_FLAG_CHOSE_ROOT_FOSSIL_BIT = 7;
+export const RSE_FLAG_CHOSE_CLAW_FOSSIL_BYTE = 0x2a;
+export const RSE_FLAG_CHOSE_CLAW_FOSSIL_BIT = 0;
+export const RSE_FLAG_RECEIVED_REVIVED_FOSSIL_MON_BYTE = 0x21;
+export const RSE_FLAG_RECEIVED_REVIVED_FOSSIL_MON_BIT = 3;
+
+// FRLG Event Flags Relative Byte Offsets
+export const FRLG_FLAG_GOT_DOME_FOSSIL_BYTE = 0x4e;
+export const FRLG_FLAG_GOT_DOME_FOSSIL_BIT = 2;
+export const FRLG_FLAG_GOT_HELIX_FOSSIL_BYTE = 0x4e;
+export const FRLG_FLAG_GOT_HELIX_FOSSIL_BIT = 3;
+export const FRLG_FLAG_GOT_OLD_AMBER_BYTE = 0x4b;
+export const FRLG_FLAG_GOT_OLD_AMBER_BIT = 6;
