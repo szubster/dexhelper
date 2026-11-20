@@ -60,9 +60,12 @@ export const DagKanbanBoard: React.FC = () => {
                   });
                   const heatmapClass =
                     showHeatmap && heatmapSeverity !== 'none' ? getHeatmapColorClass(heatmapSeverity) : '';
+                  const tooltipTitle =
+                    showHeatmap && heatmapSeverity !== 'none' ? `Metric: ${nodeData.rejection_count || 0}` : undefined;
                   return (
                     <div
                       key={String(nodeData['id'])}
+                      title={tooltipTitle}
                       className={`flex flex-col border border-dashed p-2 text-xs ${showHeatmap && heatmapClass ? heatmapClass : isPermanentlyFailed ? 'border-red-600 bg-red-950/20' : 'border-zinc-800 bg-zinc-950 text-zinc-300'}`}
                     >
                       <span className="font-bold">{String(nodeData['id'])}</span>
