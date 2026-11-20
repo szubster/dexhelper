@@ -32,3 +32,5 @@ As required by the Orchestrator Safeguard for generative personas, this story is
 - [ ] Write E2E tests verifying the numerical grid renders correctly.
 - [ ] Write E2E tests verifying the PC box and Party state overlay functions properly.
 - [ ] Write E2E tests verifying "ghosts" are highlighted and tactical styling is applied.
+- [ ] task-525-747-living-dex-e2e-tests
+- [ ] task-525-748-living-dex-e2e-qa
