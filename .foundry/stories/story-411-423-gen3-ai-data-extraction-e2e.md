@@ -49,6 +49,10 @@ Verify all components of Gen 3 AI Data Extraction are integrated and work end-to
 - [x] research-423-687-investigate-ai-mapping-test-failure-v4
 - [x] task-423-688-gen3-ai-data-e2e-mapping-tests-impl-v5
 - [x] task-423-689-gen3-ai-data-e2e-qa-v5
-- [ ] research-423-712-investigate-ai-mapping-test-failure-v5
-- [ ] task-423-713-gen3-ai-data-e2e-mapping-tests-impl-v6
-- [ ] task-423-714-gen3-ai-data-e2e-qa-v6
+- [x] research-423-712-investigate-ai-mapping-test-failure-v5
+- [x] task-423-713-gen3-ai-data-e2e-mapping-tests-impl-v6
+- [x] task-423-714-gen3-ai-data-e2e-qa-v6
+
+- [ ] research-423-745-investigate-ai-mapping-test-failure-v6
+- [ ] task-423-746-gen3-ai-data-e2e-mapping-tests-impl-v7
+- [ ] task-423-747-gen3-ai-data-e2e-qa-v7
