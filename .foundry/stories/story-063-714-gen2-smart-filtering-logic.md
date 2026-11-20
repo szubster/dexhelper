@@ -25,4 +25,8 @@ locks: []
 Implement smart filtering logic based on the save file state, taking into account game progression and Pokédex data.
 
 ## Acceptance Criteria
-- [ ] Break down into Tasks
+- [x] Break down into Tasks
+
+- [ ] task-714-740-gen2-smart-filter-types
+- [ ] task-714-741-gen2-smart-filter-logic
+- [ ] task-714-742-gen2-smart-filter-qa
