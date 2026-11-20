@@ -28,3 +28,6 @@ Implement logic and UI controls to filter the Pokémon view to show *only* speci
 ## Acceptance Criteria
 - [ ] Filtering logic implemented to show only Friendship-evolving Pokémon.
 - [ ] Sorting logic implemented to order Pokémon by closeness to 220 Friendship.
+- [ ] task-677-747-friendship-filter-sort-logic
+- [ ] task-677-748-friendship-filter-sort-ui
+- [ ] task-677-749-friendship-filter-sort-qa
