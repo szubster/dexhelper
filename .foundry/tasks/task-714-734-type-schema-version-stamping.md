@@ -26,4 +26,4 @@ priority: 50
 Update the `BaseSaveData` interface to include `schemaVersion`.
 
 ## Acceptance Criteria
-- [ ] In `src/engine/saveParser/parsers/common.ts`, add `schemaVersion: number` to the `BaseSaveData` interface.
+- [x] In `src/engine/saveParser/parsers/common.ts`, add `schemaVersion: number` to the `BaseSaveData` interface.
