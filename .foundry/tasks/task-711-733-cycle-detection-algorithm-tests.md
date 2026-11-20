@@ -29,6 +29,6 @@ locks: []
 Write comprehensive unit tests for the cycle detection algorithm to ensure it correctly identifies circular dependencies.
 
 ## Acceptance Criteria
-- [ ] Write unit tests verifying cycle detection for simple graphs with and without cycles.
-- [ ] Write unit tests verifying the algorithm handles missing node references gracefully.
-- [ ] Verify test coverage for handling nodes in different states.
+- [x] Write unit tests verifying cycle detection for simple graphs with and without cycles.
+- [x] Write unit tests verifying the algorithm handles missing node references gracefully.
+- [x] Verify test coverage for handling nodes in different states.
