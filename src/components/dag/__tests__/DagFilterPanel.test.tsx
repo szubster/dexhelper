@@ -47,9 +47,38 @@ test('DagFilterPanel renders all types and statuses', async () => {
   await page.getByText('READY').click();
   expect(mockToggleActiveStatus).toHaveBeenCalledWith('READY');
 
-  await page.getByText('[ PERMANENT_FAILURES_ONLY ]').click();
+  const permFailuresBtn = page.getByRole('button', { name: 'Toggle permanent failures only' });
+  await expect.element(permFailuresBtn).toHaveAttribute('aria-pressed', 'false');
+  await permFailuresBtn.click();
   expect(mockToggleShowPermanentFailures).toHaveBeenCalled();
 
-  await page.getByText('[ HEATMAP_OVERLAY ]').click();
+  const heatmapBtn = page.getByRole('button', { name: 'Toggle heatmap overlay' });
+  await expect.element(heatmapBtn).toHaveAttribute('aria-pressed', 'false');
+  await heatmapBtn.click();
   expect(mockSetShowHeatmap).toHaveBeenCalled();
+});
+
+test('DagFilterPanel renders TacticalButtons with active state variants when flags are true', async () => {
+  const activeTypes = new Set<string>();
+  const activeStatuses = new Set<string>();
+
+  mockUseDagContext.mockReturnValue({
+    activeTypes,
+    activeStatuses,
+    showPermanentFailures: true,
+    showHeatmap: true,
+    toggleActiveType: vi.fn<(type: string) => void>(),
+    toggleActiveStatus: vi.fn<(status: string) => void>(),
+    toggleShowPermanentFailures: vi.fn<() => void>(),
+    setShowHeatmap: vi.fn<() => void>(),
+  });
+
+  await render(<DagFilterPanel />);
+
+  const permFailuresBtn = page.getByRole('button', { name: 'Toggle permanent failures only' });
+  await expect.element(permFailuresBtn).toHaveAttribute('aria-pressed', 'true');
+  await expect.element(permFailuresBtn).toHaveAttribute('data-testid', 'btn-toggle-failures');
+
+  const heatmapBtn = page.getByRole('button', { name: 'Toggle heatmap overlay' });
+  await expect.element(heatmapBtn).toHaveAttribute('aria-pressed', 'true');
 });
