@@ -1,0 +1,33 @@
+---
+id: task-423-747-gen3-ai-data-e2e-qa-v7
+type: TASK
+title: QA for Gen 3 AI Data Extraction E2E Tests (V7)
+status: PENDING
+owner_persona: qa
+created_at: '2026-11-07'
+updated_at: '2026-11-07'
+depends_on:
+  - task-423-746-gen3-ai-data-e2e-mapping-tests-impl-v7
+jules_session_id: null
+pr_number: null
+parent: story-411-423-gen3-ai-data-extraction-e2e
+tags:
+  - gen3
+  - ai
+  - save-engine
+  - e2e
+  - qa
+rejection_count: 0
+rejection_reason: ''
+notes: ''
+locks: []
+---
+
+# QA for Gen 3 AI Data Extraction E2E Tests (V7)
+
+## Objective
+QA verification for Gen 3 AI Data E2E tests mapping fixes.
+
+## Acceptance Criteria
+- [ ] Playwright E2E tests are reviewed and verified to cover all extraction requirements reliably.
+- [ ] The E2E test suite executes successfully and passes all assertions without flakes.
