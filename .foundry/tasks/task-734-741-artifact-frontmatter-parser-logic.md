@@ -2,10 +2,10 @@
 id: task-734-741-artifact-frontmatter-parser-logic
 type: TASK
 title: Implement Frontmatter Extraction Logic
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-11-02'
-updated_at: '2026-11-07'
+updated_at: '2026-11-20'
 depends_on:
   - task-734-740-artifact-frontmatter-parser-types
 jules_session_id: null
@@ -13,9 +13,9 @@ pr_number: null
 parent: story-696-734-artifact-frontmatter-parser
 tags:
   - typescript
+rejection_reason: ''
 locks: []
 priority: 80
-rejection_reason: ''
 ---
 
 # TASK: Implement Frontmatter Extraction Logic

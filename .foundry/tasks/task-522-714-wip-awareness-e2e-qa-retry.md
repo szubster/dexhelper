@@ -2,10 +2,10 @@
 id: task-522-714-wip-awareness-e2e-qa-retry
 type: TASK
 title: QA WIP Orchestrator Awareness E2E Tests (Retry)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-11-20'
 depends_on:
   - task-522-713-wip-awareness-e2e-orchestrator-tests-retry
 jules_session_id: null

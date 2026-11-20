@@ -2,7 +2,7 @@
 id: story-584-714-implement-detect-scratchpads-script
 type: STORY
 title: Implement detect-scratchpads.js script
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2025-01-01'
 updated_at: '2026-11-20'
@@ -13,10 +13,8 @@ parent: epic-587-584-root-scratchpad-detector-script
 tags:
   - scripts
 research_references: []
-rejection_count: 0
-rejection_reason: >-
-  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
-  TASK nodes
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 priority: 50

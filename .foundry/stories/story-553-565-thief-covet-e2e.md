@@ -2,10 +2,10 @@
 id: story-553-565-thief-covet-e2e
 type: STORY
 title: E2E Verification for Thief/Covet Optimizer
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-09-12'
+updated_at: '2026-11-20'
 depends_on:
   - story-553-564-thief-covet-ui-integration
 jules_session_id: null

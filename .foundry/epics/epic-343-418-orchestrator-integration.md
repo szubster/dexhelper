@@ -2,10 +2,10 @@
 id: epic-343-418-orchestrator-integration
 type: EPIC
 title: Orchestrator Integration for Prompt Resolution
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-14'
-updated_at: '2026-09-03'
+updated_at: '2026-11-20'
 depends_on:
   - epic-343-417-prompt-fragment-layering
 jules_session_id: null
@@ -19,6 +19,7 @@ research_references: []
 rejection_count: 0
 rejection_reason: ''
 notes: ''
+locks: []
 ---
 
 # Epic: Orchestrator Integration for Prompt Resolution
@@ -35,9 +36,9 @@ This Epic addresses updating the Foundry Orchestrator to integrate the new promp
 - Requires completion of the prompt fragment layering system (`epic-343-417-prompt-fragment-layering.md`).
 
 ## Acceptance Criteria
-- [ ] Orchestrator dynamically resolves and constructs composite prompts based on node context.
-- [ ] Fallback mechanisms are implemented for missing prompt layers.
+- [x] Orchestrator dynamically resolves and constructs composite prompts based on node context.
+- [x] Fallback mechanisms are implemented for missing prompt layers.
 - [x] Generate an exclusive STORY dedicated to Integration and E2E Verification.
-- [ ] story-418-518-orchestrator-integration-e2e
-- [ ] story-418-517-orchestrator-fallback-mechanisms
-- [ ] story-418-516-orchestrator-prompt-resolution
+- [x] story-418-518-orchestrator-integration-e2e
+- [x] story-418-517-orchestrator-fallback-mechanisms
+- [x] story-418-516-orchestrator-prompt-resolution

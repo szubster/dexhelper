@@ -2,10 +2,10 @@
 id: story-534-559-rag-dynamic-querying-retrieval
 type: STORY
 title: Implement Dynamic Querying and Chunk Retrieval Logic
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-07'
-updated_at: '2026-10-25'
+updated_at: '2026-11-20'
 depends_on:
   - story-534-558-rag-tooling-and-indexing
 jules_session_id: null
@@ -38,9 +38,9 @@ Following the indexing of documents, the orchestrator must formulate search quer
 - [x] task-559-670-search-extraction-impl
 - [x] task-559-671-search-extraction-qa
 - [x] task-559-672-rag-dynamic-querying-integration-e2e
-- [ ] research-559-704-investigate-query-formulation-failure
-- [ ] task-559-705-query-formulation-impl-v2
-- [ ] task-559-706-query-formulation-qa-v2
-- [ ] task-559-707-search-extraction-impl-v2
-- [ ] task-559-708-search-extraction-qa-v2
-- [ ] task-559-709-rag-dynamic-querying-integration-e2e-v2
+- [x] research-559-704-investigate-query-formulation-failure
+- [x] task-559-705-query-formulation-impl-v2
+- [x] task-559-706-query-formulation-qa-v2
+- [x] task-559-707-search-extraction-impl-v2
+- [x] task-559-708-search-extraction-qa-v2
+- [x] task-559-709-rag-dynamic-querying-integration-e2e-v2

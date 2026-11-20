@@ -2,10 +2,10 @@
 id: task-564-736-gen2-roamer-qa-retry
 type: TASK
 title: Gen 2 Roamer UI and E2E QA (Retry)
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-30'
-updated_at: '2026-11-02'
+updated_at: '2026-11-20'
 depends_on:
   - task-564-668-gen2-roamer-ui-impl
   - task-564-735-gen2-roamer-e2e-tests-retry

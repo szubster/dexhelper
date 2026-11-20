@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-20T09:31:55.558Z*
+*Generated at: 2026-11-20T18:04:26.606Z*
 
 ## Node Statistics
 
@@ -11,18 +11,18 @@
 | EPIC | 550 |
 | IDEA | 243 |
 | PRD | 219 |
-| RESEARCH | 402 |
-| STORY | 1187 |
+| RESEARCH | 403 |
+| STORY | 1191 |
 | TASK | 3216 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3739 |
-| ACTIVE | 31 |
+| COMPLETED | 3765 |
+| ACTIVE | 10 |
 | CANCELLED | 1004 |
-| PENDING | 912 |
-| READY | 162 |
+| PENDING | 945 |
+| READY | 129 |
 | BLOCKED | 14 |
 
 ## PR Metrics
@@ -30,9 +30,9 @@
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 37 |
-| Merged PRs | 8906 |
-| Closed PRs | 1057 |
+| Open PRs | 8 |
+| Merged PRs | 8933 |
+| Closed PRs | 1059 |
 
 ## Rejection Counts
 
@@ -484,6 +484,7 @@
 | story-063-605-mirage-island-unified-state-hydration.md | 2 |
 | story-088-638-client-db-jsonl-loader.md | 2 |
 | story-108-246-gen3-box-parsing.md | 2 |
+| story-109-523-box-analyzer-matrix-e2e.md | 2 |
 | story-112-403-integration-e2e.md | 2 |
 | story-136-620-gen1-static-encounters-e2e.md | 2 |
 | story-330-514-remediation-state-transition-logic.md | 2 |
@@ -499,6 +500,7 @@
 | story-425-495-reactive-ui-components.md | 2 |
 | story-512-521-gen2-bug-catching-contest-core-data.md | 2 |
 | story-540-562-gen3-pokeblock-recommendation-engine.md | 2 |
+| story-552-564-gen3-map-e2e-verification.md | 2 |
 | story-553-562-gen3-missed-items-parsing.md | 2 |
 | story-577-586-multi-box-integration-e2e.md | 2 |
 | task-081-692-preserve-enum-optimizations-retry-v3-qa.md | 2 |
@@ -892,7 +894,6 @@
 | story-085-676-rematch-dashboard-layout-and-routing.md | 1 |
 | story-105-649-daycare-save-parsing-e2e.md | 1 |
 | story-109-520-box-analyzer-view-layout.md | 1 |
-| story-109-523-box-analyzer-matrix-e2e.md | 1 |
 | story-115-527-pathfinder-chain-visualization.md | 1 |
 | story-126-705-palette-persona-integration-verification.md | 1 |
 | story-133-273-living-dex-pc-mapping.md | 1 |
@@ -946,7 +947,6 @@
 | story-537-550-integration-e2e-verification.md | 1 |
 | story-540-563-gen3-pokeblock-optimizer-ui.md | 1 |
 | story-550-573-tree-level-completeness-logic.md | 1 |
-| story-552-564-gen3-map-e2e-verification.md | 1 |
 | story-552-564-schema-linter-checkbox-e2e.md | 1 |
 | story-554-562-gen3-dashboard-layout-and-routing.md | 1 |
 | story-554-563-inventory-item-tracker.md | 1 |
@@ -958,6 +958,7 @@
 | story-580-673-migrate-settings-e2e-tests.md | 1 |
 | story-580-674-migrate-pokedex-e2e-tests.md | 1 |
 | story-582-674-yaml-schema-e2e-verification.md | 1 |
+| story-584-714-implement-detect-scratchpads-script.md | 1 |
 | task-001-740-lefthook-integration-coder.md | 1 |
 | task-094-157-moveset-inventory-validation-impl.md | 1 |
 | task-099-157-gen3-extract-pokemon-pids-impl.md | 1 |

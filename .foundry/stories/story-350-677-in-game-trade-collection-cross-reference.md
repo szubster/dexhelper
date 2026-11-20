@@ -2,10 +2,10 @@
 id: story-350-677-in-game-trade-collection-cross-reference
 type: STORY
 title: In-Game Trade Collection Cross-Reference Logic
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-10-17'
-updated_at: '2026-10-22'
+updated_at: '2026-11-20'
 depends_on:
   - story-350-676-in-game-trade-dashboard-core-ui
 jules_session_id: null

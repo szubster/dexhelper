@@ -2,10 +2,10 @@
 id: task-551-714-qa-orchestrator-priority-v4
 type: TASK
 title: QA Verification for Priority Sorting in Orchestrator v4
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-20'
-updated_at: '2026-10-31'
+updated_at: '2026-11-20'
 depends_on:
   - task-551-713-update-orchestrator-priority-tests-v4
 jules_session_id: null

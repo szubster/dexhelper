@@ -1,23 +1,24 @@
 ---
 id: research-418-744-remediation-legacy-conflict
 type: RESEARCH
-title: "Remediation of overlapping DAG visualization boundaries"
-status: READY
+title: Remediation of overlapping DAG visualization boundaries
+status: PENDING
 owner_persona: researcher
-created_at: "2024-03-24"
-updated_at: "2024-03-24"
+created_at: '2024-03-24'
+updated_at: '2026-11-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
 parent: idea-418-replace-xyflow-with-custom-dag
-priority: 50
 tags:
   - architecture
   - ui-ux
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: "Dynamically spawned by Curator to investigate overlapping idea boundaries."
+rejection_reason: ''
+notes: Dynamically spawned by Curator to investigate overlapping idea boundaries.
+locks: []
+priority: 50
 ---
 
 # Remediation of overlapping DAG visualization boundaries

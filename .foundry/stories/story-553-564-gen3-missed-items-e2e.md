@@ -2,10 +2,10 @@
 id: story-553-564-gen3-missed-items-e2e
 type: STORY
 title: Gen 3 Missed Items Integration & E2E
-status: PENDING
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-09-10'
+updated_at: '2026-11-20'
 depends_on:
   - story-553-563-gen3-missed-items-ui
 jules_session_id: null
@@ -16,8 +16,8 @@ tags:
   - gen3
   - e2e
 research_references: []
-locks: []
 rejection_reason: ''
+locks: []
 ---
 
 # Story: Gen 3 Missed Items Integration & E2E Verification

@@ -2,10 +2,10 @@
 id: story-694-714-intercept-file-loading-stamping
 type: STORY
 title: Intercept File Loading to Stamp Schema Version
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-21T08:00:00.000Z'
-updated_at: '2026-11-07'
+updated_at: '2026-11-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -31,7 +31,7 @@ Update the save file loading routines so that every newly loaded \`ParsedSaveDat
 
 ## Acceptance Criteria
 - [x] Break down into Tasks.
-- [ ] task-714-734-type-schema-version-stamping
-- [ ] task-714-735-core-schema-version-stamping
-- [ ] task-714-736-test-schema-version-stamping
-- [ ] task-714-737-qa-schema-version-stamping
+- [x] task-714-734-type-schema-version-stamping
+- [x] task-714-735-core-schema-version-stamping
+- [x] task-714-736-test-schema-version-stamping
+- [x] task-714-737-qa-schema-version-stamping

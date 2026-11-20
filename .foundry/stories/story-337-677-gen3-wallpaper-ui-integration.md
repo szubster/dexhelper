@@ -2,26 +2,25 @@
 id: story-337-677-gen3-wallpaper-ui-integration
 type: STORY
 title: Integrate Gen 3 Wallpaper Dashboard
-status: PENDING
+status: READY
 owner_persona: tech_lead
-created_at: "2026-10-18"
-updated_at: "2026-10-18"
+created_at: '2026-10-18'
+updated_at: '2026-11-20'
 depends_on:
   - story-337-676-gen3-wallpaper-ui-component
 jules_session_id: null
-locks: []
 pr_number: null
 parent: epic-116-337-gen3-wallpaper-dashboard-ui
-priority: 50
-confidence_score: null
 tags:
   - gen3
   - ui
   - integration
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Integrate Gen 3 Wallpaper Dashboard

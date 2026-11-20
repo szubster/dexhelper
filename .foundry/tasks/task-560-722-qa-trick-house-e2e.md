@@ -2,10 +2,10 @@
 id: task-560-722-qa-trick-house-e2e
 type: TASK
 title: QA Gen 3 Trick House E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-25'
-updated_at: '2026-10-31'
+updated_at: '2026-11-20'
 depends_on:
   - task-560-721-test-trick-house-e2e
 jules_session_id: null

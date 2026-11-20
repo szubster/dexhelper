@@ -8,7 +8,7 @@ created_at: '2026-09-02'
 updated_at: '2026-11-20'
 depends_on:
   - story-418-517-orchestrator-fallback-mechanisms
-jules_session_id: '17592586293509545871'
+jules_session_id: null
 pr_number: null
 parent: epic-343-418-orchestrator-integration
 tags:

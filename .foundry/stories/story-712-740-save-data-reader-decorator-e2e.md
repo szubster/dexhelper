@@ -2,10 +2,10 @@
 id: story-712-740-save-data-reader-decorator-e2e
 type: STORY
 title: Integration and E2E Verification of ISaveDataReader Decorators
-status: READY
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-10-21'
+updated_at: '2026-11-20'
 depends_on:
   - story-712-737-offset-data-reader-decorator
   - story-712-738-safe-bounds-data-reader-decorator
