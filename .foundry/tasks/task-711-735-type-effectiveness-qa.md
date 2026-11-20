@@ -29,5 +29,5 @@ locks: []
 Verify the type effectiveness calculation logic.
 
 ## Acceptance Criteria
-- [ ] Review PR for type effectiveness implementation.
-- [ ] Verify test cases cover edge cases (immunities, double weaknesses).
+- [x] Review PR for type effectiveness implementation.
+- [x] Verify test cases cover edge cases (immunities, double weaknesses).
