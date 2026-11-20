@@ -7,7 +7,7 @@ owner_persona: coder
 created_at: '2026-10-28'
 updated_at: '2026-11-04'
 depends_on:
-  - .foundry/tasks/task-528-731-cloudflare-worker-drive-download.md
+  - task-528-731-cloudflare-worker-drive-download
 jules_session_id: '2999765541442085499'
 pr_number: null
 parent: story-402-528-save-file-sync-logic
