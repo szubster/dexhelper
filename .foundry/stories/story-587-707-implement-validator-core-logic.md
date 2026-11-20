@@ -28,10 +28,15 @@ priority: 50
 This story covers the implementation of the core logic for the Macro Node Subtree Completeness Validator Tool. The tool must recursively traverse the DAG sub-tree for any target macro node, identifying all direct and transitive child nodes linked via `parent` or markdown checkboxes (`- [ ]`), and asserting that every descendant node is in the `COMPLETED` state.
 
 ## Acceptance Criteria
-- [ ] task-707-716-impl-validator-parsing
-- [ ] task-707-717-impl-validator-traversal
-- [ ] task-707-718-qa-validator-core
+- [x] task-707-716-impl-validator-parsing
+- [x] task-707-717-impl-validator-traversal
+- [x] task-707-718-qa-validator-core
 - [ ] Implement a function to parse a node's markdown checkboxes and identify direct child nodes.
 - [ ] Implement a function to identify direct child nodes based on their `parent` field in the frontmatter.
 - [ ] Implement a recursive traversal function to build the complete descendant sub-tree for a given node.
 - [ ] Implement the core validation logic to assert that all descendants are `COMPLETED`.
+
+- [ ] research-707-740-investigate-validator-parsing-failure
+- [ ] task-707-741-impl-validator-parsing-retry
+- [ ] task-707-742-impl-validator-traversal-retry
+- [ ] task-707-743-qa-validator-core-retry
