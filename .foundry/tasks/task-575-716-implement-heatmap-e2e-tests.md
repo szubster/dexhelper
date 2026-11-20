@@ -24,5 +24,5 @@ locks: []
 Write Playwright E2E tests verifying the heatmap generation and UI overlay display end-to-end within the smart route radar context.
 
 ## Acceptance Criteria
-- [ ] Coder: Write E2E tests for heatmap generation.
-- [ ] Coder: Write E2E tests for heatmap UI overlay display.
+- [x] Coder: Write E2E tests for heatmap generation.
+- [x] Coder: Write E2E tests for heatmap UI overlay display.
