@@ -32,7 +32,7 @@ Create the TanStack route for the In-Game Trade Dashboard and wire up the logic 
 - Ensure the route is accessible via navigation.
 
 ## Acceptance Criteria
-- [ ] Create a TanStack route file (e.g., `src/routes/in-game-trades.tsx`).
-- [ ] Wire the `useInGameTrades` hook into the UI components within the route.
-- [ ] Add the route to the application's navigation structure.
-- [ ] Ensure the dashboard successfully renders integrated data.
+- [x] Create a TanStack route file (e.g., `src/routes/in-game-trades.tsx`).
+- [x] Wire the `useInGameTrades` hook into the UI components within the route.
+- [x] Add the route to the application's navigation structure.
+- [x] Ensure the dashboard successfully renders integrated data.
