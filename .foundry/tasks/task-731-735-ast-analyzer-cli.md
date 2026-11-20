@@ -27,5 +27,5 @@ rejection_count: 2
 Implement a Node.js CLI script that utilizes the core logic implemented in `task-731-734`. The script should parse all `.ts` files in `tests/e2e/` and test helpers, execute the AST detection, and output the detected calls.
 
 ## Acceptance Criteria
-- [ ] Create executable CLI wrapper
-- [ ] Properly scan `tests/e2e/` and helper directories
+- [x] Create executable CLI wrapper
+- [x] Properly scan `tests/e2e/` and helper directories
