@@ -71,7 +71,7 @@ describe('BoxAnalyzerView', () => {
     // Reset store
     useStore.setState({ saveData: null });
 
-    void renderWithRouter(<BoxAnalyzerView pokemonList={mockPokemonList} />);
+    await renderWithRouter(<BoxAnalyzerView pokemonList={mockPokemonList} />);
 
     await expect.element(page.getByText('Box Analyzer')).not.toBeInTheDocument();
   });
@@ -89,7 +89,7 @@ describe('BoxAnalyzerView', () => {
 
     useStore.setState({ saveData, searchTerm: 'bulba' });
 
-    void renderWithRouter(<BoxAnalyzerView pokemonList={mockPokemonList} />);
+    await renderWithRouter(<BoxAnalyzerView pokemonList={mockPokemonList} />);
 
     await expect.element(page.getByText('Bulbasaur')).toBeVisible();
     // Now rendered, but dimmed
@@ -111,7 +111,7 @@ describe('BoxAnalyzerView', () => {
 
     useStore.setState({ saveData, searchTerm: 'vines' });
 
-    void renderWithRouter(<BoxAnalyzerView pokemonList={mockPokemonList} />);
+    await renderWithRouter(<BoxAnalyzerView pokemonList={mockPokemonList} />);
 
     await expect.element(page.getByText('Bulbasaur')).toBeVisible();
     // Now rendered, but dimmed
@@ -133,10 +133,13 @@ describe('BoxAnalyzerView', () => {
 
     useStore.setState({ saveData, searchTerm: 'gary' });
 
-    void renderWithRouter(<BoxAnalyzerView pokemonList={mockPokemonList} />);
+    await renderWithRouter(<BoxAnalyzerView pokemonList={mockPokemonList} />);
 
-    await expect.element(page.getByText('Bulbasaur')).not.toBeInTheDocument();
     await expect.element(page.getByText('Charmander')).toBeVisible();
+    // Non-matching Pokemon remains rendered, but dimmed
+    await expect.element(page.getByText('Bulbasaur')).toBeVisible();
+    const btn = page.getByRole('button', { name: /View details for Bulbasaur/i });
+    await expect.element(btn).toHaveClass(/opacity-20/);
   });
 
   it('displays empty state when no matches found', async () => {
@@ -149,7 +152,7 @@ describe('BoxAnalyzerView', () => {
 
     useStore.setState({ saveData, searchTerm: 'xyz' });
 
-    void renderWithRouter(<BoxAnalyzerView pokemonList={mockPokemonList} />);
+    await renderWithRouter(<BoxAnalyzerView pokemonList={mockPokemonList} />);
 
     await expect.element(page.getByText('NO TARGETS FOUND IN DB')).toBeVisible();
   });

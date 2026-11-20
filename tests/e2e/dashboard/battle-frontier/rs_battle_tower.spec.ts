@@ -10,19 +10,15 @@ test.describe('Ruby/Sapphire Battle Tower Dashboard', () => {
   });
 
   test('displays Battle Tower facility correctly for RS', async ({ page }) => {
-    await page.evaluate(() => {
-      window.history.pushState({}, '', '/#dashboard');
-      window.dispatchEvent(new Event('popstate'));
-    });
+    await page.goto('./dashboard');
 
     await page.waitForTimeout(2000);
 
     const combatMatrixText = page.getByText('COMBAT SIMULATION MATRIX', { exact: false }).first();
-    const sysText = page.getByText('SYS.BATTLE_FRONTIER', { exact: false }).first();
-    const noDataText = page.getByText('NO BATTLE FRONTIER DATA FOUND', { exact: false }).first();
-    const fallbackText = page.getByText('TRAINER ID', { exact: false }).first();
+    const sysText = page.getByText('SYS.BATTLE_TOWER', { exact: false }).first();
+    const noDataText = page.getByText('NO BATTLE TOWER DATA FOUND', { exact: false }).first();
 
-    await expect(combatMatrixText.or(sysText).or(noDataText).or(fallbackText).first()).toBeVisible({ timeout: 15000 });
+    await expect(combatMatrixText.or(sysText).or(noDataText).first()).toBeVisible({ timeout: 15000 });
 
     const isNoDataVisible = await noDataText.isVisible().catch(() => false);
     const isMatrixVisible = await combatMatrixText.isVisible().catch(() => false);
@@ -33,7 +29,7 @@ test.describe('Ruby/Sapphire Battle Tower Dashboard', () => {
       return;
     }
 
-    const facility = 'BATTLE TOWER';
+    const facility = 'BATTLE TOWER (LV. 50)';
 
     // Check if facility name is visible
     await expect(page.getByText(`[ ${facility} ]`).first()).toBeVisible();
@@ -55,19 +51,15 @@ test.describe('Ruby/Sapphire Battle Tower Dashboard', () => {
     test.use({ isMobile: true, viewport: { width: 375, height: 667 } });
 
     test('renders on mobile viewport for RS', async ({ page }) => {
-      await page.evaluate(() => {
-        window.history.pushState({}, '', '/#dashboard');
-        window.dispatchEvent(new Event('popstate'));
-      });
+      await page.goto('./dashboard');
 
       await page.waitForTimeout(2000);
 
       const combatMatrixText = page.getByText('COMBAT SIMULATION MATRIX', { exact: false }).first();
-      const sysText = page.getByText('SYS.BATTLE_FRONTIER', { exact: false }).first();
-      const noDataText = page.getByText('NO BATTLE FRONTIER DATA FOUND', { exact: false }).first();
-      const fallbackText = page.getByText('TRAINER ID', { exact: false }).first();
+      const sysText = page.getByText('SYS.BATTLE_TOWER', { exact: false }).first();
+      const noDataText = page.getByText('NO BATTLE TOWER DATA FOUND', { exact: false }).first();
 
-      await expect(combatMatrixText.or(sysText).or(noDataText).or(fallbackText).first()).toBeVisible({
+      await expect(combatMatrixText.or(sysText).or(noDataText).first()).toBeVisible({
         timeout: 15000,
       });
     });

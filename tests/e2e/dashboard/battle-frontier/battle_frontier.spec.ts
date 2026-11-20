@@ -17,10 +17,7 @@ test.describe('Battle Frontier Dashboard', () => {
   });
 
   test('displays BP wallet and facility data correctly if data exists', async ({ page }) => {
-    await page.evaluate(() => {
-      window.history.pushState({}, '', '/#dashboard');
-      window.dispatchEvent(new Event('popstate'));
-    });
+    await page.goto('./dashboard');
 
     await page.waitForTimeout(2000);
 
@@ -28,9 +25,8 @@ test.describe('Battle Frontier Dashboard', () => {
     const combatMatrixText = page.getByText('COMBAT SIMULATION MATRIX', { exact: false }).first();
     const sysText = page.getByText('SYS.BATTLE_FRONTIER', { exact: false }).first();
     const noDataText = page.getByText('NO BATTLE FRONTIER DATA FOUND', { exact: false }).first();
-    const fallbackText = page.getByText('TRAINER ID', { exact: false }).first();
 
-    await expect(combatMatrixText.or(sysText).or(noDataText).or(fallbackText).first()).toBeVisible({ timeout: 15000 });
+    await expect(combatMatrixText.or(sysText).or(noDataText).first()).toBeVisible({ timeout: 15000 });
 
     const isNoDataVisible = await noDataText.isVisible().catch(() => false);
     const isMatrixVisible = await combatMatrixText.isVisible().catch(() => false);
@@ -86,18 +82,15 @@ test.describe('Battle Frontier Dashboard', () => {
 
     test('renders on mobile viewport', async ({ page }) => {
       // Just verify basic layout on mobile viewport
-      await page.evaluate(() => {
-        window.history.pushState({}, '', '/#dashboard');
-        window.dispatchEvent(new Event('popstate'));
-      });
+      await page.goto('./dashboard');
 
       await page.waitForTimeout(2000);
 
       const combatMatrixText = page.getByText('COMBAT SIMULATION MATRIX', { exact: false }).first();
+      const sysText = page.getByText('SYS.BATTLE_FRONTIER', { exact: false }).first();
       const noDataText = page.getByText('NO BATTLE FRONTIER DATA FOUND', { exact: false }).first();
-      const fallbackText = page.getByText('TRAINER ID', { exact: false }).first();
 
-      await expect(combatMatrixText.or(noDataText).or(fallbackText).first()).toBeVisible({ timeout: 15000 });
+      await expect(combatMatrixText.or(sysText).or(noDataText).first()).toBeVisible({ timeout: 15000 });
     });
   });
 });

@@ -327,7 +327,6 @@ export const StorageGrid = React.memo(function StorageGrid({
                 top: 0,
                 left: 0,
                 width: '100%',
-                height: `${virtualItem.size}px`,
                 transform: `translateY(${virtualItem.start}px)`,
                 paddingBottom: rowData.type === 'header' ? '0px' : '20px',
               }}

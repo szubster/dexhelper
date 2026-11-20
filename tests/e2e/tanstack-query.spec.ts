@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { clearStorage, initializeWithSave } from './test-utils';
+import { assertSaveLoadedHeader, clearStorage, initializeWithSave } from './test-utils';
 
 test.describe('TanStack Query Optimizations', () => {
   test.beforeEach(async ({ page }) => {
@@ -10,7 +10,7 @@ test.describe('TanStack Query Optimizations', () => {
     await initializeWithSave(page, 'tests/fixtures/emerald.sav');
 
     // Ensure trainer is loaded
-    await expect(page.getByText('Trainer')).toBeVisible();
+    await assertSaveLoadedHeader(page);
 
     // Test the cache hit on navigating between index (pokedex grid) and assistant
     await page
@@ -36,7 +36,7 @@ test.describe('TanStack Query Optimizations', () => {
       .first()
       .click();
 
-    await expect(page.getByText('Trainer')).toBeVisible();
+    await assertSaveLoadedHeader(page);
     await expect(
       page.locator('header').getByText(/TRNR/i).first().or(page.getByTestId('pokedex-card').first()).first(),
     ).toBeVisible();
