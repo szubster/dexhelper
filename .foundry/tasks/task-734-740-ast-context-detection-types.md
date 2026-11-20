@@ -34,4 +34,4 @@ Define the TypeScript types, interfaces, and constants required for the AST pars
 2. Ensure the types align with the requirements of identifying `createContext` calls and their associated exports.
 
 ## Acceptance Criteria
-- [ ] Define types and interfaces for context detection results.
+- [x] Define types and interfaces for context detection results.
