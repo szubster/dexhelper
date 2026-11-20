@@ -34,5 +34,5 @@ Write comprehensive unit tests for the Gen 2 Trainer ID extraction logic.
 - Implement tests verifying `wPlayerID` extraction for Gold/Silver (GS) save formats.
 
 ## Acceptance Criteria
-- [ ] Unit tests cover `trainerId` extraction for Crystal formats.
-- [ ] Unit tests cover `trainerId` extraction for GS formats.
+- [x] Unit tests cover `trainerId` extraction for Crystal formats.
+- [x] Unit tests cover `trainerId` extraction for GS formats.
