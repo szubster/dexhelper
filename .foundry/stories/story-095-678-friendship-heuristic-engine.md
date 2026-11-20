@@ -29,3 +29,6 @@ Implement a heuristic engine to estimate "Actions Needed" (e.g., number of steps
 ## Acceptance Criteria
 - [ ] Heuristic logic implemented to calculate estimated "actions needed" (e.g. Vitamins, Steps) to reach 220 Friendship.
 - [ ] Calculated estimations are displayed on the UI.
+- [ ] task-678-747-friendship-heuristic-engine-logic
+- [ ] task-678-748-friendship-heuristic-engine-ui
+- [ ] task-678-749-friendship-heuristic-engine-qa
