@@ -34,5 +34,5 @@ Verify the Playwright E2E tests implemented for the Gen 3 Map dashboard.
 - Verify no tests rely on `page.evaluate()` injecting hardcoded HTML strings for UI components.
 
 ## Acceptance Criteria
-- [ ] Verify Playwright E2E tests comprehensively cover toggle state changes.
-- [ ] Verify tests adhere to Playwright E2E Best Practices.
+- [x] Verify Playwright E2E tests comprehensively cover toggle state changes.
+- [x] Verify tests adhere to Playwright E2E Best Practices.
