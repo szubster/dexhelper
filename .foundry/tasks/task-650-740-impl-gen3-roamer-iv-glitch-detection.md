@@ -33,7 +33,7 @@ Specifically, a glitched spread has HP 0-31, Attack 0-7, and Defense, Speed, Sp.
 The tests verify `expect(detectRoamerIVGlitch({hp: 15, attack: 3, defense: 0, speed: 0, specialAttack: 0, specialDefense: 0})).toBe(ROAMER_IV_GLITCH_STATE.GLITCHED)`.
 
 ## Acceptance Criteria
-- [ ] Implement the `detectRoamerIVGlitch` function to analyze the IVs.
-- [ ] Ensure the function correctly identifies spreads matching the Roamer IV glitch signature (HP 0-31, Attack 0-7, other 0) and returns `ROAMER_IV_GLITCH_STATE.GLITCHED`.
-- [ ] Ensure non-glitched spreads return `ROAMER_IV_GLITCH_STATE.NONE`.
-- [ ] Verify the code passes the tests by running `pnpm test`.
+- [x] Implement the `detectRoamerIVGlitch` function to analyze the IVs.
+- [x] Ensure the function correctly identifies spreads matching the Roamer IV glitch signature (HP 0-31, Attack 0-7, other 0) and returns `ROAMER_IV_GLITCH_STATE.GLITCHED`.
+- [x] Ensure non-glitched spreads return `ROAMER_IV_GLITCH_STATE.NONE`.
+- [x] Verify the code passes the tests by running `pnpm test`.
