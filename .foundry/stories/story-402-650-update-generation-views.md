@@ -26,4 +26,8 @@ locks: []
 Identify UI components exclusively used for specific generations and update the rendering logic to load these components via `React.lazy`. This reduces the initial bundle size and improves performance by only loading generation-specific views when required.
 
 ## Acceptance Criteria
-- [ ] Decompose into granular TASK nodes
+- [x] Decompose into granular TASK nodes
+- [ ] task-650-746-lazy-load-gen3-dashboard-components
+- [ ] task-650-747-lazy-load-unown-dex-panel
+- [ ] task-650-748-lazy-load-in-game-trades-list
+- [ ] task-650-749-qa-generation-views-lazy-loading
