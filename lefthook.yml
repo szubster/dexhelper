@@ -4,6 +4,8 @@
 pre-commit:
   parallel: true
   commands:
+    artifact-presence-validator:
+      run: node --experimental-strip-types scripts/verify-artifact-presence.ts {staged_files}
     validate-foundry-schema:
       run: git diff --name-only --cached --diff-filter=d -- {staged_files} | xargs -r node --experimental-strip-types scripts/validate-foundry-schema.ts
     link-checker:
