@@ -157,7 +157,6 @@ function discoverNodeFiles(dir: string): string[] {
  * is malformed or missing required fields. Warnings are emitted for all errors.
  */
 function parseNodeFile(filePath: string, repoRoot: string): ParsedNode | null {
-  // console.log("parsing", filePath);
   const repoPath = path.relative(repoRoot, filePath).replace(/\\/g, '/');
 
   let rawContent: string;
