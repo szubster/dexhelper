@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import type { Gen3MysteryGift, Gen3SaveData } from '../../engine/saveParser/parsers/common';
-import { useStore } from '../../store';
-import { useMysteryGiftStore } from './store';
+import type { Gen3MysteryGift, Gen3SaveData } from '../../../engine/saveParser/parsers/common';
+import { useStore } from '../../../store';
+import { useMysteryGiftStore } from '../store';
 
 describe('useMysteryGiftStore', () => {
   beforeEach(() => {
