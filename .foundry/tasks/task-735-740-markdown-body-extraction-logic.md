@@ -23,5 +23,5 @@ rejection_reason: ''
 Implement the logic to extract raw markdown sections (the markdown body) from a Foundry task node string. This should handle splitting the file content correctly after the YAML frontmatter.
 
 ## Acceptance Criteria
-- [ ] Logic implemented to extract the raw markdown body from a `.foundry` node file string.
-- [ ] Tests verify that the extraction handles files with and without complex markdown content.
+- [x] Logic implemented to extract the raw markdown body from a `.foundry` node file string.
+- [x] Tests verify that the extraction handles files with and without complex markdown content.

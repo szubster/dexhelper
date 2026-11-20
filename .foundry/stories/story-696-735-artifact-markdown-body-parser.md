@@ -24,6 +24,6 @@ Extract the markdown body and specifically any paths listed in the acceptance cr
 
 ## Acceptance Criteria
 - [x] TASK breakdown generated.
-- [ ] task-735-740-markdown-body-extraction-logic
+- [x] task-735-740-markdown-body-extraction-logic
 - [ ] task-735-741-deliverables-parsing-logic
 - [ ] task-735-742-artifact-markdown-body-parser-qa
