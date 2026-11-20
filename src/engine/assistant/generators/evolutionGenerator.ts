@@ -141,13 +141,21 @@ export async function generateEvolutionSuggestions(
 
       // Feebas -> Milotic special case (Gen 3 Beauty condition)
       if (closestOwnedParentId === 349 && targetId === 350 && saveData.generation === 3) {
+        const beauty = bestInstance.condition?.beauty ?? 0;
+        const isReady = beauty >= 170;
         suggestions.push({
           id: `evo-beauty-${targetId}`,
           category: 'Evolve',
-          title: isIntermediate ? pathTitlePrefix : `Beauty Evolution: #${targetId}`,
-          description: `Feed your ${preEvoLabel} Dry Pokéblocks (made from Chesto, Wiki, or Pamtre Berries) to maximize its Beauty stat, then level it up!`,
+          title: isIntermediate
+            ? pathTitlePrefix
+            : isReady
+              ? `Ready to Evolve: #${targetId}!`
+              : `Beauty Evolution: #${targetId}`,
+          description: isReady
+            ? `Your ${preEvoLabel} has reached the required Beauty (${beauty}/170)! Level it up once to evolve${evolveTargetText} into #${targetId}!`
+            : `Feed your ${preEvoLabel} Dry Pokéblocks (made from Chesto, Wiki, or Pamtre Berries) to maximize its Beauty stat (${beauty}/170 Beauty), then level it up!`,
           pokemonId: targetId,
-          priority: 80,
+          priority: isReady ? 90 : 80,
         });
         break;
       }

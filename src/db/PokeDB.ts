@@ -16,6 +16,7 @@ import {
 } from './schema';
 
 let dbPromise: Promise<IDBPDatabase<PokeDBSchema>> | null = null;
+let syncPromise: Promise<void> | null = null;
 
 /**
  * A utility function to fetch multiple records from IndexedDB by their keys simultaneously.
@@ -142,163 +143,169 @@ export const getDB = () => {
  * @returns A Promise that resolves when the synchronization is complete.
  */
 const syncData = async () => {
-  try {
-    const db = await getDB();
+  if (syncPromise) return syncPromise;
+  syncPromise = (async () => {
+    try {
+      const db = await getDB();
 
-    // 1. Check if already synced using build-time hash
-    const existingHash = await db.get(DB_CONFIG.STORES.METADATA, 'hash');
+      // 1. Check if already synced using build-time hash
+      const existingHash = await db.get(DB_CONFIG.STORES.METADATA, 'hash');
 
-    // Skip fetch if the build-in hash matches what we have in indexedDB
-    if (existingHash?.value === __POKEDATA_HASH__ && __POKEDATA_HASH__ !== 'initial') {
-      return;
-    }
-
-    // 2. Fetch current data
-    const baseUrl = typeof window !== 'undefined' ? import.meta.env.BASE_URL : 'http://localhost:3000/dexhelper/';
-    const response = await fetch(`${baseUrl}data/pokedata-core.msgpack`);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch pokedata-core.msgpack: ${response.status} ${response.statusText}`);
-    }
-    const buffer = await response.arrayBuffer();
-
-    const unpackr = new Unpackr({ useRecords: true, variableMapSize: true, bundleStrings: true });
-    const data: PokeDataExport = unpackr.unpack(new Uint8Array(buffer));
-
-    // Guard against outdated build hash vs actual data hash (rare edge case)
-    if (existingHash?.value === data.hash) {
-      // Sync the build hash back to metadata just in case
-      await db.put(DB_CONFIG.STORES.METADATA, { key: 'hash', value: data.hash });
-      return;
-    }
-
-    const emit = (current: number, total: number, stage: string) => {
-      if (typeof window !== 'undefined') {
-        window.dispatchEvent(
-          new CustomEvent('pokedata-sync-progress', {
-            detail: { current, total, stage },
-          }),
-        );
+      // Skip fetch if the build-in hash matches what we have in indexedDB
+      if (existingHash?.value === __POKEDATA_HASH__ && __POKEDATA_HASH__ !== 'initial') {
+        return;
       }
-    };
 
-    const tx = db.transaction(
-      [
-        DB_CONFIG.STORES.POKEMON,
-        DB_CONFIG.STORES.ENCOUNTERS,
-        DB_CONFIG.STORES.LOCATIONS,
-        DB_CONFIG.STORES.ITEMS,
-        DB_CONFIG.STORES.MOVES,
-        DB_CONFIG.STORES.BERRIES,
-        DB_CONFIG.STORES.MATCH_CALLS,
-        DB_CONFIG.STORES.METADATA,
-      ],
-      'readwrite',
-    );
+      // 2. Fetch current data
+      const baseUrl = typeof window !== 'undefined' ? import.meta.env.BASE_URL : 'http://localhost:3000/dexhelper/';
+      const response = await fetch(`${baseUrl}data/pokedata-core.msgpack`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch pokedata-core.msgpack: ${response.status} ${response.statusText}`);
+      }
+      const buffer = await response.arrayBuffer();
 
-    // 3. Populate stores with inflated data
-    const pStore = tx.objectStore(DB_CONFIG.STORES.POKEMON);
-    const eStore = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
-    const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
-    const iStore = tx.objectStore(DB_CONFIG.STORES.ITEMS);
-    const mvStore = tx.objectStore(DB_CONFIG.STORES.MOVES);
-    const bStore = tx.objectStore(DB_CONFIG.STORES.BERRIES);
-    const mcStore = tx.objectStore(DB_CONFIG.STORES.MATCH_CALLS);
-    const mStore = tx.objectStore(DB_CONFIG.STORES.METADATA);
+      const unpackr = new Unpackr({ useRecords: true, variableMapSize: true, bundleStrings: true });
+      const data: PokeDataExport = unpackr.unpack(new Uint8Array(buffer));
 
-    // Clear old data
-    await Promise.all([
-      pStore.clear(),
-      eStore.clear(),
-      lStore.clear(),
-      iStore.clear(),
-      mvStore.clear(),
-      bStore.clear(),
-      mcStore.clear(),
-      mStore.clear(),
-    ]);
+      // Guard against outdated build hash vs actual data hash (rare edge case)
+      if (existingHash?.value === data.hash) {
+        // Sync the build hash back to metadata just in case
+        await db.put(DB_CONFIG.STORES.METADATA, { key: 'hash', value: data.hash });
+        return;
+      }
 
-    emit(1, 7, 'Pokemon');
-    const inflateChain = (links: CompactChainLink[] | undefined): CompactChainLink[] => {
-      return (links || []).map((l) => ({
-        ...l,
-        det: (l.det || []).map((d) => ({
+      const emit = (current: number, total: number, stage: string) => {
+        if (typeof window !== 'undefined') {
+          window.dispatchEvent(
+            new CustomEvent('pokedata-sync-progress', {
+              detail: { current, total, stage },
+            }),
+          );
+        }
+      };
+
+      const tx = db.transaction(
+        [
+          DB_CONFIG.STORES.POKEMON,
+          DB_CONFIG.STORES.ENCOUNTERS,
+          DB_CONFIG.STORES.LOCATIONS,
+          DB_CONFIG.STORES.ITEMS,
+          DB_CONFIG.STORES.MOVES,
+          DB_CONFIG.STORES.BERRIES,
+          DB_CONFIG.STORES.MATCH_CALLS,
+          DB_CONFIG.STORES.METADATA,
+        ],
+        'readwrite',
+      );
+
+      // 3. Populate stores with inflated data
+      const pStore = tx.objectStore(DB_CONFIG.STORES.POKEMON);
+      const eStore = tx.objectStore(DB_CONFIG.STORES.ENCOUNTERS);
+      const lStore = tx.objectStore(DB_CONFIG.STORES.LOCATIONS);
+      const iStore = tx.objectStore(DB_CONFIG.STORES.ITEMS);
+      const mvStore = tx.objectStore(DB_CONFIG.STORES.MOVES);
+      const bStore = tx.objectStore(DB_CONFIG.STORES.BERRIES);
+      const mcStore = tx.objectStore(DB_CONFIG.STORES.MATCH_CALLS);
+      const mStore = tx.objectStore(DB_CONFIG.STORES.METADATA);
+
+      // Clear old data
+      await Promise.all([
+        pStore.clear(),
+        eStore.clear(),
+        lStore.clear(),
+        iStore.clear(),
+        mvStore.clear(),
+        bStore.clear(),
+        mcStore.clear(),
+        mStore.clear(),
+      ]);
+
+      emit(1, 7, 'Pokemon');
+      const inflateChain = (links: CompactChainLink[] | undefined): CompactChainLink[] => {
+        return (links || []).map((l) => ({
+          ...l,
+          det: (l.det || []).map((d) => ({
+            ...DEFAULT_EVO_DETAIL,
+            ...d,
+          })),
+          eto: inflateChain(l.eto),
+        }));
+      };
+
+      for (const p of data.poke) {
+        const inflatedDet = (p.det || []).map((d) => ({
           ...DEFAULT_EVO_DETAIL,
           ...d,
-        })),
-        eto: inflateChain(l.eto),
-      }));
-    };
-
-    for (const p of data.poke) {
-      const inflatedDet = (p.det || []).map((d) => ({
-        ...DEFAULT_EVO_DETAIL,
-        ...d,
-      }));
-
-      void pStore.put({
-        ...DEFAULT_POKEMON_METADATA,
-        ...p,
-        det: inflatedDet,
-        eto: inflateChain(p.eto),
-      });
-    }
-
-    if (data.enc) {
-      emit(2, 7, 'Encounters');
-      for (const e of data.enc) {
-        const inflatedEnc = e.enc.map((enc) => ({
-          ...enc,
-          d: (enc.d || []).map((d) => ({
-            ...DEFAULT_ENCOUNTER_DETAIL,
-            ...d,
-            max: d.max ?? d.min,
-          })),
         }));
-        void eStore.put({ pid: e.pid, enc: inflatedEnc });
-      }
-    }
 
-    if (data.loc) {
-      emit(3, 7, 'Locations');
-      for (const l of data.loc) {
-        void lStore.put({
-          ...DEFAULT_LOCATION,
-          ...l,
-          prnt: l.prnt, // stay undefined if omitted
+        void pStore.put({
+          ...DEFAULT_POKEMON_METADATA,
+          ...p,
+          det: inflatedDet,
+          eto: inflateChain(p.eto),
         });
       }
-    }
 
-    emit(4, 7, 'Items');
-    for (const item of data.items || []) {
-      void iStore.put(item);
-    }
-    emit(6, 7, 'Berries');
-    for (const berry of data.berries || []) {
-      void bStore.put(berry);
-    }
-
-    if (data.matchCalls) {
-      emit(7, 7, 'Match Calls');
-      for (const mc of data.matchCalls) {
-        void mcStore.put(mc);
+      if (data.enc) {
+        emit(2, 7, 'Encounters');
+        for (const e of data.enc) {
+          const inflatedEnc = e.enc.map((enc) => ({
+            ...enc,
+            d: (enc.d || []).map((d) => ({
+              ...DEFAULT_ENCOUNTER_DETAIL,
+              ...d,
+              max: d.max ?? d.min,
+            })),
+          }));
+          void eStore.put({ pid: e.pid, enc: inflatedEnc });
+        }
       }
-    }
 
-    emit(5, 7, 'Moves');
-    for (const move of data.moves || []) {
-      void mvStore.put({
-        ...DEFAULT_MOVE_METADATA,
-        ...move,
-      });
-    }
+      if (data.loc) {
+        emit(3, 7, 'Locations');
+        for (const l of data.loc) {
+          void lStore.put({
+            ...DEFAULT_LOCATION,
+            ...l,
+            prnt: l.prnt, // stay undefined if omitted
+          });
+        }
+      }
 
-    await mStore.put({ key: 'hash', value: data.hash });
-    await tx.done;
-  } catch (err) {
-    console.error('System: sync failed');
-    throw err;
-  }
+      emit(4, 7, 'Items');
+      for (const item of data.items || []) {
+        void iStore.put(item);
+      }
+      emit(6, 7, 'Berries');
+      for (const berry of data.berries || []) {
+        void bStore.put(berry);
+      }
+
+      if (data.matchCalls) {
+        emit(7, 7, 'Match Calls');
+        for (const mc of data.matchCalls) {
+          void mcStore.put(mc);
+        }
+      }
+
+      emit(5, 7, 'Moves');
+      for (const move of data.moves || []) {
+        void mvStore.put({
+          ...DEFAULT_MOVE_METADATA,
+          ...move,
+        });
+      }
+
+      await mStore.put({ key: 'hash', value: data.hash });
+      await tx.done;
+    } catch (err) {
+      console.error('System: sync failed');
+      throw err;
+    } finally {
+      syncPromise = null;
+    }
+  })();
+  return syncPromise;
 };
 
 /**
