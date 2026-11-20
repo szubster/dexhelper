@@ -20,6 +20,6 @@ rejection_reason: ''
 Verify the implementation of the Gen 3 Missed Items dashboard. Validate the data context mapping, the visual UI representation, adherence to the tactical hardware aesthetic, and the integration tests.
 
 ## Acceptance Criteria
-- [ ] Validate that the data is correctly mapped from the context layer.
-- [ ] Verify strict adherence to ADR 008 (tactical aesthetic, no rounded corners except allowed cases).
-- [ ] Confirm integration tests adequately cover rendering and view hierarchy integration.
+- [x] Validate that the data is correctly mapped from the context layer.
+- [x] Verify strict adherence to ADR 008 (tactical aesthetic, no rounded corners except allowed cases).
+- [x] Confirm integration tests adequately cover rendering and view hierarchy integration.
