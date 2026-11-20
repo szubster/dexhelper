@@ -36,5 +36,3 @@ As part of the Historical Statistics Backfilling Engine epic, we need a CLI scri
 - [x] Argument parsing correctly identifies intervals.
 - [x] Unit tests pass.
 
-### Auditor Rejection
-- The script does not handle missing arguments correctly. When executed without arguments, it just proceeds with `{}` instead of showing the help message. The tests also lack coverage for missing arguments as required by the QA acceptance criteria.
