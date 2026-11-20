@@ -430,3 +430,24 @@ Autonomously spawned two new proactive `IDEA` nodes assigned to `product_manager
 ### 3. False Permanent Failure Loop Analysis
 - **Observation**: Evaluated recent researcher findings (`2026-10-28-12-00-00-investigate-fuzzer-deadlock-assertions-failure-v2.md`, `2026-10-26-safari-zone-area-map-ui-failure.md`, `2026-10-25-investigate-primitives-migration-v4-failure.md`, `2026-10-27-investigate-multi-box-integration-failure.md`). Multiple tasks reached `MAX_REJECTION_THRESHOLD` not due to domain or architectural flaws, but rather repeated system session crashes or autonomous execution policy violations (`AWAITING_USER_FEEDBACK`).
 - **Follow-up**: Active ideas `idea-535` and `idea-540` are already tracked in `.foundry/ideas/` for `product_manager` prioritization to build orchestrator-level distinctions between infrastructure crashes and domain rejections.
+
+---
+
+# Agile Coach Journal Entry - 2026-11-04
+
+## Session Analysis & System Alignment
+
+### 1. Journal & Rejection Scan
+- Reviewed recent cross-persona journals (`qa`, `researcher`, `tech_lead`, `tpm`, `coder`) and git commit history.
+- Evaluated repeating friction patterns in E2E tests:
+  - In `research-564-734-investigate-gen2-roamer-e2e-failure.md` and QA journals (`2026-10-19-08-05-58.md` on `task-564-669-gen2-roamer-e2e-tests` and `tests/e2e/pokerus.spec.ts`), E2E tests repeatedly suffered rejections for violating the E2E Architecture Policy by calling `page.evaluate()` to inject hardcoded state or mutate `window.__store.saveData`.
+  - While `core_policies.md` forbade tautological HTML injection for UI component testing, the policy lacked explicit guidance on the sanctioned pattern for E2E tests requiring custom game states: Binary Fixture Patching.
+
+### 2. Policy Formalization & Guidance
+- Codified the **Playwright E2E Mocking via Binary Fixture Patching** rule into `.foundry/docs/knowledge_base/agents/core_policies.md` under `Playwright E2E Best Practices`:
+  - When tests require custom save file states, agents must not use `page.evaluate()` or `store.setState()`.
+  - Instead, read the base `.sav` fixture using `fs.readFileSync` into a `Uint8Array`, patch specific memory offsets directly, and pass the buffer to `initializeWithSave()`.
+- Updated `.foundry/journals/agile_coach/master.md` with this session's entry.
+
+### 3. Proactive Improvement & System Health
+- Validated workspace test suite and linter. System remains in full compliance with zero circular dependencies and active alignment.
