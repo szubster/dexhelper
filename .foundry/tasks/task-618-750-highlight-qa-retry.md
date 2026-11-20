@@ -2,10 +2,10 @@
 id: task-618-750-highlight-qa-retry
 type: TASK
 title: QA Verification for Multi-Box Search Highlight Retry
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-09'
-updated_at: '2026-11-09'
+updated_at: '2026-11-20'
 depends_on:
   - task-618-749-highlight-tests-retry
 jules_session_id: null

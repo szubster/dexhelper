@@ -2,10 +2,10 @@
 id: task-677-747-gen3-trainer-card-tactical-ui-qa
 type: TASK
 title: Task - QA Gen 3 Trainer Card Tactical UI
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-08'
-updated_at: '2026-11-08'
+updated_at: '2026-11-20'
 depends_on:
   - task-677-746-gen3-trainer-card-tactical-ui-impl
 jules_session_id: null

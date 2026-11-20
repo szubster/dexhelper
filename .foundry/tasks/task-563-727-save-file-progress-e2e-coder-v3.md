@@ -2,10 +2,10 @@
 id: task-563-727-save-file-progress-e2e-coder-v3
 type: TASK
 title: Implement Save File Progress E2E Tests (v3)
-status: PENDING
+status: READY
 owner_persona: coder
 created_at: '2026-10-25T00:00:00.000Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-20'
 depends_on:
   - research-563-726-investigate-e2e-retry-failure
 jules_session_id: null

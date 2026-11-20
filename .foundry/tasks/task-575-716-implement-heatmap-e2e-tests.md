@@ -2,12 +2,12 @@
 id: task-575-716-implement-heatmap-e2e-tests
 type: TASK
 title: Implement Heatmap E2E Tests
-status: ACTIVE
+status: COMPLETED
 owner_persona: coder
 created_at: '2026-10-22T23:14:26Z'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on: []
-jules_session_id: '10430063271204751927'
+jules_session_id: null
 parent: story-049-575-heatmap-e2e-verification
 tags:
   - e2e

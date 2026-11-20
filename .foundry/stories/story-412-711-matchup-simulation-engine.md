@@ -2,10 +2,10 @@
 id: story-412-711-matchup-simulation-engine
 type: STORY
 title: Matchup Simulation Engine
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-10-21'
-updated_at: '2026-11-01'
+updated_at: '2026-11-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -27,13 +27,13 @@ locks: []
 Build the core matchup simulation engine to calculate type effectiveness, stat advantages, and moveset coverage for the active party against upcoming boss encounters.
 
 ## Acceptance Criteria
-- [ ] Implement type effectiveness calculation logic.
-- [ ] Implement stat advantage calculation logic.
-- [ ] Implement moveset coverage analysis.
+- [x] Implement type effectiveness calculation logic.
+- [x] Implement stat advantage calculation logic.
+- [x] Implement moveset coverage analysis.
 - [x] Break down this Story into modular Tasks for the Coder.
-- [ ] task-711-734-type-effectiveness-logic
-- [ ] task-711-735-type-effectiveness-qa
-- [ ] task-711-736-stat-advantage-logic
-- [ ] task-711-737-stat-advantage-qa
-- [ ] task-711-738-moveset-coverage-logic
-- [ ] task-711-739-moveset-coverage-qa
+- [x] task-711-734-type-effectiveness-logic
+- [x] task-711-735-type-effectiveness-qa
+- [x] task-711-736-stat-advantage-logic
+- [x] task-711-737-stat-advantage-qa
+- [x] task-711-738-moveset-coverage-logic
+- [x] task-711-739-moveset-coverage-qa

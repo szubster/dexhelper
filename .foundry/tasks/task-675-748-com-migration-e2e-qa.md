@@ -2,10 +2,10 @@
 id: task-675-748-com-migration-e2e-qa
 type: TASK
 title: QA for COM Migration E2E
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-07'
-updated_at: '2026-11-07'
+updated_at: '2026-11-20'
 depends_on:
   - task-675-747-com-migration-e2e-fix-flakiness
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-478-742-orchestrator-prompt-adaptation-retry-6
 type: TASK
 title: Orchestrator Prompt Adaptation (Retry 6)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - research-478-740-investigate-cloning-logic-failure-retry-5
 jules_session_id: null

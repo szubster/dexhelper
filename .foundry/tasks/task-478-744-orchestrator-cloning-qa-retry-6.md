@@ -2,10 +2,10 @@
 id: task-478-744-orchestrator-cloning-qa-retry-6
 type: TASK
 title: Orchestrator Cloning QA (Retry 6)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - task-478-743-orchestrator-cloning-tests-retry-6
 jules_session_id: null

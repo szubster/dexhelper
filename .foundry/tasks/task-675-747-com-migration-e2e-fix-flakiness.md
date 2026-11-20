@@ -2,10 +2,10 @@
 id: task-675-747-com-migration-e2e-fix-flakiness
 type: TASK
 title: Fix Flakiness in COM E2E Tests
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-07'
-updated_at: '2026-11-07'
+updated_at: '2026-11-20'
 depends_on:
   - task-675-746-com-migration-e2e-run-tests
 jules_session_id: null

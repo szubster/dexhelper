@@ -2,10 +2,10 @@
 id: task-714-741-gen3-secret-base-state-context
 type: TASK
 title: Create React Context for Gen 3 Secret Base Dashboard
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - task-714-740-gen3-secret-base-state-types
 jules_session_id: null

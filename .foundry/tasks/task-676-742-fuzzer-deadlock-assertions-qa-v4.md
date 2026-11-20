@@ -2,10 +2,10 @@
 id: task-676-742-fuzzer-deadlock-assertions-qa-v4
 type: TASK
 title: Fuzzer Deadlock Detection Assertions QA V4
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-04T12:00:00.000Z'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - task-676-741-fuzzer-deadlock-assertions-impl-v4
 jules_session_id: null

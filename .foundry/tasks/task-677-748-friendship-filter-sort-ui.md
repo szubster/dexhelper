@@ -2,10 +2,10 @@
 id: task-677-748-friendship-filter-sort-ui
 type: TASK
 title: Friendship-Evolving Pokémon Filtering and Sorting UI Controls
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2025-01-20'
-updated_at: '2025-01-20'
+updated_at: '2026-11-20'
 depends_on:
   - task-677-747-friendship-filter-sort-logic
 jules_session_id: null

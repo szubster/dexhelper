@@ -2,10 +2,10 @@
 id: story-584-714-implement-detect-scratchpads-script
 type: STORY
 title: Implement detect-scratchpads.js script
-status: PENDING
+status: FAILED
 owner_persona: tech_lead
 created_at: '2025-01-01'
-updated_at: '2026-11-02'
+updated_at: '2026-11-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -14,7 +14,9 @@ tags:
   - scripts
 research_references: []
 rejection_count: 0
-rejection_reason: ''
+rejection_reason: >-
+  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
+  TASK nodes
 notes: ''
 locks: []
 priority: 50
@@ -26,8 +28,8 @@ priority: 50
 - Create `.github/scripts/detect-scratchpads.js` to scan the repository root for uncommitted, ephemeral files.
 
 ## Acceptance Criteria
-- [ ] Create `.github/scripts/detect-scratchpads.js`.
-- [ ] Scan repository root for uncommitted `*.sh`, `*.cjs`, `*.js`, `*.md`.
-- [ ] Ensure non-zero exit code if files are found and print paths.
-- [ ] task-714-734-implement-detect-scratchpads-script
-- [ ] task-714-735-qa-detect-scratchpads-script
+- [x] Create `.github/scripts/detect-scratchpads.js`.
+- [x] Scan repository root for uncommitted `*.sh`, `*.cjs`, `*.js`, `*.md`.
+- [x] Ensure non-zero exit code if files are found and print paths.
+- [x] task-714-734-implement-detect-scratchpads-script
+- [x] task-714-735-qa-detect-scratchpads-script

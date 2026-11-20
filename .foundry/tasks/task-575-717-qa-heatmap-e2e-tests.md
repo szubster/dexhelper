@@ -2,10 +2,10 @@
 id: task-575-717-qa-heatmap-e2e-tests
 type: TASK
 title: QA Heatmap E2E Tests
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-22T23:14:26Z'
-updated_at: '2026-10-31'
+updated_at: '2026-11-20'
 depends_on:
   - task-575-716-implement-heatmap-e2e-tests
 jules_session_id: null

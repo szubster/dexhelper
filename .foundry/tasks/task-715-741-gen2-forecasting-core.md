@@ -2,10 +2,10 @@
 id: task-715-741-gen2-forecasting-core
 type: TASK
 title: Implement Gen 2 Forecasting Core Logic
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-24'
-updated_at: '2026-10-24'
+updated_at: '2026-11-20'
 depends_on:
   - task-715-740-gen2-forecasting-types
 jules_session_id: null

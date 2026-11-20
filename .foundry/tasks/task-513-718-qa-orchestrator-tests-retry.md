@@ -2,10 +2,10 @@
 id: task-513-718-qa-orchestrator-tests-retry
 type: TASK
 title: QA Update Orchestrator Idempotent Tests Retry
-status: PENDING
+status: READY
 owner_persona: qa
 created_at: '2026-10-22'
-updated_at: '2026-10-31'
+updated_at: '2026-11-20'
 depends_on:
   - task-513-717-update-orchestrator-tests-retry
 jules_session_id: null

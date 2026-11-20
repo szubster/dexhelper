@@ -2,10 +2,10 @@
 id: task-479-747-qa-orchestrator-locking-tests
 type: TASK
 title: QA orchestrator locking logic integration tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-08'
-updated_at: '2026-11-08'
+updated_at: '2026-11-20'
 depends_on:
   - task-479-746-write-orchestrator-locking-tests
 jules_session_id: null

@@ -2,13 +2,13 @@
 id: task-537-691-mocking-utilities-e2e-qa
 type: TASK
 title: QA Mocking Utilities E2E Tests
-status: ACTIVE
+status: READY
 owner_persona: qa
 created_at: '2026-10-16T02:21:33.871Z'
-updated_at: '2026-11-05'
+updated_at: '2026-11-20'
 depends_on:
   - task-537-690-mocking-utilities-e2e-tests
-jules_session_id: '13796472927238160767'
+jules_session_id: null
 pr_number: null
 parent: story-530-537-mocking-utilities-e2e
 tags:
@@ -16,7 +16,7 @@ tags:
   - playwright
   - e2e
 research_references: []
-rejection_count: 0
+rejection_count: 1
 confidence_score: 100
 rejection_reason: ''
 notes: ''

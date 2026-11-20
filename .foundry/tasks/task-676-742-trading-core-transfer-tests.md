@@ -1,11 +1,11 @@
 ---
 id: task-676-742-trading-core-transfer-tests
 type: TASK
-title: "Trading Core Transfer Logic - Unit Tests"
-status: READY
+title: Trading Core Transfer Logic - Unit Tests
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - task-676-741-trading-core-transfer-impl
 jules_session_id: null

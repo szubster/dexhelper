@@ -2,10 +2,10 @@
 id: task-618-749-highlight-tests-retry
 type: TASK
 title: Multi-Box Search Highlight Tests Retry
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-09'
-updated_at: '2026-11-09'
+updated_at: '2026-11-20'
 depends_on:
   - task-618-748-highlight-ui-presentation-retry
 jules_session_id: null

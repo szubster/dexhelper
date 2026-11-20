@@ -1,18 +1,16 @@
 ---
 id: story-085-677-rematch-trainer-card-component
 type: STORY
-title: "Rematch Trainer Card Component"
-status: PENDING
-owner_persona: "tech_lead"
-created_at: "2026-10-14"
-updated_at: "2026-10-14"
+title: Rematch Trainer Card Component
+status: READY
+owner_persona: tech_lead
+created_at: '2026-10-14'
+updated_at: '2026-11-20'
 depends_on:
   - story-085-676-rematch-dashboard-layout-and-routing
 jules_session_id: null
-locks: []
 pr_number: null
 parent: epic-048-085-gen3-match-call-dashboard-ui
-priority: 50
 tags:
   - feature
   - gen3
@@ -20,8 +18,10 @@ tags:
   - component
 research_references: []
 rejection_count: 0
-rejection_reason: ""
-notes: ""
+rejection_reason: ''
+notes: ''
+locks: []
+priority: 50
 ---
 
 # Rematch Trainer Card Component

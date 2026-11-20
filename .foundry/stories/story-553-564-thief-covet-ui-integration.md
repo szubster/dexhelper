@@ -2,10 +2,10 @@
 id: story-553-564-thief-covet-ui-integration
 type: STORY
 title: UI Integration for Thief/Covet Optimizer
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-10-16'
+updated_at: '2026-11-20'
 depends_on:
   - story-553-563-thief-covet-engine-logic
 jules_session_id: null
@@ -33,8 +33,8 @@ With the engine logic in place to find Pokemon with item-stealing moves, we need
 
 ## Acceptance Criteria
 - [x] tech_lead: Break down this Story into Tasks.
-- [ ] task-564-680-thief-covet-ui-integration-components
-- [ ] task-564-681-thief-covet-ui-integration-tests
-- [ ] task-564-682-qa-thief-covet-ui-integration
-- [ ] task-564-683-thief-covet-e2e-tests
-- [ ] task-564-684-qa-thief-covet-e2e-tests
+- [x] task-564-680-thief-covet-ui-integration-components
+- [x] task-564-681-thief-covet-ui-integration-tests
+- [x] task-564-682-qa-thief-covet-ui-integration
+- [x] task-564-683-thief-covet-e2e-tests
+- [x] task-564-684-qa-thief-covet-e2e-tests

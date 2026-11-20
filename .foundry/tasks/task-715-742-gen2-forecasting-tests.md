@@ -2,10 +2,10 @@
 id: task-715-742-gen2-forecasting-tests
 type: TASK
 title: Write Tests for Gen 2 Forecasting Core Logic
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-10-24'
-updated_at: '2026-10-24'
+updated_at: '2026-11-20'
 depends_on:
   - task-715-741-gen2-forecasting-core
 jules_session_id: null

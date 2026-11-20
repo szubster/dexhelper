@@ -2,10 +2,10 @@
 id: task-714-744-gen3-secret-base-state-qa
 type: TASK
 title: QA Gen 3 Secret Base Dashboard State Layer (v3)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - task-714-743-gen3-secret-base-state-integration
 jules_session_id: null

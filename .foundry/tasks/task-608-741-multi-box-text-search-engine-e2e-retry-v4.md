@@ -2,10 +2,10 @@
 id: task-608-741-multi-box-text-search-engine-e2e-retry-v4
 type: TASK
 title: Multi-Box Text Search Engine E2E (Retry v4)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - task-608-617-multi-box-text-search-engine-impl
   - research-608-740-investigate-text-search-e2e-failure-v4

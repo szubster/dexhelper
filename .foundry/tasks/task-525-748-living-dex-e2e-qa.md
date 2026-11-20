@@ -2,10 +2,10 @@
 id: task-525-748-living-dex-e2e-qa
 type: TASK
 title: QA Verification for Living Dex Grid UI E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-08'
-updated_at: '2026-11-08'
+updated_at: '2026-11-20'
 depends_on:
   - task-525-747-living-dex-e2e-tests
 jules_session_id: null

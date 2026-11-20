@@ -2,10 +2,10 @@
 id: task-574-744-item-gating-ui-qa-retry-2
 type: TASK
 title: Item Gating UI QA (Retry 2)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-03T00:00:00Z'
-updated_at: '2026-11-03'
+updated_at: '2026-11-20'
 depends_on:
   - task-574-743-item-gating-ui-tests-retry-2
 jules_session_id: null

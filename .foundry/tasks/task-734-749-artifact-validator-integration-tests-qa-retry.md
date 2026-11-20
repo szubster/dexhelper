@@ -2,10 +2,10 @@
 id: task-734-749-artifact-validator-integration-tests-qa-retry
 type: TASK
 title: Artifact Validator Integration Tests - QA - Retry
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-09'
-updated_at: '2026-11-09'
+updated_at: '2026-11-20'
 depends_on:
   - task-734-748-artifact-validator-integration-tests-parser-retry
   - task-734-741-artifact-validator-integration-tests-fs

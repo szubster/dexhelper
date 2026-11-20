@@ -2,10 +2,10 @@
 id: task-528-749-wip-banner-e2e-qa-retry-v2
 type: TASK
 title: QA WIP Banner E2E Tests (Retry v2)
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-09'
-updated_at: '2026-11-09'
+updated_at: '2026-11-20'
 depends_on:
   - task-528-748-wip-banner-e2e-tests-retry-v2
 jules_session_id: null

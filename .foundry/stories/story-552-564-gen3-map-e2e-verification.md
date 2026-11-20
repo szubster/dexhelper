@@ -2,10 +2,10 @@
 id: story-552-564-gen3-map-e2e-verification
 type: STORY
 title: Gen 3 Map Integration and E2E Verification
-status: PENDING
+status: FAILED
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-10-27'
+updated_at: '2026-11-20'
 depends_on:
   - story-552-563-gen3-map-state-management
 jules_session_id: null
@@ -18,7 +18,9 @@ tags:
   - integration
 research_references: []
 rejection_count: 1
-rejection_reason: ''
+rejection_reason: >-
+  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
+  TASK nodes
 notes: ''
 locks: []
 ---
@@ -34,6 +36,6 @@ Verify the Gen 3 Map core UI and state management work flawlessly together throu
 - Ensure tactical hardware styling (ADR 008) is not compromised on different screen sizes using Playwright's mobile configurations.
 
 ## Acceptance Criteria
-- [ ] task-564-716-gen3-map-e2e-tests-impl
-- [ ] task-564-717-gen3-map-e2e-tests-qa
+- [x] task-564-716-gen3-map-e2e-tests-impl
+- [x] task-564-717-gen3-map-e2e-tests-qa
 - [x] Break down into TASK nodes.

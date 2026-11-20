@@ -2,10 +2,10 @@
 id: task-734-748-artifact-validator-integration-tests-parser-retry
 type: TASK
 title: Artifact Validator Integration Tests - Parser - Retry
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-09'
-updated_at: '2026-11-09'
+updated_at: '2026-11-20'
 depends_on:
   - research-734-747-investigate-parser-failure
 jules_session_id: null

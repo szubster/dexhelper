@@ -2,10 +2,10 @@
 id: task-677-754-qa-fame-checker-e2e-tests
 type: TASK
 title: QA Fame Checker E2E Tests
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-09T00:00:00.000Z'
-updated_at: '2026-11-09'
+updated_at: '2026-11-20'
 depends_on:
   - task-677-753-fame-checker-e2e-tests
 jules_session_id: null

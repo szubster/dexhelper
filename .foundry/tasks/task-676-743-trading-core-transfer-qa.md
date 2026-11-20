@@ -1,11 +1,11 @@
 ---
 id: task-676-743-trading-core-transfer-qa
 type: TASK
-title: "Trading Core Transfer Logic - QA Verification"
-status: READY
+title: Trading Core Transfer Logic - QA Verification
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - task-676-742-trading-core-transfer-tests
 jules_session_id: null

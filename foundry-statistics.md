@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-20T01:31:56.907Z*
+*Generated at: 2026-11-20T09:31:55.558Z*
 
 ## Node Statistics
 
@@ -9,32 +9,30 @@
 |---|---|
 | ADR | 45 |
 | EPIC | 550 |
-| IDEA | 242 |
+| IDEA | 243 |
 | PRD | 219 |
-| RESEARCH | 389 |
+| RESEARCH | 402 |
 | STORY | 1187 |
-| TASK | 3130 |
+| TASK | 3216 |
 
 ### By Status
 | Status | Count |
 |---|---|
-| COMPLETED | 3715 |
-| ACTIVE | 82 |
+| COMPLETED | 3739 |
+| ACTIVE | 31 |
 | CANCELLED | 1004 |
-| PENDING | 821 |
-| VERIFYING | 1 |
-| READY | 122 |
+| PENDING | 912 |
+| READY | 162 |
 | BLOCKED | 14 |
-| FAILED | 3 |
 
 ## PR Metrics
 
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 100 |
-| Merged PRs | 8851 |
-| Closed PRs | 1049 |
+| Open PRs | 37 |
+| Merged PRs | 8906 |
+| Closed PRs | 1057 |
 
 ## Rejection Counts
 
@@ -487,6 +485,7 @@
 | story-088-638-client-db-jsonl-loader.md | 2 |
 | story-108-246-gen3-box-parsing.md | 2 |
 | story-112-403-integration-e2e.md | 2 |
+| story-136-620-gen1-static-encounters-e2e.md | 2 |
 | story-330-514-remediation-state-transition-logic.md | 2 |
 | story-332-474-gen3-fame-checker-save-parsing-e2e.md | 2 |
 | story-338-477-gen2-unown-dex-parsing.md | 2 |
@@ -523,6 +522,7 @@
 | task-422-469-shoal-items-e2e-impl.md | 2 |
 | task-422-590-pc-box-extraction-logic.md | 2 |
 | task-423-470-gen3-ai-data-e2e-extraction-tests-impl.md | 2 |
+| task-423-713-gen3-ai-data-e2e-mapping-tests-impl-v6.md | 2 |
 | task-424-440-integrate-gen3-fixtures-impl.md | 2 |
 | task-425-489-fixtures-integration-e2e-impl.md | 2 |
 | task-428-436-refactor-core-data-generation.md | 2 |
@@ -570,6 +570,7 @@
 | task-551-713-update-orchestrator-priority-tests-v4.md | 2 |
 | task-552-681-curator-e2e-domain-overlap-tests.md | 2 |
 | task-553-568-gen2-pkm-extraction.md | 2 |
+| task-557-682-orchestrator-link-resolution-e2e-qa-retry.md | 2 |
 | task-558-567-flexsearch-tooling-coder.md | 2 |
 | task-558-568-rs-battle-tower-data-parsing-impl.md | 2 |
 | task-558-570-flexsearch-tooling-e2e.md | 2 |
@@ -859,6 +860,7 @@
 | research-478-676-investigate-kurt-apricorn-types-failure.md | 1 |
 | research-478-727-investigate-kurt-apricorn-core-logic-failure-v2.md | 1 |
 | research-479-608-investigate-gen3-pokeblock-e2e-failure.md | 1 |
+| research-479-740-investigate-unown-e2e-failure.md | 1 |
 | research-494-495-gen3-egg-hatch-fixture.md | 1 |
 | research-522-712-investigate-orchestrator-wip-tests-failure.md | 1 |
 | research-526-602-investigate-pathfinder-ui-failure.md | 1 |
@@ -867,6 +869,7 @@
 | research-551-668-investigate-orchestrator-priority-tests-failure.md | 1 |
 | research-559-704-investigate-query-formulation-failure.md | 1 |
 | research-560-668-investigate-tm-hm-compatibility-v3-failure.md | 1 |
+| research-561-740-investigate-pokerus-e2e-failure.md | 1 |
 | research-562-710-investigate-gen2-wild-encounter-extraction-failure-v3.md | 1 |
 | research-563-602-gen3-wild-encounter-offsets.md | 1 |
 | research-563-668-investigate-wild-item-parsing-failure.md | 1 |
@@ -891,13 +894,13 @@
 | story-109-520-box-analyzer-view-layout.md | 1 |
 | story-109-523-box-analyzer-matrix-e2e.md | 1 |
 | story-115-527-pathfinder-chain-visualization.md | 1 |
+| story-126-705-palette-persona-integration-verification.md | 1 |
 | story-133-273-living-dex-pc-mapping.md | 1 |
 | story-133-424-gen3-lottery-e2e-verification.md | 1 |
 | story-133-476-gen3-ribbon-e2e-verification.md | 1 |
 | story-134-475-gen3-condition-stats-extraction-e2e.md | 1 |
 | story-134-524-living-dex-ghosts-and-styling.md | 1 |
 | story-136-330-gen1-checklist-ui-retry.md | 1 |
-| story-136-620-gen1-static-encounters-e2e.md | 1 |
 | story-140-564-gen2-roamer-translation-integration.md | 1 |
 | story-269-647-gen3-ash-dashboard-ui.md | 1 |
 | story-346-560-spinda-spot-coordinate-algorithm.md | 1 |
@@ -908,6 +911,7 @@
 | story-402-527-drive-webhook-registration.md | 1 |
 | story-402-649-refactor-ui-lazy-loading.md | 1 |
 | story-406-413-bike-requirement-heatmap.md | 1 |
+| story-406-491-jules-agent-skins-e2e-verification.md | 1 |
 | story-407-573-item-gating-data-mapping.md | 1 |
 | story-408-490-orchestrator-themed-output-impl.md | 1 |
 | story-411-422-pc-box-and-tm-extraction.md | 1 |
@@ -929,6 +933,7 @@
 | story-530-561-telemetry-metrics-e2e.md | 1 |
 | story-531-533-orchestrator-trigger-logic-updates.md | 1 |
 | story-531-534-idea-reverification-stage.md | 1 |
+| story-532-676-scheduled-agents-issue-flow-e2e.md | 1 |
 | story-534-558-telemetry-data-extraction-impl.md | 1 |
 | story-534-559-rag-dynamic-querying-retrieval.md | 1 |
 | story-535-556-heatmap-toggle-ui.md | 1 |
@@ -987,7 +992,6 @@
 | task-422-496-gen3-static-encounters-e2e-impl.md | 1 |
 | task-423-469-gen3-ai-data-e2e-fixtures-impl.md | 1 |
 | task-423-472-gen3-ai-data-e2e-qa.md | 1 |
-| task-423-713-gen3-ai-data-e2e-mapping-tests-impl-v6.md | 1 |
 | task-428-438-extract-core-data-qa.md | 1 |
 | task-432-449-qa-controls.md | 1 |
 | task-433-447-migrate-segmented-controls-impl.md | 1 |
@@ -1040,6 +1044,7 @@
 | task-495-629-reactive-pokedex-grid-impl-retry-v2.md | 1 |
 | task-497-523-gen3-mystery-gift-parser.md | 1 |
 | task-498-528-tpm-aggregation-tests.md | 1 |
+| task-498-679-gen3-e-reader-ui-qa.md | 1 |
 | task-499-615-tpm-distillation-e2e-implementation.md | 1 |
 | task-512-517-implement-idempotent-bypass.md | 1 |
 | task-512-618-qa-idempotent-bypass-retry.md | 1 |
@@ -1079,6 +1084,7 @@
 | task-536-565-playwright-style-guide-qa.md | 1 |
 | task-537-599-gen3-berry-pipeline-integration.md | 1 |
 | task-537-624-testing-style-guide-e2e-coder.md | 1 |
+| task-537-691-mocking-utilities-e2e-qa.md | 1 |
 | task-542-550-draft-migration-plan-coder.md | 1 |
 | task-545-550-dynamic-spawning-e2e-research-adr.md | 1 |
 | task-546-562-usetransition-search-filters.md | 1 |
@@ -1097,7 +1103,6 @@
 | task-555-682-gen3-pk3-e2e-tests-impl.md | 1 |
 | task-557-581-orchestrator-link-resolution-fixtures.md | 1 |
 | task-557-681-orchestrator-link-resolution-e2e-impl-retry.md | 1 |
-| task-557-682-orchestrator-link-resolution-e2e-qa-retry.md | 1 |
 | task-558-564-scheduled-workflows-batch1-impl.md | 1 |
 | task-559-680-battle-frontier-data-e2e-tests.md | 1 |
 | task-559-708-search-extraction-qa-v2.md | 1 |
@@ -1123,6 +1128,7 @@
 | task-564-670-gen2-roamer-qa.md | 1 |
 | task-564-681-thief-covet-ui-integration-tests.md | 1 |
 | task-564-682-qa-schema-frontmatter-validation.md | 1 |
+| task-564-718-qa-gen3-pokedex-gaps-ui-v3.md | 1 |
 | task-564-721-schema-linter-checkbox-e2e-impl.md | 1 |
 | task-566-583-shoal-dashboard-layout.md | 1 |
 | task-566-584-shoal-ui-qa.md | 1 |
@@ -1171,6 +1177,7 @@
 | task-563-641-map-data-extraction-logic-v2.md | 92620800000 |
 | task-563-642-map-data-tests-v2.md | 92620800000 |
 | task-563-643-map-data-qa-v2.md | 92620800000 |
+| story-325-527-safari-zone-area-highlighting.md | 78624000000 |
 | task-527-714-safari-zone-area-highlighting-qa-v4.md | 78624000000 |
 | task-550-687-generator-architecture-e2e-qa.md | 77414400000 |
 | task-676-702-add-adr-compliance-scripts.md | 77284800000 |
@@ -1182,7 +1189,6 @@
 | task-528-677-safari-zone-bounty-board-ui.md | 76550400000 |
 | task-528-678-safari-zone-bounty-board-e2e.md | 76550400000 |
 | task-550-683-generator-save-file-parsers-e2e-impl.md | 76464000000 |
-| story-325-527-safari-zone-area-highlighting.md | 76377600000 |
 | task-550-684-generator-binary-chunk-streams-e2e-impl.md | 76291200000 |
 | epic-339-406-jules-agent-skins.md | 75859200000 |
 | task-528-676-safari-zone-bounty-board-data.md | 75859200000 |

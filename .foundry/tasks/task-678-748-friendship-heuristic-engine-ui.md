@@ -2,10 +2,10 @@
 id: task-678-748-friendship-heuristic-engine-ui
 type: TASK
 title: UI Integration for Friendship Actions Needed Heuristic Engine
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-08'
-updated_at: '2026-11-08'
+updated_at: '2026-11-20'
 depends_on:
   - task-678-747-friendship-heuristic-engine-logic
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: story-553-563-gen3-missed-items-ui
 type: STORY
 title: Gen 3 Missed Items Dashboard UI
-status: PENDING
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-10'
-updated_at: '2026-10-16'
+updated_at: '2026-11-20'
 depends_on:
   - story-553-562-gen3-missed-items-parsing
 jules_session_id: null
@@ -27,9 +27,9 @@ Develop the React UI components for the Gen 3 Missed Milestones & Items Tracker.
 
 ## Acceptance Criteria
 - [x] Decompose into granular TASK nodes (e.g. context layers, tactical components).
-- [ ] Ensure strict adherence to the tactical hardware UI aesthetic (ADR 008, rounded-none).
+- [x] Ensure strict adherence to the tactical hardware UI aesthetic (ADR 008, rounded-none).
 - [x] Write integration tasks.
-- [ ] task-563-680-gen3-missed-items-context-layer
-- [ ] task-563-681-gen3-missed-items-ui-components
-- [ ] task-563-682-gen3-missed-items-integration-tests
-- [ ] task-563-683-qa-gen3-missed-items-ui
+- [x] task-563-680-gen3-missed-items-context-layer
+- [x] task-563-681-gen3-missed-items-ui-components
+- [x] task-563-682-gen3-missed-items-integration-tests
+- [x] task-563-683-qa-gen3-missed-items-ui

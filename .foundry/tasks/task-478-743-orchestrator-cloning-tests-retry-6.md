@@ -2,10 +2,10 @@
 id: task-478-743-orchestrator-cloning-tests-retry-6
 type: TASK
 title: Orchestrator Cloning Tests (Retry 6)
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - task-478-741-orchestrator-cloning-logic-retry-6
   - task-478-742-orchestrator-prompt-adaptation-retry-6

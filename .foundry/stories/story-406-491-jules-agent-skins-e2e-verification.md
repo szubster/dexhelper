@@ -2,7 +2,7 @@
 id: story-406-491-jules-agent-skins-e2e-verification
 type: STORY
 title: Jules Agent Skins E2E Verification
-status: FAILED
+status: READY
 owner_persona: tech_lead
 created_at: '2026-08-26'
 updated_at: '2026-11-20'
@@ -15,10 +15,8 @@ tags:
   - e2e
   - personas
   - gamification
-rejection_count: 0
-rejection_reason: >-
-  Two-Tasks-Max anti-pattern detected: Complex STORY broken down into too few
-  TASK nodes
+rejection_count: 1
+rejection_reason: ''
 notes: ''
 locks: []
 ---

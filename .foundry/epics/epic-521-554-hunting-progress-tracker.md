@@ -2,10 +2,10 @@
 id: epic-521-554-hunting-progress-tracker
 type: EPIC
 title: Hunting Progress Tracker
-status: PENDING
+status: COMPLETED
 owner_persona: story_owner
 created_at: '2026-08-15'
-updated_at: '2026-09-24'
+updated_at: '2026-11-20'
 depends_on: []
 jules_session_id: null
 pr_number: null
@@ -34,7 +34,7 @@ This epic focuses on tracking the user's progress during a hunt by dynamically a
 
 ## Acceptance Criteria
 - [x] story_owner: Break down this Epic into Stories.
-- [ ] story-554-563-inventory-item-tracker
-- [ ] story-554-564-pokemon-held-item-tracker
-- [ ] story-554-565-progress-tracker-state
-- [ ] story-554-566-progress-tracker-e2e
+- [x] story-554-563-inventory-item-tracker
+- [x] story-554-564-pokemon-held-item-tracker
+- [x] story-554-565-progress-tracker-state
+- [x] story-554-566-progress-tracker-e2e

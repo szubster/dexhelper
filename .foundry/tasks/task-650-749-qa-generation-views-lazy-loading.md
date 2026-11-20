@@ -2,10 +2,10 @@
 id: task-650-749-qa-generation-views-lazy-loading
 type: TASK
 title: QA Generation Views Lazy Loading
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-10-12T17:00:00Z'
-updated_at: '2026-11-08'
+updated_at: '2026-11-20'
 depends_on:
   - task-650-746-lazy-load-gen3-dashboard-components
   - task-650-747-lazy-load-unown-dex-panel

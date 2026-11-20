@@ -2,13 +2,13 @@
 id: story-136-620-gen1-static-encounters-e2e
 type: STORY
 title: E2E Verification for Gen 1 Static Encounters
-status: ACTIVE
+status: READY
 owner_persona: tech_lead
 created_at: '2026-09-24'
-updated_at: '2026-11-06'
+updated_at: '2026-11-20'
 depends_on:
   - story-136-330-gen1-checklist-ui-retry
-jules_session_id: '2182456323599609852'
+jules_session_id: null
 pr_number: null
 parent: epic-106-136-gen1-static-encounters
 tags:
@@ -16,7 +16,7 @@ tags:
   - integration
   - gen1
 research_references: []
-rejection_count: 1
+rejection_count: 2
 rejection_reason: ''
 notes: ''
 locks: []

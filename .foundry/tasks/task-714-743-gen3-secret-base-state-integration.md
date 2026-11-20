@@ -2,10 +2,10 @@
 id: task-714-743-gen3-secret-base-state-integration
 type: TASK
 title: Integrate Gen 3 Secret Base Provider into App
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - task-714-742-gen3-secret-base-state-provider
 jules_session_id: null

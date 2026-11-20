@@ -2,10 +2,10 @@
 id: task-678-749-friendship-heuristic-engine-qa
 type: TASK
 title: QA Verification for Friendship Actions Needed Heuristic Engine
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-08'
-updated_at: '2026-11-08'
+updated_at: '2026-11-20'
 depends_on:
   - task-678-748-friendship-heuristic-engine-ui
 jules_session_id: null

@@ -2,10 +2,10 @@
 id: task-714-742-gen3-secret-base-state-provider
 type: TASK
 title: Implement Gen 3 Secret Base Dashboard Provider
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-04'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - task-714-741-gen3-secret-base-state-context
 jules_session_id: null

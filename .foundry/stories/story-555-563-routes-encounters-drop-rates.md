@@ -2,13 +2,13 @@
 id: story-555-563-routes-encounters-drop-rates
 type: STORY
 title: 'Display Routes, Encounters, and Drop Rates'
-status: ACTIVE
+status: COMPLETED
 owner_persona: tech_lead
 created_at: '2026-09-12'
-updated_at: '2026-11-04'
+updated_at: '2026-11-20'
 depends_on:
   - story-555-562-wild-item-selection-ui
-jules_session_id: '1526623043539447843'
+jules_session_id: null
 pr_number: null
 parent: epic-521-555-wild-item-hunting-ui
 tags:
@@ -47,8 +47,8 @@ Once an item is selected, we need to display the recommended routes, encounter t
 - [x] task-563-706-routes-encounters-ui-components-v3
 - [x] task-563-707-routes-encounters-tests-v3
 - [x] task-563-708-routes-encounters-qa-v3
-- [ ] research-563-744-investigate-routes-encounters-failure-v3
-- [ ] task-563-740-routes-encounters-data-fetching-v4
-- [ ] task-563-741-routes-encounters-ui-components-v4
-- [ ] task-563-742-routes-encounters-tests-v4
-- [ ] task-563-743-routes-encounters-qa-v4
+- [x] research-563-744-investigate-routes-encounters-failure-v3
+- [x] task-563-740-routes-encounters-data-fetching-v4
+- [x] task-563-741-routes-encounters-ui-components-v4
+- [x] task-563-742-routes-encounters-tests-v4
+- [x] task-563-743-routes-encounters-qa-v4

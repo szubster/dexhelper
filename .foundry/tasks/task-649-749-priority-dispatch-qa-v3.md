@@ -2,10 +2,10 @@
 id: task-649-749-priority-dispatch-qa-v3
 type: TASK
 title: priority orchestrator dispatch qa v3
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2026-11-09'
-updated_at: '2026-11-09'
+updated_at: '2026-11-20'
 depends_on:
   - task-649-748-priority-dispatch-tests-coder-v3
 jules_session_id: null

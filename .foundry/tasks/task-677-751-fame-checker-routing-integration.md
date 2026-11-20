@@ -2,10 +2,10 @@
 id: task-677-751-fame-checker-routing-integration
 type: TASK
 title: Fame Checker Routing Integration
-status: READY
+status: PENDING
 owner_persona: coder
 created_at: '2026-11-09T00:00:00.000Z'
-updated_at: '2026-11-09'
+updated_at: '2026-11-20'
 depends_on:
   - task-677-749-fame-checker-state-hooks
 jules_session_id: null

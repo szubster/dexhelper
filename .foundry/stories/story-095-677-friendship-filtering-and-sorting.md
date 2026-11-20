@@ -2,13 +2,13 @@
 id: story-095-677-friendship-filtering-and-sorting
 type: STORY
 title: Friendship-Evolving Pokémon Filtering and Sorting
-status: ACTIVE
+status: PENDING
 owner_persona: tech_lead
 created_at: '2026-10-15'
-updated_at: '2026-11-08'
+updated_at: '2026-11-20'
 depends_on:
   - story-095-676-friendship-display-and-power-calc
-jules_session_id: '14489481478417014076'
+jules_session_id: null
 pr_number: null
 parent: epic-051-095-friendship-tracker-ui
 tags:

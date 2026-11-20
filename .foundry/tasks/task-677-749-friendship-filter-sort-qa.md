@@ -2,10 +2,10 @@
 id: task-677-749-friendship-filter-sort-qa
 type: TASK
 title: QA - Friendship-Evolving Pokémon Filtering and Sorting
-status: READY
+status: PENDING
 owner_persona: qa
 created_at: '2025-01-20'
-updated_at: '2025-01-20'
+updated_at: '2026-11-20'
 depends_on:
   - task-677-748-friendship-filter-sort-ui
 jules_session_id: null
