@@ -32,4 +32,9 @@ We need to connect the parsed Secret Base location data to the Smart Route Radar
 - Integrate the Secret Base location into the radar state.
 
 ## Acceptance Criteria
-- [ ] Tech Lead: Break down into Tasks.
+- [x] Tech Lead: Break down into Tasks.
+
+- [ ] task-714-740-gen3-secret-base-extraction-logic
+- [ ] task-714-741-gen3-secret-base-extraction-tests
+- [ ] task-714-742-gen3-secret-base-radar-state-integration
+- [ ] task-714-743-gen3-secret-base-radar-data-qa
