@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-20T21:29:05.827Z*
+*Generated at: 2026-11-21T00:21:49.300Z*
 
 ## Node Statistics
 
@@ -20,9 +20,9 @@
 |---|---|
 | COMPLETED | 3771 |
 | ACTIVE | 6 |
-| CANCELLED | 1004 |
-| PENDING | 923 |
-| READY | 148 |
+| CANCELLED | 1005 |
+| PENDING | 915 |
+| READY | 155 |
 | BLOCKED | 14 |
 | FAILED | 1 |
 
@@ -386,6 +386,7 @@
 | task-714-734-base-trade-evolution-generator-logic.md | 3 |
 | task-726-727-orchestrator-parsing.md | 3 |
 | task-734-740-artifact-validator-integration-tests-parser.md | 3 |
+| task-734-741-artifact-validator-integration-tests-fs.md | 3 |
 | epic-009-atomic-handoff-testing.md | 2 |
 | epic-014-025-enforce-persona-pipeline-handoffs.md | 2 |
 | epic-030-039-cloudflare-r2-save-sync.md | 2 |
@@ -606,7 +607,6 @@
 | task-676-712-backfill-stats-cli-args-parser.md | 2 |
 | task-676-716-trainer-card-types.md | 2 |
 | task-731-735-ast-analyzer-cli.md | 2 |
-| task-734-741-artifact-validator-integration-tests-fs.md | 2 |
 | epic-004-distributed-id-schema.md | 1 |
 | epic-005-shadow-dispatch-prevention.md | 1 |
 | epic-005-tpm-agent-scheduling.md | 1 |
@@ -890,6 +890,7 @@
 | story-048-089-route-radar-density-aggregation.md | 1 |
 | story-061-473-mirage-island-engine-e2e.md | 1 |
 | story-063-606-mirage-island-state-hydration-e2e.md | 1 |
+| story-072-677-refactor-dashboard-views.md | 1 |
 | story-081-121-gen3-tv-block-dataview-parser.md | 1 |
 | story-081-279-gen3-ignore-emulator-trailing-bytes.md | 1 |
 | story-085-676-rematch-dashboard-layout-and-routing.md | 1 |

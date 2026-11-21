@@ -5,7 +5,7 @@ title: Artifact Validator Integration Tests
 status: READY
 owner_persona: tech_lead
 created_at: '2026-10-18'
-updated_at: '2026-11-20'
+updated_at: '2026-11-21'
 depends_on: []
 jules_session_id: '14827843004790303082'
 pr_number: null
