@@ -12,11 +12,10 @@
     "byStatus": {
       "COMPLETED": 3771,
       "ACTIVE": 6,
-      "CANCELLED": 1005,
+      "CANCELLED": 1006,
       "PENDING": 915,
       "READY": 155,
-      "BLOCKED": 14,
-      "FAILED": 1
+      "BLOCKED": 14
     },
     "rejectionCounts": {
       "001-the-foundry-architecture.md": 0,
@@ -9052,7 +9051,7 @@
       "story-696-736-ast-analyzer-context-e2e-verification.md": 0,
       "story-697-734-artifact-presence-core-logic.md": 1728000000,
       "story-697-735-artifact-presence-integration-e2e.md": 1296000000,
-      "story-699-734-artifact-validator-integration-tests.md": 2851200000,
+      "story-699-734-artifact-validator-integration-tests.md": 2937600000,
       "story-699-735-artifact-validator-pipeline-e2e.md": 0,
       "story-703-698-001-lefthook-integration-impl.md": 1728000000,
       "story-703-698-002-lefthook-integration-e2e.md": 0,
@@ -11239,5 +11238,5 @@
     "mergedPRs": 8940,
     "closedPRs": 1059
   },
-  "timestamp": "2026-11-21T00:21:49.300Z"
+  "timestamp": "2026-11-21T07:47:05.797Z"
 }
