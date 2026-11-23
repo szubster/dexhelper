@@ -1,6 +1,6 @@
 # Foundry System Statistics
 
-*Generated at: 2026-11-23T03:18:44.827Z*
+*Generated at: 2026-11-23T13:44:32.937Z*
 
 ## Node Statistics
 
@@ -30,9 +30,9 @@
 | Metric | Count |
 |---|---|
 | Total PRs | 10000 |
-| Open PRs | 1 |
-| Merged PRs | 8940 |
-| Closed PRs | 1059 |
+| Open PRs | 6 |
+| Merged PRs | 8936 |
+| Closed PRs | 1058 |
 
 ## Rejection Counts
 
